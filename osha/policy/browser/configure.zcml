@@ -145,13 +145,14 @@
     />
 
 
-
+    <include package="plone.app.portlets" />
+    
     <browser:page
         for="plone.portlets.interfaces.ILocalPortletAssignable"
         class="plone.app.portlets.browser.manage.ManageContextualPortlets"
         name="manage-osha-slots"
         template="templates/manageportletslots.pt"
-        permission="zope2.View"
+        permission="plone.app.portlets.ManagePortlets"
     />
 
 </configure>
