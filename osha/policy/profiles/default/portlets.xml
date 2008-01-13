@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<portlets> 
+  <portletmanager 
+    name="osh.abovecontentportlets"
+    type="osha.policy.browser.interfaces.IOSHAboveContent"
+  />
+   <portletmanager 
+     name="osh.belowcontentportlets"
+     type="osha.policy.browser.interfaces.IOSHBelowContent"
+ />
+</portlets>

@@ -1,0 +1,9 @@
+Changelog for osha.policy
+
+    (name of developer listed in brackets)
+
+osha.policy - 0.1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+

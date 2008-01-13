@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+<div metal:fill-slot="main"
+     tal:define="RESMAP options/results |nothing;
+                 ttool nocall:here/portal_types;
+                 FILTERTYPES python:['Publication', 'Document', 'News Article', 'Event', 'OSH_Link', 'OSH_DBContent', 'File', 'FAQ Entry']">
+
+<style TYPE="text/css">
+h2 {margin-top: 1.5em; border-bottom: 1px solid lightgrey; }
+</style>
+
+
+
+<h1>Recent changes on <span tal:replace="here/Title"/></h1>
+
+<div i18n:translate="alertservice_information_changed_since">
+The following Information is new or has changed since
+<span i18n:name="date"><span tal:replace="python:here.toPortalTime(options['modification_date'], long_format=1)"/></span>
+</div>
+
+
+
+<div tal:repeat="K python:RESMAP.keys()">
+ <div tal:condition="python:K in FILTERTYPES">
+
+  <h2 tal:define="ti python:ttool.getTypeInfo(K);">
+      <img tal:attributes="src ti/getIcon"/>
+      <span tal:replace="ti/Title"/>
+  </h2>
+
+  <div class="typeresults" tal:define="results python:RESMAP.get(K, [])">
+    <dl>
+    <tal:results repeat="result results">
+
+      <dt><span tal:condition="result/Title">
+            <a tal:attributes="HREF string:${result/getURL}"><b><span tal:replace="result/Title">TITLE</span></b></a>
+        </span>
+        <span tal:condition="not:result/Title">
+            <a tal:attributes="HREF string:${result/getURL}"><b i18n:translate="">TITLE</b></a>
+        </span>
+      </dt>
+      <dd>
+        <span tal:condition="result/Description">
+            <span tal:replace="structure python:here.portal_utilities.shortenString(here.portal_utilities.removeHTML(result['Description']), 256)">DESCRIPTION</span>
+        </span>
+      <br>
+      modified: <span tal:replace="python:here.toPortalTime(result['modified'], long_format=0)"/><br>
+      <span i18n:translate="">More</span>-> <a tal:attributes="href string:${result/getURL}" tal:content="string:${result/getURL}">
+        <span tal:replace="options/siteurl"/>LINK</a>
+      </dd>
+
+    </tal:results>
+    </dl>
+  </div>
+ </div>
+</div>
+
+</div>
+
+</body>
+</html>
+

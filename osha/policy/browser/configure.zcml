@@ -1,0 +1,157 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+
+    <interface
+        interface=".interfaces.IThemeSpecific"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="osha"
+        />
+
+  <browser:page
+      for="*"
+      name="seppublications_view"
+      class=".portlets.publications.SEPPublicationsPortlet"
+      permission="zope.Public"
+      allowed_interface=".portlets.interfaces.ISEPPublicationsPortlet"
+      />
+
+  <browser:page
+      for="*"
+      name="relatedbytype_view"
+      class=".portlets.related_by_type.RelatedByTypePortlet"
+      permission="zope.Public"
+      allowed_interface=".portlets.interfaces.IRelatedByTypePortlet"
+      />
+
+  <browser:page
+      for="*"
+      name="datetime_utils"
+      class=".datetime_utils.DateTimeUtils"
+      permission="zope.Public"
+      allowed_interface=".interfaces.IDateTimeUtils"
+      />
+
+  <browser:page
+      for="*"
+      name="nace_view"
+      class=".dynamic_views.NaceView"
+      permission="zope.Public"
+      allowed_interface=".interfaces.INaceView"
+      />
+
+  <browser:page
+      for="*"
+      name="topic_view"
+      class=".dynamic_views.TopicView"
+      permission="zope.Public"
+      allowed_interface=".interfaces.ITopicView"
+      />
+
+  <browser:page
+      for="*"
+      name="vocabulary_helpers"
+      class=".sep_utils.VocabularyHelpers"
+      permission="zope.Public"
+      allowed_interface=".interfaces.IVocabularyHelpers"
+      />
+
+  <browser:page
+      for="*"
+      name="sep_helpers"
+      class=".sep_utils.SEPHelpers"
+      permission="zope.Public"
+      allowed_interface=".interfaces.ISEPHelpers"
+      />
+
+  <adapter
+      for=".interfaces.ISEPFolder"
+      provides=".interfaces.ISEPFolder"
+      factory=".adapter.SEPFolder"
+      />
+
+  <browser:page
+      for="*"
+      name="vocabulary_helper"
+      class=".VocabularyHelper.VocabularyHelper"
+      permission="zope.Public"
+      allowed_interface=".interfaces.IVocabularyHelper"
+      />
+      
+  <browser:page
+      for="Products.ATContentTypes.interface.folder.IATFolder"
+      name="good-practice-overview"
+      class=".goodpractice.GoodPracticeView"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="captcha_helper"
+      class=".CaptchaHelper.CaptchaHelper"
+      permission="zope.Public"
+      allowed_attributes="createCaptcha verifyCaptcha"
+      />
+
+    <!-- VIEWLETS -->
+    
+    <browser:viewlet
+        name="osha.portaltitle"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.PortalTitleViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />      
+
+    <browser:viewlet
+        name="osha.site_actions"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.SiteActionsViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />      
+
+    <browser:viewlet
+        name="osha.topbanner"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.TopBannerViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />      
+
+    <browser:viewlet
+        name="osha.footer"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".viewlets.FooterViewlet"
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
+        />      
+
+
+
+    <browser:viewlet
+        name="osh.abovecontentportlets"
+        manager="plone.app.layout.viewlets.interfaces.IContentViews"
+        template="templates/abovecontentportlets.pt"
+        permission="zope2.View" 
+    />
+
+    <browser:viewlet
+        name="osh.belowcontentportlets"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        template="templates/belowcontentportlets.pt"
+        permission="zope2.View" 
+    />
+
+
+
+    <browser:page
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="plone.app.portlets.browser.manage.ManageContextualPortlets"
+        name="manage-osha-slots"
+        template="templates/manageportletslots.pt"
+        permission="zope2.View"
+    />
+
+</configure>

@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
+    <vocabName>
+        <langstring language="en">NACE Code</langstring>
+    </vocabName>
+    <vocabIdentifier>http://osha.europa.eu/NACE</vocabIdentifier>
+<term>
+    <termIdentifier>00</termIdentifier>
+    <caption><langstring language="en">00 - No specific Industry Sector</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>01</termIdentifier>
+    <caption><langstring language="en">01 - Agriculture, hunting and related service activities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>02</termIdentifier>
+    <caption><langstring language="en">02 - Forestry, logging and related service activities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>05</termIdentifier>
+    <caption><langstring language="en">05 - Fishing, operation of fish hatcheries and fish farms; service activities incidental to fishing</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>10</termIdentifier>
+    <caption><langstring language="en">10 - Mining of coal and lignite; extraction of peat</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>11</termIdentifier>
+    <caption><langstring language="en">11 - Extraction of crude petroleum and natural gas; service activities incidental to oil and gas extraction, excluding surveying</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>12</termIdentifier>
+    <caption><langstring language="en">12 - Mining of uranium and thorium ores</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>13</termIdentifier>
+    <caption><langstring language="en">13 - Mining of metal ores</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>14</termIdentifier>
+    <caption><langstring language="en">14 - Other mining and quarrying</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>15</termIdentifier>
+    <caption><langstring language="en">15 - Manufacture of food products and beverages</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>16</termIdentifier>
+    <caption><langstring language="en">16 - Manufacture of tobacco products</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>17</termIdentifier>
+    <caption><langstring language="en">17 - Manufacture of textiles</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>18</termIdentifier>
+    <caption><langstring language="en">18 - Manufacture of wearing apparel; dressing and dyeing of fur</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>19</termIdentifier>
+    <caption><langstring language="en">19 - Tanning and dressing of leather; manufacture of luggage, handbags, saddlery, harness and footwear</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>20</termIdentifier>
+    <caption><langstring language="en">20 - Manufacture of wood and of products of wood and cork, except furniture; manufacture of articles of straw and  plaiting materials</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>21</termIdentifier>
+    <caption><langstring language="en">21 - Manufacture of paper and paper products</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>22</termIdentifier>
+    <caption><langstring language="en">22 - Publishing, printing and reproduction of recorded media</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>23</termIdentifier>
+    <caption><langstring language="en">23 - Manufacture of coke, refined petroleum products and nuclear fuel</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>24</termIdentifier>
+    <caption><langstring language="en">24 - Manufacture of chemicals and chemical products</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>25</termIdentifier>
+    <caption><langstring language="en">25 - Manufacture of rubber and plastic products</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>26</termIdentifier>
+    <caption><langstring language="en">26 - Manufacture of other non metallic mineral products</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>27</termIdentifier>
+    <caption><langstring language="en">27 - Manufacture of basic metals</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>28</termIdentifier>
+    <caption><langstring language="en">28 - Manufacture of fabricated metal products, except machinery and equipment</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>29</termIdentifier>
+    <caption><langstring language="en">29 - Manufacture of machinery and equipment NEC</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>30</termIdentifier>
+    <caption><langstring language="en">30 - Manufacture of office, accounting and computing machinery</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>31</termIdentifier>
+    <caption><langstring language="en">31 - Manufacture of electrical machinery and apparatus NEC</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>32</termIdentifier>
+    <caption><langstring language="en">32 - Manufacture of radio, television and communication equipment and apparatus</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>33</termIdentifier>
+    <caption><langstring language="en">33 - Manufacture of medical, precision and optical instruments, watches and clocks</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>34</termIdentifier>
+    <caption><langstring language="en">34 - Manufacture of motor vehicles, trailers and semi trailers</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>35</termIdentifier>
+    <caption><langstring language="en">35 - Manufacture of other transport equipment</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>36</termIdentifier>
+    <caption><langstring language="en">36 - Manufacture of furniture; manufacturing NEC</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>37</termIdentifier>
+    <caption><langstring language="en">37 - Recycling</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>40</termIdentifier>
+    <caption><langstring language="en">40 - Electricity, gas, steam and hot water supply</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>41</termIdentifier>
+    <caption><langstring language="en">41 - Collection, purification and distribution of water</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>45</termIdentifier>
+    <caption><langstring language="en">45 - Construction</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>50</termIdentifier>
+    <caption><langstring language="en">50 - Sale, maintenance and repair of motor vehicles and motorcycles; retail sale of automotive fuel</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>51</termIdentifier>
+    <caption><langstring language="en">51 - Wholesale trade and commission trade, except of motor vehicles and motorcycles</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>52</termIdentifier>
+    <caption><langstring language="en">52 - Retail trade, except of motor vehicles and motorcycles; repair of personal and household goods</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>55</termIdentifier>
+    <caption><langstring language="en">55 - Hotels and restaurants</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>60</termIdentifier>
+    <caption><langstring language="en">60 - Land transport; transport via pipelines</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>61</termIdentifier>
+    <caption><langstring language="en">61 - Water transport</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>62</termIdentifier>
+    <caption><langstring language="en">62 - Air transport</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>63</termIdentifier>
+    <caption><langstring language="en">63 - Supporting and auxiliary transport activities; activities of travel agencies</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>64</termIdentifier>
+    <caption><langstring language="en">64 - Post and telecommunications</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>65</termIdentifier>
+    <caption><langstring language="en">65 - Financial intermediation, except insurance and pension funding</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>66</termIdentifier>
+    <caption><langstring language="en">66 - Insurance and pension funding, except compulsory social security</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>67</termIdentifier>
+    <caption><langstring language="en">67 - Activities auxiliary to financial intermediation</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>70</termIdentifier>
+    <caption><langstring language="en">70 - Real estate activities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>71</termIdentifier>
+    <caption><langstring language="en">71 - Renting of machinery and equipment without operator and of personal and household goods</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>72</termIdentifier>
+    <caption><langstring language="en">72 - Computer and related activities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>73</termIdentifier>
+    <caption><langstring language="en">73 - Research and development</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>74</termIdentifier>
+    <caption><langstring language="en">74 - Other business activities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>75</termIdentifier>
+    <caption><langstring language="en">75 - Public administration and defence; compulsory social security</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>80</termIdentifier>
+    <caption><langstring language="en">80 - Education</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>85</termIdentifier>
+    <caption><langstring language="en">85 - Health and social work</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>90</termIdentifier>
+    <caption><langstring language="en">90 - Sewage and refuse disposal, sanitation and similar activities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>91</termIdentifier>
+    <caption><langstring language="en">91 - Activities of membership organisations NEC</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>92</termIdentifier>
+    <caption><langstring language="en">92 - Recreational, cultural and sporting activities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>93</termIdentifier>
+    <caption><langstring language="en">93 - Other service activities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>95</termIdentifier>
+    <caption><langstring language="en">95 - Private households with employed persons</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>99</termIdentifier>
+    <caption><langstring language="en">99 - Extra territorial organisations and bodies</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+
+</vdex>

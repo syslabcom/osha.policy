@@ -1,0 +1,1 @@
+#import vdex_vocabulary_extension_patch

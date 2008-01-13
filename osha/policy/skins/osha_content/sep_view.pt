@@ -1,0 +1,112 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+<div metal:fill-slot="main" i18n:domain="elevateIT">
+
+    <tal:main-macro metal:define-macro="main">
+
+<style type="text/css">
+.figure-box {
+float: left;
+margin-right: 1em;
+}
+.figure img {
+display: block;
+background-color: #fff;
+margin: 0px 0px 0px 0px;
+border: 1px solid #a9a9a9;
+padding: 4px;
+}
+.content-columns { background: transparent url(bg_dotted.gif) 60% 0% repeat-y; width: 100%; position: relative; overflow: hidden; clear: both;  }
+.content-column-one { position: relative; float: left; width: 60%; padding: 0; overflow: hidden; }
+.content-column-two { position: relative; float: right; width: 40%; padding: 0; overflow: hidden; }
+.content-column-one .inner-content { float: none; padding-right: 10px; xborder-right: 1px dotted #e0e7d7; }
+.content-column-two .inner-content { float: none; padding-left: 10px; }
+
+.content-column-one .portletHeader { background-color: #E6E8ED; }
+.content-column-one .portletBody { background-color: white; }
+.content-column-one .portletContent.separated { border-bottom: 0; border-top: 0; }
+}
+</style>
+
+        <div metal:use-macro="here/document_actions/macros/document_actions">
+            Document actions (print, sendto etc)
+        </div>
+
+        <h1 tal:content="object_title" class="documentFirstHeading">
+          Title or id
+        </h1>
+
+        <div metal:use-macro="here/document_byline/macros/byline">
+          Get the byline - contains details about author and modification date.
+        </div>
+
+        <div class="figure-box">
+            <div class="figure">
+                <img tal:define="timg python:portal.restrictedTraverse('images/themes/'+here.getId(), None)"
+                     tal:condition="python:timg is not None" 
+                     tal:attributes="src timg/absolute_url" />
+            </div>
+        </div>
+
+        <p class="documentDescription"
+           tal:content="here/Description"
+           tal:condition="here/Description">
+            Description
+        </p>
+        <br clear="all">
+
+        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
+            show related items if they exist
+        </div>
+
+    <br clear="all">
+
+        <div class="content-columns">
+          <div class="content-column-one">
+            <div class="inner-content">
+
+              <div metal:use-macro="here/sep_list_docs/macros/portlet"/>
+
+                <div tal:define="portlet_title string:Publications;
+                               portal_type python:['Publication']" tal:on-error="nothing">
+                    <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
+                </div>
+
+                <div tal:define="portlet_title string:Latest Content;
+                               portal_type string:OSH_Link"  tal:on-error="nothing">
+                    <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="content-column-two">
+            <div class="inner-content">
+
+                <div tal:define="portlet_title string:News;
+                                 portal_type python:['News Item']" tal:on-error="nothing">
+                    <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
+                </div>
+
+                <div tal:define="portlet_title string:Events;
+                                 portal_type python:['Event']" tal:on-error="nothing">
+                    <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
+                </div>
+
+                <!--div tal:define="portlet_title string:;">
+                    <metal:block use-macro="here/sep_list_oshdb/macros/portlet"/>
+                </div-->
+
+            </div>
+          </div>
+        </div>
+
+
+    </tal:main-macro>
+</div>
+</body>
+</html>
+

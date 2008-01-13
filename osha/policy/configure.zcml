@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="osha.policy">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <include package=".adapter" />
+
+    <include package=".browser" />
+  
+    <include package="osha.theme" />
+
+    <genericsetup:registerProfile
+      name="default"
+      title="OSHA Site Policy"
+      directory="profiles/default"
+      description="Turn a Plone site into the OSHA site."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
+</configure>

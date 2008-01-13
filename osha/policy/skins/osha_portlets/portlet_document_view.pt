@@ -1,0 +1,36 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+
+<div metal:define-macro="portlet" tal:omit-tag="">
+<tal:block define="heretrans here/getTranslation | nocall: here">
+
+<dl class="portlet" tal:attributes="id heretrans/getId">
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a tal:attributes="href heretrans/getId" tal:content="heretrans/Title">Title</a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd" tal:content="structure heretrans/CookedBody">Content</dd>
+
+    <dd class="portletFooter">
+        <a href=""
+           class="tile"
+           tal:attributes="href heretrans/getId"
+           i18n:translate="box_morelink">
+            More&hellip;
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+</dl>
+
+</tal:block>
+
+</div>
+
+</body>
+</html>

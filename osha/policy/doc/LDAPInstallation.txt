@@ -1,0 +1,24 @@
+LDAP Installation Notes
+=======================
+
+1. Follow the PAS Installations instructions in the PloneLDAP Readme.txt file
+
+2. Set Login Name Attribute to mail
+
+3. Set User ID Attribute to mail
+
+4. Set RDN Attribute to mail
+
+5. Set Users Base DN to o=3G,dc=osha,dc=europa,dc=eu and SUBTREE
+
+6. Set Groups Base DN to o=3G,dc=osha,dc=europa,dc=eu and SUBTREE
+
+7. Set Manager DN to cn=root,dc=osha,dc=europa,dc=eu and set the password
+
+8. Set Manager DN usage to Always
+
+9. set User Object classes to inetOrgPerson,organizationalPerson,person,oshPerson,oshStaff
+
+10. Set password Encryption to SHA
+
+Save.

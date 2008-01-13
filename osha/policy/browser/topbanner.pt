@@ -1,0 +1,3 @@
+<div id="portal-topbanner">
+      <img src="topbanner.jpg" alt=""
+           tal:replace="structure view/logo_tag" /></div>

@@ -1,0 +1,59 @@
+<dl class="portlet portlet-rss">
+
+    <dt class="portletHeader">
+	    <a href="http://reports.eea.europa.eu/reports.rdf?theme=energy" class="feedButton">
+                <img alt="RSS"
+                     title="RSS subscription feed for Reports"
+                     src="RSSFeedRecipe_icon.png" />
+
+            </a>
+
+        <a href="http://www.eea.europa.eu/themes/energy/listfeed?feed=reports_energy"
+           title="Latest reports" class="tile">Latest reports</a>
+    </dt>
+
+
+
+    <dt class="portletItem">
+        <a href="http://reports.eea.europa.eu/eea_report_2006_9">
+             Greenhouse gas emission trends and projections in Europe 2006
+        </a>
+    </dt>
+
+    <dd class="portletItem date">27 Oct 2006</dd>
+
+
+
+
+    <dt class="portletItem">
+        <a href="http://reports.eea.europa.eu/eea_report_2006_8">
+             Energy and environment in the European Union - Tracking progress towards integration
+        </a>
+    </dt>
+
+    <dd class="portletItem date">27 Jun 2006</dd>
+
+
+
+
+
+    <dt class="portletItem">
+        <a href="http://reports.eea.europa.eu/eea_report_2006_7">
+             How much bioenergy can Europe produce without harming the environment?
+        </a>
+    </dt>
+
+    <dd class="portletItem date">08 Jun 2006</dd>
+
+
+
+    <dd class="portletFooter">
+        <a href="http://www.eea.europa.eu/themes/energy/listfeed?feed=reports_energy"
+           title="Reports" class="moreLink">
+
+            more
+            <span></span>
+        </a>
+    </dd>
+
+</dl>

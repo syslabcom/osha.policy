@@ -1,0 +1,3 @@
+[default]
+title = Portlet Alertservice
+cache=RAMCache

@@ -1,0 +1,41 @@
+
+<tal:block define="portlet_title string:Campaigns;
+           portlet_id string:oshmail;
+           col_bg_header string:#C5CBD8;
+           col_bg_body string:#ffffff"
+           metal:define-macro="portlet">
+<div metal:use-macro="here/portlet_macro_template/macros/portletBox">
+    <metal:block fill-slot="portlet_body">
+
+
+
+<div class="portletHeader" style="background-color: #D2C68F;padding:5px 10px;">
+<span i18n:translate="portlet_campaign_hwi_title" tal:omit-tag="">Healthy Workplace Initiative</span>
+</div>
+<div style="background-color: #DFD6AF;">
+  <img src="portlet_campaigns_hwi_icon.gif" style="float:right">
+  <div class="portletContent" style="padding:5px;height:45px; margin:0px;">
+    <a href="http://hwi.osha.europa.eu" i18n:translate="portlet_campaign_hwi_text">Good for you - Good for business</a>
+  </div>
+</div>
+
+<div style="clear:both;" />
+
+<div class="portletHeader" style="background-color: #858C90;padding:5px 10px;">
+<span i18n:translate="portlet_campaign_ew2007_title" tal:omit-tag="">European campaign 2007</span>
+</div>
+<div style="background-color: #C8CBCC;">
+  <img src="portlet_campaigns_ew2007_icon.gif" style="float:right">
+  <div class="portletContent" style="padding:5px; height:45px; margin:0px;">
+    <a href="http://ew2007.osha.europa.eu" i18n:translate="portlet_campaign_ew2007_text">Lighten the load!</a>
+  </div>
+</div>
+
+
+    <div style="padding:5px; text-align:right;" i18n:domain="elevateIT">
+     <a href="/campaigns" i18n:translate="box_morelink">More ...</a>
+    </div>
+    </metal:block>
+</div>
+</tal:block>
+

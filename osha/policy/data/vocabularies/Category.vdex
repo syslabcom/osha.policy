@@ -1,0 +1,4496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
+    <vocabName>
+        <langstring language="en">OSHCategories</langstring>
+    </vocabName>
+    <vocabIdentifier>http://osha.europa.eu/OSHCategories</vocabIdentifier>
+<term>
+    <termIdentifier>accident_prevention</termIdentifier>
+    <caption><langstring language="en">Accident Prevention</langstring></caption>
+
+    <description><langstring language="en">Accident prevention topics</langstring></description>
+
+<term>
+    <termIdentifier>accident_prevention::costs_statistics</termIdentifier>
+    <caption><langstring language="en">Accident costs and statistics</langstring></caption>
+
+    <description><langstring language="en">Accident costs and statistics</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::prevention_programmes</termIdentifier>
+    <caption><langstring language="en">Accident prevention programmes</langstring></caption>
+
+    <description><langstring language="en">Accident prevention programmes</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::reporting_systems</termIdentifier>
+    <caption><langstring language="en">Accidents - Reporting systems and investigation</langstring></caption>
+
+    <description><langstring language="en">Accidents - Reporting systems and investigation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::accidents_msd</termIdentifier>
+    <caption><langstring language="en">Accidents and musculoskeletal disorders</langstring></caption>
+
+    <description><langstring language="en">Accidents and musculoskeletal disorders</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::accidents_older_workers</termIdentifier>
+    <caption><langstring language="en">Accidents and older workers</langstring></caption>
+
+    <description><langstring language="en">Accidents and older workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::agency_products</termIdentifier>
+    <caption><langstring language="en">Agency products</langstring></caption>
+
+    <description><langstring language="en">Agency products</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::cleaners</termIdentifier>
+    <caption><langstring language="en">Cleaners</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::agriculture</termIdentifier>
+    <caption><langstring language="en">Agriculture and forestry</langstring></caption>
+
+    <description><langstring language="en">Agriculture and forestry</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::biol_hazards</termIdentifier>
+    <caption><langstring language="en">Biological hazards</langstring></caption>
+
+    <description><langstring language="en">Biological hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::chem_industry</termIdentifier>
+    <caption><langstring language="en">Chemical industry</langstring></caption>
+
+    <description><langstring language="en">Chemical industry</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::chem_spill</termIdentifier>
+    <caption><langstring language="en">Chemical spill</langstring></caption>
+
+    <description><langstring language="en">Chemical spill</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::chemicals_working</termIdentifier>
+    <caption><langstring language="en">Chemicals, Working with</langstring></caption>
+
+    <description><langstring language="en">Chemicals, Working with</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::compressed_gases</termIdentifier>
+    <caption><langstring language="en">Compressed gases</langstring></caption>
+
+    <description><langstring language="en">Compressed gases</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::confined_spaces</termIdentifier>
+    <caption><langstring language="en">Confined spaces</langstring></caption>
+
+    <description><langstring language="en">Confined spaces</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::construction_work</termIdentifier>
+    <caption><langstring language="en">Construction and building work</langstring></caption>
+
+    <description><langstring language="en">Construction and building work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::cuts_burns</termIdentifier>
+    <caption><langstring language="en">Cuts and burns</langstring></caption>
+
+    <description><langstring language="en">Cuts and burns</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::ds</termIdentifier>
+    <caption><langstring language="en">Dangerous/Hazardous substances</langstring></caption>
+
+    <description><langstring language="en">Dangerous/Hazardous substances</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::demolition</termIdentifier>
+    <caption><langstring language="en">Demolition</langstring></caption>
+
+    <description><langstring language="en">Demolition</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::drugs</termIdentifier>
+    <caption><langstring language="en">Drugs and alcohol</langstring></caption>
+
+    <description><langstring language="en">Drugs and alcohol</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::electricity</termIdentifier>
+    <caption><langstring language="en">Electricity</langstring></caption>
+
+    <description><langstring language="en">Electricity</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::emergency_planning</termIdentifier>
+    <caption><langstring language="en">Emergency planning</langstring></caption>
+
+    <description><langstring language="en">Emergency planning</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::excavation</termIdentifier>
+    <caption><langstring language="en">Excavation</langstring></caption>
+
+    <description><langstring language="en">Excavation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::falls</termIdentifier>
+    <caption><langstring language="en">Falls from height</langstring></caption>
+
+    <description><langstring language="en">Falls from height</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::fire</termIdentifier>
+    <caption><langstring language="en">Fire and explosion</langstring></caption>
+
+    <description><langstring language="en">Fire and explosion</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::first_aid</termIdentifier>
+    <caption><langstring language="en">First aid</langstring></caption>
+
+    <description><langstring language="en">First aid</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::fishing</termIdentifier>
+    <caption><langstring language="en">Fishing</langstring></caption>
+
+    <description><langstring language="en">Fishing</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::food</termIdentifier>
+    <caption><langstring language="en">Food / Catering</langstring></caption>
+
+    <description><langstring language="en">Food / Catering</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::fork_lifts</termIdentifier>
+    <caption><langstring language="en">Fork lifts &amp; powered lift trucks, Use of</langstring></caption>
+
+    <description><langstring language="en">Fork lifts &amp; powered lift trucks, Use of</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::general</termIdentifier>
+    <caption><langstring language="en">General sources of accident prevention information</langstring></caption>
+
+    <description><langstring language="en">General sources of accident prevention information</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::health_care</termIdentifier>
+    <caption><langstring language="en">Health care</langstring></caption>
+
+    <description><langstring language="en">Health care</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::laboratories</termIdentifier>
+    <caption><langstring language="en">Laboratories</langstring></caption>
+
+    <description><langstring language="en">Laboratories</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::ladders</termIdentifier>
+    <caption><langstring language="en">Ladders, use of</langstring></caption>
+
+    <description><langstring language="en">Ladders, use of</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::maintenance</termIdentifier>
+    <caption><langstring language="en">Maintenance of plant and equipment</langstring></caption>
+
+    <description><langstring language="en">Maintenance of plant and equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::oshmanagement</termIdentifier>
+    <caption><langstring language="en">Management of safety and health</langstring></caption>
+
+    <description><langstring language="en">Management of safety and health</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::manual_handling</termIdentifier>
+    <caption><langstring language="en">Manual handling</langstring></caption>
+
+    <description><langstring language="en">Manual handling</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::manufacturing</termIdentifier>
+    <caption><langstring language="en">Manufacturing industry</langstring></caption>
+
+    <description><langstring language="en">Manufacturing industry</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::migrant_workers</termIdentifier>
+    <caption><langstring language="en">Migrant workers</langstring></caption>
+
+    <description><langstring language="en">Migrant workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::mining</termIdentifier>
+    <caption><langstring language="en">Mining &amp; quarrying</langstring></caption>
+
+    <description><langstring language="en">Mining &amp; quarrying</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::moving_vehicles</termIdentifier>
+    <caption><langstring language="en">Moving vehicles</langstring></caption>
+
+    <description><langstring language="en">Moving vehicles</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::office_safety</termIdentifier>
+    <caption><langstring language="en">Office safety</langstring></caption>
+
+    <description><langstring language="en">Office safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::ppe</termIdentifier>
+    <caption><langstring language="en">Personal protective equipment (PPE)</langstring></caption>
+
+    <description><langstring language="en">Personal protective equipment (PPE)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::powered_hand_tools</termIdentifier>
+    <caption><langstring language="en">Powered hand tools</langstring></caption>
+
+    <description><langstring language="en">Powered hand tools</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::pressure_systems</termIdentifier>
+    <caption><langstring language="en">Pressure systems</langstring></caption>
+
+    <description><langstring language="en">Pressure systems</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::radiations</termIdentifier>
+    <caption><langstring language="en">Radiations</langstring></caption>
+
+    <description><langstring language="en">Radiations</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::roofwork</termIdentifier>
+    <caption><langstring language="en">Roofwork</langstring></caption>
+
+    <description><langstring language="en">Roofwork</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::safety signs</termIdentifier>
+    <caption><langstring language="en">Safety signs</langstring></caption>
+
+    <description><langstring language="en">Safety signs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::scaffolds</termIdentifier>
+    <caption><langstring language="en">Scaffolds</langstring></caption>
+
+    <description><langstring language="en">Scaffolds</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::sector_guides</termIdentifier>
+    <caption><langstring language="en">Sector and process guides</langstring></caption>
+
+    <description><langstring language="en">Sector and process guides</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::service_sector</termIdentifier>
+    <caption><langstring language="en">Service sector</langstring></caption>
+
+    <description><langstring language="en">Service sector</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::shipyards_docks</termIdentifier>
+    <caption><langstring language="en">Shipyards and docks</langstring></caption>
+
+    <description><langstring language="en">Shipyards and docks</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::slips</termIdentifier>
+    <caption><langstring language="en">Slips, trips &amp; falls on the same level</langstring></caption>
+
+    <description><langstring language="en">Slips, trips &amp; falls on the same level</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::smes</termIdentifier>
+    <caption><langstring language="en">Small firms / SMEs</langstring></caption>
+
+    <description><langstring language="en">Small firms / SMEs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::sprains_strains</termIdentifier>
+    <caption><langstring language="en">Sprains and strains</langstring></caption>
+
+    <description><langstring language="en">Sprains and strains</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::stress</termIdentifier>
+    <caption><langstring language="en">Stress and fatigue</langstring></caption>
+
+    <description><langstring language="en">Stress and fatigue</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::temporary_workers</termIdentifier>
+    <caption><langstring language="en">Temporary and precarious workers</langstring></caption>
+
+    <description><langstring language="en">Temporary and precarious workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::training</termIdentifier>
+    <caption><langstring language="en">Training</langstring></caption>
+
+    <description><langstring language="en">Training</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::transport</termIdentifier>
+    <caption><langstring language="en">Transport</langstring></caption>
+
+    <description><langstring language="en">Transport</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::transport_workplace</termIdentifier>
+    <caption><langstring language="en">Transport in the workplace, Use of</langstring></caption>
+
+    <description><langstring language="en">Transport in the workplace, Use of</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::transport_road</termIdentifier>
+    <caption><langstring language="en">Transport on the road</langstring></caption>
+
+    <description><langstring language="en">Transport on the road</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::tunnelling</termIdentifier>
+    <caption><langstring language="en">Tunnelling</langstring></caption>
+
+    <description><langstring language="en">Tunnelling</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::vehicles</termIdentifier>
+    <caption><langstring language="en">Vehicles in the workplace</langstring></caption>
+
+    <description><langstring language="en">Vehicles in the workplace</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::violence</termIdentifier>
+    <caption><langstring language="en">Violence in the workplace</langstring></caption>
+
+    <description><langstring language="en">Violence in the workplace</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::warehouses</termIdentifier>
+    <caption><langstring language="en">Warehouses</langstring></caption>
+
+    <description><langstring language="en">Warehouses</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::woodworking</termIdentifier>
+    <caption><langstring language="en">Woodworking / Wood and wood products</langstring></caption>
+
+    <description><langstring language="en">Woodworking / Wood and wood products</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::work_equipment</termIdentifier>
+    <caption><langstring language="en">Work equipment and machinery guarding</langstring></caption>
+
+    <description><langstring language="en">Work equipment and machinery guarding</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::working_time</termIdentifier>
+    <caption><langstring language="en">Working time and shiftwork</langstring></caption>
+
+    <description><langstring language="en">Working time and shiftwork</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::workplaces</termIdentifier>
+    <caption><langstring language="en">Workplaces and housekeeping</langstring></caption>
+
+    <description><langstring language="en">Workplaces and housekeeping</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>accident_prevention::providers</termIdentifier>
+    <caption><langstring language="en">Providers</langstring></caption>
+
+    <description><langstring language="en">Providers</langstring></description>
+
+<term>
+    <termIdentifier>providers::eu_bodies</termIdentifier>
+    <caption><langstring language="en">European Bodies and Organisations</langstring></caption>
+
+    <description><langstring language="en">European Bodies and Organisations</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>providers::eu_member_states</termIdentifier>
+    <caption><langstring language="en">European Union Member States</langstring></caption>
+
+    <description><langstring language="en">European Union Member States</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>providers::non_eu_countries</termIdentifier>
+    <caption><langstring language="en">Non European Union Countries</langstring></caption>
+
+    <description><langstring language="en">Non European Union Countries</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>providers::other_european</termIdentifier>
+    <caption><langstring language="en">Other European</langstring></caption>
+
+    <description><langstring language="en">Other European</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>providers::other_non_eu_sources</termIdentifier>
+    <caption><langstring language="en">Other Non European Sources</langstring></caption>
+
+    <description><langstring language="en">Other Non European Sources</langstring></description>
+
+
+    </term>
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances</termIdentifier>
+    <caption><langstring language="en">Dangerous Substances</langstring></caption>
+
+    <description><langstring language="en">This section of the website provides up-to-date information on Good Safety and Health Practice related to the substitution of dangerous substances at the workplace.</langstring></description>
+
+<term>
+    <termIdentifier>dangerous_substances::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accident Prevention</langstring></caption>
+
+    <description><langstring language="en">Accident Prevention</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::agency_publications</termIdentifier>
+    <caption><langstring language="en">Agency publications</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::asbestos</termIdentifier>
+    <caption><langstring language="en">Asbestos</langstring></caption>
+
+    <description><langstring language="en">Asbestos</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::biol_agents</termIdentifier>
+    <caption><langstring language="en">Biological agents and hazards</langstring></caption>
+
+    <description><langstring language="en">Biological agents and hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::bio_agents_zoonoses</termIdentifier>
+    <caption><langstring language="en">Biological agents - zoonoses (e.g. avian influenza)</langstring></caption>
+
+    <description><langstring language="en">Biological agents - zoonoses (e.g. avian influenza)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::breathing_problems</termIdentifier>
+    <caption><langstring language="en">Breathing Problems</langstring></caption>
+
+    <description><langstring language="en">Breathing Problems</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::carcinogens</termIdentifier>
+    <caption><langstring language="en">Carcinogens and cancers</langstring></caption>
+
+    <description><langstring language="en">Carcinogens and cancers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::case_studies</termIdentifier>
+    <caption><langstring language="en">Case Studies</langstring></caption>
+
+    <description><langstring language="en">Case Studies</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::chem_hazards</termIdentifier>
+    <caption><langstring language="en">Chemical agents and hazards</langstring></caption>
+
+    <description><langstring language="en">Chemical agents and hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::cleaning</termIdentifier>
+    <caption><langstring language="en">Cleaning</langstring></caption>
+
+    <description><langstring language="en">Cleaning</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::control_systems</termIdentifier>
+    <caption><langstring language="en">Control Systems</langstring></caption>
+
+    <description><langstring language="en">Control Systems</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::new_technologies</termIdentifier>
+    <caption><langstring language="en">Dangerous substances and new technologies (e.g. nanotechnologies)</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::degreasing</termIdentifier>
+    <caption><langstring language="en">Degreasing</langstring></caption>
+
+    <description><langstring language="en">Degreasing</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::drugs</termIdentifier>
+    <caption><langstring language="en">Drugs</langstring></caption>
+
+    <description><langstring language="en">Drugs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::dry_cleaning</termIdentifier>
+    <caption><langstring language="en">Dry Cleaning</langstring></caption>
+
+    <description><langstring language="en">Dry Cleaning</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::dusts</termIdentifier>
+    <caption><langstring language="en">Dusts and Fibres</langstring></caption>
+
+    <description><langstring language="en">Dusts and Fibres</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::elimination</termIdentifier>
+    <caption><langstring language="en">Elimination and Substitution</langstring></caption>
+
+    <description><langstring language="en">Elimination and Substitution</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::emergency_planning</termIdentifier>
+    <caption><langstring language="en">Emergency planning including first aid and medical provision</langstring></caption>
+
+    <description><langstring language="en">Emergency planning including first aid and medical provision</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::fumes_gases</termIdentifier>
+    <caption><langstring language="en">Exhaust Fumes and Gases</langstring></caption>
+
+    <description><langstring language="en">Exhaust Fumes and Gases</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::flammable_substances</termIdentifier>
+    <caption><langstring language="en">Flammable and explosive substances</langstring></caption>
+
+    <description><langstring language="en">Flammable and explosive substances</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::information_instruction</termIdentifier>
+    <caption><langstring language="en">Information instruction, training, and education of workers, including safety committees</langstring></caption>
+
+    <description><langstring language="en">Information instruction, training, and education of workers, including safety committees</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::laboratory</termIdentifier>
+    <caption><langstring language="en">Laboratory work</langstring></caption>
+
+    <description><langstring language="en">Laboratory work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::latex</termIdentifier>
+    <caption><langstring language="en">Latex</langstring></caption>
+
+    <description><langstring language="en">Latex</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::major_hazards</termIdentifier>
+    <caption><langstring language="en">Major Hazards</langstring></caption>
+
+    <description><langstring language="en">Major Hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::ds</termIdentifier>
+    <caption><langstring language="en">Management of Dangerous Substances</langstring></caption>
+
+    <description><langstring language="en">Management of Dangerous Substances</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::msds</termIdentifier>
+    <caption><langstring language="en">Material Safety Data Sheets (MSDS)</langstring></caption>
+
+    <description><langstring language="en">Material Safety Data Sheets (MSDS)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::metals</termIdentifier>
+    <caption><langstring language="en">Metals and their compounds (e.g. chrome, lead, mercury)</langstring></caption>
+
+    <description><langstring language="en">Metals and their compounds (e.g. chrome, lead, mercury)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::monitoring</termIdentifier>
+    <caption><langstring language="en">Monitoring</langstring></caption>
+
+    <description><langstring language="en">Monitoring</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::nervous_system</termIdentifier>
+    <caption><langstring language="en">Nervous System Problems</langstring></caption>
+
+    <description><langstring language="en">Nervous System Problems</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::occup_exposure</termIdentifier>
+    <caption><langstring language="en">Occupational Exposure Limits</langstring></caption>
+
+    <description><langstring language="en">Occupational Exposure Limits</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::oel</termIdentifier>
+    <caption><langstring language="en">oel</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::osh_programmes</termIdentifier>
+    <caption><langstring language="en">OSH Programmes, Policies, Statistics relating to Dangerous Substances</langstring></caption>
+
+    <description><langstring language="en">OSH Programmes, Policies, Statistics relating to Dangerous Substances</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::packaging</termIdentifier>
+    <caption><langstring language="en">Packaging and labelling of Dangerous Goods</langstring></caption>
+
+    <description><langstring language="en">Packaging and labelling of Dangerous Goods</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::painting</termIdentifier>
+    <caption><langstring language="en">Painting, Dying and Coating</langstring></caption>
+
+    <description><langstring language="en">Painting, Dying and Coating</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::ppe</termIdentifier>
+    <caption><langstring language="en">Personal Protective Equipment</langstring></caption>
+
+    <description><langstring language="en">Personal Protective Equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::pesticides</termIdentifier>
+    <caption><langstring language="en">Pesticides, fungicides, germicides, disinfectants, and fumigants</langstring></caption>
+
+    <description><langstring language="en">Pesticides, fungicides, germicides, disinfectants, and fumigants</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::reproductive_problems</termIdentifier>
+    <caption><langstring language="en">Reproductive Problems</langstring></caption>
+
+    <description><langstring language="en">Reproductive Problems</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::sector_guides</termIdentifier>
+    <caption><langstring language="en">Sector and Process Guides</langstring></caption>
+
+    <description><langstring language="en">Sector and Process Guides</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::skin_problems</termIdentifier>
+    <caption><langstring language="en">Skin Problems</langstring></caption>
+
+    <description><langstring language="en">Skin Problems</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::solvents</termIdentifier>
+    <caption><langstring language="en">Solvents</langstring></caption>
+
+    <description><langstring language="en">Solvents</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::special_groups</termIdentifier>
+    <caption><langstring language="en">Special groups (e.g. women, disabled, pregnant including employability and re-employability)</langstring></caption>
+
+    <description><langstring language="en">Special groups (e.g. women, disabled, pregnant including employability and re-employability)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::storage</termIdentifier>
+    <caption><langstring language="en">Storage of dangerous substances</langstring></caption>
+
+    <description><langstring language="en">Storage of dangerous substances</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::tobacco</termIdentifier>
+    <caption><langstring language="en">Tobacco Smoke</langstring></caption>
+
+    <description><langstring language="en">Tobacco Smoke</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::dstransport</termIdentifier>
+    <caption><langstring language="en">Transport of Dangerous Goods</langstring></caption>
+
+    <description><langstring language="en">Transport of Dangerous Goods</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::welfare_provision</termIdentifier>
+    <caption><langstring language="en">Welfare Provision</langstring></caption>
+
+    <description><langstring language="en">Welfare Provision</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>dangerous_substances::work_equipment</termIdentifier>
+    <caption><langstring language="en">Work Equipment and Plant</langstring></caption>
+
+    <description><langstring language="en">Work Equipment and Plant</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>msd</termIdentifier>
+    <caption><langstring language="en">Musculoskeletal disorders</langstring></caption>
+
+    <description><langstring language="en">This section of the website provides information on Good Safety and Health Practice.</langstring></description>
+
+<term>
+    <termIdentifier>msd::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accident prevention</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::agency_publications</termIdentifier>
+    <caption><langstring language="en">Agency Publications</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::back_pain</termIdentifier>
+    <caption><langstring language="en">Back pain and injury</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::case_studies</termIdentifier>
+    <caption><langstring language="en">Case studies</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::cold_work_msd</termIdentifier>
+    <caption><langstring language="en">Cold Work and MSD</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::work_computers</termIdentifier>
+    <caption><langstring language="en">Computer Work</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::design_guidelines</termIdentifier>
+    <caption><langstring language="en">Design guidelines</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::ergonomic_interventions</termIdentifier>
+    <caption><langstring language="en">Ergonomic interventions</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::handling_people</termIdentifier>
+    <caption><langstring language="en">Handling of people</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::individual_variation</termIdentifier>
+    <caption><langstring language="en">Individual variation</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::info_providers</termIdentifier>
+    <caption><langstring language="en">Information providers</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::info_workers</termIdentifier>
+    <caption><langstring language="en">Information, training and consultation for workers</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::legislation</termIdentifier>
+    <caption><langstring language="en">Legislation</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::lower_limb</termIdentifier>
+    <caption><langstring language="en">Lower limb disorders</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::msdmanagement</termIdentifier>
+    <caption><langstring language="en">Management of MSD</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::manual_handling</termIdentifier>
+    <caption><langstring language="en">Manual handling</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::new_technologies</termIdentifier>
+    <caption><langstring language="en">New Technologies</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::pace_of_work</termIdentifier>
+    <caption><langstring language="en">Pace of work</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::ppe</termIdentifier>
+    <caption><langstring language="en">Personal protective equipment</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::postures</termIdentifier>
+    <caption><langstring language="en">Postures (painful and tiresome)</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, policies (current programmes, policies, campaigns)</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::pi</termIdentifier>
+    <caption><langstring language="en">Psychosocial factors</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::rehabilitation_treatment</termIdentifier>
+    <caption><langstring language="en">Rehabilitation and Treatment</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::repetitive_work</termIdentifier>
+    <caption><langstring language="en">Repetitive work</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::reports</termIdentifier>
+    <caption><langstring language="en">Reports</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::retention_reintegration</termIdentifier>
+    <caption><langstring language="en">Retention and Reintegration at Work</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::risk_ass</termIdentifier>
+    <caption><langstring language="en">Risk assessment</langstring></caption>
+
+    <description><langstring language="en">There is sufficient body of evidence to show that workplace interventions to prevent musculoskeletal disorders lead to significant benefits. However, an ergonomics work sytems approach is required to maximise effectiveness. Mismatches between the demands of the task, equipment and the environment and worker capacities must be identified and effective measures introduced to reduce the risks that have been identified. Such interventions are most likely to be successful amongst workers in high-risk groups.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::school_ergonomics</termIdentifier>
+    <caption><langstring language="en">School Ergonomics</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::sector_process_guides</termIdentifier>
+    <caption><langstring language="en">Sector and process guides</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::sitting</termIdentifier>
+    <caption><langstring language="en">Sitting (prolonged)</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::sme</termIdentifier>
+    <caption><langstring language="en">SMEs (prevention of MSD)</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::special_groups</termIdentifier>
+    <caption><langstring language="en">Special groups (women, young, ageing and migrant workers, disabled people etc.)</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::standing</termIdentifier>
+    <caption><langstring language="en">Standing (prolonged)</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::statistics</termIdentifier>
+    <caption><langstring language="en">Statistics</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::vibration</termIdentifier>
+    <caption><langstring language="en">Vibration</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::work_equipment</termIdentifier>
+    <caption><langstring language="en">Work equipment</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::work_organisation</termIdentifier>
+    <caption><langstring language="en">Work organisation (working hours, night work etc.)</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::workplace_sh_welfare</termIdentifier>
+    <caption><langstring language="en">Workplace health, safety, and welfare</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>msd::wrulds</termIdentifier>
+    <caption><langstring language="en">WRULDS and neck disorders</langstring></caption>
+
+    <description><langstring language="en">MSDs</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>noise</termIdentifier>
+    <caption><langstring language="en">Noise</langstring></caption>
+
+    <description><langstring language="en">Information on noise good practice</langstring></description>
+
+<term>
+    <termIdentifier>noise::legislation</termIdentifier>
+    <caption><langstring language="en">Legislation</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::case_studies</termIdentifier>
+    <caption><langstring language="en">Case studies of noise solutions</langstring></caption>
+
+    <description><langstring language="en">Case studies of noise solutions</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::noise_databases</termIdentifier>
+    <caption><langstring language="en">Noise databases</langstring></caption>
+
+    <description><langstring language="en">Noise databases</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::noise_management</termIdentifier>
+    <caption><langstring language="en">Management of Noise</langstring></caption>
+
+    <description><langstring language="en">Management of Noise</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::noise_assessment</termIdentifier>
+    <caption><langstring language="en">Noise assessment, measurement, surveillance, and testing</langstring></caption>
+
+    <description><langstring language="en">Noise assessment, measurement, surveillance, and testing</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::noise_elimination</termIdentifier>
+    <caption><langstring language="en">Noise elimination measures</langstring></caption>
+
+    <description><langstring language="en">Noise elimination measures</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::noise_control</termIdentifier>
+    <caption><langstring language="en">Noise control measures</langstring></caption>
+
+    <description><langstring language="en">Noise control measures</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::ppe</termIdentifier>
+    <caption><langstring language="en">Personal protective equipment</langstring></caption>
+
+    <description><langstring language="en">Personal protective equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::info_workers</termIdentifier>
+    <caption><langstring language="en">Information, training, and consultation of workers</langstring></caption>
+
+    <description><langstring language="en">Information, training, and consultation of workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::noise_exposure</termIdentifier>
+    <caption><langstring language="en">Health outcomes of noise exposure</langstring></caption>
+
+    <description><langstring language="en">Health outcomes of noise exposure</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accident prevention and noise</langstring></caption>
+
+    <description><langstring language="en">Accident prevention and noise</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::ototoxic_substances</termIdentifier>
+    <caption><langstring language="en">Ototoxic substances (noise and chemicals)</langstring></caption>
+
+    <description><langstring language="en">Ototoxic substances (noise and chemicals)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::pi</termIdentifier>
+    <caption><langstring language="en">Noise and psychosocial issues (noise as a stressor)</langstring></caption>
+
+    <description><langstring language="en">Noise and psychosocial issues (noise as a stressor)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::special_groups</termIdentifier>
+    <caption><langstring language="en">Special and vulnerable groups</langstring></caption>
+
+    <description><langstring language="en">Special and vulnerable groups</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::sector_process_guides</termIdentifier>
+    <caption><langstring language="en">Sector and process guides</langstring></caption>
+
+    <description><langstring language="en">Sector and process guides</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, policies and campaigns, and statistics</langstring></caption>
+
+    <description><langstring language="en">Programmes, policies and campaigns, and statistics</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noise::info_providers</termIdentifier>
+    <caption><langstring language="en">Information providers</langstring></caption>
+
+    <description><langstring language="en">Information providers</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>stress</termIdentifier>
+    <caption><langstring language="en">Stress at Work</langstring></caption>
+
+    <description><langstring language="en">This section of the website provides up-to-date information on Good Safety and Health Practice with regard to stress at work.</langstring></description>
+
+<term>
+    <termIdentifier>stress::publications</termIdentifier>
+    <caption><langstring language="en">Publications</langstring></caption>
+
+    <description><langstring language="en">Publications</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::RiskAssessment</termIdentifier>
+    <caption><langstring language="en">Risk Assessment</langstring></caption>
+
+    <description><langstring language="en">Risk Assessment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::case_studies</termIdentifier>
+    <caption><langstring language="en">Case Studies</langstring></caption>
+
+    <description><langstring language="en">Case Studies</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::prevention</termIdentifier>
+    <caption><langstring language="en">Prevention</langstring></caption>
+
+    <description><langstring language="en">Prevention</langstring></description>
+
+<term>
+    <termIdentifier>prevention::employee_involvement</termIdentifier>
+    <caption><langstring language="en">Employee involvement</langstring></caption>
+
+    <description><langstring language="en">Employee involvement</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>stress::training</termIdentifier>
+    <caption><langstring language="en">Training</langstring></caption>
+
+    <description><langstring language="en">Training</langstring></description>
+
+<term>
+    <termIdentifier>training::cww_issues</termIdentifier>
+    <caption><langstring language="en">Changing World of Work issues</langstring></caption>
+
+    <description><langstring language="en">Changing World of Work issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>training::supervisors_managers</termIdentifier>
+    <caption><langstring language="en">Supervisors / Managers</langstring></caption>
+
+    <description><langstring language="en">Supervisors / Managers</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>stress::treatment</termIdentifier>
+    <caption><langstring language="en">Treatment</langstring></caption>
+
+    <description><langstring language="en">Treatment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::policy</termIdentifier>
+    <caption><langstring language="en">Policy</langstring></caption>
+
+    <description><langstring language="en">Policy</langstring></description>
+
+<term>
+    <termIdentifier>policy::international_declarations</termIdentifier>
+    <caption><langstring language="en">International Declarations</langstring></caption>
+
+    <description><langstring language="en">International Declarations</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>stress::Bullying</termIdentifier>
+    <caption><langstring language="en">Bullying and harassment - resources</langstring></caption>
+
+    <description><langstring language="en">Bullying and harassment - resources</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::Violence</termIdentifier>
+    <caption><langstring language="en">Violence from the public - resources</langstring></caption>
+
+    <description><langstring language="en">Violence from the public - resources</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accident prevention relating to psychosocial issues</langstring></caption>
+
+    <description><langstring language="en">Accident prevention relating to psychosocial issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::bullying</termIdentifier>
+    <caption><langstring language="en">Bullying (Mobbing)</langstring></caption>
+
+    <description><langstring language="en">Bullying (Mobbing)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::new_risks</termIdentifier>
+    <caption><langstring language="en">Changing world of work (new risks)</langstring></caption>
+
+    <description><langstring language="en">Changing world of work (new risks)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::drugs</termIdentifier>
+    <caption><langstring language="en">Drugs (including alcohol, tobacco, illegal drugs)</langstring></caption>
+
+    <description><langstring language="en">Drugs (including alcohol, tobacco, illegal drugs)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::emergency_planning</termIdentifier>
+    <caption><langstring language="en">Emergency planning including first aid and medical provision, Post-traumatic stress</langstring></caption>
+
+    <description><langstring language="en">Emergency planning including first aid and medical provision, Post-traumatic stress</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::employability</termIdentifier>
+    <caption><langstring language="en">Employability and returning to work</langstring></caption>
+
+    <description><langstring language="en">Employability and returning to work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::employee_assistance</termIdentifier>
+    <caption><langstring language="en">Employee Assistance, treatment, and occupational health services, workplace health promotion</langstring></caption>
+
+    <description><langstring language="en">Employee Assistance, treatment, and occupational health services, workplace health promotion</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::employment_status</termIdentifier>
+    <caption><langstring language="en">Employment status</langstring></caption>
+
+    <description><langstring language="en">Employment status</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::hazard_identification</termIdentifier>
+    <caption><langstring language="en">Hazard Identification and risk assessment relating to stress and psychosocial issues</langstring></caption>
+
+    <description><langstring language="en">Hazard Identification and risk assessment relating to stress and psychosocial issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::pi</termIdentifier>
+    <caption><langstring language="en">Health effects caused by psychosocial issues</langstring></caption>
+
+    <description><langstring language="en">Health effects caused by psychosocial issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::home_work</termIdentifier>
+    <caption><langstring language="en">Home - Work interface</langstring></caption>
+
+    <description><langstring language="en">Home - Work interface</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::interventions_strategies</termIdentifier>
+    <caption><langstring language="en">Individual interventions and strategies (e.g. coping strategies)</langstring></caption>
+
+    <description><langstring language="en">Individual interventions and strategies (e.g. coping strategies)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::Information_instruction</termIdentifier>
+    <caption><langstring language="en">Information instruction, training, and education of workers, including safety committees</langstring></caption>
+
+    <description><langstring language="en">Information instruction, training, and education of workers, including safety committees</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::legislation</termIdentifier>
+    <caption><langstring language="en">Legislation</langstring></caption>
+
+    <description><langstring language="en">Legislation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::phys_hazards</termIdentifier>
+    <caption><langstring language="en">Physical hazards relating to stress (e.g. noise)</langstring></caption>
+
+    <description><langstring language="en">Physical hazards relating to stress (e.g. noise)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, policies, campaigns</langstring></caption>
+
+    <description><langstring language="en">Programmes, policies, campaigns</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::risk_factors</termIdentifier>
+    <caption><langstring language="en">Risk factors (stressors)</langstring></caption>
+
+    <description><langstring language="en">Risk factors (stressors)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::special_groups</termIdentifier>
+    <caption><langstring language="en">Special and vulnerable groups (e.g. women, disabled, pregnant including employability and re-employability)</langstring></caption>
+
+    <description><langstring language="en">Special and vulnerable groups (e.g. women, disabled, pregnant including employability and re-employability)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::burn_out</termIdentifier>
+    <caption><langstring language="en">Stress outcomes (burn out)</langstring></caption>
+
+    <description><langstring language="en">Stress outcomes (burn out)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::violence</termIdentifier>
+    <caption><langstring language="en">Violence at Work</langstring></caption>
+
+    <description><langstring language="en">Violence at Work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::work_equipment</termIdentifier>
+    <caption><langstring language="en">Work equipment and psychosocial issues</langstring></caption>
+
+    <description><langstring language="en">Work equipment and psychosocial issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::work_organisation</termIdentifier>
+    <caption><langstring language="en">Work organisation (includes Shiftwork, demands or workload, relationships and atmosphere, support, workpace and control, working hours)</langstring></caption>
+
+    <description><langstring language="en">Work organisation (includes Shiftwork, demands or workload, relationships and atmosphere, support, workpace and control, working hours)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::workplace</termIdentifier>
+    <caption><langstring language="en">Workplace and psychosocial issues (design, layout, lighting)</langstring></caption>
+
+    <description><langstring language="en">Workplace and psychosocial issues (design, layout, lighting)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::workplace_management</termIdentifier>
+    <caption><langstring language="en">Workplace management for Stress, including hazard identification, risk assessment, safety policies, and monitoring)</langstring></caption>
+
+    <description><langstring language="en">Workplace management for Stress, including hazard identification, risk assessment, safety policies, and monitoring)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>stress::risk_ass</termIdentifier>
+    <caption><langstring language="en">Guides to Risk Reduction Implementation</langstring></caption>
+
+    <description><langstring language="en">Guides to Risk Reduction Implementation</langstring></description>
+
+<term>
+    <termIdentifier>risk_ass::risk_reduction</termIdentifier>
+    <caption><langstring language="en">Guides to Risk Reduction Implementation</langstring></caption>
+
+    <description><langstring language="en">Guides to Risk Reduction Implementation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risk_ass::hazards_shiftworking</termIdentifier>
+    <caption><langstring language="en">Hazards: Shiftworking</langstring></caption>
+
+    <description><langstring language="en">Hazards: Shiftworking</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risk_ass::hazards_hours</termIdentifier>
+    <caption><langstring language="en">Hazards: Working hours</langstring></caption>
+
+    <description><langstring language="en">Hazards: Working hours</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risk_ass::tools_strategies</termIdentifier>
+    <caption><langstring language="en">Tools and Strategies</langstring></caption>
+
+    <description><langstring language="en">Tools and Strategies</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risk_ass::management_models</termIdentifier>
+    <caption><langstring language="en">Risk Management Models</langstring></caption>
+
+    <description><langstring language="en">Risk Management Models</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risk_ass::self_assessment</termIdentifier>
+    <caption><langstring language="en">Self-assessment tools for organisations</langstring></caption>
+
+    <description><langstring language="en">Self-assessment tools for organisations</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risk_ass::violence_aggression</termIdentifier>
+    <caption><langstring language="en">Violence / Aggression</langstring></caption>
+
+    <description><langstring language="en">Violence / Aggression</langstring></description>
+
+
+    </term>
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>agriculture</termIdentifier>
+    <caption><langstring language="en">Agriculture</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+<term>
+    <termIdentifier>agriculture::accident_prevention</termIdentifier>
+    <caption><langstring language="en">Accident prevention</langstring></caption>
+
+    <description><langstring language="en">Accident prevention</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::agency_products</termIdentifier>
+    <caption><langstring language="en">Agency products</langstring></caption>
+
+    <description><langstring language="en">Agency products</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::animal_farming</termIdentifier>
+    <caption><langstring language="en">Animal farming</langstring></caption>
+
+    <description><langstring language="en">Animal farming</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::biol_hazards_materials</termIdentifier>
+    <caption><langstring language="en">Biological hazards and materials</langstring></caption>
+
+    <description><langstring language="en">Biological hazards and materials</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::buildings</termIdentifier>
+    <caption><langstring language="en">Buildings (construction and maintenance</langstring></caption>
+
+    <description><langstring language="en">Buildings (construction and maintenance</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::case_studies</termIdentifier>
+    <caption><langstring language="en">Case studies</langstring></caption>
+
+    <description><langstring language="en">Case studies</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::checklists_guidelines</termIdentifier>
+    <caption><langstring language="en">Checklists and guidelines</langstring></caption>
+
+    <description><langstring language="en">Checklists and guidelines</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::chem_hazards_materials</termIdentifier>
+    <caption><langstring language="en">Chemical hazards and materials</langstring></caption>
+
+    <description><langstring language="en">Chemical hazards and materials</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::child_safety</termIdentifier>
+    <caption><langstring language="en">Child safety</langstring></caption>
+
+    <description><langstring language="en">Child safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::electrical_safety</termIdentifier>
+    <caption><langstring language="en">Electrical safety</langstring></caption>
+
+    <description><langstring language="en">Electrical safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::environm_hazards</termIdentifier>
+    <caption><langstring language="en">Environmental &amp; natural hazards (e.g., weather)</langstring></caption>
+
+    <description><langstring language="en">Environmental &amp; natural hazards (e.g., weather)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::fire_explosion_safety</termIdentifier>
+    <caption><langstring language="en">Fire and explosion safety</langstring></caption>
+
+    <description><langstring language="en">Fire and explosion safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::first_aid</termIdentifier>
+    <caption><langstring language="en">First aid and medical provision</langstring></caption>
+
+    <description><langstring language="en">First aid and medical provision</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::forestry_logging</termIdentifier>
+    <caption><langstring language="en">Forestry, logging and related services activities</langstring></caption>
+
+    <description><langstring language="en">Forestry, logging and related services activities</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::horticulture</termIdentifier>
+    <caption><langstring language="en">Horticulture</langstring></caption>
+
+    <description><langstring language="en">Horticulture</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::hunting</termIdentifier>
+    <caption><langstring language="en">Hunting</langstring></caption>
+
+    <description><langstring language="en">Hunting</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::information</termIdentifier>
+    <caption><langstring language="en">Information, instruction, training and education</langstring></caption>
+
+    <description><langstring language="en">Information, instruction, training and education</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::information_providers</termIdentifier>
+    <caption><langstring language="en">Information providers</langstring></caption>
+
+    <description><langstring language="en">Information providers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::machinery_equipment</termIdentifier>
+    <caption><langstring language="en">Machinery and work equipment</langstring></caption>
+
+    <description><langstring language="en">Machinery and work equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::msd</termIdentifier>
+    <caption><langstring language="en">Musculoskeletal Disorders (MSDs)</langstring></caption>
+
+    <description><langstring language="en">Musculoskeletal Disorders (MSDs)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::noise</termIdentifier>
+    <caption><langstring language="en">Noise and vibration</langstring></caption>
+
+    <description><langstring language="en">Noise and vibration</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::occupational_diseases</termIdentifier>
+    <caption><langstring language="en">Occupational diseases</langstring></caption>
+
+    <description><langstring language="en">Occupational diseases</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::osh_management</termIdentifier>
+    <caption><langstring language="en">Occupational safety and health management</langstring></caption>
+
+    <description><langstring language="en">Occupational safety and health management</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::pesticides</termIdentifier>
+    <caption><langstring language="en">Pesticides</langstring></caption>
+
+    <description><langstring language="en">Pesticides</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::physic_hazards</termIdentifier>
+    <caption><langstring language="en">Physical hazards</langstring></caption>
+
+    <description><langstring language="en">Physical hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::ppe</termIdentifier>
+    <caption><langstring language="en">Personal Protective Equipment (PPE)</langstring></caption>
+
+    <description><langstring language="en">Personal Protective Equipment (PPE)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, policies and campaigns</langstring></caption>
+
+    <description><langstring language="en">Programmes, policies and campaigns</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::psychosocial_issues</termIdentifier>
+    <caption><langstring language="en">Psychosocial issues (e.g., stress)</langstring></caption>
+
+    <description><langstring language="en">Psychosocial issues (e.g., stress)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::respiratory_diseases</termIdentifier>
+    <caption><langstring language="en">Respiratory diseases</langstring></caption>
+
+    <description><langstring language="en">Respiratory diseases</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::sanitation</termIdentifier>
+    <caption><langstring language="en">Sanitation</langstring></caption>
+
+    <description><langstring language="en">Sanitation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::skin_problems</termIdentifier>
+    <caption><langstring language="en">Skin problems</langstring></caption>
+
+    <description><langstring language="en">Skin problems</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::special_groups</termIdentifier>
+    <caption><langstring language="en">Special groups (e.g. young workers, women workers)</langstring></caption>
+
+    <description><langstring language="en">Special groups (e.g. young workers, women workers)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>agriculture::transport_safety</termIdentifier>
+    <caption><langstring language="en">Vehicle and workplace transport safety</langstring></caption>
+
+    <description><langstring language="en">Vehicle and workplace transport safety</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>construction</termIdentifier>
+    <caption><langstring language="en">Construction</langstring></caption>
+
+    <description><langstring language="en">Good practice information on construction</langstring></description>
+
+<term>
+    <termIdentifier>construction::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accident prevention</langstring></caption>
+
+    <description><langstring language="en">Accident prevention</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::asbestos</termIdentifier>
+    <caption><langstring language="en">Asbestos</langstring></caption>
+
+    <description><langstring language="en">Asbestos</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::case_studies</termIdentifier>
+    <caption><langstring language="en">Case studies</langstring></caption>
+
+    <description><langstring language="en">Case studies</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::chem_biol_hazards</termIdentifier>
+    <caption><langstring language="en">Chemical and biological hazards</langstring></caption>
+
+    <description><langstring language="en">Chemical and biological hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::design_planning_coordination</termIdentifier>
+    <caption><langstring language="en">Design, planning, and coordination</langstring></caption>
+
+    <description><langstring language="en">Design, planning, and coordination</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::electricity</termIdentifier>
+    <caption><langstring language="en">Electricity</langstring></caption>
+
+    <description><langstring language="en">Electricity</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::falls</termIdentifier>
+    <caption><langstring language="en">Falls from height</langstring></caption>
+
+    <description><langstring language="en">Falls from height</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::fire_hazards</termIdentifier>
+    <caption><langstring language="en">Fire and explosion hazards</langstring></caption>
+
+    <description><langstring language="en">Fire and explosion hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::fire_safety</termIdentifier>
+    <caption><langstring language="en">Fire safety</langstring></caption>
+
+    <description><langstring language="en">Fire safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::first_aid</termIdentifier>
+    <caption><langstring language="en">First aid and medical provision</langstring></caption>
+
+    <description><langstring language="en">First aid and medical provision</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::info_workers</termIdentifier>
+    <caption><langstring language="en">Information for, and consultation of, workers</langstring></caption>
+
+    <description><langstring language="en">Information for, and consultation of, workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::info_providers</termIdentifier>
+    <caption><langstring language="en">Information Providers</langstring></caption>
+
+    <description><langstring language="en">Information Providers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::introduction</termIdentifier>
+    <caption><langstring language="en">Introduction</langstring></caption>
+
+    <description><langstring language="en">Introduction to the theme</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::legislation</termIdentifier>
+    <caption><langstring language="en">Legislation</langstring></caption>
+
+    <description><langstring language="en">Legislation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::oshmanagement</termIdentifier>
+    <caption><langstring language="en">Management of health and safety</langstring></caption>
+
+    <description><langstring language="en">Management of health and safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::mechanical_handling</termIdentifier>
+    <caption><langstring language="en">Mechanical handling</langstring></caption>
+
+    <description><langstring language="en">Mechanical handling</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::migrants</termIdentifier>
+    <caption><langstring language="en">Migrant workers</langstring></caption>
+
+    <description><langstring language="en">added 01-10-2003</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::msd</termIdentifier>
+    <caption><langstring language="en">Musculoskeletal disorders</langstring></caption>
+
+    <description><langstring language="en">Musculoskeletal disorders</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::noise</termIdentifier>
+    <caption><langstring language="en">Noise</langstring></caption>
+
+    <description><langstring language="en">Noise</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::other_sources</termIdentifier>
+    <caption><langstring language="en">Other sources</langstring></caption>
+
+    <description><langstring language="en">Other related resources</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, policies, and campaigns</langstring></caption>
+
+    <description><langstring language="en">Programmes, policies, and campaigns</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::pi</termIdentifier>
+    <caption><langstring language="en">Psychosocial issues</langstring></caption>
+
+    <description><langstring language="en">Psychosocial issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::radiations</termIdentifier>
+    <caption><langstring language="en">Radiations</langstring></caption>
+
+    <description><langstring language="en">Radiations</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::ladders</termIdentifier>
+    <caption><langstring language="en">Scaffolding and ladders</langstring></caption>
+
+    <description><langstring language="en">Scaffolding and ladders</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::info_eu_states</termIdentifier>
+    <caption><langstring language="en">Sources of Information: EU Member States</langstring></caption>
+
+    <description><langstring language="en">Member States information resources on construction</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::info_non_eu_countries</termIdentifier>
+    <caption><langstring language="en">Sources of Information: Non-EU Countries</langstring></caption>
+
+    <description><langstring language="en">Construction safety and health information from non-EU countries</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::info_ec</termIdentifier>
+    <caption><langstring language="en">Sources of Information: The European Commission</langstring></caption>
+
+    <description><langstring language="en">Commission information on construction</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::special_groups</termIdentifier>
+    <caption><langstring language="en">Special and vulnerable groups</langstring></caption>
+
+    <description><langstring language="en">Special and vulnerable groups</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::statistics</termIdentifier>
+    <caption><langstring language="en">Statistics</langstring></caption>
+
+    <description><langstring language="en">Statistics</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::vehicles</termIdentifier>
+    <caption><langstring language="en">Vehicles on site</langstring></caption>
+
+    <description><langstring language="en">Vehicles on site</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::vibration</termIdentifier>
+    <caption><langstring language="en">Vibration</langstring></caption>
+
+    <description><langstring language="en">Vibration</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::weather</termIdentifier>
+    <caption><langstring language="en">Weather</langstring></caption>
+
+    <description><langstring language="en">Weather</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::work_equipment</termIdentifier>
+    <caption><langstring language="en">Work equipment and plant</langstring></caption>
+
+    <description><langstring language="en">Work equipment and plant</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::work_processes</termIdentifier>
+    <caption><langstring language="en">Work processes</langstring></caption>
+
+    <description><langstring language="en">Work processes</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::wsh</termIdentifier>
+    <caption><langstring language="en">Workers’ Safety and Health, Productivity and Quality</langstring></caption>
+
+    <description><langstring language="en">Workers’ Safety and Health, Productivity and Quality</langstring></description>
+
+<term>
+    <termIdentifier>wsh::osha_publications</termIdentifier>
+    <caption><langstring language="en">Agency publications</langstring></caption>
+
+    <description><langstring language="en">Productivity</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>wsh::case_studies</termIdentifier>
+    <caption><langstring language="en">Case studies</langstring></caption>
+
+    <description><langstring language="en">Productivity</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>wsh::cost_calculation</termIdentifier>
+    <caption><langstring language="en">Methods for cost calculation</langstring></caption>
+
+    <description><langstring language="en">Productivity</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>wsh::other_links</termIdentifier>
+    <caption><langstring language="en">Other relevant information</langstring></caption>
+
+    <description><langstring language="en">Productivity</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>construction::workplace</termIdentifier>
+    <caption><langstring language="en">Workplace health, safety, and welfare</langstring></caption>
+
+    <description><langstring language="en">Workplace health, safety, and welfare</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>construction::slic</termIdentifier>
+    <caption><langstring language="en">slic</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>education</termIdentifier>
+    <caption><langstring language="en">Education</langstring></caption>
+
+    <description><langstring language="en">OSH and education</langstring></description>
+
+<term>
+    <termIdentifier>education::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accident prevention</langstring></caption>
+
+    <description><langstring language="en">Accident prevention</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::agency_products</termIdentifier>
+    <caption><langstring language="en">Agency products</langstring></caption>
+
+    <description><langstring language="en">Agency products</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::bullying</termIdentifier>
+    <caption><langstring language="en">Bullying, mobbing, and harassment</langstring></caption>
+
+    <description><langstring language="en">Bullying, mobbing, and harassment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::case_studies</termIdentifier>
+    <caption><langstring language="en">Case studies</langstring></caption>
+
+    <description><langstring language="en">Case studies</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::catering</termIdentifier>
+    <caption><langstring language="en">Catering</langstring></caption>
+
+    <description><langstring language="en">Catering</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::cleaning</termIdentifier>
+    <caption><langstring language="en">Cleaning</langstring></caption>
+
+    <description><langstring language="en">Cleaning</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::construction</termIdentifier>
+    <caption><langstring language="en">Construction work</langstring></caption>
+
+    <description><langstring language="en">Construction work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::teaching</termIdentifier>
+    <caption><langstring language="en">Craft, design, technology, and science teaching</langstring></caption>
+
+    <description><langstring language="en">Craft, design, technology, and science teaching</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::ds</termIdentifier>
+    <caption><langstring language="en">Dangerous substances</langstring></caption>
+
+    <description><langstring language="en">Dangerous substances</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::fire_safety</termIdentifier>
+    <caption><langstring language="en">Fire safety</langstring></caption>
+
+    <description><langstring language="en">Fire safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::first_aid</termIdentifier>
+    <caption><langstring language="en">First aid</langstring></caption>
+
+    <description><langstring language="en">First aid</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::info_workers</termIdentifier>
+    <caption><langstring language="en">Information for, and consultation of, workers</langstring></caption>
+
+    <description><langstring language="en">Information for, and consultation of, workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::info_providers</termIdentifier>
+    <caption><langstring language="en">Information providers</langstring></caption>
+
+    <description><langstring language="en">Information providers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::lab_act</termIdentifier>
+    <caption><langstring language="en">Laboratory activities</langstring></caption>
+
+    <description><langstring language="en">Laboratory activities</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::legislation</termIdentifier>
+    <caption><langstring language="en">Legislation</langstring></caption>
+
+    <description><langstring language="en">Legislation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::oshmanagement</termIdentifier>
+    <caption><langstring language="en">Management of health and safety</langstring></caption>
+
+    <description><langstring language="en">Management of health and safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::msd</termIdentifier>
+    <caption><langstring language="en">Musculoskeletal disorders</langstring></caption>
+
+    <description><langstring language="en">Musculoskeletal disorders</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::outdoor_activities</termIdentifier>
+    <caption><langstring language="en">Offsite and outdoor activities</langstring></caption>
+
+    <description><langstring language="en">Offsite and outdoor activities</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::physical_agents</termIdentifier>
+    <caption><langstring language="en">Physical agents</langstring></caption>
+
+    <description><langstring language="en">Physical agents</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, policies, and campaigns</langstring></caption>
+
+    <description><langstring language="en">Programmes, policies, and campaigns</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::school_</termIdentifier>
+    <caption><langstring language="en">School office safety</langstring></caption>
+
+    <description><langstring language="en">School office safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::vulnerable_groups</termIdentifier>
+    <caption><langstring language="en">Special and vulnerable groups</langstring></caption>
+
+    <description><langstring language="en">Special and vulnerable groups</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::pi</termIdentifier>
+    <caption><langstring language="en">Stress</langstring></caption>
+
+    <description><langstring language="en">Stress</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::violence</termIdentifier>
+    <caption><langstring language="en">Violence</langstring></caption>
+
+    <description><langstring language="en">Violence</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::work_equipment</termIdentifier>
+    <caption><langstring language="en">Work equipment and plant</langstring></caption>
+
+    <description><langstring language="en">Work equipment and plant</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::work_organisation</termIdentifier>
+    <caption><langstring language="en">Work organisation</langstring></caption>
+
+    <description><langstring language="en">Work organisation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>education::shworkplace</termIdentifier>
+    <caption><langstring language="en">Workplace health safety, and welfare</langstring></caption>
+
+    <description><langstring language="en">Workplace health safety, and welfare</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>fisheries</termIdentifier>
+    <caption><langstring language="en">Fisheries</langstring></caption>
+
+    <description><langstring language="en">Fisheries Sector</langstring></description>
+
+<term>
+    <termIdentifier>fisheries::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accident Prevention</langstring></caption>
+
+    <description><langstring language="en">Accident Prevention</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::aquaculture</termIdentifier>
+    <caption><langstring language="en">Aquaculture</langstring></caption>
+
+    <description><langstring language="en">Aquaculture</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::chem_biol_hazards</termIdentifier>
+    <caption><langstring language="en">Chemical and Biological Hazards and Materials</langstring></caption>
+
+    <description><langstring language="en">Chemical and Biological Hazards and Materials</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::diving</termIdentifier>
+    <caption><langstring language="en">Diving</langstring></caption>
+
+    <description><langstring language="en">Diving</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::electricity</termIdentifier>
+    <caption><langstring language="en">Electricity</langstring></caption>
+
+    <description><langstring language="en">Electricity</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::epp</termIdentifier>
+    <caption><langstring language="en">Emergency planning and equipment</langstring></caption>
+
+    <description><langstring language="en">Emergency planning and equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::epirbs</termIdentifier>
+    <caption><langstring language="en">EPIRBs</langstring></caption>
+
+    <description><langstring language="en">EPIRBs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::falls_water</termIdentifier>
+    <caption><langstring language="en">Falls into water</langstring></caption>
+
+    <description><langstring language="en">Falls into water</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::falls_other</termIdentifier>
+    <caption><langstring language="en">Falls, other</langstring></caption>
+
+    <description><langstring language="en">Falls, other</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::fire_explosion</termIdentifier>
+    <caption><langstring language="en">Fire and Explosion Hazards</langstring></caption>
+
+    <description><langstring language="en">Fire and Explosion Hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::fire_safety</termIdentifier>
+    <caption><langstring language="en">Fire Safety</langstring></caption>
+
+    <description><langstring language="en">Fire Safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::first_aid</termIdentifier>
+    <caption><langstring language="en">First aid and medical provision</langstring></caption>
+
+    <description><langstring language="en">First aid and medical provision</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::fish_handling</termIdentifier>
+    <caption><langstring language="en">Fish and crustacean handling and preparation</langstring></caption>
+
+    <description><langstring language="en">Fish and crustacean handling and preparation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::info</termIdentifier>
+    <caption><langstring language="en">Information, instruction, training, and education</langstring></caption>
+
+    <description><langstring language="en">Information, instruction, training, and education</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::msd</termIdentifier>
+    <caption><langstring language="en">Musculoskeletal disorders</langstring></caption>
+
+    <description><langstring language="en">Musculoskeletal disorders</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::navigation_issues</termIdentifier>
+    <caption><langstring language="en">Navigation issues</langstring></caption>
+
+    <description><langstring language="en">Navigation issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::oshmanagement</termIdentifier>
+    <caption><langstring language="en">Occupational Safety and Health Management</langstring></caption>
+
+    <description><langstring language="en">Occupational Safety and Health Management</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::ppe</termIdentifier>
+    <caption><langstring language="en">Personal Protective Equipment (PPE)</langstring></caption>
+
+    <description><langstring language="en">Personal Protective Equipment (PPE)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::physical_agents</termIdentifier>
+    <caption><langstring language="en">Physical Agents</langstring></caption>
+
+    <description><langstring language="en">Physical Agents</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::physical_hazards</termIdentifier>
+    <caption><langstring language="en">Physical Hazards</langstring></caption>
+
+    <description><langstring language="en">Physical Hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, Policies, and Campaigns</langstring></caption>
+
+    <description><langstring language="en">Programmes, Policies, and Campaigns</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::pi</termIdentifier>
+    <caption><langstring language="en">Psychosocial issues (e.g. stress)</langstring></caption>
+
+    <description><langstring language="en">Psychosocial issues (e.g. stress)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::radio_equipment</termIdentifier>
+    <caption><langstring language="en">Radio Equipment</langstring></caption>
+
+    <description><langstring language="en">Radio Equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::risks_natural_environment</termIdentifier>
+    <caption><langstring language="en">Risks to health from the natural environment</langstring></caption>
+
+    <description><langstring language="en">Risks to health from the natural environment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::seafishing</termIdentifier>
+    <caption><langstring language="en">Seafishing</langstring></caption>
+
+    <description><langstring language="en">Seafishing</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::shellfish_fishing</termIdentifier>
+    <caption><langstring language="en">Shellfish and Crustacean fishing</langstring></caption>
+
+    <description><langstring language="en">Shellfish and Crustacean fishing</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>fisheries::work_equipment</termIdentifier>
+    <caption><langstring language="en">Work Equipment and Plant</langstring></caption>
+
+    <description><langstring language="en">Work Equipment and Plant</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>healthcare</termIdentifier>
+    <caption><langstring language="en">Health Care</langstring></caption>
+
+    <description><langstring language="en">Includes infection diseases, HIV/AIDS, hepatitis, infectious needle injuries, waste disposal.</langstring></description>
+
+<term>
+    <termIdentifier>healthcare::biol_hazards</termIdentifier>
+    <caption><langstring language="en">Biological hazards - includes infections, HIV/AIDS, hepatitis, needle injuries, waste disposal</langstring></caption>
+
+    <description><langstring language="en">Includes infection diseases, HIV/AIDS, hepatitis, infectious needle injuries, waste disposal.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::biol_hazards_needle</termIdentifier>
+    <caption><langstring language="en">Biological hazards needle injuries</langstring></caption>
+
+    <description><langstring language="en">Biological hazards needle injuries</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::chem_materials</termIdentifier>
+    <caption><langstring language="en">Chemicals and materials - includes anaesthetic gases, disinfectants, drug handling, latex allergy</langstring></caption>
+
+    <description><langstring language="en">Includes anaesthetic gases, compressed gases, disinfectants, drug handling, latex allergy.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::general</termIdentifier>
+    <caption><langstring language="en">General - e.g. guides or sub websites covering several topics</langstring></caption>
+
+    <description><langstring language="en">e.g guides or sub websites covering several topics.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::management</termIdentifier>
+    <caption><langstring language="en">Management - includes legislation, training, prevention committees, accident prevention</langstring></caption>
+
+    <description><langstring language="en">Includes legislation, organisational issues, training, prevention committees, accident prevention.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::manual_handling</termIdentifier>
+    <caption><langstring language="en">Manual handling, lifting, musculoskeletal disorders, back pain and ergonomics</langstring></caption>
+
+    <description><langstring language="en">Manual handling, lifting, musculoskeletal disorders, back pain and ergonomics</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::occupations</termIdentifier>
+    <caption><langstring language="en">Occupations and Workplaces</langstring></caption>
+
+    <description><langstring language="en">Occupations and Workplaces</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::phys_agents</termIdentifier>
+    <caption><langstring language="en">Physical agents - includes lasers, radiation</langstring></caption>
+
+    <description><langstring language="en">Includes lasers, radiation.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, Policies and Statistics - e.g. national or regional  campaigns, policy issues etc.</langstring></caption>
+
+    <description><langstring language="en">Includes national, regional programmes and campaigns etc. and policy issues.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::safety_buildings_equipment</termIdentifier>
+    <caption><langstring language="en">Safety, Buildings and Equipment</langstring></caption>
+
+    <description><langstring language="en">Includes buildings, equipment, gas cylinders and technology.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::stress</termIdentifier>
+    <caption><langstring language="en">Stress - includes bullying, harassment, work organisation</langstring></caption>
+
+    <description><langstring language="en">Includes bullying, burnout, post traumatic stress, sexual harassment, work organisation.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::violence</termIdentifier>
+    <caption><langstring language="en">Violence</langstring></caption>
+
+    <description><langstring language="en">From members of the public.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::women_workers</termIdentifier>
+    <caption><langstring language="en">Women workers, pregnant workers</langstring></caption>
+
+    <description><langstring language="en">Women workers, pregnant workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::working_hours</termIdentifier>
+    <caption><langstring language="en">Working hours, shift work and night work</langstring></caption>
+
+    <description><langstring language="en">Working hours, shift work and night work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>healthcare::providers</termIdentifier>
+    <caption><langstring language="en">Health care sector</langstring></caption>
+
+    <description><langstring language="en">OSH information on health care</langstring></description>
+
+<term>
+    <termIdentifier>providers::eu_bodies</termIdentifier>
+    <caption><langstring language="en">European Bodies and Organisations</langstring></caption>
+
+    <description><langstring language="en">Health care related</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>providers::eu_member_states</termIdentifier>
+    <caption><langstring language="en">European Union Member States</langstring></caption>
+
+    <description><langstring language="en">Health care</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>providers::non_eu_countries</termIdentifier>
+    <caption><langstring language="en">Non European Union Countries</langstring></caption>
+
+    <description><langstring language="en">Non European health care information</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>providers::other_european</termIdentifier>
+    <caption><langstring language="en">Other European</langstring></caption>
+
+    <description><langstring language="en">Other health care</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>providers::other_non_european_sources</termIdentifier>
+    <caption><langstring language="en">Other Non European Sources</langstring></caption>
+
+    <description><langstring language="en">Health care</langstring></description>
+
+
+    </term>
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>disability</termIdentifier>
+    <caption><langstring language="en">People with disabilities</langstring></caption>
+
+    <description><langstring language="en">People with Disabilities</langstring></description>
+
+<term>
+    <termIdentifier>disability::access</termIdentifier>
+    <caption><langstring language="en">Access and egress</langstring></caption>
+
+    <description><langstring language="en">Access and egress</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accident prevention</langstring></caption>
+
+    <description><langstring language="en">Accident prevention</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::assistive_technologies</termIdentifier>
+    <caption><langstring language="en">Assistive technologies</langstring></caption>
+
+    <description><langstring language="en">Assistive technologies</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::biological</termIdentifier>
+    <caption><langstring language="en">Biological</langstring></caption>
+
+    <description><langstring language="en">Biological</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::case_studies</termIdentifier>
+    <caption><langstring language="en">Case studies: examples of interventions at the workplace level</langstring></caption>
+
+    <description><langstring language="en">Case studies: examples of interventions at the workplace level</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::chemical</termIdentifier>
+    <caption><langstring language="en">Chemical</langstring></caption>
+
+    <description><langstring language="en">Chemical</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::consultation</termIdentifier>
+    <caption><langstring language="en">Consultation</langstring></caption>
+
+    <description><langstring language="en">Consultation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::epp</termIdentifier>
+    <caption><langstring language="en">Emergency planning and procedures</langstring></caption>
+
+    <description><langstring language="en">Emergency planning and procedures</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::employability</termIdentifier>
+    <caption><langstring language="en">Employability: services, policies and practices to integrate people with disabilities into the workplace</langstring></caption>
+
+    <description><langstring language="en">Employability: services, policies and practices to integrate people with disabilities into the workplace</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::general</termIdentifier>
+    <caption><langstring language="en">General</langstring></caption>
+
+    <description><langstring language="en">General</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::health_surveillance</termIdentifier>
+    <caption><langstring language="en">Health surveillance</langstring></caption>
+
+    <description><langstring language="en">Health surveillance</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::hearing_issues</termIdentifier>
+    <caption><langstring language="en">Hearing issues</langstring></caption>
+
+    <description><langstring language="en">Hearing issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::info_providers</termIdentifier>
+    <caption><langstring language="en">Information providers</langstring></caption>
+
+    <description><langstring language="en">Information providers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::learning_issues</termIdentifier>
+    <caption><langstring language="en">Learning issues</langstring></caption>
+
+    <description><langstring language="en">Learning issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::legislation</termIdentifier>
+    <caption><langstring language="en">Legislation</langstring></caption>
+
+    <description><langstring language="en">Legislation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::oshmanagement</termIdentifier>
+    <caption><langstring language="en">Management of safety and health in the workplace</langstring></caption>
+
+    <description><langstring language="en">Management of safety and health in the workplace</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::manual_handling</termIdentifier>
+    <caption><langstring language="en">Manual handling, awkward postures and repetitive work</langstring></caption>
+
+    <description><langstring language="en">Manual handling, awkward postures and repetitive work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::mental_health</termIdentifier>
+    <caption><langstring language="en">Mental health issues</langstring></caption>
+
+    <description><langstring language="en">Mental health issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::mobility_impairment</termIdentifier>
+    <caption><langstring language="en">Mobility impairment issues</langstring></caption>
+
+    <description><langstring language="en">Mobility impairment issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::msd</termIdentifier>
+    <caption><langstring language="en">Musculoskeletal disorders</langstring></caption>
+
+    <description><langstring language="en">Musculoskeletal disorders</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::oshs</termIdentifier>
+    <caption><langstring language="en">Occupational health services</langstring></caption>
+
+    <description><langstring language="en">Occupational health services</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::occupations</termIdentifier>
+    <caption><langstring language="en">Occupations/jobs/tasks</langstring></caption>
+
+    <description><langstring language="en">Occupations/jobs/tasks</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::other_issues</termIdentifier>
+    <caption><langstring language="en">Other disability and health issues</langstring></caption>
+
+    <description><langstring language="en">Other disability and health issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::physical_agents</termIdentifier>
+    <caption><langstring language="en">Physical agents</langstring></caption>
+
+    <description><langstring language="en">Physical agents</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::policies_programmes</termIdentifier>
+    <caption><langstring language="en">Policies and programmes at national and regional level</langstring></caption>
+
+    <description><langstring language="en">Policies and programmes at national and regional level</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::pi</termIdentifier>
+    <caption><langstring language="en">Psychosocial – stress, bullying, violence</langstring></caption>
+
+    <description><langstring language="en">Psychosocial – stress, bullying, violence</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::return_to_work</termIdentifier>
+    <caption><langstring language="en">Return to work: services and practices to rehabilitate people into work following the onset of disability, injury or ill health (which may or may not have been caused by work)</langstring></caption>
+
+    <description><langstring language="en">Return to work: services and practices to rehabilitate people into work following the onset of disability, injury or ill health (which may or may not have been caused by work)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::risk_assessment</termIdentifier>
+    <caption><langstring language="en">Risk assessment</langstring></caption>
+
+    <description><langstring language="en">Risk assessment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::sensitisation_allergy</termIdentifier>
+    <caption><langstring language="en">Sensitisation and allergy issues</langstring></caption>
+
+    <description><langstring language="en">Sensitisation and allergy issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::sight</termIdentifier>
+    <caption><langstring language="en">Sight issues</langstring></caption>
+
+    <description><langstring language="en">Sight issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::speech</termIdentifier>
+    <caption><langstring language="en">Speech issues</langstring></caption>
+
+    <description><langstring language="en">Speech issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::statistics</termIdentifier>
+    <caption><langstring language="en">Statistics</langstring></caption>
+
+    <description><langstring language="en">Statistics</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::stress_related</termIdentifier>
+    <caption><langstring language="en">Stress-related issues</langstring></caption>
+
+    <description><langstring language="en">Stress-related issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::training</termIdentifier>
+    <caption><langstring language="en">Training</langstring></caption>
+
+    <description><langstring language="en">Training</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::training_instruction</termIdentifier>
+    <caption><langstring language="en">Training, instruction and information</langstring></caption>
+
+    <description><langstring language="en">Training, instruction and information</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::welfare_facilities</termIdentifier>
+    <caption><langstring language="en">Welfare facilities at work – includes toilets, eating and rest facilities</langstring></caption>
+
+    <description><langstring language="en">Welfare facilities at work – includes toilets, eating and rest facilities</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::work_equipment</termIdentifier>
+    <caption><langstring language="en">Work equipment and tools, personal protective equipment, work stations</langstring></caption>
+
+    <description><langstring language="en">Work equipment and tools, personal protective equipment, work stations</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::work_organisation</termIdentifier>
+    <caption><langstring language="en">Work organisation</langstring></caption>
+
+    <description><langstring language="en">Work organisation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::working_hours</termIdentifier>
+    <caption><langstring language="en">Working hours</langstring></caption>
+
+    <description><langstring language="en">Working hours</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>disability::sme</termIdentifier>
+    <caption><langstring language="en">SME related resources</langstring></caption>
+
+    <description><langstring language="en">SME related resources</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>gender</termIdentifier>
+    <caption><langstring language="en">Women and Health at Work</langstring></caption>
+
+    <description><langstring language="en">Women and Health at Work</langstring></description>
+
+<term>
+    <termIdentifier>gender::acc_prevent</termIdentifier>
+    <caption><langstring language="en">Accidents e.g. slips, trips and falls</langstring></caption>
+
+    <description><langstring language="en">Accidents e.g. slips, trips and falls</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::biol_hazards</termIdentifier>
+    <caption><langstring language="en">Biological hazards</langstring></caption>
+
+    <description><langstring language="en">Biological hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::chem_hazards</termIdentifier>
+    <caption><langstring language="en">Chemical hazards</langstring></caption>
+
+    <description><langstring language="en">Chemical hazards</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::consultation</termIdentifier>
+    <caption><langstring language="en">Consultation and participation in the workplace</langstring></caption>
+
+    <description><langstring language="en">Consultation and participation in the workplace</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::employment_contracts</termIdentifier>
+    <caption><langstring language="en">Employment contracts - e.g. temporary and part-time work</langstring></caption>
+
+    <description><langstring language="en">Employment contracts - e.g. temporary and part-time work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::equipment</termIdentifier>
+    <caption><langstring language="en">Equipment e.g. tools, machinery, personal protective equipment</langstring></caption>
+
+    <description><langstring language="en">Equipment e.g. tools, machinery, personal protective equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::general</termIdentifier>
+    <caption><langstring language="en">General (links covering more than one topic)</langstring></caption>
+
+    <description><langstring language="en">General (links covering more than one topic)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::health</termIdentifier>
+    <caption><langstring language="en">Health issues-general, public health issues, workplace promotion, etc.</langstring></caption>
+
+    <description><langstring language="en">Health issues-general, public health issues, workplace promotion, etc.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::info_providers</termIdentifier>
+    <caption><langstring language="en">Information providers</langstring></caption>
+
+    <description><langstring language="en">Information providers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::information_instruction</termIdentifier>
+    <caption><langstring language="en">Information, instruction and training</langstring></caption>
+
+    <description><langstring language="en">Information, instruction and training</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::management</termIdentifier>
+    <caption><langstring language="en">Management - includes legislation, risk assesment, workplace strategies and interventions, gender sensitive policies and avoiding discrimination</langstring></caption>
+
+    <description><langstring language="en">Management - includes legislation, risk assesment, workplace strategies and interventions, gender sensitive policies and avoiding discrimination</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::msd</termIdentifier>
+    <caption><langstring language="en">Muskuloskeletal disorders - MSDs, manual handling, repetitive injuries.</langstring></caption>
+
+    <description><langstring language="en">Muskuloskeletal disorders - MSDs, manual handling, repetitive injuries.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::ohprocedures</termIdentifier>
+    <caption><langstring language="en">Occupational health procedures and services -health surveillance, diagnosis, rehabilitation, etc.</langstring></caption>
+
+    <description><langstring language="en">Occupational health procedures and services -health surveillance, diagnosis, rehabilitation, etc.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::occupations</termIdentifier>
+    <caption><langstring language="en">Occupations, specific workplaces or types of work - includes teleworking and homeworking</langstring></caption>
+
+    <description><langstring language="en">Occupations, specific workplaces or types of work - includes teleworking and homeworking</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::phys_agents</termIdentifier>
+    <caption><langstring language="en">Physical agents e.g. noise, vibration</langstring></caption>
+
+    <description><langstring language="en">Physical agents e.g. noise, vibration</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes, strategies, policies, campaigns - national, regional, etc.</langstring></caption>
+
+    <description><langstring language="en">Programmes, strategies, policies, campaigns - national, regional, etc.</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::radiation</termIdentifier>
+    <caption><langstring language="en">Radiation</langstring></caption>
+
+    <description><langstring language="en">Radiation</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::reproductive</termIdentifier>
+    <caption><langstring language="en">Reproductive issues, includes disorders, hazards, pregnancy, new mothers</langstring></caption>
+
+    <description><langstring language="en">Reproductive issues, includes disorders, hazards, pregnancy, new mothers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::society</termIdentifier>
+    <caption><langstring language="en">Society and discrimination issues</langstring></caption>
+
+    <description><langstring language="en">Society and discrimination issues</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::statistics</termIdentifier>
+    <caption><langstring language="en">Statistics</langstring></caption>
+
+    <description><langstring language="en">Statistics</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::stress</termIdentifier>
+    <caption><langstring language="en">Stress (includes bullying and harassment)</langstring></caption>
+
+    <description><langstring language="en">Stress (includes bullying and harassment)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::violence</termIdentifier>
+    <caption><langstring language="en">Violence</langstring></caption>
+
+    <description><langstring language="en">Violence</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::vulnerable_groups</termIdentifier>
+    <caption><langstring language="en">Vulnerable groups e.g. ageing, immigrants, the disabled</langstring></caption>
+
+    <description><langstring language="en">Vulnerable groups e.g. ageing, immigrants, the disabled</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::work_organisation</termIdentifier>
+    <caption><langstring language="en">Work organisation, work load, pace of work</langstring></caption>
+
+    <description><langstring language="en">Work organisation, work load, pace of work</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::work_life</termIdentifier>
+    <caption><langstring language="en">Work/life balance</langstring></caption>
+
+    <description><langstring language="en">Work/life balance</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::working_hours</termIdentifier>
+    <caption><langstring language="en">Working hours</langstring></caption>
+
+    <description><langstring language="en">Working hours</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>gender::workplace</termIdentifier>
+    <caption><langstring language="en">Workplace welfare and services</langstring></caption>
+
+    <description><langstring language="en">Workplace welfare and services</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>young_people</termIdentifier>
+    <caption><langstring language="en">Young People</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+<term>
+    <termIdentifier>young_people::bullying_and_harassment</termIdentifier>
+    <caption><langstring language="en">Bullying and harassment</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::bullying_in_school</termIdentifier>
+    <caption><langstring language="en">Bullying in school</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::case_studies</termIdentifier>
+    <caption><langstring language="en">Case studies</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::chemicals</termIdentifier>
+    <caption><langstring language="en">Chemicals</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::child_labour</termIdentifier>
+    <caption><langstring language="en">Child labour</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::children_at_work_-_family_workers</termIdentifier>
+    <caption><langstring language="en">Children at work - family workers</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::children_at_work_-_school_children_and_students</termIdentifier>
+    <caption><langstring language="en">Children at work - school children and students</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::cleaners</termIdentifier>
+    <caption><langstring language="en">Cleaners</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::construction_maintenance_and_labouring</termIdentifier>
+    <caption><langstring language="en">Construction, maintenance and labouring</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::consulting_and_participation</termIdentifier>
+    <caption><langstring language="en">Consulting and participation</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::delivery_work</termIdentifier>
+    <caption><langstring language="en">Delivery work</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::disabilities</termIdentifier>
+    <caption><langstring language="en">Disabilities</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::driving</termIdentifier>
+    <caption><langstring language="en">Driving</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::educators_mainstreaming</termIdentifier>
+    <caption><langstring language="en">Educators- Mainstreaming OSH into education</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::employers_information</termIdentifier>
+    <caption><langstring language="en">Employers' information</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::electricity</termIdentifier>
+    <caption><langstring language="en">Electricity</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::factories</termIdentifier>
+    <caption><langstring language="en">Factories</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::farm_work_work_with_animals</termIdentifier>
+    <caption><langstring language="en">Farm work, work with animals</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::gardening_and_park_work</termIdentifier>
+    <caption><langstring language="en">Gardening and park work</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::hairdressing</termIdentifier>
+    <caption><langstring language="en">Hairdressing</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::health_and_social_care_work</termIdentifier>
+    <caption><langstring language="en">Health and social care work</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::heights</termIdentifier>
+    <caption><langstring language="en">Heights</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::hotels</termIdentifier>
+    <caption><langstring language="en">Hotels and catering</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::legislation</termIdentifier>
+    <caption><langstring language="en">Legislation</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::lifeguards</termIdentifier>
+    <caption><langstring language="en">Lifeguards</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::lift_trucks</termIdentifier>
+    <caption><langstring language="en">Lift trucks</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::machines_and_equipment</termIdentifier>
+    <caption><langstring language="en">Machines and equipment</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::manual_handling_lifting</termIdentifier>
+    <caption><langstring language="en">Manual handling, lifting</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::musculoskeletal_disorders_repetition_injuries</termIdentifier>
+    <caption><langstring language="en">Musculoskeletal disorders, repetition injuries</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::museums_exhibition_centres</termIdentifier>
+    <caption><langstring language="en">Museums. Exhibition centres</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::noise</termIdentifier>
+    <caption><langstring language="en">Noise</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::offices</termIdentifier>
+    <caption><langstring language="en">Offices</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::paints</termIdentifier>
+    <caption><langstring language="en">Paints</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::parents_information</termIdentifier>
+    <caption><langstring language="en">Parents' information</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::programmes_and_policies</termIdentifier>
+    <caption><langstring language="en">Programmes and policies</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::recreation_and_leisure</termIdentifier>
+    <caption><langstring language="en">Recreation and leisure</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::risk_assessment_and_management</termIdentifier>
+    <caption><langstring language="en">Risk assessment and management</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::school_childrens_information</termIdentifier>
+    <caption><langstring language="en">School children's information</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::schoolteachers_information</termIdentifier>
+    <caption><langstring language="en">Schoolteachers' information</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::school_safety</termIdentifier>
+    <caption><langstring language="en">School safety</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::shops_and_supermarkets</termIdentifier>
+    <caption><langstring language="en">Shops and supermarkets</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::slips_trips_and_falls</termIdentifier>
+    <caption><langstring language="en">Slips, trips and falls</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::statistics_and_facts</termIdentifier>
+    <caption><langstring language="en">Statistics and facts</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::stress</termIdentifier>
+    <caption><langstring language="en">Stress</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::supervisors_information</termIdentifier>
+    <caption><langstring language="en">Supervisor's information</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::training_-_vocational</termIdentifier>
+    <caption><langstring language="en">Training - vocational</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::training_-_workplace</termIdentifier>
+    <caption><langstring language="en">Training - workplace</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::transport_sector</termIdentifier>
+    <caption><langstring language="en">Transport sector</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::violence_from_the_public</termIdentifier>
+    <caption><langstring language="en">Violence from the public</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::warehouses</termIdentifier>
+    <caption><langstring language="en">Warehouses</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::women</termIdentifier>
+    <caption><langstring language="en">Women</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::work_experience_preparation</termIdentifier>
+    <caption><langstring language="en">Work experience preparation</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::workshops_garages</termIdentifier>
+    <caption><langstring language="en">Workshops / garages</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>young_people::young_workers_information</termIdentifier>
+    <caption><langstring language="en">Young workers' information</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>provider</termIdentifier>
+    <caption><langstring language="en">Provider</langstring></caption>
+
+    <description><langstring language="en">Good practice information provider</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca</termIdentifier>
+    <caption><langstring language="en">Hotels, restaurants and catering</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+<term>
+    <termIdentifier>horeca::accident_prevention</termIdentifier>
+    <caption><langstring language="en">Accident Prevention</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::case_studies</termIdentifier>
+    <caption><langstring language="en">Case Studies</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::chem_bio_hazards</termIdentifier>
+    <caption><langstring language="en">Chemical &amp; Biological Hazards</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::fire_explosion</termIdentifier>
+    <caption><langstring language="en">Fire &amp; Explosion Hazards</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::fire_safety</termIdentifier>
+    <caption><langstring language="en">Fire Safety</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::first_aid</termIdentifier>
+    <caption><langstring language="en">First Aid &amp; Medical Provision</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::flammable_gas</termIdentifier>
+    <caption><langstring language="en">Flammable gas</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::gender_issues</termIdentifier>
+    <caption><langstring language="en">Gender Issues</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::info_consultation</termIdentifier>
+    <caption><langstring language="en">Information for, and consultation with workers</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::info_providers</termIdentifier>
+    <caption><langstring language="en">Information Providers</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::legislation</termIdentifier>
+    <caption><langstring language="en">Legislation</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::health_management</termIdentifier>
+    <caption><langstring language="en">Management of Health and Safety</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::migrants</termIdentifier>
+    <caption><langstring language="en">Migrant Workers</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::msds</termIdentifier>
+    <caption><langstring language="en">Musculoskeletal Disorders (MSDs)</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::noise</termIdentifier>
+    <caption><langstring language="en">Noise</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::programmes</termIdentifier>
+    <caption><langstring language="en">Programmes</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::stress</termIdentifier>
+    <caption><langstring language="en">Psychosocial issues (stress)</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::info_commission</termIdentifier>
+    <caption><langstring language="en">Sources of Information: EU Commission</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::info_ms</termIdentifier>
+    <caption><langstring language="en">Sources of Information: EU Member State</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::info_noneu</termIdentifier>
+    <caption><langstring language="en">Sources of Information: Non EU Countries</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::special_groups</termIdentifier>
+    <caption><langstring language="en">Special &amp; Vulnerable Groups</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::statistics</termIdentifier>
+    <caption><langstring language="en">Statistics</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::violence</termIdentifier>
+    <caption><langstring language="en">Violence and aggression</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::heights</termIdentifier>
+    <caption><langstring language="en">Work at Heights</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::equipment_processes</termIdentifier>
+    <caption><langstring language="en">Work Equipment &amp; Processes</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::thermal_stress</termIdentifier>
+    <caption><langstring language="en">Work in Hot Environments (Thermal Stress)</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>horeca::working_hours</termIdentifier>
+    <caption><langstring language="en">Working hours, Shift Work, and Night Work</langstring></caption>
+
+    <description><langstring language="en"></langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>risks</termIdentifier>
+    <caption><langstring language="en">Emerging Risks</langstring></caption>
+
+    <description><langstring language="en">Emerging Risks</langstring></description>
+
+<term>
+    <termIdentifier>risks::chemical</termIdentifier>
+    <caption><langstring language="en">Chemical</langstring></caption>
+
+    <description><langstring language="en">Emerging Risks</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risks::biological</termIdentifier>
+    <caption><langstring language="en">Biological</langstring></caption>
+
+    <description><langstring language="en">Emerging Risks</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risks::physical</termIdentifier>
+    <caption><langstring language="en">Physical</langstring></caption>
+
+    <description><langstring language="en">Emerging Risks</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>risks::psycho</termIdentifier>
+    <caption><langstring language="en">Psychosocial/organisational</langstring></caption>
+
+    <description><langstring language="en">Emerging Risks</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>statistics</termIdentifier>
+    <caption><langstring language="en">Statistics</langstring></caption>
+
+    <description><langstring language="en">Occupational Safety and Health statistics and surveys...</langstring></description>
+
+<term>
+    <termIdentifier>statistics::statistics</termIdentifier>
+    <caption><langstring language="en">European OSH Statistics</langstring></caption>
+
+    <description><langstring language="en">European OSH Statistics</langstring></description>
+
+<term>
+    <termIdentifier>statistics::europ_osh_stats</termIdentifier>
+    <caption><langstring language="en">European OSH Statistics</langstring></caption>
+
+    <description><langstring language="en">European OSH Statistics</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>statistics::further_information</termIdentifier>
+    <caption><langstring language="en">Further information sources</langstring></caption>
+
+    <description><langstring language="en">Further information sources</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>statistics::surveys</termIdentifier>
+    <caption><langstring language="en">European OSH Surveys</langstring></caption>
+
+    <description><langstring language="en">European OSH Surveys</langstring></description>
+
+<term>
+    <termIdentifier>surveys::europ_oshsurveys</termIdentifier>
+    <caption><langstring language="en">European OSH surveys</langstring></caption>
+
+    <description><langstring language="en">European OSH surveys</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>surveys::further_info</termIdentifier>
+    <caption><langstring language="en">Further information sources</langstring></caption>
+
+    <description><langstring language="en">Further information sources</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>statistics::other</termIdentifier>
+    <caption><langstring language="en">Other related information</langstring></caption>
+
+    <description><langstring language="en">Other related information</langstring></description>
+
+<term>
+    <termIdentifier>other::other</termIdentifier>
+    <caption><langstring language="en">Other related links</langstring></caption>
+
+    <description><langstring language="en">Other related links</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>statistics::istatistics</termIdentifier>
+    <caption><langstring language="en">International statistics</langstring></caption>
+
+    <description><langstring language="en">Information about international OSH statistics, e.g. ILO, WHO.</langstring></description>
+
+<term>
+    <termIdentifier>istatistics::info_sources</termIdentifier>
+    <caption><langstring language="en">Further information sources</langstring></caption>
+
+    <description><langstring language="en">Further information sources</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>istatistics::ioshstatistics</termIdentifier>
+    <caption><langstring language="en">International OSH statistics</langstring></caption>
+
+    <description><langstring language="en">This section provides information on International OSH statistics</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>statistics::isurveys</termIdentifier>
+    <caption><langstring language="en">International surveys</langstring></caption>
+
+    <description><langstring language="en">International surveys</langstring></description>
+
+<term>
+    <termIdentifier>isurveys::info_sources</termIdentifier>
+    <caption><langstring language="en">Further information sources</langstring></caption>
+
+    <description><langstring language="en">Further information sources</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>isurveys::ioshsurveys</termIdentifier>
+    <caption><langstring language="en">International OSH surveys</langstring></caption>
+
+    <description><langstring language="en">This section provides information on International OSH surveys.</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>statistics::noneu_statistics</termIdentifier>
+    <caption><langstring language="en">Non-EU statistics</langstring></caption>
+
+    <description><langstring language="en">Non-EU statistics</langstring></description>
+
+<term>
+    <termIdentifier>noneu_statistics::efta</termIdentifier>
+    <caption><langstring language="en">EFTA Countries</langstring></caption>
+
+    <description><langstring language="en">EFTA Countries</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noneu_statistics::eu_candidate</termIdentifier>
+    <caption><langstring language="en">EU Candidate Countries</langstring></caption>
+
+    <description><langstring language="en">EU Candidate Countries</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noneu_statistics::overseas</termIdentifier>
+    <caption><langstring language="en">Overseas</langstring></caption>
+
+    <description><langstring language="en">Overseas</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>statistics::noneu_surveys</termIdentifier>
+    <caption><langstring language="en">Non-EU Surveys</langstring></caption>
+
+    <description><langstring language="en">Non-EU Surveys</langstring></description>
+
+<term>
+    <termIdentifier>noneu_surveys::efta</termIdentifier>
+    <caption><langstring language="en">EFTA Countries</langstring></caption>
+
+    <description><langstring language="en">EFTA Countries</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noneu_surveys::overseas</termIdentifier>
+    <caption><langstring language="en">Overseas</langstring></caption>
+
+    <description><langstring language="en">Overseas</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>noneu_surveys::eu_candidate</termIdentifier>
+    <caption><langstring language="en">EU Candidate Countries</langstring></caption>
+
+    <description><langstring language="en">EU Candidate Countries</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>statistics::other_iinfo</termIdentifier>
+    <caption><langstring language="en">Other related international information</langstring></caption>
+
+    <description><langstring language="en">Other related international information</langstring></description>
+
+<term>
+    <termIdentifier>other_iinfo::other</termIdentifier>
+    <caption><langstring language="en">Other related links</langstring></caption>
+
+    <description><langstring language="en">Other related links</langstring></description>
+
+
+    </term>
+
+    </term>
+
+    </term>
+
+</vdex>
