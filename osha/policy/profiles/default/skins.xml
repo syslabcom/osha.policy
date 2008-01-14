@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <object name="portal_skins" meta_type="Plone Skins Tool" allow_any="False"
-   cookie_persistence="False" default_skin="osha"
+   cookie_persistence="False" default_skin="OSHA Theme"
    request_varname="plone_skin">
  <object name="osha_content" meta_type="Filesystem Directory View"
-    directory="osha.policy/skins/osha_content" />
+    directory="osha.policy:skins/osha_content" />
  <object name="osha_images" meta_type="Filesystem Directory View"
-    directory="osha.policy/skins/osha_images" />
+    directory="osha.policy:skins/osha_images" />
  <object name="osha_portlets" meta_type="Filesystem Directory View"
-    directory="osha.policy/skins/osha_portlets" />
+    directory="osha.policy:skins/osha_portlets" />
  <object name="osha_scripts" meta_type="Filesystem Directory View"
-    directory="osha.policy/skins/osha_scripts" />
+    directory="osha.policy:skins/osha_scripts" />
  <object name="osha_styles" meta_type="Filesystem Directory View"
-    directory="osha.policy/skins/osha_styles" />
+    directory="osha.policy:skins/osha_styles" />
  <object name="osha_templates" meta_type="Filesystem Directory View"
-    directory="osha.policy/skins/osha_templates" />
+    directory="osha.policy:skins/osha_templates" />
  <object name="scriptaculous" meta_type="Filesystem Directory View"
-    directory="osha.policy/skins/scriptaculous" />
+    directory="osha.policy:skins/scriptaculous" />
 
- <skin-path name="osha" based-on="Plone Default">
+ <skin-path name="OSHA Theme" based-on="Plone Default">
   <layer name="osha_content" insert-after="custom"/>
   <layer name="osha_images" insert-after="custom"/>
   <layer name="osha_portlets" insert-after="custom"/>
