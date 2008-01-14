@@ -10,6 +10,7 @@
        tal:define="keywords request/keywords|string:;
                    SearchableText request/SearchableText|string:;
                    nace request/NACE|string:;
+                   category request/category|string:;
                    language request/Language|string:;
                    country request/country|string:;
                    Batch python:modules['Products.CMFPlone'].Batch;
@@ -140,7 +141,27 @@ function resetSize(aSelect) {
                     </select>
                 </tal:block>
               </div>
-              <div class="field" tal:define="mname string:keywords">
+              <div class="field" tal:define="mname string:category">
+                <tal:block define="subject_list python:view.getDisplayListFor('Category')">
+                    <label for="Multilingual_thesaurus">Category</label><br />
+                    <select name="" 
+                            tal:attributes="name mname">
+                        <option value=""
+                                tal:attributes="selected python:test(request.get(mname, ''),None,'selected')">
+                                Select...
+                        </option>
+                        <tal:block repeat="k subject_list/keys">
+                            <option tal:condition="python:k!='--'"
+                                    tal:attributes="value k;
+                                                    selected python:test(request.get(mname, '')==k,'selected', None)"
+                                    tal:content="python: subject_list.getValue(k)">
+                            </option>
+                        </tal:block>
+                    </select>
+                </tal:block>
+              </div>
+              
+              <!--div class="field" tal:define="mname string:keywords">
                 <tal:block define="subject_list view/getSubjectList">
                     <label for="Keywords">Keywords</label><br />
                     <select name="" 
@@ -158,7 +179,7 @@ function resetSize(aSelect) {
                         </tal:block>
                     </select>
                 </tal:block>
-              </div>
+              </div-->
 
               <div tal:define="mname string:NACE" class="field">
                 <tal:block define="nace_list view/getNaceList">
@@ -200,12 +221,13 @@ function resetSize(aSelect) {
 
 
 
-  <div tal:condition="python:keywords or SearchableText or nace or language or country">
+  <div tal:condition="python:keywords or SearchableText or nace or language or country or category">
     <div tal:define="query python:{'portal_type': ['CaseStudy'],
                                    'review_state':'published',
                                    'Subject':keywords,
                                    'nace':nace,
                                    'Language':language,
+                                   'category':category,
                                    'country':country,
                                    'SearchableText':SearchableText,
                                    'sort_on': 'modified',
