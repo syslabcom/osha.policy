@@ -87,7 +87,7 @@ function resetSize(aSelect) {
                     </div>
                 <div class="columnBottom field">
                  <div class="formHelp">
-                    Filter your search by selecting one or more of the Filters.
+                    Filter your search by selecting one or more of the filters.
                     You can always remove any filter again by selecting the empty entry.
                  </div>
 
@@ -125,7 +125,6 @@ function resetSize(aSelect) {
                 <tal:block define="country_list view/getCountryList">
                     <label for="Country" >Country</label><br />
                     <select name=""
-                        onchange="if (this.value[0]!='_') this.form.submit();" 
                             tal:attributes="name mname">
                         <option value=""
                                 tal:attributes="selected python:test(request.get(mname, ''),None,'selected')">
@@ -134,7 +133,6 @@ function resetSize(aSelect) {
                         <tal:block repeat="k country_list/keys">
                             <option tal:condition="python:k!='--'"
                                     tal:attributes="value k;
-                                                    onmouseup python:test(k.startswith('_'), '', 'this.form.submit()');
                                                     selected python:test(request.get(mname, '')==k,'selected', None)"
                                     tal:content="python: country_list.getValue(k)">
                             </option>
@@ -146,7 +144,6 @@ function resetSize(aSelect) {
                 <tal:block define="subject_list view/getSubjectList">
                     <label for="Keywords">Keywords</label><br />
                     <select name="" 
-                            onchange="this.form.submit()"
                             tal:attributes="name mname">
                         <option value=""
                                 tal:attributes="selected python:test(request.get(mname, ''),None,'selected')">
@@ -169,7 +166,6 @@ function resetSize(aSelect) {
                     <div class="fieldSizer">
                     <select name=""
                             onfocus="resetSize(this);"
-                            onchange="this.form.submit()"
                             tal:attributes="name mname">
                         <option value=""
                                 tal:attributes="selected python:test(request.get(mname, ''),None,'selected')">
