@@ -6,7 +6,6 @@ docs/INSTALL.txt
 docs/LICENSE.GPL
 docs/LICENSE.txt
 osha/__init__.py
-osha/__init__.pyc
 osha.policy.egg-info/PKG-INFO
 osha.policy.egg-info/SOURCES.txt
 osha.policy.egg-info/dependency_links.txt
@@ -42,14 +41,10 @@ osha/policy/browser/site_actions.pt
 osha/policy/browser/topbanner.pt
 osha/policy/browser/viewlets.py
 osha/policy/browser/portlets/__init__.py
-osha/policy/browser/portlets/__init__.pyc
 osha/policy/browser/portlets/interfaces.py
-osha/policy/browser/portlets/interfaces.pyc
 osha/policy/browser/portlets/oshcontent.py
 osha/policy/browser/portlets/publications.py
-osha/policy/browser/portlets/publications.pyc
 osha/policy/browser/portlets/related_by_type.py
-osha/policy/browser/portlets/related_by_type.pyc
 osha/policy/browser/templates/abovecontentportlets.pt
 osha/policy/browser/templates/belowcontentportlets.pt
 osha/policy/browser/templates/manageportletslots.pt
@@ -154,6 +149,7 @@ osha/policy/skins/osha_styles/public.css.dtml
 osha/policy/skins/osha_styles/public.css.dtml.metadata
 osha/policy/skins/osha_templates/aoi_template.pt
 osha/policy/skins/osha_templates/body_portlet.pt
+osha/policy/skins/osha_templates/casestudy_db_view.pt
 osha/policy/skins/osha_templates/db_filter.pt
 osha/policy/skins/scriptaculous/builder.js.dtml
 osha/policy/skins/scriptaculous/builder.js.dtml.metadata

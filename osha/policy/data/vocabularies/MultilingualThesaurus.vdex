@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
     <vocabName>
-        <langstring language="en">OSHThesaurus</langstring>
+        <langstring language="da">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="de">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="et">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="en">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="es">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="fr">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="it">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="lt">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="lv">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="hu">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="mt">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="nl">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="pl">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="pt">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="ro">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="sh">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="sk">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="sl">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="fi">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="sv">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="tr">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="cs">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="el">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="bg">OSHA Multilingual Thesaurus</langstring>
+        <langstring language="no">OSHA Multilingual Thesaurus</langstring>
     </vocabName>
     <vocabIdentifier>http://osha.europa.eu/OSHThesaurus</vocabIdentifier>
 <term>
