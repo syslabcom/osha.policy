@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <dc-workflow workflow_id="osh_workflow"
-             title="OSH Moderation Workflow"
+             title="OSH Moderation Workflow" description=""
              state_variable="review_state"
              initial_state="private">
  <permission>Access contents information</permission>
- <permission>Modify portal content</permission>
- <permission>View</permission>
  <permission>Change portal events</permission>
  <permission>Crosscheck portal content</permission>
+ <permission>Modify portal content</permission>
  <permission>Reject portal content</permission>
+ <permission>View</permission>
  <state state_id="checked" title="Ready for publishing">
   <exit-transition transition_id="amend"/>
   <exit-transition transition_id="delete"/>
@@ -256,8 +256,7 @@
              title="Reviewer cross-checks submission"
              new_state="checked" trigger="USER"
              before_script="" after_script="">
-  <action url="%(content_url)s/content_check_form"
-          category="workflow">Crosscheck</action>
+  <action url="" category="workflow">Crosscheck</action>
   <guard>
    <guard-permission>Crosscheck portal content</guard-permission>
   </guard>
@@ -266,8 +265,7 @@
              title="Manager deletes submission"
              new_state="deleted" trigger="USER"
              before_script="" after_script="">
-  <action url="%(content_url)s/content_delete_form"
-          category="workflow">Delete</action>
+  <action url="" category="workflow">Delete</action>
   <guard>
    <guard-role>Reviewer</guard-role>
    <guard-role>Manager</guard-role>
@@ -277,8 +275,7 @@
              title="Manager publishes content"
              new_state="published" trigger="USER"
              before_script="" after_script="">
-  <action url="%(content_url)s/content_publish_form"
-          category="workflow">Publish</action>
+  <action url="" category="workflow">Publish</action>
   <guard>
    <guard-permission>Review portal content</guard-permission>
   </guard>
@@ -287,8 +284,7 @@
              title="Manager rejects submission"
              new_state="private" trigger="USER"
              before_script="" after_script="">
-  <action url="%(content_url)s/content_reject_form"
-          category="workflow">Reject</action>
+  <action url="" category="workflow">Reject</action>
   <guard>
    <guard-permission>Reject portal content</guard-permission>
   </guard>
@@ -297,8 +293,7 @@
              title="Manager restores object"
              new_state="private" trigger="USER"
              before_script="" after_script="">
-  <action url="%(content_url)s/content_restore_form"
-          category="workflow">Restore</action>
+  <action url="" category="workflow">Restore</action>
   <guard>
    <guard-role>Reviewer</guard-role>
    <guard-role>Manager</guard-role>
@@ -308,8 +303,7 @@
              title="Member retracts submission"
              new_state="private" trigger="USER"
              before_script="" after_script="">
-  <action url="%(content_url)s/content_retract_form"
-          category="workflow">Retract</action>
+  <action url="" category="workflow">Retract</action>
   <guard>
    <guard-permission>Request review</guard-permission>
   </guard>
@@ -318,8 +312,7 @@
              title="Content Manager requests reviewing"
              new_state="pending" trigger="USER"
              before_script="" after_script="">
-  <action url="%(content_url)s/content_submit_form"
-          category="workflow">Submit</action>
+  <action url="" category="workflow">Submit</action>
   <guard>
    <guard-permission>Request review</guard-permission>
   </guard>
