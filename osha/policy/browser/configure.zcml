@@ -3,11 +3,11 @@
            xmlns:five="http://namespaces.zope.org/five">
 
 
-    <interface
+    <!--interface
         interface=".interfaces.IThemeSpecific"
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
         name="osha"
-        />
+        /-->
 
   <browser:page
       for="*"
@@ -101,7 +101,7 @@
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class=".viewlets.PortalTitleViewlet"
         permission="zope2.View"
-        layer=".interfaces.IThemeSpecific"
+        layer="osha.theme.browser.interfaces.IThemeSpecific"
         />
 
     <browser:viewlet
@@ -109,7 +109,7 @@
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class=".viewlets.SiteActionsViewlet"
         permission="zope2.View"
-        layer=".interfaces.IThemeSpecific"
+        layer="osha.theme.browser.interfaces.IThemeSpecific"
         />
 
     <browser:viewlet
@@ -117,7 +117,7 @@
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class=".viewlets.TopBannerViewlet"
         permission="zope2.View"
-        layer=".interfaces.IThemeSpecific"
+        layer="osha.theme.browser.interfaces.IThemeSpecific"
         />
 
     <browser:viewlet
@@ -125,7 +125,7 @@
         manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
         class=".viewlets.FooterViewlet"
         permission="zope2.View"
-        layer=".interfaces.IThemeSpecific"
+        layer="osha.theme.browser.interfaces.IThemeSpecific"
         />
 
 
