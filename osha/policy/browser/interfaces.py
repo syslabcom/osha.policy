@@ -2,7 +2,10 @@ from plone.theme.interfaces import IDefaultPloneLayer
 from zope.interface import Interface, Attribute
 from plone.portlets.interfaces import IPortletManager
 
-
+class IThemeSpecific(IDefaultPloneLayer):
+    """Marker interface that defines a Zope 3 skin layer.
+    """
+    
 class IDateTimeUtils(Interface):
     """Interface for DateTime formatting and conversion"""
 
