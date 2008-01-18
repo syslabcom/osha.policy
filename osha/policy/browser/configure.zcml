@@ -78,7 +78,7 @@
       permission="zope.Public"
       allowed_interface=".interfaces.IVocabularyHelper"
       />
-      
+
   <browser:page
       for="Products.ATContentTypes.interface.folder.IATFolder"
       name="good-practice-overview"
@@ -95,14 +95,14 @@
       />
 
     <!-- VIEWLETS -->
-    
+
     <browser:viewlet
         name="osha.portaltitle"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
         class=".viewlets.PortalTitleViewlet"
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
-        />      
+        />
 
     <browser:viewlet
         name="osha.site_actions"
@@ -110,7 +110,7 @@
         class=".viewlets.SiteActionsViewlet"
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
-        />      
+        />
 
     <browser:viewlet
         name="osha.topbanner"
@@ -118,7 +118,7 @@
         class=".viewlets.TopBannerViewlet"
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
-        />      
+        />
 
     <browser:viewlet
         name="osha.footer"
@@ -126,7 +126,7 @@
         class=".viewlets.FooterViewlet"
         permission="zope2.View"
         layer=".interfaces.IThemeSpecific"
-        />      
+        />
 
 
 
@@ -134,19 +134,21 @@
         name="osh.abovecontentportlets"
         manager="plone.app.layout.viewlets.interfaces.IContentViews"
         template="templates/abovecontentportlets.pt"
-        permission="zope2.View" 
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
     />
 
     <browser:viewlet
         name="osh.belowcontentportlets"
         manager="plone.app.layout.viewlets.interfaces.IBelowContent"
         template="templates/belowcontentportlets.pt"
-        permission="zope2.View" 
+        permission="zope2.View"
+        layer=".interfaces.IThemeSpecific"
     />
 
 
     <include package="plone.app.portlets" />
-    
+
     <browser:page
         for="plone.portlets.interfaces.ILocalPortletAssignable"
         class="plone.app.portlets.browser.manage.ManageContextualPortlets"
