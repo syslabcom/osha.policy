@@ -116,6 +116,22 @@ def addExtraIndexes(self):
         logger.info('Adding KeywordIndex %s' %idx_id)
         cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id)
 
+    # getExternal_url
+    idx_id = "getExternal_url"
+    if idx_id not in available:
+        extra = dict()
+        extra['default_encoding'] = 'utf-8'
+        extra['languages'] = ['en']
+        extra['splitter'] = 'oshlink.splitters.url_not_splitter'
+        extra['index_unknown_languages'] = 1
+        extra['splitter_casefolding'] = 1
+    
+        logger.info('Adding TextIndexNG3 %s' %idx_id)
+        cat.manage_addProduct['TextIndexNG3'].manage_addTextIndexNG3(
+            id = idx_id
+          , extra = extra
+          )
+
 
 def addProxyIndexes(self):
     logger = logging.getLogger("OSHA.ProxyIndexes")
