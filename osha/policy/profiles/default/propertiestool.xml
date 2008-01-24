@@ -121,6 +121,7 @@
   <property name="visible_ids" type="boolean">True</property>
   <property name="exposeDCMetaTags" type="boolean">True</property>
   <property name="types_not_searched" type="lines">
+   <element value="AliasVocabulary"/>
    <element value="ATBooleanCriterion"/>
    <element value="ATDateCriteria"/>
    <element value="ATDateRangeCriterion"/>
@@ -146,6 +147,18 @@
    <element value="CMF Link"/>
    <element value="CMF News Item"/>
    <element value="CMF Topic"/>
+   <element value="SimpleVocabulary"/>
+   <element value="SimpleVocabularyTerm"/>
+   <element value="SortedSimpleVocabulary"/>
+   <element value="TreeVocabulary"/>
+   <element value="TreeVocabularyTerm"/>
+   <element value="VdexVocabulary"/>
+   <element value="VdexFileVocabulary"/>
+   <element value="VdexRelationEndPoint"/>
+   <element value="VdexLangstring"/>
+   <element value="VdexMediaDescriptor"/>
+   <element value="VdexTerm"/>
+   <element value="VocabularyLibrary"/>
   </property>
   <property name="disable_folder_sections" type="boolean">False</property>
   <property name="disable_nonfolderish_sections" type="boolean">True</property>
@@ -156,7 +169,7 @@
   <property name="verify_login_name" type="boolean">True</property>
   <property name="many_users" type="boolean">True</property>
   <property name="many_groups" type="boolean">False</property>
-  <property name="enable_livesearch" type="boolean">True</property>
+  <property name="enable_livesearch" type="boolean">False</property>
   <property name="default_page_types" type="lines">
    <element value="Document"/>
    <element value="Event"/>
