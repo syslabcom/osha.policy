@@ -9,7 +9,32 @@
       profileType="flatTokenTerms"
       language="en">
     <vocabName>
-	   <langstring language="en">NACE</langstring>
+	   <langstring language="el">NACE</langstring>
+<langstring language="en">NACE</langstring>
+<langstring language="ee">NACE</langstring>
+<langstring language="it">NACE</langstring>
+<langstring language="cz">NACE</langstring>
+<langstring language="es">NACE</langstring>
+<langstring language="nl">NACE</langstring>
+<langstring language="pt">NACE</langstring>
+<langstring language="no">NACE</langstring>
+<langstring language="tr">NACE</langstring>
+<langstring language="lv">NACE</langstring>
+<langstring language="lt">NACE</langstring>
+<langstring language="ro">NACE</langstring>
+<langstring language="pl">NACE</langstring>
+<langstring language="fr">NACE</langstring>
+<langstring language="bg">NACE</langstring>
+<langstring language="hr">NACE</langstring>
+<langstring language="de">NACE</langstring>
+<langstring language="hu">NACE</langstring>
+<langstring language="fi">NACE</langstring>
+<langstring language="da">NACE</langstring>
+<langstring language="sv">NACE</langstring>
+<langstring language="sk">NACE</langstring>
+<langstring language="mt">NACE</langstring>
+<langstring language="si">NACE</langstring>
+
     </vocabName>
     <vocabIdentifier>NACE</vocabIdentifier>
 
