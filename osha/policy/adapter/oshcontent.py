@@ -75,8 +75,8 @@ class CountryField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
 class MTSubjectField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
     
     def Vocabulary(self, content_instance):
-        return atapi.DisplayList([(x, x) for x in dummy_vocab])
-#        return self._Vocabulary(content_instance, 'MultilingualThesaurus')
+#        return atapi.DisplayList([(x, x) for x in dummy_vocab])
+        return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
 
 class HTMLKeywordsField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
