@@ -3,6 +3,7 @@ from Products.ATVocabularyManager.utils.vocabs import createSimpleVocabs
 from Products.CMFCore.utils import getToolByName
 from ConfigParser import ConfigParser
 from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
+from Acquisition import aq_base
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 vocabdir = os.path.join(basedir, 'data', 'vocabularies')
@@ -54,6 +55,8 @@ def importVarious(context):
     addProxyIndexes(site)
     addExtraIndexes(site)
     
+    createLanguageFolders(site)
+    
     importVocabularies(site)
 
 #    catalog=getToolByName(site, 'portal_catalog')
@@ -101,6 +104,38 @@ def importVocabularies(self):
             vocabstruct = cPickle.loads(data)
             createSimpleVocabs(pvm, vocabstruct)
             logger.info("Dump Import of %s" % vocabname)
+
+
+def createLanguageFolders( site):
+    FOLDER_TO_USE = "Folder"
+    pl = getToolByName(site, 'portal_languages')
+    putils = getToolByName(site, 'plone_utils')
+    supp = pl.listSupportedLanguages()
+    default = pl.getDefaultLanguage()
+    # first, create Canonical folder
+    if not getattr(aq_base(site), default, None):
+        site.invokeFactory(FOLDER_TO_USE, default)
+    can = getattr(site, default)
+    if can.Language() != default:
+        can.setLanguage(default)
+    paths = list()
+    new_ids = list()
+    new_titles = list()
+    paths.append('/'.join(can.getPhysicalPath()))
+    new_ids.append(default)
+    new_titles.append(pl.getNameForLanguageCode(default))
+    for lang, title in supp:
+        if lang == default:
+            continue
+        if not getattr(aq_base(site), lang, None):
+            can.addTranslation(lang)
+            f = can.getTranslation(lang)
+            print "added folder for lang ", lang
+            paths.append('/'.join(f.getPhysicalPath()))
+            new_ids.append(lang)
+            new_titles.append(title)
+
+    putils.renameObjectsByPaths(paths, new_ids, new_titles)
 
 
 def addExtraIndexes(self):
