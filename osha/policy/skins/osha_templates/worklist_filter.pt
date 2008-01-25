@@ -114,8 +114,6 @@
     </form>
     <br clear="all"><br>
     
-    Category: <span tal:replace="category" />
-
   <div tal:condition="python:SearchableText or review_state or Creator or ExternalUrl or category">
     <div tal:define="category python:[x for x in category if x];
                      category python:test(len(category), category, '');
