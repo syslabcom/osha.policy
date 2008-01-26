@@ -49,6 +49,8 @@ def importVarious(context):
 
     quickinst.installProduct('osha.theme')
 
+    configurePortal(site)
+
     setVersionedTypes(site)
 
     addProxyIndexes(site)
@@ -61,6 +63,9 @@ def importVarious(context):
 #    if index.numObjects()==0:
 #        catalog.reindexIndex('Language', None)
 
+def configurePortal(portal):
+    """ make some changes to the portal config """
+    getattr(portal.portal_types, 'Large Plone Folder').global_allow = True
 
 
 def setVersionedTypes(portal):
