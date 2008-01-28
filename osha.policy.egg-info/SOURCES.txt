@@ -8,6 +8,9 @@ docs/LICENSE.GPL
 docs/LICENSE.txt
 osha/__init__.py
 osha.policy.egg-info/PKG-INFO
+osha.policy.egg-info/PKG-INFO.mine
+osha.policy.egg-info/PKG-INFO.r245
+osha.policy.egg-info/PKG-INFO.r269
 osha.policy.egg-info/SOURCES.txt
 osha.policy.egg-info/dependency_links.txt
 osha.policy.egg-info/entry_points.txt

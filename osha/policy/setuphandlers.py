@@ -28,13 +28,16 @@ def importVarious(context):
     quickinst.installProduct('Marshall')
     quickinst.installProduct('OSHContentLink')
     quickinst.installProduct('PublicJobVacancy')
-    quickinst.installProduct('PublicationProduct')
+    quickinst.installProduct('Publications')
     quickinst.installProduct('collective.portlet.feedmixer')
     quickinst.installProduct('collective.portlet.tal')
     quickinst.installProduct('plone.portlet.collection')
     quickinst.installProduct('plone.portlet.static')
     quickinst.installProduct('VocabularyPickerWidget')
-    #quickinst.installProduct('PressRoom')
+    quickinst.installProduct('PressRoom')
+    quickinst.installProduct('RiskAssessmentLink')
+    quickinst.installProduct('TreePickerWidget')
+    quickinst.installProduct('PloneFormGen')
 #    quickinst.installProduct('webcouturier.dropdownmenu')
     
 
@@ -46,6 +49,7 @@ def importVarious(context):
     quickinst.installProduct('TextIndexNG3')
     quickinst.installProduct('UserAndGroupSelectionWidget')
     quickinst.installProduct('simplon.plone.ldap')
+    quickinst.installProduct('plone.app.blob')
 
     quickinst.installProduct('osha.theme')
 
