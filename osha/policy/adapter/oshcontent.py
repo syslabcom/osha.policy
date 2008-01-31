@@ -18,8 +18,8 @@ from Products.OSHContentLink.OSH_Link import OSH_Link
 from Products.ATContentTypes.content.newsitem import ATNewsItem
 from Products.ATContentTypes.content.event import ATEvent
 
-zope.interface.classImplements(ATNewsItem, IOSHContent)
-zope.interface.classImplements(ATEvent, IOSHContent)
+#zope.interface.classImplements(ATNewsItem, IOSHContent)
+#zope.interface.classImplements(ATEvent, IOSHContent)
 zope.interface.classImplements(OSH_Link, IOSHContent)
 
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget

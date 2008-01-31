@@ -16,54 +16,44 @@ margin-right: 1em;
 display: block;
 background-color: #fff;
 margin: 0px 0px 0px 0px;
-border: 1px solid #a9a9a9;
+border: 0px solid #a9a9a9;
 padding: 4px;
 }
-.content-columns { background: transparent url(bg_dotted.gif) 60% 0% repeat-y; width: 100%; position: relative; overflow: hidden; clear: both;  }
-.content-column-one { position: relative; float: left; width: 60%; padding: 0; overflow: hidden; }
-.content-column-two { position: relative; float: right; width: 40%; padding: 0; overflow: hidden; }
-.content-column-one .inner-content { float: none; padding-right: 10px; xborder-right: 1px dotted #e0e7d7; }
-.content-column-two .inner-content { float: none; padding-left: 10px; }
-
-.content-column-one .portletHeader { background-color: #E6E8ED; }
-.content-column-one .portletBody { background-color: white; }
-.content-column-one .portletContent.separated { border-bottom: 0; border-top: 0; }
-}
 </style>
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-        <div metal:use-macro="here/document_actions/macros/document_actions">
-            Document actions (print, sendto etc)
-        </div>
 
-        <h1 tal:content="object_title" class="documentFirstHeading">
-          Title or id
+        <h1 class="documentFirstHeading"> 
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
         </h1>
 
-        <div metal:use-macro="here/document_byline/macros/byline">
-          Get the byline - contains details about author and modification date.
-        </div>
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
 
         <div class="figure-box">
             <div class="figure">
-                <img tal:define="timg python:portal.restrictedTraverse('images/themes/'+here.getId(), None)"
+                <img tal:define="keyword python:here.getProperty('keyword');
+                                 timg_path string:theme_image_${keyword}.gif;
+                                 timg python:getattr(portal, timg_path,
+                                        getattr(portal, 'dummyimage80.gif'))"
                      tal:condition="python:timg is not None" 
-                     tal:attributes="src timg/absolute_url" />
+                     tal:replace="structure timg/tag" />
             </div>
         </div>
-
-        <p class="documentDescription"
-           tal:content="here/Description"
-           tal:condition="here/Description">
+        
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
             Description
+            </metal:field>
         </p>
-        <br clear="all">
 
-        <div metal:use-macro="here/document_relateditems/macros/relatedItems">
-            show related items if they exist
-        </div>
+        <div tal:replace="structure provider:plone.abovecontentbody" />
 
-    <br clear="all">
 
+    <div class="visualClear"></div>
+<!--
         <div class="content-columns">
           <div class="content-column-one">
             <div class="inner-content">
@@ -96,14 +86,12 @@ padding: 4px;
                     <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
                 </div>
 
-                <!--div tal:define="portlet_title string:;">
-                    <metal:block use-macro="here/sep_list_oshdb/macros/portlet"/>
-                </div-->
 
             </div>
           </div>
         </div>
-
+-->
+        <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </tal:main-macro>
 </div>
