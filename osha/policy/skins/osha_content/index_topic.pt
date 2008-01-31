@@ -5,9 +5,9 @@
 <body>
 
           
-<div metal:fill-slot="main" i18n:domain="elevateIT">
+<div metal:fill-slot="main" i18n:domain="osha">
 
-<h1 class="documentFirstHeading" i18n:domain="elevateIT" i18n:translate="heading_index_by_topic">
+<h1 class="documentFirstHeading" i18n:domain="osha" i18n:translate="heading_index_by_topic">
   Index by Topic
   <a name="top"></a>
 </h1>
@@ -41,10 +41,10 @@
   <span >
        
  <p><a href="" tal:attributes="href string:${parent/absolute_url}/${here/getId}/${template/getId}?Category=$Category"
-        i18n:domain="elevateIT" i18n:translate="link_back_to_topics">Back to Topics overview</a></p>   
+        i18n:domain="osha" i18n:translate="link_back_to_topics">Back to Topics overview</a></p>   
         
         
- <p tal:condition="country"><a href="" tal:attributes="href string:${parent/absolute_url}/${here/getId}/${template/getId}?cat_uid=${cat_uid}"><span i18n:domain="elevateIT" i18n:translate="Back to">Back to</span>
+ <p tal:condition="country"><a href="" tal:attributes="href string:${parent/absolute_url}/${here/getId}/${template/getId}?cat_uid=${cat_uid}"><span i18n:domain="osha" i18n:translate="Back to">Back to</span>
     &quot;<span tal:content="cat_title" />&quot;</a></p>
                    
 
@@ -58,7 +58,7 @@
               "-->
               <span>
 
-    <h2><span i18n:domain="elevateIT" i18n:translate="" tal:content="cat_title">Topic</span></h2>      
+    <h2><span i18n:domain="osha" i18n:translate="" tal:content="cat_title">Topic</span></h2>      
 
     <p i18n:translate="info_index_topic">The information provided here is broken down by country of origin. We have tried to keep these topics clear and simple.
     </p>
@@ -73,10 +73,10 @@
                    num_res python:country_map.get(country_id,'')"
                    tal:condition="num_res">
                    <span tal:define="global result_countrygroup python:1"/>  
-               <a href="" tal:attributes="href string:${template/getId}?cat_uid=${cat_uid}&country=${mi/getId}/${smi/getId}&country_name=${smi/Title}"><span i18n:domain="elevateIT" i18n:translate="" tal:content="smi/Title">Country</span></a> (<span tal:content="num_res" />) <br /> 
+               <a href="" tal:attributes="href string:${template/getId}?cat_uid=${cat_uid}&country=${mi/getId}/${smi/getId}&country_name=${smi/Title}"><span i18n:domain="osha" i18n:translate="" tal:content="smi/Title">Country</span></a> (<span tal:content="num_res" />) <br /> 
              </span>
          </span>
-          <div tal:condition="python:result_countrygroup==0"><span i18n:domain="elevateIT" i18n:translate="description_no_results_found">No results were found.</span></div>
+          <div tal:condition="python:result_countrygroup==0"><span i18n:domain="osha" i18n:translate="description_no_results_found">No results were found.</span></div>
         </span>
         <br />
       </span>
@@ -86,7 +86,7 @@
    
    
    <metal:block tal:condition="country">
-        <h2><span i18n:domain="elevateIT" i18n:translate="" tal:content="cat_title">Topic</span> - <span i18n:domain="elevateIT" i18n:translate="" tal:content="country_name" >Country</span></h2>
+        <h2><span i18n:domain="osha" i18n:translate="" tal:content="cat_title">Topic</span> - <span i18n:domain="osha" i18n:translate="" tal:content="country_name" >Country</span></h2>
 
         <!-- python:here.getTopics(site_pos_path, country=country) -->
               <tal:results define="results python:view.getResultsByCategory(cat_uid)">
@@ -99,7 +99,7 @@
                 <span tal:define="global result_countrygroup python:1"/>
                 <dl tal:repeat="res batch">
                   <dt><a href="#" tal:attributes="href res/getURL"><img src="" 
-                    tal:attributes="src res/getIcon" alt="res/portal_type" i18n:attributes="alt"/><span tal:content="res/Title"/></a> ( <span i18n:domain="elevateIT" i18n:translate="" tal:content="res/getOSHA_Country">Country</span> )
+                    tal:attributes="src res/getIcon" alt="res/portal_type" i18n:attributes="alt"/><span tal:content="res/Title"/></a> ( <span i18n:domain="osha" i18n:translate="" tal:content="res/getOSHA_Country">Country</span> )
                   </dt>
                   <dd>
                     <p tal:define="descr res/Description|nothing;
@@ -124,12 +124,12 @@
                        <tal:block condition="res_format"><span i18n:translate="">Format</span>: <span tal:replace="res_format" /><br /></tal:block>
                     </p>
                   </dd>
-                <span tal:condition="repeat/res/end"><a href="#" tal:attributes="href string:${template/getId}?${request/QUERY_STRING}#top"><span i18n:domain="elevateIT" i18n:translate="link_page_top">Top of the page</span></a></span>
+                <span tal:condition="repeat/res/end"><a href="#" tal:attributes="href string:${template/getId}?${request/QUERY_STRING}#top"><span i18n:domain="osha" i18n:translate="link_page_top">Top of the page</span></a></span>
                 </dl>
                 <!--div metal:use-macro="here/list_batch_macros/macros/navigation_bottom" /-->
                </span>
               
-            <div tal:condition="not:results"><span i18n:domain="elevateIT" i18n:translate="description_no_results_found">No results were found.</span></div>
+            <div tal:condition="not:results"><span i18n:domain="osha" i18n:translate="description_no_results_found">No results were found.</span></div>
          </tal:results>
 
     

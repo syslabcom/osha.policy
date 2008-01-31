@@ -5,9 +5,9 @@
 <body>
 
           
-<div metal:fill-slot="main" i18n:domain="elevateIT">
+<div metal:fill-slot="main" i18n:domain="osha">
          
-    <h1 class="documentFirstHeading" i18n:domain="elevateIT" i18n:translate="heading_index_by_nace">
+    <h1 class="documentFirstHeading" i18n:domain="osha" i18n:translate="heading_index_by_nace">
       Index by NACE
     </h1>
     
@@ -43,7 +43,7 @@
                 tal:condition="results">   
 
         <p><a href="" tal:attributes="href string:${template/getId}?alphabetical=${alphabetical}&$cat_str"
-        i18n:domain="elevateIT" i18n:translate="link_back_to_nace">Back to NACE overview</a></p>
+        i18n:domain="osha" i18n:translate="link_back_to_nace">Back to NACE overview</a></p>
                 
             <dl>
             <metal:block tal:repeat="res batch">

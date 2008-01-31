@@ -34,7 +34,7 @@
   </tal:js>
 </metal:javascriptslot>
 
-<div metal:fill-slot="main" i18n:domain="elevateIT"
+<div metal:fill-slot="main" i18n:domain="osha"
        tal:define="keywords request/keywords|string:;
                    SearchableText request/SearchableText|string:;
                    nace request/NACE|string:;

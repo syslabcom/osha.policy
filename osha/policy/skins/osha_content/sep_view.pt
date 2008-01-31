@@ -3,30 +3,16 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="plone">
 <body>
-<div metal:fill-slot="main" i18n:domain="elevateIT">
+<div metal:fill-slot="main" i18n:domain="osha">
 
-    <tal:main-macro metal:define-macro="main">
+    <tal:main-macro metal:define-macro="main" 
+                    define="index python: test('index' in here.objectIds(), getattr(here,'index', None), here)">
 
-<style type="text/css">
-.figure-box {
-float: left;
-margin-right: 1em;
-}
-.figure img {
-display: block;
-background-color: #fff;
-margin: 0px 0px 0px 0px;
-border: 0px solid #a9a9a9;
-padding: 4px;
-}
-</style>
         <div tal:replace="structure provider:plone.abovecontenttitle" />
 
 
-        <h1 class="documentFirstHeading"> 
-            <metal:field use-macro="python:here.widget('title', mode='view')">
-            Title
-            </metal:field>
+        <h1 class="documentFirstHeading">      
+            <span tal:replace="index/Title" />       
         </h1>
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
@@ -44,13 +30,20 @@ padding: 4px;
         </div>
         
         <p class="documentDescription">
-            <metal:field use-macro="python:here.widget('description', mode='view')">
-            Description
-            </metal:field>
+            <span tal:replace="index/Description" />       
         </p>
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
+        <div class="searchDatabaseBox">
+            <a href="db_filter">
+                <img tal:define="search_img python:getattr(portal, 'database_search.gif')"
+                     tal:replace="structure search_img/tag" />
+                     
+                <span i18n:translate="label_search_link_database" tal:omit-tag="">
+                    Search the Link Database on</span> <span tal:replace="index/Title" />
+            </a>
+        </div>
 
     <div class="visualClear"></div>
 <!--

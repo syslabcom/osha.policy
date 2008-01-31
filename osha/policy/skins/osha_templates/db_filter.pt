@@ -1,12 +1,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="elevateIT">
+      i18n:domain="osha">
 
 <metal:block fill-slot="top_slot"
              tal:define="dummy python:request.set('disable_border',1)" />
 
-<div metal:fill-slot="main" i18n:domain="elevateIT"
+<div metal:fill-slot="main" i18n:domain="osha"
        tal:define="keywords request/keywords|string:;
                    SearchableText request/SearchableText|string:;
                    nace request/NACE|string:;
@@ -97,7 +97,7 @@ function resetSize(aSelect) {
               <div class="columnTop field">
               <label>Filters</label>
               </div>
-                    <div class="field" i18n:domain="elevateIT"
+                    <div class="field" i18n:domain="osha"
                          tal:define="search_langs here/portal_languages/getSupportedLanguages|python:[];
                          selected_lang AvailableLanguages|request/AvailableLanguages|string:"
                          tal:condition="search_langs">
