@@ -7,7 +7,8 @@
              tal:define="dummy python:request.set('disable_border',1)" />
 
 <div metal:fill-slot="main" i18n:domain="osha"
-       tal:define="keywords request/keywords|string:;
+       tal:define="local_keyword python:here.getProperty('keyword');
+                   keywords request/keywords| local_keyword |string:;
                    SearchableText request/SearchableText|string:;
                    nace request/NACE|string:;
                    language request/AvailableLanguages|string:;
@@ -19,6 +20,7 @@
                    desc_length site_properties/search_results_description_length;
                    desc_ellipsis site_properties/ellipsis;
                    searchterm request/SearchableText|nothing;
+                   index python: test('index' in here.objectIds(), getattr(here,'index', None), here)
                    ">
 <style type="text/css">
 #searchfields { background-color: #F3F6FF; border: 1px solid gray !important; padding:5px 10px; clear: both; overflow: hidden; }
@@ -46,18 +48,37 @@ function resetSize(aSelect) {
 </script>
 
     <div>
-        <h1>Search the OSH Link Database</h1>
-        <div style="float:left; width: 120px;">
-          <img src="/gifs/topic/good_practice.jpg">
+
+        <div class="figure-box">
+            <div class="figure">
+                <img tal:define="keyword python:here.getProperty('keyword');
+                                 timg_path string:theme_image_${keyword}.gif;
+                                 timg python:getattr(portal, timg_path,
+                                        getattr(portal, 'dummyimage80.gif'))"
+                     tal:condition="python:timg is not None" 
+                     tal:replace="structure timg/tag" />
+            </div>
         </div>
 
-        <div style="float:left; width:70%;">
-          The European Agency for Safety and Health at Work monitors, collects and 
-          analyses scientific findings, statistical information and prevention measures 
-          applied around Europe. Here you can search through this Information. 
-        </div>
+        <h1>
+            <img tal:define="search_img python:getattr(portal, 'database_search.gif')"
+                 tal:replace="structure search_img/tag" />
+            <span tal:omit-tag="" i18n:translate="label_search_database">Search the Link Database on</span> 
+            <span tal:replace="index/Title" />
+        </h1>
 
-        <br clear="all">
+        <p i18n:translate="help_database_filter" i18n:domain="osha">
+            On this page you can search through all links related to this topic. The filter results will display directly under the filter form. If you select some filter criteria the list will get more precise. 
+        </p>
+        
+        <a tal:attributes="href here/absolute_url" class="link-parent">
+            Back to <span tal:replace="index/Title" />
+        </a>
+
+        
+
+        <div class="visualClear"></div>
+        
     
         <form tal:attributes="action template/id" method="get">
 
@@ -123,7 +144,8 @@ function resetSize(aSelect) {
                     </div>
               <div class="field" tal:define="mname string:country">
                 <tal:block define="country_list view/getCountryList">
-                    <label for="Country" >Country</label><br />
+                    <label for="Country" 
+                           i18n:translate="label_country" i18n:domain="plone">Country</label><br />
                     <select name=""
                             tal:attributes="name mname">
                         <option value=""
@@ -140,9 +162,10 @@ function resetSize(aSelect) {
                     </select>
                 </tal:block>
               </div>
-              <div class="field" tal:define="mname string:keywords">
+              <div class="field" tal:define="mname string:keywords" tal:condition="python:not local_keyword">
                 <tal:block define="subject_list view/getSubjectList">
-                    <label for="Keywords">Keywords</label><br />
+                    <label for="Keywords" 
+                        i18n:translate="label_subject" i18n:domain="plone">Keywords</label><br />
                     <select name="" 
                             tal:attributes="name mname">
                         <option value=""
@@ -158,6 +181,9 @@ function resetSize(aSelect) {
                         </tal:block>
                     </select>
                 </tal:block>
+              </div>
+              <div tal:condition="python:local_keyword">
+                 <input type="hidden" name="keywords" tal:attributes="value local_keyword" /> 
               </div>
 
               <div tal:define="mname string:NACE" class="field">
@@ -185,7 +211,7 @@ function resetSize(aSelect) {
               </div>
             </div>
 
-          <br clear="all" style="clear:both">
+        <div class="visualClear"></div>
 
 
         </div>
@@ -195,14 +221,12 @@ function resetSize(aSelect) {
         </form>
 
 
-        <br clear="all"><br>
+        <div class="visualClear"></div>
     </div>
 
 
 
-  <div tal:condition="python:keywords or SearchableText or nace or language or country">
-    <div tal:define="query python:{'portal_type': ['OSH_Link', 'OSH_DBContent'],
-                                   'review_state':'published',
+    <div tal:define="query python:{'portal_type': 'OSH_Link',
                                    'Subject':keywords,
                                    'nace':nace,
                                    'AvailableLanguages':language,
@@ -219,7 +243,10 @@ function resetSize(aSelect) {
         </h1-->
 
         <strong>
-        <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(results)">234</span> items match your criteria.</span>
+            <span i18n:translate="batch_x_items_matching_your_criteria">
+                <span i18n:name="number"     
+                      tal:content="python:len(results)">234</span> items match your criteria.
+            </span>
         </strong>
 
         <div tal:condition="not: results">
@@ -227,50 +254,65 @@ function resetSize(aSelect) {
         </div>
 
 
-
     <div tal:condition="results"
-          tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
-
-        <table border="0" >
-        <tr id="tableheader">
-          <td></td>
-          <td>Title</td>
-          <td>Last modified</td>
-        </tr>
+         tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+        
+        
+        <dl>
         <tal:results repeat="result batch">
         <tal:entry define="result_url result/getURL;
                            url string:$result_url/view?searchterm=${searchterm};
                            title result/Title|string:;
+                           item_modified result/modified;
+                           item_creator result/Creator;
                            ">
-            <tr>
-              <td>
+            <dt> 
                 <img tal:attributes="src string:${result/getIcon};
-                                     alt string:Link icon"
-                          tal:on-error="nothing" />
-              </td>
-              <td>
+                                     alt string:Link icon" />
                 <a href="#" tal:attributes="href url" >
                     <span tal:replace="title" />
                 </a>
-              </td>
-              <td>
-              <!--dd tal:define="descr result/Description">
-                     <span tal:replace="structure descr" />
-                  <br clear="all"/-->
-                  <nobr><span tal:on-error="nothing" tal:replace="python:toLocalizedTime(result['modified'])"/></nobr>
-              </td>
-             </tr>
+            </dt>
+                 
+            <dd>                              
+                <span tal:define="descr result/Description" tal:content="structure descr" />
+                  <br/>
+                <span class="documentByLine">
+                    <tal:modified>
+                        &mdash;
+                        <tal:mod i18n:translate="box_last_modified">
+                          last modified
+                        </tal:mod>
+                        <span tal:replace="python:toLocalizedTime(item_modified,long_format=1)">
+                          August 16, 2001 at 23:35:59
+                        </span>
+                    </tal:modified>                    
+                    <tal:name tal:condition="item_creator"
+                              tal:define="author python:mtool.getMemberInfo(item_creator)">
+                          <span i18n:translate="label_by_author">
+                            by
+                          <a href="#"
+                             tal:attributes="href string:${portal_url}/author/${item_creator}"
+                             tal:content="python:author and author['fullname'] or item_creator"
+                             tal:omit-tag="not:author"
+                             i18n:name="author">
+                            Bob Dobalina
+                          </a>
+                          </span>
+                    </tal:name>
+                </span>                                
+            </dd>
+            
         </tal:entry>
         </tal:results>
-        </table>
-        <br><br>
+        </dl>
+        
         <div metal:use-macro="here/batch_macros/macros/navigation" />
 
 
 
 
     </div>
-  </div>
   </div>
 
 
