@@ -63,6 +63,8 @@ def importVarious(context):
     
     importVocabularies(site)
 
+    configureCountryTool(site)
+    
 #    catalog=getToolByName(site, 'portal_catalog')
 #    index=catalog._catalog.getIndex("Language")
 #    if index.numObjects()==0:
@@ -218,3 +220,21 @@ def addProxyIndexes(self):
         cat.manage_addProduct['ProxyIndex'].manage_addProxyIndex(
             id=data['idx_id'],
             extra=extra)
+
+
+def configureCountryTool(site):
+    """ Adds the relevant countries to the countrytool """
+    ct = getToolByName(site, 'portal_countryutils')
+    
+    ct.manage_countries_reset()
+    ct.manage_countries_addCountry('UK', 'United Kingdom')
+    ct.manage_countries_addCountry('EU', 'Europa')
+    
+    ct.manage_countries_addArea('Europa')
+    ct.manage_countries_addCountryToArea('Europa', ['EU', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IS', 'IE', 'LI', 'LU', 'NO', 'SE', 'AT', 'DE','CH','MT', 'BE','CZ','HU','PL','RO','SK','HR','BG','BA','GR','SI','MK','EE','LV','LT'])
+    ct.manage_countries_sortArea('Europa')
+    
+    ct.manage_countries_addArea('International')
+    ct.manage_countries_addCountryToArea('International', ['AD', 'AE', 'AF', 'AG', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AU', 'BR', 'CA', 'CL', 'CN', 'CO', 'CR', 'CU', 'EC', 'GL', 'HK', 'IL', 'IN', 'JO', 'JP', 'KR', 'KY', 'MS', 'MX', 'MY', 'NC', 'NZ', 'PE','PH', 'PK', 'PR', 'QA', 'RU', 'SA', 'SG', 'SH', 'SN', 'TH', 'TR', 'TW', 'US', 'UY', 'UZ', 'VE', 'VN', 'YU', 'ZA', 'ZW'])
+    ct.manage_countries_sortArea('International')
+
