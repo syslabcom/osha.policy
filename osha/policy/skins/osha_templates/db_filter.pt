@@ -3,15 +3,51 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="osha">
 
-<metal:block fill-slot="top_slot"
-             tal:define="dummy python:request.set('disable_border',1)" />
+<!--metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" /-->
+
+<metal:cssslot fill-slot="css_slot"
+               tal:define="global mockup here/@@ATMockup;
+                           dummy python:mockup.preload(types=[('RiskAssessmentLink', 'RiskAssessmentLink')]);">
+  <style type="text/css" media="all" tal:condition="exists: portal/riskassessment_styles.css"
+         tal:content="string:@import url($portal_url/riskassessment_styles.css);">
+  </style>
+  <style type="text/css">
+    #searchfields { background-color: #F3F6FF; border: 1px solid gray !important; padding:5px 10px; clear: both; overflow: hidden; }
+    .column1 { float: left; width: 40%; padding-right: 10px; }
+    .column2 { float: right; width: 55%; padding-left: 10px; border-left: 1px dotted gray; }
+    .fieldSizer { width: 300px; overflow: hidden; } 
+    .columnTop { width: 100%; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dotted gray; }
+    .columnBottom { width: 100%; padding-top: 10px; margin-top: 30px; border-top: 1px dotted gray; }
+    
+    .column1 input { width: 100%; }
+    .column2 input, .column2 select { width: 300px; }
+    #resulttable {background-color: #C4DAFF; border: 1px solid gray !important;  margin:5px 0px; padding:0px; border-collapse: collapse; }
+    #resulttable td {margin:0px; padding:5px; }
+    #tableheader, #tableheader td {background-color: #F3F6FF; font-weight: bold; padding:5px}
+</style>
+</metal:cssslot>
+
+<metal:javascriptslot fill-slot="javascript_head_slot">
+  <tal:js define="js python:here.getUniqueWidgetAttr(mockup.getFields(), 'helper_js')"
+          condition="js"
+          repeat="item js">
+    <script type="text/javascript"
+            charset="iso-8859-1"
+            tal:condition="python:exists('portal/%s' % item)"
+            tal:attributes="src string:$portal_url/$item">
+    </script>
+  </tal:js>
+</metal:javascriptslot>
 
 <div metal:fill-slot="main" i18n:domain="osha"
        tal:define="local_keyword python:here.getProperty('keyword');
                    keywords request/keywords| local_keyword |string:;
                    SearchableText request/SearchableText|string:;
-                   nace request/NACE|string:;
-                   language request/AvailableLanguages|string:;
+                   nace request/nace|string:;
+                   nace python:test(nace==[''], '', nace);
+                   category request/category|string:;
+                   getTargetLanguage request/getTargetLanguage|string:;
                    country request/country|string:;
                    Batch python:modules['Products.CMFPlone'].Batch;
                    DateTime python:modules['DateTime'].DateTime;
@@ -22,221 +58,104 @@
                    searchterm request/SearchableText|nothing;
                    index python: test('index' in here.objectIds(), getattr(here,'index', None), here)
                    ">
-<style type="text/css">
-#searchfields { background-color: #F3F6FF; border: 1px solid gray !important; padding:5px 10px; clear: both; overflow: hidden; }
-.column1 { float: left; width: 40%; padding-right: 10px; }
-.column2 { float: right; width: 55%; padding-left: 10px; border-left: 1px dotted gray; }
-.fieldSizer { width: 300px; overflow: hidden; } 
-.columnTop { width: 100%; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dotted gray; }
-.columnBottom { width: 100%; padding-top: 10px; margin-top: 30px; border-top: 1px dotted gray; }
 
-.column1 input { width: 100%; }
-.column2 input, .column2 select { width: 300px; }
-#resulttable {background-color: #C4DAFF; border: 1px solid gray !important;  margin:5px 0px; padding:0px; border-collapse: collapse; }
-#resulttable td {margin:0px; padding:5px; }
-#tableheader, #tableheader td {background-color: #F3F6FF; font-weight: bold; padding:5px}
-</style>
 
-<script language="JavaScript">
-function resetSize(aSelect) {
-
-  if(aSelect) {
-    aSelect.style.width = 'auto';
-  }
-
-}
-</script>
-
-    <div>
-
-        <div class="figure-box">
-            <div class="figure">
-                <img tal:define="keyword python:here.getProperty('keyword');
-                                 timg_path string:theme_image_${keyword}.gif;
-                                 timg python:getattr(portal, timg_path,
-                                        getattr(portal, 'dummyimage80.gif'))"
-                     tal:condition="python:timg is not None" 
-                     tal:replace="structure timg/tag" />
-            </div>
+    <div class="figure-box">
+        <div class="figure">
+            <img tal:define="keyword python:here.getProperty('keyword');
+                             timg_path string:theme_image_${keyword}.gif;
+                             timg python:getattr(portal, timg_path,
+                                    getattr(portal, 'dummyimage80.gif'))"
+                 tal:condition="python:timg is not None" 
+                 tal:replace="structure timg/tag" />
         </div>
-
-        <h1>
-            <img tal:define="search_img python:getattr(portal, 'database_search.gif')"
-                 tal:replace="structure search_img/tag" />
-            <span tal:omit-tag="" i18n:translate="label_search_database">Search the Link Database on</span> 
-            <span tal:replace="index/Title" />
-        </h1>
-
-        <p i18n:translate="help_database_filter" i18n:domain="osha">
-            On this page you can search through all links related to this topic. The filter results will display directly under the filter form. If you select some filter criteria the list will get more precise. 
-        </p>
-        
-        <a tal:attributes="href here/absolute_url" class="link-parent">
-            Back to <span tal:replace="index/Title" />
-        </a>
-
-        
-
-        <div class="visualClear"></div>
-        
-    
-        <form tal:attributes="action template/id" method="get">
-
-        <h2>Search OSH Links:</h2>
-        <div id="searchfields" tal:define="view here/@@vocabulary_helper">
-
-            <div class="column1">
-                    <div class="field">
-                        <label for="SearchableText" i18n:translate="label_search_text">Search Text</label>
-        
-                        <div class="formHelp" i18n:translate="help_search_text">
-                        For a simple text search, enter your search term
-                        here. Multiple words may be found by combining
-                        them with <strong>AND</strong> and <strong>OR</strong>.
-                        The text in this field will be matched with
-                        items' contents, title and description.
-                        </div>
-        
-                        <input type="text"
-                               id="SearchableText"
-                               name="SearchableText"
-                               size="25"
-                               tabindex=""
-                               tal:attributes="value SearchableText|request/SearchableText|nothing;
-                               tabindex tabindex/next"
-                               />
-                    </div>
-                <div class="columnBottom field">
-                 <div class="formHelp">
-                    Filter your search by selecting one or more of the filters.
-                    You can always remove any filter again by selecting the empty entry.
-                 </div>
-
-                </div>
-            </div>
-            <div class="column2">
-              <div class="columnTop field">
-              <label>Filters</label>
-              </div>
-                    <div class="field" i18n:domain="osha"
-                         tal:define="search_langs here/portal_languages/getSupportedLanguages|python:[];
-                         selected_lang AvailableLanguages|request/AvailableLanguages|string:"
-                         tal:condition="search_langs">
-                        <label for="AvailableLanguages" i18n:translate="label_available_languages">Available Languages</label>
-        
-                        <div class="formHelp" i18n:translate="help_search_available_languages">
-                        Return items available in the selected languages.
-                        </div>
-        
-                        <select name="AvailableLanguages"
-                                tabindex=""
-                                id="AvailableLanguages"
-                                tal:attributes="tabindex tabindex/next">
-        
-                            <option value="" i18n:translate="label_any_language">Any language</option>
-                            <tal:langs tal:repeat="lang search_langs">
-                            <option value="#" tal:attributes="value lang;
-                                    selected python:test(lang == selected_lang, 1, 0)"
-                                    tal:content="python:here.portal_languages.getNameForLanguageCode(lang)"> language </option>
-                            </tal:langs>
-                        </select>
-        
-                    </div>
-              <div class="field" tal:define="mname string:country">
-                <tal:block define="country_list view/getCountryList">
-                    <label for="Country" 
-                           i18n:translate="label_country" i18n:domain="plone">Country</label><br />
-                    <select name=""
-                            tal:attributes="name mname">
-                        <option value=""
-                                tal:attributes="selected python:test(request.get(mname, ''),None,'selected')">
-                                Select...
-                        </option>
-                        <tal:block repeat="k country_list/keys">
-                            <option tal:condition="python:k!='--'"
-                                    tal:attributes="value k;
-                                                    selected python:test(request.get(mname, '')==k,'selected', None)"
-                                    tal:content="python: country_list.getValue(k)">
-                            </option>
-                        </tal:block>
-                    </select>
-                </tal:block>
-              </div>
-              <div class="field" tal:define="mname string:keywords" tal:condition="python:not local_keyword">
-                <tal:block define="subject_list view/getSubjectList">
-                    <label for="Keywords" 
-                        i18n:translate="label_subject" i18n:domain="plone">Keywords</label><br />
-                    <select name="" 
-                            tal:attributes="name mname">
-                        <option value=""
-                                tal:attributes="selected python:test(request.get(mname, ''),None,'selected')">
-                                Select...
-                        </option>
-                        <tal:block repeat="k subject_list/keys">
-                            <option tal:condition="python:k!='--'"
-                                    tal:attributes="value k;
-                                                    selected python:test(request.get(mname, '')==k,'selected', None)"
-                                    tal:content="python: subject_list.getValue(k)">
-                            </option>
-                        </tal:block>
-                    </select>
-                </tal:block>
-              </div>
-              <div tal:condition="python:local_keyword">
-                 <input type="hidden" name="keywords" tal:attributes="value local_keyword" /> 
-              </div>
-
-              <div tal:define="mname string:NACE" class="field">
-                <tal:block define="nace_list view/getNaceList">
-                    <label for="NACE">NACE</label><br />
-                    <div class="fieldSizer">
-                    <select name=""
-                            onfocus="resetSize(this);"
-                            tal:attributes="name mname">
-                        <option value=""
-                                tal:attributes="selected python:test(request.get(mname, ''),None,'selected')">
-                                Select...
-                        </option>
-                        <tal:block repeat="k nace_list/keys">
-                            <option tal:condition="python:k!='--'"
-                                    tal:attributes="value k;
-                                                    selected python:test(request.get(mname, '')==k,'selected', None)"
-                                    tal:content="python: nace_list.getValue(k)">
-                            </option>
-                        </tal:block>
-                    </select> 
-                    </div>
-                </tal:block>
-             
-              </div>
-            </div>
-
-        <div class="visualClear"></div>
-
-
-        </div>
-        <div class="formControls">
-          <input class="context" tabindex="3" type="submit" value="Search" />
-        </div>
-        </form>
-
-
-        <div class="visualClear"></div>
     </div>
 
+    <h1>
+        <img tal:define="search_img python:getattr(portal, 'database_search.gif')"
+             tal:replace="structure search_img/tag" />
+        <span tal:omit-tag="" i18n:translate="label_search_database">Search the Link Database on</span> 
+        <span tal:replace="index/Title" />
+    </h1>
+
+    <p i18n:translate="help_database_filter" i18n:domain="osha">
+        On this page you can search through all links related to this topic. The filter results will display directly under the filter form. If you select some filter criteria the list will get more precise. 
+    </p>
+    
+    <a tal:attributes="href here/absolute_url" class="link-parent">
+        Back to <span tal:replace="index/Title" />
+    </a>
+
+        
 
 
-    <div tal:define="query python:{'portal_type': 'OSH_Link',
-                                   'Subject':keywords,
-                                   'nace':nace,
-                                   'AvailableLanguages':language,
-                                   'country':country,
-                                   'SearchableText':SearchableText,
-                                   'sort_on': 'modified',
-                                   'sort_order':'desc'};
-                     res python:here.portal_catalog(query);
-                     results res;
-                    ">
+        
+    
+    <form tal:attributes="action template/id" method="get">
+
+
+        <div id="searchfields">
+            <h3>Detailsuche</h3>
+
+            <table border="0" cellspacing="0" cellpadding="3" widht=100%>
+                <tr>
+                    <td colspan="2">
+                        <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact"></metal:use>
+                    </td>
+                    <td>
+                        <metal:use use-macro="here/filter_macros/macros/Country_compact_index"></metal:use>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                      <span class="field" tal:define="level python:2">
+                          <metal:use use-macro="here/filter_macros/macros/NACE"></metal:use>
+                        </span>
+                    </td>
+                </tr>
+                
+            </table>
+
+
+          <br>
+          <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
+
+            <div class="formControls">
+                <input class="context"
+                       type="submit"
+                       name="submit"
+                       value="Search"
+                       i18n:domain="plone"
+                       i18n:attributes="value label_search;"
+                       />
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+     <div tal:define="query python:{'portal_type': ['OSH_Link'],
+                                       'Subject':keywords,
+                                       'nace':nace,
+                                       'getTargetLanguage':getTargetLanguage,
+                                       'category':category,
+                                       'country':country,
+                                       'SearchableText':SearchableText,
+                                       'sort_on': 'modified',
+                                       'sort_order':'desc'};
+                         res python:here.portal_catalog(query);
+                         results res;
+                        ">
         <!-- query: <span tal:replace="query" />  -->
         <!--h1>Filtered by:
             <span tal:condition="python:keywords"><span tal:replace="keywords"/></span>
@@ -310,12 +229,14 @@ function resetSize(aSelect) {
         <div metal:use-macro="here/batch_macros/macros/navigation" />
 
 
-
-
     </div>
   </div>
 
 
 </div>
+
+<metal:sub fill-slot="sub" /> 
+
+
 </html>
 

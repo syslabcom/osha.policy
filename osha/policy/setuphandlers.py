@@ -50,6 +50,7 @@ def importVarious(context):
     quickinst.installProduct('UserAndGroupSelectionWidget')
     quickinst.installProduct('simplon.plone.ldap')
     quickinst.installProduct('plone.app.blob')
+    quickinst.installProduct('syslabcom.filter')
 
     quickinst.installProduct('osha.theme')
 
@@ -119,11 +120,11 @@ def addExtraIndexes(self):
     cat = getToolByName(self, 'portal_catalog')
     available = cat.indexes()
     
-    # AvailableLanguages
-    idx_id = "AvailableLanguages"
-    if idx_id not in available:
-        logger.info('Adding KeywordIndex %s' %idx_id)
-        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id)
+#    # AvailableLanguages
+#    idx_id = "AvailableLanguages"
+#    if idx_id not in available:
+#        logger.info('Adding KeywordIndex %s' %idx_id)
+#        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id)
 
     # getExternal_url
     idx_id = "getExternal_url"
@@ -140,6 +141,14 @@ def addExtraIndexes(self):
             id = idx_id
           , extra = extra
           )
+
+    if 'getTargetLanguage' not in available:
+        logger.info('Adding KeywordIndex getTarget_language')
+        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getTargetLanguage', extra={'indexed_attrs': 'getTargetLanguage'})
+
+    if 'getCountry' not in available:
+        logger.info('Adding KeywordIndex Country')
+        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getCountry', extra={'indexed_attrs': 'getCountry'})   
 
 
 def addProxyIndexes(self):

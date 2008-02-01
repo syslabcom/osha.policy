@@ -13,6 +13,8 @@ class IOSHContent(zope.interface.Interface):
 
 from Products.Archetypes.utils import DisplayList
 
+from Products.ATCountryWidget.Widget import CountryWidget, MultiCountryWidget
+
 from Products.ATContentTypes.content import document
 from Products.OSHContentLink.OSH_Link import OSH_Link
 from Products.ATContentTypes.content.newsitem import ATNewsItem
@@ -79,10 +81,10 @@ class MTSubjectField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
         return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
 
-class HTMLKeywordsField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
-    
-    def Vocabulary(self, content_instance):
-        return self._Vocabulary(content_instance, 'html_meta_keywords')
+#class HTMLKeywordsField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
+#    
+#    def Vocabulary(self, content_instance):
+#        return self._Vocabulary(content_instance, 'html_meta_keywords')
 
 
 import zope.component
@@ -109,8 +111,8 @@ class TaggingSchemaExtender(object):
                     label="NACE Code",
                     description="Set the Nace tag",
                     vocabulary="NACE",
-                    label_msgid='label_category',
-                    description_msgid='help_category',
+                    label_msgid='label_nace',
+                    description_msgid='help_nace',
                     i18n_domain='plone',
                 ),
                 translation_mutator="translationMutator",
@@ -124,8 +126,8 @@ class TaggingSchemaExtender(object):
                     label="Site Position", 
                     description="Select a Site Position where this item belongs to.",
                     vocabulary="Category",
-                    label_msgid='label_siteposition',
-                    description_msgid='help_siteposition',
+                    label_msgid='label_category',
+                    description_msgid='help_category',
                     i18n_domain='plone',
                     ),
                 translation_mutator="translationMutator",
@@ -135,26 +137,35 @@ class TaggingSchemaExtender(object):
                 enforceVocabulary=True,
                 languageIndependent=True,
                 multiValued=True,
-                widget=VocabularyPickerWidget(
-                    label='Country',
+                widget=MultiCountryWidget(
+                    label="Countries",
                     description='Select one or more countries appropriate for this content',
-                    vocabulary="Country",
-                    label_msgid='label_category',
-                    description_msgid='help_category',
-                    i18n_domain='plone',
-                ),
+                    description_msgid='help_country',
+                    provideNullValue=1,
+                    nullValueTitle="Select...",
+                    label_msgid='label_country',
+                    i18n_domain='osha',
+                ),                
+#                widget=VocabularyPickerWidget(
+#                    label='Country',
+#                    description='Select one or more countries appropriate for this content',
+#                    vocabulary="Country",
+#                    label_msgid='label_country',
+#                    description_msgid='help_category',
+#                    i18n_domain='plone',
+#                ),
                 translation_mutator="translationMutator",
             ),
-            HTMLKeywordsField('html_meta_keywords',
-                schemata='categorization',
-                enforceVocabulary=True,
-                languageIndependent=True,
-                widget=atapi.MultiSelectionWidget(
-                    label='HMTL meta keywords',
-                    description='Select one or more keywords. They will appear in the HTML header of this object'
-                ),
-                translation_mutator="translationMutator",
-            ),
+#            HTMLKeywordsField('html_meta_keywords',
+#                schemata='categorization',
+#                enforceVocabulary=True,
+#                languageIndependent=True,
+#                widget=atapi.MultiSelectionWidget(
+#                    label='HMTL meta keywords',
+#                    description='Select one or more keywords. They will appear in the HTML header of this object'
+#                ),
+#                translation_mutator="translationMutator",
+#            ),
             MTSubjectField('multilingual_thesaurus',
                 schemata='categorization',
                 enforceVocabulary=False,
@@ -165,7 +176,7 @@ class TaggingSchemaExtender(object):
                     description='Select one or more entries',
                     vocabulary="MultilingualThesaurus",
                     label_msgid='label_category',
-                    description_msgid='help_category',
+                    description_msgid='help_multilingual_thesaurus',
                     i18n_domain='plone',
                 ),
                 translation_mutator="translationMutator",
@@ -183,11 +194,11 @@ class TaggingSchemaExtender(object):
         categorization = original['categorization']
         #idx = categorization.index('relatedItems')
         categorization.remove('nace')
-        categorization.remove('html_meta_keywords')
+        #categorization.remove('html_meta_keywords')
         categorization.remove('country')
         categorization.remove('multilingual_thesaurus')
         categorization.remove('category')
-        categorization.insert(0, 'html_meta_keywords')
+        #categorization.insert(0, 'html_meta_keywords')
         categorization.insert(0, 'nace')
         categorization.insert(0, 'country')
         categorization.insert(0, 'multilingual_thesaurus')
