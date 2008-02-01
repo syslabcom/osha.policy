@@ -86,33 +86,32 @@
         Back to <span tal:replace="index/Title" />
     </a>
 
-        
-
-
-        
-    
+            
     <form tal:attributes="action template/id" method="get">
 
-
         <div id="searchfields">
-            <h3>Detailsuche</h3>
-
-            <table border="0" cellspacing="0" cellpadding="3" widht=100%>
+            <table border="0" cellspacing="0" cellpadding="3" widht="100%">
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                         <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact"></metal:use>
+                        <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact">
+                        </metal:use>
                     </td>
                     <td>
-                        <metal:use use-macro="here/filter_macros/macros/Country_compact_index"></metal:use>
+                        <metal:use use-macro="here/filter_macros/macros/Country_compact_index">
+                        </metal:use>
+                    </td>
+                    <td>
+                        <metal:use use-macro="here/filter_macros/macros/Subcategory">
+                        </metal:use>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                       <span class="field" tal:define="level python:2">
                           <metal:use use-macro="here/filter_macros/macros/NACE"></metal:use>
                         </span>

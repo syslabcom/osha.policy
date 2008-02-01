@@ -62,10 +62,10 @@ class NACEField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
         return self._Vocabulary(content_instance, 'NACE')
 
 
-class CategoryField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
+class SubcategoryField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
     
     def Vocabulary(self, content_instance):
-        return self._Vocabulary(content_instance, 'Category')
+        return self._Vocabulary(content_instance, 'Subcategory')
 
 
 class CountryField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
@@ -117,24 +117,24 @@ class TaggingSchemaExtender(object):
                 ),
                 translation_mutator="translationMutator",
             ),
-            CategoryField('category',
+            SubcategoryField('subcategory',
                 schemata='categorization',
                 enforceVocabulary=True,
                 languageIndependent=True,
                 multiValued=True,
                 widget=VocabularyPickerWidget(
-                    label="Site Position", 
-                    description="Select a Site Position where this item belongs to.",
-                    vocabulary="Category",
-                    label_msgid='label_category',
-                    description_msgid='help_category',
+                    label="Subcategory (Site position)", 
+                    description="Select a Subcategory where this item belongs to.",
+                    vocabulary="Subcategory",
+                    label_msgid='label_subcategory',
+                    description_msgid='help_subcategory',
                     i18n_domain='plone',
                     ),
                 translation_mutator="translationMutator",
             ),
             CountryField('country',
                 schemata='categorization',
-                enforceVocabulary=True,
+                enforceVocabulary=False,
                 languageIndependent=True,
                 multiValued=True,
                 widget=MultiCountryWidget(
@@ -197,12 +197,12 @@ class TaggingSchemaExtender(object):
         #categorization.remove('html_meta_keywords')
         categorization.remove('country')
         categorization.remove('multilingual_thesaurus')
-        categorization.remove('category')
+        categorization.remove('subcategory')
         #categorization.insert(0, 'html_meta_keywords')
         categorization.insert(0, 'nace')
         categorization.insert(0, 'country')
         categorization.insert(0, 'multilingual_thesaurus')
-        categorization.insert(0, 'category')
+        categorization.insert(0, 'subcategory')
 
 
         return original
