@@ -191,16 +191,16 @@ def addProxyIndexes(self):
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
-          , { 'idx_id' : 'category'
-            , 'meta_id' : 'category'
+          , { 'idx_id' : 'subcategory'
+            , 'meta_id' : 'subcategory'
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
-          , { 'idx_id' : 'html_meta_keywords'
-            , 'meta_id' : 'html_meta_keywords'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
-            }
+#          , { 'idx_id' : 'html_meta_keywords'
+#            , 'meta_id' : 'html_meta_keywords'
+#            , 'extra' : dict(idx_type = "KeywordIndex",
+#                )
+#            }
         ]
     
     VALUE_EXPR = "python:object.getField('%(meta_id)s').getAccessor(object)()"
