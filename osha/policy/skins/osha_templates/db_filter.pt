@@ -43,6 +43,7 @@
 <div metal:fill-slot="main" i18n:domain="osha"
        tal:define="local_keyword python:here.getProperty('keyword');
                    keywords request/keywords| local_keyword |string:;
+                   subcategory request/subcategory | string:;
                    SearchableText request/SearchableText|string:;
                    nace request/nace|string:;
                    nace python:test(nace==[''], '', nace);
@@ -105,9 +106,16 @@
                         <metal:use use-macro="here/filter_macros/macros/Country_compact_index">
                         </metal:use>
                     </td>
-                    <td>
-                        <metal:use use-macro="here/filter_macros/macros/Subcategory">
+                    <td tal:define="root_node   local_keyword | string:;
+                                    vocabulary  string:Subcategory;
+                                    value       subcategory;
+                                    fieldName   string:subcategory;">
+                        <span class="field">
+                        <label i18n:translate="label_subcategory" >Subcategory</label><br>
+
+                        <metal:use use-macro="here/filter_macros/macros/ATVocabularyDropdown">
                         </metal:use>
+                        </span>
                     </td>
                 </tr>
                 <tr>
@@ -147,7 +155,7 @@
                                        'Subject':keywords,
                                        'nace':nace,
                                        'getTargetLanguage':getTargetLanguage,
-                                       'category':category,
+                                       'subcategory':subcategory,
                                        'country':country,
                                        'SearchableText':SearchableText,
                                        'sort_on': 'modified',
@@ -155,7 +163,7 @@
                          res python:here.portal_catalog(query);
                          results res;
                         ">
-        <!-- query: <span tal:replace="query" />  -->
+         <!--query: <span tal:replace="query" />-->  
         <!--h1>Filtered by:
             <span tal:condition="python:keywords"><span tal:replace="keywords"/></span>
         </h1-->
