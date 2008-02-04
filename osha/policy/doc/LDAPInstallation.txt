@@ -3,11 +3,21 @@ LDAP Installation Notes
 
 1. Follow the PAS Installations instructions in the PloneLDAP Readme.txt file
 
+  - Add a Plone LDAP Plugin
+
+  - Configure the connection using  cn=root,dc=osha,dc=europa,dc=eu and set the password
+
+  - Activate the plugin. Click on it and select all plugin type checkboxes. Click update
+
+  - Reorder the plugin order for Properties, Group:management, User_Adder and User_Management
+
+1.5 Add uid to the mapped attributes
+
 2. Set Login Name Attribute to mail
 
-3. Set User ID Attribute to mail
+3. Set User ID Attribute to uid
 
-4. Set RDN Attribute to mail
+4. Set RDN Attribute to uid
 
 5. Set Users Base DN to o=3G,dc=osha,dc=europa,dc=eu and SUBTREE
 
