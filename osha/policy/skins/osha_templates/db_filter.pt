@@ -125,22 +125,34 @@
                     </td>
                 </tr>
                 
-            </table>
 
 
-          <br>
-          <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
 
-            <div class="formControls">
-                <input class="context"
+          <tr>
+            <td colspan="3">
+                <div class="visualClear" id="clear-space-before-submit"></div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+                <div class="formControls">
+                    <input class="context"
                        type="submit"
                        name="submit"
                        value="Search"
                        i18n:domain="plone"
                        i18n:attributes="value label_search;"
                        />
-            </div>
-
+                </div>
+            </td>
+            <td align="right">
+                <div class="formControls">
+                    <input  class="context" type="reset" value="Reset" 
+                    tal:attributes="onclick string:window.location='${here/absolute_url}/${template/getId}'" />
+                </div>
+              </td>
+            </tr>
+         </table>
         </div>
 
 
