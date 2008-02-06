@@ -41,7 +41,7 @@
 </metal:javascriptslot>
 
 <div metal:fill-slot="main" i18n:domain="osha"
-       tal:define="local_keyword python:here.getProperty('keyword');
+       tal:define="local_keyword python:here.getProperty('keyword', '');
                    keywords request/keywords| local_keyword |string:;
                    subcategory request/subcategory | string:;
                    SearchableText request/SearchableText|string:;
@@ -49,7 +49,7 @@
                    nace python:test(nace==[''], '', nace);
                    category request/category|string:;
                    getTargetLanguage request/getTargetLanguage|string:;
-                   country request/country|string:;
+                   getCountry request/getCountry|string:;
                    Batch python:modules['Products.CMFPlone'].Batch;
                    DateTime python:modules['DateTime'].DateTime;
                    b_size python:10;b_start python:0;
@@ -59,7 +59,6 @@
                    searchterm request/SearchableText|nothing;
                    index python: test('index' in here.objectIds(), getattr(here,'index', None), here)
                    ">
-
 
     <div class="figure-box">
         <div class="figure">
@@ -156,14 +155,14 @@
                                        'nace':nace,
                                        'getTargetLanguage':getTargetLanguage,
                                        'subcategory':subcategory,
-                                       'country':country,
+                                       'getCountry':getCountry,
                                        'SearchableText':SearchableText,
                                        'sort_on': 'modified',
                                        'sort_order':'desc'};
                          res python:here.portal_catalog(query);
                          results res;
                         ">
-         <!--query: <span tal:replace="query" />-->  
+      <!--  query: <span tal:replace="query" /> -->
         <!--h1>Filtered by:
             <span tal:condition="python:keywords"><span tal:replace="keywords"/></span>
         </h1-->
