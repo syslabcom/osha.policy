@@ -38,7 +38,7 @@
        tal:define="keywords request/keywords|string:;
                    SearchableText request/SearchableText|string:;
                    nace request/NACE|string:;
-                   category request/category|string:;
+                   subcategory request/subcategory|string:;
                    language request/Language|string:;
                    country request/country|string:;
                    review_state request/review_state|string:;
