@@ -148,9 +148,9 @@ def addExtraIndexes(self):
         logger.info('Adding KeywordIndex getTarget_language')
         cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getTargetLanguage', extra={'indexed_attrs': 'getTargetLanguage'})
 
-    if 'getCountry' not in available:
-        logger.info('Adding KeywordIndex Country')
-        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getCountry', extra={'indexed_attrs': 'getCountry'})   
+#    if 'getCountry' not in available:
+#        logger.info('Adding KeywordIndex Country')
+#        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getCountry', extra={'indexed_attrs': 'getCountry'})   
 
 
 def addProxyIndexes(self):
@@ -198,11 +198,11 @@ def addProxyIndexes(self):
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
-#          , { 'idx_id' : 'html_meta_keywords'
-#            , 'meta_id' : 'html_meta_keywords'
-#            , 'extra' : dict(idx_type = "KeywordIndex",
-#                )
-#            }
+          , { 'idx_id' : 'getCountry'
+            , 'meta_id' : 'country'
+            , 'extra' : dict(idx_type = "KeywordIndex",
+                )
+            }
         ]
     
     VALUE_EXPR = "python:object.getField('%(meta_id)s').getAccessor(object)()"
