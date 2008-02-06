@@ -52,7 +52,6 @@
                    desc_ellipsis site_properties/ellipsis;
                    searchterm request/SearchableText|nothing;
                    ">
-
 <style type="text/css">
     #searchfields { background-color: #F3F6FF; border: 1px solid gray !important; padding:5px 10px; clear: both; overflow: hidden; }
     .column1 { float: left; width: 40%; padding-right: 10px; }
@@ -76,41 +75,58 @@
     <form tal:attributes="action template/id" method="get">
 
       <div id="searchfields" tal:define="view here/@@vocabulary_helper">
-            
-        <span tal:define="size python:35"
-            style="float:left">
-            <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
-        </span>
-            
-        <span style="float:left">
-            <metal:use use-macro="here/filter_macros/macros/ReviewState_compact"></metal:use>
-        </span>
+        <table border="0" cellpadding="2" cellspacing="2">
 
-        <span>
-            <metal:use use-macro="here/filter_macros/macros/Author_compact"></metal:use>
-        </span>
-
-        <br style="clear:both" />
-
-        <span tal:define="size python:35"
-            style="float:left">
-            <metal:use use-macro="here/filter_macros/macros/ExternalUrl_compact"></metal:use>
-        </span>
-        
-        <span>
-            <metal:use use-macro="here/filter_macros/macros/Keyword"></metal:use>
-        </span>
-
-
-            
-            
-        <br clear="all" style="clear:both">
-
+        <tr>
+            <td>
+                <span tal:define="size python:6;
+                    wfname string:osh_workflow">
+                    <metal:use use-macro="here/filter_macros/macros/ReviewState_compact"></metal:use>
+                </span>
+            </td>
+            <td valign="top">
+                <span>
+                    <metal:use use-macro="here/filter_macros/macros/Author_compact"></metal:use>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span tal:define="size python:45">
+                    <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
+                </span>
+            </td>
+            <td>
+                <span tal:define="size python:45">
+                    <metal:use use-macro="here/filter_macros/macros/ExternalUrl_compact"></metal:use>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span>
+                    <metal:use use-macro="here/filter_macros/macros/Subcategory"></metal:use>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="formControls">
+                  <input class="context" type="submit" value="Search" />
+                </div>
+            </td>
+            <td align="right">
+                <div class="formControls">
+                    <input  class="context" type="reset" value="Reset" 
+                    tal:attributes="onclick string:window.location='${here/absolute_url}/${template/getId}'" />
+                </div>
+            </td>
+        </tr>
+       </table>
       </div>
 
-        <div class="formControls">
-          <input class="context" type="submit" value="Search" />
-        </div>
+        
+        
     </form>
     <br clear="all"><br>
     
@@ -144,13 +160,15 @@
         <tr id="tableheader">
           <td></td>
           <td>Title</td>
-          <td>Last modified</td>
+          
+          <td>Last modified / Creator</td>
           <td>Review State</td>
         </tr>
         <tal:results repeat="result batch">
             <tal:entry define="result_url result/getURL;
                                url string:$result_url/view?searchterm=${searchterm};
                                title result/Title|string:;
+                               title python:test(title.strip()!='', title, result.getId);
                                ">
                 <tr>
                   <td>
@@ -160,14 +178,20 @@
                   </td>
                   <td>
                     <a href="#" tal:attributes="href url" >
-                        <span tal:replace="title" />
+                        <span tal:replace="python:title" /><br />
+                       <nobr>[ <a href="" tal:attributes="href string:$result_url/edit">Edit</a>
+                    | <a href="" tal:attributes="href string:$result_url/content_status_history">Modify workflow</a> ]</nobr>
                     </a>
                   </td>
                   <td>
-                      <nobr><span tal:on-error="nothing" tal:replace="python:toLocalizedTime(result['modified'])"/></nobr>
+                      <nobr><span tal:on-error="nothing" tal:replace="python:toLocalizedTime(result['modified'])"/></nobr><br />
+                      <span tal:define="item_creator result/Creator;
+                            author python:mtool.getMemberInfo(item_creator)" 
+                            tal:replace="python:author and author['fullname'] or item_creator"/>
                   </td>
                   <td>
-                    <span tal:replace="result/review_state" />
+                    <span tal:define="state result/review_state" tal:attributes="class string:state-$state"
+                        tal:content="state"/>
                   </td>
                  </tr>
             </tal:entry>
