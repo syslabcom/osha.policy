@@ -133,6 +133,7 @@
   <div tal:condition="python:SearchableText or review_state or Creator or ExternalUrl or subcategory">
     <div tal:define="subcategory python:[x for x in subcategory if x];
                      subcategory python:test(len(subcategory), subcategory, '');
+                     ExternalUrl python:ExternalUrl.replace('+', '\+');
                     query python:{'portal_type': ['OSH_Link'],
                                    'review_state':review_state,
                                    'subcategory':subcategory,
@@ -144,6 +145,7 @@
                      res python:here.portal_catalog(query);
                      results res;
                     ">
+            <!-- query: <span tal:replace="query" /> -->
         <strong>
             <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(results)">234</span> items match your criteria.</span>
         </strong>
