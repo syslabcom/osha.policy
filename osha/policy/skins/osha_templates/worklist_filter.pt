@@ -39,7 +39,7 @@
                    SearchableText request/SearchableText|string:;
                    nace request/NACE|string:;
                    subcategory request/subcategory|string:;
-                   language request/Language|string:;
+                   getTargetLanguage request/getTargetLanguage|string:;
                    country request/country|string:;
                    review_state request/review_state|string:;
                    Creator request/Creator|string:;
@@ -103,10 +103,14 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td>
                 <span>
                     <metal:use use-macro="here/filter_macros/macros/Subcategory"></metal:use>
                 </span>
+            </td>
+            <td>
+                <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact">
+                </metal:use>
             </td>
         </tr>
         <tr>
@@ -130,7 +134,8 @@
     </form>
     <br clear="all"><br>
     
-  <div tal:condition="python:SearchableText or review_state or Creator or ExternalUrl or subcategory">
+  <div tal:condition="python:SearchableText or review_state or Creator or ExternalUrl 
+        or subcategory or getTargetLanguage">
     <div tal:define="subcategory python:[x for x in subcategory if x];
                      subcategory python:test(len(subcategory), subcategory, '');
                      ExternalUrl python:ExternalUrl.replace('+', '\+');
@@ -140,6 +145,7 @@
                                    'getExternal_url': ExternalUrl,
                                    'Creator': Creator,
                                    'SearchableText':SearchableText,
+                                   'getTargetLanguage': getTargetLanguage,
                                    'sort_on': 'modified',
                                    'sort_order':'desc'};
                      res python:here.portal_catalog(query);
