@@ -20,7 +20,7 @@
 
 <div style="float:left; padding-right:10px;">
     <img border=0 
-         tal:attributes="src string:${context/portal_url}/good_practice.jpg" 
+         tal:attributes="src string:${context/portal_url}/images/good_practice.jpg" 
          alt="Good Practice Logo" 
          style="padding-right:10px;" />
 </div>
