@@ -1,0 +1,216 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+<div metal:fill-slot="main">
+<metal:main_macro define-macro="main">
+    <metal:body define-macro="body_macro"
+                tal:define="kssClassesView context/@@kss_field_decorator_view;
+                            getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
+                            templateId template/getId">
+
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading"> 
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription">
+            <metal:field use-macro="python:here.widget('description', mode='view')">
+            Description
+            </metal:field>
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <metal:listingmacro define-macro="listing">
+        <tal:topiccontents define="topicContents python:here.queryCatalog(batch=True);
+                                   batch topicContents;">
+
+            <tal:listing condition="topicContents">
+            <a style='text-align: right' href="#"
+               tal:condition="nocall: here/asPDF|nothing"
+               tal:attributes="href string:${here_url}/asPDF/atct_topic_pdf_template/atct_topic_pdf"
+               i18n:translate="label_download_as_pdf"
+               i18n:domain="atcontenttypes">
+                Download PDF
+            </a>
+            
+            <div metal:define-macro="text-field-view"
+                 id="parent-fieldname-text" class="stx"
+                 tal:define="kss_class python:getKssClasses('text',
+                             templateId=templateId, macro='text-field-view');
+                             text here/getText|nothing"
+                 tal:condition="text"
+                 tal:attributes="class python:test(here.Format() in ('text/structured',
+                                                       'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
+                <div metal:define-slot="inside" tal:replace="structure text">The body</div>
+            </div>
+
+            <tal:custom define="vocab python:here.listMetaDataFields(False)">
+                <table class="listing"
+                       summary="Content listing"
+                       cellpadding="0" cellspacing="0" width="100%"
+                       i18n:attributes="summary summary_content_listing;">
+                     <thead>
+                        <!--tr>
+                            <th tal:repeat="field here/getCustomViewFields"
+                                tal:content="python:vocab.getValue(field, field)"
+                                i18n:translate=""/>
+                        </tr-->
+                     </thead>
+                     <tbody>
+                        <tal:brain tal:repeat="obj topicContents">
+                        <tr tal:define="oddrow repeat/obj/odd;"
+                            tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                            <tal:fields repeat="field here/getCustomViewFields"
+                                        define="url obj/getURL;
+                                                obj_type obj/portal_type;
+                                                obj_creator obj/Creator;
+                                                obj_modified obj/modified;
+                                                obj_description obj/Description;
+                                                obj_typeinfo python: here.portal_types.getTypeInfo(obj_type);
+                                                icon python:portal_url+'/'+ obj_typeinfo.getIcon();
+                                                obj_wf_state obj/review_state|python: wtool.getInfoFor(obj, 'review_state', '');
+                                                obj_wf_state_class python:'state-' + normalizeString(obj_wf_state);
+                                                title_or_id obj/pretty_title_or_id;
+                                                show_about python:not isAnon or site_properties.allowAnonymousViewAbout">
+                            <tal:block define="value python: getattr(obj, field, None)">
+                                <td tal:condition="python: field != 'Title'"
+                                    tal:content="python:here.formatCatalogMetadata(value)"
+                                    i18n:translate=""/>
+                                <td tal:condition="python: field == 'Title'">
+                                    
+                                   
+                                    
+                                    <!--a href="#" tal:attributes="href url">
+                                        <img src="#"
+                                             height="16"
+                                             width="16"
+                                             tal:attributes="src icon;
+                                                             alt obj/Type|obj_type"/>
+                                    </a-->
+                                    
+                                    <h2>
+
+                                    <a href="#" tal:attributes="href url;
+                                                                class obj_wf_state_class"
+                                                tal:content="title_or_id" />
+                                    </h2>
+                                       
+                                    <div class="newsImageContainer" style="width: 100px;"
+                                         tal:condition="python: obj.portal_type in ['News Item']">
+                                        <a href="#"
+                                           tal:attributes="href string:$url/image/image_view_fullscreen"
+                                           id="parent-fieldname-image">
+                                           <img tal:attributes="src string:${url}/image_mini; 
+                                                                alt title_or_id" css_class='newsImage' src="" alt="" />
+                                        </a>
+                                        <!--p class="discreet">
+                                          <metal:field use-macro="python:here.widget('imageCaption', mode='view')">
+                                          Image Caption
+                                          </metal:field>
+                                        </p-->
+                                    </div>                                     
+                                    
+                                    
+                                    <span tal:omit-tag="" tal:condition="not:obj_description"> 
+                                        &nbsp; 
+                                    </span> 
+                                    <span class="description" tal:content="obj_description">
+                                        description 
+                                    </span> 
+                                    
+                                    <br />
+                                    
+                                    <span class="documentByLine">
+            
+                                        <tal:byline condition="show_about">
+                                            &mdash;
+            
+                                            <tal:name tal:condition="obj_creator"
+                                                tal:define="author python:mtool.getMemberInfo(obj_creator)">
+                                              <span i18n:translate="label_by_author">
+                                                by
+                                              <a href="#"
+                                                 tal:attributes="href string:${portal_url}/author/${obj_creator}"
+                                                 tal:content="python:author and author['fullname'] or obj_creator"
+                                                 tal:omit-tag="not:author"
+                                                 i18n:name="author">
+                                                Bob Dobalina
+                                              </a>
+                                              </span>
+            
+                                            </tal:name>
+            
+                                            &mdash;
+                                            <tal:mod i18n:translate="box_last_modified">
+                                              last modified
+                                            </tal:mod>
+                                            <span tal:replace="python:toLocalizedTime(obj_modified,long_format=1)">
+                                              August 16, 2001 at 23:35:59
+                                            </span>
+            
+                                        </tal:byline>
+                                    </span>                                   
+                                       
+                                </td>
+                            </tal:block>
+                            </tal:fields>
+                        </tr>
+                        </tal:brain>
+                     </tbody>
+                </table>
+            </tal:custom>
+
+            </tal:listing>
+
+            <p class="discreet"
+               tal:condition="python: not topicContents and here.listCriteria()"
+               i18n:domain="atcontenttypes"
+               i18n:translate="description_no_items_in_topic">
+                There are currently no results for this search.
+            </p>
+
+            <p class="discreet"
+               tal:condition="not: here/listCriteria"
+               i18n:domain="atcontenttypes"
+               i18n:translate="description_no_criteria_in_topic">
+                There are currently no criteria on which to search.
+                Please add them using the 'criteria' tab.
+            </p>
+
+            <!-- Navigation -->
+            <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+        </tal:topiccontents>
+        </metal:listingmacro>
+    </metal:body>
+
+    <metal:body define-macro="folderlisting_macro">
+        <tal:subtopics condition="here/hasSubtopics|nothing"
+                       define="folderContents here/getFolderContents">
+            <h2 i18n:domain="atcontenttypes"
+                i18n:translate="heading_contained_collections">
+                Contained Collections:
+            </h2>
+            <metal:list metal:use-macro="here/base/macros/folderlisting"/>
+        </tal:subtopics>
+    </metal:body>
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+
+</metal:main_macro>
+
+</div>
+
+</body>
+</html>
