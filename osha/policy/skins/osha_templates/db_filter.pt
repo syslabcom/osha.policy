@@ -74,13 +74,25 @@
     <h1>
         <img tal:define="search_img python:getattr(portal, 'database_search.gif')"
              tal:replace="structure search_img/tag" />
-        <span tal:omit-tag="" i18n:translate="label_search_database">Search the Link Database on</span> 
-        <span tal:replace="index/Title" />
+        <span tal:condition="local_keyword">
+            <span tal:omit-tag="" i18n:translate="label_search_database_on">Search the Link Database on</span> 
+            <span tal:replace="index/Title" />
+        </span>
+        <span tal:condition="not:local_keyword">
+            <span tal:omit-tag="" i18n:translate="label_search_database">Search the Link Database</span>
+        </span>
     </h1>
 
-    <p i18n:translate="help_database_filter" i18n:domain="osha">
-        On this page you can search through all links related to this topic. The filter results will display directly under the filter form. If you select some filter criteria the list will get more precise. 
-    </p>
+    <span tal:condition="local_keyword">
+        <p i18n:translate="help_database_filter_topic" i18n:domain="osha">
+            On this page you can search through all links related to this topic. The filter results will display directly under the filter form. If you select some filter criteria the list will get more precise. 
+        </p>
+    </span>
+    <span tal:condition="not:local_keyword">
+        <p i18n:translate="help_database_filter" i18n:domain="osha">
+            On this page you can search through all links available in the site. The filter results will display directly under the filter form. If you select some filter criteria the list will get more precise. 
+        </p>
+    </span>
     
     <a tal:attributes="href here/absolute_url" class="link-parent">
         Back to <span tal:replace="index/Title" />
@@ -119,7 +131,9 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                      <span class="field" tal:define="level python:2">
+                      <span class="field" 
+                            tal:define="level python:2;
+                                        portal_type string:OSH_Link">
                           <metal:use use-macro="here/filter_macros/macros/NACE"></metal:use>
                         </span>
                     </td>
