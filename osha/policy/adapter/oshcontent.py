@@ -109,7 +109,7 @@ class TaggingSchemaExtender(object):
                 multiValued=True,
                 widget=VocabularyPickerWidget(
                     label="NACE Code",
-                    description="Set the Nace tag",
+                    description="Pick one or more values by clicking the Add button or using the Quicksearch field below.",
                     vocabulary="NACE",
                     label_msgid='label_nace',
                     description_msgid='help_nace',
@@ -124,7 +124,7 @@ class TaggingSchemaExtender(object):
                 multiValued=True,
                 widget=VocabularyPickerWidget(
                     label="Subcategory (Site position)", 
-                    description="Select a Subcategory where this item belongs to.",
+                    description="Select a Subcategory by clicking the Add button or by using the Quicksearch field below.",
                     vocabulary="Subcategory",
                     label_msgid='label_subcategory',
                     description_msgid='help_subcategory',
