@@ -78,7 +78,7 @@
         <table border="0" cellpadding="2" cellspacing="2">
 
         <tr>
-            <td>
+            <td rowspan="2">
                 <span tal:define="size python:6;
                     wfname string:osh_workflow">
                     <metal:use use-macro="here/filter_macros/macros/ReviewState_compact"></metal:use>
@@ -87,6 +87,13 @@
             <td valign="top">
                 <span>
                     <metal:use use-macro="here/filter_macros/macros/Author_compact"></metal:use>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span tal:define="portal_type string:OSH_Link">
+                    <metal:use use-macro="here/filter_macros/macros/Country_compact"></metal:use>
                 </span>
             </td>
         </tr>
@@ -135,7 +142,7 @@
     <br clear="all"><br>
     
   <div tal:condition="python:SearchableText or review_state or Creator or ExternalUrl 
-        or subcategory or getTargetLanguage">
+        or subcategory or getTargetLanguage or country">
     <div tal:define="subcategory python:[x for x in subcategory if x];
                      subcategory python:test(len(subcategory), subcategory, '');
                      ExternalUrl python:ExternalUrl.replace('+', '\+');
@@ -145,6 +152,7 @@
                                    'getExternal_url': ExternalUrl,
                                    'Creator': Creator,
                                    'SearchableText':SearchableText,
+                                   'country' : country,
                                    'getTargetLanguage': getTargetLanguage,
                                    'sort_on': 'modified',
                                    'sort_order':'desc'};
