@@ -215,12 +215,13 @@
                            url string:$result_url/view?searchterm=${searchterm};
                            title result/Title|string:;
                            item_modified result/modified;
+                           item_pubdate result/effective;
                            item_creator result/Creator;
                            ">
-            <dt> 
-                <img tal:attributes="src string:${result/getIcon};
-                                     alt string:Link icon" />
+            <dt>
                 <a href="#" tal:attributes="href url" >
+                    <img tal:attributes="src string:${result/getIcon};
+                                     alt string:Link icon" />
                     <span tal:replace="title" />
                 </a>
             </dt>
@@ -231,14 +232,15 @@
                 <span class="documentByLine">
                     <tal:modified>
                         &mdash;
-                        <tal:mod i18n:translate="box_last_modified">
-                          last modified
+                        <tal:mod i18n:translate="box_item_published">
+                          publication date
                         </tal:mod>
-                        <span tal:replace="python:toLocalizedTime(item_modified,long_format=1)">
+                        <span tal:replace="python:toLocalizedTime(item_pubdate, long_format=0)"
+                            tal:on-error="python:toLocalizedTime('2000/01/01', long_format=0)">
                           August 16, 2001 at 23:35:59
                         </span>
                     </tal:modified>                    
-                    <tal:name tal:condition="item_creator"
+                    <!--tal:name tal:condition="item_creator"
                               tal:define="author python:mtool.getMemberInfo(item_creator)">
                           <span i18n:translate="label_by_author">
                             by
@@ -250,8 +252,8 @@
                             Bob Dobalina
                           </a>
                           </span>
-                    </tal:name>
-                </span>                                
+                    </tal:name-->
+                </span>
             </dd>
             
         </tal:entry>
