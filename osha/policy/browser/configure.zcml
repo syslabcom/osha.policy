@@ -88,6 +88,8 @@
       permission="zope.Public"
       />
 
+
+
   <browser:page
       for="*"
       name="captcha_helper"

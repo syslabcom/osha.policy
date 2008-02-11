@@ -88,17 +88,7 @@
                                     tal:content="python:here.formatCatalogMetadata(value)"
                                     i18n:translate=""/>
                                 <td tal:condition="python: field == 'Title'">
-                                    
-                                   
-                                    
-                                    <!--a href="#" tal:attributes="href url">
-                                        <img src="#"
-                                             height="16"
-                                             width="16"
-                                             tal:attributes="src icon;
-                                                             alt obj/Type|obj_type"/>
-                                    </a-->
-                                    
+
                                     <h2>
 
                                     <a href="#" tal:attributes="href url;
@@ -114,11 +104,6 @@
                                            <img tal:attributes="src string:${url}/image_mini; 
                                                                 alt title_or_id" css_class='newsImage' src="" alt="" />
                                         </a>
-                                        <!--p class="discreet">
-                                          <metal:field use-macro="python:here.widget('imageCaption', mode='view')">
-                                          Image Caption
-                                          </metal:field>
-                                        </p-->
                                     </div>                                     
                                     
                                     
@@ -129,38 +114,7 @@
                                         description 
                                     </span> 
                                     
-                                    <br />
-                                    
-                                    <span class="documentByLine">
-            
-                                        <tal:byline condition="show_about">
-                                            &mdash;
-            
-                                            <tal:name tal:condition="obj_creator"
-                                                tal:define="author python:mtool.getMemberInfo(obj_creator)">
-                                              <span i18n:translate="label_by_author">
-                                                by
-                                              <a href="#"
-                                                 tal:attributes="href string:${portal_url}/author/${obj_creator}"
-                                                 tal:content="python:author and author['fullname'] or obj_creator"
-                                                 tal:omit-tag="not:author"
-                                                 i18n:name="author">
-                                                Bob Dobalina
-                                              </a>
-                                              </span>
-            
-                                            </tal:name>
-            
-                                            &mdash;
-                                            <tal:mod i18n:translate="box_last_modified">
-                                              last modified
-                                            </tal:mod>
-                                            <span tal:replace="python:toLocalizedTime(obj_modified,long_format=1)">
-                                              August 16, 2001 at 23:35:59
-                                            </span>
-            
-                                        </tal:byline>
-                                    </span>                                   
+                                                                    
                                        
                                 </td>
                             </tal:block>

@@ -45,15 +45,14 @@ osha/policy/browser/portlets/related_by_type.py
 osha/policy/browser/templates/abovecontentportlets.pt
 osha/policy/browser/templates/belowcontentportlets.pt
 osha/policy/browser/templates/manageportletslots.pt
-osha/policy/data/vocabularies/Category
 osha/policy/data/vocabularies/Category.vdex
-osha/policy/data/vocabularies/Country.vdex
 osha/policy/data/vocabularies/ERO-Country.dump
 osha/policy/data/vocabularies/ERO-Target_group.dump
 osha/policy/data/vocabularies/ERO-Topic.dump
 osha/policy/data/vocabularies/ISCO.vdex
 osha/policy/data/vocabularies/MultilingualThesaurus.vdex
 osha/policy/data/vocabularies/NACE.vdex
+osha/policy/data/vocabularies/Subcategory.vdex
 osha/policy/data/vocabularies/Target_user_groups.vdex
 osha/policy/data/vocabularies/html_meta_keywords.dump
 osha/policy/data/vocabularies/keywords.dump
@@ -80,6 +79,7 @@ osha/policy/skins/osha_content/publications_by_keyword.pt
 osha/policy/skins/osha_content/sep_publications.pt
 osha/policy/skins/osha_content/sep_view.pt
 osha/policy/skins/osha_content/sep_view.pt.metadata
+osha/policy/skins/osha_content/teaser_view.pt
 osha/policy/skins/osha_form_scripts/validate_captcha.vpy
 osha/policy/skins/osha_forms/join_form.cpt
 osha/policy/skins/osha_forms/join_form.cpt.metadata
