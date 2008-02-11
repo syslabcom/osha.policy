@@ -101,8 +101,7 @@
                                         <a href="#"
                                            tal:attributes="href string:$url/image/image_view_fullscreen"
                                            id="parent-fieldname-image">
-                                           <img tal:attributes="src string:${url}/image_mini; 
-                                                                alt title_or_id" css_class='newsImage' src="" alt="" />
+                                           <img tal:attributes="src string:${url}/image; alt title_or_id;" />
                                         </a>
                                     </div>                                     
                                     
