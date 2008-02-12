@@ -125,12 +125,23 @@ def addExtraIndexes(self):
     
     cat = getToolByName(self, 'portal_catalog')
     available = cat.indexes()
+    schema = cat.schema()
     
 #    # AvailableLanguages
 #    idx_id = "AvailableLanguages"
 #    if idx_id not in available:
 #        logger.info('Adding KeywordIndex %s' %idx_id)
 #        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id)
+
+    # getSME (SME relevant)
+    idx_id = "getSME"
+    if idx_id not in available:
+        logger.info('Adding KeywordIndex %s' %idx_id)
+        cat.manage_addProduct['PluginIndexes'].manage_addFieldIndex(id=idx_id)
+        
+    if idx_id not in schema:
+        cat.manage_addColumn(idx_id)
+
 
     # getExternal_url
     idx_id = "getExternal_url"
