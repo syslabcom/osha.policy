@@ -73,7 +73,11 @@ def importVarious(context):
 def configurePortal(portal):
     """ make some changes to the portal config """
     getattr(portal.portal_types, 'Large Plone Folder').global_allow = True
-
+    site_properties = portal.portal_properties.site_properties
+    default_page = site_properties.getProperty('default_page')
+    default_page += ('index.php','index.stm', 'index.stml')
+    site_properties._updateProperty('default_page', default_page)
+    
 
 def setVersionedTypes(portal):
     portal_repository = getToolByName(portal, 'portal_repository')
