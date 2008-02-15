@@ -180,8 +180,8 @@
                                        'subcategory':subcategory,
                                        'getCountry':getCountry,
                                        'SearchableText':SearchableText,
-                                       'sort_on': 'modified',
-                                       'sort_order':'desc'};
+                                       'sort_on': 'effective',
+                                       'sort_order':'reverse'};
                          res python:here.portal_catalog(query);
                          results res;
                         ">
@@ -214,8 +214,8 @@
         <dl id="db_results">
         <tal:results repeat="result batch">
         <tal:entry define="result_url result/getURL;
-                           result_url result/getRemoteUrl | result_url;
-                           url string:$result_url/view?searchterm=${searchterm};
+                           result_url string:$result_url/view?searchterm=${searchterm};
+                           url result/getRemoteUrl | result_url;
                            title result/Title|string:;
                            item_cas result/getCas|string:;
                            item_einecs result/getEinecs|string:;
@@ -286,6 +286,8 @@
                             <span tal:replace="python:gc(lang)"/>
                         </span>
                     </tal:targetlanguage>       
+                    <br/>
+                    debug: <a tal:attributes="href result_url" tal:content="result_url"></a>
                 </span>
             </dd>
             
