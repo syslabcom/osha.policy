@@ -214,7 +214,7 @@
         <dl id="db_results">
         <tal:results repeat="result batch">
         <tal:entry define="result_url result/getURL;
-                           result_url string:$result_url/view?searchterm=${searchterm};
+                           result_url string:$result_url/view;
                            url result/getRemoteUrl | result_url;
                            title result/Title|string:;
                            item_cas result/getCas|string:;
@@ -227,17 +227,26 @@
                            item_creator result/Creator;
                            gc python:here.portal_languages.getNameForLanguageCode;
                            ">
-            <dt>
-                <a href="#" tal:attributes="href url" >
+            <dt>                
                     <img tal:attributes="src string:${result/getIcon};
                                      alt string:Link icon" />
                     <span tal:replace="title" />
-                </a>
             </dt>
                  
             <dd>                              
                 <span tal:define="descr result/Description" tal:content="structure descr" />
                   <br/>
+                <img tal:replace="structure python:getattr(portal, 'link_external.gif').tag()"/>  
+                <a href="#" tal:attributes="href url" i18n:translate="link_goto_site">
+                    Goto this site
+                </a>
+                <tal:notanon condition="not:isAnon">
+                    (Edit URL: <a href="#" tal:attributes="href result_url" tal:content="result_url">
+                        url
+                    </a>)
+                </tal:notanon>
+                <br />
+                
                 <span class="documentByLine">
                     <tal:modified>
                         <tal:mod i18n:translate="box_item_published">
@@ -286,8 +295,6 @@
                             <span tal:replace="python:gc(lang)"/>
                         </span>
                     </tal:targetlanguage>       
-                    <br/>
-                    debug: <a tal:attributes="href result_url" tal:content="result_url"></a>
                 </span>
             </dd>
             
