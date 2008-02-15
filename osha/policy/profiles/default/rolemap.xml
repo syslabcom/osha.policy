@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="Checker"/>
+  </roles>
+  <permissions>
+    <permission name="Crosscheck portal content" acquire="False">
+      <role name="Checker"/>
+      <role name="Manager"/>
+    </permission>
+
+  </permissions>
+</rolemap>
