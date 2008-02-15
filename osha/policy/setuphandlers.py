@@ -1,4 +1,5 @@
 import os, cPickle, logging, StringIO
+from AccessControl.Permission import registerPermissions
 from Products.ATVocabularyManager.utils.vocabs import createSimpleVocabs
 from Products.CMFCore.utils import getToolByName
 from ConfigParser import ConfigParser
@@ -79,6 +80,7 @@ def configurePortal(portal):
     site_properties._updateProperty('default_page', default_page)
     
     portal._addRole('Checker')
+    registerPermissions( [ ('Crosscheck portal content', None) ] )
     portal.manage_permission('Crosscheck portal content', roles=['Manager','Checker'], acquire=0)
     
 
