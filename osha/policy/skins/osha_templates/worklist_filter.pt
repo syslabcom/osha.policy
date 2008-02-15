@@ -9,9 +9,27 @@
 <metal:cssslot fill-slot="css_slot"
                tal:define="global mockup here/@@ATMockup;
                            dummy python:mockup.preload(types=[('OSH_Link', 'OSHContentLink')]);">
-  <!--style type="text/css" media="all" tal:condition="exists: portal/riskassessment_styles.css"
+  <style type="text/css" media="all" tal:condition="exists: portal/riskassessment_styles.css"
          tal:content="string:@import url($portal_url/riskassessment_styles.css);">
-  </style-->
+  </style>
+  <style type="text/css">
+    .column1 { float: left; width: 55%; padding-right: 10px; }
+    .column2 { float: right; width: 40%; padding-left: 10px; border-left: 1px dotted gray; }
+    
+    .column1 select { width: 100%; }
+    .column2 .field_default, 
+    .column2 .field_nace { width: 260px; padding: 2px 0; }
+    .column2 .field_default input, 
+    .column2 .field_default select { width: 260px; }
+    .column2 .field_nace #quicksearch_subcategory { width: 160px; }
+    .column2 .field_nace .searchButton { width: 80px; }
+    
+    #wf_results { width: 100%; margin-top: 2em; }
+    #wf_results th { background-color: #C5CBD8; border-bottom: 1px dotted gray; padding: 3px; }
+    #wf_results td { background-color: transparent; border-bottom: 1px dotted gray; padding: 3px; }
+    
+  </style>
+
 </metal:cssslot>
 
 <metal:javascriptslot fill-slot="javascript_head_slot">
@@ -52,91 +70,71 @@
                    desc_ellipsis site_properties/ellipsis;
                    searchterm request/SearchableText|nothing;
                    ">
-<style type="text/css">
-    #searchfields { background-color: #F3F6FF; border: 1px solid gray !important; padding:5px 10px; clear: both; overflow: hidden; }
-    .column1 { float: left; width: 40%; padding-right: 10px; }
-    .column2 { float: right; width: 55%; padding-left: 10px; border-left: 1px dotted gray; }
-    .fieldSizer { width: 300px; overflow: hidden; } 
-    .columnTop { width: 100%; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dotted gray; }
-    .columnBottom { width: 100%; padding-top: 10px; margin-top: 30px; border-top: 1px dotted gray; }
-    
-    .column1 input { width: 100%; }
-    .column2 input, .column2 select { width: 300px; }
-    #resulttable {background-color: #C4DAFF; border: 1px solid gray !important;  margin:5px 0px; padding:0px; border-collapse: collapse; }
-    #resulttable td {margin:0px; padding:5px; }
-    #tableheader, #tableheader td {background-color: #F3F6FF; font-weight: bold; padding:5px}
-</style>
 
-    <h1>Worklist</h1>
+
+    
+    <h1 class="documentFirstHeading">Worklist</h1>
+
     <div>
-        Please use these fields to select workitems.
+        <p>Please use these fields to select workitems.</p>
     </div>
 
     <form tal:attributes="action template/id" method="get">
-
+    
       <div id="searchfields" tal:define="view here/@@vocabulary_helper">
-        <table border="0" cellpadding="2" cellspacing="2">
+      
+         <div class="column1">
+            <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
+            <div class="columnBottom field">
+             <div class="formHelp">
+                Filter your search by selecting one or more of the filters.
+                You can always remove any filter again by selecting the empty entry or by clicking the Reset button.
+             </div>
 
-        <tr>
-            <td rowspan="2">
-                <span tal:define="size python:6;
+            </div>
+            
+            <div class="field_default" 
+                 tal:define="size python:6;
                     wfname string:osh_workflow">
-                    <metal:use use-macro="here/filter_macros/macros/ReviewState_compact"></metal:use>
-                </span>
-            </td>
-            <td valign="top">
-                <span>
-                    <metal:use use-macro="here/filter_macros/macros/Author_compact"></metal:use>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span tal:define="portal_type string:OSH_Link">
-                    <metal:use use-macro="here/filter_macros/macros/Country_compact"></metal:use>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span tal:define="size python:45">
-                    <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
-                </span>
-            </td>
-            <td>
-                <span tal:define="size python:45">
-                    <metal:use use-macro="here/filter_macros/macros/ExternalUrl_compact"></metal:use>
-                </span>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <span>
-                    <metal:use use-macro="here/filter_macros/macros/Subcategory"></metal:use>
-                </span>
-            </td>
-            <td>
-                <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact">
-                </metal:use>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="formControls">
-                  <input class="context" type="submit" value="Search" />
-                </div>
-            </td>
-            <td align="right">
-                <div class="formControls">
-                    <input  class="context" type="reset" value="Reset" 
-                    tal:attributes="onclick string:window.location='${here/absolute_url}/${template/getId}'" />
-                </div>
-            </td>
-        </tr>
-       </table>
-      </div>
+              <metal:use use-macro="here/filter_macros/macros/ReviewState_compact"></metal:use>
+            </div>
+            
+            
+          </div>
+          
+          <div class="column2">
+            <!--div class="columnTop field">
+              <label i18n:translate="label_search_filters">Filters</label>
+            </div-->
 
+            <div class="field_default">
+               <metal:use use-macro="here/filter_macros/macros/Author_compact"></metal:use>
+            </div> 
+             <div class="field_default" tal:define="portal_type string:OSH_Link">
+              <metal:use use-macro="here/filter_macros/macros/Country_compact"></metal:use>
+            </div>
+            <div class="field_default">
+                <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact"></metal:use>
+            </div>
+            <div class="field_default">
+               <metal:use use-macro="here/filter_macros/macros/ExternalUrl_compact"></metal:use>
+            </div> 
+            <div class="field_nace">
+               <metal:use use-macro="here/filter_macros/macros/Subcategory"></metal:use>
+            </div> 
+            
+          </div>
+         
+
+        </div>
+       
+        <br clear="all">
         
+        <div class="formControls">
+          <input class="context" type="submit" value="Search" />
+          <input  class="context" type="reset" value="Reset" 
+                    tal:attributes="onclick string:window.location='${here/absolute_url}/${template/getId}'" />
+        </div>
         
     </form>
     <br clear="all"><br>
@@ -160,9 +158,17 @@
                      results res;
                     ">
             <!-- query: <span tal:replace="query" /> -->
-        <strong>
-            <span i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(results)">234</span> items match your criteria.</span>
-        </strong>
+        <h2>
+          <span i18n:translate="heading_search_results">
+              Search results
+          </span>
+          <span class="discreet">
+          &mdash;
+          <span i18n:translate="batch_x_items_matching_your_criteria"
+          ><span i18n:name="number" 
+          tal:omit-tag="" 
+          tal:content="python:len(results)">234</span> items matching your search terms</span>
+      </h2>
 
         <div tal:condition="not: results">
             <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
@@ -172,13 +178,13 @@
     <div tal:condition="results"
           tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
 
-        <table border="0" >
-        <tr id="tableheader">
-          <td></td>
-          <td>Title</td>
+        <table cellpadding="0" cellspacing="0" border="0" id="wf_results">
+        <tr>
+          <th>&nbsp;</th>
+          <th>Title</th>
           
-          <td>Last modified / Creator</td>
-          <td>Review State</td>
+          <th>Last modified / Creator</th>
+          <th>Review State</th>
         </tr>
         <tal:results repeat="result batch">
             <tal:entry define="result_url result/getURL;

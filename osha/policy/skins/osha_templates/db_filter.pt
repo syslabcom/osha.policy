@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="osha">
+      i18n:domain="osha"> 
 
 <!--metal:block fill-slot="top_slot"
              tal:define="dummy python:request.set('disable_border',1)" /-->
@@ -13,18 +13,18 @@
          tal:content="string:@import url($portal_url/riskassessment_styles.css);">
   </style>
   <style type="text/css">
-    #searchfields { background-color: #F3F6FF; border: 1px solid gray !important; padding:5px 10px; clear: both; overflow: hidden; }
-    .column1 { float: left; width: 40%; padding-right: 10px; }
+    .column1 { float: left; width: 35%; padding-right: 10px; }
     .column2 { float: right; width: 55%; padding-left: 10px; border-left: 1px dotted gray; }
-    .fieldSizer { width: 300px; overflow: hidden; } 
-    .columnTop { width: 100%; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px dotted gray; }
-    .columnBottom { width: 100%; padding-top: 10px; margin-top: 30px; border-top: 1px dotted gray; }
     
-    .column1 input { width: 100%; }
-    .column2 input, .column2 select { width: 300px; }
-    #resulttable {background-color: #C4DAFF; border: 1px solid gray !important;  margin:5px 0px; padding:0px; border-collapse: collapse; }
-    #resulttable td {margin:0px; padding:5px; }
-    #tableheader, #tableheader td {background-color: #F3F6FF; font-weight: bold; padding:5px}
+    .column2 .field_default, 
+    .column2 .field_nace { width: 300px; padding: 2px 0; }
+    .column2 .field_default input, 
+    .column2 .field_default select { width: 300px; }
+    .column2 .field_nace #quicksearch_nace { width: 200px; }
+    .column2 .field_nace .searchButton { width: 80px; }
+    
+    #db_results dd { background-color: transparent; margin-left: 0; padding-left: 2em !important; border-bottom: 1px dotted gray; padding: 2px; } 
+    
 </style>
 </metal:cssslot>
 
@@ -70,7 +70,8 @@
                  tal:replace="structure timg/tag" />
         </div>
     </div>
-
+         
+         
     <h1>
         <img tal:define="search_img python:getattr(portal, 'database_search.gif')"
              tal:replace="structure search_img/tag" />
@@ -82,7 +83,8 @@
             <span tal:omit-tag="" i18n:translate="label_search_database">Search the Link Database</span>
         </span>
     </h1>
-
+    
+    
     <span tal:condition="local_keyword">
         <p i18n:translate="help_database_filter_topic" i18n:domain="osha">
             On this page you can search through all links related to this topic. The filter results will display directly under the filter form. If you select some filter criteria the list will get more precise. 
@@ -93,88 +95,83 @@
             On this page you can search through all links available in the site. The filter results will display directly under the filter form. If you select some filter criteria the list will get more precise. 
         </p>
     </span>
-    
+   
+    <br />
     <a tal:attributes="href here/absolute_url" class="link-parent">
         Back to <span tal:replace="index/Title" />
     </a>
 
+    
+    <h2 i18n:translate="label_search_osh_links">Search OSH Links:</h2>
             
+    
     <form tal:attributes="action template/id" method="get">
+      
+      <div id="searchfields">
+      
+         <div class="column1">
+            <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
+            <div class="columnBottom field">
+             <div class="formHelp">
+                Filter your search by selecting one or more of the filters.
+                You can always remove any filter again by selecting the empty entry or by clicking the Reset button.
+             </div>
 
-        <div id="searchfields">
-            <table border="0" cellspacing="0" cellpadding="3" widht="100%">
-                <tr>
-                    <td colspan="3" tal:define="size python:50">
-                        <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact">
-                        </metal:use>
-                    </td>
-                    <td>
-                        <metal:use use-macro="here/filter_macros/macros/Country_compact_index">
-                        </metal:use>
-                    </td>
-                    <td tal:define="root_node   local_keyword | string:;
+            </div>
+          </div>
+          
+          <div class="column2">
+            <!--div class="columnTop field">
+              <label i18n:translate="label_search_filters">Filters</label>
+            </div-->
+
+            <div class="field_default">
+               <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact"></metal:use>
+            </div> 
+            <div class="field_default">
+              <metal:use use-macro="here/filter_macros/macros/Country_compact_index"></metal:use>
+            </div>
+            <div class="field_default"
+                 tal:define="root_node   local_keyword | string:;
                                     vocabulary  string:Subcategory;
                                     value       subcategory;
                                     fieldName   string:subcategory;">
-                        <span class="field">
-                        <label i18n:translate="label_subcategory" >Subcategory</label><br>
+                <label i18n:translate="label_subcategory" >Subcategory</label><br>
 
-                        <metal:use use-macro="here/filter_macros/macros/ATVocabularyDropdown">
-                        </metal:use>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                      <span class="field" 
-                            tal:define="level python:2;
-                                        portal_type string:OSH_Link">
+                <metal:use use-macro="here/filter_macros/macros/ATVocabularyDropdown"></metal:use>
+            </div>
+            <div class="field_nace"
+                 tal:define="level python:2;
+                             portal_type string:OSH_Link">
                           <metal:use use-macro="here/filter_macros/macros/NACE"></metal:use>
-                        </span>
-                    </td>
-                </tr>
-                
+            </div> 
+               
+          </div>
+          
+         
 
-
-
-          <tr>
-            <td colspan="3">
-                <div class="visualClear" id="clear-space-before-submit"></div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-                <div class="formControls">
-                    <input class="context"
-                       type="submit"
-                       name="submit"
-                       value="Search"
-                       i18n:domain="plone"
-                       i18n:attributes="value label_search;"
-                       />
-                </div>
-            </td>
-            <td align="right">
-                <div class="formControls">
-                    <input  class="context" type="reset" value="Reset" 
-                    tal:attributes="onclick string:window.location='${here/absolute_url}/${template/getId}'" />
-                </div>
-              </td>
-            </tr>
-         </table>
         </div>
+       
 
 
+        <br clear="all">
+        
+        
+        <div class="formControls">
+          <input class="context"
+                   type="submit"
+                   name="submit"
+                   value="Search"
+                   i18n:domain="plone"
+                   i18n:attributes="value label_search;"
+                   />
+          <input  class="context" type="reset" value="Reset" 
+                tal:attributes="onclick string:window.location='${here/absolute_url}/${template/getId}'" />
+        
+        </div>
     </form>
-
-
-
-
+    
+    <br clear="all"><br>
 
      <div tal:define="query python:{'portal_type': ['OSH_Link'],
                                        'Subject':keywords,
@@ -183,8 +180,8 @@
                                        'subcategory':subcategory,
                                        'getCountry':getCountry,
                                        'SearchableText':SearchableText,
-                                       'sort_on': 'effective',
-                                       'sort_order':'reverse'};
+                                       'sort_on': 'modified',
+                                       'sort_order':'desc'};
                          res python:here.portal_catalog(query);
                          results res;
                         ">
@@ -192,41 +189,39 @@
         <!--h1>Filtered by:
             <span tal:condition="python:keywords"><span tal:replace="keywords"/></span>
         </h1-->
+        
+     <h2>
+        <span i18n:translate="heading_search_results">
+            Search results
+        </span>
+        <span class="discreet">
+        &mdash;
+        <span i18n:translate="batch_x_items_matching_your_criteria"
+        ><span i18n:name="number" 
+        tal:omit-tag="" 
+        tal:content="python:len(results)">234</span> items matching your search terms</span>
+    </h2>
 
-        <strong>
-            <span i18n:translate="batch_x_items_matching_your_criteria">
-                <span i18n:name="number"     
-                      tal:content="python:len(results)">234</span> items match your criteria.
-            </span>
-        </strong>
-
-        <div tal:condition="not: results">
-            <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
-        </div>
+    <div tal:condition="not: results">
+        <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+    </div>
 
 
     <div tal:condition="results"
          tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
         
         
-        <dl>
+        <dl id="db_results">
         <tal:results repeat="result batch">
         <tal:entry define="result_url result/getURL;
-                           result_url result/getRemoteUrl | result_url;
                            url string:$result_url/view?searchterm=${searchterm};
                            title result/Title|string:;
-                           item_cas result/getCas|string:;
-                           item_einecs result/getEinecs|string:;
-                           item_targetLanguage result/getTargetLanguage|string:;
-                           item_sme result/getSme | nothing;
-                           item_provider result/Provider | string:;                           
                            item_modified result/modified;
                            item_pubdate result/effective;
                            item_creator result/Creator;
-                           gc python:here.portal_languages.getNameForLanguageCode;
                            ">
             <dt>
-                <a href="#" tal:attributes="href url" target="_extern">
+                <a href="#" tal:attributes="href url" >
                     <img tal:attributes="src string:${result/getIcon};
                                      alt string:Link icon" />
                     <span tal:replace="title" />
@@ -238,52 +233,28 @@
                   <br/>
                 <span class="documentByLine">
                     <tal:modified>
+                        &mdash;
                         <tal:mod i18n:translate="box_item_published">
-                          Publication date
+                          publication date
                         </tal:mod>
                         <span tal:replace="python:toLocalizedTime(item_pubdate, long_format=0)"
                             tal:on-error="python:toLocalizedTime('2000/01/01', long_format=0)">
                           August 16, 2001 at 23:35:59
-                        </span>                        
-                    </tal:modified> 
-                    <tal:name tal:condition="item_provider">
+                        </span>
+                    </tal:modified>                    
+                    <!--tal:name tal:condition="item_creator"
+                              tal:define="author python:mtool.getMemberInfo(item_creator)">
                           <span i18n:translate="label_by_author">
                             by
-                              <span tal:content="item_provider"
-                                    i18n:name="author">
-                                European Agency
-                              </span>
+                          <a href="#"
+                             tal:attributes="href string:${portal_url}/author/${item_creator}"
+                             tal:content="python:author and author['fullname'] or item_creator"
+                             tal:omit-tag="not:author"
+                             i18n:name="author">
+                            Bob Dobalina
+                          </a>
                           </span>
-                    </tal:name>
-                    <br tal:condition="item_sme |item_einecs|item_cas"/>
-                    <tal:sme condition="item_sme">
-                        <tal:smetrans i18n:translate="box_item_sme">
-                            Relevant for SME's
-                        </tal:smetrans>
-                    </tal:sme>
-                    <tal:einecs condition="item_einecs">
-                        &mdash;
-                        <tal:einecstrans i18n:translate="box_item_einecs">
-                            EINECS: 
-                        </tal:einecstrans>
-                        <span tal:replace="item_einecs" />
-                    </tal:einecs>
-                    <tal:cas condition="item_cas">
-                        &mdash;
-                        <tal:castrans i18n:translate="box_item_cas">
-                             CAS:
-                        </tal:castrans>
-                        <span tal:replace="item_cas" />
-                    </tal:cas>
-                    <br/>
-                    <tal:targetlanguage condition="item_targetLanguage">
-                        <tal:targetlanguagetrans i18n:translate="box_item_targetlanguage">
-                             Languages: 
-                        </tal:targetlanguagetrans>
-                        <span tal:repeat="lang item_targetLanguage" tal:omit-tag="">
-                            <span tal:replace="python:gc(lang)"/>
-                        </span>
-                    </tal:targetlanguage>                    
+                    </tal:name-->
                 </span>
             </dd>
             
@@ -305,3 +276,4 @@
 
 </html>
 
+  
