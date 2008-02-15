@@ -214,12 +214,18 @@
         <dl id="db_results">
         <tal:results repeat="result batch">
         <tal:entry define="result_url result/getURL;
-                           result_url result/getRemoteUrl | string:$result_url/view?searchterm=${searchterm};
-                           url result_url;
+                           result_url result/getRemoteUrl | result_url;
+                           url string:$result_url/view?searchterm=${searchterm};
                            title result/Title|string:;
+                           item_cas result/getCas|string:;
+                           item_einecs result/getEinecs|string:;
+                           item_targetLanguage result/getTargetLanguage|string:;
+                           item_sme result/getSme | nothing;
+                           item_provider result/Provider | string:;                           
                            item_modified result/modified;
                            item_pubdate result/effective;
                            item_creator result/Creator;
+                           gc python:here.portal_languages.getNameForLanguageCode;
                            ">
             <dt>
                 <a href="#" tal:attributes="href url" >
@@ -234,28 +240,52 @@
                   <br/>
                 <span class="documentByLine">
                     <tal:modified>
-                        &mdash;
                         <tal:mod i18n:translate="box_item_published">
-                          publication date
+                          Publication date
                         </tal:mod>
                         <span tal:replace="python:toLocalizedTime(item_pubdate, long_format=0)"
                             tal:on-error="python:toLocalizedTime('2000/01/01', long_format=0)">
                           August 16, 2001 at 23:35:59
-                        </span>
-                    </tal:modified>                    
-                    <!--tal:name tal:condition="item_creator"
-                              tal:define="author python:mtool.getMemberInfo(item_creator)">
+                        </span>                        
+                    </tal:modified> 
+                    <tal:name tal:condition="item_provider">
                           <span i18n:translate="label_by_author">
                             by
-                          <a href="#"
-                             tal:attributes="href string:${portal_url}/author/${item_creator}"
-                             tal:content="python:author and author['fullname'] or item_creator"
-                             tal:omit-tag="not:author"
-                             i18n:name="author">
-                            Bob Dobalina
-                          </a>
+                              <span tal:content="item_provider"
+                                    i18n:name="author">
+                                European Agency
+                              </span>
                           </span>
-                    </tal:name-->
+                    </tal:name>
+                    <br tal:condition="item_sme |item_einecs|item_cas"/>
+                    <tal:sme condition="item_sme">
+                        <tal:smetrans i18n:translate="box_item_sme">
+                            Relevant for SME's
+                        </tal:smetrans>
+                    </tal:sme>
+                    <tal:einecs condition="item_einecs">
+                        &mdash;
+                        <tal:einecstrans i18n:translate="box_item_einecs">
+                            EINECS: 
+                        </tal:einecstrans>
+                        <span tal:replace="item_einecs" />
+                    </tal:einecs>
+                    <tal:cas condition="item_cas">
+                        &mdash;
+                        <tal:castrans i18n:translate="box_item_cas">
+                             CAS:
+                        </tal:castrans>
+                        <span tal:replace="item_cas" />
+                    </tal:cas>
+                    <br/>
+                    <tal:targetlanguage condition="item_targetLanguage">
+                        <tal:targetlanguagetrans i18n:translate="box_item_targetlanguage">
+                             Languages: 
+                        </tal:targetlanguagetrans>
+                        <span tal:repeat="lang item_targetLanguage" tal:omit-tag="">
+                            <span tal:replace="python:gc(lang)"/>
+                        </span>
+                    </tal:targetlanguage>       
                 </span>
             </dd>
             
