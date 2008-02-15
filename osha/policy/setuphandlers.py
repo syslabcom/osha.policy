@@ -143,7 +143,7 @@ def addExtraIndexes(self):
 
     #Additional Metadata
     META = ['getSme', 'getTargetLanguage', 'getCas', 'getEinecs', 'getRemoteUrl', 'Provider']
-    if meta in META:
+    for meta in META:
         if meta not in schema:
             cat.manage_addColumn(meta)
 
