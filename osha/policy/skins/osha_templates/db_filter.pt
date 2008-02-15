@@ -226,7 +226,7 @@
                            gc python:here.portal_languages.getNameForLanguageCode;
                            ">
             <dt>
-                <a href="#" tal:attributes="href url" >
+                <a href="#" tal:attributes="href url" target="_extern">
                     <img tal:attributes="src string:${result/getIcon};
                                      alt string:Link icon" />
                     <span tal:replace="title" />
@@ -255,7 +255,7 @@
                               </span>
                           </span>
                     </tal:name>
-                    <br/>
+                    <br tal:condition="item_sme |item_einecs|item_cas"/>
                     <tal:sme condition="item_sme">
                         <tal:smetrans i18n:translate="box_item_sme">
                             Relevant for SME's
