@@ -30,10 +30,12 @@
         </div>
         
         <p class="documentDescription">
-            <span tal:replace="index/Description" />       
+            <span tal:replace="here/Description" />       
         </p>
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div class="visualClear"></div>
 
         <div class="searchDatabaseBox">
             <a href="db_filter">
