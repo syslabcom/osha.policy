@@ -183,8 +183,8 @@
                                        'subcategory':subcategory,
                                        'getCountry':getCountry,
                                        'SearchableText':SearchableText,
-                                       'sort_on': 'modified',
-                                       'sort_order':'desc'};
+                                       'sort_on': 'effective',
+                                       'sort_order':'reverse'};
                          res python:here.portal_catalog(query);
                          results res;
                         ">
