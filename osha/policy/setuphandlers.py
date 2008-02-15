@@ -78,6 +78,7 @@ def configurePortal(portal):
     default_page += ('index.php','index.stm', 'index.stml')
     site_properties._updateProperty('default_page', default_page)
     
+    site._addRole('Checker')
     site.manage_permission('Crosscheck portal content', roles=['Manager','Checker'], acquire=0)
     
 
