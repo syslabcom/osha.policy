@@ -214,7 +214,8 @@
         <dl id="db_results">
         <tal:results repeat="result batch">
         <tal:entry define="result_url result/getURL;
-                           url string:$result_url/view?searchterm=${searchterm};
+                           result_url result/getRemoteUrl | string:$result_url/view?searchterm=${searchterm};
+                           url result_url;
                            title result/Title|string:;
                            item_modified result/modified;
                            item_pubdate result/effective;
