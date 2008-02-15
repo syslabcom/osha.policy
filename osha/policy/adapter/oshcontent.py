@@ -15,14 +15,22 @@ from Products.Archetypes.utils import DisplayList
 
 from Products.ATCountryWidget.Widget import CountryWidget, MultiCountryWidget
 
-from Products.ATContentTypes.content import document
-from Products.OSHContentLink.OSH_Link import OSH_Link
-from Products.ATContentTypes.content.newsitem import ATNewsItem
-from Products.ATContentTypes.content.event import ATEvent
 
-#zope.interface.classImplements(ATNewsItem, IOSHContent)
-#zope.interface.classImplements(ATEvent, IOSHContent)
+# Provider
+from Products.RiskAssessmentLink.content.Provider import Provider
+zope.interface.classImplements(Provider, IOSHContent)
+
+#OSHLink
+from Products.OSHContentLink.OSH_Link import OSH_Link
 zope.interface.classImplements(OSH_Link, IOSHContent)
+
+# RiskAssessmentLink
+from Products.RiskAssessmentLink.content.RiskAssessmentLink import RiskAssessmentLink
+zope.interface.classImplements(RiskAssessmentLink, IOSHContent)
+
+# Case Study
+from Products.CaseStudy.CaseStudy import CaseStudy
+zope.interface.classImplements(CaseStudy, IOSHContent)
 
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
@@ -192,13 +200,11 @@ class TaggingSchemaExtender(object):
 
     def getOrder(self, original):
         categorization = original['categorization']
-        #idx = categorization.index('relatedItems')
         categorization.remove('nace')
-        #categorization.remove('html_meta_keywords')
         categorization.remove('country')
         categorization.remove('multilingual_thesaurus')
         categorization.remove('subcategory')
-        #categorization.insert(0, 'html_meta_keywords')
+        
         categorization.insert(0, 'nace')
         categorization.insert(0, 'country')
         categorization.insert(0, 'multilingual_thesaurus')
