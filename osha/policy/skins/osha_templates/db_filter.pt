@@ -212,11 +212,13 @@
         <dl>
         <tal:results repeat="result batch">
         <tal:entry define="result_url result/getURL;
+                           result_url result/getRemoteUrl | result_url;
                            url string:$result_url/view?searchterm=${searchterm};
                            title result/Title|string:;
                            item_modified result/modified;
                            item_pubdate result/effective;
                            item_creator result/Creator;
+                           sme result/getSME | nothing;
                            ">
             <dt>
                 <a href="#" tal:attributes="href url" >
@@ -231,15 +233,20 @@
                   <br/>
                 <span class="documentByLine">
                     <tal:modified>
-                        &mdash;
                         <tal:mod i18n:translate="box_item_published">
-                          publication date
+                          Publication date
                         </tal:mod>
                         <span tal:replace="python:toLocalizedTime(item_pubdate, long_format=0)"
                             tal:on-error="python:toLocalizedTime('2000/01/01', long_format=0)">
                           August 16, 2001 at 23:35:59
-                        </span>
-                    </tal:modified>                    
+                        </span>                        
+                    </tal:modified> 
+                    <tal:sme condition="sme">
+                        <tal:smetrans i18n:translate="box_item_sme">
+                            SME? 
+                        </tal:smetrans>
+                        <span tal:replace="sme" />
+                    </tal:sme>
                     <!--tal:name tal:condition="item_creator"
                               tal:define="author python:mtool.getMemberInfo(item_creator)">
                           <span i18n:translate="label_by_author">
