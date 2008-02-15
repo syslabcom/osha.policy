@@ -20,4 +20,11 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
       
+      
+    <!-- Local roles managed in the @@sharing view -->
+    <utility
+        name="Checker"
+        factory=".localroles.CheckerRole"
+        />
+      
 </configure>
