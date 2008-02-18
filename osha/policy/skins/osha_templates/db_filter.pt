@@ -45,10 +45,12 @@
                    keywords request/keywords| local_keyword |string:;
                    subcategory request/subcategory | string:;
                    SearchableText request/SearchableText|string:;
+                   DBTYPES python:['OSH_Link', 'RiskAssessmentLink', 'CaseStudy', 'Provider'];
+                   portal_type request/portal_type| python:DBTYPES;
                    nace request/nace|string:;
                    nace python:test(nace==[''], '', nace);
                    category request/category|string:;
-                   getTargetLanguage request/getTargetLanguage|string:;
+                   getRemoteLanguage request/getRemoteLanguage|string:;
                    getCountry request/getCountry|string:;
                    Batch python:modules['Products.CMFPlone'].Batch;
                    DateTime python:modules['DateTime'].DateTime;
@@ -102,31 +104,46 @@
     </a>
 
     
-    <h2 i18n:translate="label_search_osh_links">Search OSH Links:</h2>
+    <!--h2 i18n:translate="label_search_osh_links">Search OSH Links:</h2-->
             
     
     <form tal:attributes="action template/id" method="get">
       
       <div id="searchfields">
       
-         <div class="column1">
+        <div class="column1">
             <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
             <div class="columnBottom field">
-             <div class="formHelp">
+              <div class="formHelp">
                 Filter your search by selecting one or more of the filters.
                 You can always remove any filter again by selecting the empty entry or by clicking the Reset button.
-             </div>
+              </div>
 
             </div>
-          </div>
+            <div class="field">
+                
+                <label i18n:translate="label_database"> Database </label><br>
+                
+                <div class="formHelp" i18n:translate="help_database_search">
+                    Select the database types you want to search.
+                </div>
+                
+                <div tal:repeat="T DBTYPES">
+                    <input type="checkbox" 
+                           name="portal_type:list"
+                           tal:attributes="value T;
+                                           checked python: 'checked' and T in portal_type;" />
+                    <span tal:content="python:here.portal_types.getTypeInfo(T).Title()" />
+                </div>
+
+            </div>            
+           
+        </div>
           
-          <div class="column2">
-            <!--div class="columnTop field">
-              <label i18n:translate="label_search_filters">Filters</label>
-            </div-->
+         <div class="column2">
 
             <div class="field_default">
-               <metal:use use-macro="here/filter_macros/macros/TargetLanguage_compact"></metal:use>
+               <metal:use use-macro="here/filter_macros/macros/RemoteLanguage_compact"></metal:use>
             </div> 
             <div class="field_default">
               <metal:use use-macro="here/filter_macros/macros/Country_compact_index"></metal:use>
@@ -154,7 +171,7 @@
        
 
 
-        <br clear="all">
+        <div class="visualClear"></div>
         
         
         <div class="formControls">
@@ -173,10 +190,10 @@
     
     <br clear="all"><br>
 
-     <div tal:define="query python:{'portal_type': ['OSH_Link'],
+     <div tal:define="query python:{'portal_type': portal_type,
                                        'Subject':keywords,
                                        'nace':nace,
-                                       'getTargetLanguage':getTargetLanguage,
+                                       'getRemoteLanguage':getRemoteLanguage,
                                        'subcategory':subcategory,
                                        'getCountry':getCountry,
                                        'SearchableText':SearchableText,
@@ -185,7 +202,7 @@
                          res python:here.portal_catalog(query);
                          results res;
                         ">
-      <!--  query: <span tal:replace="query" /> -->
+        <!--query: <span tal:replace="query" /-->
         <!--h1>Filtered by:
             <span tal:condition="python:keywords"><span tal:replace="keywords"/></span>
         </h1-->
@@ -219,7 +236,7 @@
                            title result/Title|string:;
                            item_cas result/getCas|string:;
                            item_einecs result/getEinecs|string:;
-                           item_targetLanguage result/getTargetLanguage|string:;
+                           item_remoteLanguage result/getRemoteLanguage|string:;
                            item_sme result/getSme | nothing;
                            item_provider result/Provider | string:;                           
                            item_modified result/modified;
@@ -231,6 +248,10 @@
                     <img tal:attributes="src string:${result/getIcon};
                                      alt string:Link icon" />
                     <span tal:replace="title" />
+                        
+                    <tal:notanon condition="not:isAnon">
+                        [<a href="#" tal:attributes="href result_url">Edit</a>]
+                    </tal:notanon>
             </dt>
                  
             <dd>                              
@@ -238,13 +259,10 @@
                   <br/>
                 <img tal:replace="structure python:getattr(portal, 'link_external.gif').tag()"/>  
                 <a href="#" tal:attributes="href url" i18n:translate="link_goto_site">
-                    Goto this site
+                    <strong>Goto this site</strong>
+                    
                 </a>
-                <tal:notanon condition="not:isAnon">
-                    (Edit URL: <a href="#" tal:attributes="href result_url" tal:content="result_url">
-                        url
-                    </a>)
-                </tal:notanon>
+                
                 <br />
                 
                 <span class="documentByLine">
@@ -287,14 +305,14 @@
                         <span tal:replace="item_cas" />
                     </tal:cas>
                     <br/>
-                    <tal:targetlanguage condition="item_targetLanguage">
-                        <tal:targetlanguagetrans i18n:translate="box_item_targetlanguage">
+                    <tal:remotelanguage condition="item_remoteLanguage">
+                        <tal:remotelanguagetrans i18n:translate="box_item_remotelanguage">
                              Languages: 
-                        </tal:targetlanguagetrans>
-                        <span tal:repeat="lang item_targetLanguage" tal:omit-tag="">
+                        </tal:remotelanguagetrans>
+                        <span tal:repeat="lang item_remoteLanguage" tal:omit-tag="">
                             <span tal:replace="python:gc(lang)"/>
                         </span>
-                    </tal:targetlanguage>       
+                    </tal:remotelanguage>       
                 </span>
             </dd>
             
@@ -303,6 +321,8 @@
         </dl>
         
         <div metal:use-macro="here/batch_macros/macros/navigation" />
+        
+        <script language="javascript" src="http://thumbnails.iwebtool.com/src.js?border=004891" type="text/javascript"></script>
 
 
     </div>

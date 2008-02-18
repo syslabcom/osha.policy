@@ -85,14 +85,8 @@ class CountryField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
 class MTSubjectField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
     
     def Vocabulary(self, content_instance):
-#        return atapi.DisplayList([(x, x) for x in dummy_vocab])
         return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
-
-#class HTMLKeywordsField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
-#    
-#    def Vocabulary(self, content_instance):
-#        return self._Vocabulary(content_instance, 'html_meta_keywords')
 
 
 import zope.component
@@ -154,26 +148,10 @@ class TaggingSchemaExtender(object):
                     label_msgid='label_country',
                     i18n_domain='osha',
                 ),                
-#                widget=VocabularyPickerWidget(
-#                    label='Country',
-#                    description='Select one or more countries appropriate for this content',
-#                    vocabulary="Country",
-#                    label_msgid='label_country',
-#                    description_msgid='help_category',
-#                    i18n_domain='plone',
-#                ),
+
                 translation_mutator="translationMutator",
             ),
-#            HTMLKeywordsField('html_meta_keywords',
-#                schemata='categorization',
-#                enforceVocabulary=True,
-#                languageIndependent=True,
-#                widget=atapi.MultiSelectionWidget(
-#                    label='HMTL meta keywords',
-#                    description='Select one or more keywords. They will appear in the HTML header of this object'
-#                ),
-#                translation_mutator="translationMutator",
-#            ),
+
             MTSubjectField('multilingual_thesaurus',
                 schemata='categorization',
                 enforceVocabulary=False,
@@ -199,7 +177,8 @@ class TaggingSchemaExtender(object):
         return self._fields
 
     def getOrder(self, original):
-        categorization = original['categorization']
+        categorization = original.get('categorization', [])
+        
         categorization.remove('nace')
         categorization.remove('country')
         categorization.remove('multilingual_thesaurus')
@@ -209,7 +188,8 @@ class TaggingSchemaExtender(object):
         categorization.insert(0, 'country')
         categorization.insert(0, 'multilingual_thesaurus')
         categorization.insert(0, 'subcategory')
-
+        
+        original['categorization'] = categorization
 
         return original
 
