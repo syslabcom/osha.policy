@@ -17,7 +17,7 @@ from Products.ATCountryWidget.Widget import CountryWidget, MultiCountryWidget
 
 
 # Provider
-from Products.RiskAssessmentLink.content.Provider import Provider
+from Products.RemoteProvider.content.Provider import Provider
 zope.interface.classImplements(Provider, IOSHContent)
 
 #OSHLink

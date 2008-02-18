@@ -37,6 +37,7 @@ def importVarious(context):
     quickinst.installProduct('VocabularyPickerWidget')
     quickinst.installProduct('PressRoom')
     quickinst.installProduct('RiskAssessmentLink')
+    quickinst.installProduct('RemoteProvider')
     quickinst.installProduct('TreePickerWidget')
     quickinst.installProduct('PloneFormGen')
 #    quickinst.installProduct('webcouturier.dropdownmenu')
@@ -147,15 +148,15 @@ def addExtraIndexes(self):
 
 
     #Additional Metadata
-    META = ['getSme', 'getTargetLanguage', 'getCas', 'getEinecs', 'getRemoteUrl', 'Provider']
+    META = ['getSme', 'getRemoteLanguage', 'getCas', 'getEinecs', 'getRemoteUrl', 'getRemoteProvider']
     for meta in META:
         if meta not in schema:
             cat.manage_addColumn(meta)
 
 
 
-    # getExternal_url
-    idx_id = "getExternal_url"
+    # getRemoteUrl
+    idx_id = "getRemoteUrl"
     if idx_id not in available:
         extra = dict()
         extra['default_encoding'] = 'utf-8'
@@ -170,9 +171,9 @@ def addExtraIndexes(self):
           , extra = extra
           )
 
-    if 'getTargetLanguage' not in available:
-        logger.info('Adding KeywordIndex getTarget_language')
-        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getTargetLanguage', extra={'indexed_attrs': 'getTargetLanguage'})
+    if 'getRemoteLanguage' not in available:
+        logger.info('Adding KeywordIndex getRemoteLanguage')
+        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getRemoteLanguage', extra={'indexed_attrs': 'getRemoteLanguage'})
 
 #    if 'getCountry' not in available:
 #        logger.info('Adding KeywordIndex Country')

@@ -79,8 +79,8 @@
 
          <div>
          <span tal:omit-tag="" tal:on-error="nothing" 
-            tal:define="res_lang obj/getOsh_language|nothing;
-                        ext_url obj/getExternal_url|string:;
+            tal:define="res_lang obj/getRemoteLanguage|nothing;
+                        ext_url obj/getRemoteUrl|string:;
                         res_format obj/getOsh_format|nothing;
                         res_url python:test(ext_url and ext_url!=None, ext_url, '')">
            <tal:block condition="res_lang"><span class="bold" i18n:translate="">Language</span>: <span tal:replace="python:', '.join(res_lang)" /><br/></tal:block>
