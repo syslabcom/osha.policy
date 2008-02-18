@@ -1,1 +1,2 @@
 #import vdex_vocabulary_extension_patch
+import subject_accessor
