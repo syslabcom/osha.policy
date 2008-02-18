@@ -38,7 +38,6 @@ def importVarious(context):
     quickinst.installProduct('PressRoom')
     quickinst.installProduct('RiskAssessmentLink')
     quickinst.installProduct('RemoteProvider')
-    quickinst.installProduct('TreePickerWidget')
     quickinst.installProduct('PloneFormGen')
 #    quickinst.installProduct('webcouturier.dropdownmenu')
     
