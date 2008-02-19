@@ -27,14 +27,14 @@
 
 <div tal:replace="structure view/intro"></div>
 
-<div tal:define="node nocall:topics; icon string:gptopics.jpg" tal:on-error="nothing">
+
+<div tal:define="node string:topics; icon string:gptopics.jpg" tal:on-error="nothing">
  <metal:block define-macro="gpbox">
-  <div class="gpbox">
-    <!--div class="gplogo"><img tal:attributes="src icon"></div-->
-    <div class="gpbox_title" tal:content="node/Title"></div>
+  <div class="gpbox" tal:define="results python:view.getAreaLinks(node)">
+    <div class="gpbox_title" tal:content="python:getattr(here, node).Title()"></div>
     <div class="gpbox_content">
-      <span tal:omit-tag="" tal:repeat="elem node/getValidMenueitems">
-        <a href="" tal:attributes="href elem/getUrl" tal:content="elem/Title" /><span tal:condition="not:repeat/elem/end"> | </span>
+      <span tal:omit-tag="" tal:repeat="elem results">
+        <a href="" tal:attributes="href elem/getURL" tal:content="elem/Title" /><span tal:condition="not:repeat/elem/end"> | </span>
       </span>
     </div>
     <div class="visualBreak"></div>
@@ -45,14 +45,14 @@
 <br clear="all">
 
 
-<div tal:define="node nocall:sector; icon string:gpsector.jpg" tal:on-error="nothing">
+<div tal:define="node string:sector; icon string:gpsector.jpg" tal:on-error="nothing">
   <metal:block use-macro="template/macros/gpbox"/>
 </div>
 
 
 <br clear="all">
 
-<div tal:define="node nocall:priogroups; icon string:gppriority_groups.jpg" tal:on-error="nothing">
+<div tal:define="node string:priority_groups; icon string:gppriority_groups.jpg" tal:on-error="nothing">
   <metal:block use-macro="template/macros/gpbox"/>
 </div>
 
