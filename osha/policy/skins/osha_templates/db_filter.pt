@@ -216,7 +216,8 @@
                                        'getCountry':getCountry,
                                        'SearchableText':SearchableText,
                                        'sort_on': 'effective',
-                                       'sort_order':'reverse'};
+                                       'sort_order':'reverse',
+                                       'Language': ''};
                          res python:here.portal_catalog(query);
                          results res;
                         ">
