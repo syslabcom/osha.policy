@@ -47,6 +47,7 @@
                    SearchableText request/SearchableText|string:;
                    DBTYPES python:['OSH_Link', 'RiskAssessmentLink', 'CaseStudy', 'Provider'];
                    portal_type request/portal_type| python:DBTYPES;
+                   getSme python: 'True' and request.get('getSme', '') or '';
                    nace request/nace|string:;
                    nace python:test(nace==[''], '', nace);
                    category request/category|string:;
@@ -128,6 +129,7 @@
                     Select the database types you want to search.
                 </div>
                 
+
                 <div tal:repeat="T DBTYPES">
                     <input type="checkbox" 
                            name="portal_type:list"
@@ -137,6 +139,21 @@
                 </div>
 
             </div>            
+
+            <div class="field">
+           
+                <label i18n:translate="label_sme_relevant">SME relevant?</label>
+                
+                <div class="formHelp" i18n:translate="help_sme_relevant">
+                    Select this if you want to restrict your search to information relevant for small and medium enterprises (SMEs).
+                </div>
+
+                <input type="checkbox" 
+                       name="getSme:boolean"
+                       value="True"
+                       tal:attributes="checked python:'checked' and getSme;" /> 
+                
+            </div>
            
         </div>
           
@@ -195,6 +212,7 @@
                                        'nace':nace,
                                        'getRemoteLanguage':getRemoteLanguage,
                                        'subcategory':subcategory,
+                                       'getSme': getSme,
                                        'getCountry':getCountry,
                                        'SearchableText':SearchableText,
                                        'sort_on': 'effective',
@@ -202,7 +220,7 @@
                          res python:here.portal_catalog(query);
                          results res;
                         ">
-        <!--query: <span tal:replace="query" /-->
+        <!--query: <span tal:replace="query" />-->
         <!--h1>Filtered by:
             <span tal:condition="python:keywords"><span tal:replace="keywords"/></span>
         </h1-->
@@ -244,7 +262,9 @@
                            item_creator result/Creator;
                            gc python:here.portal_languages.getNameForLanguageCode;
                            ">
+
             <dt>                
+
                     <img tal:attributes="src string:${result/getIcon};
                                      alt string:Link icon" />
                     <span tal:replace="title" />
@@ -255,12 +275,23 @@
             </dt>
                  
             <dd>                              
-                <span tal:define="descr result/Description" tal:content="structure descr" />
-                  <br/>
+
+                <p tal:define="descr result/Description" 
+                   tal:content="structure descr" />
+
+                <br />
+                
+                <tal:sme condition="item_sme">
+                    <span class="pullquote">
+                        <tal:smetrans i18n:translate="box_item_sme">
+                            Relevant for SME's
+                        </tal:smetrans>
+                    </span>
+                </tal:sme>
+
                 <img tal:replace="structure python:getattr(portal, 'link_external.gif').tag()"/>  
                 <a href="#" tal:attributes="href url" i18n:translate="link_goto_site">
                     <strong>Goto this site</strong>
-                    
                 </a>
                 
                 <br />
@@ -284,12 +315,7 @@
                               </span>
                           </span>
                     </tal:name>
-                    <br tal:condition="item_sme |item_einecs|item_cas"/>
-                    <tal:sme condition="item_sme">
-                        <tal:smetrans i18n:translate="box_item_sme">
-                            Relevant for SME's
-                        </tal:smetrans>
-                    </tal:sme>
+                    <br tal:condition="item_einecs|item_cas"/>
                     <tal:einecs condition="item_einecs">
                         &mdash;
                         <tal:einecstrans i18n:translate="box_item_einecs">
@@ -304,7 +330,7 @@
                         </tal:castrans>
                         <span tal:replace="item_cas" />
                     </tal:cas>
-                    <br/>
+                    <br tal:condition="item_remoteLanguage"/>
                     <tal:remotelanguage condition="item_remoteLanguage">
                         <tal:remotelanguagetrans i18n:translate="box_item_remotelanguage">
                              Languages: 

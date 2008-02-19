@@ -19,6 +19,7 @@ osha.policy.egg-info/top_level.txt
 osha/policy/__init__.py
 osha/policy/config.py
 osha/policy/configure.zcml
+osha/policy/localroles.py
 osha/policy/setuphandlers.py
 osha/policy/utils.py
 osha/policy/version.txt
@@ -61,6 +62,7 @@ osha/policy/doc/FeatureOverview.txt
 osha/policy/doc/LDAPInstallation.txt
 osha/policy/patches/__init__.py
 osha/policy/patches/linguaplone_addTranslation_patch.py
+osha/policy/patches/subject_accessor.py
 osha/policy/patches/vdex_vocabulary_extension_patch.py
 osha/policy/profiles/default/import_steps.xml
 osha/policy/profiles/default/mailhost.xml
