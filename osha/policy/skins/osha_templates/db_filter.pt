@@ -348,9 +348,9 @@
         
         <div metal:use-macro="here/batch_macros/macros/navigation" />
         
-        <script language="javascript" src="http://thumbnails.iwebtool.com/src.js?border=004891" type="text/javascript"></script>
+        <!--script language="javascript" src="http://thumbnails.iwebtool.com/src.js?border=004891" type="text/javascript"></script-->
 
-
+        <script type="text/javascript" src="http://shots.snap.com/ss/9546198046d69719d86ad9ba1aee068e/snap_shots.js"></script>
     </div>
   </div>
 
