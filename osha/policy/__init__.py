@@ -24,7 +24,7 @@ from patches import linguaplone_addTranslation_patch
 DirectoryView.registerDirectory('skins', osha_globals)
 
 from AccessControl import ModuleSecurityInfo
-ModuleSecurityInfo('Products.OSHA.utils').declarePublic('logit')
+ModuleSecurityInfo('osha.policy.utils').declarePublic('logit')
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
