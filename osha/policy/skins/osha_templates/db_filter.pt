@@ -28,7 +28,7 @@
     .column2 .field_nace .searchButton { width: 80px; }
     
     #db_results dd { background-color: transparent; margin-left: 0; padding-left: 2em !important; border-bottom: 1px dotted gray; padding: 2px; } 
-    
+    .column1 input[type="checkbox"] {width: 1em;}
 </style>
 </metal:cssslot>
 
