@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="not: portal/portal_membership/isAnonymousUser" id="scriptaculous.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="not: portal/portal_membership/isAnonymousUser" id="builder.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="not: portal/portal_membership/isAnonymousUser" id="controls.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="not: portal/portal_membership/isAnonymousUser" id="dragdrop.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="not: portal/portal_membership/isAnonymousUser" id="effects.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="not: portal/portal_membership/isAnonymousUser" id="prototype.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="not: portal/portal_membership/isAnonymousUser" id="slider.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="not: portal/portal_membership/isAnonymousUser" id="sound.js" inline="False"/>
+
+</object>
