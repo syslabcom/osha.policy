@@ -6,12 +6,14 @@
 <!--metal:block fill-slot="top_slot"
              tal:define="dummy python:request.set('disable_border',1)" /-->
 
+<!--
 <metal:cssslot fill-slot="css_slot"
                tal:define="global mockup here/@@ATMockup;
                            dummy python:mockup.preload(types=[('RiskAssessmentLink', 'RiskAssessmentLink')]);">
   <style type="text/css" media="all" tal:condition="exists: portal/riskassessment_styles.css"
          tal:content="string:@import url($portal_url/riskassessment_styles.css);">
   </style>
+-->  
   <style type="text/css">
     .column1 { float: left; width: 35%; padding-right: 10px; }
     .column2 { float: right; width: 55%; padding-left: 10px; border-left: 1px dotted gray; }
@@ -28,7 +30,7 @@
 </style>
 </metal:cssslot>
 
-<metal:javascriptslot fill-slot="javascript_head_slot">
+<!--metal:javascriptslot fill-slot="javascript_head_slot">
   <tal:js define="js python:here.getUniqueWidgetAttr(mockup.getFields(), 'helper_js')"
           condition="js"
           repeat="item js">
@@ -38,7 +40,7 @@
             tal:attributes="src string:$portal_url/$item">
     </script>
   </tal:js>
-</metal:javascriptslot>
+</metal:javascriptslot-->
 
 <div metal:fill-slot="main" i18n:domain="osha"
        tal:define="local_keyword python:here.getProperty('keyword', '');
