@@ -6,10 +6,12 @@
 <!--metal:block fill-slot="top_slot"
              tal:define="dummy python:request.set('disable_border',1)" /-->
 
+<metal:cssslot fill-slot="css_slot">
 <!--
-<metal:cssslot fill-slot="css_slot"
                tal:define="global mockup here/@@ATMockup;
                            dummy python:mockup.preload(types=[('RiskAssessmentLink', 'RiskAssessmentLink')]);">
+-->
+<!--
   <style type="text/css" media="all" tal:condition="exists: portal/riskassessment_styles.css"
          tal:content="string:@import url($portal_url/riskassessment_styles.css);">
   </style>
