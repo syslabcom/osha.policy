@@ -314,8 +314,12 @@ def configureCacheFu(site):
     """
     logger = logging.getLogger("osha.policy.setuphandler")
     logger.info("Configuring CacheFu")
+    portal_cache_settings = getToolByName(site, 'portal_cache_settings', None)
+    if portal_cache_settings is None:
+        logger.info("CacheFu not installed, quitting.")
+        return
+            
     CFP = "default-cache-policy-v1.1.1"
-    portal_cache_settings = getToolByName(site, 'portal_cache_settings')
     policy = getattr(portal_cache_settings, CFP, None)
     if policy is None:
         logger.warn("Policy not found. Has CacheFu been upgraded?")
@@ -421,3 +425,12 @@ def configureCacheFu(site):
     
     # Set Cache header for anonymous to proxy 1h
     plone_templates.setHeaderSetIdAnon('cache-in-proxy-1-hour')
+
+    # Set additional templates for templates
+    templates = list(plone_templates.getTemplates())
+    
+    new_templates = [ 'rss-feeds'
+                    ]
+                    
+    templates = _addToList(templates, new_templates)                
+    plone_templates.setTemplates(tuple(templates)) 
