@@ -1,23 +1,30 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
 
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="scriptaculous.js" inline="False"/>
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="builder.js" inline="False"/>
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="controls.js" inline="False"/>
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="dragdrop.js" inline="False"/>
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="effects.js" inline="False"/>
- <javascript cacheable="True" compression="safe" cookable="True"
+ <javascript cacheable="True" compression="none" cookable="True"
     enabled="True" expression="" id="prototype.js" inline="False"/>
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="slider.js" inline="False"/>
- <javascript cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="" id="sound.js" inline="False"/>
 
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" expression="" id="scriptaculous.js" inline="False"/>
+
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" expression="" id="effects.js" inline="False"/>
+
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" expression="" id="controls.js" inline="False"/>
+
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" expression="" id="builder.js" inline="False"/>
+
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" expression="" id="dragdrop.js" inline="False"/>
+
+
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" expression="" id="slider.js" inline="False"/>
+
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" expression="" id="ua.js" inline="False"/>
 
   <!-- Datagridwidget registration -->
  <javascript cacheable="True" compression="safe" cookable="True"
