@@ -39,10 +39,6 @@ def importVarious(context):
     quickinst.installProduct('RiskAssessmentLink')
     quickinst.installProduct('RemoteProvider')
     quickinst.installProduct('PloneFormGen')
-#    quickinst.installProduct('webcouturier.dropdownmenu')
-    
-
-
     quickinst.installProduct('ATCountryWidget')
     quickinst.installProduct('CMFSin')
     quickinst.installProduct('CaseStudy')
@@ -52,6 +48,11 @@ def importVarious(context):
     quickinst.installProduct('simplon.plone.ldap')
     quickinst.installProduct('plone.app.blob')
     quickinst.installProduct('syslabcom.filter')
+    quickinst.installProduct('qSEOptimizer')
+    quickinst.installProduct('Scrawl')
+    quickinst.installProduct('p4a.plonevideo')
+    quickinst.installProduct('p4a.plonevideoembed')
+    quickinst.installProduct('PloneFlashUpload')
 
     quickinst.installProduct('osha.theme')
 
@@ -66,11 +67,11 @@ def importVarious(context):
 
     configureCountryTool(site)
     
-#    catalog=getToolByName(site, 'portal_catalog')
-#    index=catalog._catalog.getIndex("Language")
-#    if index.numObjects()==0:
-#        catalog.reindexIndex('Language', None)
-
+    configureSEOOptimizer(site)
+    
+    configureCacheFu(site)
+    
+    
 def configurePortal(portal):
     """ make some changes to the portal config """
     getattr(portal.portal_types, 'Large Plone Folder').global_allow = True
@@ -264,3 +265,159 @@ def configureCountryTool(site):
     ct.manage_countries_addCountryToArea('International', ['AD', 'AE', 'AF', 'AG', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AU', 'BR', 'CA', 'CL', 'CN', 'CO', 'CR', 'CU', 'EC', 'GL', 'HK', 'IL', 'IN', 'JO', 'JP', 'KR', 'KY', 'MS', 'MX', 'MY', 'NC', 'NZ', 'PE','PH', 'PK', 'PR', 'QA', 'RU', 'SA', 'SG', 'SH', 'SN', 'TH', 'TR', 'TW', 'US', 'UY', 'UZ', 'VE', 'VN', 'YU', 'ZA', 'ZW'])
     ct.manage_countries_sortArea('International')
 
+def configureSEOOptimizer(site):
+    """ set the parameters and actions """
+    portalTypes = [ 'Folder'
+                   ,'Topic'
+                   ,'Blog Entry'
+                   ,'CallForContractors'
+                   ,'CaseStudy'
+                   ,'Event'
+                   ,'Large Plone Folder'
+                   ,'Link'
+                   ,'News Item'
+                   ,'OSH_Link'
+                   ,'PressClip'
+                   ,'PressContact'
+                   ,'PressRelease'
+                   ,'PressRoom'
+                   ,'Provider'
+                   ,'PublicJobVacancy'
+                   ,'Publication'
+                   ,'RichDocument'
+                   ,'RiskAssessmentLink'                   
+                  ]
+    pt = getToolByName(site, 'portal_types')
+    for ptype in pt.objectValues():
+        acts = filter(lambda x: x.id == 'seo_properties', ptype.listActions())
+        action = acts and acts[0] or None
+    
+        if ptype.getId() in portalTypes:
+            if action is None:
+                ptype.addAction('seo_properties',
+                                'SEO Properties',
+                                'string:${object_url}/qseo_properties_edit_form',
+                                '',
+                                'Modify portal content',
+                                'object',
+                                visible=1)
+        else:
+            if action !=None:
+                actions = list(ptype.listActions())
+                ptype.deleteActions([actions.index(a) for a in actions if a.getId()=='seo_properties'])
+    
+
+def configureCacheFu(site):
+    """ set osha specific caching rules 
+        this is specific for a CacheFu version. 
+        This needs to be adapted and re-tested for each new cache fu version 
+    """
+    logger = logging.getLogger("osha.policy.setuphandler")
+    logger.info("Configuring CacheFu")
+    CFP = "default-cache-policy-v1.1.1"
+    portal_cache_settings = getToolByName(site, 'portal_cache_settings')
+    policy = getattr(portal_cache_settings, CFP, None)
+    if policy is None:
+        logger.warn("Policy not found. Has CacheFu been upgraded?")
+        return
+    rules = getattr(policy, 'rules')
+    
+    
+    def _addToList(old_vals, new_vals):
+        old_vals = list(old_vals)
+        for item in new_vals:
+            if item not in old_vals:
+                old_vals.append(item)
+        return old_vals
+    
+    #
+    # Rule: Files & Images
+    #
+    downloads = getattr(rules, 'downloads')
+    
+    # Add Attached Filed and Attached Images to Types
+    contentTypes = list(downloads.getTypes())
+    new_types = ['FileAttachment', 'ImageAttachment']
+    _addToList(contentTypes, new_types)
+    downloads.setTypes(tuple(contentTypes))
+    
+    # Make Images and Files be cached in browser for 1 hour
+    downloads.setHeaderSetIdExpression("python:object.portal_cache_settings.canAnonymousView(object) and 'cache-in-browser-1-hour' or 'no-cache'")
+    
+    #
+    # Rule: plone-content-types
+    #
+    plone_content_types = getattr(rules, 'plone-content-types')
+    
+    # Remove Images and Files from the content cache rule
+    # Add new types 
+    
+    contentTypes = list(plone_content_types.getContentTypes())
+
+    del_types = ['File', 'Image']
+    for del_type in del_types:
+        if del_type in contentTypes:
+            contentTypes.remove(del_type)            
+
+    new_types = [ 'CallForContractors'
+                , 'CaseStudy'
+                , 'Event'
+                , 'Favorite'
+                , 'Link'
+                , 'News Item'
+                , 'OSH_Link'
+                , 'Document'
+                , 'PressClip'
+                , 'PressContact'
+                , 'PressRelease'
+                , 'Provider'
+                , 'Publication'
+                , 'RichDocument'
+                , 'RiskAssessmentLink'
+                ]
+    contentTypes = _addToList(contentTypes, new_types)                
+    plone_content_types.setContentTypes(tuple(contentTypes))
+    
+    # Set Cache header for anonymous to proxy 1h
+    plone_content_types.setHeaderSetIdAnon('cache-in-proxy-1-hour')
+    
+    #
+    # Rule: plone-containers
+    #
+    plone_containers = getattr(rules, 'plone-containers')
+
+    # Add new types 
+    contentTypes = list(plone_containers.getContentTypes()) 
+
+    new_types = [ 'Topic'
+                , 'Folder'
+                , 'Large Plone Folder'
+                , 'Plone Site'
+                , 'PressRoom'
+                ]
+    contentTypes = _addToList(contentTypes, new_types)                
+
+    plone_containers.setContentTypes(tuple(contentTypes))
+
+    # Set Cache header for anonymous to proxy 1h
+    plone_containers.setHeaderSetIdAnon('cache-in-proxy-1-hour')
+    
+    # Set additional templates for folders
+    templates = list(plone_containers.getTemplates())
+    
+    new_templates = [ 'good-practice-overview'
+                    , 'teaser_view'
+                    , 'sep_view'
+                    ]
+                    
+    templates = _addToList(templates, new_templates)                
+    plone_containers.setTemplates(tuple(templates)) 
+                     
+                
+    #
+    # Rule: plone-templates
+    #
+    plone_templates = getattr(rules, 'plone-templates')
+    
+    # Set Cache header for anonymous to proxy 1h
+    plone_templates.setHeaderSetIdAnon('cache-in-proxy-1-hour')
