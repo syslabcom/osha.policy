@@ -65,6 +65,7 @@ osha/policy/patches/linguaplone_addTranslation_patch.py
 osha/policy/patches/subject_accessor.py
 osha/policy/patches/vdex_vocabulary_extension_patch.py
 osha/policy/profiles/default/import_steps.xml
+osha/policy/profiles/default/jsregistry.xml
 osha/policy/profiles/default/mailhost.xml
 osha/policy/profiles/default/osha-various.txt
 osha/policy/profiles/default/portal_languages.xml

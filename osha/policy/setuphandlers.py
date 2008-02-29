@@ -378,6 +378,21 @@ def configureCacheFu(site):
                 , 'Publication'
                 , 'RichDocument'
                 , 'RiskAssessmentLink'
+                , 'PublicJobVacancy'
+                , 'Blog Entry'
+                , 'HelpCenterDefinition'
+                , 'HelpCenterErrorReference'
+                , 'HelpCenterFAQ'
+                , 'HelpCenterGlossary'
+                , 'HelpCenterHowTo'
+                , 'HelpCenterLink'
+                , 'HelpCenterReferenceManualPage'
+                , 'HelpCenterTutorialPage'
+                , 'HelpCenterReferenceManual'
+                , 'HelpCenterReferenceManualSection'
+                , 'HelpCenterTutorial'
+                , 'HelpCenterInstructionalVideo'
+                , 'PloneboardComment'
                 ]
     contentTypes = _addToList(contentTypes, new_types)                
     plone_content_types.setContentTypes(tuple(contentTypes))
@@ -398,6 +413,18 @@ def configureCacheFu(site):
                 , 'Large Plone Folder'
                 , 'Plone Site'
                 , 'PressRoom'
+                , 'PloneboardConversation'
+                , 'PloneboardForum'
+                , 'Ploneboard'
+                , 'HelpCenterErrorReferenceFolder'
+                , 'HelpCenterFAQFolder'
+                , 'HelpCenter'
+                , 'HelpCenterHowToFolder'
+                , 'HelpCenterLinkFolder'
+                , 'HelpCenterReferenceManualFolder'
+                , 'HelpCenterTutorialFolder'
+                , 'HelpCenterInstructionalVideoFolder'
+                , 'b-org Project'
                 ]
     contentTypes = _addToList(contentTypes, new_types)                
 
