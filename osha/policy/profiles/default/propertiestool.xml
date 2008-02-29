@@ -75,6 +75,24 @@
    <element value="VdexMediaDescriptor"/>
    <element value="VdexTerm"/>
    <element value="VocabularyLibrary"/>
+
+   <element value="HelpCenterDefinition"/>
+   <element value="HelpCenterErrorReference"/>
+   <element value="HelpCenterFAQ"/>
+   <element value="HelpCenterGlossary"/>
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterLink"/>
+   <element value="HelpCenterReferenceManualPage"/>
+   <element value="HelpCenterTutorialPage"/>
+   <element value="HelpCenterReferenceManual"/>
+   <element value="HelpCenterReferenceManualSection"/>
+   <element value="HelpCenterTutorial"/>
+   <element value="HelpCenterInstructionalVideo"/>
+   <element value="PloneboardComment"/>
+   <element value="Blog Entry"/>
+
+
+
   </property>
   <property name="enable_wf_state_filtering" type="boolean">False</property>
   <property name="wf_states_to_show" type="lines"/>
