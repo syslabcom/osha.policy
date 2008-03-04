@@ -60,7 +60,7 @@
                    getRemoteLanguage request/getRemoteLanguage|string:;
                    country request/country|string:;
                    review_state request/review_state|string:;
-                   Creator request/Creator|string:;
+                   Creator request/Creator|member/getUserName|string:;
                    getRemoteUrl request/getRemoteUrl|string:;
                    Batch python:modules['Products.CMFPlone'].Batch;
                    DateTime python:modules['DateTime'].DateTime;
@@ -74,7 +74,6 @@
 
     
     <h1 class="documentFirstHeading">Worklist</h1>
-
     <div>
         <p>Please use these fields to select workitems.</p>
     </div>
