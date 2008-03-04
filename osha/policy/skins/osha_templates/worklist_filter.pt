@@ -144,7 +144,7 @@
     <div tal:define="subcategory python:[x for x in subcategory if x];
                      subcategory python:test(len(subcategory), subcategory, '');
                      getRemoteUrl python:getRemoteUrl.replace('+', '\+');
-                    query python:{'portal_type': ['OSH_Link'],
+                    query python:{'portal_type': ['OSH_Link', 'CaseStudy', 'Provider', 'RiskAssessmentLink'],
                                    'review_state':review_state,
                                    'subcategory':subcategory,
                                    'getRemoteUrl': getRemoteUrl,
