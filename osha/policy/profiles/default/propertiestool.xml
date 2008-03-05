@@ -116,7 +116,6 @@
   </property>
   <property name="allowRolesToAddKeywords" type="lines">
    <element value="Manager"/>
-   <element value="Reviewer"/>
   </property>
   <property name="auth_cookie_length" type="int">0</property>
   <property name="calendar_starting_year" type="int">1999</property>
