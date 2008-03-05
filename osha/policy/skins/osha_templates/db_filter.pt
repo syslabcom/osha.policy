@@ -46,12 +46,13 @@
 
 <div metal:fill-slot="main" i18n:domain="osha"
        tal:define="local_keyword python:here.getProperty('keyword', '');
-                   local_portal_types python:here.getProperty('search_portal_types', []);
+                   local_portal_types python:here.getProperty('search_portal_types', None);
                    keywords request/keywords| local_keyword |string:;
                    subcategory request/subcategory | string:;
                    SearchableText request/SearchableText|string:;
                    DBTYPES python:['OSH_Link', 'RiskAssessmentLink', 'CaseStudy', 'Provider'];
-                   portal_type request/portal_type|local_portal_types| python:DBTYPES;
+                   portal_type request/portal_type|local_portal_types;
+                   portal_type python:test(portal_type, portal_type, DBTYPES);
                    getSme python: 'True' and request.get('getSme', '') or '';
                    nace request/nace|string:;
                    nace python:test(nace==[''], '', nace);
