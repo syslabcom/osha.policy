@@ -259,7 +259,7 @@ def configureCountryTool(site):
     ct.manage_countries_addCountry('EU', 'Europa')
     
     ct.manage_countries_addArea('Europe')
-    ct.manage_countries_addCountryToArea('Europe', ['EU', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IE', 'LU', 'SE', 'AT', 'DE','MT', 'BE','CZ','HU','PL','RO','SK','BG','GR','SI','EE','LV','LT'])
+    ct.manage_countries_addCountryToArea('Europe', ['EU', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IE', 'LU', 'SE', 'AT', 'DE','MT', 'BE','CZ','HU','PL','RO','SK','BG','GR','SI','EE','LV','LT', 'CY'])
     ct.manage_countries_sortArea('Europe')
 
     ct.manage_countries_addArea('Europe non-EU')
