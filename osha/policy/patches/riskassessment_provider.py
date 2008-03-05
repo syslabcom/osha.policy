@@ -1,6 +1,6 @@
 from Products.RemoteProvider.content.Provider import Provider, Provider_schema
 
-unwantedFields = ('allowDiscussion', 'language')
+unwantedFields = ('allowDiscussion', 'language', 'providerCategory')
 moveToCategorization = ('sme', 'remoteLanguage')
 moveToBottom = ('creators', 'contributors', 'rights', 'effectiveDate', 'expirationDate')
 
