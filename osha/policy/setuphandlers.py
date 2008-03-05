@@ -254,13 +254,18 @@ def configureCountryTool(site):
     ct = getToolByName(site, 'portal_countryutils')
     
     ct.manage_countries_reset()
+    
     ct.manage_countries_addCountry('UK', 'United Kingdom')
     ct.manage_countries_addCountry('EU', 'Europa')
     
-    ct.manage_countries_addArea('Europa')
-    ct.manage_countries_addCountryToArea('Europa', ['EU', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IS', 'IE', 'LI', 'LU', 'NO', 'SE', 'AT', 'DE','CH','MT', 'BE','CZ','HU','PL','RO','SK','HR','BG','BA','GR','SI','MK','EE','LV','LT'])
-    ct.manage_countries_sortArea('Europa')
-    
+    ct.manage_countries_addArea('Europe')
+    ct.manage_countries_addCountryToArea('Europe', ['EU', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IE', 'LU', 'SE', 'AT', 'DE','MT', 'BE','CZ','HU','PL','RO','SK','BG','GR','SI','EE','LV','LT'])
+    ct.manage_countries_sortArea('Europe')
+
+    ct.manage_countries_addArea('Europe non-EU')
+    ct.manage_countries_addCountryToArea('Europe non-EU', ['IS','LI','NO', 'CH','HR','BA','MK'])
+    ct.manage_countries_sortArea('Europe non-EU')
+
     ct.manage_countries_addArea('International')
     ct.manage_countries_addCountryToArea('International', ['AD', 'AE', 'AF', 'AG', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AU', 'BR', 'CA', 'CL', 'CN', 'CO', 'CR', 'CU', 'EC', 'GL', 'HK', 'IL', 'IN', 'JO', 'JP', 'KR', 'KY', 'MS', 'MX', 'MY', 'NC', 'NZ', 'PE','PH', 'PK', 'PR', 'QA', 'RU', 'SA', 'SG', 'SH', 'SN', 'TH', 'TR', 'TW', 'US', 'UY', 'UZ', 'VE', 'VN', 'YU', 'ZA', 'ZW'])
     ct.manage_countries_sortArea('International')
