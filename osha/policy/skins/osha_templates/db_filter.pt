@@ -11,24 +11,27 @@
                tal:define="global mockup here/@@ATMockup;
                            dummy python:mockup.preload(types=[('RiskAssessmentLink', 'RiskAssessmentLink')]);">
 -->
-<!--
+
   <style type="text/css" media="all" tal:condition="exists: portal/riskassessment_styles.css"
          tal:content="string:@import url($portal_url/riskassessment_styles.css);">
   </style>
--->  
+
   <style type="text/css">
-    .column1 { float: left; width: 35%; padding-right: 10px; }
-    .column2 { float: right; width: 55%; padding-left: 10px; border-left: 1px dotted gray; }
+    #searchfields { background-color: #F3F6FF; border: 1px solid gray; padding:5px 10px; clear: both; height: 1%; }
+
+    .column1 { float: left; width: 40%; padding-right: 10px; border-right: 1px dotted gray; }
+    .column2 { float: right; width: 55%; padding-left: 10px; border-left: none;}
     
     .column2 .field_default, 
-    .column2 .field_nace { width: 300px; padding: 2px 0; }
+    .column2 .field_nace { xwidth: 300px; padding: 2px 0; }
     .column2 .field_default input, 
     .column2 .field_default select { width: 300px; }
     .column2 .field_nace #quicksearch_nace { width: 200px; }
     .column2 .field_nace .searchButton { width: 80px; }
     
     #db_results dd { background-color: transparent; margin-left: 0; padding-left: 2em !important; border-bottom: 1px dotted gray; padding: 2px; } 
-    .column1 input[type="checkbox"] {width: 2em;}
+    .column1 input.input_checkbox,
+    #nace li label input { width: 2em; border: none; background: transparent; padding: 0; }
 </style>
 </metal:cssslot>
 
@@ -137,7 +140,7 @@
                 
 
                 <div tal:repeat="T DBTYPES">
-                    <input type="checkbox" 
+                    <input class="input_checkbox" type="checkbox" 
                            name="portal_type:list"
                            tal:attributes="value T;
                                            checked python: 'checked' and T in portal_type;" />
@@ -154,7 +157,7 @@
                     Select this if you want to restrict your search to information relevant for small and medium enterprises (SMEs).
                 </div>
 
-                <input type="checkbox" 
+                <input class="input_checkbox" type="checkbox" 
                        name="getSme:boolean"
                        value="True"
                        tal:attributes="checked python:'checked' and getSme;" /> 
@@ -385,5 +388,3 @@
 
 
 </html>
-
-  
