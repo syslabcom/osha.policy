@@ -91,3 +91,13 @@ class ICaptchaHelper(Interface):
 
     def verifyCaptcha(context):
         """ Validate the user's input for a given captcha """
+
+
+class IProviderHelper(Interface):
+    """ This Interface holds methods for getting and displaying remote Providers 
+    for a given object / Catalog brain
+    """
+
+    def getMyProviders(obj):
+        """ Return all providers referenced by obj, which the current user has permission to view
+        """

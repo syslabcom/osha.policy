@@ -98,6 +98,14 @@
       allowed_attributes="createCaptcha verifyCaptcha"
       />
 
+  <browser:page
+      for="*"
+      name="provider_helper"
+      class=".ProviderHelper.ProviderHelper"
+      permission="zope.Public"
+      allowed_interface=".interfaces.IProviderHelper"
+      />
+
     <!-- VIEWLETS -->
     <!--browser:viewlet
         name="osh.abovecontentportlets"
