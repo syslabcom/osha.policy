@@ -55,8 +55,15 @@ def importVarious(context):
     quickinst.installProduct('p4a.plonevideoembed')
     quickinst.installProduct('PloneFlashUpload')
     quickinst.installProduct('BlueLinguaLink')
+    quickinst.installProduct('Calendaring')
 
     quickinst.installProduct('osha.theme')
+
+    # Run setup policies which are not handled by qi
+    setuptool = getToolByName(site, 'portal_setup')
+    setuptool.runAllImportStepsFromProfile('p4a.plonecalendar')
+    
+
 
     configurePortal(site)
 
