@@ -8,9 +8,12 @@ from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 basedir = os.path.abspath(os.path.dirname(__file__))
 vocabdir = os.path.join(basedir, 'data', 'vocabularies')
 
+
 def importVarious(context):
     if context.readDataFile("osha-various.txt") is None:
         return
+        
+        
     logger = logging.getLogger("osha.policy.setuphandler")
     logger.info("Importing OSHA specifics")
     
@@ -80,6 +83,8 @@ def importVarious(context):
     
     configureCacheFu(site)
     
+    if context.readDataFile("createLinguaLinks.txt") is not None:
+        createLinguaLinks(site)
     
 def configurePortal(portal):
     """ make some changes to the portal config """
@@ -480,3 +485,31 @@ def configureCacheFu(site):
                     
     templates = _addToList(templates, new_templates)                
     plone_templates.setTemplates(tuple(templates)) 
+
+
+def createLinguaLinks(site):
+    """ search the site for all content which should have Bluelingualinks
+        and add missing links. This can be called iteratively
+    """
+    site_url = getToolByName(site, 'portal_url').getPortalPath()
+    portal_catalog = getToolByName(site, 'portal_catalog')
+    portal_workflow = getToolByName(site, 'portal_workflow')
+    
+    portal_types = ['Document', 'RichDocument', 'CallforContractor', 'File', 'PublicJobVacancy', 'Link']
+
+    query = {'path': site_url+'/en', 'portal_type': portal_types}
+    results = portal_catalog(query)
+    for result in results:
+        ob = result.getObject()
+        view = ob.restrictedTraverse('@@lingualinkportlet')
+        view.createLinguaLinks()
+        if result.review_state == 'published':
+            # publish all lingualinks if main object is published
+            for trans in view.getLinguaLinks().values():
+                transitions = [x['id'] for x in portal_workflow.getTransitionsFor(trans)]
+                if 'publish' in transitions:
+                    portal_workflow.doActionFor(trans, 'publish')
+                    trans.reindexObject()
+        print "Added Lingualinks for %s" % result.getPath()
+                
+                
