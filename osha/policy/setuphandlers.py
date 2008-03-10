@@ -495,7 +495,7 @@ def createLinguaLinks(site):
     portal_catalog = getToolByName(site, 'portal_catalog')
     portal_workflow = getToolByName(site, 'portal_workflow')
     
-    portal_types = ['Document', 'RichDocument', 'CallforContractor', 'File', 'PublicJobVacancy', 'Link']
+    portal_types = ['Document', 'RichDocument', 'CallforContractor', 'PublicJobVacancy', 'Link']
 
     query = {'path': site_url+'/en', 'portal_type': portal_types}
     results = portal_catalog(query)
