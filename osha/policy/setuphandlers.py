@@ -53,6 +53,7 @@ def importVarious(context):
     quickinst.installProduct('p4a.plonevideo')
     quickinst.installProduct('p4a.plonevideoembed')
     quickinst.installProduct('PloneFlashUpload')
+    quickinst.installProduct('BlueLinguaLink')
 
     quickinst.installProduct('osha.theme')
 
