@@ -17,4 +17,4 @@ for name in moveToCategorization:
 for name in moveToBottom:
     if Provider_schema.get(name):
         Provider_schema.moveField(name, pos='bottom')
-        print "moved:", name
+        #print "moved:", name
