@@ -276,18 +276,19 @@ def configureCountryTool(site):
     
     ct.manage_countries_addCountry('UK', 'United Kingdom')
     ct.manage_countries_addCountry('EU', 'Europa')
+    ct.manage_countries_addCountry('XX', 'International Organisation')
     
-    ct.manage_countries_addArea('Europe')
-    ct.manage_countries_addCountryToArea('Europe', ['EU', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IE', 'LU', 'SE', 'AT', 'DE','MT', 'BE','CZ','HU','PL','RO','SK','BG','GR','SI','EE','LV','LT', 'CY'])
-    ct.manage_countries_sortArea('Europe')
+    ct.manage_countries_addArea('EU')
+    ct.manage_countries_addCountryToArea('EU', ['EU', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IE', 'LU', 'SE', 'AT', 'DE','MT', 'BE','CZ','HU','PL','RO','SK','BG','GR','SI','EE','LV','LT', 'CY'])
+    ct.manage_countries_sortArea('EU')
 
-    ct.manage_countries_addArea('Europe non-EU')
-    ct.manage_countries_addCountryToArea('Europe non-EU', ['IS','LI','NO', 'CH','HR','BA','MK'])
-    ct.manage_countries_sortArea('Europe non-EU')
+    ct.manage_countries_addArea('International Organisations')
+    ct.manage_countries_addCountryToArea('International Organisations', ['XX'])
+    ct.manage_countries_sortArea('International Organisations')
 
-    ct.manage_countries_addArea('International')
-    ct.manage_countries_addCountryToArea('International', ['AD', 'AE', 'AF', 'AG', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AU', 'BR', 'CA', 'CL', 'CN', 'CO', 'CR', 'CU', 'EC', 'GL', 'HK', 'IL', 'IN', 'JO', 'JP', 'KR', 'KY', 'MS', 'MX', 'MY', 'NC', 'NZ', 'PE','PH', 'PK', 'PR', 'QA', 'RU', 'SA', 'SG', 'SH', 'SN', 'TH', 'TR', 'TW', 'US', 'UY', 'UZ', 'VE', 'VN', 'YU', 'ZA', 'ZW'])
-    ct.manage_countries_sortArea('International')
+    ct.manage_countries_addArea('Others')
+    ct.manage_countries_addCountryToArea('Others', ['IS','LI','NO', 'CH','HR','BA','MK', 'AD', 'AE', 'AF', 'AG', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AU', 'BR', 'CA', 'CL', 'CN', 'CO', 'CR', 'CU', 'EC', 'GL', 'HK', 'IL', 'IN', 'JO', 'JP', 'KR', 'KY', 'MS', 'MX', 'MY', 'NC', 'NZ', 'PE','PH', 'PK', 'PR', 'QA', 'RU', 'SA', 'SG', 'SH', 'SN', 'TH', 'TR', 'TW', 'US', 'UY', 'UZ', 'VE', 'VN', 'YU', 'ZA', 'ZW'])
+    ct.manage_countries_sortArea('Others')
 
 def configureSEOOptimizer(site):
     """ set the parameters and actions """
