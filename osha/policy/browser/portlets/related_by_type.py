@@ -26,4 +26,4 @@ class RelatedByTypePortlet(BrowserView):
                                          sort_limit=5))
         return results[0:min(5, len(results))]
 
-            
+
