@@ -88,6 +88,8 @@ class MTSubjectField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
         return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
 
+class ReferencedContentField(ExtensionField, atapi.ReferenceField):
+    """ Possibility to reference content objects, the text of which can be used to display inside the current object"""
 
 import zope.component
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
@@ -196,7 +198,52 @@ class TaggingSchemaExtender(object):
 #NOTE: These methods are called quite frequently, so it pays to optimise
 #them.
 
-
 zope.component.provideAdapter(TaggingSchemaExtender,
                               name=u"osha.metadata")
+
+
+###############################################################################
+# Press Release
+###############################################################################
+
+class IPressReleaseExtender(zope.interface.Interface):
+    """ Marker for PressRoom's PressRelease """
+
+from Products.PressRoom.content.PressRelease import PressRelease
+zope.interface.classImplements(PressRelease, IPressReleaseExtender)
+
+
+class PressReleaseExtender(object):
+    zope.interface.implements(IOrderableSchemaExtender)
+    zope.component.adapts(IPressReleaseExtender)
+    
+    _fields = [
+            ReferencedContentField('referenced_content',
+                languageIndependent=True,
+                multiValued=True,
+                relationship='referenced_content',
+                allowed_types=('Document', 'RichDocument'),
+                widget=ReferenceBrowserWidget(
+                    label=u"Referenced content",
+                    description=u"Select one or more content items. Their body text will be displayed as part of the press release",
+                    allow_search=True,
+                    allow_browse=False,
+                    base_query=dict(path=dict(query='textpieces', level=-1)),
+                    show_results_without_query=True,
+                    ),
+            ),
+        ]
+
+    def __init__(self, context):
+        self.context = context
+
+    def getFields(self):
+        return self._fields
+
+    def getOrder(self, original):
+        return original
+
+zope.component.provideAdapter(PressReleaseExtender,
+                              name=u"osha.metadata.pressrelease")
+
 
