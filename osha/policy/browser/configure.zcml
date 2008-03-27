@@ -29,14 +29,6 @@
 
   <browser:page
       for="*"
-      name="datetime_utils"
-      class=".datetime_utils.DateTimeUtils"
-      permission="zope.Public"
-      allowed_interface=".interfaces.IDateTimeUtils"
-      />
-
-  <browser:page
-      for="*"
       name="nace_view"
       class=".dynamic_views.NaceView"
       permission="zope.Public"

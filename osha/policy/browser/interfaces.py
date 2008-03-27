@@ -5,12 +5,6 @@ from plone.portlets.interfaces import IPortletManager
 class IThemeSpecific(IDefaultPloneLayer):
     """Marker interface that defines a Zope 3 skin layer.
     """
-    
-class IDateTimeUtils(Interface):
-    """Interface for DateTime formatting and conversion"""
-
-    def toPortalTime(time=None, long_format=None):
-        """given a time string, convert it into a DateTime and then format it appropariately"""
 
 class INaceView(Interface):
     """Interface for displaying content by NACE code"""
