@@ -7,7 +7,7 @@ class IThemeSpecific(IDefaultPloneLayer):
     """
 
 class INaceView(Interface):
-    """Interface for displaying content by NACE code"""
+    """ Interface for displaying content by NACE code """
 
     def resultsOverview(Categories=[],alphabetical=False):
         """Get a list of all NACE codes and number of objects found, optionally filtered by Categories"""
@@ -95,3 +95,10 @@ class IProviderHelper(Interface):
     def getMyProviders(obj):
         """ Return all providers referenced by obj, which the current user has permission to view
         """
+
+
+class IPressroomHelper(Interface):
+    """ This Interface provides methods for the customized display of PressRoom objects """
+
+    def getTextPieces():
+        """ Returns the body text of referenced content pieces. The method is LinguaPlone aware """
