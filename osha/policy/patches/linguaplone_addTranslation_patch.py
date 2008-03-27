@@ -6,6 +6,8 @@ from Products.LinguaPlone import config
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.utils import isDefaultPage
 from plone.locking.interfaces import ILockable
+from Products.LinguaPlone import events
+from zope.event import notify
 
 # Reason for this patch:
 # Currently, LP assumes the mutator is defined on the object (only).
@@ -27,6 +29,8 @@ def addTranslation(self, language, *args, **kwargs):
     if self.hasTranslation(language):
         translation = self.getTranslation(language)
         raise AlreadyTranslated, translation.absolute_url()
+    beforeevent = events.ObjectWillBeTranslatedEvent(self, language)
+    notify(beforeevent)         
     id = canonical.getId()
     while not parent.checkIdAvailable(id):
         id = '%s-%s' % (id, language)
@@ -38,7 +42,7 @@ def addTranslation(self, language, *args, **kwargs):
     # translation relationship, make sure it is done now.
     if o.getCanonical() != canonical:
         o.addTranslationReference(canonical)
-    self.invalidateTranslationCache()
+    self.invalidateTranslationCache()        
     # Copy over the language independent fields
     schema = canonical.Schema()
     independent_fields = schema.filterFields(languageIndependent=True)
@@ -47,12 +51,16 @@ def addTranslation(self, language, *args, **kwargs):
         if not accessor:
             accessor = field.getAccessor(canonical)
         data = accessor()
-        # PATCH BEGINS HERE
-        translation_mutator = getattr(o, field.translation_mutator, None)
-        if not translation_mutator:
-            translation_mutator = getattr(field, field.translation_mutator)
-        # PATCH ENDS HERE
-        translation_mutator(data)
+        mutatorname = getattr(field, 'translation_mutator', None)
+        if mutatorname is None:
+            # seems we have some field from archetypes.schemaextender
+            # or something else not using ClassGen
+            # fall back to default mutator
+            o.getField(field.getName()).set(o, data)
+        else:
+            # holy ClassGen crap - we have a generated method!
+            translation_mutator = getattr(o, mutatorname)
+            translation_mutator(data)
     # If this is a folder, move translated subobjects aswell.
     if self.isPrincipiaFolderish:
         moveids = []
@@ -68,6 +76,8 @@ def addTranslation(self, language, *args, **kwargs):
     o.reindexObject()
     if isDefaultPage(canonical, self.REQUEST):
         o._lp_default_page = True
+    afterevent = events.ObjectTranslatedEvent(self, o, language)
+    notify(afterevent)             
 
 
 I18NBaseObject.addTranslation = addTranslation
