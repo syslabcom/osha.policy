@@ -88,7 +88,7 @@ class MTSubjectField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
         return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
 
-class ReferencedContentField(ExtensionField, atapi.ReferenceField):
+class ReferencedContentField(ExtensionField, ExtensionFieldMixin, atapi.ReferenceField):
     """ Possibility to reference content objects, the text of which can be used to display inside the current object"""
 
 import zope.component
@@ -119,7 +119,7 @@ class TaggingSchemaExtender(object):
                     description_msgid='help_nace',
                     i18n_domain='plone',
                 ),
-                translation_mutator="translationMutator",
+#                translation_mutator="translationMutator",
             ),
             SubcategoryField('subcategory',
                 schemata='categorization',
@@ -134,7 +134,7 @@ class TaggingSchemaExtender(object):
                     description_msgid='help_subcategory',
                     i18n_domain='plone',
                     ),
-                translation_mutator="translationMutator",
+#                translation_mutator="translationMutator",
             ),
             CountryField('country',
                 schemata='categorization',
@@ -151,7 +151,7 @@ class TaggingSchemaExtender(object):
                     i18n_domain='osha',
                 ),                
 
-                translation_mutator="translationMutator",
+#                translation_mutator="translationMutator",
             ),
 
             MTSubjectField('multilingual_thesaurus',
@@ -167,7 +167,7 @@ class TaggingSchemaExtender(object):
                     description_msgid='help_multilingual_thesaurus',
                     i18n_domain='plone',
                 ),
-                translation_mutator="translationMutator",
+#                translation_mutator="translationMutator",
             ),
             
         ]
@@ -228,7 +228,7 @@ class PressReleaseExtender(object):
                     description=u"Select one or more content items. Their body text will be displayed as part of the press release",
                     allow_search=True,
                     allow_browse=False,
-                    base_query=dict(path=dict(query='textpieces', level=-1)),
+                    base_query=dict(path=dict(query='textpieces', level=-1), Language='en'),
                     show_results_without_query=True,
                     ),
             ),
