@@ -228,7 +228,7 @@ class PressReleaseExtender(object):
                     description=u"Select one or more content items. Their body text will be displayed as part of the press release",
                     allow_search=True,
                     allow_browse=False,
-                    base_query=dict(path=dict(query='textpieces', level=-1), Language='en'),
+                    base_query=dict(path=dict(query='textpieces', level=-1), Language=['en','']),
                     show_results_without_query=True,
                     ),
             ),
