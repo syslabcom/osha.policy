@@ -20,6 +20,30 @@ from zope.event import notify
 
 # This patch was proposed to the LP Issue tracker: http://plone.org/products/linguaplone/issues/116
 
+from zope.interface import implements
+from zope.interface import Interface
+from zope.interface import Attribute
+from zope.component.interfaces import IObjectEvent
+
+
+class IObjectTranslationReferenceSetEvent(IObjectEvent):
+    """Sent after an object was translated."""
+
+    object = Attribute("The object to be translated.")
+    translation = Attribute("The translation target object.")
+    language = Attribute("Target language.")    
+    
+ 
+class ObjectTranslationReferenceSetEvent(object):
+    """Sent before an object is translated."""
+    implements(IObjectTranslationReferenceSetEvent)
+
+    def __init__(self, context, target, language):        
+        self.object = context
+        self.target = target
+        self.language = language
+
+
 def addTranslation(self, language, *args, **kwargs):
     """Adds a translation."""
     canonical = self.getCanonical()
@@ -43,6 +67,10 @@ def addTranslation(self, language, *args, **kwargs):
     if o.getCanonical() != canonical:
         o.addTranslationReference(canonical)
     self.invalidateTranslationCache()        
+    # new event to mark the point where the reference is set but no attributes are copied
+    # We need this to hook an adapter to set an subtyping marker interface
+    referencesetevent = ObjectTranslationReferenceSetEvent(self, o, language)
+    notify(referencesetevent)
     # Copy over the language independent fields
     schema = canonical.Schema()
     independent_fields = schema.filterFields(languageIndependent=True)
