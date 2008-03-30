@@ -1,5 +1,5 @@
 from Products.LinguaPlone.I18NBaseObject import I18NBaseObject
-from Acquisition import aq_parent, aq_inner
+from Acquisition import aq_parent, aq_inner, aq_base
 from Products.LinguaPlone.interfaces import ITranslatable
 from Products.LinguaPlone.I18NBaseObject import AlreadyTranslated
 from Products.LinguaPlone import config
@@ -30,7 +30,7 @@ class IObjectTranslationReferenceSetEvent(IObjectEvent):
     """Sent after an object was translated."""
 
     object = Attribute("The object to be translated.")
-    translation = Attribute("The translation target object.")
+    target = Attribute("The translation target object.")
     language = Attribute("Target language.")    
     
  
@@ -108,4 +108,4 @@ def addTranslation(self, language, *args, **kwargs):
     notify(afterevent)             
 
 
-I18NBaseObject.addTranslation = addTranslation
+#I18NBaseObject.addTranslation = addTranslation
