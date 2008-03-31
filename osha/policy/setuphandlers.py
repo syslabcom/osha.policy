@@ -90,6 +90,8 @@ def importVarious(context):
     if context.readDataFile("createLinguaLinks.txt") is not None:
         createLinguaLinks(site)
     
+    modifySEOActionPermissions(site)
+    
 def configurePortal(portal):
     """ make some changes to the portal config """
     getattr(portal.portal_types, 'Large Plone Folder').global_allow = True
@@ -517,4 +519,15 @@ def createLinguaLinks(site):
                     trans.reindexObject()
         print "Added Lingualinks for %s" % result.getPath()
                 
-                
+def modifySEOActionPermissions(site):
+    # And now update the relevant portal_type actions
+    from Products.qSEOptimizer.Extensions.Install import qSEO_TYPES
+    tool = getToolByName(site, 'portal_types')
+    for ptype in tool.objectValues():
+        #add the action for viewing versioning
+        new_actions = []
+        for action in ptype.listActions():
+            if action.id == 'seo_properties':
+                action.permissions = (u"Manage portal",)
+            new_actions.append(action)
+        ptype._actions = tuple(new_actions)
