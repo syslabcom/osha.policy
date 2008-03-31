@@ -31,5 +31,6 @@
   <element value="sl"/>
   <element value="es"/>
   <element value="sv"/>
+  <element value="hr"/>
  </supported_langs>
 </object>
