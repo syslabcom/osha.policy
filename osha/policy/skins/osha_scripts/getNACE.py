@@ -10,6 +10,6 @@
 
 
 try:
-    return container.portal_annotatablemetadata.getValue(context, 'NACE')
+    return context.getField('nace').getAccessor(context)() 
 except:
     return []

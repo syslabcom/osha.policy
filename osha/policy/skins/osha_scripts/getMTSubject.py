@@ -9,6 +9,6 @@
 ##
 
 try:
-    return container.portal_annotatablemetadata.getValue(context, 'MultilingualThesaurus')
+    return context.getField('multilingual_thesaurus').getAccessor(context)() 
 except:
     return []
