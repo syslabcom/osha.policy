@@ -11,6 +11,10 @@ class IOSHContent(zope.interface.Interface):
     """OSHContent
     """
 
+class IOSHContentCaseStudy(zope.interface.Interface):
+    """OSHContent for CaseStudy
+    """
+
 from Products.Archetypes.utils import DisplayList
 
 from Products.ATCountryWidget.Widget import CountryWidget, MultiCountryWidget
@@ -30,7 +34,7 @@ zope.interface.classImplements(RiskAssessmentLink, IOSHContent)
 
 # Case Study
 from Products.CaseStudy.CaseStudy import CaseStudy
-zope.interface.classImplements(CaseStudy, IOSHContent)
+zope.interface.classImplements(CaseStudy, IOSHContentCaseStudy)
 
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
@@ -201,6 +205,39 @@ class TaggingSchemaExtender(object):
 zope.component.provideAdapter(TaggingSchemaExtender,
                               name=u"osha.metadata")
 
+
+class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
+    zope.interface.implements(IOrderableSchemaExtender)
+    zope.component.adapts(IOSHContentCaseStudy)
+    
+    def __init__(self, context):
+        super(TaggingSchemaExtender, self).__init__(self, context)
+        for f in self._fields:
+            f.schemata = 'default'
+            if f.getName() in ('country', 'multilingual_thesaurus'):
+                f.required = True
+            elif f.getName() == 'subcategory':
+                f.visible = dict(edit='invisible', view='invisible')
+
+    def getOrder(self, original):
+        default = original.get('default', [])
+        
+        default.remove('nace')
+        default.remove('country')
+        default.remove('multilingual_thesaurus')
+        default.remove('subcategory')
+        
+        default.append( 'nace')
+        default.append( 'country')
+        default.append( 'multilingual_thesaurus')
+        default.append( 'subcategory')
+
+        original['default'] = default
+
+        return original
+
+zope.component.provideAdapter(TaggingSchemaExtenderCaseStudy,
+                              name=u"osha.metadata.casestudy")
 
 ###############################################################################
 # Press Release
