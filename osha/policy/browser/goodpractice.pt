@@ -16,14 +16,12 @@
 </style>
 
 <h1 tal:content="context/Title">Title</h1>
-<!--div tal:content="here/Description"/-->
 
-<div style="float:left; padding-right:10px;">
-    <img border=0 
+<img border="0" class="image-left" 
          tal:attributes="src string:${context/portal_url}/images/good_practice.jpg" 
          alt="Good Practice Logo" 
          style="padding-right:10px;" />
-</div>
+
 
 <div tal:replace="structure view/intro"></div>
 
