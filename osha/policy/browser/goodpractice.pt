@@ -58,7 +58,7 @@
 
     <div tal:replace="structure view/gpawards "></div>
     
-
+    <label i18n:translate="label_goodpractice_latestaddition">Latest Addition</label>
     <div tal:define="obj view/getLatestLink" 
         tal:condition="python:None is not obj"
          class="gpbox" 
