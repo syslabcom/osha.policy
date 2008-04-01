@@ -37,6 +37,28 @@
 #    VdexTerm.getTermKeyPath = getTermKeyPath
 #    #VdexTerm.SearchableText = SearchableText
     
-except:
-    pass
+from imsvdex.vdex import VDEXManager, VDEXError
+
+def _getManager(self, reset=False, returnerror=False):
+    """takes the given file and returns an initialized VDEXManager."""
+    if reset and hasattr(self, '_v_vdexmanager'):
+        del self._v_vdexmanager
+    manager = getattr(self, '_v_vdexmanager', None)
+    if manager is not None:
+        return manager
+    field = self.getField('vdex')
+    data = field.getRaw(self)
+    lang = self._getLanguage()
+    try:
+        manager = VDEXManager(str(data), lang=lang)
+    except VDEXError, e:
+        if not returnerror:                
+            return None
+        return str(e)
+    # here is the bug. it is vdexmanager, not manager    
+    self._v_vdexmanager = manager
+    return manager
+    
+from Products.ATVocabularyManager.types.vdex.vocabularyxml import IMSVDEXVocabulary
+IMSVDEXVocabulary._getManager = _getManager
     
