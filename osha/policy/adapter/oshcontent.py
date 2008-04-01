@@ -123,7 +123,6 @@ class TaggingSchemaExtender(object):
                     description_msgid='help_nace',
                     i18n_domain='plone',
                 ),
-#                translation_mutator="translationMutator",
             ),
             SubcategoryField('subcategory',
                 schemata='categorization',
@@ -138,7 +137,6 @@ class TaggingSchemaExtender(object):
                     description_msgid='help_subcategory',
                     i18n_domain='plone',
                     ),
-#                translation_mutator="translationMutator",
             ),
             CountryField('country',
                 schemata='categorization',
@@ -155,7 +153,6 @@ class TaggingSchemaExtender(object):
                     i18n_domain='osha',
                 ),                
 
-#                translation_mutator="translationMutator",
             ),
 
             MTSubjectField('multilingual_thesaurus',
@@ -171,7 +168,6 @@ class TaggingSchemaExtender(object):
                     description_msgid='help_multilingual_thesaurus',
                     i18n_domain='plone',
                 ),
-#                translation_mutator="translationMutator",
             ),
             
         ]
@@ -184,12 +180,16 @@ class TaggingSchemaExtender(object):
 
     def getOrder(self, original):
         categorization = original.get('categorization', [])
-        
-        categorization.remove('nace')
-        categorization.remove('country')
-        categorization.remove('multilingual_thesaurus')
-        categorization.remove('subcategory')
-        
+
+        if 'nace' in categorization:
+            categorization.remove('nace')
+        if 'country' in categorization:
+            categorization.remove('country')
+        if 'multilingual_thesaurus' in categorization:
+            categorization.remove('multilingual_thesaurus')
+        if 'subcategory' in categorization:
+            categorization.remove('subcategory')
+
         categorization.insert(0, 'nace')
         categorization.insert(0, 'country')
         categorization.insert(0, 'multilingual_thesaurus')
@@ -222,10 +222,14 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
     def getOrder(self, original):
         default = original.get('default', [])
         
-        default.remove('nace')
-        default.remove('country')
-        default.remove('multilingual_thesaurus')
-        default.remove('subcategory')
+        if 'nace' in default:
+            default.remove('nace')
+        if 'country' in default:
+            default.remove('country')
+        if 'multilingual_thesaurus' in default:
+            default.remove('multilingual_thesaurus')
+        if 'subcategory' in default:
+            default.remove('subcategory')
         
         default.append( 'nace')
         default.append( 'country')
