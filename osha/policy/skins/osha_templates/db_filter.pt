@@ -280,10 +280,10 @@
                      style="float: right; border: 1px solid gray; width: 30%">
                      <span i18n:translate="provider_of_information">Provider of this information:</span><br />
                     <p tal:repeat="provider providers">
-                        <a href="" tal:attributes="href provider/absolute_url"><span
+                        <a rel="nofollow" href="" tal:attributes="href provider/absolute_url"><span
                             tal:replace="provider/Title"></span></a><br />
                             <img tal:replace="structure python:getattr(portal, 'link_external.gif').tag()"/>  
-                            <a class="link" href="" tal:attributes="href provider/getRemoteUrl"><span 
+                            <a rel="nofollow" class="link" href="" tal:attributes="href provider/getRemoteUrl"><span 
                         i18n:translate="provider_goto_url">Go to provider's website</span></a>
                     </p>
                   </span>
@@ -294,7 +294,7 @@
                     <span tal:replace="title" />
                         
                     <tal:notanon condition="not:isAnon">
-                        [<a href="#" tal:attributes="href result_url">Edit</a>]
+                        [<a rel="nofollow" href="#" tal:attributes="href result_url">Edit</a>]
                     </tal:notanon>
             <div class="visualClear" ></div>
             </dt>
@@ -315,7 +315,7 @@
                 </tal:sme>
 
                 <img tal:replace="structure python:getattr(portal, 'link_external.gif').tag()"/>  
-                <a href="#" tal:attributes="href url" i18n:translate="link_goto_site">
+                <a rel="nofollow" href="#" tal:attributes="href url" i18n:translate="link_goto_site">
                     <strong>Goto this site</strong>
                 </a>
                 
