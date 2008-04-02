@@ -20,6 +20,10 @@
   <type type_id="ATSimpleStringCriterion"/>
   <type type_id="ATSortCriterion"/>
   <type type_id="Discussion Item"/>
+  <type type_id="File">
+   <bound-workflow workflow_id="osh_workflow"/>
+  </type>
+
   <type type_id="Folder">
    <bound-workflow workflow_id="folder_workflow"/>
   </type>
