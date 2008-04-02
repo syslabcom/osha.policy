@@ -173,7 +173,7 @@ def addExtraIndexes(self):
         cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id, extra=dict(indexed_attrs=idx_id))
 
     #Additional Metadata
-    META = ['getSme', 'getRemoteLanguage', 'getCas', 'getEinecs', 'getRemoteUrl', 'getRemoteProviderUID']
+    META = ['getSme', 'getRemoteLanguage', 'getCas', 'getEinecs', 'getRemoteUrl', 'getRemoteProviderUID', 'getMTSubject']
     for meta in META:
         if meta not in schema:
             cat.manage_addColumn(meta)
