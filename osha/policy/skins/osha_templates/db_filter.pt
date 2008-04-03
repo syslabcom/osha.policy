@@ -3,14 +3,9 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="osha"> 
 
-<!--metal:block fill-slot="top_slot"
-             tal:define="dummy python:request.set('disable_border',1)" /-->
 
 <metal:cssslot fill-slot="css_slot">
-<!--
-               tal:define="global mockup here/@@ATMockup;
-                           dummy python:mockup.preload(types=[('RiskAssessmentLink', 'RiskAssessmentLink')]);">
--->
+
 
   <style type="text/css" media="all" tal:condition="exists: portal/riskassessment_styles.css"
          tal:content="string:@import url($portal_url/riskassessment_styles.css);">
@@ -35,17 +30,6 @@
 </style>
 </metal:cssslot>
 
-<!--metal:javascriptslot fill-slot="javascript_head_slot">
-  <tal:js define="js python:here.getUniqueWidgetAttr(mockup.getFields(), 'helper_js')"
-          condition="js"
-          repeat="item js">
-    <script type="text/javascript"
-            charset="iso-8859-1"
-            tal:condition="python:exists('portal/%s' % item)"
-            tal:attributes="src string:$portal_url/$item">
-    </script>
-  </tal:js>
-</metal:javascriptslot-->
 
 <div metal:fill-slot="main" i18n:domain="osha"
        tal:define="local_keyword python:here.getProperty('keyword', '');
@@ -53,7 +37,7 @@
                    keywords request/keywords| local_keyword |string:;
                    subcategory request/subcategory | string:;
                    SearchableText request/SearchableText|string:;
-                   DBTYPES python:['OSH_Link', 'RiskAssessmentLink', 'CaseStudy', 'Provider'];
+                   DBTYPES python:['OSH_Link', 'RiskAssessmentLink', 'CaseStudy', 'Provider', 'File'];
                    portal_type request/portal_type|local_portal_types;
                    portal_type python:test(portal_type, portal_type, DBTYPES);
                    getSme python: 'True' and request.get('getSme', '') or '';
@@ -283,8 +267,7 @@
                         <a rel="nofollow" href="" tal:attributes="href provider/absolute_url"><span
                             tal:replace="provider/Title"></span></a><br />
                             <img tal:replace="structure python:getattr(portal, 'link_external.gif').tag()"/>  
-                            <a rel="nofollow" class="link" href="" tal:attributes="href provider/getRemoteUrl"><span 
-                        i18n:translate="provider_goto_url">Go to provider's website</span></a>
+                            <a rel="nofollow" class="link" href="" tal:attributes="href provider/getRemoteUrl" tal:content="provider/getRemoteUrl"></a>
                     </p>
                   </span>
                 </div>
@@ -306,17 +289,9 @@
 
                 <br />
                 
-                <tal:sme condition="item_sme">
-                    <span class="pullquote">
-                        <tal:smetrans i18n:translate="box_item_sme">
-                            Relevant for SME's
-                        </tal:smetrans>
-                    </span>
-                </tal:sme>
-
                 <img tal:replace="structure python:getattr(portal, 'link_external.gif').tag()"/>  
                 <a rel="nofollow" href="#" tal:attributes="href url" i18n:translate="link_goto_site">
-                    <strong>Goto this site</strong>
+                    <strong tal:content="url">http://Goto this site</strong>
                 </a>
                 
                 <br />
