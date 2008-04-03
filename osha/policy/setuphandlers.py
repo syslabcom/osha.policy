@@ -159,12 +159,6 @@ def addExtraIndexes(self):
 #        logger.info('Adding KeywordIndex %s' %idx_id)
 #        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id)
 
-    # getSME (SME relevant)
-    idx_id = "getSme"
-    if idx_id not in available:
-        logger.info('Adding FieldIndex %s' %idx_id)
-        cat.manage_addProduct['PluginIndexes'].manage_addFieldIndex(id=idx_id)
-
 
     # getRemoteProviderUID
     idx_id = 'getRemoteProviderUID'
@@ -173,8 +167,7 @@ def addExtraIndexes(self):
         cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id, extra=dict(indexed_attrs=idx_id))
 
     #Additional Metadata
-    META = ['getSme', 
-            'getRemoteLanguage', 
+    META = ['getRemoteLanguage', 
             'getCas', 
             'getEinecs', 
             'getRemoteUrl', 
