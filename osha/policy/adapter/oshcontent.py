@@ -111,35 +111,8 @@ class TaggingSchemaExtender(object):
 
 
     _fields = [
-            NACEField('nace',
-                schemata='categorization',
-                languageIndependent=True,
-                multiValued=True,
-                widget=VocabularyPickerWidget(
-                    label="NACE Code",
-                    description="Pick one or more values by clicking the Add button or using the Quicksearch field below.",
-                    vocabulary="NACE",
-                    label_msgid='label_nace',
-                    description_msgid='help_nace',
-                    i18n_domain='plone',
-                ),
-            ),
-            SubcategoryField('subcategory',
-                schemata='categorization',
-                enforceVocabulary=True,
-                languageIndependent=True,
-                multiValued=True,
-                widget=VocabularyPickerWidget(
-                    label="Subcategory (Site position)", 
-                    description="Select a Subcategory by clicking the Add button or by using the Quicksearch field below.",
-                    vocabulary="Subcategory",
-                    label_msgid='label_subcategory',
-                    description_msgid='help_subcategory',
-                    i18n_domain='plone',
-                    ),
-            ),
             CountryField('country',
-                schemata='categorization',
+                schemata='default',
                 enforceVocabulary=False,
                 languageIndependent=True,
                 multiValued=True,
@@ -152,11 +125,23 @@ class TaggingSchemaExtender(object):
                     label_msgid='label_country',
                     i18n_domain='osha',
                 ),                
-
             ),
-
+            SubcategoryField('subcategory',
+                schemata='default',
+                enforceVocabulary=True,
+                languageIndependent=True,
+                multiValued=True,
+                widget=VocabularyPickerWidget(
+                    label="Subcategory (Site position)", 
+                    description="Select a Subcategory by clicking the Add button or by using the Quicksearch field below.",
+                    vocabulary="Subcategory",
+                    label_msgid='label_subcategory',
+                    description_msgid='help_subcategory',
+                    i18n_domain='plone',
+                    ),
+            ),
             MTSubjectField('multilingual_thesaurus',
-                schemata='categorization',
+                schemata='default',
                 enforceVocabulary=False,
                 languageIndependent=True,
                 multiValued=True,
@@ -169,7 +154,19 @@ class TaggingSchemaExtender(object):
                     i18n_domain='plone',
                 ),
             ),
-            
+            NACEField('nace',
+                schemata='default',
+                languageIndependent=True,
+                multiValued=True,
+                widget=VocabularyPickerWidget(
+                    label="NACE Code",
+                    description="Pick one or more values by clicking the Add button or using the Quicksearch field below.",
+                    vocabulary="NACE",
+                    label_msgid='label_nace',
+                    description_msgid='help_nace',
+                    i18n_domain='plone',
+                ),
+            ),
         ]
 
     def __init__(self, context):
@@ -179,23 +176,33 @@ class TaggingSchemaExtender(object):
         return self._fields
 
     def getOrder(self, original):
-        categorization = original.get('categorization', [])
+#        categorization = original.get('categorization', [])
+#
+#        if 'nace' in categorization:
+#            categorization.remove('nace')
+#        if 'country' in categorization:
+#            categorization.remove('country')
+#        if 'multilingual_thesaurus' in categorization:
+#            categorization.remove('multilingual_thesaurus')
+#        if 'subcategory' in categorization:
+#            categorization.remove('subcategory')
+#
+#        categorization.insert(0, 'nace')
+#        categorization.insert(0, 'country')
+#        categorization.insert(0, 'multilingual_thesaurus')
+#        categorization.insert(0, 'subcategory')
+#        
+#        original['categorization'] = categorization
 
-        if 'nace' in categorization:
-            categorization.remove('nace')
-        if 'country' in categorization:
-            categorization.remove('country')
-        if 'multilingual_thesaurus' in categorization:
-            categorization.remove('multilingual_thesaurus')
-        if 'subcategory' in categorization:
-            categorization.remove('subcategory')
-
-        categorization.insert(0, 'nace')
-        categorization.insert(0, 'country')
-        categorization.insert(0, 'multilingual_thesaurus')
-        categorization.insert(0, 'subcategory')
-        
-        original['categorization'] = categorization
+        default = original.get('default', [])
+        if 'remoteLanguage' in default:
+            idx = default.index('remoteLanguage') + 1
+            myfields = [x.getName() for x in self.getFields()]
+            for myfield in myfields:
+                if myfield in default:
+                    default.remove(myfield)
+            new_default = default[:idx] + myfields + default[idx:]
+            original['default'] = new_default
 
         return original
 
@@ -213,7 +220,6 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
     def __init__(self, context):
         super(TaggingSchemaExtender, self).__init__(self, context)
         for f in self._fields:
-            f.schemata = 'default'
             if f.getName() in ('country', 'multilingual_thesaurus'):
                 f.required = True
             elif f.getName() == 'subcategory':
