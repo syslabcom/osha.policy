@@ -1,8 +1,8 @@
 from Products.RemoteProvider.content.Provider import Provider, Provider_schema
 
-unwantedFields = ('allowDiscussion', 'language', 'providerCategory')
-moveToCategorization = ('sme', 'remoteLanguage')
-moveToBottom = ('creators', 'contributors', 'rights', 'effectiveDate', 'expirationDate')
+unwantedFields = ('allowDiscussion', 'language', 'providerCategory', 'sme', 'subject')
+moveToDefault = ['remoteLanguage', 'location', 'effectiveDate', 'expirationDate']
+moveToBottom = ('creators', 'contributors', 'rights', )
 
 for name in unwantedFields:
     if Provider_schema.get(name):
@@ -10,11 +10,10 @@ for name in unwantedFields:
         Provider_schema[name].widget.visible['view'] = 'invisible'
         Provider_schema.changeSchemataForField(name, 'default')
 
-for name in moveToCategorization:
+for name in moveToDefault:
     if Provider_schema.get(name):
-        Provider_schema.changeSchemataForField(name, 'categorization')
+        Provider_schema.changeSchemataForField(name, 'default')
 
 for name in moveToBottom:
     if Provider_schema.get(name):
         Provider_schema.moveField(name, pos='bottom')
-        #print "moved:", name
