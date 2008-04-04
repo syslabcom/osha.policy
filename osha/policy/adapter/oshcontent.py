@@ -21,8 +21,11 @@ from Products.ATCountryWidget.Widget import CountryWidget, MultiCountryWidget
 
 
 # Provider
+class IOSHContentProvider(zope.interface.Interface):
+    """ OSHContent for Provider """
+
 from Products.RemoteProvider.content.Provider import Provider
-zope.interface.classImplements(Provider, IOSHContent)
+zope.interface.classImplements(Provider, IOSHContentProvider)
 
 #OSHLink
 from Products.OSHContentLink.OSH_Link import OSH_Link
@@ -194,6 +197,7 @@ class TaggingSchemaExtender(object):
 #        
 #        original['categorization'] = categorization
 
+
         default = original.get('default', [])
         if 'remoteLanguage' in default:
             idx = default.index('remoteLanguage') + 1
@@ -248,6 +252,18 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
 
 zope.component.provideAdapter(TaggingSchemaExtenderCaseStudy,
                               name=u"osha.metadata.casestudy")
+
+
+class TaggingSchemaExtenderProvider(TaggingSchemaExtender):
+    zope.interface.implements(IOrderableSchemaExtender)
+    zope.component.adapts(IOSHContentProvider)
+    
+    def getOrder(self, original):
+        return original
+
+zope.component.provideAdapter(TaggingSchemaExtenderProvider,
+                              name=u"osha.metadata.provider")
+
 
 ###############################################################################
 # Press Release
