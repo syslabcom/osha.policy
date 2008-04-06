@@ -40,7 +40,6 @@
                    DBTYPES python:['OSH_Link', 'RiskAssessmentLink', 'CaseStudy', 'Provider', 'File'];
                    portal_type request/portal_type|local_portal_types;
                    portal_type python:test(portal_type, portal_type, DBTYPES);
-                   getSme python: 'True' and request.get('getSme', '') or '';
                    nace request/nace|string:;
                    nace python:test(nace==[''], '', nace);
                    category request/category|string:;
@@ -132,21 +131,6 @@
                 </div>
 
             </div>            
-
-            <div class="field">
-           
-                <label i18n:translate="label_sme_relevant">SME relevant?</label>
-                
-                <div class="formHelp" i18n:translate="help_sme_relevant">
-                    Select this if you want to restrict your search to information relevant for small and medium enterprises (SMEs).
-                </div>
-
-                <input class="input_checkbox" type="checkbox" 
-                       name="getSme:boolean"
-                       value="True"
-                       tal:attributes="checked python:'checked' and getSme;" /> 
-                
-            </div>
            
         </div>
           
@@ -205,7 +189,6 @@
                                        'nace':nace,
                                        'getRemoteLanguage':getRemoteLanguage,
                                        'subcategory':subcategory,
-                                       'getSme': getSme,
                                        'getCountry':getCountry,
                                        'SearchableText':SearchableText,
                                        'sort_on': 'effective',
@@ -250,7 +233,6 @@
                            item_cas result/getCas|string:;
                            item_einecs result/getEinecs|string:;
                            item_remoteLanguage result/getRemoteLanguage|string:;
-                           item_sme result/getSme | nothing;
                            item_provider result/Provider | string:;                           
                            item_modified result/modified;
                            item_pubdate result/effective;
