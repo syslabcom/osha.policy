@@ -227,7 +227,7 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
             if f.getName() in ('country', 'multilingual_thesaurus'):
                 f.required = True
             elif f.getName() == 'subcategory':
-                f.visible = dict(edit='invisible', view='invisible')
+                f.widget.visible = dict(edit='invisible', view='invisible')
 
     def getOrder(self, original):
         default = original.get('default', [])
@@ -238,13 +238,15 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
             default.remove('country')
         if 'multilingual_thesaurus' in default:
             default.remove('multilingual_thesaurus')
-        if 'subcategory' in default:
-            default.remove('subcategory')
+#        if 'subcategory' in default:
+#            default.remove('subcategory')
+        if 'displayAttachments' in default:
+            default.remove('displayAttachments')
         
         default.append( 'nace')
         default.append( 'country')
         default.append( 'multilingual_thesaurus')
-        default.append( 'subcategory')
+        default.append('displayAttachments')
 
         original['default'] = default
 
