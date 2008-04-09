@@ -33,5 +33,6 @@ RiskAssessmentLink.Subject = Subject
 Provider.getSubject = getSubject
 Provider.Subject = Subject
 
-CaseStudy.getSubject = getSubject
-CaseStudy.Subject = Subject
+# There are no longer subcategories on CaseStudies
+#CaseStudy.getSubject = getSubject
+#CaseStudy.Subject = Subject

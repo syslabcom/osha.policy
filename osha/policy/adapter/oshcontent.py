@@ -223,11 +223,16 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
     
     def __init__(self, context):
         super(TaggingSchemaExtender, self).__init__(self, context)
+	_myfields= list()
         for f in self._fields:
             if f.getName() in ('country', 'multilingual_thesaurus'):
                 f.required = True
-            elif f.getName() == 'subcategory':
-                f.widget.visible = dict(edit='invisible', view='invisible')
+            if f.getName() != 'subcategory':
+                _myfields.append(f)
+        self._myfields = _myfields
+
+    def getFields(self):
+	    return  self._myfields
 
     def getOrder(self, original):
         default = original.get('default', [])
