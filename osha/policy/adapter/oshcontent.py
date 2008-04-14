@@ -140,7 +140,7 @@ class TaggingSchemaExtender(object):
                     vocabulary="Subcategory",
                     label_msgid='label_subcategory',
                     description_msgid='help_subcategory',
-                    i18n_domain='plone',
+                    i18n_domain='osha',
                     ),
             ),
             MTSubjectField('multilingual_thesaurus',
@@ -155,7 +155,7 @@ class TaggingSchemaExtender(object):
                     vocabulary="MultilingualThesaurus",
                     label_msgid='label_category',
                     description_msgid='help_multilingual_thesaurus',
-                    i18n_domain='plone',
+                    i18n_domain='osha',
                 ),
             ),
             NACEField('nace',
@@ -168,7 +168,7 @@ class TaggingSchemaExtender(object):
                     vocabulary="NACE",
                     label_msgid='label_nace',
                     description_msgid='help_nace',
-                    i18n_domain='plone',
+                    i18n_domain='osha',
                 ),
             ),
         ]
@@ -180,6 +180,7 @@ class TaggingSchemaExtender(object):
         return self._fields
 
     def getOrder(self, original):
+        """ getting order """
 #        categorization = original.get('categorization', [])
 #
 #        if 'nace' in categorization:
