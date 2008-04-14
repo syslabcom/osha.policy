@@ -136,7 +136,7 @@ class TaggingSchemaExtender(object):
                 multiValued=True,
                 widget=VocabularyPickerWidget(
                     label="Subcategory (Site position)", 
-                    description="Select a Subcategory by clicking the Add button or by using the Quicksearch field below.",
+                    description="Choose the most relevant subcategories. This will decide where the information is displayed",
                     vocabulary="Subcategory",
                     label_msgid='label_subcategory',
                     description_msgid='help_subcategory',
@@ -243,15 +243,10 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
             default.remove('country')
         if 'multilingual_thesaurus' in default:
             default.remove('multilingual_thesaurus')
-#        if 'subcategory' in default:
-#            default.remove('subcategory')
-        if 'displayAttachments' in default:
-            default.remove('displayAttachments')
         
-        default.append( 'nace')
-        default.append( 'country')
-        default.append( 'multilingual_thesaurus')
-        default.append('displayAttachments')
+        default.append('nace')
+        default.append('country')
+        default.append('multilingual_thesaurus')
 
         original['default'] = default
 
