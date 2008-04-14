@@ -147,6 +147,7 @@ class TaggingSchemaExtender(object):
                 schemata='default',
                 enforceVocabulary=False,
                 languageIndependent=True,
+                required=True,
                 multiValued=True,
                 widget=VocabularyPickerWidget(
                     label='Multilingual Thesaurus Subject',
