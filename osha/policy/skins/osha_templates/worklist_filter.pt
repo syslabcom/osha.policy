@@ -60,7 +60,7 @@
                    getRemoteLanguage request/getRemoteLanguage|string:;
                    country request/country|string:;
                    review_state request/review_state|string:;
-                   Creator request/Creator|member/getUserName|string:;
+                   Creator request/Creator|member/getName|member/getUserName|string:;
                    getRemoteUrl request/getRemoteUrl|string:;
                    Batch python:modules['Products.CMFPlone'].Batch;
                    DateTime python:modules['DateTime'].DateTime;
