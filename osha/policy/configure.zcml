@@ -27,10 +27,6 @@
         factory=".localroles.CheckerRole"
         />
         
-    <adapter
-        for="Products.ATContentTypes.interface.folder.IATFolder"
-        provides=".interfaces.ISubsite"
-        factory=".adapter.subsite"
-        />        
+  
       
 </configure>
