@@ -44,6 +44,7 @@ from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPic
 
 from archetypes.schemaextender.field import ExtensionField
 from Products.Archetypes import atapi
+from Products.Archetypes.Widget import BooleanWidget
 from Products.CMFCore.utils import getToolByName
 
 # dummy
@@ -97,6 +98,10 @@ class MTSubjectField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
 
 class ReferencedContentField(ExtensionField, ExtensionFieldMixin, atapi.ReferenceField):
     """ Possibility to reference content objects, the text of which can be used to display inside the current object"""
+
+class NewsMarkerField(ExtensionField, atapi.BooleanField):
+    """ marker field to have object appear in news portlet """
+
 
 import zope.component
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
@@ -171,6 +176,19 @@ class TaggingSchemaExtender(object):
                     i18n_domain='osha',
                 ),
             ),
+            NewsMarkerField('isNews',
+                schemata='default',
+                read_permission="Review portal content",
+                write_permission="Review portal content",
+                languageIndependent=True,
+                widget=BooleanWidget(
+                    label="Mark as News",
+                    description="Check to have this appear as News in the portlet.",
+                    label_msgid='label_isnews',
+                    description_msgid='help_isnews',
+                    i18n_domain='osha',
+                ),
+            ),
         ]
 
     def __init__(self, context):
@@ -209,6 +227,14 @@ class TaggingSchemaExtender(object):
                     default.remove(myfield)
             new_default = default[:idx] + myfields + default[idx:]
             original['default'] = new_default
+        
+        
+        default = original.get('default', [])
+        if 'isNews' in default:
+            default.remove('isNews')
+            idx = default.index('description') + 1
+            default.insert(idx, 'isNews')
+        original['default'] = default
 
         return original
 
@@ -298,6 +324,17 @@ class PressReleaseExtender(object):
                     base_query=dict(path=dict(query='textpieces', level=-1), Language=['en','']),
                     show_results_without_query=True,
                     ),
+            ),
+            NewsMarkerField('isNews',
+                schemata='default',
+                languageIndependent=True,
+                widget=BooleanWidget(
+                    label="Mark as News",
+                    description="Check to have this appear as News in the portlet.",
+                    label_msgid='label_isnews',
+                    description_msgid='help_isnews',
+                    i18n_domain='osha',
+                ),
             ),
         ]
 

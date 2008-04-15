@@ -257,6 +257,11 @@ def addProxyIndexes(self):
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
+          , { 'idx_id' : 'isNews'
+            , 'meta_id' : 'isNews'
+            , 'extra' : dict(idx_type = "FieldIndex",
+                )
+            }
         ]
     
     VALUE_EXPR = "python:object.getField('%(meta_id)s').getAccessor(object)()"
