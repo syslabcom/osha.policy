@@ -1,2 +1,2 @@
 #
-import oshcontent
+import schemaextender
