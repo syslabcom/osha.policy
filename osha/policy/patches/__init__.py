@@ -2,3 +2,4 @@ import vdex_vocabulary_extension_patch
 import subject_accessor
 import riskassessment_provider
 import pressroom_patch
+import proxyindex_patch
