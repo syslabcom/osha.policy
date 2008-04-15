@@ -27,8 +27,8 @@ def Subject(self):
 OSH_Link.getSubject = getSubject
 OSH_Link.Subject = Subject
 
-RiskAssessmentLink.getSubject = getSubject
-RiskAssessmentLink.Subject = Subject
+#RiskAssessmentLink.getSubject = getSubject
+#RiskAssessmentLink.Subject = Subject
 
 Provider.getSubject = getSubject
 Provider.Subject = Subject

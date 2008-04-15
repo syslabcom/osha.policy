@@ -32,8 +32,10 @@ from Products.OSHContentLink.OSH_Link import OSH_Link
 zope.interface.classImplements(OSH_Link, IOSHContent)
 
 # RiskAssessmentLink
+class IOSHContentRiskassessmentLink(zope.interface.Interface):
+    """ OSHContent for RiskAssessmentLink"""
 from Products.RiskAssessmentLink.content.RiskAssessmentLink import RiskAssessmentLink
-zope.interface.classImplements(RiskAssessmentLink, IOSHContent)
+zope.interface.classImplements(RiskAssessmentLink, IOSHContentRiskassessmentLink)
 
 # Case Study
 from Products.CaseStudy.CaseStudy import CaseStudy
@@ -199,23 +201,6 @@ class TaggingSchemaExtender(object):
 
     def getOrder(self, original):
         """ getting order """
-#        categorization = original.get('categorization', [])
-#
-#        if 'nace' in categorization:
-#            categorization.remove('nace')
-#        if 'country' in categorization:
-#            categorization.remove('country')
-#        if 'multilingual_thesaurus' in categorization:
-#            categorization.remove('multilingual_thesaurus')
-#        if 'subcategory' in categorization:
-#            categorization.remove('subcategory')
-#
-#        categorization.insert(0, 'nace')
-#        categorization.insert(0, 'country')
-#        categorization.insert(0, 'multilingual_thesaurus')
-#        categorization.insert(0, 'subcategory')
-#        
-#        original['categorization'] = categorization
 
 
         default = original.get('default', [])
@@ -245,13 +230,14 @@ zope.component.provideAdapter(TaggingSchemaExtender,
                               name=u"osha.metadata")
 
 
+# CaseStudy
 class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContentCaseStudy)
     
     def __init__(self, context):
         super(TaggingSchemaExtender, self).__init__(self, context)
-	_myfields= list()
+        _myfields= list()
         for f in self._fields:
             if f.getName() in ('country', 'multilingual_thesaurus'):
                 f.required = True
@@ -260,7 +246,7 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
         self._myfields = _myfields
 
     def getFields(self):
-	    return  self._myfields
+        return self._myfields
 
     def getOrder(self, original):
         default = original.get('default', [])
@@ -278,12 +264,65 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
 
         original['default'] = default
 
+        default = original.get('default', [])
+        if 'isNews' in default:
+            default.remove('isNews')
+            idx = default.index('description') + 1
+            default.insert(idx, 'isNews')
+        original['default'] = default
+
         return original
 
 zope.component.provideAdapter(TaggingSchemaExtenderCaseStudy,
                               name=u"osha.metadata.casestudy")
 
 
+# RiskAssessmentLink
+class TaggingSchemaExtenderRiskassessmentLink(TaggingSchemaExtender):
+    zope.interface.implements(IOrderableSchemaExtender)
+    zope.component.adapts(IOSHContentRiskassessmentLink)
+    
+    def __init__(self, context):
+        super(TaggingSchemaExtender, self).__init__(self, context)
+        _myfields= list()
+        for f in self._fields:
+            if f.getName() in ('country', 'multilingual_thesaurus'):
+                f.required = True
+            if f.getName() != 'subcategory':
+                _myfields.append(f)
+        self._myfields = _myfields
+
+    def getFields(self):
+        return self._myfields
+
+    def getOrder(self, original):
+        default = original.get('default', [])
+
+        if 'remoteLanguage' in default:
+            default.remove('nace')
+            default.remove('country')
+            default.remove('multilingual_thesaurus')
+            idx = default.index('remoteLanguage') + 1
+            new_default = default[:idx] + ['country'] \
+                + [default[idx]] \
+                + ['multilingual_thesaurus', 'nace'] \
+                + default[idx+1:]
+            original['default'] = new_default
+
+        default = original.get('default', [])
+        if 'isNews' in default:
+            default.remove('isNews')
+            idx = default.index('description') + 1
+            default.insert(idx, 'isNews')
+        original['default'] = default
+
+        return original
+
+zope.component.provideAdapter(TaggingSchemaExtenderRiskassessmentLink,
+                              name=u"osha.metadata.riskassessmentlink")
+
+
+# Provider
 class TaggingSchemaExtenderProvider(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContentProvider)
