@@ -3,11 +3,11 @@
            xmlns:five="http://namespaces.zope.org/five">
 
 
-    <adapter
+    <!--adapter
         for="Products.ATContentTypes.interface.folder.IATFolder"
         provides="..interfaces.ISubsite"
         factory=".subsite.Subsite"
-        />      
+        /-->      
         
     <adapter
         for="Products.ATContentTypes.interface.folder.IATFolder"
