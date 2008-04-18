@@ -7,7 +7,10 @@ from Products.CaseStudy.CaseStudy import CaseStudy
 def getSubject(self):
     """ Very specific osha getter. We want to make sure that the toplevel cats always represent the subject
     """
-    subcats = self.getField('subcategory').getAccessor(self)()
+    subcats = self.getField('subcategory')
+    if subcats is  None:
+        return tuple()
+    subcats = subcats.getAccessor(self)()
     # XXX: Bad hack but works. I take all keys which have no :: inside
     subjects = {}
     for subcat in subcats:

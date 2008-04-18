@@ -14,6 +14,7 @@ ztc.installProduct('ATVocabularyManager')
 ztc.installProduct('CallForContractors')
 ztc.installProduct('CaseStudy')
 ztc.installProduct('CMFSin')
+ztc.installProduct('CMFLinkChecker')
 ztc.installProduct('Clouseau')
 ztc.installProduct('FCKeditor')
 ztc.installProduct('LinguaPlone')
@@ -33,13 +34,13 @@ ztc.installProduct('collective.portlet.tal')
 ztc.installProduct('plone.portlet.collection')
 ztc.installProduct('plone.portlet.static')
 #ztc.installProduct('PressRoom')
-#ztc.installProduct('webcouturier.dropdownmenu')
 ztc.installProduct('ATCountryWidget')
 ztc.installProduct('DataGridField')
 ztc.installProduct('TextIndexNG3')
 ztc.installProduct('UserAndGroupSelectionWidget')
 ztc.installProduct('simplon.plone.ldap')
 ztc.installProduct('ProxyIndex')
+ztc.installProduct('ZCatalog')
 
 
 @onsetup
@@ -61,12 +62,8 @@ def setup_osha_policy():
     # We need to tell the testing framework that these products
     # should be available. This can't happen until after we have loaded
     # the ZCML.
-    
-    #ztc.installPackage('borg.localrole')
-    #ztc.installPackage('borg.project')
-    
+       
     ztc.installPackage('osha.theme')
-    #ztc.installPackage('optilux.cinemacontent')
     ztc.installPackage('osha.policy')
     
 # The order here is important: We first call the (deferred) function which
@@ -74,9 +71,14 @@ def setup_osha_policy():
 # PloneTestCase set up this product on installation.
 
 setup_osha_policy()
-ptc.setupPloneSite(products=['osha.policy'])
+ptc.setupPloneSite(products=['osha.policy', 'CMFLinkChecker'])
 
 class OSHAPolicyTestCase(ptc.PloneTestCase):
+    """We use this base class for all the tests in this package. If necessary,
+    we can put common utility or setup code in here.
+    """
+
+class OSHAPolicyFunctionalTestCase(ptc.FunctionalTestCase):
     """We use this base class for all the tests in this package. If necessary,
     we can put common utility or setup code in here.
     """

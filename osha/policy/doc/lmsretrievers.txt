@@ -1,0 +1,33 @@
+LMS Retrievers
+--------------
+
+This test checks the functionality of the lms retrievers for the osha specific products.
+
+    >>> self.loginAsPortalOwner()
+
+Starting with RichDocument, we create one, get the retriever for it and see if we get the proper links out again. 
+
+    >>> _ = self.folder.invokeFactory('RichDocument', 'myrichdoc')
+    >>> myob = getattr(self.folder, 'myrichdoc')
+    >>> myob.setText('This is <a href="google.com">a link</a>.')
+    >>> retrieve_manager = self.portal.portal_linkchecker.retrieving
+    >>> retriever = retrieve_manager._getRetrieverForObject(myob)
+    >>> links = retriever.retrieveLinks(myob)
+    >>> 'google.com' in links
+    True
+    
+OSH_Link:
+
+    >>> _ = self.folder.invokeFactory('OSH_Link', 'myoshlink')
+    >>> myob = getattr(self.folder, 'myoshlink')
+    >>> myob.setText('This is <a href="google.com">a link</a>.')
+    >>> myob.setRemoteUrl('http://osha.europa.eu')
+    >>> retrieve_manager = self.portal.portal_linkchecker.retrieving
+    >>> retriever = retrieve_manager._getRetrieverForObject(myob)
+    >>> links = retriever.retrieveLinks(myob)
+    >>> 'google.com' in links
+    True
+    >>> 'http://osha.europa.eu' in links
+    True
+
+
