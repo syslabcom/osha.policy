@@ -14,5 +14,6 @@
         provides="..interfaces.ISingleEntryPoint"
         factory=".singleentrypoint.SingleEntryPoint"
         />          
-            
+        
+                    
 </configure>

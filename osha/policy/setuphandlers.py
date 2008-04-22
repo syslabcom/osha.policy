@@ -38,6 +38,7 @@ def importVarious(context):
     quickinst.installProduct('slc.xliff')
     quickinst.installProduct('slc.foldercontentsfilter')
     quickinst.installProduct('slc.alertservice')
+    quickinst.installProduct('slc.subsite')
     quickinst.installProduct('collective.portlet.feedmixer')
     quickinst.installProduct('collective.portlet.tal')
     quickinst.installProduct('plone.portlet.collection')
@@ -63,8 +64,12 @@ def importVarious(context):
     quickinst.installProduct('Products.PloneFlashUpload')
     quickinst.installProduct('BlueLinguaLink')
     quickinst.installProduct('Calendaring')
-
     quickinst.installProduct('osha.theme')
+    # It is IMPORTANT that the linkchecker is installed at the end 
+    # because it relies on beforehand registered retrievers
+    quickinst.installProduct('CMFLinkChecker')
+
+
 
     # Run setup policies which are not handled by qi
     setuptool = getToolByName(site, 'portal_setup')
@@ -153,13 +158,6 @@ def addExtraIndexes(self):
     available = cat.indexes()
     schema = cat.schema()
     
-#    # AvailableLanguages
-#    idx_id = "AvailableLanguages"
-#    if idx_id not in available:
-#        logger.info('Adding KeywordIndex %s' %idx_id)
-#        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id)
-
-
     # getRemoteProviderUID
     idx_id = 'getRemoteProviderUID'
     if idx_id not in available:

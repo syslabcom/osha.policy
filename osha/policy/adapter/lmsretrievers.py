@@ -25,7 +25,18 @@ def _makesafe_urls(urls):
     return URLS
 
 class RichDocumentRetriever(object):
-    """Retriever for documents with one or more RichText widgets."""
+    """Retriever for documents with one or more RichText widgets.
+
+        >>> _ = self.folder.invokeFactory('RichDocument', 'myrichdoc')
+        >>> myob = getattr(self.folder, 'myrichdoc')
+        >>> myob.setText('This is <a href="google.com">a link</a>.')
+        >>> retrieve_manager = self.portal.portal_linkchecker.retrieving
+        >>> retriever = retrieve_manager._getRetrieverForObject(myob)
+        >>> links = retriever.retrieveLinks(myob)
+        >>> 'google.com' in links
+        True        
+    
+    """
 
     __implements__ = (IRetriever,)
 
@@ -40,27 +51,4 @@ class RichDocumentRetriever(object):
         """Replace all occurances of <oldurl> on object with <newurl>."""
         updateAllRichTextFields(oldurl, newurl, object)
 
-class OSHLinkRetriever(object):
-    """Retriever for documents with one or more RichText widgets."""
-
-    __implements__ = (IRetriever,)
-
-    name = "OSHLink"
-    defaults = ["OSH_Link"]
-
-    def retrieveLinks(self, object):
-        """Finds all links from the object and return them."""
-        links = retrieveAllRichTextFields(object)
-        links.append(object.getRemoteUrl())
-        return links
-
-    def updateLink(self, oldurl, newurl, object):
-        """Replace all occurances of <oldurl> on object with <newurl>."""
-        updateAllRichTextFields(oldurl, newurl, object)
-        if object.getRemoteUrl() == oldurl:
-            object.setRemoteUrl(newurl)
-
-
-"""register retrievers"""
 GlobalRegistry.register(RichDocumentRetriever())
-GlobalRegistry.register(OSHLinkRetriever())

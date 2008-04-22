@@ -65,7 +65,7 @@
          style="padding:5px; width:99%;">
          
          <img alt="" width="16" height="16" src="icon.gif" 
-              tal:define="iconsrc obj/getIcon|string:blank.gif;" 
+              tal:define="iconsrc string:oshlink_icon.gif;" 
               tal:attributes="src string:${here/portal_url}/${iconsrc}" />
          <strong>
              <a href="#"
