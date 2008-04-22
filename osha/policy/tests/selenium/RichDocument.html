@@ -1,0 +1,122 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Test 3</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test 3</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/en</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=richdocument</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>title</td>
+	<td>Test 3</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>title</td>
+	<td>Test 3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>Mal sehen ob wirklich alles im Rich document funktioniert</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>description</td>
+	<td>Mal sehen ob wirklich alles im Rich document funktioniert</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>text</td>
+	<td>Also jedes Textfeld, alle Knöpfe usw.</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>text</td>
+	<td>Also jedes Textfeld, alle Knöpfe usw.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>displayImages</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>displayImages</td>
+	<td>on</td>
+</tr>
+<!--XXX Fehlermeldung, Bild wird geladen aber die Meldung muss weg-->
+<tr>
+	<td>click</td>
+	<td>displayAttachments</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>displayAttachments</td>
+	<td>off</td>
+</tr>
+<!--XXX Attachment management controls kann nicht geöffnet werden-->
+<tr>
+	<td>clickAndWait</td>
+	<td>form_submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Test 3</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Mal sehen ob wirklich alles im Rich document funktioniert</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td>Also jedes Textfeld, alle Knöpfe usw.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=My Folder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Contents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>cb_test-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>folder_delete:method</td>
+	<td></td>
+</tr>
+<!---->
+
+</tbody></table>
+</body>
+</html>
