@@ -29,5 +29,15 @@
   <!-- Datagridwidget registration -->
  <javascript cacheable="True" compression="safe" cookable="True"
     enabled="True" expression="" id="datagridwidget.js" inline="False"/>
-  
+
+  <!-- VocabularyPickerWidget -->
+ <javascript cacheable="True" compression="none" cookable="True"
+    enabled="True" expression="" id="ftiens4.js" inline="False"/>
+
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="" id="itembrowser.js" inline="False"/>
+
+ <javascript cacheable="True" compression="safe" cookable="True"
+    enabled="True" expression="" id="generateCheckboxNodes.js" inline="False"/>
+
 </object>
