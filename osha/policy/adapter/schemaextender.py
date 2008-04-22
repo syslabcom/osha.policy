@@ -41,6 +41,14 @@ zope.interface.classImplements(RiskAssessmentLink, IOSHContentRiskassessmentLink
 from Products.CaseStudy.CaseStudy import CaseStudy
 zope.interface.classImplements(CaseStudy, IOSHContentCaseStudy)
 
+# Publications / Files
+#from slc.publications.interfaces import IPublicationEnhanced
+#from slc.publications.subtypes.publication import SchemaExtender as PublicationSchemaExtender
+from Products.ATContentTypes.content.file import ATFile
+zope.interface.classImplements(ATFile, IOSHContent)
+from plone.app.blob.content import ATBlob 
+zope.interface.classImplements(ATBlob, IOSHContent)
+
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
 
@@ -389,4 +397,47 @@ class PressReleaseExtender(object):
 zope.component.provideAdapter(PressReleaseExtender,
                               name=u"osha.metadata.pressrelease")
 
-
+##########################################
+# Publications
+##########################################
+#
+#class TaggingSchemaExtenderPublications(TaggingSchemaExtender):
+#    zope.interface.implements(IOrderableSchemaExtender)
+#    zope.component.adapts(IPublicationEnhanced)
+#    
+#    
+#    def __init__(self, context):
+#        super(TaggingSchemaExtender, self).__init__(self, context)
+#        _myfields= list()
+#        
+#        for f in TaggingSchemaExtender._fields+PublicationSchemaExtender._fields:
+#            if f.getName() in ( 'multilingual_thesaurus' ):
+#                f.required = True
+#            if f.getName() not in ('subcategory', 'isNews'):
+#                _myfields.append(f)
+#    
+#        self._myfields = _myfields
+#
+#    def getFields(self):
+#        return self._myfields
+#
+#    def getOrder(self, original):
+#        default = original.get('default', [])
+#        
+#        if 'nace' in default:
+#            default.remove('nace')
+#        if 'country' in default:
+#            default.remove('country')
+#        if 'multilingual_thesaurus' in default:
+#            default.remove('multilingual_thesaurus')
+#        
+#        default.append('nace')
+#        default.append('country')
+#        default.append('multilingual_thesaurus')
+#
+#        original['default'] = default
+#
+#        return original
+#
+#zope.component.provideAdapter(TaggingSchemaExtenderPublications,
+#                              name=u"osha.metadata.publications")
