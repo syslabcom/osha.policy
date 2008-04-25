@@ -64,6 +64,7 @@ def importVarious(context):
     quickinst.installProduct('Products.PloneFlashUpload')
     quickinst.installProduct('BlueLinguaLink')
     quickinst.installProduct('Calendaring')
+    quickinst.installProduct('osha.legislation')
     quickinst.installProduct('osha.theme')
     # It is IMPORTANT that the linkchecker is installed at the end 
     # because it relies on beforehand registered retrievers
@@ -99,8 +100,9 @@ def importVarious(context):
     
 def configurePortal(portal):
     """ make some changes to the portal config """
-    getattr(portal.portal_types, 'Large Plone Folder').global_allow = True
-    site_properties = portal.portal_properties.site_properties
+    portal_types = getToolByName(portal, 'portal_types')
+    getattr(portal_types, 'Large Plone Folder').global_allow = True
+    site_properties = getToolByName(portal, 'portal_properties').site_properties
     default_page = site_properties.getProperty('default_page')
     default_page += ('index.php','index.stm', 'index.stml')
     site_properties._updateProperty('default_page', default_page)
@@ -108,6 +110,7 @@ def configurePortal(portal):
     portal._addRole('Checker')
     registerPermissions( [ ('Crosscheck portal content', None) ] )
     portal.manage_permission('Crosscheck portal content', roles=['Manager','Checker'], acquire=0)
+    
     
 
 def setVersionedTypes(portal):
