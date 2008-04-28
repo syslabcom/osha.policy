@@ -175,7 +175,8 @@ def addExtraIndexes(self):
             'getRemoteProviderUID', 
             'getMTSubject',
             'changefreq',
-            'priority'
+            'priority',
+            'getLex_section'
             ]
     for meta in META:
         if meta not in schema:
@@ -261,6 +262,11 @@ def addProxyIndexes(self):
           , { 'idx_id' : 'isNews'
             , 'meta_id' : 'isNews'
             , 'extra' : dict(idx_type = "FieldIndex",
+                )
+            }
+          , { 'idx_id' : 'lex_section'
+            , 'meta_id' : 'lex_section'
+            , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
         ]
