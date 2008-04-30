@@ -74,7 +74,9 @@ def importVarious(context):
 
     # Run setup policies which are not handled by qi
     setuptool = getToolByName(site, 'portal_setup')
-    setuptool.runAllImportStepsFromProfile('profile-p4a.plonecalendar:default')
+
+    # commented out, because no longer available
+#    setuptool.runAllImportStepsFromProfile('profile-p4a.plonecalendar:default')
     
 
 
