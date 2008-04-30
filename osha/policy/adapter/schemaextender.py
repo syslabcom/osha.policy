@@ -178,7 +178,7 @@ class TaggingSchemaExtender(object):
                 languageIndependent=True,
                 multiValued=True,
                 widget=VocabularyPickerWidget(
-                    label="NACE Code",
+                    label="Sector (NACE Code)",
                     description="Pick one or more values by clicking the Add button or using the Quicksearch field below.",
                     vocabulary="NACE",
                     label_msgid='label_nace',
