@@ -59,6 +59,13 @@
       allowed_interface=".interfaces.ISEPHelpers"
       />
 
+  <browser:page
+      for="Products.CMFCore.interfaces.ISiteRoot"
+      name="createTopicDirectory"
+      class=".sep_utils.TopicDirectory"
+      permission="zope.Public"
+      />
+
   <adapter
       for=".interfaces.ISEPFolder"
       provides=".interfaces.ISEPFolder"
