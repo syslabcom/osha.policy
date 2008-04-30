@@ -3,7 +3,7 @@
  <object name="navtree_properties" meta_type="Plone Property Sheet">
   <property name="title">NavigationTree properties</property>
   <property name="sortAttribute" type="string">getObjPositionInParent</property>
-  <property name="sortOrder" type="string">asc</property>
+  <property name="sortOrder" type="string">desc</property>
   <property name="sitemapDepth" type="int">3</property>
   <property name="name" type="string"></property>
   <property name="root" type="string">/</property>
@@ -103,8 +103,8 @@
  <object name="site_properties" meta_type="Plone Property Sheet">
   <property name="title">Site wide properties</property>
   <property name="allowAnonymousViewAbout" type="boolean">True</property>
-  <property name="localTimeFormat" type="string">%Y-%m-%d</property>
-  <property name="localLongTimeFormat" type="string">%Y-%m-%d %H:%M</property>
+  <property name="localTimeFormat" type="string">%d.%m.%Y</property>
+  <property name="localLongTimeFormat" type="string">%d.%m.%Y %H:%M</property>
   <property name="default_language" type="string">en</property>
   <property name="default_charset" type="string">utf-8</property>
   <property name="use_folder_tabs" type="lines">
@@ -116,6 +116,8 @@
   <property name="available_editors" type="lines">
    <element value="None"/>
    <element value="Kupu"/>
+   <element value="EditOnPro"/>
+   <element value="FCKeditor"/>
   </property>
   <property name="allowRolesToAddKeywords" type="lines">
    <element value="Manager"/>
@@ -148,6 +150,7 @@
    <element value="ATListCriterion"/>
    <element value="ATPortalTypeCriterion"/>
    <element value="ATReferenceCriterion"/>
+   <element value="ATRelativePathCriterion"/>
    <element value="ATSelectionCriterion"/>
    <element value="ATSimpleIntCriterion"/>
    <element value="ATSimpleStringCriterion"/>
@@ -179,6 +182,46 @@
    <element value="VdexMediaDescriptor"/>
    <element value="VdexTerm"/>
    <element value="VocabularyLibrary"/>
+   <element value="ChangeSet"/>
+   <element value="FileAttachment"/>
+   <element value="ImageAttachment"/>
+   <element value="FieldsetFolder"/>
+   <element value="FormRichTextField"/>
+   <element value="FormCustomScriptAdapter"/>
+   <element value="FormFolder"/>
+   <element value="FormFileField"/>
+   <element value="FormFixedPointField"/>
+   <element value="FormIntegerField"/>
+   <element value="FormStringField"/>
+   <element value="FormMultiSelectionField"/>
+   <element value="FormRichLabelField"/>
+   <element value="FormBooleanField"/>
+   <element value="FormLabelField"/>
+   <element value="FormDateField"/>
+   <element value="FormSelectionField"/>
+   <element value="FormSaveDataAdapter"/>
+   <element value="FormPasswordField"/>
+   <element value="FormMailerAdapter"/>
+   <element value="FormTextField"/>
+   <element value="FormThanksPage"/>
+   <element value="FormLinesField"/>
+   <element value="HeaderSet"/>
+   <element value="ContentCacheRule"/>
+   <element value="CacheTool"/>
+   <element value="CachePolicy"/>
+   <element value="RuleFolder"/>
+   <element value="BaseCacheRule"/>
+   <element value="PolicyHTTPCacheManagerCacheRule"/>
+   <element value="HeaderSetFolder"/>
+   <element value="TemplateCacheRule"/>
+   <element value="LinguaLink"/>
+   <element value="Ploneboard"/>
+   <element value="PressRoom"/>
+   <element value="Proposal"/>
+   <element value="Note"/>
+   <element value="Amendment"/>
+   <element value="Modification"/>
+   
   </property>
   <property name="disable_folder_sections" type="boolean">False</property>
   <property name="disable_nonfolderish_sections" type="boolean">True</property>
