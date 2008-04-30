@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0
+                          imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd
+                          http://www.imsglobal.org/xsd/imsmd_rootv1p2p1
+                          imsmd_rootv1p2p1.xsd"
+      orderSignificant="true"
+      profileType="flatTokenTerms"
+      language="en">
   <vocabName>
     <langstring language="en">International Standard Classification of Occupations, ISCO-88</langstring>
   </vocabName>
@@ -7,8 +15,7 @@
   <term>
     <termIdentifier>1</termIdentifier>
     <caption>
-      <langstring language="en">LEGISLATORS, SENIOR OFFICIALS AND MANAGERS
-</langstring>
+      <langstring language="en">LEGISLATORS, SENIOR OFFICIALS AND MANAGERS</langstring>
     </caption>
     <term>
       <termIdentifier>11</termIdentifier>
@@ -288,8 +295,7 @@ This group is intended to include persons who manage enterprises, or in some cas
   <term>
     <termIdentifier>2</termIdentifier>
     <caption>
-      <langstring language="en">PROFESSIONALS
-</langstring>
+      <langstring language="en">PROFESSIONALS</langstring>
     </caption>
     <term>
       <termIdentifier>21</termIdentifier>
@@ -757,8 +763,7 @@ This group is intended to include persons who manage enterprises, or in some cas
   <term>
     <termIdentifier>3</termIdentifier>
     <caption>
-      <langstring language="en">TECHNICIANS AND ASSOCIATE PROFESSIONALS
-</langstring>
+      <langstring language="en">TECHNICIANS AND ASSOCIATE PROFESSIONALS</langstring>
     </caption>
     <term>
       <termIdentifier>31</termIdentifier>
@@ -1352,8 +1357,7 @@ This group is intended to include persons who manage enterprises, or in some cas
   <term>
     <termIdentifier>4</termIdentifier>
     <caption>
-      <langstring language="en">CLERKS
-</langstring>
+      <langstring language="en">CLERKS</langstring>
     </caption>
     <term>
       <termIdentifier>41</termIdentifier>
@@ -1551,8 +1555,7 @@ This group is intended to include persons who manage enterprises, or in some cas
   <term>
     <termIdentifier>5</termIdentifier>
     <caption>
-      <langstring language="en">SERVICE WORKERS AND SHOP AND MARKET SALES WORKERS
-</langstring>
+      <langstring language="en">SERVICE WORKERS AND SHOP AND MARKET SALES WORKERS</langstring>
     </caption>
     <term>
       <termIdentifier>51</termIdentifier>
@@ -1762,8 +1765,7 @@ This group is intended to include persons who manage enterprises, or in some cas
   <term>
     <termIdentifier>6</termIdentifier>
     <caption>
-      <langstring language="en">SKILLED AGRICULTURAL AND FISHERY WORKERS
-</langstring>
+      <langstring language="en">SKILLED AGRICULTURAL AND FISHERY WORKERS</langstring>
     </caption>
     <term>
       <termIdentifier>61</termIdentifier>
@@ -1919,8 +1921,7 @@ This group is intended to include persons who manage enterprises, or in some cas
   <term>
     <termIdentifier>7</termIdentifier>
     <caption>
-      <langstring language="en">CRAFT AND RELATED TRADES WORKERS
-</langstring>
+      <langstring language="en">CRAFT AND RELATED TRADES WORKERS</langstring>
     </caption>
     <term>
       <termIdentifier>71</termIdentifier>
@@ -2466,8 +2467,7 @@ This group is intended to include persons who manage enterprises, or in some cas
   <term>
     <termIdentifier>8</termIdentifier>
     <caption>
-      <langstring language="en">PLANT AND MACHINE OPERATORS AND ASSEMBLERS
-</langstring>
+      <langstring language="en">PLANT AND MACHINE OPERATORS AND ASSEMBLERS</langstring>
     </caption>
     <term>
       <termIdentifier>81</termIdentifier>
@@ -3031,8 +3031,7 @@ This group is intended to include persons who manage enterprises, or in some cas
   <term>
     <termIdentifier>9</termIdentifier>
     <caption>
-      <langstring language="en">ELEMENTARY OCCUPATIONS
-</langstring>
+      <langstring language="en">ELEMENTARY OCCUPATIONS</langstring>
     </caption>
     <term>
       <termIdentifier>91</termIdentifier>
