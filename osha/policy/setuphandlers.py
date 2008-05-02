@@ -270,7 +270,12 @@ def addProxyIndexes(self):
             , 'meta_id' : 'lex_section'
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
-            }
+            } 
+          , { 'idx_id' : 'occupation'
+            , 'meta_id' : 'occupation'
+            , 'extra' : dict(idx_type = "KeywordIndex",
+                )
+            } 
         ]
     
     VALUE_EXPR = "python:object.getField('%(meta_id)s').getAccessor(object)()"
