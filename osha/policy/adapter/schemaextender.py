@@ -41,6 +41,12 @@ zope.interface.classImplements(RiskAssessmentLink, IOSHContentRiskassessmentLink
 from Products.CaseStudy.CaseStudy import CaseStudy
 zope.interface.classImplements(CaseStudy, IOSHContentCaseStudy)
 
+# Event
+class IOSHContentEvent(zope.interface.Interface):
+    """ OSHContent for Event """
+from Products.ATContentTypes.content.event import ATEvent
+zope.interface.classImplements(ATEvent, IOSHContentEvent)
+
 # Publications / Files
 #from slc.publications.interfaces import IPublicationEnhanced
 #from slc.publications.subtypes.publication import SchemaExtender as PublicationSchemaExtender
@@ -341,6 +347,27 @@ class TaggingSchemaExtenderProvider(TaggingSchemaExtender):
 zope.component.provideAdapter(TaggingSchemaExtenderProvider,
                               name=u"osha.metadata.provider")
 
+
+# Event
+class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
+    zope.interface.implements(IOrderableSchemaExtender)
+    zope.component.adapts(IOSHContentEvent)
+
+    def __init__(self, context):
+        super(TaggingSchemaExtender, self).__init__(self, context)
+        _myfields= list()
+        for f in self._fields:
+            if f.getName() in ('subcategory', 'multilingual_thesaurus'):
+                f.required = False
+            if f.getName() not in ('country', 'nace'):
+                _myfields.append(f)
+        self._myfields = _myfields
+
+    def getFields(self):
+        return self._myfields
+
+zope.component.provideAdapter(TaggingSchemaExtenderEvent,
+                              name=u"osha.metadata.event")
 
 ###############################################################################
 # Press Release

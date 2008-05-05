@@ -5,6 +5,7 @@ from Products.RemoteProvider.content.Provider import Provider
 from Products.CaseStudy.CaseStudy import CaseStudy
 from Products.ATContentTypes.content.file import ATFile
 from plone.app.blob.content import ATBlob
+from Products.ATContentTypes.content.event import ATEvent
 
 def getSubject(self):
     """ Very specific osha getter. We want to make sure that the toplevel cats always represent the subject
@@ -43,6 +44,9 @@ ATFile.Subject = Subject
 
 ATBlob.getSubject = getSubject
 ATBlob.Subject = Subject
+
+ATEvent.getSubject = getSubject
+ATEvent.Subject = Subject
 
 # There are no longer subcategories on CaseStudies
 #CaseStudy.getSubject = getSubject
