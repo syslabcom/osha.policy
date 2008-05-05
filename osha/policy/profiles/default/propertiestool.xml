@@ -3,7 +3,7 @@
  <object name="navtree_properties" meta_type="Plone Property Sheet">
   <property name="title">NavigationTree properties</property>
   <property name="sortAttribute" type="string">getObjPositionInParent</property>
-  <property name="sortOrder" type="string">desc</property>
+  <property name="sortOrder" type="string">asc</property>
   <property name="sitemapDepth" type="int">3</property>
   <property name="name" type="string"></property>
   <property name="root" type="string">/</property>
@@ -231,7 +231,7 @@
   </property>
   <property name="verify_login_name" type="boolean">True</property>
   <property name="many_users" type="boolean">True</property>
-  <property name="many_groups" type="boolean">True</property>
+  <property name="many_groups" type="boolean">False</property>
   <property name="enable_livesearch" type="boolean">True</property>
   <property name="default_page_types" type="lines">
    <element value="Document"/>

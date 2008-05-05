@@ -5,7 +5,6 @@
  <property name="default_page" type="string">front-page</property>
  <property name="selectable_views" type="lines">
   <element value="folder_listing"/>
-  <element value="news_listing"/>
  </property>
  <property name="email_from_address"
     type="string">info@syslab.com</property>
