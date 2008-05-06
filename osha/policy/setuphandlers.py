@@ -100,6 +100,79 @@ def importVarious(context):
     
     modifySEOActionPermissions(site)
     
+    repositionActions(site)
+    
+    
+def repositionActions(portal):
+    
+    portal_actions=getToolByName(portal,'portal_actions')
+    portal_conf=getToolByName(portal,'portal_controlpanel')
+    cpids = [x.id for x in portal_conf.listActions()]
+    
+    # if xliff is installed, move site action xliff import into the object actions dropdown
+    portal_actions.site_actions.xliffimport.visible = False
+    # xliff import is re added in actions.xml
+    
+    # If SEO Tools are installed, move object action into the action dropdown
+    # => nice to have, but a todo 
+    
+    
+    # If Linkchecker is installed, 
+    portal_linkchecker = getToolByName(portal, 'portal_linkchecker')
+    if portal_linkchecker:
+        # move My Links to the user's dashboard
+        if 'CMFLC_MyLinks' not in cpids:
+            portal_conf.registerConfiglet( 'CMFLC_MyLinks'
+                 , 'My Links'      
+                 , 'string:${portal_url}/lc_my_dead_links' 
+                 , '''member'''  
+                 , 'View'      # access permission
+                 , 'Member'   
+                 , 1         
+                 , 'CMFLinkChecker'
+                 , 'linkchecker.png' 
+                 , 'The links owned by you.'
+                 , None
+                 )       
+          
+
+        # move Links from the object tab into the actions dropdown
+        # This happens in actions.xml    
+
+        # move link management site action into the actions dropdown
+        # This happens in actions.xml    
+
+        newactions = []
+        oldactions = portal_linkchecker.listActions()
+        for action in oldactions:
+            if action.id in ['linkchecker_member_overview', 
+                             'linkchecker_object_status',
+                             'linkchecker_balanced_scorecard']:
+                action.visible = False
+            newactions.append(action)
+        portal_linkchecker._actions = newactions   
+
+
+    # If Shoppinglist is installed, move it to the user's dashboard
+    if 'Shoppinglist' not in cpids:
+        portal_conf.registerConfiglet( 'Shoppinglist'
+             , 'Shopping List'      
+             , 'string:${portal_url}/@@shoppinglistedit' 
+             , '''python:checkPermission('Add portal content', object)'''  
+             , 'View'      # access permission
+             , 'Member'   
+             , 1         
+             , 'slc.shoppinglist'
+             , '++resource++shoppinglist_icon.gif' 
+             , 'Your shopping list which contains objects you have collected by adding them to your shopping list.'
+             , None
+             )      
+    portal_actions.user.shoppinglistedit.visible = False
+    # compare site actions in the header with footer actions and remove duplications    
+    
+    
+    
+    
 def configurePortal(portal):
     """ make some changes to the portal config """
     portal_types = getToolByName(portal, 'portal_types')

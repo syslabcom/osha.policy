@@ -48,8 +48,6 @@ from Products.ATContentTypes.content.event import ATEvent
 zope.interface.classImplements(ATEvent, IOSHContentEvent)
 
 # Publications / Files
-#from slc.publications.interfaces import IPublicationEnhanced
-#from slc.publications.subtypes.publication import SchemaExtender as PublicationSchemaExtender
 from Products.ATContentTypes.content.file import ATFile
 zope.interface.classImplements(ATFile, IOSHContent)
 from plone.app.blob.content import ATBlob 
