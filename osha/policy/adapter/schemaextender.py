@@ -139,6 +139,7 @@ class TaggingSchemaExtender(object):
                 schemata='default',
                 enforceVocabulary=False,
                 languageIndependent=True,
+                required=False,
                 multiValued=True,
                 widget=MultiCountryWidget(
                     label="Countries",
