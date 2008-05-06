@@ -1,10 +1,74 @@
+from types import *
 import Acquisition, StringIO
 from interfaces import IVocabularyHelpers, ISEPHelpers, ISEPFolder
 from Products.CMFCore.utils import getToolByName
-
+from Products.AdvancedQuery import Indexed
 from zope.interface import implements, Interface
 from Products.CMFPlone import utils
 from Products.Five import BrowserView
+
+# # Maps Nace code 1 to Nace code 2 taking 2 digits into account
+NACE_MAP = {
+'5': '3',
+'10': '5',
+'11': '6',
+'12': '8',
+'13': '7',
+'14': '8',
+'15': ('10','11'),
+'16': '12',
+'17': '13',
+'18': '14',
+'19': '15',
+'20': '16',
+'21': '17',
+'22': '18',
+'23': '19',
+'24': '20',
+'25': '22',
+'26': '23',
+'27': '24',
+'28': '25',
+'29': '28',
+'30': '26',
+'31': '27',
+'32': '26',
+'33': '26',
+'34': '29',
+'35': '30',
+'36': '31',
+'37': '38',
+'40': '38',
+'41': ('36', '38', '37'),
+'45': '41',
+'50': '45',
+'51': '46',
+'52': '47',
+'55': ('55', '56'),
+'60': '49',
+'61': '50',
+'62': '51',
+'63': '52',
+'64': ('53', '61'),
+'65': '64',
+'66': '65',
+'67': '66',
+'70': '68',
+'71': '77',
+'72': '62',
+'73': '72',
+'74': ('69', '70', '71', '73', '74', '75', '78', '79', '80', '81', '82', '95'),
+'75': '84',
+'80': '85',
+'85': ('86', '87', '88'),
+'90': ('37', '38', '39'),
+'91': '94',
+'92': ('58', '59', '60', '63', '90', '91', '93'),
+'93': '96',
+'95': '97',
+'99': '99'
+}
+
 
 class VocabularyHelpers(BrowserView):
     implements(IVocabularyHelpers)
@@ -60,6 +124,55 @@ class SEPHelpers(BrowserView):
         """See interface"""
         return context.getProperty('Category')
 
+
+class IMigrateNaceCodes(Interface):
+    pass
+
+class MigrateNaceCodes(BrowserView):
+    implements(IMigrateNaceCodes)
+
+    def __call__(self):
+        reindex = not not self.REQUEST.get('reindex', False)
+        out = StringIO.StringIO()
+        out.write("Converting the Nace codes\n")
+        out.write("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
+        out.write("\n\n")
+        context = Acquisition.aq_inner(self.context)
+        portal_catalog = getToolByName(context, 'portal_catalog')
+        results = portal_catalog.searchResults(Language='all')
+        for brain in results:
+            if brain.has_key('getNACE'):
+                ob = brain.getObject()
+                o,n = self.rewriteNaceCodes(ob, reindex)
+                if o is not None:
+                    out.write("Old: %s\nNew: %s\n\n" % (o,n))
+        out.write("Done")
+        return out.getvalue()        
+
+
+    def rewriteNaceCodes(self, ob, reindex=0):
+        if hasattr(ob, '__nace_migrated__'):
+            return None, None
+        field = ob.getField('nace')
+        if field is None:
+            return None, None
+        oldnace = field.getAccessor(ob)()
+        # should be a tuple or list
+        oldnace = list(oldnace)
+        newnace = set()
+        for code in oldnace:
+            subst = NACE_MAP.get(code, code)
+            if type(subst) in [TupleType, ListType]:
+                newnace = newnace.union(subst)
+            else:
+                newnace.add(code)
+        newnace = tuple(newnace)
+        field.getMutator(ob)(newnace)
+        ob.__nace_migrated__ = True
+        if reindex==1:
+            ob.reindexObject('nace')
+        return oldnace, newnace
+    
 
 class ITopicDirectory(Interface):
     pass
