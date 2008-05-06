@@ -45,7 +45,7 @@ def importVarious(context):
     quickinst.installProduct('plone.portlet.static')
     quickinst.installProduct('Products.VocabularyPickerWidget')
     quickinst.installProduct('PressRoom')
-    quickinst.installProduct('Products.RiskAssessmentLink')
+    quickinst.installProduct('Products.RALink')
     quickinst.installProduct('Products.RemoteProvider')
     quickinst.installProduct('PloneFormGen')
     quickinst.installProduct('ATCountryWidget')
@@ -337,7 +337,7 @@ def configureSEOOptimizer(site):
                    ,'PublicJobVacancy'
                    ,'Publication'
                    ,'RichDocument'
-                   ,'RiskAssessmentLink'                   
+                   ,'RALink'                   
                   ]
     pt = getToolByName(site, 'portal_types')
     for ptype in pt.objectValues():
@@ -429,7 +429,7 @@ def configureCacheFu(site):
                 , 'Provider'
                 , 'Publication'
                 , 'RichDocument'
-                , 'RiskAssessmentLink'
+                , 'RALink'
                 , 'PublicJobVacancy'
                 , 'Blog Entry'
                 , 'HelpCenterDefinition'

@@ -1,6 +1,6 @@
 
 from Products.OSHContentLink.OSH_Link import OSH_Link
-from Products.RiskAssessmentLink.content.RiskAssessmentLink import RiskAssessmentLink
+from Products.RALink.content.RALink import RALink
 from Products.RemoteProvider.content.Provider import Provider
 from Products.CaseStudy.CaseStudy import CaseStudy
 from Products.ATContentTypes.content.file import ATFile
@@ -33,8 +33,8 @@ def Subject(self):
 OSH_Link.getSubject = getSubject
 OSH_Link.Subject = Subject
 
-#RiskAssessmentLink.getSubject = getSubject
-#RiskAssessmentLink.Subject = Subject
+#RALink.getSubject = getSubject
+#RALink.Subject = Subject
 
 Provider.getSubject = getSubject
 Provider.Subject = Subject

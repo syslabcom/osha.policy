@@ -31,11 +31,11 @@ zope.interface.classImplements(Provider, IOSHContentProvider)
 from Products.OSHContentLink.OSH_Link import OSH_Link
 zope.interface.classImplements(OSH_Link, IOSHContent)
 
-# RiskAssessmentLink
-class IOSHContentRiskassessmentLink(zope.interface.Interface):
-    """ OSHContent for RiskAssessmentLink"""
-from Products.RiskAssessmentLink.content.RiskAssessmentLink import RiskAssessmentLink
-zope.interface.classImplements(RiskAssessmentLink, IOSHContentRiskassessmentLink)
+# RALink
+class IOSHContentRALink(zope.interface.Interface):
+    """ OSHContent for RALink"""
+from Products.RALink.content.RALink import RALink
+zope.interface.classImplements(RALink, IOSHContentRALink)
 
 # Case Study
 from Products.CaseStudy.CaseStudy import CaseStudy
@@ -291,10 +291,10 @@ zope.component.provideAdapter(TaggingSchemaExtenderCaseStudy,
                               name=u"osha.metadata.casestudy")
 
 
-# RiskAssessmentLink
-class TaggingSchemaExtenderRiskassessmentLink(TaggingSchemaExtender):
+# RALink
+class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender)
-    zope.component.adapts(IOSHContentRiskassessmentLink)
+    zope.component.adapts(IOSHContentRALink)
     
     def __init__(self, context):
         super(TaggingSchemaExtender, self).__init__(self, context)
@@ -332,8 +332,8 @@ class TaggingSchemaExtenderRiskassessmentLink(TaggingSchemaExtender):
 
         return original
 
-zope.component.provideAdapter(TaggingSchemaExtenderRiskassessmentLink,
-                              name=u"osha.metadata.riskassessmentlink")
+zope.component.provideAdapter(TaggingSchemaExtenderRALink,
+                              name=u"osha.metadata.ralink")
 
 
 # Provider

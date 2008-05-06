@@ -58,7 +58,7 @@
    <element value="ObjectWithReferences"/>
    <element value="OSH_Link"/>
    <element value="Provider"/>
-   <element value="RiskAssessmentLink"/>
+   <element value="RALink"/>
    <element value="CaseStudy"/>
    <element value="Plone Site"/>
    <element value="PublicJobVacancy"/>
