@@ -64,21 +64,12 @@ def importVarious(context):
     quickinst.installProduct('Products.PloneFlashUpload')
     quickinst.installProduct('BlueLinguaLink')
     quickinst.installProduct('Calendaring')
+    quickinst.installProduct('RedirectionTool')
     quickinst.installProduct('osha.legislation')
     quickinst.installProduct('osha.theme')
     # It is IMPORTANT that the linkchecker is installed at the end 
     # because it relies on beforehand registered retrievers
     quickinst.installProduct('CMFLinkChecker')
-
-
-
-    # Run setup policies which are not handled by qi
-    setuptool = getToolByName(site, 'portal_setup')
-
-    # commented out, because no longer available
-#    setuptool.runAllImportStepsFromProfile('profile-p4a.plonecalendar:default')
-    
-
 
     configurePortal(site)
 
