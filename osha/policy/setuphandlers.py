@@ -149,7 +149,7 @@ def repositionActions(portal):
         portal_conf.registerConfiglet( 'Shoppinglist'
              , 'Shopping List'      
              , 'string:${portal_url}/@@shoppinglistedit' 
-             , '''python:checkPermission('Add portal content', object)'''  
+             , '''python:portal.portal_membership.checkPermission('Add portal content', object)'''  
              , 'View'      # access permission
              , 'Member'   
              , 1         
