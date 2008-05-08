@@ -242,5 +242,6 @@
   </property>
   <property name="use_folder_contents" type="lines"/>
   <property name="enable_sitemap" type="boolean">True</property>
+  <property name="num_subscribers_oshmail" type="int">37394</property>
  </object>
 </object>

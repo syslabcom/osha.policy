@@ -64,5 +64,70 @@
     </object>   
     
   
+  
+    <object name="site_actions" meta_type="CMF Action Category">
+      <object name="osha_update" meta_type="CMF Action" i18n:domain="osha">
+       <property name="title" i18n:translate="">Update</property>
+       <property name="description" i18n:translate=""></property>
+       <property
+          name="url_expr">string:${portal_url}/site_update</property>
+       <property name="icon_expr"></property>
+       <property name="available_expr"></property>
+       <property name="permissions">
+        <element value="View"/>
+       </property>
+       <property name="visible">True</property>
+      </object>
+    </object>    
 
+
+    <object name="site_actions" meta_type="CMF Action Category">
+      <object name="osha_faq" meta_type="CMF Action" i18n:domain="osha">
+       <property name="title" i18n:translate="">FAQ</property>
+       <property name="description" i18n:translate=""></property>
+       <property
+          name="url_expr">string:${portal_url}/faq</property>
+       <property name="icon_expr"></property>
+       <property name="available_expr"></property>
+       <property name="permissions">
+        <element value="View"/>
+       </property>
+       <property name="visible">True</property>
+      </object>
+    </object>    
+
+
+    <object name="site_actions" meta_type="CMF Action Category">
+      <object name="osha_help" meta_type="CMF Action" i18n:domain="osha">
+       <property name="title" i18n:translate="">Help</property>
+       <property name="description" i18n:translate=""></property>
+       <property
+          name="url_expr">string:${portal_url}/help</property>
+       <property name="icon_expr"></property>
+       <property name="available_expr"></property>
+       <property name="permissions">
+        <element value="View"/>
+       </property>
+       <property name="visible">True</property>
+      </object>
+    </object>    
+    
+    <object name="site_actions" meta_type="CMF Action Category">
+      <object name="osha_translations" meta_type="CMF Action" i18n:domain="osha">
+       <property name="title" i18n:translate="">Translations</property>
+       <property name="description" i18n:translate=""></property>
+       <property
+          name="url_expr">string:${portal_url}/translations</property>
+       <property name="icon_expr"></property>
+       <property name="available_expr"></property>
+       <property name="permissions">
+        <element value="View"/>
+       </property>
+       <property name="visible">True</property>
+      </object>
+    </object>      
+    
+    
+   
+    
 </object>
