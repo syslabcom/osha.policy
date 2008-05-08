@@ -5,10 +5,10 @@
 ##bind script=script
 ##bind subpath=traverse_subpath
 ##parameters=
-##title=get OSHA Country Metadata
+##title=get Country Metadata
 ##
 
 try:
-    return container.portal_annotatablemetadata.getValue(context, 'Country')
+    return context.getField('country').getAccessor(context)() 
 except:
-    return []
+    return ''
