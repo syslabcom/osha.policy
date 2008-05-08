@@ -161,6 +161,9 @@ def repositionActions(portal):
     portal_actions.user.shoppinglistedit.visible = False
     # compare site actions in the header with footer actions and remove duplications    
     
+    portal_actions.footer_actions.disclaimer.i18n_domain='osha'
+    portal_actions.footer_actions.copyright.i18n_domain='osha'
+    
     # move redirections nach object_buttons
     if 'redirection' in portal_actions.object:
         cb = portal_actions.object.manage_cutObjects('redirection')
