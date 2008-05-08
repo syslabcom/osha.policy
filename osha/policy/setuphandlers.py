@@ -273,10 +273,6 @@ def addExtraIndexes(self):
         logger.info('Adding KeywordIndex getRemoteLanguage')
         cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getRemoteLanguage', extra={'indexed_attrs': 'getRemoteLanguage'})
 
-#    if 'getCountry' not in available:
-#        logger.info('Adding KeywordIndex Country')
-#        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id='getCountry', extra={'indexed_attrs': 'getCountry'})   
-
 
 def addProxyIndexes(self):
     logger = logging.getLogger("OSHA.ProxyIndexes")
@@ -320,11 +316,6 @@ def addProxyIndexes(self):
             }
           , { 'idx_id' : 'subcategory'
             , 'meta_id' : 'subcategory'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
-            }
-          , { 'idx_id' : 'getCountry'
-            , 'meta_id' : 'country'
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
