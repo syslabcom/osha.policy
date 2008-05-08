@@ -165,13 +165,13 @@ def repositionActions(portal):
     portal_actions.footer_actions.copyright.i18n_domain='osha'
     
     # move redirections nach object_buttons
-    if 'redirection' in portal_actions.object:
-        cb = portal_actions.object.manage_cutObjects('redirection')
-        portal_actions.object_buttons.manage_pasteObjects(cb)
+    #if 'redirection' in portal_actions.object:
+    #    cb = portal_actions.object.manage_cutObjects('redirection')
+    #    portal_actions.object_buttons.manage_pasteObjects(cb)
     
-    if 'plone_setup' in portal_actions.object:
-        cb = portal_actions.object.manage_cutObjects('plone_setup')
-        portal_actions.object_buttons.manage_pasteObjects(cb)
+    #if 'plone_setup' in portal_actions.object:
+    #    cb = portal_actions.object.manage_cutObjects('plone_setup')
+    #    portal_actions.object_buttons.manage_pasteObjects(cb)
     
     
 def configurePortal(portal):
