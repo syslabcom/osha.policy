@@ -242,8 +242,11 @@ def addExtraIndexes(self):
             'getMTSubject',
             'changefreq',
             'priority',
-            'getLex_section'
+            'getLex_section',
+            'getCountry',
+            'getRa_contents'
             ]
+
     for meta in META:
         if meta not in schema:
             cat.manage_addColumn(meta)
