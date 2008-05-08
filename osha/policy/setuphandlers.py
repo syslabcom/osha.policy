@@ -292,15 +292,11 @@ def addProxyIndexes(self):
             { 'idx_id' : 'nace'
             , 'meta_id' : 'nace'
             , 'extra' : dict(idx_type = "KeywordIndex",
+                value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('nace')"
                 )
             }
           , { 'idx_id' : 'country'
             , 'meta_id' : 'country'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
-            }
-          , { 'idx_id' : 'ero_country'
-            , 'meta_id' : 'ero_country'
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
@@ -312,6 +308,7 @@ def addProxyIndexes(self):
           , { 'idx_id' : 'multilingual_thesaurus'
             , 'meta_id' : 'multilingual_thesaurus'
             , 'extra' : dict(idx_type = "KeywordIndex",
+                value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('multilingual_thesaurus')"
                 )
             }
           , { 'idx_id' : 'ero_target_group'
@@ -329,6 +326,11 @@ def addProxyIndexes(self):
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
+          , { 'idx_id' : 'ero_topic'
+            , 'meta_id' : 'ero_topic'
+            , 'extra' : dict(idx_type = "KeywordIndex",
+                )
+            }
           , { 'idx_id' : 'isNews'
             , 'meta_id' : 'isNews'
             , 'extra' : dict(idx_type = "FieldIndex",
@@ -342,6 +344,7 @@ def addProxyIndexes(self):
           , { 'idx_id' : 'occupation'
             , 'meta_id' : 'occupation'
             , 'extra' : dict(idx_type = "KeywordIndex",
+                value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('occupation')"
                 )
             } 
         ]
@@ -354,7 +357,8 @@ def addProxyIndexes(self):
         if data['idx_id'] in available:
             continue
         extra = data['extra']
-        extra['value_expr'] = VALUE_EXPR %{'meta_id': data['meta_id']}
+        if not extra.has_key('value_expr'):
+            extra['value_expr'] = VALUE_EXPR %{'meta_id': data['meta_id']}
         extra['key1'] = "indexed_attrs"
         extra['value1'] = "proxy_value"
         logger.info("Adding Proxy Index %s" % data['idx_id'])
