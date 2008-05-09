@@ -187,6 +187,9 @@ def configurePortal(portal):
     registerPermissions( [ ('Crosscheck portal content', None) ] )
     portal.manage_permission('Crosscheck portal content', roles=['Manager','Checker'], acquire=0)
     
+    # remove LinguaLink from portal workflow chain
+    portal_workflow = getToolByName(portal, 'portal_workflow')
+    portal_workflow.setChainForPortalTypes(['LinguaLink'], None)
     
 
 def setVersionedTypes(portal):
@@ -596,7 +599,8 @@ def createLinguaLinks(site):
     portal_catalog = getToolByName(site, 'portal_catalog')
     portal_workflow = getToolByName(site, 'portal_workflow')
     
-    portal_types = ['Document', 'RichDocument', 'CallforContractor', 'PublicJobVacancy', 'Link']
+    # We only want to link folders, as only they appear in the navigation
+    #portal_types = ['Document', 'RichDocument', 'CallforContractor', 'PublicJobVacancy', 'Link']
 
     query = {'path': site_url+'/en', 'portal_type': portal_types}
     results = portal_catalog(query)
@@ -614,6 +618,8 @@ def createLinguaLinks(site):
                     trans.reindexObject()
     	logger.info("Added Lingualinks for %s" % result.getPath())
     logger.info("Done: %s results found."%len(results))
+                
+                
                 
 def modifySEOActionPermissions(site):
     # And now update the relevant portal_type actions
