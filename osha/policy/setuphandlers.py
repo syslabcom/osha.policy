@@ -446,7 +446,7 @@ def configureCacheFu(site):
         logger.info("CacheFu not installed, quitting.")
         return
             
-    CFP = "default-cache-policy-v1.1.1"
+    CFP = "default-cache-policy-v1.2"
     policy = getattr(portal_cache_settings, CFP, None)
     if policy is None:
         logger.warn("Policy not found. Has CacheFu been upgraded?")
