@@ -9,9 +9,6 @@
 <metal:cssslot fill-slot="css_slot"
                tal:define="global mockup here/@@ATMockup;
                            dummy python:mockup.preload(types=[('OSH_Link', 'OSHContentLink')]);">
-  <style type="text/css" media="all" tal:condition="exists: portal/riskassessment_styles.css"
-         tal:content="string:@import url($portal_url/riskassessment_styles.css);">
-  </style>
   <style type="text/css">
     .column1 { float: left; width: 55%; padding-right: 10px; }
     .column2 { float: right; width: 40%; padding-left: 10px; border-left: 1px dotted gray; }
