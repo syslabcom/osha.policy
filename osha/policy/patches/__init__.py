@@ -4,3 +4,4 @@ import riskassessment_provider
 import pressroom_patch
 import proxyindex_patch
 import blob_response_header_patch
+import newsitem_patch
