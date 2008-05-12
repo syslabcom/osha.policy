@@ -15,6 +15,10 @@
     directory="osha.policy:skins/osha_styles" />
  <object name="osha_templates" meta_type="Filesystem Directory View"
     directory="osha.policy:skins/osha_templates" />
+ <object name="osha_forms" meta_type="Filesystem Directory View"
+    directory="osha.policy:skins/osha_forms" />
+ <object name="osha_form_scripts" meta_type="Filesystem Directory View"
+    directory="osha.policy:skins/osha_form_scripts" />
  <object name="scriptaculous" meta_type="Filesystem Directory View"
     directory="osha.policy:skins/scriptaculous" />
 
@@ -25,6 +29,8 @@
   <layer name="osha_scripts" insert-after="custom"/>
   <layer name="osha_styles" insert-after="custom"/>
   <layer name="osha_templates" insert-after="custom"/>
+  <layer name="osha_forms" insert-after="custom"/>
+  <layer name="osha_form_scripts" insert-after="custom"/>
   <layer name="scriptaculous" insert-after="custom"/>
  </skin-path>
 
