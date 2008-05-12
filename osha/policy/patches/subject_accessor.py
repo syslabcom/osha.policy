@@ -23,7 +23,7 @@ def getSubject(self):
             elems = subcat.split("::")
             subjects[elems[0]] = 1
     # original Subject, if available
-    origsub = set(self.getField('subject').getAccessor(self)())
+    origsub = set(self._md.get('subject', []))
     all_subs = origsub.union(subject.keys())
     return all_subs
 
