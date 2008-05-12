@@ -23,7 +23,7 @@ def getSubject(self):
             elems = subcat.split("::")
             subjects[elems[0]] = 1
     # original Subject, if available
-    origsub = set(ATFile.Subject(self))
+    origsub = set(self.getField('subject').getAccessor(self)())
     all_subs = origsub.union(subject.keys())
     return all_subs
 
