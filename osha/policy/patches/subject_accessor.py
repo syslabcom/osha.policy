@@ -22,7 +22,10 @@ def getSubject(self):
         else:
             elems = subcat.split("::")
             subjects[elems[0]] = 1
-    return subjects.keys()
+    # original Subject, if available
+    origsub = set(ATFile.Subject(self))
+    all_subs = origsub.union(subject.keys())
+    return all_subs
 
 def Subject(self):
     """ alias to getSubject """
