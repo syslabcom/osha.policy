@@ -1,0 +1,7 @@
+[default]
+title=Send greeting card handler
+proxy=Manager,Anonymous
+
+
+[actions]
+action.success = traverse_to:string:ecard_feedback

@@ -1,0 +1,14 @@
+<div i18n:domain="osha" tal:omit-tag=""
+>Just choose from the following options to view your e-card:
+
+Click on the following link:
+<span tal:replace="options/cardpath"/>
+
+or
+
+Copy and paste the above link into your web browser's address window.
+
+We hope you enjoy your eCard from the European Agency for Safety and Health at Work.
+
+If you have any comments or questions, please visit http://osha.europa.eu
+</div>

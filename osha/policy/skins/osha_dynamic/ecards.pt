@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      i18n:domain="osha"
+      metal:use-macro="here/main_template/macros/master">
+<body>
+
+  <div metal:fill-slot="main"
+    tal:define="sp nocall:here/portal_properties/site_properties;
+    ecards python:sp.getProperty('ecards', []);">
+
+    <h1>Send your personal eCard!</h1>
+      <span tal:repeat="ecard ecards">
+        <span tal:define="parts python:ecard.split('|');
+            ecard_name python:parts[0];
+            ecard_title python:parts[1]">
+
+        <h2 tal:content="ecard_title">title</h2>
+        <br />
+        <p> 
+            <a href="send_greeting_card"
+                tal:attributes="href string:/send_greeting_card?ecard_name=$ecard_name"> 
+            <img width="300" height="124" alt="ecard" src="ecard"
+                tal:attributes="src string:/images/${ecard_name}_thumb.jpg;
+                alt ecard_title" /></a> 
+        </p>
+        </span>
+      </span>
+  </div>
+
+</body>
+</html>

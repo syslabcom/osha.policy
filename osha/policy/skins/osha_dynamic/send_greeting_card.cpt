@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      i18n:domain="osha"
+      metal:use-macro="here/main_template/macros/master">
+<body>
+
+<div metal:fill-slot="main" 
+   tal:define="errors options/state/getErrors;
+        ecard_name request/ecard_name|string:;
+        portal here/portal_url/getPortalObject;
+        images nocall:portal/images;
+        ecard python:getattr(images, ecard_name+'.swf', None)">
+
+
+<span tal:condition="ecard">
+    <h1>Send your personal eCard greeting!</h1>
+    <br /> 
+    <strong>Send this greeting card:</strong> <br /><br />
+    
+    <div align="center" tal:define="ecard_url ecard/absolute_url">
+        <span metal:use-macro="here/ecard_snippet/macros/snippet"></span></div>
+    
+    <br />  Fill out this form and click <strong>Send</strong>.
+    <form action="" method="post"
+        tal:attributes="action template/getId">
+        <input type="hidden" tal:attributes="value ecard_name" name="ecard_name" />
+        <table cellspacing="1" cellpadding="5" border="0">
+            <tbody>
+                <tr tal:define="yourname request/yourname|string:">
+                    <td><strong><span i18n:translate="label_your_name">Your Name</span>:</strong></td>
+                    <td><input size="40" name="yourname" value="" tabindex=""
+                            tal:attributes="value yourname; tabindex tabindex/next" /></td>
+                </tr>
+                <tr tal:define="youremail request/youremail|string:">
+                    <td><strong><span i18n:translate="label_your_email">Your Email</span>:</strong></td>
+                    <td><input size="40" name="youremail" value="" tabindex=""
+                            tal:attributes="value youremail; tabindex tabindex/next" /></td>
+                </tr>
+                <tr tal:define="ecardrecipients request/ecardrecipients|python:[]">
+                    <td><strong><span i18n:translate="label_send_recipient">Send this eCard to</span>:</strong><br />
+    <i>To send the card to more than one recipient, enter one email address per line. The limit is 20 addresses.</i></td>
+                    <td><textarea cols="40" rows="3" name="ecardrecipients:lines"  tabindex="" 
+                        tal:attributes="tabindex tabindex/next"
+                        tal:content="python:'\n'.join(ecardrecipients)">recipient</textarea></td>
+                </tr>
+    
+    
+            <tr tal:define="error errors/captcha_text| nothing;">
+                <td>
+                  <div class="field" tal:on-error="string:Error - Captcha mechanism is enabled but modules are not present! Registration is currently not possible."
+                                     tal:define="error errors/captcha_text| nothing;"
+                                     tal:condition="python:here.portal_properties.site_properties.getProperty('enable_captcha')"
+                                     tal:attributes="class python:test(error, 'field error', 'field')">
+        
+                    <label for="captcha_text">
+                    Verify your input</label>
+        
+                    <div class="formHelp" >
+                      This helps preventing automated sending of e-mails.
+                    </div>
+                   </div>
+                </td>
+    
+                <td>
+                    <div class="field">
+    
+            <metal:captcha define-macro="captcha_field"
+                tal:define="captcha_helper here/@@captcha_helper;
+                         captcha python:captcha_helper.createCaptcha(here, request)">
+                         
+              <div class="field" tal:on-error="string:Error - Captcha mechanism is enabled but modules are not present! Registration is currently not possible."
+                                 tal:define="error errors/captcha_text| nothing;"
+                                 tal:attributes="class python:test(error, 'field error', 'field')">
+    
+                <label for="captcha_text" i18n:translate="label_captcha_text" i18n:domain="osha">
+                Verify your request</label>
+    
+                <div class="formHelp" i18n:translate="help_captcha_sendto" i18n:domain="osha">
+                  This helps to prevent automated sending of e-mails.
+                </div>
+                
+                <span tal:replace="structure captcha/image_tag" />
+                <br/><a href="" tal:attributes="href captcha/audio_url"><span i18n:translate="captcha_wave_url">[Click to play audio version]</span></a>
+    
+                <br/>
+                <div class="formHelp" i18n:translate="help_captcha_text" i18n:domain="osha">
+                  Enter the code shown. Click
+                  <input type="submit" class="inline"
+                         name="form.button.NewCaptcha"
+                         value="New Image"
+                         tabindex=""
+                         i18n:attributes="value"
+                         tal:attributes="tabindex tabindex/next;" />
+                         if you cannot read the word properly.
+                </div>
+    
+                 <div i18n:translate="" tal:content="error">Validation error output</div>
+                 
+                <input type="text"
+                       id="captcha_text"
+                       name="captcha_text"
+                       size="20"
+                       value=""
+                       tabindex=""
+                       tal:attributes="tabindex tabindex/next;"
+                       />
+                       
+              </div>
+              
+           </metal:captcha>
+    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <br /><strong><span i18n:translate="label_text"><input type="submit" i18n:attributes="value" value="Send" 
+                    tabindex=""
+                    tal:attributes="tabindex tabindex/next" /> </span></strong>
+        <input type="hidden" name="form.submitted" value="1" />
+      </form>
+    </span>
+    <span tal:condition="not:ecard">
+        No ecard was found
+    </span>
+
+</div>
+</body>
+</html> 

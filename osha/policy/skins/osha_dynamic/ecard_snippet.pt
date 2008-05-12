@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      i18n:domain="osha"
+      metal:use-macro="here/main_template/macros/master">
+<body>
+
+<div metal:fill-slot="main" >
+
+    <metal:snippet define-macro="snippet">
+    
+    <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+     codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+     height="320" width="704" id="ecard" ALIGN="">
+     <PARAM NAME=movie tal:attributes="VALUE ecard_url"> <PARAM NAME=loop VALUE=false> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=bgcolor VALUE=#FFFFFF> 
+    <EMBED tal:attributes="src ecard_url" src="ecard.swf" loop=false menu=false quality=high bgcolor=#FFFFFF  height="320" width="704" NAME="greetingcard07" ALIGN=""
+     TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+    </OBJECT>
+    
+    </metal:snippet>
+
+</div>
+</body>
+</html>
