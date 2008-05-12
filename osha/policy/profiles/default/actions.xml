@@ -86,7 +86,7 @@
        <property name="title" i18n:translate="">FAQ</property>
        <property name="description" i18n:translate=""></property>
        <property
-          name="url_expr">string:${portal_url}/faq</property>
+          name="url_expr">string:${portal_url}/${folder/portal_languages/getPreferredLanguage}/faq</property>
        <property name="icon_expr"></property>
        <property name="available_expr"></property>
        <property name="permissions">
@@ -102,7 +102,7 @@
        <property name="title" i18n:translate="">Help</property>
        <property name="description" i18n:translate=""></property>
        <property
-          name="url_expr">string:${portal_url}/help</property>
+          name="url_expr">string:${portal_url}/${folder/portal_languages/getPreferredLanguage}/help</property>
        <property name="icon_expr"></property>
        <property name="available_expr"></property>
        <property name="permissions">
@@ -117,7 +117,7 @@
        <property name="title" i18n:translate="">Translations</property>
        <property name="description" i18n:translate=""></property>
        <property
-          name="url_expr">string:${portal_url}/translations</property>
+          name="url_expr">string:${portal_url}/${folder/portal_languages/getPreferredLanguage}/translations</property>
        <property name="icon_expr"></property>
        <property name="available_expr"></property>
        <property name="permissions">
