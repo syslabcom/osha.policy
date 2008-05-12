@@ -25,7 +25,7 @@ def getSubject(self):
     # original Subject, if available
     origsub = set(self._md.get('subject', []))
     all_subs = origsub.union(subjects.keys())
-    return all_subs
+    return tuple(all_subs)
 
 def Subject(self):
     """ alias to getSubject """
