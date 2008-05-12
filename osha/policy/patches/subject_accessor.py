@@ -24,7 +24,7 @@ def getSubject(self):
             subjects[elems[0]] = 1
     # original Subject, if available
     origsub = set(self._md.get('subject', []))
-    all_subs = origsub.union(subject.keys())
+    all_subs = origsub.union(subjects.keys())
     return all_subs
 
 def Subject(self):
