@@ -252,10 +252,11 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
         super(TaggingSchemaExtender, self).__init__(self, context)
         _myfields= list()
         for f in self._fields:
-            if f.getName() in ('country', 'multilingual_thesaurus'):
-                f.required = True
-            if f.getName() != 'subcategory':
-                _myfields.append(f)
+            new_f = f.copy()
+            if new_f.getName() in ('country', 'multilingual_thesaurus'):
+                new_f.required = True
+            if new_f.getName() != 'subcategory':
+                _myfields.append(new_f)
         self._myfields = _myfields
 
     def getFields(self):
@@ -299,10 +300,11 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
         super(TaggingSchemaExtender, self).__init__(self, context)
         _myfields= list()
         for f in self._fields:
-            if f.getName() in ('country', 'multilingual_thesaurus'):
-                f.required = True
-            if f.getName() != 'subcategory':
-                _myfields.append(f)
+            new_f = f.copy()
+            if new_f.getName() in ('country', 'multilingual_thesaurus'):
+                new_f.required = True
+            if new_f.getName() != 'subcategory':
+                _myfields.append(new_f)
         self._myfields = _myfields
 
     def getFields(self):
@@ -356,10 +358,11 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
         super(TaggingSchemaExtender, self).__init__(self, context)
         _myfields= list()
         for f in self._fields:
-            if f.getName() in ('subcategory', 'multilingual_thesaurus'):
-                f.required = False
-            if f.getName() not in ('country', 'nace'):
-                _myfields.append(f)
+            new_f = f.copy()
+            if new_f.getName() in ('subcategory', 'multilingual_thesaurus'):
+                new_f.required = False
+            if new_f.getName() not in ('country', 'nace'):
+                _myfields.append(new_f)
         self._myfields = _myfields
 
     def getFields(self):
