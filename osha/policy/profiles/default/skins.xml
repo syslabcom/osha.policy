@@ -2,7 +2,9 @@
 <object name="portal_skins" meta_type="Plone Skins Tool" allow_any="False"
    cookie_persistence="False" default_skin="OSHA Plone Theme"
    request_varname="plone_skin">
-    
+
+ <object name="osha_dynamic" meta_type="Filesystem Directory View"
+    directory="osha.policy:skins/osha_dynamic" />
  <object name="osha_content" meta_type="Filesystem Directory View"
     directory="osha.policy:skins/osha_content" />
  <object name="osha_images" meta_type="Filesystem Directory View"
@@ -23,6 +25,7 @@
     directory="osha.policy:skins/scriptaculous" />
 
  <skin-path name="OSHA Plone Theme" based-on="Plone Default">
+  <layer name="osha_dynamic" insert-after="custom"/>
   <layer name="osha_content" insert-after="custom"/>
   <layer name="osha_images" insert-after="custom"/>
   <layer name="osha_portlets" insert-after="custom"/>
