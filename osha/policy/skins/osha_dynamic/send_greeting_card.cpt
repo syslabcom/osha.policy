@@ -10,7 +10,7 @@
         ecard_name request/ecard_name|string:;
         portal here/portal_url/getPortalObject;
         images nocall:portal/images;
-        ecard python:getattr(images, ecard_name+'.swf', None)">
+        ecard python:getattr(images, ecard_name+'.swf', getattr(images, ecard_name+'.jpg', None))">
 
 
 <span tal:condition="ecard">
@@ -25,6 +25,7 @@
     <form action="" method="post"
         tal:attributes="action template/getId">
         <input type="hidden" tal:attributes="value ecard_name" name="ecard_name" />
+        <input type="hidden" tal:attributes="value ecard/getId" name="ecard_id" />
         <table cellspacing="1" cellpadding="5" border="0">
             <tbody>
                 <tr tal:define="yourname request/yourname|string:">

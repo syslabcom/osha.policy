@@ -9,14 +9,18 @@
 
     <metal:snippet define-macro="snippet">
     
-    <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-     codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-     height="320" width="704" id="ecard" ALIGN="">
-     <PARAM NAME=movie tal:attributes="VALUE ecard_url"> <PARAM NAME=loop VALUE=false> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=bgcolor VALUE=#FFFFFF> 
-    <EMBED tal:attributes="src ecard_url" src="ecard.swf" loop=false menu=false quality=high bgcolor=#FFFFFF  height="320" width="704" NAME="greetingcard07" ALIGN=""
-     TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
-    </OBJECT>
-    
+    <span tal:condition="python: ecard_url.endswith('.swf')">
+        <OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+         codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+         height="320" width="704" id="ecard" ALIGN="">
+         <PARAM NAME=movie tal:attributes="VALUE ecard_url"> <PARAM NAME=loop VALUE=false> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=bgcolor VALUE=#FFFFFF> 
+        <EMBED tal:attributes="src ecard_url" src="ecard.swf" loop=false menu=false quality=high bgcolor=#FFFFFF  height="320" width="704" NAME="greetingcard07" ALIGN=""
+         TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+        </OBJECT>
+    </span>
+    <span tal:condition="python: ecard_url.endswith('.jpg')">
+        <img src="#" tal:attributes="src ecard_url"/>
+    </span>
     </metal:snippet>
 
 </div>
