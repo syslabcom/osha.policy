@@ -20,7 +20,7 @@
         <p> 
             <a href="send_greeting_card"
                 tal:attributes="href string:/send_greeting_card?ecard_name=$ecard_name"> 
-            <img width="300" height="124" alt="ecard" src="ecard"
+            <img alt="ecard" src="ecard"
                 tal:attributes="src string:/images/${ecard_name}_thumb.jpg;
                 alt ecard_title" /></a> 
         </p>
