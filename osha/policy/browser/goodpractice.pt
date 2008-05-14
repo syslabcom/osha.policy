@@ -2,6 +2,9 @@
       lang="en-US"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="plone">
+      
+<metal:block tal:define="dummy python:request.RESPONSE.setHeader('Cache-control', 'max-age=0,s-maxage=3600')" />
+
 <body>
 
 <div metal:fill-slot="main">    
