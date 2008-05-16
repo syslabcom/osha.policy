@@ -156,6 +156,8 @@ def repositionActions(portal):
              , None
              )      
     portal_actions.user.shoppinglistedit.visible = False
+    portal_actions.site_actions.contact.url_expr = 'string:${portal_url}/contact_us'
+
     # compare site actions in the header with footer actions and remove duplications    
     
     # I think this is not necessary - that's what the GS profile is for
