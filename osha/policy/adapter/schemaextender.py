@@ -5,6 +5,7 @@
 #   - html_meta_keywords, which are used to optimize the SEO Keywords
 #   -
 
+from Products.SEPStructure import OSHAMessageFactory as _
 
 import zope.interface
 class IOSHContent(zope.interface.Interface):
@@ -58,7 +59,7 @@ from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPic
 
 from archetypes.schemaextender.field import ExtensionField
 from Products.Archetypes import atapi
-from Products.Archetypes.Widget import BooleanWidget
+from Products.Archetypes.Widget import BooleanWidget, KeywordWidget
 from Products.CMFCore.utils import getToolByName
 
 # dummy
@@ -116,6 +117,11 @@ class ReferencedContentField(ExtensionField, ExtensionFieldMixin, atapi.Referenc
 class NewsMarkerField(ExtensionField, atapi.BooleanField):
     """ marker field to have object appear in news portlet """
 
+class EroTargetGroupField(ExtensionField, atapi.LinesField):
+    """ target group for ERO """
+
+class EroTopicField(ExtensionField, atapi.LinesField):
+    """ topic for ERO """
 
 import zope.component
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
@@ -426,3 +432,60 @@ class PressReleaseExtender(object):
 zope.component.provideAdapter(PressReleaseExtender,
                               name=u"osha.metadata.pressrelease")
 
+###############################################################################
+# ERO
+###############################################################################
+
+
+class IEROExtender(zope.interface.Interface):
+    """ Marker for PressRoom's PressRelease """
+
+from Products.RichDocument.content.richdocument import RichDocument
+zope.interface.classImplements(RichDocument, IEROExtender)
+
+
+class TaggingSchemaExtenderERO(object):
+    zope.interface.implements(IOrderableSchemaExtender)
+    zope.component.adapts(IEROExtender)
+
+
+    _fields = [
+            EroTargetGroupField('ero_target_group',
+                schemata='ERO',
+                accessor='ero_target_group',
+                enforceVocabulary=False,
+                languageIndependent=True,
+                required=False,
+                multiValued=True,
+                widget=KeywordWidget(
+                    label=_(u'osha_ero_target_group_label', default=u'Target group'),
+                    description=_(u'osha_ero_target_group_description', default=u'Specifies the Target group for use in the Risk observatory'),
+                ),
+            ),
+            EroTopicField('ero_topic',
+                schemata='ERO',
+                accessor='ero_topic',
+                enforceVocabulary=False,
+                languageIndependent=True,
+                required=False,
+                multiValued=True,
+                widget=KeywordWidget(
+                    label=_(u'osha_ero_topic_label', default=u'Topic'),
+                    description=_(u'osha_ero_topic_description', default=u'Specifies the Topic for use in the Risk observatory'),
+                ),
+            ),
+        ]
+
+    def __init__(self, context):
+        self.context = context
+
+    def getFields(self):
+        return self._fields
+
+    def getOrder(self, original):
+        """ getting order """
+        return original
+
+
+zope.component.provideAdapter(TaggingSchemaExtenderERO,
+                              name=u"osha.metadata.ero")
