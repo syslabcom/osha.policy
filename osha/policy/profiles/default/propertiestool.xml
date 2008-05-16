@@ -1,5 +1,22 @@
 <?xml version="1.0"?>
 <object name="portal_properties" meta_type="Plone Properties Tool">
+ <object name="osha_properties" meta_type="Plone Property Sheet">
+     <property name="title">OSHA properties</property>
+     <property name="support_to_address" type="string">comments@osha.europa.eu</property>     
+     <property name="TC_CrossChecker_Email" type="string">workflow@osha.europa.eu</property>     
+     <property name="Agency_ProjectManager_Email" type="string">moral@osha.europa.eu</property>     
+     <property name="listserv_email" type="string">listserv@listserv.osha.europa.eu</property>     
+     <property name="num_subscribers" type="string">37459</property>     
+     <property name="site_slogan" type="string">European Agency for Safety and Health at Work</property>     
+     <property name="contact_us_mail_default" type="string">inforequest@osha.europa.eu</property>     
+     <property name="contact_us_mails" type="lines">
+         <element value="comments_web_content:commentscontent@osha.europa.eu"/>
+         <element value="comments_web_technical:commentstechnical@osha.europa.eu"/>
+         <element value="broken_link:brokenlink@osha.europa.eu"/>
+         <element value="interesting_link:newlink@osha.europa.eu"/>
+         <element value="publication_request:publications@osha.europa.eu"/>
+     </property>     
+ </object>
  <object name="navtree_properties" meta_type="Plone Property Sheet">
   <property name="title">NavigationTree properties</property>
   <property name="sortAttribute" type="string">getObjPositionInParent</property>
