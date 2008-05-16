@@ -450,6 +450,22 @@ class TaggingSchemaExtenderERO(object):
 
 
     _fields = [
+            CountryField('country',
+                schemata='ERO',
+                enforceVocabulary=False,
+                languageIndependent=True,
+                required=False,
+                multiValued=True,
+                widget=MultiCountryWidget(
+                    label="Countries",
+                    description='Select one or more countries appropriate for this content',
+                    description_msgid='help_country',
+                    provideNullValue=1,
+                    nullValueTitle="Select...",
+                    label_msgid='label_country',
+                    i18n_domain='osha',
+                ),                
+            ),
             EroTargetGroupField('ero_target_group',
                 schemata='ERO',
                 accessor='ero_target_group',
