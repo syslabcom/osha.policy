@@ -156,7 +156,7 @@ def repositionActions(portal):
              , None
              )      
     portal_actions.user.shoppinglistedit.visible = False
-    portal_actions.site_actions.contact.url_expr = 'string:${portal_url}/contact_us'
+    portal_actions.site_actions.contact._setPropValue('url_expr', 'string:${portal_url}/contact_us')
 
     # compare site actions in the header with footer actions and remove duplications    
     
