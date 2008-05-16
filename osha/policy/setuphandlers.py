@@ -85,10 +85,7 @@ def importVarious(context):
     configureSEOOptimizer(site)
     
     configureCacheFu(site)
-    
-    if context.readDataFile("createLinguaLinks.txt") is not None:
-        createLinguaLinks(site)
-    
+        
     modifySEOActionPermissions(site)
     
     repositionActions(site)
@@ -591,36 +588,6 @@ def configureCacheFu(site):
     plone_templates.setTemplates(tuple(templates)) 
 
 
-def createLinguaLinks(site):
-    """ search the site for all content which should have Bluelingualinks
-        and add missing links. This can be called iteratively
-    """
-    logger = logging.getLogger("osha.policy.setuphandler")
-    site_url = getToolByName(site, 'portal_url').getPortalPath()
-    portal_catalog = getToolByName(site, 'portal_catalog')
-    portal_workflow = getToolByName(site, 'portal_workflow')
-    
-    # We only want to link folders, as only they appear in the navigation
-    #portal_types = ['Document', 'RichDocument', 'CallforContractor', 'PublicJobVacancy', 'Link']
-
-    query = {'path': site_url+'/en', 'portal_type': portal_types}
-    results = portal_catalog(query)
-    logger.info("%s results found."%len(results))
-    for result in results:
-        ob = result.getObject()
-        view = ob.restrictedTraverse('@@lingualinkportlet')
-        view.createLinguaLinks()
-        if result.review_state == 'published':
-            # publish all lingualinks if main object is published
-            for trans in view.getLinguaLinks().values():
-                transitions = [x['id'] for x in portal_workflow.getTransitionsFor(trans)]
-                if 'publish' in transitions:
-                    portal_workflow.doActionFor(trans, 'publish')
-                    trans.reindexObject()
-    	logger.info("Added Lingualinks for %s" % result.getPath())
-    logger.info("Done: %s results found."%len(results))
-                
-                
                 
 def modifySEOActionPermissions(site):
     # And now update the relevant portal_type actions
