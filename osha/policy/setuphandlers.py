@@ -85,7 +85,7 @@ def importVarious(context):
     configureSEOOptimizer(site)
     
     configureCacheFu(site)
-        
+
     modifySEOActionPermissions(site)
     
     repositionActions(site)
@@ -316,7 +316,7 @@ def addProxyIndexes(self):
             }
           , { 'idx_id' : 'ero_target_group'
             , 'meta_id' : 'ero_target_group'
-            , 'extra' : dict(idx_type = "FieldIndex",
+            , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
           , { 'idx_id' : 'target_user_groups'
