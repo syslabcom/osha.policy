@@ -2869,13 +2869,13 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare</termIdentifier>
+    <termIdentifier>health_care</termIdentifier>
     <caption><langstring language="en">Health Care</langstring></caption>
 
     <description><langstring language="en">Includes infection diseases, HIV/AIDS, hepatitis, infectious needle injuries, waste disposal.</langstring></description>
 
 <term>
-    <termIdentifier>healthcare::biol_hazards</termIdentifier>
+    <termIdentifier>health_care::biol_hazards</termIdentifier>
     <caption><langstring language="en">Biological hazards - includes infections, HIV/AIDS, hepatitis, needle injuries, waste disposal</langstring></caption>
 
     <description><langstring language="en">Includes infection diseases, HIV/AIDS, hepatitis, infectious needle injuries, waste disposal.</langstring></description>
@@ -2883,7 +2883,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::biol_hazards_needle</termIdentifier>
+    <termIdentifier>health_care::biol_hazards_needle</termIdentifier>
     <caption><langstring language="en">Biological hazards needle injuries</langstring></caption>
 
     <description><langstring language="en">Biological hazards needle injuries</langstring></description>
@@ -2891,7 +2891,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::chem_materials</termIdentifier>
+    <termIdentifier>health_care::chem_materials</termIdentifier>
     <caption><langstring language="en">Chemicals and materials - includes anaesthetic gases, disinfectants, drug handling, latex allergy</langstring></caption>
 
     <description><langstring language="en">Includes anaesthetic gases, compressed gases, disinfectants, drug handling, latex allergy.</langstring></description>
@@ -2899,7 +2899,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::general</termIdentifier>
+    <termIdentifier>health_care::general</termIdentifier>
     <caption><langstring language="en">General - e.g. guides or sub websites covering several topics</langstring></caption>
 
     <description><langstring language="en">e.g guides or sub websites covering several topics.</langstring></description>
@@ -2907,7 +2907,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::management</termIdentifier>
+    <termIdentifier>health_care::management</termIdentifier>
     <caption><langstring language="en">Management - includes legislation, training, prevention committees, accident prevention</langstring></caption>
 
     <description><langstring language="en">Includes legislation, organisational issues, training, prevention committees, accident prevention.</langstring></description>
@@ -2915,7 +2915,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::manual_handling</termIdentifier>
+    <termIdentifier>health_care::manual_handling</termIdentifier>
     <caption><langstring language="en">Manual handling, lifting, musculoskeletal disorders, back pain and ergonomics</langstring></caption>
 
     <description><langstring language="en">Manual handling, lifting, musculoskeletal disorders, back pain and ergonomics</langstring></description>
@@ -2923,7 +2923,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::occupations</termIdentifier>
+    <termIdentifier>health_care::occupations</termIdentifier>
     <caption><langstring language="en">Occupations and Workplaces</langstring></caption>
 
     <description><langstring language="en">Occupations and Workplaces</langstring></description>
@@ -2931,7 +2931,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::phys_agents</termIdentifier>
+    <termIdentifier>health_care::phys_agents</termIdentifier>
     <caption><langstring language="en">Physical agents - includes lasers, radiation</langstring></caption>
 
     <description><langstring language="en">Includes lasers, radiation.</langstring></description>
@@ -2939,7 +2939,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::programmes</termIdentifier>
+    <termIdentifier>health_care::programmes</termIdentifier>
     <caption><langstring language="en">Programmes, Policies and Statistics - e.g. national or regional  campaigns, policy issues etc.</langstring></caption>
 
     <description><langstring language="en">Includes national, regional programmes and campaigns etc. and policy issues.</langstring></description>
@@ -2947,7 +2947,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::safety_buildings_equipment</termIdentifier>
+    <termIdentifier>health_care::safety_buildings_equipment</termIdentifier>
     <caption><langstring language="en">Safety, Buildings and Equipment</langstring></caption>
 
     <description><langstring language="en">Includes buildings, equipment, gas cylinders and technology.</langstring></description>
@@ -2955,7 +2955,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::stress</termIdentifier>
+    <termIdentifier>health_care::stress</termIdentifier>
     <caption><langstring language="en">Stress - includes bullying, harassment, work organisation</langstring></caption>
 
     <description><langstring language="en">Includes bullying, burnout, post traumatic stress, sexual harassment, work organisation.</langstring></description>
@@ -2963,7 +2963,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::violence</termIdentifier>
+    <termIdentifier>health_care::violence</termIdentifier>
     <caption><langstring language="en">Violence</langstring></caption>
 
     <description><langstring language="en">From members of the public.</langstring></description>
@@ -2971,7 +2971,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::women_workers</termIdentifier>
+    <termIdentifier>health_care::women_workers</termIdentifier>
     <caption><langstring language="en">Women workers, pregnant workers</langstring></caption>
 
     <description><langstring language="en">Women workers, pregnant workers</langstring></description>
@@ -2979,7 +2979,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::working_hours</termIdentifier>
+    <termIdentifier>health_care::working_hours</termIdentifier>
     <caption><langstring language="en">Working hours, shift work and night work</langstring></caption>
 
     <description><langstring language="en">Working hours, shift work and night work</langstring></description>
@@ -2987,7 +2987,7 @@
 
     </term>
 <term>
-    <termIdentifier>healthcare::providers</termIdentifier>
+    <termIdentifier>health_care::providers</termIdentifier>
     <caption><langstring language="en">Health care sector</langstring></caption>
 
     <description><langstring language="en">OSH information on health care</langstring></description>
