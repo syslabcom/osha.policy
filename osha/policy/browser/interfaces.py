@@ -102,3 +102,8 @@ class IPressroomHelper(Interface):
 
     def getTextPieces():
         """ Returns the body text of referenced content pieces. The method is LinguaPlone aware """
+
+
+class ILanguageFiles(Interface):
+    """ Class to set the language on all files inside the current folder according to their suffix
+    """

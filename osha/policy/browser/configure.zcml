@@ -120,7 +120,13 @@
       allowed_interface=".interfaces.IPressroomHelper"
       />
 
-
+  <browser:page
+      for="*"
+      name="set_file_languages"
+      class=".languagefiles.LanguageFiles"
+      permission="zope2.View"
+      allowed_interface=".interfaces.ILanguageFiles"
+      />
 
 
 
