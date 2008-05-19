@@ -147,11 +147,12 @@
   </property>
   <property name="default_page" type="lines">
    <element value="index.stm"/>
-   <element value="index_html"/>
    <element value="index.php"/>
    <element value="index.html"/>
    <element value="index.htm"/>
    <element value="index.php3"/>
+   <element value="front-page"/>
+   <element value="index_html"/>
    <element value="FrontPage"/>
   </property>
   <property name="search_results_description_length" type="int">160</property>
