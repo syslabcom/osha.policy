@@ -14,7 +14,6 @@ class LanguageFiles(BrowserView):
     def __call__(self):
         obj = self.context
         self.plt = getToolByName(obj, 'portal_languages')
-#        print "RenameLanguageFiles"
         can = obj.getCanonical()
         default_lang = can.Language()
         obj_lang = obj.Language()
@@ -26,19 +25,59 @@ class LanguageFiles(BrowserView):
 #                    item[1].setLanguage(lang)
 
         filenames = list()
+
+        # We need a dict of dicts that maps filestems to a dicts of filenames by Language
+        # { 'contract_notice_' : {
+        #     'da' : 'contract_notice_da.pdf',
+        #     'en' : 'contract_notice_en.pdf'
+        #   }
+        filesByLanguage = dict()
+
         for item in can.objectItems(TYPES):
             lang, namestem, suffix = self._guessLanguage(item[0])
+            if not filesByLanguage.has_key(namestem):
+                filesByLanguage[namestem] = dict()
+            filesByLanguage[namestem][lang] = item[0]
             if item[1].Language()!= lang:
                 item[1].setLanguage(lang)
                 filenames.append(item[0])
 
-        message = u'Set language according to suffix on these files:\n' +', '.join(filenames) 
+        message = u'Set language according to suffix on these files:\n' +', '.join(filenames)
+        message += u'Files were translation-linked according to filenames.'
+
+        self.linkTranslations(filesByLanguage)
 
         path = obj.absolute_url()
         getToolByName(obj, 'plone_utils').addPortalMessage(message)
         self.request.RESPONSE.redirect(path)
 
 
+    def linkTranslations(self, filesByLanguage):
+        """ Link files as translations based on filenames """
+        default_lang = self.plt.getDefaultLanguage()
+
+        for filestem in filesByLanguage.keys():
+            versions = filesByLanguage[filestem]
+            # if no file version in the default language is available,
+            # we have to randomly pick one language as canonical
+            if not versions.has_key(default_lang):
+                can_lang = versions.keys()[0]
+            else:
+                can_lang = default_lang
+            can = getattr(self.context, versions[can_lang])
+            can.setCanonical()
+            for lang in versions.keys():
+                if lang == can_lang:
+                    continue
+                trans_obj = getattr(self.context, versions[lang])
+                # invalidate all exisitng references
+                # reason: we might have a new canonical version (if a file with the default language was
+                # previously missing and is now uploaded)
+                for x in trans_obj.getTranslations().values():
+                    x[0].removeTranslationReference(trans_obj)
+                    trans_obj.removeTranslationReference(x[0])
+                if can.getTranslation(lang) is None:
+                    trans_obj.addTranslationReference(can)
 
     def _guessLanguage(self, filename):
         """
@@ -48,9 +87,9 @@ class LanguageFiles(BrowserView):
         """
         if callable(filename):
             filename = filename()
-    
+
         langs = self.plt.getSupportedLanguages()
-    
+
         if len(filename)>3 and '.' in filename:
             elems = filename.split('.')
             name = ".".join(elems[:-1])
@@ -60,5 +99,5 @@ class LanguageFiles(BrowserView):
                 if lang in langs:
                     namestem = name[:(len(name)-2)]
                     return lang, namestem, elems[-1]
-    
+
         return '', filename, ''
