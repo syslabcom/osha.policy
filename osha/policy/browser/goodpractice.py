@@ -31,7 +31,7 @@ class GoodPracticeView(BrowserView):
         """ return the SEPS under topics """
         path = "/".join(self.context.getPhysicalPath())+'/' +area
         pc = getToolByName(self.context, 'portal_catalog')
-        res = pc(path={'query': path, 'depth': 1})
+        res = pc(path={'query': path, 'depth': 1}, portal_type="Folder", review_state='published', sort_on='sortable_title')
         return res
         
         
