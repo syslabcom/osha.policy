@@ -46,3 +46,13 @@ def _apply_index_patched(self, request, cid=''):
         
 ProxyIndex.__init__ = __init__patched
 ProxyIndex._apply_index = _apply_index_patched
+
+
+# Make ProxyIndex available for Topics
+from Products.ATContentTypes.criteria import LIST_INDICES, registerCriterion
+from Products.ATContentTypes.criteria.list import ATListCriterion
+
+LIST_INDICES = [x for x in LIST_INDICES]
+LIST_INDICES.append('ProxyIndex')
+
+registerCriterion(ATListCriterion, LIST_INDICES)
