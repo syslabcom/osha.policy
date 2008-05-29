@@ -257,7 +257,9 @@ def addExtraIndexes(self):
             'priority',
             'getLex_section',
             'getCountry',
-            'getRa_contents'
+            'getRa_contents',
+            'getEROTarget_group',
+            'getEROTopic'
             ]
 
     for meta in META:
