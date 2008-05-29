@@ -1,21 +1,24 @@
+from plone.app.portlets.utils import assignment_mapping_from_key
+from plone.portlets.constants import CONTEXT_CATEGORY, GROUP_CATEGORY, CONTENT_TYPE_CATEGORY
+from Products.SEPStructure import OSHAMessageFactory as _
+
 def helper(self):
   print "\nhelper"
 
-  folderid="press"
-  pageid="front-page"
+  path = '/'.join(self.getPhysicalPath())
 
   portal = self.portal_url.getPortalObject()
+  portal_path = self.portal_url.getPortalPath()
   langs = portal.portal_languages.getSupportedLanguages()
 
-  for lang in langs:
-    base=getattr(portal, lang, None)
-    if not base: print "ERR no folder for ", lang;continue
-    try:
-      folder = getattr(base, folderid, None)
-      folder._setProperty('default_page', pageid, 'string')
-      print "ok for ", [folder]
-    except Exception,e:
-      print "Err for lang:", lang, str(e)
+  right = assignment_mapping_from_key(self, 'plone.rightcolumn', CONTEXT_CATEGORY, path)
+  print right.keys()
+  from plone.portlet.collection import collection as collection_portlet
 
-
+  key = 'organisation'
+  topic_path = "%s/directory/%s/Publication" %(portal_path, key)
+  right[u'sep_publications'] = collection_portlet.Assignment(header=_(u"legend_publications"), 
+                                   target_collection=topic_path, 
+                                   limit=5)
+  
   return "ok"
