@@ -95,6 +95,7 @@ class LanguageFiles(BrowserView):
             filename = filename()
 
         langs = self.plt.getSupportedLanguages()
+        default_lang = self.plt.getDefaultLanguage()
 
         if len(filename)>3 and '.' in filename:
             elems = filename.split('.')
@@ -106,4 +107,4 @@ class LanguageFiles(BrowserView):
                     namestem = name[:(len(name)-2)]
                     return lang, namestem, elems[-1]
 
-        return '', filename, ''
+        return default_lang, filename, ''
