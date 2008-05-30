@@ -14,7 +14,11 @@
 
 
         <!--div tal:replace="structure provider:plone.abovecontenttitle" /-->
-
+        <h1 tal:condition="python:here.getId()!='front-page'" class="documentFirstHeading"> 
+            <metal:field use-macro="python:here.widget('title', mode='view')">
+            Title
+            </metal:field>
+        </h1>
         <!--div tal:replace="structure provider:plone.abovecontentbody" /-->
 
         <metal:listingmacro define-macro="listing">
@@ -101,6 +105,11 @@
                         </tal:brain>
                      </tbody>
                 </table>
+                
+                <p class="bold" >
+                <a href="" i18n:translate="link_newsboard_previousnews"
+                   tal:attributes="href string:${here/absolute_url}/archive">Show previous news</a>
+                </p>
             </tal:custom>
 
             </tal:listing>
