@@ -380,10 +380,11 @@ def configureCountryTool(site):
     
     ct.manage_countries_addCountry('UK', 'United Kingdom')
     ct.manage_countries_addCountry('EU', 'Europa')
+    ct.manage_countries_addCountry('EUO', 'Europa (others)')
     ct.manage_countries_addCountry('XX', 'International Organisation')
     
     ct.manage_countries_addArea('EU')
-    ct.manage_countries_addCountryToArea('EU', ['EU', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IE', 'LU', 'SE', 'AT', 'DE','MT', 'BE','CZ','HU','PL','RO','SK','BG','GR','SI','EE','LV','LT', 'CY'])
+    ct.manage_countries_addCountryToArea('EU', ['EU', 'EUO', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IE', 'LU', 'SE', 'AT', 'DE','MT', 'BE','CZ','HU','PL','RO','SK','BG','GR','SI','EE','LV','LT', 'CY'])
     ct.manage_countries_sortArea('EU')
 
     ct.manage_countries_addArea('International Organisations')
