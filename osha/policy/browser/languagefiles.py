@@ -65,7 +65,7 @@ class LanguageFiles(BrowserView):
                 can_lang = versions.keys()[0]
             else:
                 can_lang = default_lang
-            can = getattr(self.context.getTranslation(lang), versions[can_lang], getattr(self.context, versions[can_lang]))
+            can = getattr(self.context.getTranslation(can_lang), versions[can_lang], getattr(self.context, versions[can_lang]))
             can.setCanonical()
             for lang in versions.keys():
                 if lang == can_lang:
