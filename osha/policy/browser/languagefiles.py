@@ -33,7 +33,8 @@ class LanguageFiles(BrowserView):
         #   }
         filesByLanguage = dict()
 
-        for item in can.objectItems(TYPES):
+        items = [x for x in can.objectItems(TYPES)]
+        for item in items:
             lang, namestem, suffix = self._guessLanguage(item[0])
             if not filesByLanguage.has_key(namestem):
                 filesByLanguage[namestem] = dict()
@@ -64,12 +65,13 @@ class LanguageFiles(BrowserView):
                 can_lang = versions.keys()[0]
             else:
                 can_lang = default_lang
-            can = getattr(self.context, versions[can_lang])
+            can = getattr(self.context.getTranslation(lang), versions[can_lang], getattr(self.context, versions[can_lang]))
             can.setCanonical()
             for lang in versions.keys():
                 if lang == can_lang:
                     continue
-                trans_obj = getattr(self.context, versions[lang])
+                # Always look in the translated container first, before attempting to get thefile in the local container
+                trans_obj = getattr(self.context.getTranslation(lang), versions[lang], getattr(self.context, versions[lang]))
                 # invalidate all exisitng references
                 # reason: we might have a new canonical version (if a file with the default language was
                 # previously missing and is now uploaded)
