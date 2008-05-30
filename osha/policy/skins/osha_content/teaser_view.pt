@@ -136,7 +136,7 @@
         </metal:listingmacro>
     </metal:body>
 
-    <metal:body define-macro="folderlisting_macro">
+    <!--metal:body define-macro="folderlisting_macro">
         <tal:subtopics condition="here/hasSubtopics|nothing"
                        define="folderContents here/getFolderContents">
             <h2 i18n:domain="atcontenttypes"
@@ -145,7 +145,7 @@
             </h2>
             <metal:list metal:use-macro="here/base/macros/folderlisting"/>
         </tal:subtopics>
-    </metal:body>
+    </metal:body-->
 
     <div tal:replace="structure provider:plone.belowcontentbody" />
 
