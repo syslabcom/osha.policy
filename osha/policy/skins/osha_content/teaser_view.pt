@@ -106,7 +106,7 @@
                      </tbody>
                 </table>
                 
-                <p class="bold" >
+                <p class="bold" tal:condition="python:here.getId()!='archive'">
                 <a href="" i18n:translate="link_newsboard_previousnews"
                    tal:attributes="href string:${here/absolute_url}/archive">Show previous news</a>
                 </p>
@@ -114,7 +114,7 @@
 
             </tal:listing>
 
-            <p class="discreet"
+            <!--p class="discreet"
                tal:condition="python: not topicContents and here.listCriteria()"
                i18n:domain="atcontenttypes"
                i18n:translate="description_no_items_in_topic">
@@ -127,7 +127,7 @@
                i18n:translate="description_no_criteria_in_topic">
                 There are currently no criteria on which to search.
                 Please add them using the 'criteria' tab.
-            </p>
+            </p-->
 
             <!-- Navigation -->
             <div metal:use-macro="here/batch_macros/macros/navigation" />
