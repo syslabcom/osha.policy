@@ -65,13 +65,17 @@ class LanguageFiles(BrowserView):
                 can_lang = versions.keys()[0]
             else:
                 can_lang = default_lang
-            can = getattr(self.context.getTranslation(can_lang), versions[can_lang], getattr(self.context, versions[can_lang]))
+            can = getattr(self.context.getTranslation(can_lang), versions[can_lang], getattr(self.context, versions[can_lang], None))
+            if can is None:
+                raise "Canonical version of %s was not found!" %versions[can_lang]
             can.setCanonical()
             for lang in versions.keys():
                 if lang == can_lang:
                     continue
                 # Always look in the translated container first, before attempting to get thefile in the local container
-                trans_obj = getattr(self.context.getTranslation(lang), versions[lang], getattr(self.context, versions[lang]))
+                trans_obj = getattr(self.context.getTranslation(lang), versions[lang], getattr(self.context, versions[lang], None))
+                if trans_obj is None:
+                    raise "Translated object %s was not found!" %versions[lang]
                 # invalidate all exisitng references
                 # reason: we might have a new canonical version (if a file with the default language was
                 # previously missing and is now uploaded)
