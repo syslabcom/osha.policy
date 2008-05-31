@@ -106,7 +106,7 @@
                      </tbody>
                 </table>
                 
-                <p class="bold" tal:condition="python:here.getId()!='archive'">
+                <p class="bold" tal:condition="python:here.getId()!='archive' and 'archive' in here.objectIds()">
                 <a href="" i18n:translate="link_newsboard_previousnews"
                    tal:attributes="href string:${here/absolute_url}/archive">Show previous news</a>
                 </p>
