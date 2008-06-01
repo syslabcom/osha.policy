@@ -5,7 +5,7 @@
 #   - html_meta_keywords, which are used to optimize the SEO Keywords
 #   -
 
-from Products.SEPStructure import OSHAMessageFactory as _
+from Products.OSHATranslations import OSHAMessageFactory as _
 
 import zope.interface
 class IOSHContent(zope.interface.Interface):

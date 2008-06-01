@@ -1,6 +1,6 @@
 from plone.app.portlets.utils import assignment_mapping_from_key
 from plone.portlets.constants import CONTEXT_CATEGORY, GROUP_CATEGORY, CONTENT_TYPE_CATEGORY
-from Products.SEPStructure import OSHAMessageFactory as _
+from Products.OSHATranslations import OSHAMessageFactory as _
 
 def helper(self):
   print "\nhelper"
