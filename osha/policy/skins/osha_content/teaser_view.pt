@@ -92,7 +92,7 @@
                                     <span tal:omit-tag="" tal:condition="not:obj_description"> 
                                         &nbsp; 
                                     </span> 
-                                    <span class="description" tal:content="obj_description">
+                                    <span class="description" tal:content="structure obj_description">
                                         description 
                                     </span> 
                                     
