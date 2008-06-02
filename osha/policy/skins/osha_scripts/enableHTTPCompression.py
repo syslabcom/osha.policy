@@ -13,7 +13,7 @@
 # js: set this to 1 inside a js file (for later use)
 
 # Set this to 1 to enable Zope's HTTP compression
-ENABLE_ZLIB_COMPRESSION = 1
+ENABLE_ZLIB_COMPRESSION = 0
 debug=1
 if not ENABLE_ZLIB_COMPRESSION:
     if debug:
