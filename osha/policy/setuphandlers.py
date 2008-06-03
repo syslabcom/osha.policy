@@ -57,7 +57,6 @@ def importVarious(context):
     quickinst.installProduct('simplon.plone.ldap')
     quickinst.installProduct('plone.app.blob')
     quickinst.installProduct('syslabcom.filter')
-    quickinst.installProduct('qSEOptimizer')
     quickinst.installProduct('Scrawl')
     quickinst.installProduct('p4a.plonevideo')
     quickinst.installProduct('p4a.plonevideoembed')
@@ -86,7 +85,7 @@ def importVarious(context):
     
     configureCacheFu(site)
 
-    modifySEOActionPermissions(site)
+    #modifySEOActionPermissions(site)
     
     repositionActions(site)
     
