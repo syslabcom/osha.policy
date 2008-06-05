@@ -25,7 +25,9 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
         language = "en"
 
     # get translation-service
-    ptt = self.Control_Panel.TranslationService
+    from Products.PlacelessTranslationService import getTranslationService
+    ptt = getTranslationService()
+    #ptt = self.Control_Panel.TranslationService
     ptt_domain = 'osha_ew'
     #year = str(DateTime().year())
     year = "2008"
@@ -64,7 +66,7 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
 
 #    # print campaign-slogan
     msg_id = 'campaign_slogan_'+year
-    u_campaign_slogan = ptt.utranslate(ptt_domain, msg_id, target_language=language)
+    u_campaign_slogan = ptt.translate(ptt_domain, msg_id, target_language=language)
 #    campaign_slogan = u_campaign_slogan.encode('utf-8')
 #    print campaign_slogan, type(campaign_slogan)
 #    x =  4.5 * cm
