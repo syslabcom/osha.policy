@@ -27,6 +27,8 @@
         factory=".localroles.CheckerRole"
         />
         
-  
+    <subscriber for="Products.LinguaPlone.events.IObjectWillBeTranslatedEvent"
+        handler=".handlers.handle_object_willbe_translated"
+        />
       
 </configure>
