@@ -4,7 +4,7 @@ from Products.OSHATranslations import OSHAMessageFactory as _
 from plone.app.portlets.portlets import navigation, news, classic, events, search
 from StringIO import StringIO
 
-def helper(self):
+def helper(self, key):
     print "\nhelper"
     
     path = '/'.join(self.getPhysicalPath())
@@ -17,7 +17,7 @@ def helper(self):
     print right.keys()
     from plone.portlet.collection import collection as collection_portlet
     
-    key = 'organisation'
+    #key = 'organisation'
     topic_path = "%s/directory/%s/Publication" %(portal_path, key)
     right[u'sep_publications'] = collection_portlet.Assignment(header=_(u"legend_publications"), 
                                    target_collection=topic_path, 
