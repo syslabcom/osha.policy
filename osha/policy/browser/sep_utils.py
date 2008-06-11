@@ -132,42 +132,68 @@ class MigrateNaceCodes(BrowserView):
     implements(IMigrateNaceCodes)
 
     def __call__(self):
-        reindex = not not self.REQUEST.get('reindex', False)
+        reindex = not not self.request.get('reindex', False)
+        limit = self.request.get('limit', 0)
+        limit = int(limit)
         out = StringIO.StringIO()
         out.write("Converting the Nace codes\n")
         out.write("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n")
         out.write("\n\n")
+        if limit >0:
+            out.write("Limiting to %s objects\n" %limit)
+        else:
+            out.write("No limit. Convert all objects\n")
+            
         context = Acquisition.aq_inner(self.context)
         portal_catalog = getToolByName(context, 'portal_catalog')
         results = portal_catalog.searchResults(Language='all')
+        cnt = 0
         for brain in results:
-            if brain.has_key('getNACE'):
+            try:
                 ob = brain.getObject()
-                o,n = self.rewriteNaceCodes(ob, reindex)
-                if o is not None:
-                    out.write("Old: %s\nNew: %s\n\n" % (o,n))
-        out.write("Done")
+            except AttributeError:
+                continue
+            o,n = self.rewriteNaceCodes(ob, reindex)
+            if o is not None:
+                cnt +=1
+                out.write("Old: %s\nNew: %s\n\n" % (o,n))
+
+            if limit >=0 and cnt >=limit:
+                break
+
+        out.write("%s objects done" % cnt)
         return out.getvalue()        
 
 
     def rewriteNaceCodes(self, ob, reindex=0):
-        if hasattr(ob, '__nace_migrated__'):
+        #if ob.getId()=='Newoshinfo_7':
+        if hasattr(Acquisition.aq_base(ob), '__nace_migrated__'):
             return None, None
         field = ob.getField('nace')
         if field is None:
             return None, None
         oldnace = field.getAccessor(ob)()
+        if len(oldnace)==0:
+            return None, None
         # should be a tuple or list
-        oldnace = list(oldnace)
+        ob.__oldnace__ = oldnace
+        if type(oldnace) in [ListType, TupleType]:
+            oldnace = list(oldnace)
+        elif type(oldnace) in [StringType, UnicodeType]:
+            oldnace = [oldnace]
+        else:
+            raise TypeError, "oldnace is not list nor string!! %s is %s" %(oldnace, type(oldnace))
+        
         newnace = set()
         for code in oldnace:
             subst = NACE_MAP.get(code, code)
             if type(subst) in [TupleType, ListType]:
                 newnace = newnace.union(subst)
             else:
-                newnace.add(code)
+                newnace.add(subst)
         newnace = tuple(newnace)
         field.getMutator(ob)(newnace)
+        ob.__newnace__ = newnace
         ob.__nace_migrated__ = True
         if reindex==1:
             ob.reindexObject('nace')
