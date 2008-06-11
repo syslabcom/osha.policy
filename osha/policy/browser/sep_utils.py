@@ -166,8 +166,9 @@ class MigrateNaceCodes(BrowserView):
 
 
     def rewriteNaceCodes(self, ob, reindex=0):
-        #if ob.getId()=='Newoshinfo_7':
         if hasattr(Acquisition.aq_base(ob), '__nace_migrated__'):
+            return None, None
+        if not hasattr(Acquisition.aq_base(ob), 'getField'):
             return None, None
         field = ob.getField('nace')
         if field is None:
