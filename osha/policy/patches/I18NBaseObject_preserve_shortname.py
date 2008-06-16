@@ -4,6 +4,7 @@ from Products.LinguaPlone import config
 from Products.LinguaPlone.interfaces import ITranslatable
 from Products.CMFDynamicViewFTI.interface import ISelectableBrowserDefault
 from Products.Archetypes.utils import shasattr
+from Acquisition import aq_parent
 
 def processForm(self, data=1, metadata=0, REQUEST=None, values=None):
     """Process the schema looking for data in the form."""
