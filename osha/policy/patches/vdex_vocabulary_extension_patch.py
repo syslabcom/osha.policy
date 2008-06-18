@@ -43,12 +43,13 @@ def _getManager(self, reset=False, returnerror=False):
     """takes the given file and returns an initialized VDEXManager."""
     if reset and hasattr(self, '_v_vdexmanager'):
         del self._v_vdexmanager
-    manager = getattr(self, '_v_vdexmanager', None)
+    lang = self._getLanguage()
+    _v_vdexmanager = getattr(self, '_v_vdexmanager', {})
+    manager = _v_vdexmanager.get(lang, None)
     if manager is not None:
         return manager
     field = self.getField('vdex')
     data = field.getRaw(self)
-    lang = self._getLanguage()
     try:
         manager = VDEXManager(str(data), lang=lang)
     except VDEXError, e:
@@ -56,7 +57,8 @@ def _getManager(self, reset=False, returnerror=False):
             return None
         return str(e)
     # here is the bug. it is vdexmanager, not manager    
-    self._v_vdexmanager = manager
+    _v_vdexmanager[lang] = manager
+    self._v_vdexmanager = _v_vdexmanager
     return manager
     
 from Products.ATVocabularyManager.types.vdex.vocabularyxml import IMSVDEXVocabulary
