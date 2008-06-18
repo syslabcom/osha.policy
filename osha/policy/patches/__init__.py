@@ -5,4 +5,5 @@ import pressroom_patch
 import proxyindex_patch
 import blob_response_header_patch
 import newsitem_patch
+import collage_patches
 import I18NBaseObject_preserve_shortname
