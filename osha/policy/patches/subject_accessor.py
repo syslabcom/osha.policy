@@ -1,8 +1,8 @@
 
 from Products.OSHContentLink.OSH_Link import OSH_Link
-from Products.RALink.content.RALink import RALink
+#from Products.RALink.content.RALink import RALink
 from Products.RemoteProvider.content.Provider import Provider
-from Products.CaseStudy.CaseStudy import CaseStudy
+#from Products.CaseStudy.CaseStudy import CaseStudy
 from Products.ATContentTypes.content.file import ATFile
 from plone.app.blob.content import ATBlob
 from Products.ATContentTypes.content.event import ATEvent
