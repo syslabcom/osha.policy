@@ -502,6 +502,8 @@ class TaggingSchemaExtenderERO(object):
         """ getting order """
         return original
 
-
-zope.component.provideAdapter(TaggingSchemaExtenderERO,
-                              name=u"osha.metadata.ero")
+# ERO schema extension is no longer set globally.
+# We only want it on the ERO subsite. This is done via a locally registered adapter.
+# For the mechanism, see five.localsitemanager.localsitemaqnager.txt
+#zope.component.provideAdapter(TaggingSchemaExtenderERO,
+#                              name=u"osha.metadata.ero")
