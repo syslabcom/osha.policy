@@ -4,8 +4,11 @@ from Products.CMFPlone import utils as cmfutils
 def getItems(self):
     portal_type = self.request.get('portal_type', '').replace('+', ' ')
     SearchableText = self.request.get('SearchableText', '')
+    langtool = cmfutils.getToolByName(self, 'portal_languages')
+    prefLang = langtool.getPreferredLanguage()
     items = self.catalog(portal_type=portal_type,
                          SearchableText=SearchableText,
+                         Language=['', prefLang],
                          sort_order='reverse',
                          sort_on='modified')
     # filter out collage content types
