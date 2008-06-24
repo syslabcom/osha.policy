@@ -1,5 +1,6 @@
 from Products.CMFPlone.MembershipTool import MembershipTool
 from Products.CMFPlone.RegistrationTool import RegistrationTool
+from Products.PasswordResetTool.PasswordResetTool import PasswordResetTool
 from simplon.plone.ldap.ploneldap.util import getLDAPPlugin
 from Products.CMFCore.utils import getToolByName
 
@@ -17,23 +18,29 @@ def testCurrentPassword(self, password):
     
 MembershipTool.testCurrentPassword = testCurrentPassword
 
-    
-def email_mailPassword(self, email, REQUEST):
-    """ Wrapper around mailPassword """
-    import pdb;pdb.set_trace()
-    registration = getToolByName(self, 'portal_registration')
-
-    forgotten_userid = ''
+def _get_userid_by_email(self, email):
+    uid = ''
     luf=getLDAPPlugin()._getLDAPUserFolder()
     result = luf._lookupuserbyattr('mail', email)
     if len(result)>3:
         attrs = result[2]
         try:
-            forgotten_userid = attrs.get('uid')[0]
+            uid = attrs.get('uid')[0]
         except:
             pass
-        
-    
+    return uid
+
+def email_mailPassword(self, email, REQUEST):
+    """ Wrapper around mailPassword """
+    registration = getToolByName(self, 'portal_registration')
+    forgotten_userid = _get_userid_by_email(self, email)
     registration.mailPassword(forgotten_userid, REQUEST)
 
 RegistrationTool.email_mailPassword = email_mailPassword
+
+def email_resetPassword(self, email, randomstring, password):
+    userid = _get_userid_by_email(self, email)
+    pwreset = getToolByName(self, 'portal_password_reset')
+    pwreset.resetPassword(userid, randomstring, password)
+
+PasswordResetTool.email_resetPassword = email_resetPassword
