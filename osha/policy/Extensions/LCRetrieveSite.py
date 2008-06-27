@@ -30,7 +30,11 @@ def LCRetrieveSite(self):
                 if ob is None:
                     # Maybe the catalog isn't up to date
                     continue
-                lc.retrieving.retrieveObject(ob)
+                try:
+                    lc.retrieving.retrieveObject(ob)
+                except Exception,e:
+                    zLOG.LOG('CMFLinkChecker', zLOG.INFO,
+                      "Unable to retrieveObject for %s. Error: %s" %([ob], e))
                 if i % 1000 ==0:
                     transaction.commit()
                     zLOG.LOG('CMFLinkChecker', zLOG.INFO,
