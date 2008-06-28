@@ -14,7 +14,8 @@ class NaceView(BrowserView):
         nacelist=list()
         pv = getToolByName(self, 'portal_vocabularies')
         catalog = getToolByName(self, 'portal_catalog')
-
+        if hasattr(catalog, 'getZCatalog'):
+            catalog = catalog.getZCatalog()
         mi_ids = catalog.uniqueValuesFor('osha_NACE')
         mi_ids = [x for x in mi_ids if x is not None and x!='']
 
