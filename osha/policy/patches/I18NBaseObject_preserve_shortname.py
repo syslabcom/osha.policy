@@ -17,8 +17,6 @@ def processForm(self, data=1, metadata=0, REQUEST=None, values=None):
 
     if self._at_rename_after_creation and is_new_object:
         new_id = self._renameAfterCreation(check_auto_id=not not self.REQUEST.form.get('id'))
-    else:
-        new_id = self.REQUEST.form.get('id')
 
     if shasattr(self, '_lp_default_page'):
         delattr(self, '_lp_default_page')
@@ -34,7 +32,7 @@ def processForm(self, data=1, metadata=0, REQUEST=None, values=None):
                 translation_parent.setDescription(self.Description())
                 parent = translation_parent
 
-            if ISelectableBrowserDefault.providedBy(parent):
+            if ISelectableBrowserDefault.providedBy(parent) and new_id:
                 parent.setDefaultPage(new_id)
 
         
