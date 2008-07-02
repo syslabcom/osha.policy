@@ -1,4 +1,4 @@
 import ZPublisher
 print "Starting to fetch sitemap"
-ZPublisher.Zope('/osha2/sitemap.xml.gz')
+ZPublisher.Zope('/osha/portal/sitemap.xml.gz')
 print "Fetched"
