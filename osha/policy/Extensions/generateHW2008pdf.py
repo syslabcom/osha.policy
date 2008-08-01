@@ -112,13 +112,20 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
         )
 
     lines = []
-    contribution_headline = ptt.translate(domain=ptt_domain, 
-                                          msgid='contribution_headline_'+year, 
+    contribution_headline_1 = ptt.translate(domain=ptt_domain, 
+                                          msgid='contribution_headline_'+year+'_1', 
                                           mapping=mapping, 
                                           target_language=language,
                                           context=self)
-    contribution_headline = contribution_headline.encode('utf-8')
-    lines.append( Paragraph(contribution_headline, style) )
+    contribution_headline_2 = ptt.translate(domain=ptt_domain, 
+                                          msgid='contribution_headline_'+year+'_2', 
+                                          mapping=mapping, 
+                                          target_language=language,
+                                          context=self)
+    contribution_headline_1 = contribution_headline_1.encode('utf-8')
+    lines.append( Paragraph(contribution_headline_1, style) )
+    contribution_headline_2 = contribution_headline_2.encode('utf-8')
+    lines.append( Paragraph(contribution_headline_2, style) )
     cFrame = Frame(2*cm, 9.0*cm, 25.7*cm, 3*cm)
     cFrame.addFromList(lines, my_canvas)
     
