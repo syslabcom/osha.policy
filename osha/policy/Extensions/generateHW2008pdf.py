@@ -106,8 +106,8 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
             name='ContributionHeadline',
             fontName='Arial',
             fontSize=16,
-            spaceAfter=6,
-            leading=18,
+            spaceAfter=0,
+            leading=22,
             alignment=1
         )
 
