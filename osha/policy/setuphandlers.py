@@ -105,7 +105,7 @@ def repositionActions(portal):
     
     
     # If Linkchecker is installed, 
-    portal_linkchecker = getToolByName(portal, 'portal_linkchecker')
+    portal_linkchecker = getToolByName(portal, 'portal_linkchecker', None)
     if portal_linkchecker:
         # move My Links to the user's dashboard
         if 'CMFLC_MyLinks' not in cpids:
