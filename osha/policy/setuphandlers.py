@@ -68,7 +68,7 @@ def importVarious(context):
     quickinst.installProduct('osha.theme')
     # It is IMPORTANT that the linkchecker is installed at the end 
     # because it relies on beforehand registered retrievers
-    quickinst.installProduct('CMFLinkChecker')
+    #quickinst.installProduct('CMFLinkChecker')
 
     configurePortal(site)
 
@@ -104,23 +104,23 @@ def repositionActions(portal):
     # => nice to have, but a todo 
     
     
-    # If Linkchecker is installed, 
-    portal_linkchecker = getToolByName(portal, 'portal_linkchecker', None)
-    if portal_linkchecker:
-        # move My Links to the user's dashboard
-        if 'CMFLC_MyLinks' not in cpids:
-            portal_conf.registerConfiglet( 'CMFLC_MyLinks'
-                 , 'My Links'      
-                 , 'string:${portal_url}/lc_my_dead_links' 
-                 , '''member'''  
-                 , 'View'      # access permission
-                 , 'Member'   
-                 , 1         
-                 , 'CMFLinkChecker'
-                 , 'linkchecker.png' 
-                 , 'The links owned by you.'
-                 , None
-                 )       
+    # # If Linkchecker is installed, 
+    # portal_linkchecker = getToolByName(portal, 'portal_linkchecker', None)
+    # if portal_linkchecker:
+    #     # move My Links to the user's dashboard
+    #     if 'CMFLC_MyLinks' not in cpids:
+    #         portal_conf.registerConfiglet( 'CMFLC_MyLinks'
+    #              , 'My Links'      
+    #              , 'string:${portal_url}/lc_my_dead_links' 
+    #              , '''member'''  
+    #              , 'View'      # access permission
+    #              , 'Member'   
+    #              , 1         
+    #              , 'CMFLinkChecker'
+    #              , 'linkchecker.png' 
+    #              , 'The links owned by you.'
+    #              , None
+    #              )       
           
 
         # move Links from the object tab into the actions dropdown
@@ -129,15 +129,15 @@ def repositionActions(portal):
         # move link management site action into the actions dropdown
         # This happens in actions.xml    
 
-        newactions = []
-        oldactions = portal_linkchecker.listActions()
-        for action in oldactions:
-            if action.id in ['linkchecker_member_overview', 
-                             'linkchecker_object_status',
-                             'linkchecker_balanced_scorecard']:
-                action.visible = False
-            newactions.append(action)
-        portal_linkchecker._actions = newactions   
+        # newactions = []
+        # oldactions = portal_linkchecker.listActions()
+        # for action in oldactions:
+        #     if action.id in ['linkchecker_member_overview', 
+        #                      'linkchecker_object_status',
+        #                      'linkchecker_balanced_scorecard']:
+        #         action.visible = False
+        #     newactions.append(action)
+        # portal_linkchecker._actions = newactions   
 
 
     # If Shoppinglist is installed, move it to the user's dashboard
