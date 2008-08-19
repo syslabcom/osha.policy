@@ -2,7 +2,7 @@
 import transaction
 import zLOG
 
-def LCRetrieveSite(self):
+def LCRetrieveSite(self, skiplist=[]):
     """Retrieves the links from all objects in the site."""
     lc = self.portal_linkchecker
     server = lc.database._getWebServiceConnection()
@@ -18,6 +18,10 @@ def LCRetrieveSite(self):
         database = lc.database
         # gather all objects that are of a type we can check for links
         for type in lc.retrieving.listSupportedTypes():
+            if type in skiplist:
+              zLOG.LOG("CMFLinkChecker", zLOG.INFO,
+                  "Skipping, because %s is in skiplist" %type)
+              continue
             objects = self.portal_catalog(portal_type=type, Language='all')
             os_ = len(objects)
             i = 0
@@ -30,12 +34,12 @@ def LCRetrieveSite(self):
                 if ob is None:
                     # Maybe the catalog isn't up to date
                     continue
-                try:
-                    lc.retrieving.retrieveObject(ob)
-                except Exception,e:
-                    zLOG.LOG('CMFLinkChecker', zLOG.INFO,
-                      "Unable to retrieveObject for %s. Error: %s" %([ob], e))
-                if i % 1000 ==0:
+                #try:
+                lc.retrieving.retrieveObject(ob)
+                #except Exception,e:
+                #    zLOG.LOG('CMFLinkChecker', zLOG.INFO,
+                #      "Unable to retrieveObject for %s. Error: %s" %([ob], e))
+                if i % 500 ==0:
                     transaction.commit()
                     zLOG.LOG('CMFLinkChecker', zLOG.INFO,
                         "Crawling site - commited after %d objects of type %s" %(i, type))
