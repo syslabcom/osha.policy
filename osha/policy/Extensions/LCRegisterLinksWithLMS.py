@@ -2,10 +2,13 @@ import transaction
 from Products.CMFCore.utils import getToolByName
 from gocept.linkchecker.database import WEBSERVICE_STATEMAP
 import gocept.linkchecker.utils
+import time
+import logging
+log = logging.getLogger('osha.policy.LC')
 
-def registerLinks(self, threshold=100):
+def registerLinks(self, threshold=1000):
     try: threshold = int(threshold)
-    except: threshold = 100
+    except: threshold = 1000
     lc = getToolByName(self, 'portal_linkchecker')
     unregistered = lc.database.queryURLs(registered=False)
     # Nothing to do?
@@ -20,13 +23,22 @@ def registerLinks(self, threshold=100):
     
     unregistered = [url.url for url in unregistered]
     total = len(unregistered)
-    print "I have %d unregistered links. Processing the first %d" %(len(unregistered), threshold)
-    subset = unregistered[:threshold]
-    states = lms.registerManyLinks(subset)
-    for url, state, reason in states:
-        state = WEBSERVICE_STATEMAP[state]
-        url = lc.database[gocept.linkchecker.utils.hash_url(url)]
-        url.registered = True
-        url.updateStatus(state, reason)
+    while len(unregistered):
+        log.info( "\nI have %d unregistered links. Processing the first %d" %(len(unregistered), threshold))
 
-    return "processed %d links out of a total of %d links" %(len(subset), total)
+        subset = unregistered[:threshold]
+        unregistered = unregistered[threshold:]
+        states = lms.registerManyLinks(subset)
+#        import pdb; pdb.set_trace()
+        log.info("%d states were returned by the lms" %len(states))
+        for url, state, reason in states:
+            state = WEBSERVICE_STATEMAP[state]
+            url = lc.database[gocept.linkchecker.utils.hash_url(url)]
+            url.registered = True
+            url.updateStatus(state, reason)
+        log.info("Committing, will now sleep fo a while...")
+        time.sleep(120)
+
+    msg = "processed a total of %d links" % total
+    log.info(msg)
+    return msg
