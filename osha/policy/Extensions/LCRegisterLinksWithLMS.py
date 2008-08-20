@@ -20,15 +20,13 @@ def registerLinks(self, threshold=100):
     
     unregistered = [url.url for url in unregistered]
     total = len(unregistered)
-    while len(unregistered):
-        print "I have %d unregistered links. Processing the first %d" %(len(unregistered), threshold)
-        subset = unregistered[:threshold]
-        unregistered= unregistered[threshold:]
-        states = lms.registerManyLinks(subset)
-        for url, state, reason in states:
-            state = WEBSERVICE_STATEMAP[state]
-            url = lc.database[gocept.linkchecker.utils.hash_url(url)]
-            url.registered = True
-            url.updateStatus(state, reason)
+    print "I have %d unregistered links. Processing the first %d" %(len(unregistered), threshold)
+    subset = unregistered[:threshold]
+    states = lms.registerManyLinks(subset)
+    for url, state, reason in states:
+        state = WEBSERVICE_STATEMAP[state]
+        url = lc.database[gocept.linkchecker.utils.hash_url(url)]
+        url.registered = True
+        url.updateStatus(state, reason)
 
-    return "processed a total of %d links" %total
+    return "processed %d links out of a total of %d links" %(len(subset), total)
