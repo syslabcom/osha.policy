@@ -156,7 +156,7 @@ class MigrateNaceCodes(BrowserView):
             o,n = self.rewriteNaceCodes(ob, reindex)
             if o is not None:
                 cnt +=1
-                out.write("Old: %s\nNew: %s\n\n" % (o,n))
+                out.write("Path: %s\nOld: %s\nNew: %s\n\n" % (brain.getPath(), o,n))
 
             if limit >=0 and cnt >=limit:
                 break

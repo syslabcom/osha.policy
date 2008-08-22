@@ -1,0 +1,9 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="osha">
+
+    <utility component=".adapter.memcached_support.choose_cache"
+             provides="plone.memoize.interfaces.ICacheChooser" />
+
+</configure>
