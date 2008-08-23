@@ -6,4 +6,6 @@
     <utility component=".adapter.memcached_support.choose_cache"
              provides="plone.memoize.interfaces.ICacheChooser" />
 
+    <adapter factory=".adapter.calendar_eventprovider.ATEventProvider" />
+
 </configure>
