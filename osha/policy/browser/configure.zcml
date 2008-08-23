@@ -128,6 +128,13 @@
       allowed_interface=".interfaces.ILanguageFiles"
       />
 
+  <browser:page
+      for="*"
+      name="lc_osha_view"
+      class=".lc_osha.LinkcheckerOSHA"
+      permission="zope2.View"
+      allowed_interface=".interfaces.ILinkcheckerOSHA"
+      />
 
 
 </configure>
