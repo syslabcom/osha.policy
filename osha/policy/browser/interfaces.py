@@ -107,3 +107,11 @@ class IPressroomHelper(Interface):
 class ILanguageFiles(Interface):
     """ Class to set the language on all files inside the current folder according to their suffix
     """
+
+class ILinkcheckerOSHA(Interface):
+    """ Helper view that holds customizations for gocept.linkchecker 
+    """
+
+    def LinksInState(state, b_start=0, b_size=15, path_filter='', multilingual_thesaurus=[], subcategory=[]):
+        """Returns a list of links in the given state.
+        It is possible to pass several filer parameters to narrow down the result"""
