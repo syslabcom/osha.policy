@@ -21,23 +21,30 @@ def registerLinks(self, threshold=1000):
         print "no lms connection"
         return "no lms connection"
     
-    unregistered = [url.url for url in unregistered]
-    total = len(unregistered)
+    urls = [url.url for url in unregistered]
+    total = len(urls)
     while len(unregistered):
         log.info( "\nI have %d unregistered links. Processing the first %d" %(len(unregistered), threshold))
 
-        subset = unregistered[:threshold]
+        subset_urls = urls[:threshold]
+        subset_unregistered = unregistered[:threshold]
         unregistered = unregistered[threshold:]
-        states = lms.registerManyLinks(subset)
-#        import pdb; pdb.set_trace()
+        urls = urls[threshold:]
+        states = lms.registerManyLinks(subset_urls)
         log.info("%d states were returned by the lms" %len(states))
         for url, state, reason in states:
             state = WEBSERVICE_STATEMAP[state]
             url = lc.database[gocept.linkchecker.utils.hash_url(url)]
             url.registered = True
             url.updateStatus(state, reason)
+        # now make extra sure and mark the URL objects as registered, no matter what!
+        for brain in subset_unregistered:
+            url = brain.getObject()
+            url.registered = True
+            url.reindexObject()
         log.info("Committing, will now sleep fo a while...")
-        time.sleep(120)
+        transaction.commit()
+#        time.sleep(120)
 
     msg = "processed a total of %d links" % total
     log.info(msg)
