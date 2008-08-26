@@ -37,4 +37,14 @@
     />
 
       
+    <utility 
+        provides="collective.lead.interfaces.IDatabase" 
+        factory=".adapter.db.OSHADatabase" 
+        name="osha.database" 
+        /> 
+    <adapter 
+        for=".adapter.db.OSHADatabase"
+        provides="collective.lead.interfaces.ITransactionAware"
+        factory="collective.lead.tx.ThreadlocalDatabaseTransactions" />
+        
 </configure>

@@ -128,6 +128,18 @@
       allowed_interface=".interfaces.ILanguageFiles"
       />
 
+  <browser:page 
+      name="osha-database-controlpanel" 
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
+      class=".dbsettings.OSHADatabaseControlPanel" 
+      permission="cmf.ManagePortal" 
+      /> 
+  <adapter 
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
+      provides="osha.policy.interfaces.IDatabaseSettings" 
+      factory=".dbsettings.osha_database_settings" 
+      /> 
+
   <browser:page
       for="*"
       name="lc_osha_view"
