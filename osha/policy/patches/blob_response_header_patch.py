@@ -7,6 +7,8 @@ from plone.app.blob.content import ATBlob
 from plone.i18n.normalizer.interfaces import IUserPreferredFileNameNormalizer
 from Products.Archetypes.utils import contentDispositionHeader
 from webdav.common import rfc1123_date
+from Products.ATContentTypes.content.file import ATFile
+
 
 def field_index_html(self, instance, REQUEST=None, RESPONSE=None, disposition='inline'):
     """ make it directly viewable when entering the objects URL """
@@ -33,7 +35,10 @@ def field_index_html(self, instance, REQUEST=None, RESPONSE=None, disposition='i
 def file_index_html(self, REQUEST, RESPONSE):
     """ download the file inline """
     field = self.getPrimaryField()
-    return field.index_html(self, REQUEST, RESPONSE)
+    if field.getContentType(self) in ATFile.inlineMimetypes:
+        # return the PDF and Office file formats inline
+        return field.index_html(self, REQUEST, RESPONSE)
+    return field.download(self, REQUEST, RESPONSE)
                 
 BlobField.index_html = field_index_html        
 ATBlob.index_html = file_index_html
