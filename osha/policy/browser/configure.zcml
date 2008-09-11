@@ -148,5 +148,11 @@
       allowed_interface=".interfaces.ILinkcheckerOSHA"
       />
 
+  <browser:page
+      for="*"
+      name="lc_csv_export"
+      class=".lc_osha.CSVExportView"
+      permission="cmf.ManagePortal"      
+      />
 
 </configure>

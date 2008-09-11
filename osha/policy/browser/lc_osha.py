@@ -1,9 +1,32 @@
 from zope.interface import implements
+from zope.component import getMultiAdapter
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from urlparse import urljoin
 from osha.policy.browser.interfaces import ILinkcheckerOSHA
 
+
+class CSVExportView(BrowserView):
+    
+    def __call__(self, link_state='red', path_filter='', multilingual_thesaurus=[], subcategory=[]):
+        """ export the database in csv format """
+        lcosha = getMultiAdapter((self.context, self.request), name='lc_osha_view')
+        links = lcosha.LinksInState(state=link_state, 
+                                    b_start=0, 
+                                    b_size=-1, 
+                                    path_filter=path_filter, 
+                                    multilingual_thesaurus=multilingual_thesaurus, 
+                                    subcategory=subcategory
+                                    )
+        wr = self.request.RESPONSE.write                                  
+        wr("Document,Brokenlink,Reason,Lastcheck\n")                                    
+        links = [x for x in links]
+        print "Len links", len(links)
+        for link in links:
+            if link is None or len(link.keys())==0:
+                continue
+            wr(",".join([link['document'].getPath(), link['url'],link['reason'],str(link['lastcheck'])]) +'\n') 
+            
 class LinkcheckerOSHA(BrowserView):
     implements(ILinkcheckerOSHA)
 
@@ -17,7 +40,7 @@ class LinkcheckerOSHA(BrowserView):
 
         # If one or more filter parameters were passed in, use the filter based method
         if path_filter or len(multilingual_thesaurus) or len(subcategory):
-            portal_url = getToolByName(self, 'portal_url')
+            portal_url = getToolByName(self.context, 'portal_url')
             if path_filter:
                 portal_path = '/'.join(portal_url.getPortalObject().getPhysicalPath() + ('',))
                 if path_filter[0]=='/': path_filter = path_filter[1:]
@@ -76,9 +99,9 @@ class LinkcheckerOSHA(BrowserView):
 
         member_cache = {}
 
-        lc = getToolByName(self, 'portal_linkchecker')
-        catalog = getToolByName(self, 'portal_catalog')
-        pms = getToolByName(self, 'portal_membership')
+        lc = getToolByName(self.context, 'portal_linkchecker')
+        catalog = getToolByName(self.context, 'portal_catalog')
+        pms = getToolByName(self.context, 'portal_membership')
 
         _marker = object()
 
@@ -91,6 +114,8 @@ class LinkcheckerOSHA(BrowserView):
             
         counter =0
         valid_cnt = 0
+        if b_size==-1:
+            b_size=len(links)
 #        for link in links[b_start:b_start+b_size]:
         while (valid_cnt < b_size):
             ind = b_start+counter
@@ -121,9 +146,9 @@ class LinkcheckerOSHA(BrowserView):
     def _document_iterator_orig(self, state):
         member_cache = {}
     
-        lc = getToolByName(self, 'portal_linkchecker')
-        catalog = getToolByName(self, 'portal_catalog')
-        pms = getToolByName(self, 'portal_membership')
+        lc = getToolByName(self.context, 'portal_linkchecker')
+        catalog = getToolByName(self.context, 'portal_catalog')
+        pms = getToolByName(self.context, 'portal_membership')
 
         _marker = object()
 
@@ -153,9 +178,9 @@ class LinkcheckerOSHA(BrowserView):
         print "subcategory:", subcategory
         member_cache = {}
 
-        lc = getToolByName(self, 'portal_linkchecker')
-        catalog = getToolByName(self, 'portal_catalog')
-        pms = getToolByName(self, 'portal_membership')
+        lc = getToolByName(self.context, 'portal_linkchecker')
+        catalog = getToolByName(self.context, 'portal_catalog')
+        pms = getToolByName(self.context, 'portal_membership')
 
         _marker = object()
 
@@ -172,6 +197,8 @@ class LinkcheckerOSHA(BrowserView):
 
         counter =0
         valid_cnt = 0
+        if b_size==-1:
+            b_size=len(links)
 #        for link in links[b_start:b_start+b_size]:
         while (valid_cnt < b_size):
             ind = b_start+counter
