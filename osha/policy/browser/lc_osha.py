@@ -18,10 +18,11 @@ class CSVExportView(BrowserView):
                                     multilingual_thesaurus=multilingual_thesaurus, 
                                     subcategory=subcategory
                                     )
+        self.request.RESPONSE.setHeader('Content-Type', 'text/csv')
+        self.request.RESPONSE.setHeader('Content-Disposition', 'attachment;filename=linkchecker_state_%s.csv' % link_state)
         wr = self.request.RESPONSE.write                                  
         wr("Document,Brokenlink,Reason,Lastcheck\n")                                    
         links = [x for x in links]
-        print "Len links", len(links)
         for link in links:
             if link is None or len(link.keys())==0:
                 continue
@@ -106,8 +107,8 @@ class LinkcheckerOSHA(BrowserView):
         _marker = object()
 
         links = lc.database.queryLinks(state=[state], sort_on="url")
-        print "len links:", len(links)
-        print "b_start", b_start
+        #print "len links:", len(links)
+        #print "b_start", b_start
 
         for dummy in range(b_start):
             yield None, None, None
