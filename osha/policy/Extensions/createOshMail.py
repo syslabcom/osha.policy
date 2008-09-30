@@ -62,7 +62,6 @@ def createOshMail(self, id="om98", title="Oshmail 98 - 2008", formname=""):
     om = getattr(self, id)
     om.unmarkCreationFlag()
     om.setTitle(title)
-    print om
 
     # row 1 (teaser // news)
     row1, col1 = insertRow(om)
@@ -147,6 +146,7 @@ def createOshMail(self, id="om98", title="Oshmail 98 - 2008", formname=""):
     uid = getUIDForPath(pc, abspath)
     alias = insertAlias(col1, uid)
 
+    om.reindexObject()
     msg = "Collage template was successfully created"
     self.plone_utils.addPortalMessage(msg)
     return self.REQUEST.RESPONSE.redirect(om.absolute_url())
