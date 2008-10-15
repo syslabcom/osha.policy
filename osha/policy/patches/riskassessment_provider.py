@@ -1,6 +1,6 @@
 from Products.RemoteProvider.content.Provider import Provider, Provider_schema
 
-unwantedFields = ('allowDiscussion', 'language', 'providerCategory', 'sme', 'subject')
+unwantedFields = ('allowDiscussion', 'language', 'sme', 'subject')
 moveToDefault = ['remoteLanguage', 'location', 'effectiveDate', 'expirationDate']
 moveToBottom = ('creators', 'contributors', 'rights', )
 
