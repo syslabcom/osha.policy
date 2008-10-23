@@ -110,6 +110,8 @@ class MTSubjectField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
     def Vocabulary(self, content_instance):
         return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
+class AttachmentField(ExtensionField, atapi.FileField):
+    """ additional file field for attachments """
 
 class ReferencedContentField(ExtensionField, ExtensionFieldMixin, atapi.ReferenceField):
     """ Possibility to reference content objects, the text of which can be used to display inside the current object"""
@@ -359,6 +361,17 @@ zope.component.provideAdapter(TaggingSchemaExtenderProvider,
 class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContentEvent)
+    
+    _localFields = [
+            AttachmentField('attachment',
+                schemata='default',
+                widget=atapi.FileWidget(
+                    label= _(u'osha_event_attachment_label', default=u'Attachment'),
+                    description= _(u'osha_event_attachment_label', 
+                        default=u'You can upload an optional attachment that will be displayed with the event.'),
+                ),
+            ),
+        ]
 
     def __init__(self, context):
         super(TaggingSchemaExtender, self).__init__(self, context)
@@ -369,7 +382,7 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
                 new_f.required = False
             if new_f.getName() not in ('country', 'nace'):
                 _myfields.append(new_f)
-        self._myfields = _myfields
+        self._myfields = _myfields + self._localFields
 
     def getFields(self):
         return self._myfields
