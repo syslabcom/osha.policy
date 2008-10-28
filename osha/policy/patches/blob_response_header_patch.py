@@ -35,7 +35,11 @@ def field_index_html(self, instance, REQUEST=None, RESPONSE=None, disposition='i
 def file_index_html(self, REQUEST, RESPONSE):
     """ download the file inline """
     field = self.getPrimaryField()
-    if field.getContentType(self) in ATFile.inlineMimetypes:
+    # Careful, inline Mimetypes does not contain text/html or text/plain
+    # For Old Campaign sides sake we add that as well.
+    inlineMimetypes = ATFile.inlineMimetypes + ('text/html', 'text/plain')
+
+    if field.getContentType(self) in inlineMimetypes:
         # return the PDF and Office file formats inline
         return field.index_html(self, REQUEST, RESPONSE)
     return field.download(self, REQUEST, RESPONSE)
