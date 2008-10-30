@@ -350,6 +350,12 @@ def addProxyIndexes(self):
             , 'extra' : dict(idx_type = "KeywordIndex",
                 value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('occupation')"
                 )
+            }
+          , { 'idx_id' : 'osha_metadata'
+            , 'meta_id' : 'osha_metadata'
+            , 'extra' : dict(idx_type = "KeywordIndex",
+                value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('osha_metadata')"
+                )
             } 
         ]
     
