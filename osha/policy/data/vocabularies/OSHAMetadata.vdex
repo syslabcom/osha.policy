@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
+    <vocabName>
+        <langstring language="en">OSHA Metadata</langstring>
+    </vocabName>
+    <vocabIdentifier>http://osha.europa.eu/OSHAMetadata</vocabIdentifier>
+<term>
+    <termIdentifier>good_practice_domain</termIdentifier>
+    <caption>
+        <langstring language="fr">Bonne Pratique - Domaines</langstring>
+        <langstring language="nl">Goede praktijdvoorbeelden - Domein</langstring>
+     </caption>
+    <term>
+        <termIdentifier>good_practice_domain::gpd01</termIdentifier>
+        <caption>
+            <langstring language="fr">Ergonomie</langstring>
+            <langstring language="nl">Ergonomie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpd02</termIdentifier>
+        <caption>
+            <langstring language="fr">Santé</langstring>
+            <langstring language="nl">Gezondheid</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpd03</termIdentifier>
+        <caption>
+            <langstring language="fr">Hygiène</langstring>
+            <langstring language="nl">Hygiëne</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpd04</termIdentifier>
+        <caption>
+            <langstring language="fr">Environnement</langstring>
+            <langstring language="nl">Leefmilieu</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpd06</termIdentifier>
+        <caption>
+            <langstring language="fr">Charge psychosociale</langstring>
+            <langstring language="nl">Psychosociale</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpd07</termIdentifier>
+        <caption>
+            <langstring language="fr">Sécurité</langstring>
+            <langstring language="nl">Veiligheid</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpd08</termIdentifier>
+        <caption>
+            <langstring language="fr">string</langstring>
+            <langstring language="nl">Embellissement</langstring>
+         </caption>
+    </term>
+</term>
+<term>
+    <termIdentifier>good_practice_sector</termIdentifier>
+    <caption>
+        <langstring language="fr">Bonne Pratique - Sector</langstring>
+        <langstring language="nl">Goede praktijdvoorbeelden - Sector</langstring>
+     </caption>
+    <term>
+        <termIdentifier>good_practice_domain::gps01</termIdentifier>
+        <caption>
+            <langstring language="fr">Construction</langstring>
+            <langstring language="nl">Bouw</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps02</termIdentifier>
+        <caption>
+            <langstring language="fr">Défence</langstring>
+            <langstring language="nl">Defensie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps03</termIdentifier>
+        <caption>
+            <langstring language="fr">Interim</langstring>
+            <langstring language="nl">Interim</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps04</termIdentifier>
+        <caption>
+            <langstring language="fr">PME</langstring>
+            <langstring language="nl">KMO</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps05</termIdentifier>
+        <caption>
+            <langstring language="fr">Entreprises reconnues d'utilité publique</langstring>
+            <langstring language="nl">Nutsbedrijven</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps06</termIdentifier>
+        <caption>
+            <langstring language="fr">Enseignement</langstring>
+            <langstring language="nl">Onderwijs</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps07</termIdentifier>
+        <caption>
+            <langstring language="fr">Zorgsector</langstring>
+            <langstring language="nl">Zorgsector</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps99</termIdentifier>
+        <caption>
+            <langstring language="fr">test</langstring>
+            <langstring language="nl">test</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps08</termIdentifier>
+        <caption>
+            <langstring language="fr">Le secteur pharmaceutique</langstring>
+            <langstring language="nl">Farmaceutische sector</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps09</termIdentifier>
+        <caption>
+            <langstring language="fr">Chimie</langstring>
+            <langstring language="nl">Chemie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps10</termIdentifier>
+        <caption>
+            <langstring language="fr">Transport</langstring>
+            <langstring language="nl">Transport</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps11</termIdentifier>
+        <caption>
+            <langstring language="fr">Métal</langstring>
+            <langstring language="nl">Metaal</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps12</termIdentifier>
+        <caption>
+            <langstring language="fr">Gouvernement</langstring>
+            <langstring language="nl">Overheid</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps13</termIdentifier>
+        <caption>
+            <langstring language="fr">Distribution</langstring>
+            <langstring language="nl">Distribution</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gps14</termIdentifier>
+        <caption>
+            <langstring language="fr">Horeca</langstring>
+            <langstring language="nl">Horeca</langstring>
+         </caption>
+    </term>
+</term>
+<term>
+    <termIdentifier>good_practice_competition</termIdentifier>
+    <caption>
+        <langstring language="fr">Bonne Pratique - Domaines</langstring>
+        <langstring language="nl">Goede praktijdvoorbeelden - Wedstrijden</langstring>
+     </caption>
+    <term>
+        <termIdentifier>good_practice_domain::gpc01</termIdentifier>
+        <caption>
+            <langstring language="fr">Award des examples de bonne pratique</langstring>
+            <langstring language="nl">Award voor Goede Praktijkvoorbeelden</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpc02</termIdentifier>
+        <caption>
+            <langstring language="fr">Prix du conseil supérieur pour la prévention et la protection</langstring>
+            <langstring language="nl">Prijs van de Hoge Raad voor preventie en bescherming op het werk</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpc03</termIdentifier>
+        <caption>
+            <langstring language="fr">Prix Santé et Entreprise</langstring>
+            <langstring language="nl">Prijs Gezondheid en Onderneming</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpc04</termIdentifier>
+        <caption>
+            <langstring language="fr">Pro-safe award</langstring>
+            <langstring language="nl">Pro-safe award</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>good_practice_domain::gpc05</termIdentifier>
+        <caption>
+            <langstring language="fr">Safe Start Award</langstring>
+            <langstring language="nl">Safe Start Award</langstring>
+         </caption>
+    </term>
+</term>
+
+
+</vdex>
+
+<!--
+        <caption>
+            <langstring language="fr">string</langstring>
+            <langstring language="nl">string</langstring>
+         </caption>
+-->
