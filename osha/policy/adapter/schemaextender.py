@@ -246,9 +246,15 @@ class TaggingSchemaExtender(object):
 
     def __init__(self, context):
         self.context = context
+        _myfields= list()
+        for f in self._fields:
+            if f.getName() not in ['osha_metadata']:
+                new_f = f.copy()
+                _myfields.append(new_f)
+        self._myfields = _myfields
 
     def getFields(self):
-        return self._fields
+        return self._myfields
 
     def getOrder(self, original):
         """ getting order """
