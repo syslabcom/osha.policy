@@ -216,6 +216,100 @@
 </term>
 
 
+
+<term>
+    <termIdentifier>WhosWhoType</termIdentifier>
+    <caption>
+        <langstring language="fr">Whos Who Type</langstring>
+        <langstring language="nl">Whos Who Type</langstring>
+     </caption>
+    <term>
+        <termIdentifier>WhosWhoType::OT9</termIdentifier>
+        <caption>
+            <langstring language="fr">Association professionnelle</langstring>
+            <langstring language="nl">Beroepsvereniging</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT66</termIdentifier>
+        <caption>
+            <langstring language="fr">Service externe PPT</langstring>
+            <langstring language="nl">Externe Dienst PBW</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT66LU</termIdentifier>
+        <caption>
+            <langstring language="fr">Service de santé</langstring>
+            <langstring language="nl">Gezondheid</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT3</termIdentifier>
+        <caption>
+            <langstring language="fr">Autorité Bruxelles</langstring>
+            <langstring language="nl">Overheid Brussel</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT3LU</termIdentifier>
+        <caption>
+            <langstring language="fr">Autorités</langstring>
+            <langstring language="nl">Overheid</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT1</termIdentifier>
+        <caption>
+            <langstring language="fr">Autorité Fédérale</langstring>
+            <langstring language="nl">Overheid Federaal</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT2</termIdentifier>
+        <caption>
+            <langstring language="fr">Autorité Flandre</langstring>
+            <langstring language="nl">Overheid Vlaanderen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT4</termIdentifier>
+        <caption>
+            <langstring language="fr">Autorité Wallonie</langstring>
+            <langstring language="nl">Overheid Wallonië</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT8</termIdentifier>
+        <caption>
+            <langstring language="fr">Institution de prévention</langstring>
+            <langstring language="nl">Preventieinstituut</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT65</termIdentifier>
+        <caption>
+            <langstring language="fr">Compagnie d'assurance</langstring>
+            <langstring language="nl">Verzekeringsorganisme</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT11</termIdentifier>
+        <caption>
+            <langstring language="fr">Organisation d'employeurs</langstring>
+            <langstring language="nl">Werkgeversorganisatie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT10</termIdentifier>
+        <caption>
+            <langstring language="fr">Organisation d'employés</langstring>
+            <langstring language="nl">Werknemersorganisatie</langstring>
+         </caption>
+    </term>
+</term>
+
+
 </vdex>
 
 <!--
