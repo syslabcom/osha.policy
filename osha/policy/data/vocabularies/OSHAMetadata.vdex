@@ -308,8 +308,62 @@
          </caption>
     </term>
 </term>
-
-
+<term>
+    <termIdentifier>respect_doc_cat</termIdentifier>
+    <caption>
+        <langstring language="fr">Respect au travail - publications</langstring>
+        <langstring language="nl">Respect op het werk - Categorie Publicaties</langstring>
+     </caption>
+    <term>
+        <termIdentifier>respect_doc_cat::respect_doc_02</termIdentifier>
+        <caption>
+            <langstring language="fr">SPF ETCS - Violence, harcèlement moral ou sexuel au travail</langstring>
+            <langstring language="nl">FOD WASO - geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>respect_doc_cat::respect_doc_03</termIdentifier>
+        <caption>
+            <langstring language="fr">SPF ETCS - Stress</langstring>
+            <langstring language="nl">FOD WASO - stress</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>respect_doc_cat::respect_doc_10</termIdentifier>
+        <caption>
+            <langstring language="fr">Publications externes - Violence, harcèlement moral ou sexuel au travail</langstring>
+            <langstring language="nl">Externe publicaties - geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>respect_doc_cat::respect_doc_1</termIdentifier>
+        <caption>
+            <langstring language="fr">Externe publicaties - stress</langstring>
+            <langstring language="nl">Externe publicaties - stress</langstring>
+         </caption>
+    </term>
+</term>
+<term>
+    <termIdentifier>respect_research</termIdentifier>
+    <caption>
+        <langstring language="fr">Respect - Recherche</langstring>
+        <langstring language="nl">Respect - Onderzoek</langstring>
+     </caption>
+    <term>
+        <termIdentifier>respect_research::respect_research_01</termIdentifier>
+        <caption>
+            <langstring language="fr">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
+            <langstring language="nl">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>respect_research::respect_research_02</termIdentifier>
+        <caption>
+            <langstring language="fr">Stress</langstring>
+            <langstring language="nl">Stress</langstring>
+         </caption>
+    </term>
+</term>
 </vdex>
 
 <!--
