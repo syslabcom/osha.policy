@@ -1,6 +1,7 @@
 from Products.RemoteProvider.content.Provider import Provider, Provider_schema
 
-unwantedFields = ('allowDiscussion', 'language', 'sme', 'subject')
+unwantedFields = ( 'subject',  'allowDiscussion', 'creation_date', 
+        'modification_date', 'language', 'sme', 'provider')
 moveToDefault = ['remoteLanguage', 'location', 'effectiveDate', 'expirationDate']
 moveToBottom = ('creators', 'contributors', 'rights', )
 
@@ -17,3 +18,6 @@ for name in moveToDefault:
 for name in moveToBottom:
     if Provider_schema.get(name):
         Provider_schema.moveField(name, pos='bottom')
+
+# make providerCategory required
+Provider_schema['providerCategory'].required = True
