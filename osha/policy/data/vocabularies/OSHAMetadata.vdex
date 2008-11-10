@@ -650,41 +650,41 @@
 </term>
 
 <term>
-    <termIdentifier>event_metadata</termIdentifier>
+    <termIdentifier>organizer</termIdentifier>
     <caption>
         <langstring language="fr">Calendrier - organisateur évenment</langstring>
         <langstring language="nl">Kalender Organisator</langstring>
      </caption>
     <term>
-        <termIdentifier>event_metadata::org01</termIdentifier>
+        <termIdentifier>organizer::org01</termIdentifier>
         <caption>
             <langstring language="fr">FOD WASO -SPF ETCS</langstring>
             <langstring language="nl">FOD WASO -SPF ETCS</langstring>
          </caption>
     </term>
     <term>
-        <termIdentifier>event_metadata::org02</termIdentifier>
+        <termIdentifier>organizer::org02</termIdentifier>
         <caption>
             <langstring language="fr">Comité d'action Bruxelles capitale</langstring>
             <langstring language="nl">Actiecomité Brussel</langstring>
          </caption>
     </term>
     <term>
-        <termIdentifier>event_metadata::org03</termIdentifier>
+        <termIdentifier>organizer::org03</termIdentifier>
         <caption>
             <langstring language="fr">Prov. Comité Vlaams-Brabant</langstring>
             <langstring language="nl">Prov. Comité Vlaams-Brabant</langstring>
          </caption>
     </term>
     <term>
-        <termIdentifier>event_metadata::org04</termIdentifier>
+        <termIdentifier>organizer::org04</termIdentifier>
         <caption>
             <langstring language="fr">Prov. comité West-Vlaanderen</langstring>
             <langstring language="nl">Prov. comité West-Vlaanderen</langstring>
          </caption>
     </term>
     <term>
-        <termIdentifier>event_metadata::org05</termIdentifier>
+        <termIdentifier>organizer::org05</termIdentifier>
         <caption>
             <langstring language="fr">Prov Comité Oost-Vlaanderen</langstring>
             <langstring language="nl">Prov Comité Oost-Vlaanderen</langstring>
