@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" 
+    orderSignificant="true" 
+    profileType="flatTokenTerms" language="en">
     <vocabName>
         <langstring language="en">OSHA Metadata</langstring>
+        <langstring language="fr">OSHA Metadata</langstring>
+        <langstring language="nl">OSHA Metadata</langstring>
     </vocabName>
-    <vocabIdentifier>http://osha.europa.eu/OSHAMetadata</vocabIdentifier>
+    <vocabIdentifier>OSHAMetadata</vocabIdentifier>
 <term>
     <termIdentifier>good_practice_domain</termIdentifier>
     <caption>
@@ -308,6 +314,200 @@
          </caption>
     </term>
 </term>
+
+
+<term>
+    <termIdentifier>WhosWhoTraining</termIdentifier>
+    <caption>
+        <langstring language="fr">Whos Who Training</langstring>
+        <langstring language="nl">Whos Who Training</langstring>
+     </caption>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG01</termIdentifier>
+        <caption>
+            <langstring language="fr">Formation et recyclage des conseillers en prévention</langstring>
+            <langstring language="nl">Opleiding en bijscholing preventieadviseurs</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG99</termIdentifier>
+        <caption>
+            <langstring language="fr">Général</langstring>
+            <langstring language="nl">Algemeen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG03</termIdentifier>
+        <caption>
+            <langstring language="fr">Amiante</langstring>
+            <langstring language="nl">Asbest</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG02</termIdentifier>
+        <caption>
+            <langstring language="fr">Equipements de travail</langstring>
+            <langstring language="nl">Arbeidsmiddelen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG04</termIdentifier>
+        <caption>
+            <langstring language="fr">Ecrans de visualisation</langstring>
+            <langstring language="nl">Beeldschermen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG05</termIdentifier>
+        <caption>
+            <langstring language="fr">Agents biologiques</langstring>
+            <langstring language="nl">Biologische agentia</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG06</termIdentifier>
+        <caption>
+            <langstring language="fr">Agents chimiques</langstring>
+            <langstring language="nl">Chemische Agentia</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG07</termIdentifier>
+        <caption>
+            <langstring language="fr">Premiers soins</langstring>
+            <langstring language="nl">EHBO</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG08</termIdentifier>
+        <caption>
+            <langstring language="fr">Electricité</langstring>
+            <langstring language="nl">Elektriciteit</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG09</termIdentifier>
+        <caption>
+            <langstring language="fr">Danger d’explosion</langstring>
+            <langstring language="nl">Explosiegevaar</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG10</termIdentifier>
+        <caption>
+            <langstring language="fr">Charge psychosociale dont violence et harcèlement moral ou sexuel ou travail</langstring>
+            <langstring language="nl">Geweld, pesterijen en ongewenst sexueel gedrag op het werk</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG11</termIdentifier>
+        <caption>
+            <langstring language="fr">Milieu hyperbare</langstring>
+            <langstring language="nl">Hyperbare omgeving</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG12</termIdentifier>
+        <caption>
+            <langstring language="fr">Rayonnement ionisant</langstring>
+            <langstring language="nl">Ioniserende straling</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG13</termIdentifier>
+        <caption>
+            <langstring language="fr">Agents cancérigènes</langstring>
+            <langstring language="nl">Kankerwekkende agentia</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG14</termIdentifier>
+        <caption>
+            <langstring language="fr">Bruit</langstring>
+            <langstring language="nl">Lawaai</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG15</termIdentifier>
+        <caption>
+            <langstring language="fr">Manutention de charges</langstring>
+            <langstring language="nl">Manueel hanteren van lasten</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG16</termIdentifier>
+        <caption>
+            <langstring language="fr">Equipements de travail mobiles</langstring>
+            <langstring language="nl">Mobiele arbeidsmiddelen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG17</termIdentifier>
+        <caption>
+            <langstring language="fr">Dépôts de liquides inflammables</langstring>
+            <langstring language="nl">Opslagplaatsen voor ontvlambare vloeistoffen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG18</termIdentifier>
+        <caption>
+            <langstring language="fr">Persoonlijke beschermingsmiddelen</langstring>
+            <langstring language="nl">Persoonlijke beschermingsmiddelen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG19</termIdentifier>
+        <caption>
+            <langstring language="fr">Echafaudages</langstring>
+            <langstring language="nl">Steigers</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG20</termIdentifier>
+        <caption>
+            <langstring language="fr">Techniques d’accès et de positionnement au moyen de cordes</langstring>
+            <langstring language="nl">Toegangs-en positioneringstechnieken met touwen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG21</termIdentifier>
+        <caption>
+            <langstring language="fr">Vibrations</langstring>
+            <langstring language="nl">Trillingen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG22</termIdentifier>
+        <caption>
+            <langstring language="fr">Travail intérimaire</langstring>
+            <langstring language="nl">Uitzendkrachten</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG23</termIdentifier>
+        <caption>
+            <langstring language="fr">Conduite de chariot élévateur</langstring>
+            <langstring language="nl">Rijden met heftruck</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG24</termIdentifier>
+        <caption>
+            <langstring language="fr">Chantiers temporaires ou mobiles, Coordination de chantiers</langstring>
+            <langstring language="nl">Tijdelijke of mobiele bouwplaatsen, coördinatie vans bouwplaatsen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG25</termIdentifier>
+        <caption>
+            <langstring language="fr">Incendie</langstring>
+            <langstring language="nl">Brand</langstring>
+         </caption>
+    </term>
+</term>
+
+
+
 <term>
     <termIdentifier>respect_doc_cat</termIdentifier>
     <caption>
