@@ -507,7 +507,6 @@
 </term>
 
 
-
 <term>
     <termIdentifier>respect_doc_cat</termIdentifier>
     <caption>
@@ -564,6 +563,136 @@
          </caption>
     </term>
 </term>
+
+<term>
+    <termIdentifier>eventtype</termIdentifier>
+    <caption>
+        <langstring language="fr">Event type</langstring>
+        <langstring language="nl">Event type</langstring>
+     </caption>
+    <term>
+        <termIdentifier>eventtype::Studiedag</termIdentifier>
+        <caption>
+            <langstring language="fr">Journée d'étude</langstring>
+            <langstring language="nl">Studiedag</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::Seminar</termIdentifier>
+        <caption>
+            <langstring language="fr">Séminaire</langstring>
+            <langstring language="nl">Seminar</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::Beurs</termIdentifier>
+        <caption>
+            <langstring language="fr">Salon</langstring>
+            <langstring language="nl">Beurs</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::Opleiding</termIdentifier>
+        <caption>
+            <langstring language="fr">Formation</langstring>
+            <langstring language="nl">Opleiding</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::Infosessie</termIdentifier>
+        <caption>
+            <langstring language="fr">Session d'information</langstring>
+            <langstring language="nl">Infosessie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::Infosessie_workshop</termIdentifier>
+        <caption>
+            <langstring language="fr">Session d'information et ateliers</langstring>
+            <langstring language="nl">Infosessie met workshops</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::Workshop</termIdentifier>
+        <caption>
+            <langstring language="fr">Ateliers</langstring>
+            <langstring language="nl">Workshop</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::Sensibilisatiedag</termIdentifier>
+        <caption>
+            <langstring language="fr">Journée de sensibilisation</langstring>
+            <langstring language="nl">Sensibilisatiedag</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::congres</termIdentifier>
+        <caption>
+            <langstring language="fr">Congrès</langstring>
+            <langstring language="nl">Congres</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::conferentie</termIdentifier>
+        <caption>
+            <langstring language="fr">Conférence</langstring>
+            <langstring language="nl">Conferentie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>eventtype::colloque</termIdentifier>
+        <caption>
+            <langstring language="fr">Colloque</langstring>
+            <langstring language="nl">Colloqium</langstring>
+         </caption>
+    </term>
+</term>
+
+<term>
+    <termIdentifier>event_metadata</termIdentifier>
+    <caption>
+        <langstring language="fr">Calendrier - organisateur évenment</langstring>
+        <langstring language="nl">Kalender Organisator</langstring>
+     </caption>
+    <term>
+        <termIdentifier>event_metadata::org01</termIdentifier>
+        <caption>
+            <langstring language="fr">FOD WASO -SPF ETCS</langstring>
+            <langstring language="nl">FOD WASO -SPF ETCS</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>event_metadata::org02</termIdentifier>
+        <caption>
+            <langstring language="fr">Comité d'action Bruxelles capitale</langstring>
+            <langstring language="nl">Actiecomité Brussel</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>event_metadata::org03</termIdentifier>
+        <caption>
+            <langstring language="fr">Prov. Comité Vlaams-Brabant</langstring>
+            <langstring language="nl">Prov. Comité Vlaams-Brabant</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>event_metadata::org04</termIdentifier>
+        <caption>
+            <langstring language="fr">Prov. comité West-Vlaanderen</langstring>
+            <langstring language="nl">Prov. comité West-Vlaanderen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>event_metadata::org05</termIdentifier>
+        <caption>
+            <langstring language="fr">Prov Comité Oost-Vlaanderen</langstring>
+            <langstring language="nl">Prov Comité Oost-Vlaanderen</langstring>
+         </caption>
+    </term>
+</term>
+
+
 </vdex>
 
 <!--
