@@ -16,7 +16,7 @@ class LanguageFiles(BrowserView):
         self.plt = getToolByName(obj, 'portal_languages')
         can = obj.getCanonical()
         default_lang = can.Language()
-        obj_lang = obj.Language()
+        self.obj_lang = obj.Language()
 #        # if we're dealing with a translated folder, handle if first, the proceed to the canonical
 #        if can != obj:
 #            for item in obj.objectItems(TYPES):
@@ -95,7 +95,10 @@ class LanguageFiles(BrowserView):
             filename = filename()
 
         langs = self.plt.getSupportedLanguages()
-        default_lang = self.plt.getDefaultLanguage()
+        if self.obj_lang=='':
+            default_lang = ''
+        else:
+            default_lang = self.plt.getDefaultLanguage()
 
         if len(filename)>3 and '.' in filename:
             elems = filename.split('.')
