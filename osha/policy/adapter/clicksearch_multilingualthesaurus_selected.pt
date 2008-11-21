@@ -1,0 +1,15 @@
+<a class="unselect_value" 
+   tal:attributes="href view/unselect_link">
+   Any <span tal:replace="view/index" />
+</a>
+<ul>
+    <li>
+        <span class="selected_value" tal:content="view/selected_value_caption" />
+        <ul tal:define="children view/children">
+            <li tal:repeat="child children">
+                <a tal:attributes="href child/link; id child/id" 
+                   tal:content="child/title">Subterm</a>
+            </li>
+        </ul>
+    </li>
+</ul>

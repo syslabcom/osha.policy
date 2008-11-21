@@ -8,6 +8,14 @@
         provides="..interfaces.ISingleEntryPoint"
         factory=".singleentrypoint.SingleEntryPoint"
         />          
-        
+    
+    <!-- clicksearch portlet metadata widgets -->
+    <browser:page
+       name="slc.clicksearch.multilingual_thesaurus"
+       for="Products.ATContentTypes.content.topic.ATTopic"
+       permission="zope.Public"
+       class=".clicksearch_support.MultilingualThesaurusView"
+       layer="slc.clicksearch.interfaces.IThemeLayer"
+       />
                     
 </configure>
