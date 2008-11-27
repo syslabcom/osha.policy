@@ -1,21 +1,62 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
            xmlns:five="http://namespaces.zope.org/five">
-            
-            
+
+
     <adapter
         for="Products.ATContentTypes.interface.folder.IATFolder"
         provides="..interfaces.ISingleEntryPoint"
         factory=".singleentrypoint.SingleEntryPoint"
-        />          
-    
+        />
+
     <!-- clicksearch portlet metadata widgets -->
-    <browser:page
-       name="slc.clicksearch.multilingual_thesaurus"
-       for="Products.ATContentTypes.content.topic.ATTopic"
-       permission="zope.Public"
-       class=".clicksearch_support.MultilingualThesaurusView"
-       layer="slc.clicksearch.interfaces.IThemeLayer"
-       />
-                    
+
+    <!-- Multilingual Thesaurus -->
+        <browser:page
+           name="slc.clicksearch.multilingual_thesaurus"
+           for="Products.ATContentTypes.content.topic.ATTopic"
+           permission="zope.Public"
+           class=".clicksearch_support.MultilingualThesaurusView"
+           layer="slc.clicksearch.interfaces.IThemeLayer"
+           />
+
+        <browser:page
+           name="slc.clicksearch.index_multilingual_thesaurus"
+           for="*"
+           permission="zope.Public"
+           class=".clicksearch_support.MultilingualThesaurusIndexView"
+           layer="slc.clicksearch.interfaces.IThemeLayer"
+           />
+    <!-- * Multilingual Thesaurus * -->
+
+    <!-- Country -->
+
+        <browser:page
+           name="slc.clicksearch.getCountry"
+           for="Products.ATContentTypes.content.topic.ATTopic"
+           permission="zope.Public"
+           class=".clicksearch_support.CountryView"
+           layer="slc.clicksearch.interfaces.IThemeLayer"
+           />
+
+    <!-- * Country * -->
+
+    <!-- Subcategory -->
+        <browser:page
+           name="slc.clicksearch.subcategory"
+           for="Products.ATContentTypes.content.topic.ATTopic"
+           permission="zope.Public"
+           class=".clicksearch_support.SubcategoryView"
+           layer="slc.clicksearch.interfaces.IThemeLayer"
+           />
+
+        <browser:page
+           name="slc.clicksearch.index_subcategory"
+           for="*"
+           permission="zope.Public"
+           class=".clicksearch_support.SubcategoryIndexView"
+           layer="slc.clicksearch.interfaces.IThemeLayer"
+           />
+    <!-- * Subcategory * -->
+
 </configure>
