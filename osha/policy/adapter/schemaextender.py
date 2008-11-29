@@ -238,6 +238,7 @@ class TaggingSchemaExtender(object):
                 read_permission="Review portal content",
                 write_permission="Review portal content",
                 languageIndependent=True,
+                default=False,
                 widget=BooleanWidget(
                     label="Mark as News",
                     description="Check to have this appear as News in the portlet.",
@@ -475,7 +476,10 @@ class PressReleaseExtender(object):
             ),
             NewsMarkerField('isNews',
                 schemata='default',
+                read_permission="Review portal content",
+                write_permission="Review portal content",
                 languageIndependent=True,
+                default=False,
                 widget=BooleanWidget(
                     label="Mark as News",
                     description="Check to have this appear as News in the portlet.",
