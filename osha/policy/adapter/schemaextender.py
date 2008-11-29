@@ -63,7 +63,7 @@ zope.interface.classImplements(whoswho, IOSHContentDocument)
 # Publications / Files
 from Products.ATContentTypes.content.file import ATFile
 zope.interface.classImplements(ATFile, IOSHContent)
-from plone.app.blob.content import ATBlob 
+from plone.app.blob.content import ATBlob
 zope.interface.classImplements(ATBlob, IOSHContent)
 
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
@@ -106,19 +106,19 @@ class NACEField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
 
 
 class SubcategoryField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
-    
+
     def Vocabulary(self, content_instance):
         return self._Vocabulary(content_instance, 'Subcategory')
 
 
 class CountryField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
-    
+
     def Vocabulary(self, content_instance):
         return self._Vocabulary(content_instance, 'Country')
 
 
 class MTSubjectField(ExtensionField, ExtensionFieldMixin, atapi.LinesField):
-    
+
     def Vocabulary(self, content_instance):
         return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
@@ -148,10 +148,10 @@ from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 class TaggingSchemaExtender(object):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContent)
-    
+
     # currently (linguaPlone 2.2 unreleased) it is not possible to have langaugeIndependent fields
     # at least not within the schema extender
-    # translating an object will lead to 
+    # translating an object will lead to
     #      Module Products.LinguaPlone.browser.translate, line 61, in __call__
     #      Module Products.LinguaPlone.I18NBaseObject, line 145, in addTranslation
     #      AttributeError: translation_mutator
@@ -180,7 +180,7 @@ class TaggingSchemaExtender(object):
                 languageIndependent=True,
                 multiValued=True,
                 widget=VocabularyPickerWidget(
-                    label="Subcategory (Site position)", 
+                    label="Subcategory (Site position)",
                     description="Choose the most relevant subcategories. This will decide where the information is displayed",
                     vocabulary="Subcategory",
                     label_msgid='label_subcategory',
@@ -225,7 +225,7 @@ class TaggingSchemaExtender(object):
                 languageIndependent=True,
                 multiValued=True,
                 widget=VocabularyPickerWidget(
-                    label=_(u'OSHAMetadata_label', default=u"OSHA Metadata"), 
+                    label=_(u'OSHAMetadata_label', default=u"OSHA Metadata"),
                     description=_(u'OSHAMetadata_description', default="Choose relevant metadata"),
                     vocabulary="OSHAMetadata",
                     i18n_domain='osha',
@@ -273,8 +273,8 @@ class TaggingSchemaExtender(object):
                     default.remove(myfield)
             new_default = default[:idx] + myfields + default[idx:]
             original['default'] = new_default
-        
-        
+
+
         default = original.get('default', [])
         if 'isNews' in default:
             default.remove('isNews')
@@ -295,7 +295,7 @@ zope.component.provideAdapter(TaggingSchemaExtender,
 class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContentCaseStudy)
-    
+
     def __init__(self, context):
         super(TaggingSchemaExtender, self).__init__(self, context)
         _myfields= list()
@@ -312,14 +312,14 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
 
     def getOrder(self, original):
         default = original.get('default', [])
-        
+
         if 'nace' in default:
             default.remove('nace')
         if 'country' in default:
             default.remove('country')
         if 'multilingual_thesaurus' in default:
             default.remove('multilingual_thesaurus')
-        
+
         default.append('nace')
         default.append('country')
         default.append('multilingual_thesaurus')
@@ -343,7 +343,7 @@ zope.component.provideAdapter(TaggingSchemaExtenderCaseStudy,
 class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContentRALink)
-    
+
     def __init__(self, context):
         super(TaggingSchemaExtender, self).__init__(self, context)
         _myfields= list()
@@ -389,7 +389,7 @@ zope.component.provideAdapter(TaggingSchemaExtenderRALink,
 class TaggingSchemaExtenderProvider(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContentProvider)
-    
+
     def getOrder(self, original):
         return original
 
@@ -401,13 +401,13 @@ zope.component.provideAdapter(TaggingSchemaExtenderProvider,
 class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContentEvent)
-    
+
     _localFields = [
             AttachmentField('attachment',
                 schemata='default',
                 widget=atapi.FileWidget(
                     label= _(u'osha_event_attachment_label', default=u'Attachment'),
-                    description= _(u'osha_event_attachment_label', 
+                    description= _(u'osha_event_attachment_label',
                         default=u'You can upload an optional attachment that will be displayed with the event.'),
                 ),
             ),
@@ -444,7 +444,7 @@ zope.interface.classImplements(PressRelease, IPressReleaseExtender)
 class PressReleaseExtender(object):
     zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IPressReleaseExtender)
-    
+
     _fields = [
             OSHAMetadataField('osha_metadata',
                 schemata='default',
@@ -452,7 +452,7 @@ class PressReleaseExtender(object):
                 languageIndependent=True,
                 multiValued=True,
                 widget=VocabularyPickerWidget(
-                    label=_(u'OSHAMetadata_label', default=u"OSHA Metadata"), 
+                    label=_(u'OSHAMetadata_label', default=u"OSHA Metadata"),
                     description=_(u'OSHAMetadata_description', default="Choose relevant metadata"),
                     vocabulary="OSHAMetadata",
                     i18n_domain='osha',
@@ -530,7 +530,7 @@ zope.component.provideAdapter(PressReleaseExtender,
 #                    nullValueTitle="Select...",
 #                    label_msgid='label_country',
 #                    i18n_domain='osha',
-#                ),                
+#                ),
 #            ),
 #            EroTargetGroupField('ero_target_group',
 #                schemata='ERO',
