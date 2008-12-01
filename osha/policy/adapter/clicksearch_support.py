@@ -10,33 +10,33 @@ from slc.clicksearch.browser.widgets import BaseView, SimpleListView, ATVMTreeLi
 from slc.clicksearch.browser.indexes import DefaultIndexView, ATVMTreeIndexView
 
 
+class RemoteLanguageView(SimpleListView):
+    """ creates a view for the RemoteLanguage metadatum """
+
 class CountryView(SimpleListView):
     """ creates a view for the Country metadatum """
-    #template = ViewPageTemplateFile('clicksearch_country.pt')
-    #template_selected = ViewPageTemplateFile('clicksearch_country_selected.pt')
-
 
 class SubcategoryView(ATVMTreeListView):
     """ creates a view for the Subcategory metadatum """
-    #template = ViewPageTemplateFile('clicksearch_subcategory.pt')
-    #template_selected = ViewPageTemplateFile('clicksearch_subcategory_selected.pt')
     vocabulary_name = "Subcategory"
-
-
 
 class SubcategoryIndexView(ATVMTreeIndexView):
-    #template = ViewPageTemplateFile('subcategory_index.pt')
     vocabulary_name = "Subcategory"
+
+
+class NACEView(ATVMTreeListView):
+    """ creates a view for the Subcategory metadatum """
+    vocabulary_name = "NACE"
+
+class NACEIndexView(ATVMTreeIndexView):
+    vocabulary_name = "NACE"
 
 
 class MultilingualThesaurusView(ATVMTreeListView):
     """ creates a view for the Multilingual Thesaurus metadatum """
-    #template = ViewPageTemplateFile('clicksearch_multilingualthesaurus.pt')
-    #template_selected = ViewPageTemplateFile('clicksearch_multilingualthesaurus_selected.pt')
     vocabulary_name = "MultilingualThesaurus"
 
 class MultilingualThesaurusIndexView(ATVMTreeIndexView):
-    #template = ViewPageTemplateFile('subcategory_index.pt')
     vocabulary_name = "MultilingualThesaurus"
 
 

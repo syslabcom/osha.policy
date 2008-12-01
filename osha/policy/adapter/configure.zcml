@@ -32,7 +32,7 @@
     <!-- Country -->
 
         <browser:page
-           name="slc.clicksearch.getCountry"
+           name="slc.clicksearch.country"
            for="Products.ATContentTypes.content.topic.ATTopic"
            permission="zope.Public"
            class=".clicksearch_support.CountryView"
@@ -40,6 +40,18 @@
            />
 
     <!-- * Country * -->
+    
+    <!-- getRemoteLanguage -->
+
+        <browser:page
+           name="slc.clicksearch.getRemoteLanguage"
+           for="Products.ATContentTypes.content.topic.ATTopic"
+           permission="zope.Public"
+           class=".clicksearch_support.RemoteLanguageView"
+           layer="slc.clicksearch.interfaces.IThemeLayer"
+           />
+
+    <!-- * getRemoteLanguage * -->    
 
     <!-- Subcategory -->
         <browser:page
@@ -58,5 +70,24 @@
            layer="slc.clicksearch.interfaces.IThemeLayer"
            />
     <!-- * Subcategory * -->
+
+    <!-- NACE -->
+        <browser:page
+           name="slc.clicksearch.nace"
+           for="Products.ATContentTypes.content.topic.ATTopic"
+           permission="zope.Public"
+           class=".clicksearch_support.NACEView"
+           layer="slc.clicksearch.interfaces.IThemeLayer"
+           />
+
+        <browser:page
+           name="slc.clicksearch.index_nace"
+           for="*"
+           permission="zope.Public"
+           class=".clicksearch_support.NACEIndexView"
+           layer="slc.clicksearch.interfaces.IThemeLayer"
+           />
+    <!-- * NACE * -->
+
 
 </configure>
