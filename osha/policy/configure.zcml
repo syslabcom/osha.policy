@@ -9,7 +9,7 @@
     <include package=".adapter" />
 
     <include package=".browser" />
-  
+
     <include package="osha.theme" />
 
     <genericsetup:registerProfile
@@ -19,14 +19,14 @@
       description="Turn a Plone site into the OSHA site."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-      
-      
+
+
     <!-- Local roles managed in the @@sharing view -->
     <utility
         name="Checker"
         factory=".localroles.CheckerRole"
         />
-        
+
     <subscriber for="Products.LinguaPlone.events.IObjectWillBeTranslatedEvent"
         handler=".handlers.handle_object_willbe_translated"
         />
@@ -36,15 +36,15 @@
     name="osha.policy.vocabularies.categories"
     />
 
-      
-    <utility 
-        provides="collective.lead.interfaces.IDatabase" 
-        factory=".adapter.db.OSHADatabase" 
-        name="osha.database" 
-        /> 
-    <adapter 
+
+    <utility
+        provides="collective.lead.interfaces.IDatabase"
+        factory=".adapter.db.OSHADatabase"
+        name="osha.database"
+        />
+    <adapter
         for=".adapter.db.OSHADatabase"
         provides="collective.lead.interfaces.ITransactionAware"
         factory="collective.lead.tx.ThreadlocalDatabaseTransactions" />
-        
+
 </configure>
