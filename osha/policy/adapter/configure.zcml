@@ -40,7 +40,7 @@
            />
 
     <!-- * Country * -->
-    
+
     <!-- getRemoteLanguage -->
 
         <browser:page
@@ -51,7 +51,7 @@
            layer="slc.clicksearch.interfaces.IThemeLayer"
            />
 
-    <!-- * getRemoteLanguage * -->    
+    <!-- * getRemoteLanguage * -->
 
     <!-- Subcategory -->
         <browser:page
@@ -88,6 +88,12 @@
            layer="slc.clicksearch.interfaces.IThemeLayer"
            />
     <!-- * NACE * -->
+
+    <adapter
+        for="slc.publications.interfaces.IPublicationEnhanced"
+        name="author"
+        factory=".at_field_defaults.DefaultForPublicationAuthor"
+        />
 
 
 </configure>
