@@ -142,6 +142,15 @@ class EroTargetGroupField(ExtensionField, atapi.LinesField):
 class EroTopicField(ExtensionField, atapi.LinesField):
     """ topic for ERO """
 
+class ReindexTranslationsField(ExtensionField, atapi.BooleanField):
+    """ indicate whether translations should be reindexd upon saving """
+
+description_reindexTranslations = u"Check this box to have all translated versions reindexed. This is useful when you " \
+                            u"change language-independent fields suchs as dates and want the changes to be effective " \
+                            u"in the catalog, too. WARNING: depending on the number of translations, this will lead to " \
+                            u"a delay in the time it takes to save."
+
+
 import zope.component
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 
@@ -247,6 +256,17 @@ class TaggingSchemaExtender(object):
                     i18n_domain='osha',
                 ),
             ),
+            ReindexTranslationsField('reindexTranslations',
+                schemata='default',
+                default=False,
+                languageIndependent=False,
+                widget=BooleanWidget(
+                    label=u"Reindex translations on saving.",
+                    description=description_reindexTranslations,
+                    visible={'edit': 'visible', 'view': 'invisible'},
+                    condition="python:object.isCanonical()",
+                ),
+            ),
         ]
 
     def __init__(self, context):
@@ -281,6 +301,13 @@ class TaggingSchemaExtender(object):
             default.remove('isNews')
             idx = default.index('description') + 1
             default.insert(idx, 'isNews')
+        original['default'] = default
+
+        default = original.get('default', [])
+        if 'reindexTranslations' in default:
+            default.remove('reindexTranslations')
+            idx = len(default)
+            default.insert(idx, 'reindexTranslations')
         original['default'] = default
 
         return original
@@ -334,6 +361,13 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
             default.insert(idx, 'isNews')
         original['default'] = default
 
+        default = original.get('default', [])
+        if 'reindexTranslations' in default:
+            default.remove('reindexTranslations')
+            idx = len(default)
+            default.insert(idx, 'reindexTranslations')
+        original['default'] = default
+
         return original
 
 zope.component.provideAdapter(TaggingSchemaExtenderCaseStudy,
@@ -378,6 +412,13 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
             default.remove('isNews')
             idx = default.index('description') + 1
             default.insert(idx, 'isNews')
+        original['default'] = default
+
+        default = original.get('default', [])
+        if 'reindexTranslations' in default:
+            default.remove('reindexTranslations')
+            idx = len(default)
+            default.insert(idx, 'reindexTranslations')
         original['default'] = default
 
         return original
@@ -488,6 +529,17 @@ class PressReleaseExtender(object):
                     i18n_domain='osha',
                 ),
             ),
+            ReindexTranslationsField('reindexTranslations',
+                schemata='default',
+                default=False,
+                languageIndependent=False,
+                widget=BooleanWidget(
+                    label=u"Reindex translations on saving.",
+                    description=description_reindexTranslations,
+                    visible={'edit': 'visible', 'view': 'invisible'},
+                    condition="python:object.isCanonical()",
+                ),
+            ),
         ]
 
     def __init__(self, context):
@@ -497,6 +549,14 @@ class PressReleaseExtender(object):
         return self._fields
 
     def getOrder(self, original):
+
+        default = original.get('default', [])
+        if 'reindexTranslations' in default:
+            default.remove('reindexTranslations')
+            idx = len(default)
+            default.insert(idx, 'reindexTranslations')
+        original['default'] = default
+
         return original
 
 zope.component.provideAdapter(PressReleaseExtender,

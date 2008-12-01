@@ -31,6 +31,12 @@
         handler=".handlers.handle_object_willbe_translated"
         />
 
+  <subscriber
+     for="Products.Archetypes.interfaces.IBaseContent
+          zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+     handler=".handlers.handle_objectModified"
+     />
+
   <utility
     component=".vocabularies.CategoriesVocabularyFactory"
     name="osha.policy.vocabularies.categories"
