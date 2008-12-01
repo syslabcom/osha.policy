@@ -13,9 +13,24 @@ from slc.clicksearch.browser.indexes import DefaultIndexView, ATVMTreeIndexView
 class RemoteLanguageView(SimpleListView):
     """ creates a view for the RemoteLanguage metadatum """
 
+    def prepare_title(self, id):
+        ltool = getToolByName(self.context, 'portal_languages')
+        langs = ltool.getAvailableLanguageInformation()
+        L = langs.get(id, None)
+        if L is None:
+            return id
+        return L.get(u'native', L.get(u'name', id))
+        
 class CountryView(SimpleListView):
     """ creates a view for the Country metadatum """
 
+    def prepare_title(self, id):
+        ctool = getToolByName(self.context, 'portal_countryutils')
+        isodict = ctool.getCountryIsoDict()
+        
+        return isodict.get(id, id)
+        
+        
 class SubcategoryView(ATVMTreeListView):
     """ creates a view for the Subcategory metadatum """
     vocabulary_name = "Subcategory"
