@@ -12,13 +12,13 @@ vocabdir = os.path.join(basedir, 'data', 'vocabularies')
 def importVarious(context):
     if context.readDataFile("osha-various.txt") is None:
         return
-        
-        
+
+
     logger = logging.getLogger("osha.policy.setuphandler")
     logger.info("Importing OSHA specifics")
-    
+
     site=context.getSite()
-    
+
     quickinst = getToolByName(site, 'portal_quickinstaller')
     quickinst.installProduct('CMFPlacefulWorkflow')
     quickinst.installProduct('plone.browserlayer')
@@ -66,7 +66,7 @@ def importVarious(context):
     quickinst.installProduct('RedirectionTool')
     quickinst.installProduct('osha.legislation')
     quickinst.installProduct('osha.theme')
-    # It is IMPORTANT that the linkchecker is installed at the end 
+    # It is IMPORTANT that the linkchecker is installed at the end
     # because it relies on beforehand registered retrievers
     #quickinst.installProduct('CMFLinkChecker')
 
@@ -76,103 +76,102 @@ def importVarious(context):
 
     addProxyIndexes(site)
     addExtraIndexes(site)
-    
+
     importVocabularies(site)
 
     configureCountryTool(site)
-    
+
     configureSEOOptimizer(site)
-    
+
     configureCacheFu(site)
 
     #modifySEOActionPermissions(site)
-    
+
     repositionActions(site)
-    
-    
+
+
 def repositionActions(portal):
-    
+
     portal_actions=getToolByName(portal,'portal_actions')
     portal_conf=getToolByName(portal,'portal_controlpanel')
     cpids = [x.id for x in portal_conf.listActions()]
-    
+
     # if xliff is installed, move site action xliff import into the object actions dropdown
     portal_actions.site_actions.xliffimport.visible = False
     # xliff import is re added in actions.xml
-    
+
     # If SEO Tools are installed, move object action into the action dropdown
-    # => nice to have, but a todo 
-    
-    
-    # # If Linkchecker is installed, 
+    # => nice to have, but a todo
+
+
+    # # If Linkchecker is installed,
     # portal_linkchecker = getToolByName(portal, 'portal_linkchecker', None)
     # if portal_linkchecker:
     #     # move My Links to the user's dashboard
     #     if 'CMFLC_MyLinks' not in cpids:
     #         portal_conf.registerConfiglet( 'CMFLC_MyLinks'
-    #              , 'My Links'      
-    #              , 'string:${portal_url}/lc_my_dead_links' 
-    #              , '''member'''  
+    #              , 'My Links'
+    #              , 'string:${portal_url}/lc_my_dead_links'
+    #              , '''member'''
     #              , 'View'      # access permission
-    #              , 'Member'   
-    #              , 1         
+    #              , 'Member'
+    #              , 1
     #              , 'CMFLinkChecker'
-    #              , 'linkchecker.png' 
+    #              , 'linkchecker.png'
     #              , 'The links owned by you.'
     #              , None
-    #              )       
-          
+    #              )
+
 
         # move Links from the object tab into the actions dropdown
-        # This happens in actions.xml    
+        # This happens in actions.xml
 
         # move link management site action into the actions dropdown
-        # This happens in actions.xml    
+        # This happens in actions.xml
 
         # newactions = []
         # oldactions = portal_linkchecker.listActions()
         # for action in oldactions:
-        #     if action.id in ['linkchecker_member_overview', 
+        #     if action.id in ['linkchecker_member_overview',
         #                      'linkchecker_object_status',
         #                      'linkchecker_balanced_scorecard']:
         #         action.visible = False
         #     newactions.append(action)
-        # portal_linkchecker._actions = newactions   
+        # portal_linkchecker._actions = newactions
 
 
     # If Shoppinglist is installed, move it to the user's dashboard
     if 'Shoppinglist' not in cpids:
         portal_conf.registerConfiglet( 'Shoppinglist'
-             , 'Shopping List'      
-             , 'string:${portal_url}/@@shoppinglistedit' 
-             , '''python:portal.portal_membership.checkPermission('Add portal content', object)'''  
+             , 'Shopping List'
+             , 'string:${portal_url}/@@shoppinglistedit'
+             , '''python:portal.portal_membership.checkPermission('Add portal content', object)'''
              , 'View'      # access permission
-             , 'Member'   
-             , 1         
+             , 'Member'
+             , 1
              , 'slc.shoppinglist'
-             , '++resource++shoppinglist_icon.gif' 
+             , '++resource++shoppinglist_icon.gif'
              , 'Your shopping list which contains objects you have collected by adding them to your shopping list.'
              , None
-             )      
+             )
     portal_actions.user.shoppinglistedit.visible = False
-    portal_actions.site_actions.contact._setPropValue('url_expr', 'string:${portal_url}/contact_us')
 
-    # compare site actions in the header with footer actions and remove duplications    
-    
+    # compare site actions in the header with footer actions and remove duplications
+
     # I think this is not necessary - that's what the GS profile is for
 #    portal_actions.footer_actions.disclaimer.i18n_domain='osha'
 #    portal_actions.footer_actions.copyright.i18n_domain='osha'
-    
+
     # move redirections nach object_buttons
     #if 'redirection' in portal_actions.object:
     #    cb = portal_actions.object.manage_cutObjects('redirection')
     #    portal_actions.object_buttons.manage_pasteObjects(cb)
-    
+
     #if 'plone_setup' in portal_actions.object:
     #    cb = portal_actions.object.manage_cutObjects('plone_setup')
     #    portal_actions.object_buttons.manage_pasteObjects(cb)
-    
-    
+
+
 def configurePortal(portal):
     """ make some changes to the portal config """
     portal_types = getToolByName(portal, 'portal_types')
@@ -181,15 +180,15 @@ def configurePortal(portal):
     default_page = site_properties.getProperty('default_page')
     default_page += ('index.php','index.stm', 'index.stml')
     site_properties._updateProperty('default_page', default_page)
-    
+
     portal._addRole('Checker')
     registerPermissions( [ ('Crosscheck portal content', None) ] )
     portal.manage_permission('Crosscheck portal content', roles=['Manager','Checker'], acquire=0)
-    
+
     # remove LinguaLink from portal workflow chain
     portal_workflow = getToolByName(portal, 'portal_workflow')
     portal_workflow.setChainForPortalTypes(['LinguaLink'], None)
-    
+
 
 def setVersionedTypes(portal):
     portal_repository = getToolByName(portal, 'portal_repository')
@@ -219,7 +218,7 @@ def importVocabularies(self):
             pvm.invokeFactory('VdexFileVocabulary', vocabname)
             pvm[vocabname].importXMLBinding(data)
             logger.info("VDEX Import of %s" % vocabname)
-        
+
         elif vocabname.endswith('.dump'):
             fh = open(vocabpath, "r")
             data = fh.read()
@@ -234,11 +233,11 @@ def importVocabularies(self):
 def addExtraIndexes(self):
     logger = logging.getLogger("OSHA.ExtraIndexes")
     logger.info("Adding Extra Indexes")
-    
+
     cat = getToolByName(self, 'portal_catalog')
     available = cat.indexes()
     schema = cat.schema()
-    
+
     # getRemoteProviderUID
     idx_id = 'getRemoteProviderUID'
     if idx_id not in available:
@@ -246,11 +245,11 @@ def addExtraIndexes(self):
         cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=idx_id, extra=dict(indexed_attrs=idx_id))
 
     #Additional Metadata
-    META = ['getRemoteLanguage', 
-            'getCas', 
-            'getEinecs', 
-            'getRemoteUrl', 
-            'getRemoteProviderUID', 
+    META = ['getRemoteLanguage',
+            'getCas',
+            'getEinecs',
+            'getRemoteUrl',
+            'getRemoteProviderUID',
             'getMTSubject',
             'changefreq',
             'priority',
@@ -276,7 +275,7 @@ def addExtraIndexes(self):
         extra['splitter'] = 'oshlink.splitters.url_not_splitter'
         extra['index_unknown_languages'] = 1
         extra['splitter_casefolding'] = 1
-    
+
         logger.info('Adding TextIndexNG3 %s' %idx_id)
         cat.manage_addProduct['TextIndexNG3'].manage_addTextIndexNG3(
             id = idx_id
@@ -291,7 +290,7 @@ def addExtraIndexes(self):
 def addProxyIndexes(self):
     logger = logging.getLogger("OSHA.ProxyIndexes")
     logger.info("Adding Proxy Indexes")
-    
+
     index_data = [
             { 'idx_id' : 'nace'
             , 'meta_id' : 'nace'
@@ -344,7 +343,7 @@ def addProxyIndexes(self):
             , 'meta_id' : 'lex_section'
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
-            } 
+            }
           , { 'idx_id' : 'occupation'
             , 'meta_id' : 'occupation'
             , 'extra' : dict(idx_type = "KeywordIndex",
@@ -356,11 +355,11 @@ def addProxyIndexes(self):
             , 'extra' : dict(idx_type = "KeywordIndex",
                 value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('osha_metadata')"
                 )
-            } 
+            }
         ]
-    
+
     VALUE_EXPR = "python:object.getField('%(meta_id)s').getAccessor(object)()"
-    
+
     cat = getToolByName(self, 'portal_catalog')
     available = cat.indexes()
     for data in index_data:
@@ -380,14 +379,14 @@ def addProxyIndexes(self):
 def configureCountryTool(site):
     """ Adds the relevant countries to the countrytool """
     ct = getToolByName(site, 'portal_countryutils')
-    
+
     ct.manage_countries_reset()
-    
+
     ct.manage_countries_addCountry('UK', 'United Kingdom')
     ct.manage_countries_addCountry('EU', 'Europa')
     ct.manage_countries_addCountry('EUO', 'Europa (others)')
     ct.manage_countries_addCountry('XX', 'International Organisation')
-    
+
     ct.manage_countries_addArea('EU')
     ct.manage_countries_addCountryToArea('EU', ['EU', 'EUO', 'DK','FI','FR','IT','NL','PT','ES','UK', 'IE', 'LU', 'SE', 'AT', 'DE','MT', 'BE','CZ','HU','PL','RO','SK','BG','GR','SI','EE','LV','LT', 'CY'])
     ct.manage_countries_sortArea('EU')
@@ -420,13 +419,13 @@ def configureSEOOptimizer(site):
                    ,'PublicJobVacancy'
                    ,'Publication'
                    ,'RichDocument'
-                   ,'RALink'                   
+                   ,'RALink'
                   ]
     pt = getToolByName(site, 'portal_types')
     for ptype in pt.objectValues():
         acts = filter(lambda x: x.id == 'seo_properties', ptype.listActions())
         action = acts and acts[0] or None
-    
+
         if ptype.getId() in portalTypes:
             if action is None:
                 ptype.addAction('seo_properties',
@@ -440,12 +439,12 @@ def configureSEOOptimizer(site):
             if action !=None:
                 actions = list(ptype.listActions())
                 ptype.deleteActions([actions.index(a) for a in actions if a.getId()=='seo_properties'])
-    
+
 
 def configureCacheFu(site):
-    """ set osha specific caching rules 
-        this is specific for a CacheFu version. 
-        This needs to be adapted and re-tested for each new cache fu version 
+    """ set osha specific caching rules
+        this is specific for a CacheFu version.
+        This needs to be adapted and re-tested for each new cache fu version
     """
     logger = logging.getLogger("osha.policy.setuphandler")
     logger.info("Configuring CacheFu")
@@ -453,50 +452,50 @@ def configureCacheFu(site):
     if portal_cache_settings is None:
         logger.info("CacheFu not installed, quitting.")
         return
-            
+
     CFP = "default-cache-policy-v1.2"
     policy = getattr(portal_cache_settings, CFP, None)
     if policy is None:
         logger.warn("Policy not found. Has CacheFu been upgraded?")
         return
     rules = getattr(policy, 'rules')
-    
-    
+
+
     def _addToList(old_vals, new_vals):
         old_vals = list(old_vals)
         for item in new_vals:
             if item not in old_vals:
                 old_vals.append(item)
         return old_vals
-    
+
     #
     # Rule: Files & Images
     #
     downloads = getattr(rules, 'downloads')
-    
+
     # Add Attached Filed and Attached Images to Types
     contentTypes = list(downloads.getTypes())
     new_types = ['FileAttachment', 'ImageAttachment']
     _addToList(contentTypes, new_types)
     downloads.setTypes(tuple(contentTypes))
-    
+
     # Make Images and Files be cached in browser for 1 hour
     downloads.setHeaderSetIdExpression("python:object.portal_cache_settings.canAnonymousView(object) and 'cache-in-browser-1-hour' or 'no-cache'")
-    
+
     #
     # Rule: plone-content-types
     #
     plone_content_types = getattr(rules, 'plone-content-types')
-    
+
     # Remove Images and Files from the content cache rule
-    # Add new types 
-    
+    # Add new types
+
     contentTypes = list(plone_content_types.getContentTypes())
 
     del_types = ['File', 'Image']
     for del_type in del_types:
         if del_type in contentTypes:
-            contentTypes.remove(del_type)            
+            contentTypes.remove(del_type)
 
     new_types = [ 'CallForContractors'
                 , 'CaseStudy'
@@ -529,19 +528,19 @@ def configureCacheFu(site):
                 , 'HelpCenterInstructionalVideo'
                 , 'PloneboardComment'
                 ]
-    contentTypes = _addToList(contentTypes, new_types)                
+    contentTypes = _addToList(contentTypes, new_types)
     plone_content_types.setContentTypes(tuple(contentTypes))
-    
+
     # Set Cache header for anonymous to proxy 1h
     plone_content_types.setHeaderSetIdAnon('cache-in-proxy-1-hour')
-    
+
     #
     # Rule: plone-containers
     #
     plone_containers = getattr(rules, 'plone-containers')
 
-    # Add new types 
-    contentTypes = list(plone_containers.getContentTypes()) 
+    # Add new types
+    contentTypes = list(plone_containers.getContentTypes())
 
     new_types = [ 'Topic'
                 , 'Folder'
@@ -561,44 +560,44 @@ def configureCacheFu(site):
                 , 'HelpCenterInstructionalVideoFolder'
                 , 'b-org Project'
                 ]
-    contentTypes = _addToList(contentTypes, new_types)                
+    contentTypes = _addToList(contentTypes, new_types)
 
     plone_containers.setContentTypes(tuple(contentTypes))
 
     # Set Cache header for anonymous to proxy 1h
     plone_containers.setHeaderSetIdAnon('cache-in-proxy-1-hour')
-    
+
     # Set additional templates for folders
     templates = list(plone_containers.getTemplates())
-    
+
     new_templates = [ 'good-practice-overview'
                     , 'teaser_view'
                     , 'sep_view'
                     ]
-                    
-    templates = _addToList(templates, new_templates)                
-    plone_containers.setTemplates(tuple(templates)) 
-                     
-                
+
+    templates = _addToList(templates, new_templates)
+    plone_containers.setTemplates(tuple(templates))
+
+
     #
     # Rule: plone-templates
     #
     plone_templates = getattr(rules, 'plone-templates')
-    
+
     # Set Cache header for anonymous to proxy 1h
     plone_templates.setHeaderSetIdAnon('cache-in-proxy-1-hour')
 
     # Set additional templates for templates
     templates = list(plone_templates.getTemplates())
-    
+
     new_templates = [ 'rss-feeds'
                     ]
-                    
-    templates = _addToList(templates, new_templates)                
-    plone_templates.setTemplates(tuple(templates)) 
+
+    templates = _addToList(templates, new_templates)
+    plone_templates.setTemplates(tuple(templates))
 
 
-                
+
 def modifySEOActionPermissions(site):
     # And now update the relevant portal_type actions
     from Products.qSEOptimizer.Extensions.Install import qSEO_TYPES

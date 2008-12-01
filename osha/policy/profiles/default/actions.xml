@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_actions" meta_type="Plone Actions Tool"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-   
+
     <object name="object_buttons" meta_type="CMF Action Category">
       <object name="xliffimport" meta_type="CMF Action" i18n:domain="slc.xliff">
        <property name="title" i18n:translate="xliff_import_title">Xliff Import</property>
@@ -15,8 +15,8 @@
        </property>
        <property name="visible">True</property>
       </object>
-    </object>     
-   
+    </object>
+
     <object name="object_buttons" meta_type="CMF Action Category">
       <object name="linkchecker_object_status" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
        <property name="title" i18n:translate="">Links</property>
@@ -31,22 +31,7 @@
        <property name="visible">True</property>
       </object>
     </object>
-       
-    
-    <object name="object_buttons" meta_type="CMF Action Category">
-      <object name="linkchecker_balanced_scorecard" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
-       <property name="title" i18n:translate="">Link management</property>
-       <property name="description" i18n:translate=""></property>
-       <property
-          name="url_expr">string:${portal_url}/lc_balanced_score_card</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
-        <element value="Manage portal"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
-    </object>      
+
 
     <object name="object_buttons" meta_type="CMF Action Category">
       <object name="linkchecker_balanced_scorecard" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
@@ -61,10 +46,25 @@
        </property>
        <property name="visible">True</property>
       </object>
-    </object>   
-    
-  
-  
+    </object>
+
+    <object name="object_buttons" meta_type="CMF Action Category">
+      <object name="linkchecker_balanced_scorecard" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
+       <property name="title" i18n:translate="">Link management</property>
+       <property name="description" i18n:translate=""></property>
+       <property
+          name="url_expr">string:${portal_url}/lc_balanced_score_card</property>
+       <property name="icon_expr"></property>
+       <property name="available_expr"></property>
+       <property name="permissions">
+        <element value="Manage portal"/>
+       </property>
+       <property name="visible">True</property>
+      </object>
+    </object>
+
+
+
     <object name="site_actions" meta_type="CMF Action Category">
       <object name="osha_update" meta_type="CMF Action" i18n:domain="osha">
        <property name="title" i18n:translate="">Update</property>
@@ -78,7 +78,7 @@
        </property>
        <property name="visible">True</property>
       </object>
-    </object>    
+    </object>
 
 
     <object name="site_actions" meta_type="CMF Action Category">
@@ -94,10 +94,38 @@
        </property>
        <property name="visible">True</property>
       </object>
-    </object>    
-
+    </object>
 
     <object name="site_actions" meta_type="CMF Action Category">
+      <object name="contact" meta_type="CMF Action" i18n:domain="plone">
+       <property name="title" i18n:translate="">Contact</property>
+       <property name="description" i18n:translate=""></property>
+       <property name="url_expr">string:${portal_url}/contact_info</property>
+       <property name="icon_expr"></property>
+       <property name="available_expr"></property>
+       <property name="permissions">
+        <element value="View"/>
+       </property>
+       <property name="visible">False</property>
+      </object>
+    </object>
+
+    <object name="footer_actions" meta_type="CMF Action Category">
+      <object name="contact" meta_type="CMF Action" i18n:domain="plone">
+       <property name="title" i18n:translate="">Contact</property>
+       <property name="description" i18n:translate=""></property>
+       <property name="url_expr">string:${portal_url}/contact_us</property>
+       <property name="icon_expr"></property>
+       <property name="available_expr"></property>
+       <property name="permissions">
+        <element value="View"/>
+       </property>
+       <property name="visible">True</property>
+      </object>
+    </object>
+
+
+    <object name="footer_actions" meta_type="CMF Action Category">
       <object name="osha_help" meta_type="CMF Action" i18n:domain="osha">
        <property name="title" i18n:translate="">Help</property>
        <property name="description" i18n:translate=""></property>
@@ -110,8 +138,8 @@
        </property>
        <property name="visible">True</property>
       </object>
-    </object>    
-    
+    </object>
+
     <object name="site_actions" meta_type="CMF Action Category">
       <object name="osha_translations" meta_type="CMF Action" i18n:domain="osha">
        <property name="title" i18n:translate="">Translations</property>
