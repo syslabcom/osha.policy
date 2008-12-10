@@ -19,7 +19,7 @@
         ecard_url ecard/absolute_url|string:;">
         <h2 i18n:translate="ecard_sent_by">This OSHA-eCard has been sent to you by
             <span i18n:name="name"><span tal:replace="record/sender_name"/></span></h2>
-            <div align="center" tal:content="ecardtext">
+            <div align="center" tal:content="structure ecardtext">
             </div>
             <div align="center">
                 <span metal:use-macro="here/ecard_snippet/macros/snippet"></span>

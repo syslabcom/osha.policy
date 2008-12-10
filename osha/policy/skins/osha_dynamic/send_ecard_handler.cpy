@@ -15,15 +15,17 @@ from osha.policy.utils import logit
 pw = context.portal_workflow
 portal = context.portal_url.getPortalObject()
 ecard_id = request.get('ecard_id')
-ecardtext = request.get('ecardtext')
+ecardtext = request.get('ecardtext', [])
 ecardrecipients = request.get('ecardrecipients')
 youremail = request.get('youremail')
 yourname = request.get('yourname')
 ecard = getattr(portal.images, ecard_id)
 ecard_url = ecard.absolute_url
 
+ecardtext = '\n'.join(ecardtext)
 cropText = portal.restrictedTraverse('@@plone').cropText
-ecardtext = cropText(ecardtext, 200, "...")
+ecardtext = cropText(ecardtext, 400, "...")
+ecardtext = ecardtext.replace('\n', '<br>')
 
 r = int(random.random()*10000000000)
 dt = DateTime().strftime('%Y%m%d%H%M%S')

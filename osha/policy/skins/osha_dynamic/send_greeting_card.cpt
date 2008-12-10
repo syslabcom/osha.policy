@@ -48,7 +48,7 @@
                 <tr tal:define="ecardtext request/ecardtext|string:">
                     <td>
                         <strong><span i18n:translate="label_your_text">Your greeting text</span>:</strong><br />
-    <i>Add an optional greeting text. Maximum is 200 words.</i>
+    <i>Add an optional greeting text. Maximum is 400 characters.</i>
                     </td>
                     <td>
                         <textarea cols="40" rows="3" name="ecardtext:lines"
