@@ -15,13 +15,15 @@ from osha.policy.utils import logit
 pw = context.portal_workflow
 portal = context.portal_url.getPortalObject()
 ecard_id = request.get('ecard_id')
-#ecardtext = request.get('ecardtext')
+ecardtext = request.get('ecardtext')
 ecardrecipients = request.get('ecardrecipients')
 youremail = request.get('youremail')
 yourname = request.get('yourname')
 ecard = getattr(portal.images, ecard_id)
 ecard_url = ecard.absolute_url
 
+cropText = portal.restrictedTraverse('@@plone').cropText
+ecardtext = cropText(ecardtext, 200, "...")
 
 r = int(random.random()*10000000000)
 dt = DateTime().strftime('%Y%m%d%H%M%S')
@@ -32,7 +34,7 @@ cardpath = "%s/display_ecard?id=%s" %(portal.absolute_url(), cid)
 usertitle = "View the eCard sent to you by %s" % yourname
 conftitle = "Here's a copy of your card"
 
-portal.sql.ecard_sql_insert(ecard_key=cid, sender_name=yourname, ecard_name=ecard_id)
+portal.sql.ecard_sql_insert(ecard_key=cid, sender_name=yourname, ecard_name=ecard_id, ecardtext=ecardtext)
 
 # limit to 20
 for ecardrecipient in ecardrecipients[:20]:
