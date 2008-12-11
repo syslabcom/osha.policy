@@ -89,7 +89,7 @@ def createOshMail(self, id="om98", title="Oshmail 98 - 2008", formname=""):
     manager = IDynamicViewManager(alias)
     manager.setLayout('right_column')
 
-    # row 2 (highlights, did you know, site in focus // nothing)
+    # row 2 (highlights // nothing)
     row2, col1 = insertRow(om)
     col2 = splitColumn(row2)
     manager = IDynamicViewManager(row2)
@@ -101,6 +101,11 @@ def createOshMail(self, id="om98", title="Oshmail 98 - 2008", formname=""):
     manager = IDynamicViewManager(alias)
     manager.setLayout('oshmail')
 
+    # row 3 (did you know // nothing)
+    row3, col1 = insertRow(om)
+    col2 = splitColumn(row3)
+    manager = IDynamicViewManager(row3)
+    manager.setLayout('large-left')
     path = "en/news/oshmail/did-you-know"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
@@ -108,6 +113,11 @@ def createOshMail(self, id="om98", title="Oshmail 98 - 2008", formname=""):
     manager = IDynamicViewManager(alias)
     manager.setLayout('oshmail')
 
+    # row 4 (site in focus // nothing)
+    row4, col1 = insertRow(om)
+    col2 = splitColumn(row4)
+    manager = IDynamicViewManager(row4)
+    manager.setLayout('large-left')
     path = "en/news/oshmail/site-in-focus"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
@@ -117,10 +127,10 @@ def createOshMail(self, id="om98", title="Oshmail 98 - 2008", formname=""):
 
 
 
-    # row 3 (Press releases // nothing)
-    row3, col1 = insertRow(om)
-    col2 = splitColumn(row3)
-    manager = IDynamicViewManager(row3)
+    # row 5 (Press releases // nothing)
+    row5, col1 = insertRow(om)
+    col2 = splitColumn(row5)
+    manager = IDynamicViewManager(row5)
     manager.setLayout('large-left')
     path = "en/news/oshmail/read-our-latest-press-releases"
     abspath = urljoin(portal_path(self), path)
@@ -129,10 +139,10 @@ def createOshMail(self, id="om98", title="Oshmail 98 - 2008", formname=""):
     manager = IDynamicViewManager(alias)
     manager.setLayout('oshmail')
 
-    # row 4 (Publications // nothing)
-    row4, col1 = insertRow(om)
-    col2 = splitColumn(row4)
-    manager = IDynamicViewManager(row4)
+    # row 6 (Publications // nothing)
+    row6, col1 = insertRow(om)
+    col2 = splitColumn(row6)
+    manager = IDynamicViewManager(row6)
     manager.setLayout('large-left')
     path = "en/news/oshmail/read-our-latest-publications"
     abspath = urljoin(portal_path(self), path)
@@ -141,8 +151,8 @@ def createOshMail(self, id="om98", title="Oshmail 98 - 2008", formname=""):
     manager = IDynamicViewManager(alias)
     manager.setLayout('oshmail')
 
-    # row 5 (tell a friend)
-    row5, col1 = insertRow(om)
+    # row 7 (tell a friend)
+    row7, col1 = insertRow(om)
     path = "en/news/oshmail/tellafriend"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
