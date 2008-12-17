@@ -7,6 +7,7 @@
 
 from Products.OSHATranslations import OSHAMessageFactory as _
 from Products.LinguaPlone.utils import generateMethods
+LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
 
 import zope.interface
 class IOSHContent(zope.interface.Interface):
@@ -298,11 +299,11 @@ class TaggingSchemaExtender(object):
                 _myfields.append(new_f)
         self._myfields = _myfields
         klass = context.__class__
-        if not getattr(klass, '_languageIndependent_initialized_oshapolicy', False):
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in _myfields if field.languageIndependent]
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__
-            setattr(klass, '_languageIndependent_initialized_oshapolicy', True)
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
         return self._myfields
@@ -361,11 +362,11 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
                 _myfields.append(new_f)
         self._myfields = _myfields
         klass = context.__class__
-        if not getattr(klass, '_languageIndependent_initialized_oshapolicy', False):
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in _myfields if field.languageIndependent]
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__
-            setattr(klass, '_languageIndependent_initialized_oshapolicy', True)
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
         return self._myfields
@@ -422,12 +423,11 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
                 _myfields.append(new_f)
         self._myfields = _myfields
         klass = context.__class__
-        
-        if not getattr(klass, '_languageIndependent_initialized_oshapolicy', False):
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in _myfields if field.languageIndependent]
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__
-            setattr(klass, '_languageIndependent_initialized_oshapolicy', True)
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
         return self._myfields
@@ -505,11 +505,11 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
                 _myfields.append(new_f)
         self._myfields = _myfields + self._localFields
         klass = context.__class__
-        if not getattr(klass, '_languageIndependent_initialized_oshapolicy', False):
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in _myfields if field.languageIndependent]
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__
-            setattr(klass, '_languageIndependent_initialized_oshapolicy', True)
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
 
     def getFields(self):
@@ -594,11 +594,11 @@ class PressReleaseExtender(object):
     def __init__(self, context):
         self.context = context
         klass = context.__class__
-        if not getattr(klass, '_languageIndependent_initialized_oshapolicy', False):
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in self._fields if field.languageIndependent]
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__,
-            setattr(klass, '_languageIndependent_initialized_oshapolicy', True)
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
         return self._fields
@@ -710,11 +710,11 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
                 _myfields.append(new_f)
         self._myfields = _myfields
         klass = context.__class__
-        if not getattr(klass, '_languageIndependent_initialized_oshapolicy', False):
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in _myfields if field.languageIndependent]
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__
-            setattr(klass, '_languageIndependent_initialized_oshapolicy', True)
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
         return self._myfields
