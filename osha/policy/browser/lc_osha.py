@@ -8,10 +8,9 @@ from osha.policy.browser.interfaces import ILinkcheckerOSHA
 
 class CSVExportView(BrowserView):
     
-    def __call__(self, link_state='red', path_filter='', multilingual_thesaurus=[], subcategory=[]):
+    def __call__(self, link_state='red', path_filter='', multilingual_thesaurus=[], subcategory=[], no_download=False):
         """ export the database in csv format """
         lcosha = getMultiAdapter((self.context, self.request), name='lc_osha_view')
-        lc_csv_section_rewiter = getMultiAdapter((self.context, self.request), name='lc_csv_section_rewiter')
         links = lcosha.LinksInState(state=link_state,
                                     b_start=0,
                                     b_size=-1,
@@ -19,19 +18,32 @@ class CSVExportView(BrowserView):
                                     multilingual_thesaurus=multilingual_thesaurus,
                                     subcategory=subcategory
                                     )
+        
+        data = self.getCSVdata(links)
+        if no_download:
+            return '\n'.join(data)
+        
         self.request.RESPONSE.setHeader('Content-Type', 'text/csv')
         self.request.RESPONSE.setHeader('Content-Disposition', 'attachment;filename=linkchecker_state_%s.csv' % link_state)
         wr = self.request.RESPONSE.write
+        for line in data:
+            wr(line + '\n')
+    
+    
+    def getCSVdata(self, links):
+        lc_csv_section_rewiter = getMultiAdapter((self.context, self.request), name='lc_csv_section_rewiter')
+        data = list()
         header = ('Document','Brokenlink','Reason','Section','Lastcheck')
         separator = ","
-        wr(separator.join(['"%s"' %x for x in header]) + '\n')
+        data.append(separator.join(['"%s"' %x for x in header]))
         links = [x for x in links]
         for link in links:
             if link is None or len(link.keys())==0:
                 continue
             section = lc_csv_section_rewiter.getSectionForLink(link)
             cols = [link['document'].getPath(), link['url'],link['reason'],section, str(link['lastcheck'])]
-            wr(separator.join(['"%s"' %x for x in cols]) +'\n')
+            data.append(separator.join(['"%s"' %x for x in cols]) )
+        return data
 
 
 class CSVSectionRewriteView(BrowserView):
@@ -69,6 +81,7 @@ class CSVSectionRewriteView(BrowserView):
                     section = ['legislation']
                 else:
                     section = ['gp_%s' % subj for subj in obj.Subject()]
+                    section.append('good_practice')
         else:
             if elems[-1] == 'fop':
                 fopname = len(elems)>1 and elems[-2] or 'MISSING'
@@ -76,7 +89,9 @@ class CSVSectionRewriteView(BrowserView):
             elif elems[-1] in ('about', 'topics', 'sector', 'priority_groups', 'press',
                 'publications', 'organisations', 'statistics', 'legisation'):
                 section = [elems[-1]]
-      
+            elif len(elems)==1:
+                section = ['root']
+        
         
         return '|'.join(section)
     
@@ -151,7 +166,7 @@ class LinkcheckerOSHA(BrowserView):
                 
                 yield item
 
-
+    
     
     def _document_iterator(self, state, b_start, b_size):
         
@@ -199,7 +214,7 @@ class LinkcheckerOSHA(BrowserView):
         for dummy in range(len(links)-(b_start+b_size+invalids)):
             yield None, None, None
 
-
+    
     
     def _document_iterator_orig(self, state):
         member_cache = {}
@@ -228,7 +243,7 @@ class LinkcheckerOSHA(BrowserView):
                     member_cache[creator] = member
                 yield link, doc, member
 
-
+    
     
     def _document_iterator_path(self, state, b_start, b_size, path_filter, multilingual_thesaurus, subcategory):
         print "path_filter:", path_filter
@@ -248,7 +263,7 @@ class LinkcheckerOSHA(BrowserView):
         filtered_uids = [x.UID for x in filtered_res]
         links = [x for x in links if x.object in filtered_uids]
         print "len links after", len(links)
-
+        
         
         for dummy in range(b_start):
             yield None, None, None
