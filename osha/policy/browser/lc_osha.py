@@ -21,7 +21,11 @@ class CSVExportView(BrowserView):
         
         data = self.getCSVdata(links)
         if no_download:
-            return '\n'.join(data)
+            # make sure we have string, not Unicode, data
+            data = '\n'.join(data)
+            if type(data)==type(u''):
+                data = data.encode('utf-8')
+            return data
         
         self.request.RESPONSE.setHeader('Content-Type', 'text/csv')
         self.request.RESPONSE.setHeader('Content-Disposition', 'attachment;filename=linkchecker_state_%s.csv' % link_state)
@@ -92,6 +96,7 @@ class CSVSectionRewriteView(BrowserView):
             elif len(elems)==1:
                 section = ['root']
             elif elems[-1]=='campaigns':
+                # import pdb; pdb.set_trace()
                 campname = len(elems)>1 and elems[-2] or 'MISSING'
                 section=['campagins', 'campaign_%s' %campname]
         
