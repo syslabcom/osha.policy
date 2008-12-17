@@ -21,14 +21,17 @@ class CSVExportView(BrowserView):
                                     )
         self.request.RESPONSE.setHeader('Content-Type', 'text/csv')
         self.request.RESPONSE.setHeader('Content-Disposition', 'attachment;filename=linkchecker_state_%s.csv' % link_state)
-        wr = self.request.RESPONSE.write                                  
-        wr("Document,Brokenlink,Reason,Section,Lastcheck\n")                                    
+        wr = self.request.RESPONSE.write    
+        header = ('Document','Brokenlink','Reason','Section','Lastcheck')
+        separator = ","
+        wr(separator.join(['"%s"' %x for x in header]) + '\n')      
         links = [x for x in links]
         for link in links:
             if link is None or len(link.keys())==0:
                 continue
             section = lc_csv_section_rewiter.getSectionForLink(link)
-            wr(",".join([link['document'].getPath(), link['url'],link['reason'],section, str(link['lastcheck'])]) +'\n') 
+            cols = [link['document'].getPath(), link['url'],link['reason'],section, str(link['lastcheck'])]
+            wr(separator.join(['"%s"' %x for x in cols]) +'\n') 
 
 
 class CSVSectionRewriteView(BrowserView):
@@ -47,24 +50,26 @@ class CSVSectionRewriteView(BrowserView):
         path = link['document'].getPath()
         path = path.replace(self.portal_path, '')
         # import pdb; pdb.set_trace()
-        
-        if self.getObjectNeeded(path):
+        section = list()
+
+        elems = path.split('/')
+        elems.reverse()
+        # remove first elem, which is an empty string
+        elems.pop()
+        # remove language tree elem
+        if elems[-1] in self.langs:
+            elems.pop()
+
+        if self.getObjectNeeded(elems):
             res = self.uid_cat(UID=link.get('object'))
             if len(res):
                 obj = res[0].getObject()
-                if obj.portal_type in ("OSH_Link", "Provider"):
-                    section = ['gp_%s' % subj for subj in obj.Subject()]
-                elif obj.portal_type in ("Proposal", "Note", "Amendment", "Modification", "Modification"):
+                # legislation    
+                if obj.portal_type in ("Proposal", "Note", "Amendment", "Modification", "Modification"):
                     section = ['legislation']
-      
+                else:
+                    section = ['gp_%s' % subj for subj in obj.Subject()] 
         else:
-            elems = path.split('/')
-            elems.reverse()
-            # remove first elem, which is an empty string
-            elems.pop()
-            # remove language tree
-            if elems[-1] in self.langs:
-                elems.pop()
             if elems[-1] == 'fop':
                 fopname = len(elems)>1 and elems[-2] or 'MISSING'
                 section = ['fop_%s' % fopname] 
@@ -72,15 +77,11 @@ class CSVSectionRewriteView(BrowserView):
                 'publications', 'organisations', 'statistics', 'legisation'):
                 section = [elems[-1]]
                 
-                
-                
-            else:
-                section = list()
       
         return '|'.join(section)
 
-    def getObjectNeeded(self, path):
-        if path.startswith('/data/'):
+    def getObjectNeeded(self, elems):
+        if elems[-1] in ("data", "good_practice"):
             return True
         return False
             
