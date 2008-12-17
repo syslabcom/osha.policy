@@ -105,7 +105,7 @@ class CSVSectionRewriteView(BrowserView):
             elif elems[-1]=='campaigns':
                 # import pdb; pdb.set_trace()
                 campname = len(elems)>1 and elems[-2] or 'MISSING'
-                section=['campagins', 'campaign_%s' %campname]
+                section=['campaigns', 'campaign_%s' %campname]
             elif elems[-1] in ('teaser', 'news'):
                 section = ['news']
         
