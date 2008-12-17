@@ -98,7 +98,7 @@ class CSVSectionRewriteView(BrowserView):
                 fopname = len(elems)>1 and elems[-2] or 'MISSING'
                 section = ['fop_%s' % fopname]
             elif elems[-1] in ('about', 'topics', 'sector', 'priority_groups', 'pressroom',
-                'publications', 'organisations', 'statistics', 'legisation'):
+                'publications', 'organisations', 'statistics', 'legisation', 'riskobservatory'):
                 section = [elems[-1]]
             elif len(elems)==1:
                 section = ['root']
@@ -106,6 +106,8 @@ class CSVSectionRewriteView(BrowserView):
                 # import pdb; pdb.set_trace()
                 campname = len(elems)>1 and elems[-2] or 'MISSING'
                 section=['campagins', 'campaign_%s' %campname]
+            elif elems[-1] in ('teaser', 'news'):
+                section = ['news']
         
         
         return '|'.join(section)
