@@ -11,6 +11,7 @@ class CSVExportView(BrowserView):
     def __call__(self, link_state='red', path_filter='', multilingual_thesaurus=[], subcategory=[]):
         """ export the database in csv format """
         lcosha = getMultiAdapter((self.context, self.request), name='lc_osha_view')
+        lc_csv_section_rewiter = getMultiAdapter((self.context, self.request), name='lc_csv_section_rewiter')
         links = lcosha.LinksInState(state=link_state, 
                                     b_start=0, 
                                     b_size=-1, 
@@ -21,12 +22,67 @@ class CSVExportView(BrowserView):
         self.request.RESPONSE.setHeader('Content-Type', 'text/csv')
         self.request.RESPONSE.setHeader('Content-Disposition', 'attachment;filename=linkchecker_state_%s.csv' % link_state)
         wr = self.request.RESPONSE.write                                  
-        wr("Document,Brokenlink,Reason,Lastcheck\n")                                    
+        wr("Document,Brokenlink,Reason,Section,Lastcheck\n")                                    
         links = [x for x in links]
         for link in links:
             if link is None or len(link.keys())==0:
                 continue
-            wr(",".join([link['document'].getPath(), link['url'],link['reason'],str(link['lastcheck'])]) +'\n') 
+            section = lc_csv_section_rewiter.getSectionForLink(link)
+            wr(",".join([link['document'].getPath(), link['url'],link['reason'],section, str(link['lastcheck'])]) +'\n') 
+
+
+class CSVSectionRewriteView(BrowserView):
+    
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.uid_cat = getToolByName(context, 'uid_catalog')
+        portal_url = getToolByName(context, 'portal_url')
+        self.portal_path = portal_url.getPortalPath()
+        portal_languages = getToolByName(context, 'portal_languages')
+        self.langs = portal_languages.getSupportedLanguages()
+
+    def getSectionForLink(self, link):
+        """ return the section(s) a link appears in"""
+        path = link['document'].getPath()
+        path = path.replace(self.portal_path, '')
+        # import pdb; pdb.set_trace()
+        
+        if self.getObjectNeeded(path):
+            res = self.uid_cat(UID=link.get('object'))
+            if len(res):
+                obj = res[0].getObject()
+                if obj.portal_type in ("OSH_Link", "Provider"):
+                    section = ['gp_%s' % subj for subj in obj.Subject()]
+                elif obj.portal_type in ("Proposal", "Note", "Amendment", "Modification", "Modification"):
+                    section = ['legislation']
+      
+        else:
+            elems = path.split('/')
+            elems.reverse()
+            # remove first elem, which is an empty string
+            elems.pop()
+            # remove language tree
+            if elems[-1] in self.langs:
+                elems.pop()
+            if elems[-1] == 'fop':
+                fopname = len(elems)>1 and elems[-2] or 'MISSING'
+                section = ['fop_%s' % fopname] 
+            elif elems[-1] in ('about', 'topics', 'sector', 'priority_groups', 'press', 
+                'publications', 'organisations', 'statistics', 'legisation'):
+                section = [elems[-1]]
+                
+                
+                
+            else:
+                section = list()
+      
+        return '|'.join(section)
+
+    def getObjectNeeded(self, path):
+        if path.startswith('/data/'):
+            return True
+        return False
             
 class LinkcheckerOSHA(BrowserView):
     implements(ILinkcheckerOSHA)

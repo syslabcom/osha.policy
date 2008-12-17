@@ -155,4 +155,11 @@
       permission="cmf.ManagePortal"      
       />
 
+  <browser:page
+      for="*"
+      name="lc_csv_section_rewiter"
+      class=".lc_osha.CSVSectionRewriteView"
+      permission="cmf.ManagePortal"      
+      />
+
 </configure>
