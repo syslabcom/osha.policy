@@ -4,7 +4,7 @@ from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from urlparse import urljoin
 from osha.policy.browser.interfaces import ILinkcheckerOSHA
-
+import zLOG
 
 class CSVExportView(BrowserView):
     
@@ -18,7 +18,7 @@ class CSVExportView(BrowserView):
                                     multilingual_thesaurus=multilingual_thesaurus,
                                     subcategory=subcategory
                                     )
-        
+        zLOG.LOG('osha.policy::CSVExportView', zLOG.INFO, "Exporting CSV for link state %s"%link_state)
         data = self.getCSVdata(links)
         if no_download:
             # make sure we have string, not Unicode, data
@@ -46,7 +46,14 @@ class CSVExportView(BrowserView):
                 continue
             section = lc_csv_section_rewiter.getSectionForLink(link)
             cols = [link['document'].getPath(), link['url'],link['reason'],section, str(link['lastcheck'])]
-            data.append(separator.join(['"%s"' %x for x in cols]) )
+            line = separator.join(['"%s"' %x for x in cols])
+            if type(line)==type(u''):
+                try:
+                    line = line.encode('utf-8')
+                except:
+                    zLOG.LOG('osha.policy::CSVExportView', zLOG.ERROR, "Could not convert unicode to string:" + str([line]))
+                    continue
+            data.append(line)
         return data
 
 
