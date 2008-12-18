@@ -97,8 +97,8 @@ class CSVSectionRewriteView(BrowserView):
             if elems[-1] == 'fop':
                 fopname = len(elems)>1 and elems[-2] or 'MISSING'
                 section = ['fop_%s' % fopname]
-            elif elems[-1] in ('about', 'topics', 'sector', 'priority_groups', 'pressroom',
-                'publications', 'organisations', 'statistics', 'legisation', 'riskobservatory'):
+            elif elems[-1] in ('about', 'topics', 'sector', 'priority_groups', 'events',
+                'publications', 'organisations', 'statistics', 'legislation', 'riskobservatory'):
                 section = [elems[-1]]
             elif len(elems)==1:
                 section = ['root']
@@ -108,6 +108,8 @@ class CSVSectionRewriteView(BrowserView):
                 section=['campaigns', 'campaign_%s' %campname]
             elif elems[-1] in ('teaser', 'news'):
                 section = ['news']
+            elif elems[-1] in ('press', 'pressroom'):
+                section = ['press']
         
         
         return '|'.join(section)
