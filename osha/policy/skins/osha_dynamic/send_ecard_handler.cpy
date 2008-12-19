@@ -40,6 +40,9 @@ portal.sql.ecard_sql_insert(ecard_key=cid, sender_name=yourname, ecard_name=ecar
 
 # limit to 20
 for ecardrecipient in ecardrecipients[:20]:
+    ecardrecipient = ecardrecipient.strip()
+    if not ecardrecipient:
+        continue
     useremail = context.ecard_email_template(cardpath=cardpath, ecardrecipient=ecardrecipient, youremail=youremail, usertitle=usertitle)
     context.MailHost.secureSend(useremail, mto=ecardrecipient, mfrom=youremail, subject=usertitle, charset="utf-8")
 
