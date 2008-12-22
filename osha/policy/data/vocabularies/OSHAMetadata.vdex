@@ -325,22 +325,8 @@
     <term>
         <termIdentifier>WhosWhoTraining::TG01</termIdentifier>
         <caption>
-            <langstring language="fr">Formation et recyclage des conseillers en prévention</langstring>
-            <langstring language="nl">Opleiding en bijscholing preventieadviseurs</langstring>
-         </caption>
-    </term>
-    <term>
-        <termIdentifier>WhosWhoTraining::TG99</termIdentifier>
-        <caption>
-            <langstring language="fr">Général</langstring>
-            <langstring language="nl">Algemeen</langstring>
-         </caption>
-    </term>
-    <term>
-        <termIdentifier>WhosWhoTraining::TG03</termIdentifier>
-        <caption>
-            <langstring language="fr">Amiante</langstring>
-            <langstring language="nl">Asbest</langstring>
+            <langstring language="fr">Conseillers en prévention</langstring>
+            <langstring language="nl">Preventieadviseurs</langstring>
          </caption>
     </term>
     <term>
@@ -348,6 +334,13 @@
         <caption>
             <langstring language="fr">Equipements de travail</langstring>
             <langstring language="nl">Arbeidsmiddelen</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoTraining::TG03</termIdentifier>
+        <caption>
+            <langstring language="fr">Amiante</langstring>
+            <langstring language="nl">Asbest</langstring>
          </caption>
     </term>
     <term>
@@ -375,7 +368,7 @@
         <termIdentifier>WhosWhoTraining::TG07</termIdentifier>
         <caption>
             <langstring language="fr">Premiers soins</langstring>
-            <langstring language="nl">EHBO</langstring>
+            <langstring language="nl">Eerste Hulp bij Ongevallen (EHBO)</langstring>
          </caption>
     </term>
     <term>
@@ -396,7 +389,7 @@
         <termIdentifier>WhosWhoTraining::TG10</termIdentifier>
         <caption>
             <langstring language="fr">Charge psychosociale dont violence et harcèlement moral ou sexuel ou travail</langstring>
-            <langstring language="nl">Geweld, pesterijen en ongewenst sexueel gedrag op het werk</langstring>
+            <langstring language="nl">Psychosociale belasting waaronder geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
          </caption>
     </term>
     <term>
@@ -451,7 +444,7 @@
     <term>
         <termIdentifier>WhosWhoTraining::TG18</termIdentifier>
         <caption>
-            <langstring language="fr">Persoonlijke beschermingsmiddelen</langstring>
+            <langstring language="fr">Equipements de protection individuelle</langstring>
             <langstring language="nl">Persoonlijke beschermingsmiddelen</langstring>
          </caption>
     </term>
@@ -480,28 +473,28 @@
         <termIdentifier>WhosWhoTraining::TG22</termIdentifier>
         <caption>
             <langstring language="fr">Travail intérimaire</langstring>
-            <langstring language="nl">Uitzendkrachten</langstring>
+            <langstring language="nl">Uitzendarbeid</langstring>
          </caption>
     </term>
     <term>
         <termIdentifier>WhosWhoTraining::TG23</termIdentifier>
         <caption>
             <langstring language="fr">Conduite de chariot élévateur</langstring>
-            <langstring language="nl">Rijden met heftruck</langstring>
+            <langstring language="nl">Vorkheftruck besturen</langstring>
          </caption>
     </term>
     <term>
         <termIdentifier>WhosWhoTraining::TG24</termIdentifier>
         <caption>
-            <langstring language="fr">Chantiers temporaires ou mobiles, Coordination de chantiers</langstring>
-            <langstring language="nl">Tijdelijke of mobiele bouwplaatsen, coördinatie vans bouwplaatsen</langstring>
+            <langstring language="fr">Chantiers temporaires ou mobiles</langstring>
+            <langstring language="nl">Tijdelijke of mobiele bouwplaatsen</langstring>
          </caption>
     </term>
     <term>
         <termIdentifier>WhosWhoTraining::TG25</termIdentifier>
         <caption>
-            <langstring language="fr">Incendie</langstring>
-            <langstring language="nl">Brand</langstring>
+            <langstring language="fr">Sécurité incendie</langstring>
+            <langstring language="nl">Brandveiligheid</langstring>
          </caption>
     </term>
 </term>
