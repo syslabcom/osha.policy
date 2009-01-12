@@ -11,8 +11,8 @@ def getSubject(self):
     """ Very specific osha getter. We want to make sure that the toplevel cats always represent the subject
     """
     subcats = self.getField('subcategory')
-    if subcats is  None:
-        return tuple()
+    if subcats is None:
+        return self._old_subject()
     subcats = subcats.getAccessor(self)()
     # XXX: Bad hack but works. I take all keys which have no :: inside
     subjects = {}
@@ -30,24 +30,29 @@ def getSubject(self):
 def Subject(self):
     """ alias to getSubject """
     return self.getSubject()
-    
-    
 
+
+
+OSH_Link._old_subject = getSubject
 OSH_Link.getSubject = getSubject
 OSH_Link.Subject = Subject
 
 #RALink.getSubject = getSubject
 #RALink.Subject = Subject
 
+Provider._old_subject = getSubject
 Provider.getSubject = getSubject
 Provider.Subject = Subject
 
+ATFile._old_subject = ATFile.Subject
 ATFile.getSubject = getSubject
 ATFile.Subject = Subject
 
+ATBlob._old_subject = ATBlob.Subject
 ATBlob.getSubject = getSubject
 ATBlob.Subject = Subject
 
+ATEvent._old_subject = ATEvent.Subject
 ATEvent.getSubject = getSubject
 ATEvent.Subject = Subject
 
