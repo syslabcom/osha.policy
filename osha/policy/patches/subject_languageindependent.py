@@ -31,6 +31,10 @@ from Products.RichDocument.content.richdocument import RichDocumentSchema, RichD
 from Products.RALink.content.RALink import RALink_schema, RALink
 from Products.RiskAssessmentLink.content.RiskAssessmentLink import RiskAssessmentLink_schema, RiskAssessmentLink
 
+from Products.PressRoom.content.PressRelease import schema as PressReleaseSchema, PressRelease
+from Products.PressRoom.content.PressClip import schema as PressClipSchema, PressClip
+from Products.PressRoom.content.PressContact import schema as PressContactSchema, PressContact
+
 patchpairs = [
     (DirectiveSchema, Directive),
     (AmendmentSchema, Amendment),
@@ -54,13 +58,15 @@ patchpairs = [
     (ATBlobSchema, ATBlob),
     (RichDocumentSchema, RichDocument),
     (RALink_schema, RALink),
-    (RiskAssessmentLink_schema, RiskAssessmentLink)
+    (RiskAssessmentLink_schema, RiskAssessmentLink),
+    (PressReleaseSchema, PressRelease),
+    (PressClipSchema, PressClip),
+    (PressContactSchema, PressContact)
 ]
 
 
 from osha.policy.adapter.schemaextender import LANGUAGE_INDEPENDENT_INITIALIZED
 
-#import pdb; pdb.set_trace()
 
 for pair in patchpairs:
     print pair
