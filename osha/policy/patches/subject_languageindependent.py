@@ -65,8 +65,7 @@ patchpairs = [
 ]
 
 
-from osha.policy.adapter.schemaextender import LANGUAGE_INDEPENDENT_INITIALIZED
-
+LANGUAGE_INDEPENDENT_SUBJECT_INITIALIZED = '_languageIndependent_subject_initialized_oshapolicy'
 
 for pair in patchpairs:
     print pair
@@ -74,7 +73,7 @@ for pair in patchpairs:
     klass = pair[1]
 
     schema['subject'].languageIndependent = True
-    if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
+    if not getattr(klass, LANGUAGE_INDEPENDENT_SUBJECT_INITIALIZED, False):
         generateMethods(klass, [schema['subject']])
         print "called generateMethods for subject on ", klass
-        setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
+        setattr(klass, LANGUAGE_INDEPENDENT_SUBJECT_INITIALIZED, True)
