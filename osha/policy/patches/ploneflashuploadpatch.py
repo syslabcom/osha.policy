@@ -30,7 +30,6 @@ def _getCache():
 def _issueTicket(ident):
     """ issues a timelimit ticket 
     """
-    print "patched issueTicket"
     ticket = str(random.random())
     sm = AccessControl.getSecurityManager()
     user = sm.getUser()
@@ -46,7 +45,6 @@ pfuticket.issueTicket = _issueTicket
 def _validateTicket(ident, ticket):
     """validates a ticket
     """
-    print "patched validateTicket"
     cache = _getCache()
     username = cache.get(ident+ticket)
     return username is not None
