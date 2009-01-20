@@ -3,6 +3,9 @@ from plone.portlets.constants import CONTEXT_CATEGORY, GROUP_CATEGORY, CONTENT_T
 from Products.OSHATranslations import OSHAMessageFactory as _
 from plone.app.portlets.portlets import navigation, news, classic, events, search
 from StringIO import StringIO
+from plone.portlets.constants import CONTEXT_CATEGORY, GROUP_CATEGORY, CONTENT_TYPE_CATEGORY
+import Acquisition
+
 
 def helper(self, key):
     print "\nhelper"
@@ -101,3 +104,36 @@ def setNewsEvents(self):
             below['events'] = events.Assignment()
 
     return out.getvalue()
+
+def copyPortletsFromParent(self, doleft=False, doright=False):
+        out = StringIO()
+        parent= Acquisition.aq_parent(Acquisition.aq_inner(self))
+        ppath = "/".join(parent.getPhysicalPath())
+        pleft = assignment_mapping_from_key(parent, 'plone.leftcolumn', CONTEXT_CATEGORY, ppath)
+        pright = assignment_mapping_from_key(parent, 'plone.rightcolumn', CONTEXT_CATEGORY, ppath)
+
+        ob = Acquisition.aq_inner(self)
+        out.write("Copying portlets from parent %s to here %s\n" %(parent.absolute_url(), ob.absolute_url()))
+        path = "/".join(ob.getPhysicalPath())
+        left = assignment_mapping_from_key(ob, 'plone.leftcolumn', CONTEXT_CATEGORY, path)
+        right = assignment_mapping_from_key(ob, 'plone.rightcolumn', CONTEXT_CATEGORY, path)
+
+        if doleft:
+            out.write('Copied left portlets\n')
+            for x in list(left.keys()):
+                del left[x]
+            for x in list(pleft.keys()):
+                left[x] = pleft[x]
+        else:
+            out.write('Left portlets NOT copied\n')
+
+        if doright:
+            out.write('Copied right portlets\n')
+            for x in list(right.keys()):
+                del right[x]
+            for x in list(pright.keys()):
+                right[x] = pright[x]
+        else:
+            out.write('Right portlets NOT copied\n')
+
+        return out.getvalue()
