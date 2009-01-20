@@ -10,3 +10,4 @@ import I18NBaseObject_preserve_shortname
 import email_as_login_patch
 import event_patch
 import gocept_linkchecker
+import ploneflashuploadpatch
