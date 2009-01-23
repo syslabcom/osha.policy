@@ -37,7 +37,7 @@ def _issueTicket(ident):
         raise Unauthorized('No currently authenticated user')
     cache = _getCache()
     kw = {'ticket':ticket}
-    cache.set(ident+ticket, user.getUserName())
+    cache.set(ident+ticket, user.getName())
     return ticket
 
 pfuticket.issueTicket = _issueTicket
