@@ -35,9 +35,16 @@ def _issueTicket(ident):
     user = sm.getUser()
     if user is None:
         raise Unauthorized('No currently authenticated user')
+    try:
+        # see #28 — ticket handling: discrepancy in obtaining user's id
+        # (issueTicket vs utils.find_user)
+        uname = user.getName()
+    except AttributeError:
+        # <PropertiedUser 'admin'> has no getName(), thus we use getUserName()
+        uname = user.getUserName()
     cache = _getCache()
     kw = {'ticket':ticket}
-    cache.set(ident+ticket, user.getName())
+    cache.set(ident+ticket, uname)
     return ticket
 
 pfuticket.issueTicket = _issueTicket
