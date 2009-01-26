@@ -26,7 +26,7 @@ class CategoriesVocabulary(object):
         result = catalog.uniqueValuesFor(index)
         result = list(result)
         result.sort()
-        terms = [SimpleTerm(k, title=translate(k, domain="oshs") ) for k in result]
+        terms = [SimpleTerm(k, title=translate(k, domain="osha") ) for k in result]
         return SimpleVocabulary(terms)
 
 CategoriesVocabularyFactory = CategoriesVocabulary()
