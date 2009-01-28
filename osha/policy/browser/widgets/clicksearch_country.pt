@@ -1,0 +1,21 @@
+<ul>
+    <li class="current_selection">
+        <strong>
+            <span i18n:translate="label_any">Any</span> 
+            <span i18n:translate="" tal:content="view/box_title" />
+        </strong>
+    </li>
+    <li>
+        <ul>
+            <li>
+                Choose a country:
+                <select >
+                    <option tal:repeat="item view/index_values"
+                            tal:attributes="value item/name;
+                                            onclick python:'window.location = \'%s\'' % view.link(view.index, item.isocc)"
+                            tal:content="item" />
+                </select>
+            </li>
+        </ul>
+    </li>
+</ul>

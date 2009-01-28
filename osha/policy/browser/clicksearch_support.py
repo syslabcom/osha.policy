@@ -1,16 +1,22 @@
+
+from zope.component import getMultiAdapter
 from zope.interface import Interface, implements, alsoProvides
+
+from Products.ATCountryWidget.CountryTool import Country
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.component import getMultiAdapter
 
 from slc.clicksearch.interfaces import ISelectView
 from slc.clicksearch.util import *
-from slc.clicksearch.browser.widgets import BaseView, SimpleListView, ATVMTreeListView
+from slc.clicksearch.browser.widgets import BaseView
+from slc.clicksearch.browser.widgets import SimpleListView
+from slc.clicksearch.browser.widgets import ATVMTreeListView
+from slc.clicksearch.browser.widgets import DropdownView
 from slc.clicksearch.browser.indexes import DefaultIndexView, ATVMTreeIndexView
 
 
-class RemoteLanguageView(SimpleListView):
+class RemoteLanguageView(DropdownView):
     """ creates a view for the RemoteLanguage metadatum """
 
     def prepare_title(self, id):
@@ -20,16 +26,32 @@ class RemoteLanguageView(SimpleListView):
         if L is None:
             return id
         return L.get(u'native', L.get(u'name', id))
+
         
-class CountryView(SimpleListView):
+class CountryView(DropdownView):
     """ creates a view for the Country metadatum """
+
+    template = ViewPageTemplateFile('widgets/clicksearch_country.pt')
 
     def prepare_title(self, id):
         ctool = getToolByName(self.context, 'portal_countryutils')
         isodict = ctool.getCountryIsoDict()
         
         return isodict.get(id, id)
-        
+
+    def index_values(self):
+        """Return the values from the index
+        """
+        cat = getToolByName(self.context, 'portal_catalog')
+        idx = cat._catalog.getIndex(self.index)
+        cs = []
+        cutils = getToolByName(self.context, 'portal_countryutils')
+        cdict = cutils.getCountryIsoDict()
+        for cc in idx.uniqueValues():
+            name = cdict.get(cc, cc)
+            cs.append(Country(cc, name))
+        return cs
+
         
 class SubcategoryView(ATVMTreeListView):
     """ creates a view for the Subcategory metadatum """
