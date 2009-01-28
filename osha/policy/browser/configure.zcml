@@ -3,7 +3,6 @@
            xmlns:five="http://namespaces.zope.org/five">
 
 
-
     <!-- 'OSHA Plone Policy' Zope 3 skin layer -->
     <interface
         interface=".interfaces.IThemeSpecific"
@@ -11,155 +10,232 @@
         name="OSHA Plone Policy"
         />
         
-  <browser:page
-      for="*"
-      name="seppublications_view"
-      class=".portlets.publications.SEPPublicationsPortlet"
-      permission="zope.Public"
-      allowed_interface=".portlets.interfaces.ISEPPublicationsPortlet"
-      />
+    <browser:page
+        for="*"
+        name="seppublications_view"
+        class=".portlets.publications.SEPPublicationsPortlet"
+        permission="zope.Public"
+        allowed_interface=".portlets.interfaces.ISEPPublicationsPortlet"
+        />
 
-  <browser:page
-      for="*"
-      name="relatedbytype_view"
-      class=".portlets.related_by_type.RelatedByTypePortlet"
-      permission="zope.Public"
-      allowed_interface=".portlets.interfaces.IRelatedByTypePortlet"
-      />
+    <browser:page
+        for="*"
+        name="relatedbytype_view"
+        class=".portlets.related_by_type.RelatedByTypePortlet"
+        permission="zope.Public"
+        allowed_interface=".portlets.interfaces.IRelatedByTypePortlet"
+        />
 
-  <browser:page
-      for="*"
-      name="nace_view"
-      class=".dynamic_views.NaceView"
-      permission="zope.Public"
-      allowed_interface=".interfaces.INaceView"
-      />
+    <browser:page
+        for="*"
+        name="nace_view"
+        class=".dynamic_views.NaceView"
+        permission="zope.Public"
+        allowed_interface=".interfaces.INaceView"
+        />
 
-  <browser:page
-      for="*"
-      name="topic_view"
-      class=".dynamic_views.TopicView"
-      permission="zope.Public"
-      allowed_interface=".interfaces.ITopicView"
-      />
+    <browser:page
+        for="*"
+        name="topic_view"
+        class=".dynamic_views.TopicView"
+        permission="zope.Public"
+        allowed_interface=".interfaces.ITopicView"
+        />
 
-  <browser:page
-      for="*"
-      name="vocabulary_helpers"
-      class=".sep_utils.VocabularyHelpers"
-      permission="zope.Public"
-      allowed_interface=".interfaces.IVocabularyHelpers"
-      />
+    <browser:page
+        for="*"
+        name="vocabulary_helpers"
+        class=".sep_utils.VocabularyHelpers"
+        permission="zope.Public"
+        allowed_interface=".interfaces.IVocabularyHelpers"
+        />
 
-  <browser:page
-      for="*"
-      name="sep_helpers"
-      class=".sep_utils.SEPHelpers"
-      permission="zope.Public"
-      allowed_interface=".interfaces.ISEPHelpers"
-      />
+    <browser:page
+        for="*"
+        name="sep_helpers"
+        class=".sep_utils.SEPHelpers"
+        permission="zope.Public"
+        allowed_interface=".interfaces.ISEPHelpers"
+        />
 
-  <browser:page
-      for="Products.CMFCore.interfaces.ISiteRoot"
-      name="createTopicDirectory"
-      class=".sep_utils.TopicDirectory"
-      permission="zope.Public"
-      />
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="createTopicDirectory"
+        class=".sep_utils.TopicDirectory"
+        permission="zope.Public"
+        />
 
-  <browser:page
-      for="Products.CMFCore.interfaces.ISiteRoot"
-      name="migrateNaceCodes"
-      class=".sep_utils.MigrateNaceCodes"
-      permission="zope.Public"
-      />
+    <browser:page
+        for="Products.CMFCore.interfaces.ISiteRoot"
+        name="migrateNaceCodes"
+        class=".sep_utils.MigrateNaceCodes"
+        permission="zope.Public"
+        />
 
-  <adapter
-      for=".interfaces.ISEPFolder"
-      provides=".interfaces.ISEPFolder"
-      factory=".adapter.SEPFolder"
-      />
+    <adapter
+        for=".interfaces.ISEPFolder"
+        provides=".interfaces.ISEPFolder"
+        factory=".adapter.SEPFolder"
+        />
 
-  <browser:page
-      for="*"
-      name="vocabulary_helper"
-      class=".VocabularyHelper.VocabularyHelper"
-      permission="zope.Public"
-      allowed_interface=".interfaces.IVocabularyHelper"
-      />
+    <browser:page
+        for="*"
+        name="vocabulary_helper"
+        class=".VocabularyHelper.VocabularyHelper"
+        permission="zope.Public"
+        allowed_interface=".interfaces.IVocabularyHelper"
+        />
 
-  <browser:page
-      for="Products.ATContentTypes.interface.folder.IATFolder"
-      name="good-practice-overview"
-      class=".goodpractice.GoodPracticeView"
-      permission="zope.Public"
-      />
+    <browser:page
+        for="Products.ATContentTypes.interface.folder.IATFolder"
+        name="good-practice-overview"
+        class=".goodpractice.GoodPracticeView"
+        permission="zope.Public"
+        />
 
 
 
-  <browser:page
-      for="*"
-      name="captcha_helper"
-      class=".CaptchaHelper.CaptchaHelper"
-      permission="zope.Public"
-      allowed_attributes="createCaptcha verifyCaptcha"
-      />
+    <browser:page
+        for="*"
+        name="captcha_helper"
+        class=".CaptchaHelper.CaptchaHelper"
+        permission="zope.Public"
+        allowed_attributes="createCaptcha verifyCaptcha"
+        />
 
-  <browser:page
-      for="*"
-      name="provider_helper"
-      class=".ProviderHelper.ProviderHelper"
-      permission="zope.Public"
-      allowed_interface=".interfaces.IProviderHelper"
-      />
+    <browser:page
+        for="*"
+        name="provider_helper"
+        class=".ProviderHelper.ProviderHelper"
+        permission="zope.Public"
+        allowed_interface=".interfaces.IProviderHelper"
+        />
 
-  <browser:page
-      for="*"
-      name="pressroom_helper"
-      class=".PressroomHelper.PressroomHelper"
-      permission="zope.Public"
-      allowed_interface=".interfaces.IPressroomHelper"
-      />
+    <browser:page
+        for="*"
+        name="pressroom_helper"
+        class=".PressroomHelper.PressroomHelper"
+        permission="zope.Public"
+        allowed_interface=".interfaces.IPressroomHelper"
+        />
 
-  <browser:page
-      for="*"
-      name="set_file_languages"
-      class=".languagefiles.LanguageFiles"
-      permission="zope2.View"
-      allowed_interface=".interfaces.ILanguageFiles"
-      />
+    <browser:page
+        for="*"
+        name="set_file_languages"
+        class=".languagefiles.LanguageFiles"
+        permission="zope2.View"
+        allowed_interface=".interfaces.ILanguageFiles"
+        />
 
-  <browser:page 
-      name="osha-database-controlpanel" 
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
-      class=".dbsettings.OSHADatabaseControlPanel" 
-      permission="cmf.ManagePortal" 
-      /> 
-  <adapter 
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
-      provides="osha.policy.interfaces.IDatabaseSettings" 
-      factory=".dbsettings.osha_database_settings" 
-      /> 
+    <browser:page 
+        name="osha-database-controlpanel" 
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
+        class=".dbsettings.OSHADatabaseControlPanel" 
+        permission="cmf.ManagePortal" 
+        /> 
+    <adapter 
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
+        provides="osha.policy.interfaces.IDatabaseSettings" 
+        factory=".dbsettings.osha_database_settings" 
+        /> 
 
-  <browser:page
-      for="*"
-      name="lc_osha_view"
-      class=".lc_osha.LinkcheckerOSHA"
-      permission="zope2.View"
-      allowed_interface=".interfaces.ILinkcheckerOSHA"
-      />
+    <browser:page
+        for="*"
+        name="lc_osha_view"
+        class=".lc_osha.LinkcheckerOSHA"
+        permission="zope2.View"
+        allowed_interface=".interfaces.ILinkcheckerOSHA"
+        />
 
-  <browser:page
-      for="*"
-      name="lc_csv_export"
-      class=".lc_osha.CSVExportView"
-      permission="cmf.ManagePortal"      
-      />
+    <browser:page
+        for="*"
+        name="lc_csv_export"
+        class=".lc_osha.CSVExportView"
+        permission="cmf.ManagePortal"      
+        />
 
-  <browser:page
-      for="*"
-      name="lc_csv_section_rewiter"
-      class=".lc_osha.CSVSectionRewriteView"
-      permission="cmf.ManagePortal"      
-      />
+    <browser:page
+        for="*"
+        name="lc_csv_section_rewiter"
+        class=".lc_osha.CSVSectionRewriteView"
+        permission="cmf.ManagePortal"      
+        />
+
+
+    <!-- clicksearch portlet metadata widgets -->
+
+    <!-- Multilingual Thesaurus -->
+    <browser:page
+        name="slc.clicksearch.multilingual_thesaurus"
+        for="Products.ATContentTypes.content.topic.ATTopic"
+        permission="zope.Public"
+        class=".clicksearch_support.MultilingualThesaurusView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+
+    <browser:page
+        name="slc.clicksearch.index_multilingual_thesaurus"
+        for="*"
+        permission="zope.Public"
+        class=".clicksearch_support.MultilingualThesaurusIndexView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+    <!-- * Multilingual Thesaurus * -->
+
+    <!-- Country -->
+    <browser:page
+        name="slc.clicksearch.country"
+        for="Products.ATContentTypes.content.topic.ATTopic"
+        permission="zope.Public"
+        class=".clicksearch_support.CountryView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+    <!-- * Country * -->
+
+    <!-- getRemoteLanguage -->
+    <browser:page
+        name="slc.clicksearch.getRemoteLanguage"
+        for="Products.ATContentTypes.content.topic.ATTopic"
+        permission="zope.Public"
+        class=".clicksearch_support.RemoteLanguageView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+    <!-- * getRemoteLanguage * -->
+
+    <!-- Subcategory -->
+    <browser:page
+        name="slc.clicksearch.subcategory"
+        for="Products.ATContentTypes.content.topic.ATTopic"
+        permission="zope.Public"
+        class=".clicksearch_support.SubcategoryView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+
+    <browser:page
+        name="slc.clicksearch.index_subcategory"
+        for="*"
+        permission="zope.Public"
+        class=".clicksearch_support.SubcategoryIndexView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+    <!-- * Subcategory * -->
+
+    <!-- NACE -->
+    <browser:page
+        name="slc.clicksearch.nace"
+        for="Products.ATContentTypes.content.topic.ATTopic"
+        permission="zope.Public"
+        class=".clicksearch_support.NACEView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+
+    <browser:page
+        name="slc.clicksearch.index_nace"
+        for="*"
+        permission="zope.Public"
+        class=".clicksearch_support.NACEIndexView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+    <!-- * NACE * -->
 
 </configure>
