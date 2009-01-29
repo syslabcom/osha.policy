@@ -1,9 +1,15 @@
 import os, cPickle, logging, StringIO
+
+from zope.component import getUtility
+
 from AccessControl.Permission import registerPermissions
+from ConfigParser import ConfigParser
+
 from Products.ATVocabularyManager.utils.vocabs import createSimpleVocabs
 from Products.CMFCore.utils import getToolByName
-from ConfigParser import ConfigParser
 from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
+
+from slc.clicksearch.interfaces import IClickSearchConfiguration
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 vocabdir = os.path.join(basedir, 'data', 'vocabularies')
@@ -39,6 +45,7 @@ def importVarious(context):
     quickinst.installProduct('slc.foldercontentsfilter')
     quickinst.installProduct('slc.alertservice')
     quickinst.installProduct('slc.subsite')
+    quickinst.installProduct('slc.clicksearch')
     quickinst.installProduct('collective.portlet.feedmixer')
     quickinst.installProduct('collective.portlet.tal')
     quickinst.installProduct('plone.portlet.collection')
@@ -71,22 +78,15 @@ def importVarious(context):
     #quickinst.installProduct('CMFLinkChecker')
 
     configurePortal(site)
-
     setVersionedTypes(site)
-
     addProxyIndexes(site)
     addExtraIndexes(site)
-
     importVocabularies(site)
-
     configureCountryTool(site)
-
     configureSEOOptimizer(site)
-
     configureCacheFu(site)
-
     #modifySEOActionPermissions(site)
-
+    configureClickSearchSettings(site)
     repositionActions(site)
 
 
@@ -533,7 +533,6 @@ def configureCacheFu(site):
 
     # Set Cache header for anonymous to proxy 1h
     plone_content_types.setHeaderSetIdAnon('cache-in-proxy-1-hour')
-
     #
     # Rule: plone-containers
     #
@@ -561,7 +560,6 @@ def configureCacheFu(site):
                 , 'b-org Project'
                 ]
     contentTypes = _addToList(contentTypes, new_types)
-
     plone_containers.setContentTypes(tuple(contentTypes))
 
     # Set Cache header for anonymous to proxy 1h
@@ -577,8 +575,6 @@ def configureCacheFu(site):
 
     templates = _addToList(templates, new_templates)
     plone_containers.setTemplates(tuple(templates))
-
-
     #
     # Rule: plone-templates
     #
@@ -592,11 +588,19 @@ def configureCacheFu(site):
 
     new_templates = [ 'rss-feeds'
                     ]
-
     templates = _addToList(templates, new_templates)
     plone_templates.setTemplates(tuple(templates))
 
-
+def configureClickSearchSettings(site):
+    """ Set default sort_on indexes
+    """
+    settings = getUtility(IClickSearchConfiguration, name='clicksearch_config')
+    if 'subcategory' not in settings.sort_indexes:
+        settings.sort_indexes.append('subcategory')
+    if 'country' not in settings.sort_indexes:
+        settings.sort_indexes.append('country')
+    if 'getRemoteLanguage' not in settings.sort_indexes:
+        settings.sort_indexes.append('getRemoteLanguage')
 
 def modifySEOActionPermissions(site):
     # And now update the relevant portal_type actions
