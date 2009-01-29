@@ -19,6 +19,8 @@ from slc.clicksearch.browser.indexes import DefaultIndexView, ATVMTreeIndexView
 class RemoteLanguageView(DropdownView):
     """ creates a view for the RemoteLanguage metadatum """
 
+    template = ViewPageTemplateFile('widgets/clicksearch_language.pt')
+
     def prepare_title(self, id):
         ltool = getToolByName(self.context, 'portal_languages')
         langs = ltool.getAvailableLanguageInformation()
@@ -26,6 +28,19 @@ class RemoteLanguageView(DropdownView):
         if L is None:
             return id
         return L.get(u'native', L.get(u'name', id))
+
+    def index_values(self):
+        """Return the values from the index
+        """
+        cat = getToolByName(self.context, 'portal_catalog')
+        idx = cat._catalog.getIndex(self.index)
+        ls = []
+        lutils = getToolByName(self.context, 'portal_languages')
+        ldict = lutils.getAvailableLanguageInformation()
+        for lc in idx.uniqueValues():
+            lang = ldict.get(lc, lc)
+            ls.append(lang)
+        return ls
 
         
 class CountryView(DropdownView):
