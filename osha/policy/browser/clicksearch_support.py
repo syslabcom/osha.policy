@@ -20,6 +20,7 @@ class RemoteLanguageView(DropdownView):
     """ creates a view for the RemoteLanguage metadatum """
 
     template = ViewPageTemplateFile('widgets/clicksearch_language.pt')
+    template_selected = ViewPageTemplateFile('widgets/clicksearch_language.pt')
 
     def prepare_title(self, id):
         ltool = getToolByName(self.context, 'portal_languages')
@@ -47,6 +48,7 @@ class CountryView(DropdownView):
     """ creates a view for the Country metadatum """
 
     template = ViewPageTemplateFile('widgets/clicksearch_country.pt')
+    template_selected = ViewPageTemplateFile('widgets/clicksearch_country.pt')
 
     def prepare_title(self, id):
         ctool = getToolByName(self.context, 'portal_countryutils')

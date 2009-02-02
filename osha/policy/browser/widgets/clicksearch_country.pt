@@ -1,21 +1,21 @@
 <ul>
     <li class="current_selection">
         <strong>
-            <span i18n:translate="label_any">Any</span> 
-            <span i18n:translate="" tal:content="view/box_title" />
+            Select a country:
         </strong>
     </li>
     <li>
-        <ul>
-            <li>
-                Choose a country:
-                <select >
-                    <option tal:repeat="item view/index_values"
-                            tal:attributes="value item/name;
-                                            onclick python:'window.location = \'%s\'' % view.link(view.index, item.isocc)"
-                            tal:content="item" />
-                </select>
-            </li>
-        </ul>
+        <select >
+            <option value=""
+                    tal:attributes="onclick python:'window.location = \'%s\'' % view.unselect_link()">
+                    All Countries
+            </option>
+            <option tal:repeat="item view/index_values"
+                    tal:attributes="value item/name;
+                                    selected python:item.isocc == request.get(view.index) and 'selected' or None;
+                                    onclick python:'window.location = \'%s\'' % view.link(view.index, item.isocc)"
+                    tal:content="item" />
+        </select>
     </li>
 </ul>
+

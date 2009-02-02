@@ -1,21 +1,20 @@
 <ul>
     <li class="current_selection">
         <strong>
-            <span i18n:translate="label_any">Any</span> 
-            <span i18n:translate="" tal:content="view/box_title" />
+            Select a language:
         </strong>
     </li>
     <li>
-        <ul>
-            <li>
-                Choose a language:
-                <select >
-                    <option tal:repeat="item view/index_values"
-                            tal:attributes="value item/name;
-                                            onclick python:'window.location = \'%s\'' % view.link(view.index, item.get('code'))"
-                            tal:content="item/name" />
-                </select>
-            </li>
-        </ul>
+        <select >
+            <option value=""
+                    tal:attributes="onclick python:'window.location = \'%s\'' % view.unselect_link()">
+                    All Languages
+            </option>
+            <option tal:repeat="item view/index_values"
+                    tal:attributes="value item/name;
+                                    selected python:item.get('code') == request.get(view.index) and 'selected' or None;
+                                    onclick python:'window.location = \'%s\'' % view.link(view.index, item.get('code'))"
+                    tal:content="item/name" />
+        </select>
     </li>
 </ul>
