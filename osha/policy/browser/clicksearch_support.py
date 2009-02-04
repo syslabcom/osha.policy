@@ -39,11 +39,13 @@ class RemoteLanguageView(DropdownView):
         lutils = getToolByName(self.context, 'portal_languages')
         ldict = lutils.getAvailableLanguageInformation()
         for lc in idx.uniqueValues():
-            lang = ldict.get(lc, lc)
+            lang = ldict.get(lc, None)
+            if lang is None:
+                continue
             ls.append(lang)
         return ls
 
-        
+
 class CountryView(DropdownView):
     """ creates a view for the Country metadatum """
 
@@ -53,7 +55,7 @@ class CountryView(DropdownView):
     def prepare_title(self, id):
         ctool = getToolByName(self.context, 'portal_countryutils')
         isodict = ctool.getCountryIsoDict()
-        
+
         return isodict.get(id, id)
 
     def index_values(self):
@@ -69,7 +71,7 @@ class CountryView(DropdownView):
             cs.append(Country(cc, name))
         return cs
 
-        
+
 class SubcategoryView(ATVMTreeListView):
     """ creates a view for the Subcategory metadatum """
     vocabulary_name = "Subcategory"
