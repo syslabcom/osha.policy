@@ -17,5 +17,61 @@ PROJECTNAME = "OSHA"
 DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
 setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner'))
 
+
+DEPENDENCIES = [
+    'CMFPlacefulWorkflow',
+    'plone.browserlayer',
+    'plone.app.iterate',
+    'LinguaPlone',
+    'RichDocument',
+    'Clouseau',
+    'ATVocabularyManager',
+    'Products.CallForContractors',
+    'FCKeditor',
+    'Marshall',
+    'Products.OSHContentLink',
+    'PublicJobVacancy',
+    'slc.publications',
+    'slc.editonpro',
+    'slc.shoppinglist',
+    'slc.xliff',
+    'slc.foldercontentsfilter',
+    'slc.alertservice',
+    'slc.subsite',
+    'slc.clicksearch',
+    'collective.portlet.feedmixer',
+    'collective.portlet.tal',
+    'plone.portlet.collection',
+    'plone.portlet.static',
+    'Products.VocabularyPickerWidget',
+    'PressRoom',
+    'Products.RALink',
+    'Products.RemoteProvider',
+    'PloneFormGen',
+    'ATCountryWidget',
+    'CMFSin',
+    'Products.CaseStudy',
+    'DataGridField',
+    'TextIndexNG3',
+    'UserAndGroupSelectionWidget',
+    'simplon.plone.ldap',
+    'plone.app.blob',
+    'syslabcom.filter',
+    'Scrawl',
+    'qPloneComments',
+    'qPloneCaptchas',
+    'p4a.plonevideo',
+    'p4a.plonevideoembed',
+    'Products.PloneFlashUpload',
+    'BlueLinguaLink',
+    'Calendaring',
+    'RedirectionTool',
+    'osha.legislation',
+    'osha.theme',
+    ]
+    # It is IMPORTANT that the linkchecker is installed at the end
+    # because it relies on beforehand registered retrievers
+    #quickinst.installProduct('CMFLinkChecker')
+
 product_globals = globals()
 

@@ -1,4 +1,8 @@
-import os, cPickle, logging, StringIO
+import os
+import cPickle
+import logging
+
+import transaction
 
 from zope.component import getUtility
 
@@ -11,72 +15,19 @@ from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 
 from slc.clicksearch.interfaces import IClickSearchConfiguration
 
+from config import DEPENDENCIES
+
+logger = logging.getLogger("osha.policy.setuphandler")
 basedir = os.path.abspath(os.path.dirname(__file__))
 vocabdir = os.path.join(basedir, 'data', 'vocabularies')
-
 
 def importVarious(context):
     if context.readDataFile("osha-various.txt") is None:
         return
 
-
-    logger = logging.getLogger("osha.policy.setuphandler")
     logger.info("Importing OSHA specifics")
-
     site=context.getSite()
-
-    quickinst = getToolByName(site, 'portal_quickinstaller')
-    quickinst.installProduct('CMFPlacefulWorkflow')
-    quickinst.installProduct('plone.browserlayer')
-    quickinst.installProduct('plone.app.iterate')
-    quickinst.installProduct('LinguaPlone')
-    quickinst.installProduct('RichDocument')
-    quickinst.installProduct('Clouseau')
-    quickinst.installProduct('ATVocabularyManager')
-    quickinst.installProduct('Products.CallForContractors')
-    quickinst.installProduct('FCKeditor')
-    quickinst.installProduct('Marshall')
-    quickinst.installProduct('Products.OSHContentLink')
-    quickinst.installProduct('PublicJobVacancy')
-    quickinst.installProduct('slc.publications')
-    quickinst.installProduct('slc.editonpro')
-    quickinst.installProduct('slc.shoppinglist')
-    quickinst.installProduct('slc.xliff')
-    quickinst.installProduct('slc.foldercontentsfilter')
-    quickinst.installProduct('slc.alertservice')
-    quickinst.installProduct('slc.subsite')
-    quickinst.installProduct('slc.clicksearch')
-    quickinst.installProduct('collective.portlet.feedmixer')
-    quickinst.installProduct('collective.portlet.tal')
-    quickinst.installProduct('plone.portlet.collection')
-    quickinst.installProduct('plone.portlet.static')
-    quickinst.installProduct('Products.VocabularyPickerWidget')
-    quickinst.installProduct('PressRoom')
-    quickinst.installProduct('Products.RALink')
-    quickinst.installProduct('Products.RemoteProvider')
-    quickinst.installProduct('PloneFormGen')
-    quickinst.installProduct('ATCountryWidget')
-    quickinst.installProduct('CMFSin')
-    quickinst.installProduct('Products.CaseStudy')
-    quickinst.installProduct('DataGridField')
-    quickinst.installProduct('TextIndexNG3')
-    quickinst.installProduct('UserAndGroupSelectionWidget')
-    quickinst.installProduct('simplon.plone.ldap')
-    quickinst.installProduct('plone.app.blob')
-    quickinst.installProduct('syslabcom.filter')
-    quickinst.installProduct('Scrawl')
-    quickinst.installProduct('p4a.plonevideo')
-    quickinst.installProduct('p4a.plonevideoembed')
-    quickinst.installProduct('Products.PloneFlashUpload')
-    quickinst.installProduct('BlueLinguaLink')
-    quickinst.installProduct('Calendaring')
-    quickinst.installProduct('RedirectionTool')
-    quickinst.installProduct('osha.legislation')
-    quickinst.installProduct('osha.theme')
-    # It is IMPORTANT that the linkchecker is installed at the end
-    # because it relies on beforehand registered retrievers
-    #quickinst.installProduct('CMFLinkChecker')
-
+    installDependencies(site)
     configurePortal(site)
     setVersionedTypes(site)
     addProxyIndexes(site)
@@ -89,21 +40,24 @@ def importVarious(context):
     configureClickSearchSettings(site)
     repositionActions(site)
 
+def installDependencies(site):
+    qi = getToolByName(site, 'portal_quickinstaller')
+    for product in DEPENDENCIES:
+        if not qi.isProductInstalled(product):
+            logger.info("Installing dependency: %s" % product)
+            qi.installProduct(product)
+            transaction.savepoint(optimistic=True) 
+    transaction.commit() 
 
 def repositionActions(portal):
-
     portal_actions=getToolByName(portal,'portal_actions')
     portal_conf=getToolByName(portal,'portal_controlpanel')
     cpids = [x.id for x in portal_conf.listActions()]
-
     # if xliff is installed, move site action xliff import into the object actions dropdown
     portal_actions.site_actions.xliffimport.visible = False
     # xliff import is re added in actions.xml
-
     # If SEO Tools are installed, move object action into the action dropdown
     # => nice to have, but a todo
-
-
     # # If Linkchecker is installed,
     # portal_linkchecker = getToolByName(portal, 'portal_linkchecker', None)
     # if portal_linkchecker:
@@ -121,8 +75,6 @@ def repositionActions(portal):
     #              , 'The links owned by you.'
     #              , None
     #              )
-
-
         # move Links from the object tab into the actions dropdown
         # This happens in actions.xml
 
