@@ -4,6 +4,7 @@ from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.i18nmessageid import MessageFactory
 from zope.i18n import translate
+from Products.PlacelessTranslationService import getTranslationService
 
 from Acquisition import aq_get
 
@@ -26,7 +27,8 @@ class CategoriesVocabulary(object):
         result = catalog.uniqueValuesFor(index)
         result = list(result)
         result.sort()
-        terms = [SimpleTerm(k, title=translate(k, domain="osha") ) for k in result]
+        pts = getTranslationService()
+        terms = [SimpleTerm(k, title=pts.translate(domain="osha", msgid=k, context=context) ) for k in result]
         return SimpleVocabulary(terms)
 
 CategoriesVocabularyFactory = CategoriesVocabulary()
