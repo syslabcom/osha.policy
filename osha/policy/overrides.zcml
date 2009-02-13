@@ -8,4 +8,8 @@
 
     <adapter factory=".adapter.calendar_eventprovider.ATEventProvider" />
 
+	<adapter factory=".adapter.formatter.PrettyFormatter"
+			 for="slc.publications.interfaces.IPublicationEnhanced"
+			 provides="slc.publications.interfaces.IPrettyFormatter" />
+
 </configure>
