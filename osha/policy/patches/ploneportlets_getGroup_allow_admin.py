@@ -1,4 +1,4 @@
-from plone.app.portlets.portlets.portletcontext import ContentContext
+from plone.app.portlets.portletcontext import ContentContext
 from Products.CMFCore.utils import getToolByName
 from types import StringTypes
 
