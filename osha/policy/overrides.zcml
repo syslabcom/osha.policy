@@ -3,8 +3,13 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="osha">
 
-    <utility component=".adapter.memcached_support.choose_cache"
-             provides="plone.memoize.interfaces.ICacheChooser" />
+    <!-- temporary deactivated memcached support for @ram.cache because it conflicts with 
+archetypes.schematuning.
+It seems that we benefit much more from schematuning than from this specific memcached 
+optimization -->
+
+    <!--utility component=".adapter.memcached_support.choose_cache"
+             provides="plone.memoize.interfaces.ICacheChooser" /-->
 
     <adapter factory=".adapter.calendar_eventprovider.ATEventProvider" />
 

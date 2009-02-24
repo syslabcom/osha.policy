@@ -17,7 +17,7 @@ def choose_cache(fun_name):
             "MEMCACHE_SERVER", "127.0.0.1:11211").split(",")
         client=thread_local.client=memcache.Client(servers, debug=0)
 
-    return MemcacheAdapter(client)
+    return MemcacheAdapter(client, globalkey='osha')
 
 directlyProvides(choose_cache, ICacheChooser)
 
