@@ -32,7 +32,7 @@
 
 <div xtal:on-error="nothing" tal:condition="not:view/anon">
 
-  <h2>Search OSH Resources by Type:</h2>
+  <h2>Search OSH Resources by Type (Click &amp; browse - BETA):</h2>
 
   <div class="gpbox" tal:define="results view/get_db_types">
     <div class="gpbox_title" i18n:translate="">Databases</div>
@@ -45,6 +45,20 @@
   </div>
 </div>
 
+
+<div>
+  <h2>Search OSH Resources by Type:</h2>
+
+  <div class="gpbox" tal:define="results view/get_search_types">
+    <div class="gpbox_title" i18n:translate="">Databases</div>
+    <div class="gpbox_content">
+      <span tal:omit-tag="" tal:repeat="elem results">
+        <a href="" tal:attributes="href elem/url" tal:content="elem/caption" /><span tal:condition="not:repeat/elem/end"> | </span>
+      </span>
+    </div>
+    <div class="visualBreak"></div>
+  </div>
+</div>
 
 
 <h2>Access our OSH Resources by topic, sector and priority group:</h2>

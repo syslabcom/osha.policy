@@ -67,3 +67,14 @@ class GoodPracticeView(BrowserView):
 
         return typelist
 
+    def get_search_types(self):
+        """ return a list of object types with links to point to the clicksearch interface """
+        T = [('OSH_Link', 'index_oshlink'), ('RALink', 'index_ralink'), ('CaseStudy', 'index_casestudy'), ('Provider', 'index_provider')]
+        typelist = []
+        ttool = getToolByName(self.context, 'portal_types')
+        for typ in T:
+            url = "%s/%s" % (self.context.absolute_url(), typ[1])
+            type_name = _(ttool.getTypeInfo(typ[0]).Title())
+            typelist.append(dict(caption=type_name, id=typ, url=url))
+
+        return typelist
