@@ -74,7 +74,12 @@ class GoodPracticeView(BrowserView):
         ttool = getToolByName(self.context, 'portal_types')
         for typ in T:
             url = "%s/%s" % (self.context.absolute_url(), typ[1])
-            type_name = _(ttool.getTypeInfo(typ[0]).Title())
+            title = ttool.getTypeInfo(typ[0]).Title()
+            if title.endswith('y'):
+                title = title[:-1] + "ies"
+            else:
+                title = title + "s"
+            type_name = _(title)
             typelist.append(dict(caption=type_name, id=typ, url=url))
 
         return typelist
