@@ -13,8 +13,19 @@ optimization -->
 
     <adapter factory=".adapter.calendar_eventprovider.ATEventProvider" />
 
-	<adapter factory=".adapter.formatter.PrettyFormatter"
-			 for="slc.publications.interfaces.IPublicationEnhanced"
-			 provides="slc.publications.interfaces.IPrettyFormatter" />
+    <adapter factory=".adapter.formatter.PrettyFormatter"
+                for="slc.publications.interfaces.IPublicationEnhanced"
+                provides="slc.publications.interfaces.IPrettyFormatter" />
+
+    <browser:viewlet
+        name="plone.comments"
+        for="Products.CMFCore.interfaces.IContentish"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        view="plone.app.layout.globals.interfaces.IViewView"
+        class=".browser.comments.CommentsViewlet"
+        layer=".interfaces.IOSHACommentsLayer"
+        permission="zope2.View"
+        />
+
 
 </configure>
