@@ -115,3 +115,7 @@ class ILinkcheckerOSHA(Interface):
     def LinksInState(state, b_start=0, b_size=15, path_filter='', multilingual_thesaurus=[], subcategory=[]):
         """Returns a list of links in the given state.
         It is possible to pass several filer parameters to narrow down the result"""
+
+class IReportAbuse(Interface):
+    """ """ 
+
