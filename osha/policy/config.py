@@ -57,6 +57,7 @@ DEPENDENCIES = [
     'simplon.plone.ldap',
     'plone.app.blob',
     'syslabcom.filter',
+    'plone.app.imaging',
     'Scrawl',
     'qPloneComments',
     'qPloneCaptchas',
