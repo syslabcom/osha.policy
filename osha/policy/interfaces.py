@@ -1,6 +1,12 @@
 from zope.interface import Interface, alsoProvides
 from zope import schema
+from plone.theme.interfaces import IDefaultPloneLayer
 from osha.theme import OSHAMessageFactory as _
+
+class IOSHACommentsLayer(IDefaultPloneLayer):
+    """Marker interface that defines a Zope 3 skin layer bound to a Skin
+       Selection in portal_skins.
+    """
 
 class ISingleEntryPoint(Interface):
     """ A SEP which is identified by a keyword, can have its own skin, ...
