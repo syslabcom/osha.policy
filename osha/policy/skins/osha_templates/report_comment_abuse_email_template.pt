@@ -3,13 +3,26 @@
      tal:define="charset here/portal_properties/site_properties/default_charset|string:utf-8;
                  dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset);
                  organization_name options/organization_name;
-                 obj nocall:options/obj">
+                 obj nocall:options/obj;
+                 comment nocall:options/comment;
+                 message options/message;">
 
 <tal:x replace="options/name"/>,
 <tal:notify define="obj nocall:options/obj" 
-       i18n:translate="notifyreject_link">
-       A comment on '<tal:x replace="obj/absolute_url" i18n:name="url"/>' 
-       has been reported as abusive.
+            i18n:translate="notifyreject_link">
+
+    A comment '<tal:x replace="string:${obj/absolute_url}/#${comment/id}" i18n:name="url"/>' has been reported as abusive.
+
+    The original comment text:
+    --------------------------
+    <tal:message replace="comment/description"/>
+
+    <tal:message replace="comment/text"/>
+
+    The abuse report:
+    --------------------------
+    <tal:message replace="message"/>
+
 </tal:notify>
 --
 <tal:signature i18n:translate="signature"> 
