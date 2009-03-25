@@ -238,36 +238,36 @@
         />
     <!-- * NACE * -->
 
-    <browser:page
+    <!--browser:page
         for="*"
         name="commentutils"
         class=".comments.utils"
         permission="zope.Public"
-        />
+        /-->
 
-    <browser:page
+    <!--browser:page
         for="*"
         attribute="report_abuse"
         class=".comments.utils"
         name="report_abuse"
         permission="zope2.View"
-        /> 
+        /--> 
 
-    <browser:page
+    <!--browser:page
         for="*"
         name="report-abuse-form"
         class=".comments.utils"
         template="templates/report_abuse.pt"
         permission="zope.Public"
-        />
+        /-->
 
-    <browser:page
+    <!--browser:page
         for="*"
         attribute="submit_abuse_report"
         class=".comments.CommentsKSS"
         name="submit_abuse_report"
         permission="zope2.View"
-        /> 
+        /--> 
 
     <!-- RESOURCES -->
     <browser:resource

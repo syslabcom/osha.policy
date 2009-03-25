@@ -17,7 +17,7 @@ optimization -->
                 for="slc.publications.interfaces.IPublicationEnhanced"
                 provides="slc.publications.interfaces.IPrettyFormatter" />
 
-    <browser:viewlet
+    <!--browser:viewlet
         name="plone.comments"
         for="Products.CMFCore.interfaces.IContentish"
         manager="plone.app.layout.viewlets.interfaces.IBelowContent"
@@ -25,7 +25,7 @@ optimization -->
         class=".browser.comments.CommentsViewlet"
         layer=".interfaces.IOSHACommentsLayer"
         permission="zope2.View"
-        />
+        /-->
 
 
 </configure>
