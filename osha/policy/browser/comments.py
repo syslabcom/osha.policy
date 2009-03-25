@@ -138,6 +138,7 @@ class CommentsKSS(MixinKSSView):
         errors = {}
         context = aq_inner(self.context)
         request = context.REQUEST
+        portal = getToolByName(self.context, 'portal_url').getPortalObject()
         if hasattr(context, 'captcha_validator'):
             dummy_controller_state = ControllerState(
                                             id='comments.pt',
@@ -146,7 +147,6 @@ class CommentsKSS(MixinKSSView):
                                             status='success',
                                             errors={},
                                             next_action=None,)
-            portal = getToolByName(self.context, 'portal_url').getPortalObject()
             # get the form controller
             controller = portal.portal_form_controller
             # send the validate script to the form controller with the dummy state object
@@ -169,7 +169,10 @@ class CommentsKSS(MixinKSSView):
                             html)
             return self.render()
 
-        report_abuse(context, context)
+        pd = self.portal_discussion
+        dl = pd.getDiscussionFor(context)
+        comment = dl._container.get(comment_id)
+        report_abuse(context, context, message, comment)
         html = self.macroContent('@@report-abuse-form/macros/form',
                                  tabindex=IndexIterator(),
                                  **request.form)
@@ -181,7 +184,7 @@ class CommentsKSS(MixinKSSView):
         return self.render()
 
 
-def report_abuse(reply, context):
+def report_abuse(reply, context, message, comment):
 
     def getParent(reply):
         if reply.meta_type == 'Discussion Item':
@@ -219,9 +222,11 @@ def report_abuse(reply, context):
     args={'mto': user_email,
             'mfrom': admin_email,
             'obj': reply_parent,
+            'comment':comment,
+            'message':message,
             'organization_name': organization_name,
-            'name': creator_name}
-
+            'name': creator_name,
+            }
     msg = getattr(context, 'report_comment_abuse_email_template')(**args)
     site_props = context.portal_properties.site_properties
     host = context.plone_utils.getMailHost()
