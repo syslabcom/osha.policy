@@ -1,6 +1,8 @@
 <metal:macro define-macro="form"
         tal:define="utils nocall:context/@@report-abuse-form;
-                    visible request/show_form|nothing">
+                    visible request/show_form|nothing;
+                    tabindex tabindex|request/tabindex|utils/tabindex;
+                    portal_url portal_url|utils/portal_url">
 
     <span id="span-reply-form" 
           tal:attributes="style python:not visible and 'display: none' or ''"
@@ -92,6 +94,10 @@
                     tal:content="request/message|nothing"
                     > </textarea>
         </div>
+        <div tal:condition="nocall:here/captcha_widget|nothing" tal:omit-tag="">
+            <div metal:use-macro="here/captcha_widget/macros/captcha" />
+        </div>
+
         <div class="formControls">
             <input 
                 id="input-report-abuse-send"
