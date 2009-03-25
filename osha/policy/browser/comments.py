@@ -10,16 +10,16 @@ from plone.app.kss.plonekssview import PloneKSSView
 
 from kss.core import force_unicode
 
+from Products.CMFPlone.utils import IndexIterator
 from Products.CMFPlone.utils import getToolByName
+from Products.CMFPlone import MessageFactory
+from Products.CMFFormController.ControllerState import ControllerState
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.qPloneComments.utils import manage_mails
-from Products.CMFPlone import MessageFactory
 
 from interfaces import IReportAbuse
-
 qpcMF = MessageFactory('plonecomments')
-
 
 
 class CommentsViewlet(comments.CommentsViewlet):
@@ -87,6 +87,15 @@ class utils(BrowserView):
                 return True
         return False
 
+    def tabindex(self):
+        """ Needed for BBB, tabindex has been deprecated.
+        """
+        return IndexIterator()
+
+    def portal_url(self):
+        """ """
+        return getToolByName(self.context, 'portal_url')
+
 
 class MixinKSSView(Implicit, PloneKSSView):
     implements(IPloneKSSView)
@@ -126,24 +135,43 @@ class CommentsKSS(MixinKSSView):
 
     def submit_abuse_report(self, comment_id):
         """ """
+        errors = {}
         context = aq_inner(self.context)
         request = context.REQUEST
+        if hasattr(context, 'captcha_validator'):
+            dummy_controller_state = ControllerState(
+                                            id='comments.pt',
+                                            context=context,
+                                            button='submit',
+                                            status='success',
+                                            errors={},
+                                            next_action=None,)
+            portal = getToolByName(self.context, 'portal_url').getPortalObject()
+            # get the form controller
+            controller = portal.portal_form_controller
+            # send the validate script to the form controller with the dummy state object
+            controller_state = controller.validate(dummy_controller_state, request, ['captcha_validator',])
+            errors.update(controller_state.errors)
+
         message = request.get('message')
-        ksscore = self.getCommandSet('core')
         if not message:
-            errors =  {'message': 'Please provide a message'}
+            errors.update({'message': 'Please provide a message'})
+
+        ksscore = self.getCommandSet('core')
+        if errors:
             html = self.macroContent('@@report-abuse-form/macros/form',
                                      errors=errors,
                                      show_form=True,
+                                     tabindex=IndexIterator(),
                                      **request.form)
             ksscore.replaceInnerHTML(
                             ksscore.getHtmlIdSelector('span-reply-form-holder-%s' % comment_id), 
                             html)
-            
             return self.render()
 
         report_abuse(context, context)
         html = self.macroContent('@@report-abuse-form/macros/form',
+                                 tabindex=IndexIterator(),
                                  **request.form)
         node = ksscore.getHtmlIdSelector('span-reply-form-holder-%s' % comment_id)
         ksscore.replaceInnerHTML(node, html)
