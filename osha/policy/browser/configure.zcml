@@ -1,6 +1,7 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
-           xmlns:five="http://namespaces.zope.org/five">
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:zcml="http://namespaces.zope.org/zcml">
 
 
     <!-- 'OSHA Plone Policy' Zope 3 skin layer -->
@@ -238,48 +239,50 @@
         />
     <!-- * NACE * -->
 
-    <!--browser:page
-        for="*"
-        name="commentutils"
-        class=".comments.utils"
-        permission="zope.Public"
-        /-->
+    <configure zcml:condition="installed Products.qPloneComments">
+        <browser:page
+            for="*"
+            name="commentutils"
+            class=".comments.utils"
+            permission="zope.Public"
+            />
 
-    <!--browser:page
-        for="*"
-        attribute="report_abuse"
-        class=".comments.utils"
-        name="report_abuse"
-        permission="zope2.View"
-        /--> 
+        <browser:page
+            for="*"
+            attribute="report_abuse"
+            class=".comments.utils"
+            name="report_abuse"
+            permission="zope2.View"
+            /> 
 
-    <!--browser:page
-        for="*"
-        name="report-abuse-form"
-        class=".comments.utils"
-        template="templates/report_abuse.pt"
-        permission="zope.Public"
-        /-->
+        <browser:page
+            for="*"
+            name="report-abuse-form"
+            class=".comments.utils"
+            template="templates/report_abuse.pt"
+            permission="zope.Public"
+            />
 
-    <!--browser:page
-        for="*"
-        attribute="submit_abuse_report"
-        class=".comments.CommentsKSS"
-        name="submit_abuse_report"
-        permission="zope2.View"
-        /--> 
+        <browser:page
+            for="*"
+            attribute="submit_abuse_report"
+            class=".comments.CommentsKSS"
+            name="submit_abuse_report"
+            permission="zope2.View"
+            /> 
 
-    <!-- RESOURCES -->
-    <browser:resource
-        name="comment.kss"
-        file="resources/comment.kss"
-        />
+        <!-- RESOURCES -->
+        <browser:resource
+            name="comment.kss"
+            file="resources/comment.kss"
+            />
 
-    <browser:resource
-        name="comment.js"
-        file="resources/comment.js"
-        />
-    <!-- RESOURCES -->
+        <browser:resource
+            name="comment.js"
+            file="resources/comment.js"
+            />
+        <!-- RESOURCES -->
+    </configure>
 
 </configure>
 
