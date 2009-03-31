@@ -5,21 +5,17 @@
     i18n_domain="osha.policy">
 
     <five:registerPackage package="." initialize=".initialize" />
-
     <include package=".adapter" />
-
     <include package=".browser" />
-
     <include package="osha.theme" />
 
     <genericsetup:registerProfile
-      name="default"
-      title="OSHA Site Policy"
-      directory="profiles/default"
-      description="Turn a Plone site into the OSHA site."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-
+        name="default"
+        title="OSHA Site Policy"
+        directory="profiles/default"
+        description="Turn a Plone site into the OSHA site."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
     <!-- Local roles managed in the @@sharing view -->
     <utility
@@ -31,26 +27,32 @@
         handler=".handlers.handle_object_willbe_translated"
         />
 
-  <subscriber
-     for="Products.Archetypes.interfaces.IBaseContent
-          zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-     handler=".handlers.handle_objectModified"
-     />
+    <subscriber
+        for="Products.Archetypes.interfaces.IBaseContent
+            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".handlers.handle_objectModified"
+        />
 
-  <utility
-    component=".vocabularies.CategoriesVocabularyFactory"
-    name="osha.policy.vocabularies.categories"
-    />
-
+    <utility
+        component=".vocabularies.CategoriesVocabularyFactory"
+        name="osha.policy.vocabularies.categories"
+        />
 
     <utility
         provides="collective.lead.interfaces.IDatabase"
         factory=".adapter.db.OSHADatabase"
         name="osha.database"
         />
+
     <adapter
         for=".adapter.db.OSHADatabase"
         provides="collective.lead.interfaces.ITransactionAware"
-        factory="collective.lead.tx.ThreadlocalDatabaseTransactions" />
+        factory="collective.lead.tx.ThreadlocalDatabaseTransactions" 
+        />
+    
+    <class class="Products.PressRoom.content.PressRoom.PressRoom">
+        <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
+    </class>
+
 
 </configure>

@@ -1,3 +1,5 @@
+import logging
+
 from Acquisition import aq_inner
 from Acquisition import Implicit
 from AccessControl import getSecurityManager
@@ -20,6 +22,8 @@ from Products.qPloneComments.utils import manage_mails
 
 from interfaces import IReportAbuse
 qpcMF = MessageFactory('plonecomments')
+
+log = logging.getLogger('osha.policy.browser.comments.py')
 
 
 class CommentsViewlet(comments.CommentsViewlet):
@@ -81,11 +85,9 @@ class utils(BrowserView):
     def report_abuse_enabled(self):
         """ """
         prop_sheet = self.context.portal_properties['qPloneComments']
-        props = filter(lambda x: prop_sheet.getProperty(x), prop_sheet.propertyIds())
-        for p in props:
-            if p == 'enable_report_abuse':
-                return True
-        return False
+        value =  prop_sheet.getProperty('enable_report_abuse', False)
+        log.info('enable_report_abuse: %s' % value)
+        return value
 
     def tabindex(self):
         """ Needed for BBB, tabindex has been deprecated.
