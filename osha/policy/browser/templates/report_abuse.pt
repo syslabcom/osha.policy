@@ -100,8 +100,7 @@
 
         <div class="formControls">
             <input 
-                id="input-report-abuse-send"
-                class="context"
+                class="context input-report-abuse-send"
                 value="Send"
                 type="submit"
                 tal:attributes="comment_id comment_id"

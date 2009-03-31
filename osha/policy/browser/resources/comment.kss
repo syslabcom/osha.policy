@@ -1,4 +1,4 @@
-input#input-report-abuse-send:click {
+input.input-report-abuse-send:click {
     evt-click-preventdefault: True;
     action-server: submit_abuse_report;
     submit_abuse_report-comment_id: nodeAttr('comment_id');
