@@ -11,7 +11,7 @@
 <tal:notify define="obj nocall:options/obj" 
             i18n:translate="notifyreject_link">
 
-A comment '<tal:x replace="string:${obj/absolute_url}/#${comment/id}" i18n:name="url"/>' has been reported as abusive.
+A comment '<tal:x replace="string:${obj/absolute_url}/#${comment/getId}" i18n:name="url"/>' has been reported as abusive.
 
 The original comment text:
 --------------------------
