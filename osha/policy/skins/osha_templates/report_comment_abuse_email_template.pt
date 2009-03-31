@@ -15,9 +15,9 @@ A comment '<tal:x replace="string:${obj/absolute_url}/#${comment/getId}" i18n:na
 
 The original comment text:
 --------------------------
-<tal:message replace="comment/description"/>
+<tal:message replace="comment/getDescription"/>
 
-<tal:message replace="comment/text"/>
+<tal:message replace="comment/getText"/>
 
 The abuse report:
 --------------------------
