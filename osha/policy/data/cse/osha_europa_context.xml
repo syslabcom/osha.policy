@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomSearchEngine id="c1c8w5hnuam" creator="002729247433086747365" keywords="" language="en" encoding="UTF-8">
+  <Title>OSHA Europe Search Engine Content Types refinements</Title>
+  <Description>OSHA Europe Search Engine with refinements based on content types</Description>
+  <Context>
+    <Facet>
+      <FacetItem>
+        <Label name="publications" mode="FILTER">
+          <Rewrite></Rewrite>
+        </Label>
+        <Title>Publications</Title>
+      </FacetItem>
+    </Facet>
+    <Facet>
+      <FacetItem>
+        <Label name="case_studies" mode="FILTER">
+          <Rewrite></Rewrite>
+        </Label>
+        <Title>Case Studies</Title>
+      </FacetItem>
+      <FacetItem>
+        <Label name="information_providers" mode="FILTER">
+          <Rewrite></Rewrite>
+        </Label>
+        <Title>Information Providers</Title>
+      </FacetItem>
+    </Facet>
+    <Facet>
+      <FacetItem>
+        <Label name="risk_assessment_tools" mode="FILTER">
+          <Rewrite></Rewrite>
+        </Label>
+        <Title>Risk Assessment Tools</Title>
+      </FacetItem>
+    </Facet>
+    <Facet>
+      <FacetItem>
+        <Label name="general_osh_links" mode="FILTER">
+          <Rewrite></Rewrite>
+        </Label>
+        <Title>General OSH Links</Title>
+      </FacetItem>
+    </Facet>
+    <BackgroundLabels>
+      <Label name="_cse_c1c8w5hnuam" mode="FILTER" />
+      <Label name="_cse_exclude_c1c8w5hnuam" mode="ELIMINATE" />
+      <Label name="press_boost" mode="BOOST" weight="0.9" />
+      <label name="campaign_promotion" mode="BOOST" weight="0.9" />
+	  <label name="campaign_demotion" mode="BOOST" weight="-0.3" />
+    </BackgroundLabels>
+  </Context>
+  <LookAndFeel nonprofit="true" />
+  <AdSense />
+  <EnterpriseAccount />
+</CustomSearchEngine>

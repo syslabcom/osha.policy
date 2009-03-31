@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Annotations>
+    <Annotation about="osha.europa.eu/*sinList">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+    </Annotation>
+    <Annotation about="osha.europa.eu/*/press">
+        <Label name="press_boost" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*/press" />
+    </Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/hw2008">
+		<label name="campaign_promotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/hw2008" />
+	</Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/ew2007" score="0.8">
+		<label name="campaign_promotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/ew2007" />
+	</Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/ew2006">
+		<label name="campaign_demotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/ew2006" />
+	</Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/ew2005">
+		<label name="campaign_demotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/ew2005" />
+	</Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/ew2004">
+		<label name="campaign_demotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/ew2004" />
+	</Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/ew2003">
+		<label name="campaign_demotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/ew2003" />
+	</Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/ew2002">
+		<label name="campaign_demotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/ew2002" />
+	</Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/ew2001">
+		<label name="campaign_demotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/ew2001" />
+	</Annotation>
+    <Annotation about="osha.europa.eu/*/campaigns/ew2000">
+		<label name="campaign_demotion" />
+		<AdditionalData attribute="original_url" value="http://osha.europa.eu/*/campaigns/ew2000" />
+	</Annotation>
+</Annotations>
