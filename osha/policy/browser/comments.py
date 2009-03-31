@@ -220,7 +220,7 @@ def report_abuse(reply, context, message, comment):
     organization_name = getProp(context, 'email_subject_prefix', '')
     admin_email = context.portal_url.getPortalObject().getProperty('email_from_address')
     creator_name = reply.getOwnerTuple()[1]
-    subject = 'A comment on "%s" has been reported for abuse.' % getParent(context).Title()
+    subject = '[%s] A comment on "%s" has been reported for abuse.' % (organization_name, getParent(context).Title())
     args={'mto': user_email,
             'mfrom': admin_email,
             'obj': reply_parent,
