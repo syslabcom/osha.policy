@@ -89,13 +89,8 @@
                            i18n:attributes="value label_remove;"
                            />
                 </form>
-                <form id="form-report" 
-                      name="report"
-                      action=""
-                      method="post"
-                      style="display: inline;"
-                      tal:condition="utils/report_abuse_enabled"
-                      tal:attributes="action string:${reply/absolute_url}/@@report_abuse">
+                <tal:if tal:condition="python:utils.report_abuse_enabled() and isPublished"
+                        tal:attributes="action string:${reply/absolute_url}/@@report_abuse">
                     <input class="destructive"
                            type="submit"
                            value="Report Abuse"
@@ -103,7 +98,7 @@
                                            id string:input-render-abuse-cancel-${comment_id}"
                            i18n:attributes="value label_report_abuse;"
                            />
-                </form>
+                </tal:if>
                 <form name="publish_discussion"
                       action=""
                       method="post"
