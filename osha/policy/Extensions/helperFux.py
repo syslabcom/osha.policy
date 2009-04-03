@@ -4,6 +4,8 @@ from Products.OSHATranslations import OSHAMessageFactory as _
 from plone.app.portlets.portlets import navigation, news, classic, events, search
 from StringIO import StringIO
 from plone.portlets.constants import CONTEXT_CATEGORY, GROUP_CATEGORY, CONTENT_TYPE_CATEGORY
+from plone.portlets.interfaces import IPortletManager, ILocalPortletAssignmentManager
+from zope.component import getMultiAdapter, getUtility
 import Acquisition
 
 
@@ -137,3 +139,30 @@ def copyPortletsFromParent(self, doleft=False, doright=False):
             out.write('Right portlets NOT copied\n')
 
         return out.getvalue()
+
+def fixDEPortlets(self):
+  path = '/osha/portal/fop/germany'
+  cat = self.portal_catalog
+  portletManager = getUtility(IPortletManager, name='plone.rightcolumn')
+  res = cat(path=path,Language='all',portal_type="RichDocument")
+  
+  for r in res:
+    try:
+      ob = r.getObject()
+    except:
+      print "Err in getObject, skipping"
+      pass
+    path = "/".join(ob.getPhysicalPath())
+    right = assignment_mapping_from_key(ob, 'plone.rightcolumn', CONTEXT_CATEGORY, path)
+    assignable = getMultiAdapter((ob, portletManager,), ILocalPortletAssignmentManager)
+    portlets = [x for x in list(right.keys())]
+    if portlets!=['portlet_themenbezogen', 'portlet_oshsearch'] and portlets!=[]:
+      print "abweichende portlets auf %s: %s" %(r.getURL(), portlets)
+      pass
+    for k in portlets:
+      del right[k]
+    assignable.setBlacklistStatus(CONTEXT_CATEGORY, False)
+  
+    
+
+  return len(res)
