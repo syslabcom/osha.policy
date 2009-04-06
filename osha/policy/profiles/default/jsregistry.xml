@@ -3,7 +3,4 @@
     <!-- Datagridwidget registration -->
     <javascript cacheable="true" compression="safe" cookable="true"
         enabled="true" expression="" id="datagridwidget.js" inline="false"/>
-    <!-- Comment Abuse Form -->     
-    <javascript cacheable="true" compression="safe" cookable="true"
-        enabled="true" expression="" id="++resource++comment.js" inline="false"/>
 </object>
