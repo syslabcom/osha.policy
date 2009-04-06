@@ -7,20 +7,14 @@ from Products.CMFCore.utils import getToolByName
 
 def run(self):
     """ """
-    num_fs = 0
-    num_o = 0
-    portal_type = self.REQUEST.get('portal_type', 'OSH_Link')
-    for o in queryObjs(self, portal_type):
+    for o in queryObjs(self):
+        import pdb; pdb.set_trace()
         fs = getRichTextFields(o)
-        num_fs += len(fs)
-        if len(fs):
-            num_o += 1
-            for f in fs:
-                text = santize(self, f.get(), documentCleaner)
-                f.set(text)
-    return 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
+        for f in fs:
+            text = santize(self, f.get(), documentCleaner)
 
-def queryObjs(self, portal_type):
+def queryObjs(self):
+    portal_type = self.REQUEST.get('portal_type', 'OSH⊇Link')
     catalog = getToolByName(self, 'portal_catalog')
     return [o.getObject() for o in catalog(portal_type=portal_type)]
 
@@ -33,6 +27,7 @@ def documentCleaner(self):
                 page_structure = False,
                 remove_unknown_tags = True,
                 safe_attrs_only = True,
+                allow_tags = [ "blockquote", "a", "em", "p", "strong" ],
                 scripts = False,
                 javascript = False,
                 comments = False,
