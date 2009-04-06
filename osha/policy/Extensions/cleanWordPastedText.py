@@ -17,7 +17,7 @@ def run(self):
         if len(fs):
             num_o += 1
             for f in fs:
-                text = santize(self, f.getAccessor(o)(), documentCleaner)
+                text = sanitize(self, f.getAccessor(o)(), documentCleaner)
                 f.getMutator(o)(text)
     return 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
 
