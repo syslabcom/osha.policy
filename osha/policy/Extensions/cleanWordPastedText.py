@@ -2,7 +2,7 @@ from lxml import etree
 from lxml import html
 from lxml.html.clean import Cleaner
 
-from Produts.Archetype.Widget import RichWidget
+from Products.Archetypes.Widget import RichWidget
 from Products.CMFCore.utils import getToolByName
 
 
@@ -17,8 +17,8 @@ def run(self):
         if len(fs):
             num_o += 1
             for f in fs:
-                text = santize(self, f.get(), documentCleaner)
-                f.set(text)
+                text = santize(self, f.getAccessor(o)(), documentCleaner)
+                f.getMutator(o)(text)
     return 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
 
 def queryObjs(self, portal_type):
