@@ -23,9 +23,9 @@ def run(self):
             for f in fs:
                 text = sanitize(self, f.getAccessor(o)(), documentCleaner())
                 f.getMutator(o)(text)
-        if num_o == 1000:
+        if not num_o%1000:
             transaction.commit()
-        log.info('transaction.commit()')
+            log.info('transaction.commit(), %d' % num_o)
     t = 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
     log.info(t)
     return t 
