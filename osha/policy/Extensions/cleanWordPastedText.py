@@ -32,7 +32,7 @@ def getRichTextFields(object):
 def documentCleaner():
     return Cleaner(
                 page_structure = False,
-                remove_unknown_tags = True,
+                remove_unknown_tags = False,
                 safe_attrs_only = True,
                 allow_tags = [ "blockquote", "a", "em", "p", "strong" ],
                 scripts = False,
