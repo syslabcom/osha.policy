@@ -12,23 +12,33 @@ log = logging.getLogger('cleanWordPastedText')
 
 def run(self):
     """ """
-    num_fs = 0
-    num_o = 0
+    ll = []
     portal_type = self.REQUEST.get('portal_type', 'OSH_Link')
     for o in queryObjs(self, portal_type):
         fs = getRichTextFields(o)
-        num_fs += len(fs)
         if len(fs):
-            num_o += 1
             for f in fs:
-                text = sanitize(self, f.getAccessor(o)(), documentCleaner())
-                f.getMutator(o)(text)
-        if not num_o%1000:
+                old_text = f.getAccessor(o)()
+                text = sanitize(self, old_text, documentCleaner())
+                if len(old_text) != len(text):
+                    # I'm comparing lengths since I get all kinds of encoding errors, 
+                    # and when I then decode the strings, the expression evaluates as false,
+                    # when it shouldn't.
+                    path = '/'.join(o.getPhysicalPath())
+                    ll.append(path)
+                    log.info(path)
+                    f.getMutator(o)(text)
+
+        if not len(ll)%1000:
             transaction.commit()
-            log.info('transaction.commit(), %d' % num_o)
-    t = 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
+            log.info('transaction.commit(), %d' % len(ll))
+    t = 'Cleaned up %d %s objects' % (len(ll), portal_type)
     log.info(t)
-    return t 
+
+    if len(ll):
+        return '%d objects affected' % len(ll)
+    else:
+        return '0 objects affected'
 
 def queryObjs(self, portal_type):
     catalog = getToolByName(self, 'portal_catalog')
