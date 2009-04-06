@@ -17,7 +17,7 @@ def run(self):
         if len(fs):
             num_o += 1
             for f in fs:
-                text = sanitize(self, f.getAccessor(o)(), documentCleaner)
+                text = sanitize(self, f.getAccessor(o)(), documentCleaner())
                 f.getMutator(o)(text)
     return 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
 
@@ -29,7 +29,7 @@ def getRichTextFields(object):
     return [f for f in object.Schema().fields()
               if isinstance(f.widget, RichWidget)]
 
-def documentCleaner(self):
+def documentCleaner():
     return Cleaner(
                 page_structure = False,
                 remove_unknown_tags = True,
