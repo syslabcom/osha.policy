@@ -1,3 +1,6 @@
+import logging
+import transaction
+
 from lxml import etree
 from lxml import html
 from lxml.html.clean import Cleaner
@@ -5,6 +8,7 @@ from lxml.html.clean import Cleaner
 from Products.Archetypes.Widget import RichWidget
 from Products.CMFCore.utils import getToolByName
 
+log = logging.getLogger('cleanWordPastedText')
 
 def run(self):
     """ """
@@ -19,6 +23,9 @@ def run(self):
             for f in fs:
                 text = sanitize(self, f.getAccessor(o)(), documentCleaner())
                 f.getMutator(o)(text)
+        if num_o == 100:
+            transaction.commit()
+        log.info('transaction.commit()')
     return 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
 
 def queryObjs(self, portal_type):
