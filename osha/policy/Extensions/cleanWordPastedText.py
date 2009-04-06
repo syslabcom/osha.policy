@@ -2,6 +2,7 @@ from lxml import etree
 from lxml import html
 from lxml.html.clean import Cleaner
 
+from Produts.Archetype.Widget import RichWidget
 from Products.CMFCore.utils import getToolByName
 
 
