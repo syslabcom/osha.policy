@@ -23,10 +23,12 @@ def run(self):
             for f in fs:
                 text = sanitize(self, f.getAccessor(o)(), documentCleaner())
                 f.getMutator(o)(text)
-        if num_o == 100:
+        if num_o == 1000:
             transaction.commit()
         log.info('transaction.commit()')
-    return 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
+    t = 'Cleaned up %d fields in %d %s objects' % (num_fs, num_o, portal_type)
+    log.info(t)
+    return t 
 
 def queryObjs(self, portal_type):
     catalog = getToolByName(self, 'portal_catalog')
