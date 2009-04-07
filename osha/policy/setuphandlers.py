@@ -1,7 +1,6 @@
 import os
 import cPickle
 import logging
-
 import transaction
 
 from zope.component import getUtility
@@ -15,7 +14,7 @@ from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 
 from slc.clicksearch.interfaces import IClickSearchConfiguration
 
-from config import DEPENDENCIES
+from config import DEPENDENCIES, TYPES_TO_VERSION
 
 logger = logging.getLogger("osha.policy.setuphandler")
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -29,7 +28,6 @@ def importVarious(context):
     site=context.getSite()
     installDependencies(site)
     configurePortal(site)
-    setVersionedTypes(site)
     addProxyIndexes(site)
     addExtraIndexes(site)
     importVocabularies(site)
@@ -140,18 +138,6 @@ def configurePortal(portal):
     # remove LinguaLink from portal workflow chain
     portal_workflow = getToolByName(portal, 'portal_workflow')
     portal_workflow.setChainForPortalTypes(['LinguaLink'], None)
-
-
-def setVersionedTypes(portal):
-    portal_repository = getToolByName(portal, 'portal_repository')
-    versionable_types = list(portal_repository.getVersionableContentTypes())
-    for type_id in ('RichDocument', 'Document'):
-        if type_id not in versionable_types:
-            versionable_types.append(type_id)
-            # Add default versioning policies to the versioned type
-            for policy_id in DEFAULT_POLICIES:
-                portal_repository.addPolicyForContentType(type_id, policy_id)
-    portal_repository.setVersionableContentTypes(versionable_types)
 
 
 def importVocabularies(self):
@@ -566,3 +552,22 @@ def modifySEOActionPermissions(site):
                 action.permissions = (u"Manage portal",)
             new_actions.append(action)
         ptype._actions = tuple(new_actions)
+
+def setVersionedTypes(context):
+    site = context.getSite()
+    if context.readDataFile("osha-various.txt") is None:
+        return
+
+    portal_repository = getToolByName(site, 'portal_repository')
+    versionable_types = list(portal_repository.getVersionableContentTypes())
+    for type_id in TYPES_TO_VERSION:
+        if type_id not in versionable_types:
+            # use append() to make sure we don't overwrite any
+            # content-types which may already be under version control
+            versionable_types.append(type_id)
+            # Add default versioning policies to the versioned type
+            for policy_id in DEFAULT_POLICIES:
+                portal_repository.addPolicyForContentType(type_id, policy_id)
+    portal_repository.setVersionableContentTypes(versionable_types)
+
+    

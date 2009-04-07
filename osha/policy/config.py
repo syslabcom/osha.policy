@@ -18,6 +18,9 @@ DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
 setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner'))
 
 
+TYPES_TO_VERSION = ['OSH_Link', 'RichDocument', 'Document']
+
+
 DEPENDENCIES = [
     'CMFPlacefulWorkflow',
     'plone.browserlayer',

@@ -8,5 +8,12 @@
     <dependency step="content"/>
     <dependency step="toolset"/>
   </import-step>
+  <import-step id="osha_setVersionedTypes"
+               version="20080407-01"
+               handler="osha.policy.setuphandlers.setVersionedTypes"
+               title="OSHA set versioned content types.">
+    Set versioned content types.
+    <dependency step="osha_various"/>
+  </import-step>
 </import-steps>
 
