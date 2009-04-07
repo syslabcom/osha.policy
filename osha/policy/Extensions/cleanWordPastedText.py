@@ -1,6 +1,6 @@
 import logging
 import transaction
-
+from types import *
 from lxml import etree
 from lxml import html
 from lxml.html.clean import Cleaner
@@ -18,12 +18,10 @@ def run(self):
         fs = getRichTextFields(o)
         if len(fs):
             for f in fs:
-                old_text = f.getAccessor(o)()
+                old_text = getUnicodeText(f.getAccessor(o)())
                 text = sanitize(self, old_text, documentCleaner())
-                if len(old_text) != len(text):
-                    # I'm comparing lengths since I get all kinds of encoding errors, 
-                    # and when I then decode the strings, the expression evaluates as false,
-                    # when it shouldn't.
+                assert type(text) == UnicodeType
+                if old_text != text:
                     path = '/'.join(o.getPhysicalPath())
                     ll.append(path)
                     log.info(path)
@@ -39,6 +37,24 @@ def run(self):
         return '%d objects affected' % len(ll)
     else:
         return '0 objects affected'
+
+
+def getUnicodeText(text):
+    try:
+        return unicode(text, 'utf-8')
+    except UnicodeDedeError:
+        pass
+
+    try:
+        return unicode(text, 'utf-16')
+    except UnicodeDedeError:
+        pass
+
+    try:
+        return unicode(text, 'cp1252')
+    except UnicodeDedeError:
+        pass
+
 
 def queryObjs(self, portal_type):
     catalog = getToolByName(self, 'portal_catalog')
