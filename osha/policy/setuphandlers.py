@@ -14,7 +14,7 @@ from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 
 from slc.clicksearch.interfaces import IClickSearchConfiguration
 
-from config import DEPENDENCIES, TYPES_TO_VERSION
+from config import DEPENDENCIES, TYPES_TO_VERSION, DIFF_SUPPORT
 
 logger = logging.getLogger("osha.policy.setuphandler")
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -569,5 +569,17 @@ def setVersionedTypes(context):
             for policy_id in DEFAULT_POLICIES:
                 portal_repository.addPolicyForContentType(type_id, policy_id)
     portal_repository.setVersionableContentTypes(versionable_types)
+
+def enableDiffSupport(context):
+    site = context.getSite()
+    if context.readDataFile("osha-various.txt") is None:
+        return
+
+    portal_diff = getToolByName(site, 'portal_diff')
+    diff_types = portal_diff.listDiffTypes()
+    for type, field, diff in DIFF_SUPPORT:
+        if type not in diff_types:
+            portal_diff.manage_addDiffField(type, field, diff)
+
 
     

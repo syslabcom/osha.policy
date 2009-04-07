@@ -17,6 +17,7 @@ PROJECTNAME = "OSHA"
 DEFAULT_ADD_CONTENT_PERMISSION = "Add portal content"
 setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner'))
 
+DIFF_SUPPORT = [('OSH_Link', 'getText', 'Lines Diff')]
 
 TYPES_TO_VERSION = ['OSH_Link', 'RichDocument', 'Document']
 

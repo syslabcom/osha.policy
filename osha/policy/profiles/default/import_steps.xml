@@ -15,5 +15,12 @@
     Set versioned content types.
     <dependency step="osha_various"/>
   </import-step>
+  <import-step id="osha_enableDiffSupport"
+               version="20080407-01"
+               handler="osha.policy.setuphandlers.enableDiffSupport"
+               title="OSHA set diff support for content types.">
+    Set diff support for content types.
+    <dependency step="osha_setVersionedTypes"/>
+  </import-step>
 </import-steps>
 
