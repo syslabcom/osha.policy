@@ -19,7 +19,7 @@ def run(self):
         if len(fs):
             for f in fs:
                 old_text = getUnicodeText(f.getAccessor(o)())
-                text = sanitize(self, old_text, documentCleaner())
+                text = sanitize(self, f.getAccessor(o)(), documentCleaner())
                 assert type(text) == UnicodeType
                 if old_text != text:
                     path = '/'.join(o.getPhysicalPath())
