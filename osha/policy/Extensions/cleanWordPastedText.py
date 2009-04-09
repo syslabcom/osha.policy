@@ -5,8 +5,15 @@ from lxml import etree
 from lxml import html
 from lxml.html.clean import Cleaner
 
+from zope.event import notify
+
+from DateTime import DateTime
+
 from Products.Archetypes.Widget import RichWidget
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import base_hasattr
+from Products.CMFPlone import PloneMessageFactory as _
+from Products.CMFEditions.interfaces.IModifier import FileTooLargeToVersionError
 
 log = logging.getLogger('cleanWordPastedText')
 
@@ -43,7 +50,8 @@ def run(self):
                     write('cleaned_objects.log', path+'\n')
                     write('cleaned_objects.log', text+'\n\n')
                     f.getMutator(o)(text)
-
+                    update_version_on_edit(o)
+                    
         if len(ll) and not len(ll)%1000:
             transaction.commit()
             log.info('transaction.commit(), %d' % len(ll))
@@ -54,6 +62,22 @@ def run(self):
         return '%d objects affected' % len(ll)
     else:
         return '0 objects affected'
+
+def update_version_on_edit(context):
+    REQUEST = context.REQUEST
+    pr = context.portal_repository
+    putils = context.plone_utils
+    if pr.isVersionable(context):
+        changed = True
+        comment = 'Changed via the cleanWordPastedText.py script on %s' % DateTime()
+        if ((pr.supportsPolicy(context, 'at_edit_autoversion')) or \
+                REQUEST.get('cmfeditions_save_new_version', None)):
+            try:
+                context.portal_repository.save(obj=context, comment=comment)
+            except FileTooLargeToVersionError:
+                putils.addPortalMessage(
+                    _("Versioning for this file has been disabled because it is too large"), type="warn")
+        return 'success'
 
 
 def getUnicodeText(text):
