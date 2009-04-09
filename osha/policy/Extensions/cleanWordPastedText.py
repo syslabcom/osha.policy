@@ -12,7 +12,7 @@ log = logging.getLogger('cleanWordPastedText')
 
 def write(filename, msg): 
     f = open(filename, 'a+')
-    f.write('%s' %msg)
+    f.write('%s' % msg.encode('ascii', 'replace'))
     f.close()
     return
 
