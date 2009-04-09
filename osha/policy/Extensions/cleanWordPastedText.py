@@ -44,7 +44,7 @@ def run(self):
                     write('cleaned_objects.log', text+'\n\n')
                     f.getMutator(o)(text)
 
-        if not len(ll)%1000:
+        if len(ll) and not len(ll)%1000:
             transaction.commit()
             log.info('transaction.commit(), %d' % len(ll))
     t = 'Cleaned up %d %s objects' % (len(ll), portal_type)
