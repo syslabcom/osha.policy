@@ -10,21 +10,36 @@ from Products.CMFCore.utils import getToolByName
 
 log = logging.getLogger('cleanWordPastedText')
 
+def write(filename, msg): 
+    f = open(filename, 'a+')
+    f.write('%s' %msg)
+    f.close()
+    return
+
 def run(self):
     """ """
     ll = []
     portal_type = self.REQUEST.get('portal_type', 'OSH_Link')
-    for o in queryObjs(self, portal_type):
+    for o in queryObjs(self, portal_type, 20):
         fs = getRichTextFields(o)
         if len(fs):
             for f in fs:
                 old_text = getUnicodeText(f.getAccessor(o)())
-                text = sanitize(self, f.getAccessor(o)(), documentCleaner())
+                text = old_text.replace('&lt;', '<')
+                text = text.replace('&gt;', '>')
+                text = text.replace('<p></p>', '')
+                text = text.replace('<p>&nbsp;</p>', '')
+                text = text.replace('\n', '')
+                text.strip();
+                text = sanitize(self, text, documentCleaner())
+                text = text.replace('<p></p>', '').replace('<p>&nbsp;</p>', '').replace('\n', '')
+                text.strip();
                 assert type(text) == UnicodeType
                 if old_text != text:
                     path = '/'.join(o.getPhysicalPath())
                     ll.append(path)
                     log.info(path)
+                    write('cleaned_objects.log', path+'\n')
                     f.getMutator(o)(text)
 
         if not len(ll)%1000:
@@ -56,8 +71,10 @@ def getUnicodeText(text):
         pass
 
 
-def queryObjs(self, portal_type):
+def queryObjs(self, portal_type, limit=-1):
     catalog = getToolByName(self, 'portal_catalog')
+    if limit > 0:
+        return [o.getObject() for o in catalog(portal_type=portal_type)[:limit]]
     return [o.getObject() for o in catalog(portal_type=portal_type)]
 
 def getRichTextFields(object):
