@@ -41,6 +41,7 @@ def run(self):
                     ll.append(path)
                     log.info(path)
                     write('cleaned_objects.log', path+'\n')
+                    write('cleaned_objects.log', text+'\n\n')
                     f.getMutator(o)(text)
 
         if not len(ll)%1000:
