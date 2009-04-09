@@ -30,9 +30,10 @@ def run(self):
                 text = text.replace('<p></p>', '')
                 text = text.replace('<p>&nbsp;</p>', '')
                 text = text.replace('\n', '')
+                text = text.replace('\r', '')
                 text.strip();
                 text = sanitize(self, text, documentCleaner())
-                text = text.replace('<p></p>', '').replace('<p>&nbsp;</p>', '').replace('\n', '')
+                text = text.replace('<p></p>', '').replace('<p>&nbsp;</p>', '').replace('\n', '').replace('\r', '')
                 text.strip();
                 assert type(text) == UnicodeType
                 if old_text != text:
