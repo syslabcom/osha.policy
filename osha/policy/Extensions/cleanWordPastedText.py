@@ -86,7 +86,7 @@ def documentCleaner():
                 page_structure = False,
                 remove_unknown_tags = False,
                 safe_attrs_only = True,
-                allow_tags = [ "blockquote", "a", "em", "p", "strong" ],
+                allow_tags = [ "br", "blockquote", "a", "em", "p", "strong" ],
                 scripts = False,
                 javascript = False,
                 comments = False,
