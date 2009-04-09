@@ -68,7 +68,6 @@ def update_version_on_edit(context):
     pr = context.portal_repository
     putils = context.plone_utils
     if pr.isVersionable(context):
-        changed = True
         comment = 'Changed via the cleanWordPastedText.py script on %s' % DateTime()
         if ((pr.supportsPolicy(context, 'at_edit_autoversion')) or \
                 REQUEST.get('cmfeditions_save_new_version', None)):
