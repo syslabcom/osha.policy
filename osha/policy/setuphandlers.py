@@ -2,7 +2,7 @@ import os
 import cPickle
 import logging
 import transaction
-
+from zope.app.component.hooks import getSite
 from zope.component import getUtility
 
 from AccessControl.Permission import registerPermissions
@@ -37,6 +37,7 @@ def importVarious(context):
     #modifySEOActionPermissions(site)
     configureClickSearchSettings(site)
     repositionActions(site)
+    enableDiffSupport(site)
 
 def installDependencies(site):
     qi = getToolByName(site, 'portal_quickinstaller')
@@ -570,10 +571,7 @@ def setVersionedTypes(context):
                 portal_repository.addPolicyForContentType(type_id, policy_id)
     portal_repository.setVersionableContentTypes(versionable_types)
 
-def enableDiffSupport(context):
-    site = context.getSite()
-    if context.readDataFile("osha-various.txt") is None:
-        return
+def enableDiffSupport(site):
 
     portal_diff = getToolByName(site, 'portal_diff')
     diff_types = portal_diff.listDiffTypes()
