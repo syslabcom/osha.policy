@@ -17,6 +17,7 @@ from Products.CMFPlone.utils import base_hasattr
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFEditions.interfaces.IModifier import FileTooLargeToVersionError
 
+
 log = logging.getLogger('cleanWordPastedText')
 
 def write(filename, msg): 
@@ -25,10 +26,10 @@ def write(filename, msg):
     f.close()
     return
 
-def run(self, portal_type):
+def run(app, site, portal_type):
     """ """
     ll = []
-    for o in queryObjs(self, portal_type, 40):
+    for o in queryObjs(site, portal_type, 40):
         fs = getRichTextFields(o)
         if len(fs):
             for f in fs:
@@ -40,13 +41,14 @@ def run(self, portal_type):
                 text = text.replace('\n', '')
                 text = text.replace('\r', '')
                 text.strip();
-                text = sanitize(self, text, documentCleaner())
+                text = sanitize(site, text, documentCleaner())
                 text = text.replace('<p></p>', '').replace('<p>&nbsp;</p>', '').replace('\n', '').replace('\r', '')
                 text.strip();
                 assert type(text) == UnicodeType
                 if old_text != text:
                     path = '/'.join(o.getPhysicalPath())
                     write('cleaned_objects.log', path+'\n')
+                    write('cleaned_objects.log', old_text+'\n\n')
                     write('cleaned_objects.log', text+'\n\n')
                     log.info(path)
                     ll.append(path)
@@ -141,11 +143,14 @@ def sanitize(self, input, cleaner):
 
     return u"".join(output)
 
-site = app.osha.portal
+try:
+    site = app.osha.portal
+except AttributeError:
+    site = app.osha
 setSite(site)
 admin = app.acl_users.getUser('admin').__of__(site.acl_users)
 newSecurityManager(None, admin)
 portal_type = 'OSH_Link'
-status = run(site, portal_type)
-log.info(status)
-
+status = run(app, site, portal_type)
+transaction.commit()
+app._p_jar.sync()
