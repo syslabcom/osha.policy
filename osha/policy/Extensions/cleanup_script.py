@@ -29,7 +29,7 @@ def write(filename, msg):
 def run(app, site, portal_type):
     """ """
     ll = []
-    for o in queryObjs(site, portal_type, 40):
+    for o in queryObjs(site, portal_type):
         fs = getRichTextFields(o)
         if len(fs):
             for f in fs:
@@ -46,7 +46,9 @@ def run(app, site, portal_type):
                 text.strip();
                 assert type(text) == UnicodeType
                 if old_text != text:
+                    update_version_on_edit(o)
                     path = '/'.join(o.getPhysicalPath())
+                    write('cleaned_objects.log', str(DateTime())+'\n')
                     write('cleaned_objects.log', path+'\n')
                     write('cleaned_objects.log', old_text+'\n\n')
                     write('cleaned_objects.log', text+'\n\n')
@@ -147,6 +149,7 @@ try:
     site = app.osha.portal
 except AttributeError:
     site = app.osha
+
 setSite(site)
 admin = app.acl_users.getUser('admin').__of__(site.acl_users)
 newSecurityManager(None, admin)
@@ -154,3 +157,4 @@ portal_type = 'OSH_Link'
 status = run(app, site, portal_type)
 transaction.commit()
 app._p_jar.sync()
+
