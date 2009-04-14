@@ -17,7 +17,6 @@ from Products.CMFPlone.utils import base_hasattr
 from Products.CMFPlone import PloneMessageFactory as _
 from Products.CMFEditions.interfaces.IModifier import FileTooLargeToVersionError
 
-
 log = logging.getLogger('cleanWordPastedText')
 
 def write(filename, msg): 
@@ -30,6 +29,11 @@ def run(app, site, portal_type):
     """ """
     ll = []
     for o in queryObjs(site, portal_type):
+	try:
+	   o = o.getObject() 
+	except AttributeError:
+           continue
+	   
         fs = getRichTextFields(o)
         if len(fs):
             for f in fs:
@@ -57,9 +61,11 @@ def run(app, site, portal_type):
                     f.getMutator(o)(text)
                     update_version_on_edit(o)
                     
-        if len(ll) and not len(ll)%1000:
-            transaction.commit()
-            log.info('transaction.commit(), %d' % len(ll))
+            if len(ll) and not len(ll)%50:
+                transaction.commit()
+                app._p_jar.sync()
+                log.info('transaction.commit(), %d' % len(ll))
+                write('cleaned_objects.log', 'transaction.commit()'+'\n\n')
     t = 'Cleaned up %d %s objects' % (len(ll), portal_type)
     write('cleaned_objects.log', t+'\n\n')
     log.info(t)
@@ -102,9 +108,7 @@ def getUnicodeText(text):
 
 def queryObjs(self, portal_type, limit=-1):
     catalog = getToolByName(self, 'portal_catalog')
-    if limit > 0:
-        return [o.getObject() for o in catalog(portal_type=portal_type)[:limit]]
-    return [o.getObject() for o in catalog(portal_type=portal_type)]
+    return catalog(portal_type=portal_type)[:limit]
 
 def getRichTextFields(object):
     return [f for f in object.Schema().fields()
