@@ -45,10 +45,10 @@ def run(self):
                 assert type(text) == UnicodeType
                 if old_text != text:
                     path = '/'.join(o.getPhysicalPath())
-                    ll.append(path)
-                    log.info(path)
                     write('cleaned_objects.log', path+'\n')
                     write('cleaned_objects.log', text+'\n\n')
+                    log.info(path)
+                    ll.append(path)
                     f.getMutator(o)(text)
                     update_version_on_edit(o)
                     
@@ -56,6 +56,7 @@ def run(self):
             transaction.commit()
             log.info('transaction.commit(), %d' % len(ll))
     t = 'Cleaned up %d %s objects' % (len(ll), portal_type)
+    write('cleaned_objects.log', t+'\n\n')
     log.info(t)
 
     if len(ll):
