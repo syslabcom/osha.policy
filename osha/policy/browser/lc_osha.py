@@ -63,6 +63,7 @@ class CSVSectionRewriteView(BrowserView):
         self.context = context
         self.request = request
         self.uid_cat = getToolByName(context, 'uid_catalog')
+        self.portal_cat = getToolByName(context, 'portal_catalog')
         portal_url = getToolByName(context, 'portal_url')
         self.portal_path = portal_url.getPortalPath()
         portal_languages = getToolByName(context, 'portal_languages')
@@ -84,7 +85,7 @@ class CSVSectionRewriteView(BrowserView):
             elems.pop()
         
         if self.getObjectNeeded(elems):
-            res = self.uid_cat(UID=link.get('object'))
+            res = self.portal_cat(UID=link.get('object'))
             if len(res):
                 #obj = res[0].getObject()
                 portal_type = res[0].portal_type
@@ -93,7 +94,7 @@ class CSVSectionRewriteView(BrowserView):
                     section = ['legislation']
                 else:
                     #obj = res[0].getObject()
-                    section = ['gp_%s' % subj for subj in res.Subject]
+                    section = ['gp_%s' % subj for subj in res[0].Subject]
                     section.append('good_practice')
         else:
             if elems[-1] == 'fop':
