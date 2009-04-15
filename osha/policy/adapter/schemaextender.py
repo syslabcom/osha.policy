@@ -188,6 +188,7 @@ class TaggingSchemaExtender(object):
                 required=False,
                 multiValued=True,
                 mutator='setCountry',
+                accessor='getCountry',
                 widget=MultiCountryWidget(
                     label="Countries",
                     description='Select one or more countries appropriate for this content',
@@ -204,6 +205,7 @@ class TaggingSchemaExtender(object):
                 languageIndependent=True,
                 multiValued=True,
                 mutator='setSubcategory',
+                accessor='getSubcategory',
                 widget=VocabularyPickerWidget(
                     label="Subcategory (Site position)",
                     description="Choose the most relevant subcategories. This will decide where the information is displayed",
@@ -221,6 +223,7 @@ class TaggingSchemaExtender(object):
                 required=False,
                 multiValued=True,
                 mutator='setMultilingual_thesaurus',
+                accessor='getMultilingual_thesaurus',
                 widget=VocabularyPickerWidget(
                     label='Multilingual Thesaurus Subject',
                     description='Select one or more entries',
@@ -236,6 +239,7 @@ class TaggingSchemaExtender(object):
                 languageIndependent=True,
                 multiValued=True,
                 mutator='setNace',
+                accessor='getNace',
                 widget=VocabularyPickerWidget(
                     label="Sector (NACE Code)",
                     description="Pick one or more values by clicking the Add button or using the Quicksearch field below.",
@@ -252,6 +256,7 @@ class TaggingSchemaExtender(object):
                 languageIndependent=True,
                 multiValued=True,
                 mutator='setOsha_metadata',
+                accessor='getOsha_metadata',
                 # translation_mutator='setTranslationOsha_metadata',
                 widget=VocabularyPickerWidget(
                     label=_(u'OSHAMetadata_label', default=u"OSHA Metadata"),
@@ -269,6 +274,7 @@ class TaggingSchemaExtender(object):
                 languageIndependent=True,
                 default=False,
                 mutator='setIsNews',
+                accessor='getIsNews',
                 widget=BooleanWidget(
                     label="Mark as News",
                     description="Check to have this appear as News in the portlet.",
@@ -348,7 +354,8 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
     zope.component.adapts(IOSHContentCaseStudy)
 
     def __init__(self, context):
-        super(TaggingSchemaExtenderCaseStudy, self).__init__(context)
+        # (TaggingSchemaExtenderCaseStudy, self).__init__(context)
+        self.context = context
         _myfields= list()
         for f in self._fields:
             new_f = f.copy()
@@ -357,9 +364,16 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
             if new_f.getName() != 'subcategory':
                 _myfields.append(new_f)
         self._myfields = _myfields
+        # Case Study inherits from ATDocument. We might get a false positive, so check that the
+        # accessors are really there
+        initialized = True
+        fields = [field for field in _myfields if field.languageIndependent]
+        for field in fields:
+            if not getattr(context, field.accessor, None):
+                initialized = False
+                break
         klass = context.__class__
-        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
-            fields = [field for field in _myfields if field.languageIndependent]
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False) or not initialized:    
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
@@ -409,7 +423,8 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
     zope.component.adapts(IOSHContentRALink)
 
     def __init__(self, context):
-        super(TaggingSchemaExtenderRALink, self).__init__(context)
+        # super(TaggingSchemaExtenderRALink, self).__init__(context)
+        self.context = context
         _myfields= list()
         for f in self._fields:
             new_f = f.copy()
@@ -418,9 +433,16 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
             if new_f.getName() != 'subcategory':
                 _myfields.append(new_f)
         self._myfields = _myfields
+        # RA Link inherits from ATDocument. We might get a false positive, so check that the
+        # accessors are really there
+        initialized = True
+        fields = [field for field in _myfields if field.languageIndependent]
+        for field in fields:
+            if not getattr(context, field.accessor, None):
+                initialized = False
+                break
         klass = context.__class__
-        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
-            fields = [field for field in _myfields if field.languageIndependent]
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False) or not initialized:    
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
@@ -448,7 +470,7 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
             idx = default.index('description') + 1
             default.insert(idx, 'isNews')
         original['default'] = default
-
+ 
         default = original.get('default', [])
         if 'reindexTranslations' in default:
             default.remove('reindexTranslations')
@@ -491,7 +513,8 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
         ]
 
     def __init__(self, context):
-        super(TaggingSchemaExtenderEvent, self).__init__(context)
+        # super(TaggingSchemaExtenderEvent, self).__init__(context)
+        self.context = context
         _myfields= list()
         for f in self._fields:
             new_f = f.copy()
@@ -536,6 +559,7 @@ class PressReleaseExtender(object):
                 languageIndependent=True,
                 multiValued=True,
                 mutator='setOsha_metadata',
+                accessor='getOsha_metadata',
                 widget=VocabularyPickerWidget(
                     label=_(u'OSHAMetadata_label', default=u"OSHA Metadata"),
                     description=_(u'OSHAMetadata_description', default="Choose relevant metadata"),
@@ -550,6 +574,7 @@ class PressReleaseExtender(object):
                 relationship='referenced_content',
                 allowed_types=('Document', 'RichDocument'),
                 mutator='setReferenced_content',
+                accessor='getReferenced_content',
                 widget=ReferenceBrowserWidget(
                     label=u"Referenced content",
                     description=u"Select one or more content items. Their body text will be displayed as part of the press release",
@@ -566,6 +591,7 @@ class PressReleaseExtender(object):
                 languageIndependent=True,
                 default=False,
                 mutator='setIsNews',
+                accessor='getIsNews',
                 widget=BooleanWidget(
                     label="Mark as News",
                     description="Check to have this appear as News in the portlet.",
@@ -698,7 +724,8 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
 
 
     def __init__(self, context):
-        super(TaggingSchemaExtenderDocument, self).__init__(context)
+        # super(TaggingSchemaExtenderDocument, self).__init__(context)
+        self.context = context
         _myfields= list()
         for f in self._fields:
             if f.getName() not in ('country', 'multilingual_thesaurus', 'subcategory', 'isNews', 'nace'):
@@ -711,6 +738,7 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
             generateMethods(klass, fields)
             print "called generateMethods on ", klass, self.__class__.__name__
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
+
 
     def getFields(self):
         return self._myfields
