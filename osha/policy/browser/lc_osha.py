@@ -86,9 +86,10 @@ class CSVSectionRewriteView(BrowserView):
         if self.getObjectNeeded(elems):
             res = self.uid_cat(UID=link.get('object'))
             if len(res):
-                obj = res[0].getObject()
+                #obj = res[0].getObject()
+                portal_type = res[0].portal_type
                 # legislation
-                if obj.portal_type in ("Proposal", "Note", "Amendment", "Modification", "Modification"):
+                if portal_type in ("Proposal", "Note", "Amendment", "Directive", "Modification"):
                     section = ['legislation']
                 else:
                     section = ['gp_%s' % subj for subj in obj.Subject()]
@@ -110,7 +111,8 @@ class CSVSectionRewriteView(BrowserView):
                 section = ['news']
             elif elems[-1] in ('press', 'pressroom'):
                 section = ['press']
-        
+            else:
+                section = ['unspecified']
         
         return '|'.join(section)
     
