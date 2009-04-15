@@ -352,7 +352,7 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
     zope.component.adapts(IOSHContentCaseStudy)
 
     def __init__(self, context):
-        super(TaggingSchemaExtender, self).__init__(self, context)
+        super(TaggingSchemaExtenderCaseStudy, self).__init__(context)
         _myfields= list()
         for f in self._fields:
             new_f = f.copy()
@@ -413,7 +413,7 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
     zope.component.adapts(IOSHContentRALink)
 
     def __init__(self, context):
-        super(TaggingSchemaExtender, self).__init__(self, context)
+        super(TaggingSchemaExtenderRALink, self).__init__(context)
         _myfields= list()
         for f in self._fields:
             new_f = f.copy()
@@ -495,7 +495,7 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
         ]
 
     def __init__(self, context):
-        super(TaggingSchemaExtender, self).__init__(self, context)
+        super(TaggingSchemaExtenderEvent, self).__init__(context)
         _myfields= list()
         for f in self._fields:
             new_f = f.copy()
@@ -702,7 +702,7 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
 
 
     def __init__(self, context):
-        super(TaggingSchemaExtender, self).__init__(self, context)
+        super(TaggingSchemaExtenderDocument, self).__init__(context)
         _myfields= list()
         for f in self._fields:
             if f.getName() not in ('country', 'multilingual_thesaurus', 'subcategory', 'isNews', 'nace'):
