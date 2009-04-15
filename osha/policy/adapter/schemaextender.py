@@ -413,7 +413,7 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
         _myfields= list()
         for f in self._fields:
             new_f = f.copy()
-            if new_f.getName() in ('country', 'multilingual_thesaurus'):
+            if new_f.getName() in ('country',): 
                 new_f.required = True
             if new_f.getName() != 'subcategory':
                 _myfields.append(new_f)
