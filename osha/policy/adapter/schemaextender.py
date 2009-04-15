@@ -310,8 +310,6 @@ class TaggingSchemaExtender(object):
 
     def getOrder(self, original):
         """ getting order """
-
-
         default = original.get('default', [])
         if 'remoteLanguage' in default:
             idx = default.index('remoteLanguage') + 1
@@ -322,9 +320,8 @@ class TaggingSchemaExtender(object):
             new_default = default[:idx] + myfields + default[idx:]
             original['default'] = new_default
 
-
         default = original.get('default', [])
-        if 'isNews' in default:
+        if 'isNews' in default and 'description' in default:
             default.remove('isNews')
             idx = default.index('description') + 1
             default.insert(idx, 'isNews')
@@ -341,7 +338,6 @@ class TaggingSchemaExtender(object):
 
 #NOTE: These methods are called quite frequently, so it pays to optimise
 #them.
-
 zope.component.provideAdapter(TaggingSchemaExtender,
                               name=u"osha.metadata")
 

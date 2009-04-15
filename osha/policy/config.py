@@ -43,6 +43,7 @@ DEPENDENCIES = [
     'slc.alertservice',
     'slc.subsite',
     'slc.clicksearch',
+    'slc.seminarportal',
     'collective.portlet.feedmixer',
     'collective.portlet.tal',
     'plone.portlet.collection',
