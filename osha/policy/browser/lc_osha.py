@@ -218,7 +218,9 @@ class LinkcheckerOSHA(BrowserView):
             if not doc_uid:
                 print "continue, no doc_uid"
                 continue
-            docs = catalog(UID=doc_uid, Language='all')
+            docs = catalog(UID=doc_uid,
+                    Language='all',
+                    review_state='published')
             if not len(docs):continue
             valid_cnt += 1
             for doc in docs:
@@ -251,7 +253,9 @@ class LinkcheckerOSHA(BrowserView):
             if not doc_uid:
                 print "continue, no doc_uid for ", [link]
                 continue
-            docs = catalog(UID=doc_uid, Language='all')
+            docs = catalog(UID=doc_uid,
+                    Language='all',
+                    review_state='published')
             if not len(docs):
                 print "no docs for doc_uid ", doc_uid , " of link", [link]
             for doc in docs:
@@ -278,7 +282,11 @@ class LinkcheckerOSHA(BrowserView):
         
         links = lc.database.queryLinks(state=[state], sort_on="url")
         print "len links before", len(links)
-        filtered_res = catalog( Language='all', path=path_filter, multilingual_thesaurus=multilingual_thesaurus, subcategory=subcategory)
+        filtered_res = catalog( Language='all',
+                review_state='published',
+                path=path_filter,
+                multilingual_thesaurus=multilingual_thesaurus,
+                subcategory=subcategory)
         filtered_uids = [x.UID for x in filtered_res]
         links = [x for x in links if x.object in filtered_uids]
         print "len links after", len(links)
@@ -300,7 +308,9 @@ class LinkcheckerOSHA(BrowserView):
             doc_uid = link.object
             if not doc_uid:
                 continue
-            docs = catalog(UID=doc_uid, Language='all')
+            docs = catalog(UID=doc_uid,
+                    Language='all',
+                    review_state='published')
             if len(docs)==0: continue
             valid_cnt += 1
             for doc in docs:
