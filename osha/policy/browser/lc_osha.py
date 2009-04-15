@@ -92,14 +92,23 @@ class CSVSectionRewriteView(BrowserView):
                 if portal_type in ("Proposal", "Note", "Amendment", "Directive", "Modification"):
                     section = ['legislation']
                 else:
-                    section = ['gp_%s' % subj for subj in obj.Subject()]
+                    #obj = res[0].getObject()
+                    section = ['gp_%s' % subj for subj in res.Subject]
                     section.append('good_practice')
         else:
             if elems[-1] == 'fop':
                 fopname = len(elems)>1 and elems[-2] or 'MISSING'
                 section = ['fop_%s' % fopname]
-            elif elems[-1] in ('about', 'topics', 'sector', 'priority_groups', 'events',
-                'publications', 'organisations', 'statistics', 'legislation', 'riskobservatory'):
+             
+            elif elems[-1] in ('topics', 'sector', 'priority_groups'):
+                # subgroupings
+                if len(elems)>2: # make sure there are at least 2 dirs left
+                    section = ["%s_%s" % (elems[-1], elems[-2]) ]
+                else:
+                    section = [elems[-1]]
+
+            elif elems[-1] in ('about', 'events', 'publications', 'organisations', 'statistics', 'legislation', 'riskobservatory'):
+                # no subgroupings
                 section = [elems[-1]]
             elif len(elems)==1:
                 section = ['root']
