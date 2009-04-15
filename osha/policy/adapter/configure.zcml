@@ -1,5 +1,6 @@
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
            xmlns:five="http://namespaces.zope.org/five">
 
 
@@ -16,6 +17,7 @@
         factory=".at_field_defaults.DefaultForPublicationAuthor"
         />
 
+  <configure zcml:condition="installed slc.seminarportal">
     <adapter
         factory=".schemaextender.TaggingSchemaExtender" 
         for="slc.seminarportal.content.seminar.SPSeminar" 
@@ -35,6 +37,6 @@
         factory=".schemaextender.TaggingSchemaExtender" 
         for="slc.seminarportal.content.speechvenue.SPSpeechVenue" 
         name="oshatagged-spspeechvenue"/>
-
+  </configure>
 
 </configure>
