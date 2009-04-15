@@ -5,18 +5,22 @@ def retrieve(self):
   pc = self.portal_catalog
   link_checker = self.portal_linkchecker
   ST = []
-  langs = self.portal_languages.getSupportedLanguages()
-  #langs = ['sl', 'sk', 'sv']
-  path = "/osha/portal/fop/france"
-  #lpath = "/osha/portal/fop/france"
-  LOG("LCRetrieveByType", INFO, "Starting retrieval")
-  langs=["en"]
-  for lang in langs:
-    LOG("LCRetrieveByType", INFO, "> Language %s"%lang)
-    results = pc(Language='all',  path=path)
-    #results = pc(Language='all',  path=lpath%lang)
-    #results = pc(Language='all', portal_type=portal_type, path=lpath%lang)
-    LOG("LCRetrieveByType", INFO, "> %s results found"%len(results))
+  path = self.REQUEST.get('path', '/'.join(self.getPhysicalPath()))
+  langs = self.REQUEST.get('langs',
+          self.portal_languages.getSupportedLanguages())
+  if "%s" in path:
+      paths = [path%lang for lang in langs]
+  else:
+      paths = [path]
+
+  LOG("LCRetrieveByPath", INFO, "Starting retrieval")
+  LOG("LCRetrieveByPath", INFO, "Paths: %s" % str(paths))
+  LOG("LCRetrieveByPath", INFO, "Langs: %s" % str(langs))
+
+  for path in paths:
+    LOG("LCRetrieveByPath", INFO, "> Path %s"%path)
+    results = pc(Language=langs,  path=path)
+    LOG("LCRetrieveByPath", INFO, "> %s results found"%len(results))
     cnt = 0
     for result in results:
       try:
@@ -25,15 +29,14 @@ def retrieve(self):
         continue
       if not object: continue
       link_checker.retrieving.retrieveObject(object)
-      LOG("LCRetrieveByType", INFO, "> Retrieved %s"%result.getPath())
+      LOG("LCRetrieveByPath", INFO, "> Retrieved %s"%result.getPath())
       ST.append("retrieved %s" % result.getPath())
       cnt += 1
       if cnt%10==0:
         transaction.commit()
-        LOG("LCRetrieveByType", INFO, "Committing %s of %s" %(cnt, len(results)))
-        #transaction.savepoint()
+        LOG("LCRetrieveByPath", INFO, "Committing %s of %s" %(cnt, len(results)))
 
-  LOG("LCRetrieveByType", INFO, "Fertig")
+  LOG("LCRetrieveByPath", INFO, "Fertig")
   return "\n".join(ST)
 
 
