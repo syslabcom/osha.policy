@@ -150,11 +150,11 @@ class ReferencedContentField(ExtensionFieldMixin, ExtensionField, atapi.Referenc
 class NewsMarkerField(ExtensionFieldMixin, ExtensionField, atapi.BooleanField):
     """ marker field to have object appear in news portlet """
 
-# class EroTargetGroupField(ExtensionField, atapi.LinesField):
-#     """ target group for ERO """
-# 
-# class EroTopicField(ExtensionField, atapi.LinesField):
-#     """ topic for ERO """
+class EroTargetGroupField(ExtensionField, atapi.LinesField):
+    """ target group for ERO """
+
+class EroTopicField(ExtensionField, atapi.LinesField):
+    """ topic for ERO """
 
 class ReindexTranslationsField(ExtensionField, atapi.BooleanField):
     """ indicate whether translations should be reindexd upon saving """
