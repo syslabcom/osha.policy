@@ -643,72 +643,72 @@ zope.component.provideAdapter(PressReleaseExtender,
 # ERO
 ###############################################################################
 
-#
-#class IEROExtender(zope.interface.Interface):
-#    """ Marker for PressRoom's PressRelease """
-#
-#
-#zope.interface.classImplements(RichDocument, IEROExtender)
-#
-#
-#class TaggingSchemaExtenderERO(object):
-#    zope.interface.implements(IOrderableSchemaExtender)
-#    zope.component.adapts(IEROExtender)
-#
-#
-#    _fields = [
-#            CountryField('country',
-#                schemata='ERO',
-#                enforceVocabulary=False,
-#                languageIndependent=True,
-#                required=False,
-#                multiValued=True,
-#                widget=MultiCountryWidget(
-#                    label="Countries",
-#                    description='Select one or more countries appropriate for this content',
-#                    description_msgid='help_country',
-#                    provideNullValue=1,
-#                    nullValueTitle="Select...",
-#                    label_msgid='label_country',
-#                    i18n_domain='osha',
-#                ),
-#            ),
-#            EroTargetGroupField('ero_target_group',
-#                schemata='ERO',
-#                accessor='ero_target_group',
-#                enforceVocabulary=False,
-#                languageIndependent=True,
-#                required=False,
-#                multiValued=True,
-#                widget=KeywordWidget(
-#                    label=_(u'osha_ero_target_group_label', default=u'Target group'),
-#                    description=_(u'osha_ero_target_group_description', default=u'Specifies the Target group for use in the Risk observatory'),
-#                ),
-#            ),
-#            EroTopicField('ero_topic',
-#                schemata='ERO',
-#                accessor='ero_topic',
-#                enforceVocabulary=False,
-#                languageIndependent=True,
-#                required=False,
-#                multiValued=True,
-#                widget=KeywordWidget(
-#                    label=_(u'osha_ero_topic_label', default=u'Topic'),
-#                    description=_(u'osha_ero_topic_description', default=u'Specifies the Topic for use in the Risk observatory'),
-#                ),
-#            ),
-#        ]
-#
-#    def __init__(self, context):
-#        self.context = context
-#
-#    def getFields(self):
-#        return self._fields
-#
-#    def getOrder(self, original):
-#        """ getting order """
-#        return original
-#
+
+class IEROExtender(zope.interface.Interface):
+   """ Marker for PressRoom's PressRelease """
+
+
+zope.interface.classImplements(RichDocument, IEROExtender)
+
+
+class TaggingSchemaExtenderERO(object):
+   zope.interface.implements(IOrderableSchemaExtender)
+   zope.component.adapts(IEROExtender)
+
+
+   _fields = [
+           CountryField('country',
+               schemata='ERO',
+               enforceVocabulary=False,
+               languageIndependent=True,
+               required=False,
+               multiValued=True,
+               widget=MultiCountryWidget(
+                   label="Countries",
+                   description='Select one or more countries appropriate for this content',
+                   description_msgid='help_country',
+                   provideNullValue=1,
+                   nullValueTitle="Select...",
+                   label_msgid='label_country',
+                   i18n_domain='osha',
+               ),
+           ),
+           EroTargetGroupField('ero_target_group',
+               schemata='ERO',
+               accessor='ero_target_group',
+               enforceVocabulary=False,
+               languageIndependent=True,
+               required=False,
+               multiValued=True,
+               widget=KeywordWidget(
+                   label=_(u'osha_ero_target_group_label', default=u'Target group'),
+                   description=_(u'osha_ero_target_group_description', default=u'Specifies the Target group for use in the Risk observatory'),
+               ),
+           ),
+           EroTopicField('ero_topic',
+               schemata='ERO',
+               accessor='ero_topic',
+               enforceVocabulary=False,
+               languageIndependent=True,
+               required=False,
+               multiValued=True,
+               widget=KeywordWidget(
+                   label=_(u'osha_ero_topic_label', default=u'Topic'),
+                   description=_(u'osha_ero_topic_description', default=u'Specifies the Topic for use in the Risk observatory'),
+               ),
+           ),
+       ]
+
+   def __init__(self, context):
+       self.context = context
+
+   def getFields(self):
+       return self._fields
+
+   def getOrder(self, original):
+       """ getting order """
+       return original
+
 ## ERO schema extension is no longer set globally.
 ## We only want it on the ERO subsite. This is done via a locally registered adapter.
 ## For the mechanism, see five.localsitemanager.localsitemaqnager.txt
