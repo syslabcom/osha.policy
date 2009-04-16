@@ -8,6 +8,7 @@
 from Products.OSHATranslations import OSHAMessageFactory as _
 from Products.LinguaPlone.utils import generateMethods
 LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
+LANGUAGE_INDEPENDENT_INITIALIZED_ERO = '_languageIndependent_initialized_oshapolicy_ero'
 
 import zope.interface
 class IOSHContent(zope.interface.Interface):
@@ -645,20 +646,22 @@ zope.component.provideAdapter(PressReleaseExtender,
 
 
 class IEROExtender(zope.interface.Interface):
-   """ Marker for PressRoom's PressRelease """
+    """ Marker for ERO """
 
 
 zope.interface.classImplements(RichDocument, IEROExtender)
 
 
 class TaggingSchemaExtenderERO(object):
-   zope.interface.implements(IOrderableSchemaExtender)
-   zope.component.adapts(IEROExtender)
+    zope.interface.implements(IOrderableSchemaExtender)
+    zope.component.adapts(IEROExtender)
 
 
-   _fields = [
+    _fields = [
            CountryField('country',
                schemata='ERO',
+               mutator='setCountry',
+               accessor='getCountry',
                enforceVocabulary=False,
                languageIndependent=True,
                required=False,
@@ -675,7 +678,8 @@ class TaggingSchemaExtenderERO(object):
            ),
            EroTargetGroupField('ero_target_group',
                schemata='ERO',
-               accessor='ero_target_group',
+               mutator='setEro_target_group',
+               accessor='getEro_target_group',
                enforceVocabulary=False,
                languageIndependent=True,
                required=False,
@@ -687,7 +691,8 @@ class TaggingSchemaExtenderERO(object):
            ),
            EroTopicField('ero_topic',
                schemata='ERO',
-               accessor='ero_topic',
+               mutator='setEro_topic',
+               accessor='getEro_topic',
                enforceVocabulary=False,
                languageIndependent=True,
                required=False,
@@ -699,15 +704,21 @@ class TaggingSchemaExtenderERO(object):
            ),
        ]
 
-   def __init__(self, context):
-       self.context = context
+    def __init__(self, context):
+        self.context = context
+        klass = context.__class__
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, False):
+            fields = [field for field in self._fields if field.languageIndependent]
+            generateMethods(klass, fields)
+            print "called generateMethods (ERO) on ", klass, self.__class__.__name__
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, True)
 
-   def getFields(self):
-       return self._fields
+    def getFields(self):
+        return self._fields
 
-   def getOrder(self, original):
-       """ getting order """
-       return original
+    def getOrder(self, original):
+        """ getting order """
+        return original
 
 ## ERO schema extension is no longer set globally.
 ## We only want it on the ERO subsite. This is done via a locally registered adapter.
