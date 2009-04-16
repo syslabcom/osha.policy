@@ -6,7 +6,8 @@ def retrieve(self):
   link_checker = self.portal_linkchecker
   ST = []
   path = self.REQUEST.get('path', '/'.join(self.getPhysicalPath()))
-  langs = self.REQUEST.get('langs', 'all')
+  alllangs = self.portal_languages.getSupportedLanguages()
+  langs = self.REQUEST.get('langs', alllangs)
   print "path: %s" %path
   if "%s" in path:
       paths = [path%lang for lang in langs]
@@ -19,7 +20,7 @@ def retrieve(self):
 
   for path in paths:
     LOG("LCRetrieveByPath", INFO, "> Path %s"%path)
-    results = pc(Language=langs,  path=path)
+    results = pc(Language='all',  path=path)
     LOG("LCRetrieveByPath", INFO, "> %s results found"%len(results))
     cnt = 0
     for result in results:
