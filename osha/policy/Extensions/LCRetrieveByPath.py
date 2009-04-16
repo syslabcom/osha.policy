@@ -6,8 +6,8 @@ def retrieve(self):
   link_checker = self.portal_linkchecker
   ST = []
   path = self.REQUEST.get('path', '/'.join(self.getPhysicalPath()))
-  langs = self.REQUEST.get('langs',
-          self.portal_languages.getSupportedLanguages())
+  langs = self.REQUEST.get('langs', 'all')
+  print "path: %s" %path
   if "%s" in path:
       paths = [path%lang for lang in langs]
   else:
