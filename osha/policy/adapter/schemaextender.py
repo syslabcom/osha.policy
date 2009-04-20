@@ -151,11 +151,11 @@ class ReferencedContentField(ExtensionFieldMixin, ExtensionField, atapi.Referenc
 class NewsMarkerField(ExtensionFieldMixin, ExtensionField, atapi.BooleanField):
     """ marker field to have object appear in news portlet """
 
-class EroTargetGroupField(ExtensionField, atapi.LinesField):
-    """ target group for ERO """
-
-class EroTopicField(ExtensionField, atapi.LinesField):
-    """ topic for ERO """
+#class EroTargetGroupField(ExtensionField, atapi.LinesField):
+#    """ target group for ERO """
+#
+#class EroTopicField(ExtensionField, atapi.LinesField):
+#    """ topic for ERO """
 
 class ReindexTranslationsField(ExtensionField, atapi.BooleanField):
     """ indicate whether translations should be reindexd upon saving """
@@ -645,81 +645,81 @@ zope.component.provideAdapter(PressReleaseExtender,
 ###############################################################################
 
 
-class IEROExtender(zope.interface.Interface):
-    """ Marker for ERO """
-
-
-zope.interface.classImplements(RichDocument, IEROExtender)
-
-
-class TaggingSchemaExtenderERO(object):
-    zope.interface.implements(IOrderableSchemaExtender)
-    zope.component.adapts(IEROExtender)
-
-
-    _fields = [
-           CountryField('country',
-               schemata='ERO',
-               mutator='setCountry',
-               accessor='getCountry',
-               enforceVocabulary=False,
-               languageIndependent=True,
-               required=False,
-               multiValued=True,
-               widget=MultiCountryWidget(
-                   label="Countries",
-                   description='Select one or more countries appropriate for this content',
-                   description_msgid='help_country',
-                   provideNullValue=1,
-                   nullValueTitle="Select...",
-                   label_msgid='label_country',
-                   i18n_domain='osha',
-               ),
-           ),
-           EroTargetGroupField('ero_target_group',
-               schemata='ERO',
-               mutator='setEro_target_group',
-               accessor='ero_target_group',
-               enforceVocabulary=False,
-               languageIndependent=True,
-               required=False,
-               multiValued=True,
-               widget=KeywordWidget(
-                   label=_(u'osha_ero_target_group_label', default=u'Target group'),
-                   description=_(u'osha_ero_target_group_description', default=u'Specifies the Target group for use in the Risk observatory'),
-               ),
-           ),
-           EroTopicField('ero_topic',
-               schemata='ERO',
-               mutator='setEro_topic',
-               accessor='ero_topic',
-               enforceVocabulary=False,
-               languageIndependent=True,
-               required=False,
-               multiValued=True,
-               widget=KeywordWidget(
-                   label=_(u'osha_ero_topic_label', default=u'Topic'),
-                   description=_(u'osha_ero_topic_description', default=u'Specifies the Topic for use in the Risk observatory'),
-               ),
-           ),
-       ]
-
-    def __init__(self, context):
-        self.context = context
-        klass = context.__class__
-        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, False):
-            fields = [field for field in self._fields if field.languageIndependent]
-            generateMethods(klass, fields)
-            print "called generateMethods (ERO) on ", klass, self.__class__.__name__
-            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, True)
-
-    def getFields(self):
-        return self._fields
-
-    def getOrder(self, original):
-        """ getting order """
-        return original
-
+#class IEROExtender(zope.interface.Interface):
+#    """ Marker for ERO """
+#
+#
+#zope.interface.classImplements(RichDocument, IEROExtender)
+#
+#
+#class TaggingSchemaExtenderERO(object):
+#    zope.interface.implements(IOrderableSchemaExtender)
+#    zope.component.adapts(IEROExtender)
+#
+#
+#    _fields = [
+#           CountryField('country',
+#               schemata='ERO',
+#               mutator='setCountry',
+#               accessor='getCountry',
+#               enforceVocabulary=False,
+#               languageIndependent=True,
+#               required=False,
+#               multiValued=True,
+#               widget=MultiCountryWidget(
+#                   label="Countries",
+#                   description='Select one or more countries appropriate for this content',
+#                   description_msgid='help_country',
+#                   provideNullValue=1,
+#                   nullValueTitle="Select...",
+#                   label_msgid='label_country',
+#                   i18n_domain='osha',
+#               ),
+#           ),
+#           EroTargetGroupField('ero_target_group',
+#               schemata='ERO',
+#               mutator='setEro_target_group',
+#               accessor='ero_target_group',
+#               enforceVocabulary=False,
+#               languageIndependent=True,
+#               required=False,
+#               multiValued=True,
+#               widget=KeywordWidget(
+#                   label=_(u'osha_ero_target_group_label', default=u'Target group'),
+#                   description=_(u'osha_ero_target_group_description', default=u'Specifies the Target group for use in the Risk observatory'),
+#               ),
+#           ),
+#           EroTopicField('ero_topic',
+#               schemata='ERO',
+#               mutator='setEro_topic',
+#               accessor='ero_topic',
+#               enforceVocabulary=False,
+#               languageIndependent=True,
+#               required=False,
+#               multiValued=True,
+#               widget=KeywordWidget(
+#                   label=_(u'osha_ero_topic_label', default=u'Topic'),
+#                   description=_(u'osha_ero_topic_description', default=u'Specifies the Topic for use in the Risk observatory'),
+#               ),
+#           ),
+#       ]
+#
+#    def __init__(self, context):
+#        self.context = context
+#        klass = context.__class__
+#        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, False):
+#            fields = [field for field in self._fields if field.languageIndependent]
+#            generateMethods(klass, fields)
+#            print "called generateMethods (ERO) on ", klass, self.__class__.__name__
+#            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, True)
+#
+#    def getFields(self):
+#        return self._fields
+#
+#    def getOrder(self, original):
+#        """ getting order """
+#        return original
+#
 ## ERO schema extension is no longer set globally.
 ## We only want it on the ERO subsite. This is done via a locally registered adapter.
 ## For the mechanism, see five.localsitemanager.localsitemaqnager.txt
