@@ -17,7 +17,7 @@
         factory=".at_field_defaults.DefaultForPublicationAuthor"
         />
 
-  <configure zcml:condition="installed slc.seminarportal">
+    <!-- <configure zcml:condition="installed slc.seminarportal">
     <adapter
         factory=".schemaextender.TaggingSchemaExtender" 
         for="slc.seminarportal.content.speaker.SPSpeaker" 
@@ -28,5 +28,6 @@
         for="slc.seminarportal.content.speechvenue.SPSpeechVenue" 
         name="oshatagged-spspeechvenue"/>
   </configure>
+  -->
 
 </configure>
