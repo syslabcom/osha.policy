@@ -20,18 +20,8 @@
   <configure zcml:condition="installed slc.seminarportal">
     <adapter
         factory=".schemaextender.TaggingSchemaExtender" 
-        for="slc.seminarportal.content.seminar.SPSeminar" 
-        name="oshatagged-spseminar"/>
-
-    <adapter
-        factory=".schemaextender.TaggingSchemaExtender" 
         for="slc.seminarportal.content.speaker.SPSpeaker" 
         name="oshatagged-spspeaker"/>
-
-    <adapter
-        factory=".schemaextender.TaggingSchemaExtender" 
-        for="slc.seminarportal.content.speech.SPSpeech" 
-        name="oshatagged-spspeech"/>
 
     <adapter
         factory=".schemaextender.TaggingSchemaExtender" 
