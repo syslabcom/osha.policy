@@ -1,7 +1,13 @@
 from gocept.linkchecker import link, utils
+import gocept.linkchecker.interfaces
+import gocept.linkchecker.utils
+
 
 import zLOG
 from Products.CMFCore.utils import getToolByName
+from urlparse import urlparse, urlunparse, urljoin
+
+zLOG.LOG('gocept.linkchecker', zLOG.INFO, 'Patching Linkchecker')
 
 def getURL(self):         
     """Return the URL object this link refers to."""        
@@ -31,7 +37,7 @@ def resolveRelativeLink(url, context):
     """Normalizes a URL according to RfC 2396 and throws away the fragment
     component, if any.
     """
-    url_ = urlrecord(url)
+    url_ = utils.urlrecord(url)
 
     if url_.scheme:
         # Url has a protocol specified, e.g. HTTP, so we need not complete it.
@@ -59,14 +65,14 @@ def resolveRelativeLink(url, context):
             url = './' + url
 
         url = urljoin(prefix, url)
-        url_ = urlrecord(url)
+        url_ = utils.urlrecord(url)
 
     url_.scheme = url_.scheme.lower()
     url_.netloc = url_.netloc.lower()
 
     if ':' in url_.netloc:
         hostname, port = url_.netloc.split(':')
-        if port == str(inet_services.get(url_.scheme)):
+        if port == str(utils.inet_services.get(url_.scheme)):
             url_.netloc = hostname
 
     if not url_.path:
@@ -78,7 +84,7 @@ def resolveRelativeLink(url, context):
     return new_url
 
         
-link.getURL = getURL
-link.index = index        
+link.Link.getURL = getURL
+link.Link.index = index        
 utils.resolveRelativeLink = resolveRelativeLink
 
