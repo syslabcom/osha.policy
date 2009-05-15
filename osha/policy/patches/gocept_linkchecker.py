@@ -50,7 +50,10 @@ def resolveRelativeLink(url, context):
     else:
         # We only have a path. We join it with the configured prefix (or use the
         # request if nothing was specified).
-        lc = getToolByName(context, "portal_linkchecker")
+        try:
+            lc = getToolByName(context, "portal_linkchecker")
+        except Exception, e:
+            return ''
         prefix = lc.database.defaultURLPrefix or context.REQUEST.BASE0
         if prefix.endswith('/'):
             prefix = prefix[:-1]
