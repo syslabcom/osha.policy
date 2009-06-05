@@ -1,4 +1,6 @@
 .svnignore
+CHANGES.txt
+CONTRIBUTORS.txt
 README.txt
 setup.cfg
 setup.py
@@ -16,6 +18,7 @@ osha.policy.egg-info/not-zip-safe
 osha.policy.egg-info/paster_plugins.txt
 osha.policy.egg-info/requires.txt
 osha.policy.egg-info/top_level.txt
+osha/policy/README.txt
 osha/policy/__init__.py
 osha/policy/config.py
 osha/policy/configure.zcml
