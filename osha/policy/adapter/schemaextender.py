@@ -7,6 +7,8 @@
 
 from Products.OSHATranslations import OSHAMessageFactory as _
 from Products.LinguaPlone.utils import generateMethods
+from zLOG import LOG, INFO
+MODULE = 'osha.policy.schemaextender'
 LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
 LANGUAGE_INDEPENDENT_INITIALIZED_ERO = '_languageIndependent_initialized_oshapolicy_ero'
 
@@ -309,7 +311,7 @@ class TaggingSchemaExtender(object):
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in _myfields if field.languageIndependent]
             generateMethods(klass, fields)
-            print "called generateMethods on ", klass, self.__class__.__name__
+            LOG(MODULE, INFO, "called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
@@ -376,7 +378,7 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
         klass = context.__class__
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False) or not initialized:    
             generateMethods(klass, fields)
-            print "called generateMethods on ", klass, self.__class__.__name__
+            LOG(MODULE, INFO, "called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
@@ -445,7 +447,7 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
         klass = context.__class__
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False) or not initialized:    
             generateMethods(klass, fields)
-            print "called generateMethods on ", klass, self.__class__.__name__
+            LOG(MODULE, INFO, "called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
@@ -528,7 +530,7 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in _myfields if field.languageIndependent]
             generateMethods(klass, fields)
-            print "called generateMethods on ", klass, self.__class__.__name__
+            LOG(MODULE, INFO, "called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
 
@@ -620,7 +622,7 @@ class PressReleaseExtender(object):
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in self._fields if field.languageIndependent]
             generateMethods(klass, fields)
-            print "called generateMethods on ", klass, self.__class__.__name__,
+            LOG(MODULE, INFO, "called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getFields(self):
@@ -710,7 +712,7 @@ zope.component.provideAdapter(PressReleaseExtender,
 #        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, False):
 #            fields = [field for field in self._fields if field.languageIndependent]
 #            generateMethods(klass, fields)
-#            print "called generateMethods (ERO) on ", klass, self.__class__.__name__
+#            LOG(MODULE, INFO, "called generateMethods (ERO) on %s (%s) " % (klass, self.__class__.__name__))
 #            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, True)
 #
 #    def getFields(self):
@@ -747,7 +749,7 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in _myfields if field.languageIndependent]
             generateMethods(klass, fields)
-            print "called generateMethods on ", klass, self.__class__.__name__
+            LOG(MODULE, INFO, "called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
 
