@@ -59,7 +59,7 @@ DEPENDENCIES = [
     'DataGridField',
     'TextIndexNG3',
     'UserAndGroupSelectionWidget',
-    'simplon.plone.ldap',
+    'plone.app.ldap',
     'plone.app.blob',
     'syslabcom.filter',
     'plone.app.imaging',
