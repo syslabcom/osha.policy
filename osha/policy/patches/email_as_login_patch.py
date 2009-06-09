@@ -1,7 +1,10 @@
 from Products.CMFPlone.MembershipTool import MembershipTool
 from Products.CMFPlone.RegistrationTool import RegistrationTool
 from Products.PasswordResetTool.PasswordResetTool import PasswordResetTool
-from plone.app.ldap.ploneldap.util import getLDAPPlugin
+try:
+    from plone.app.ldap.ploneldap.util import getLDAPPlugin
+except:
+    from simplon.plone.ldap.ploneldap.util import getLDAPPlugin
 from Products.CMFCore.utils import getToolByName
 
 def testCurrentPassword(self, password):
