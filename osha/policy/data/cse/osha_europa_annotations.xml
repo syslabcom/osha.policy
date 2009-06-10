@@ -19,19 +19,23 @@
     </Annotation>
     <Annotation about="osha.europa.eu/*index_ralink">
         <Label name="_cse_exclude_c1c8w5hnuam" />
-        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*index_ralink" />
     </Annotation>
     <Annotation about="osha.europa.eu/*index_casestudy">
         <Label name="_cse_exclude_c1c8w5hnuam" />
-        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*index_casestudy" />
     </Annotation>
     <Annotation about="osha.europa.eu/*index_provider">
         <Label name="_cse_exclude_c1c8w5hnuam" />
-        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*index_provider" />
     </Annotation>
     <Annotation about="osha.europa.eu/*oshtopic-view">
         <Label name="_cse_exclude_c1c8w5hnuam" />
-        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*oshtopic-view" />
+    </Annotation>
+    <Annotation about="osha.europa.eu/*index_topic">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*index_topic" />
     </Annotation>
     
     <!-- Press -->
