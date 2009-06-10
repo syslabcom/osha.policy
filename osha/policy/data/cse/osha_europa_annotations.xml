@@ -13,6 +13,26 @@
         <Label name="_cse_exclude_c1c8w5hnuam" />
         <AdditionalData attribute="original_url" value="http://osha.europa.eu/sub/*" />
     </Annotation>
+    <Annotation about="osha.europa.eu/*index_oshlink">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+    </Annotation>
+    <Annotation about="osha.europa.eu/*index_ralink">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+    </Annotation>
+    <Annotation about="osha.europa.eu/*index_casestudy">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+    </Annotation>
+    <Annotation about="osha.europa.eu/*index_provider">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+    </Annotation>
+    <Annotation about="osha.europa.eu/*oshtopic-view">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
+    </Annotation>
     
     <!-- Press -->
     <Annotation about="osha.europa.eu/*/press/*">
