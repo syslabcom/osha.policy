@@ -41,7 +41,7 @@ ztc.installProduct('UserAndGroupSelectionWidget')
 ztc.installProduct('simplon.plone.ldap')
 ztc.installProduct('ProxyIndex')
 ztc.installProduct('ZCatalog')
-
+ztc.installProduct('Relations')
 
 @onsetup
 def setup_osha_policy():
@@ -56,7 +56,9 @@ def setup_osha_policy():
     
     fiveconfigure.debug_mode = True
     import osha.policy
+    import slc.seminarportal
     zcml.load_config('configure.zcml', osha.policy)
+    zcml.load_config('configure.zcml', slc.seminarportal)
     fiveconfigure.debug_mode = False
     
     # We need to tell the testing framework that these products
@@ -65,6 +67,8 @@ def setup_osha_policy():
        
     ztc.installPackage('osha.theme')
     ztc.installPackage('osha.policy')
+    ztc.installPackage('slc.seminarportal')
+    ztc.installPackage('osha.legislation')
     
 # The order here is important: We first call the (deferred) function which
 # installs the products we need for the Optilux package. Then, we let 
