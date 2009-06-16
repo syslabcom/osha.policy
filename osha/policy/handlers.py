@@ -34,7 +34,6 @@ def handle_objectModified(object, event):
     try:
         isCanonical = object.isCanonical()
     except Exception, err:
-        print "Could not call isCanonical: %s" %err
         return
     if not isCanonical:
         return
