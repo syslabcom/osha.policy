@@ -1,6 +1,15 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.2 (2009-06-17)
+------------------------------
+
+- Code cleanup, removed prints (gerken)
+
+- Fixed & enhanced testing (gerken)
+
+- Made schema-extender classes respect the browser-layer (thomasw)
+
 osha.policy 1.2.1 (2009-06-10)
 ------------------------------
 
