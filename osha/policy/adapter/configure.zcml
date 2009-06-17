@@ -10,6 +10,33 @@
         factory=".singleentrypoint.SingleEntryPoint"
         />
 
+    <adapter
+        factory=".schemaextender.TaggingSchemaExtender" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+
+    <adapter
+        factory=".schemaextender.TaggingSchemaExtenderCaseStudy" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+ 
+    <adapter
+        factory=".schemaextender.TaggingSchemaExtenderRALink" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+
+    <adapter
+        factory=".schemaextender.TaggingSchemaExtenderProvider" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+
+    <adapter
+        factory=".schemaextender.TaggingSchemaExtenderEvent" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+
+    <adapter
+        factory=".schemaextender.TaggingSchemaExtenderDocument" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+
+    <adapter
+        factory=".schemaextender.PressReleaseExtender" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
 
     <adapter
         for="slc.publications.interfaces.IPublicationEnhanced"
@@ -20,12 +47,14 @@
     <configure zcml:condition="installed slc.seminarportal">
     <adapter
         factory=".schemaextender.TaggingSchemaExtender" 
-        for="slc.seminarportal.content.speaker.SPSpeaker" 
+        for="slc.seminarportal.content.speaker.SPSpeaker"
+		provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         name="oshatagged-spspeaker"/>
 
     <adapter
         factory=".schemaextender.TaggingSchemaExtender" 
-        for="slc.seminarportal.content.speechvenue.SPSpeechVenue" 
+        for="slc.seminarportal.content.speechvenue.SPSpeechVenue"
+		provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         name="oshatagged-spspeechvenue"/>
   </configure>
 

@@ -13,6 +13,10 @@ LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
 LANGUAGE_INDEPENDENT_INITIALIZED_ERO = '_languageIndependent_initialized_oshapolicy_ero'
 
 import zope.interface
+import zope.component
+from archetypes.schemaextender.interfaces import IOrderableSchemaExtender, IBrowserLayerAwareExtender
+from osha.policy.interfaces import IOSHACommentsLayer
+
 class IOSHContent(zope.interface.Interface):
     """OSHContent
     """
@@ -168,19 +172,12 @@ description_reindexTranslations = u"Check this box to have all translated versio
                             u"a delay in the time it takes to save."
 
 
-import zope.component
-from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
+
 
 class TaggingSchemaExtender(object):
-    zope.interface.implements(IOrderableSchemaExtender)
     zope.component.adapts(IOSHContent)
-
-    # currently (linguaPlone 2.2 unreleased) it is not possible to have langaugeIndependent fields
-    # at least not within the schema extender
-    # translating an object will lead to
-    #      Module Products.LinguaPlone.browser.translate, line 61, in __call__
-    #      Module Products.LinguaPlone.I18NBaseObject, line 145, in addTranslation
-    #      AttributeError: translation_mutator
+    zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
+    layer = IOSHACommentsLayer
 
 
     _fields = [
@@ -345,16 +342,12 @@ class TaggingSchemaExtender(object):
 
         return original
 
-#NOTE: These methods are called quite frequently, so it pays to optimise
-#them.
-zope.component.provideAdapter(TaggingSchemaExtender,
-                              name=u"osha.metadata")
-
 
 # CaseStudy
 class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
-    zope.interface.implements(IOrderableSchemaExtender)
+    zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     zope.component.adapts(IOSHContentCaseStudy)
+    layer = IOSHACommentsLayer
 
     def __init__(self, context):
         # (TaggingSchemaExtenderCaseStudy, self).__init__(context)
@@ -416,14 +409,12 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
 
         return original
 
-zope.component.provideAdapter(TaggingSchemaExtenderCaseStudy,
-                              name=u"osha.metadata.casestudy")
-
 
 # RALink
 class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
-    zope.interface.implements(IOrderableSchemaExtender)
+    zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     zope.component.adapts(IOSHContentRALink)
+    layer = IOSHACommentsLayer
 
     def __init__(self, context):
         # super(TaggingSchemaExtenderRALink, self).__init__(context)
@@ -483,26 +474,22 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
 
         return original
 
-zope.component.provideAdapter(TaggingSchemaExtenderRALink,
-                              name=u"osha.metadata.ralink")
 
 
 # Provider
 class TaggingSchemaExtenderProvider(TaggingSchemaExtender):
-    zope.interface.implements(IOrderableSchemaExtender)
+    zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     zope.component.adapts(IOSHContentProvider)
+    layer = IOSHACommentsLayer
 
     def getOrder(self, original):
         return original
 
-zope.component.provideAdapter(TaggingSchemaExtenderProvider,
-                              name=u"osha.metadata.provider")
-
-
 # Event
 class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
-    zope.interface.implements(IOrderableSchemaExtender)
+    zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     zope.component.adapts(IOSHContentEvent)
+    layer = IOSHACommentsLayer
 
     _localFields = [
             AttachmentField('attachment',
@@ -537,8 +524,6 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
     def getFields(self):
         return self._myfields
 
-zope.component.provideAdapter(TaggingSchemaExtenderEvent,
-                              name=u"osha.metadata.event")
 
 ###############################################################################
 # Press Release
@@ -552,8 +537,9 @@ zope.interface.classImplements(PressRelease, IPressReleaseExtender)
 
 
 class PressReleaseExtender(object):
-    zope.interface.implements(IOrderableSchemaExtender)
+    zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     zope.component.adapts(IPressReleaseExtender)
+    layer = IOSHACommentsLayer
 
     _fields = [
             OSHAMetadataField('osha_metadata',
@@ -639,8 +625,7 @@ class PressReleaseExtender(object):
 
         return original
 
-zope.component.provideAdapter(PressReleaseExtender,
-                              name=u"osha.metadata.pressrelease")
+
 
 ###############################################################################
 # ERO
@@ -732,8 +717,9 @@ zope.component.provideAdapter(PressReleaseExtender,
 
 # Document
 class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
-    zope.interface.implements(IOrderableSchemaExtender)
+    zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     zope.component.adapts(IOSHContentDocument)
+    layer = IOSHACommentsLayer
 
 
     def __init__(self, context):
@@ -755,6 +741,3 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
 
     def getFields(self):
         return self._myfields
-
-zope.component.provideAdapter(TaggingSchemaExtenderDocument,
-                              name=u"osha.metadata.document")
