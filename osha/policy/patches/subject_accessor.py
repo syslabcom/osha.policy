@@ -33,14 +33,14 @@ def Subject(self):
 
 
 
-OSH_Link._old_subject = getSubject
+OSH_Link._old_subject = OSH_Link.Subject
 OSH_Link.getSubject = getSubject
 OSH_Link.Subject = Subject
 
 #RALink.getSubject = getSubject
 #RALink.Subject = Subject
 
-Provider._old_subject = getSubject
+Provider._old_subject = Provider.Subject
 Provider.getSubject = getSubject
 Provider.Subject = Subject
 
