@@ -25,6 +25,7 @@ class OSHAPolicyLayer(SiteLayer):
 
         ztc.installPackage('slc.seminarportal')
         ztc.installPackage('osha.legislation')
+        ztc.installPackage('slc.alertservice')
 
         SiteLayer.setUp()
 
