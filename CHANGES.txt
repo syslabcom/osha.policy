@@ -1,6 +1,12 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.4 (unreleased)
+------------------------------
+
+- added notifyMemberAreaCreated from former SEPStructure (pilz)
+
+
 osha.policy 1.2.3 (2009-06-19)
 ------------------------------
 
