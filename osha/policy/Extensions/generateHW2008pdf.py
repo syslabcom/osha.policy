@@ -41,16 +41,15 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
     my_canvas.setSubject('Charter of the Healthy Workplaces campaign')
 
     # register the font for writing company, name and actions
-    arial =  INSTANCE_HOME + '/Products/OSHA/data/arial.ttf'
-    arial =  INSTANCE_HOME + '/../../src/osha.policy/osha/policy/data/arial.ttf'
+    arial =  INSTANCE_HOME + '/../../data/arial.ttf'
     pdfmetrics.registerFont( TTFont('Arial', arial) )
-    arial_bold =  INSTANCE_HOME + '/../../src/osha.policy/osha/policy/data/arialbd.ttf'
+    arial_bold =  INSTANCE_HOME + '/../../data/arialbd.ttf'
     pdfmetrics.registerFont( TTFont('ArialBold', arial_bold) )
-    arial_italic =  INSTANCE_HOME + '/../../src/osha.policy/osha/policy/data/ariali.ttf'
+    arial_italic =  INSTANCE_HOME + '/../../data/ariali.ttf'
     pdfmetrics.registerFont( TTFont('ArialItalic', arial_italic) )
-    arial_bi =  INSTANCE_HOME + '/../../src/osha.policy/osha/policy/data/arialbi.ttf'
+    arial_bi =  INSTANCE_HOME + '/../../data/arialbi.ttf'
     pdfmetrics.registerFont( TTFont('ArialBoldItalic', arial_bi) )
-    arial_nb =  INSTANCE_HOME + '/../../src/osha.policy/osha/policy/data/arialnb.ttf'
+    arial_nb =  INSTANCE_HOME + '/../../data/arialnb.ttf'
     pdfmetrics.registerFont( TTFont('ArialNarrowBold', arial_nb) )
 
     # get the frontimage and write it to the canvas
