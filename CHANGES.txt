@@ -1,6 +1,12 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.6 (unreleased)
+------------------------------
+
+- enhanced Collage (OSHMail) generating script. Teasers, news, events, press releases
+  and publications are automatically filled in (thomasw)
+
 osha.policy 1.2.5 (2009-06-30)
 ------------------------------
 
