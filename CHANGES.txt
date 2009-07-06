@@ -1,6 +1,11 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.7 (iunreleased)
+------------------------------
+
+- modified FCKEditor patch, so that Images can be found via "Browse server" again (thomasw)
+
 osha.policy 1.2.6 (1009-07-03)
 ------------------------------
 

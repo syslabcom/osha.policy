@@ -1,9 +1,10 @@
 from Products.CMFCore.utils import getToolByName
 from Products.FCKeditor import utils as FCKutils
 
-# The original method is not passing the param portalTypes=True to the
-# archetype_tool. This leads to problems with ATBlob. Its portal_type is
-# File, but w/o the param, the tool returns Blob.
+# reason for this patch:
+# ATBlob's portal_type (as File replacement) is NOT File, but Blob. This needs to be changed to File
+# in listTypesForInterface, because the type is also registered as File
+# But we CANNOT pass portalTypes=True, because that would exclude Image (ATImage)
 
 def listTypesForInterface(portal, interface):
     """
@@ -19,10 +20,15 @@ def listTypesForInterface(portal, interface):
 
     # all_types = [{'name': xx, 'package': xx, 'portal_type': xx, 'module': xx,
     #               'meta_type': xx, 'klass': xx, ...
-    all_types = archetype_tool.listRegisteredTypes(inProject=True, portalTypes=True)
+    all_types = archetype_tool.listRegisteredTypes(inProject=True, portalTypes=False)
     # Keep the ones that are file like
     all_types = [tipe['portal_type'] for tipe in all_types
                  if interface.isImplementedByInstancesOf(tipe['klass'])]
+
+    # XXX fix for Blob, which is actually a File:
+    if 'Blob' in all_types:
+        all_types[all_types.index('Blob')] = 'File'
+
     # Keep allowed ones
     # removed some types can be allowed in some context
     # all_types = [tipe for tipe in all_types
@@ -31,4 +37,3 @@ def listTypesForInterface(portal, interface):
 
 
 FCKutils.listTypesForInterface = listTypesForInterface
-
