@@ -20,7 +20,11 @@ class ProviderHelper(BrowserView):
         res = pc(UID = pUIDs)
         providers = list()
         for r in res:
-            provider = r.getObject()
+            try:
+                # cover for catalog inconsistencies
+                provider = r.getObject()
+            except:
+                continue
             if sm.checkPermission('View', provider):
                 providers.append(provider)
 
