@@ -48,7 +48,7 @@ def portal_path(self):
     url_tool = self.portal_url
     return '/'.join(url_tool.getPortalObject().getPhysicalPath() + ('',))
 
-def createOshMail(self, id="", title="", formname="", year='', month='', day=''):
+def createOshMail(self, id="", title="", formname="", year='', month='', day='', nocontent=False):
     pc = self.portal_catalog
 
     if not id:
@@ -161,82 +161,86 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='')
     ## END Framework
 
     ## Begin Content
-    now = DateTime()
-    try:
-        valid_from = DateTime('%s/%s/%s' %(year, month, day))
-    except:
-        valid_from = now-30
+    
+    if not nocontent:
+        now = DateTime()
+        try:
+            valid_from = DateTime('%s/%s/%s' %(year, month, day))
+        except:
+            valid_from = now-30
 
     
-    # teasers
-    query = {'path': {'query': ['/osha/portal/en/teaser'], 'depth': 1}, 
-        'sort_on': 'effective', 'portal_type': 'News Item',
-        'effective': {'query': now, 'range': 'max'},
-        'expires': {'query': now, 'range': 'min'},
-        'Language': ('en', ''),
-        'sort_limit': 5}
-    teasers = pc(query)
-    for ob in teasers[:5]:
-        alias = insertAlias(col1_1, ob.UID)
+        # teasers
+        query = {'path': {'query': ['/osha/portal/en/teaser'], 'depth': 1}, 
+            'sort_on': 'effective', 'portal_type': 'News Item',
+            'effective': {'query': now, 'range': 'max'},
+            'expires': {'query': now, 'range': 'min'},
+            'Language': ('en', ''),
+            'sort_limit': 5}
+        teasers = pc(query)
+        for ob in teasers[:5]:
+            alias = insertAlias(col1_1, ob.UID)
     
-    # news
-    query = {'sort_on': 'effective',
-        'effective': {'query': valid_from, 'range': 'min'}, 
-        'expires': {'query': now, 'range': 'min'},  
-        'path': {'query': '/osha/portal/en/news', 'depth': 1}, 
-        'review_state': 'published', 
-        'portal_type': ('News Item',),
-        'sort_limit': 12}
-    news = pc(query)
-    for ob in news[:12]:
-        alias = insertAlias(col1_2, ob.UID)
-        manager = IDynamicViewManager(alias)
-        manager.setLayout('right_column')
+        # news
+        query = {'sort_on': 'effective',
+            'effective': {'query': valid_from, 'range': 'min'}, 
+            'expires': {'query': now, 'range': 'min'},  
+            'path': {'query': '/osha/portal/en/news', 'depth': 1}, 
+            'review_state': 'published', 
+            'portal_type': ('News Item',),
+            'sort_limit': 12}
+        news = pc(query)
+        for ob in news[:12]:
+            alias = insertAlias(col1_2, ob.UID)
+            manager = IDynamicViewManager(alias)
+            manager.setLayout('right_column')
         
     
-    # events
+        # events
 
-    query = dict(portal_type=['Event','SPSeminar'],
-                       review_state='published',
-                       path=dict(query='/osha/portal/en', depth=-1),
-                       end={'query': now, 'range': 'min'},
-                       sort_on='start',
-                       Language=['', 'en'],
-                       sort_limit=12)
-    events = pc(query)
-    for ob in events[:12]:
-        alias = insertAlias(col2_2, ob.UID)
+        query = dict(portal_type=['Event','SPSeminar'],
+                           review_state='published',
+                           path=dict(query='/osha/portal/en', depth=-1),
+                           end={'query': now, 'range': 'min'},
+                           sort_on='start',
+                           Language=['', 'en'],
+                           sort_limit=12)
+        events = pc(query)
+        for ob in events[:12]:
+            alias = insertAlias(col2_2, ob.UID)
 
-    # press releases
+        # press releases
 
-    query = dict(portal_type='PressRelease',
-                       review_state='published',
-                       path=dict(query='/osha/portal/en/press', depth=-1),
-                       sort_on='effective',
-                       Language=['', 'en'],
-                       created=dict(query=(valid_from, now), range='min:max'),
-                       sort_limit=5)
-    pressreleases = pc(query)
-    for ob in pressreleases[:5]:
-        alias = insertAlias(col4_1, ob.UID)
-        manager = IDynamicViewManager(alias)
-        manager.setLayout('right_column')     
+        query = dict(portal_type='PressRelease',
+                           review_state='published',
+                           path=dict(query='/osha/portal/en/press', depth=-1),
+                           sort_on='effective',
+                           Language=['', 'en'],
+                           created=dict(query=(valid_from, now), range='min:max'),
+                           sort_limit=5)
+        pressreleases = pc(query)
+        for ob in pressreleases[:5]:
+            alias = insertAlias(col4_1, ob.UID)
+            manager = IDynamicViewManager(alias)
+            manager.setLayout('right_column')     
 
-    # publications
+        # publications
 
-    query = dict(object_provides='slc.publications.interfaces.IPublicationEnhanced',
-                       review_state='published',
-                       path=dict(query='/osha/portal/en/publications', depth=-1),
-                       sort_on='effective',
-                       Language=['', 'en'],
-                       created=dict(query=(valid_from, now), range='min:max'),
-                       sort_limit=5)
-    publications = pc(query)
-    for ob in publications[:5]:
-        alias = insertAlias(col5_1, ob.UID)
-
+        query = dict(object_provides='slc.publications.interfaces.IPublicationEnhanced',
+                           review_state='published',
+                           path=dict(query='/osha/portal/en/publications', depth=-1),
+                           sort_on='effective',
+                           Language=['', 'en'],
+                           created=dict(query=(valid_from, now), range='min:max'),
+                           sort_limit=5)
+        publications = pc(query)
+        for ob in publications[:5]:
+            alias = insertAlias(col5_1, ob.UID)
+        
+        msg = "Collage template including content was successfully created"
+    else:
+        msg = "Collage template was successfully created"
 
     om.reindexObject()
-    msg = "Collage template was successfully created"
     self.plone_utils.addPortalMessage(msg)
     return self.REQUEST.RESPONSE.redirect(om.absolute_url())

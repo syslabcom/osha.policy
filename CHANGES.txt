@@ -7,6 +7,7 @@ osha.policy 1.2.8 (unreleased)
 
 - made a getObject in ProviderHelper robust to not quit on catalog inconsistency (pilz)
 - patching Press Release: Date() now returns storydate (==release date) (thomasw)
+- createOSHMail: fixed queries for news&events, made inserting content optional (thomasw)
 
 osha.policy 1.2.7 (2009-07-12)
 ------------------------------
