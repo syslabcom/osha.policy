@@ -170,24 +170,25 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='')
     
     # teasers
     query = {'path': {'query': ['/osha/portal/en/teaser'], 'depth': 1}, 
-        'sort_on': 'effective', 'sort_order': 'reverse', 'portal_type': 'News Item',
+        'sort_on': 'effective', 'portal_type': 'News Item',
         'effective': {'query': now, 'range': 'max'},
         'expires': {'query': now, 'range': 'min'},
-        'Language': ('en', '')}
+        'Language': ('en', ''),
+        'sort_limit': 5}
     teasers = pc(query)
     for ob in teasers[:5]:
         alias = insertAlias(col1_1, ob.UID)
     
     # news
-    query = {'sort_on': 'effective', 'sort_order': 'reverse',
-        'effective': {'query': now, 'range': 'max'}, 
+    query = {'sort_on': 'effective',
+        'effective': {'query': valid_from, 'range': 'min'}, 
         'expires': {'query': now, 'range': 'min'},  
         'path': {'query': '/osha/portal/en/news', 'depth': 1}, 
         'review_state': 'published', 
         'portal_type': ('News Item',),
-        'sort_limit': 5}
+        'sort_limit': 12}
     news = pc(query)
-    for ob in news[:5]:
+    for ob in news[:12]:
         alias = insertAlias(col1_2, ob.UID)
         manager = IDynamicViewManager(alias)
         manager.setLayout('right_column')
@@ -201,9 +202,9 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='')
                        end={'query': now, 'range': 'min'},
                        sort_on='start',
                        Language=['', 'en'],
-                       sort_limit=5)
+                       sort_limit=12)
     events = pc(query)
-    for ob in events[:5]:
+    for ob in events[:12]:
         alias = insertAlias(col2_2, ob.UID)
 
     # press releases
