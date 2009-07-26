@@ -188,9 +188,9 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
             'path': {'query': '/osha/portal/en/news', 'depth': 1}, 
             'review_state': 'published', 
             'portal_type': ('News Item',),
-            'sort_limit': 12}
+            'sort_limit': 15}
         news = pc(query)
-        for ob in news[:12]:
+        for ob in news[:15]:
             alias = insertAlias(col1_2, ob.UID)
             manager = IDynamicViewManager(alias)
             manager.setLayout('right_column')
@@ -204,9 +204,9 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
                            end={'query': now, 'range': 'min'},
                            sort_on='start',
                            Language=['', 'en'],
-                           sort_limit=12)
+                           sort_limit=15)
         events = pc(query)
-        for ob in events[:12]:
+        for ob in events[:15]:
             alias = insertAlias(col2_2, ob.UID)
 
         # press releases
