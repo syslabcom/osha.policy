@@ -1,6 +1,10 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.9 (2009-07-26)
+------------------------------
+
+- small fix to the oshmail creation form (thomas)
 
 osha.policy 1.2.8 (2009-07-19)
 ------------------------------
