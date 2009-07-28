@@ -7,7 +7,7 @@ from Products.ATContentTypes.configuration import zconf
 from Products.Archetypes import PloneMessageFactory as _
 
 # make the description field of NewsItems render HTML
-description =  TextField('description',
+description = TextField('description',
               required=False,
               searchable=True,
               accessor="Description",
