@@ -1,6 +1,11 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.10 (2009-07-28)
+-------------------------------
+
+- added patch to queuecatalog to make it work with relations (brand)
+
 osha.policy 1.2.9 (2009-07-26)
 ------------------------------
 
