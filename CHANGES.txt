@@ -1,6 +1,14 @@
 osha.policy Changelog
 =====================
+osha.policy unreleased
+----------------------
 
+- readded the ERO Schema extensions. Part of the problems were due to wrong
+  naming of archetypes fields. The fix forces you to delete the ero_target_group
+  and the ero_topic index, and call the osha policy create_indexes genericsetup
+  step. This step was extracted from the various steps, and it is save to call
+  the step on an already installed site.
+  
 osha.policy 1.2.10 (2009-07-28)
 -------------------------------
 
