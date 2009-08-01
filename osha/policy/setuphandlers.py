@@ -28,6 +28,8 @@ def importVarious(context):
     site=context.getSite()
     installDependencies(site)
     configurePortal(site)
+    addProxyIndexes(site)
+    addExtraIndexes(site)
     importVocabularies(site)
     configureCountryTool(site)
     configureSEOOptimizer(site)
@@ -36,14 +38,6 @@ def importVarious(context):
     configureClickSearchSettings(site)
     repositionActions(site)
     enableDiffSupport(site)
-    
-def createIndexes(context):
-    if context.readDataFile("osha-various.txt") is None:
-        return
-    site=context.getSite()
-    addProxyIndexes(site)
-    addExtraIndexes(site)
-
 
 def installDependencies(site):
     qi = getToolByName(site, 'portal_quickinstaller')
@@ -201,7 +195,7 @@ def addExtraIndexes(self):
             'getLex_section',
             'getCountry',
             'getRa_contents',
-            'getEROTargetGroup',
+            'getEROTarget_group',
             'getEROTopic'
             ]
 
@@ -259,8 +253,8 @@ def addProxyIndexes(self):
                 value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('multilingual_thesaurus')"
                 )
             }
-          , { 'idx_id' : 'getEroTargetGroup'
-            , 'meta_id' : 'getEroTargetGroup'
+          , { 'idx_id' : 'ero_target_group'
+            , 'meta_id' : 'ero_target_group'
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
@@ -274,8 +268,8 @@ def addProxyIndexes(self):
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }
-          , { 'idx_id' : 'getEroTopic'
-            , 'meta_id' : 'getEroTopic'
+          , { 'idx_id' : 'ero_topic'
+            , 'meta_id' : 'ero_topic'
             , 'extra' : dict(idx_type = "KeywordIndex",
                 )
             }

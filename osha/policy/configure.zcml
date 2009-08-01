@@ -8,7 +8,6 @@
     <include package=".adapter" />
     <include package=".browser" />
     <include package="osha.theme" />
-    <include package="archetypes.schemaextender" />
 
     <genericsetup:registerProfile
         name="default"

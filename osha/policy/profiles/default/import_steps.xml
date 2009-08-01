@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <import-steps>
   <import-step id="osha_various"
-               version="20090731-01"
+               version="20071021-01"
                handler="osha.policy.setuphandlers.importVarious"
                title="OSHA manual setup steps">
     Policy installer steps
@@ -15,13 +15,5 @@
     Set versioned content types.
     <dependency step="osha_various"/>
   </import-step>
-  <import-step id="osha_indexes"
-               version="20090731-01"
-               handler="osha.policy.setuphandlers.createIndexes"
-               title="OSHA index creation">
-    Policy indexes
-    <dependency step="osha_various"/>
-  </import-step>
-  
 </import-steps>
 

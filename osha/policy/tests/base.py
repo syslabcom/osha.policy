@@ -22,7 +22,6 @@ class OSHAPolicyLayer(SiteLayer):
         ztc.installProduct('TextIndexNG3')
         ztc.installProduct('ProxyIndex')
         ztc.installProduct('Relations')
-        ztc.installProduct('RichDocument')
 
         ztc.installPackage('slc.seminarportal')
         ztc.installPackage('osha.legislation')
