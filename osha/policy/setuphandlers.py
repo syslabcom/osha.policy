@@ -28,7 +28,6 @@ def importVarious(context):
     site=context.getSite()
     installDependencies(site)
     configurePortal(site)
-    addProxyIndexes(site)
     importVocabularies(site)
     configureCountryTool(site)
     configureSEOOptimizer(site)
@@ -41,7 +40,9 @@ def importVarious(context):
 def createIndexes(context):
     if context.readDataFile("osha-various.txt") is None:
         return
-    addExtraIndexes(context.getSite())
+    site=context.getSite()
+    addProxyIndexes(site)
+    addExtraIndexes(site)
 
 
 def installDependencies(site):
