@@ -162,7 +162,59 @@ def fixDEPortlets(self):
     for k in portlets:
       del right[k]
     assignable.setBlacklistStatus(CONTEXT_CATEGORY, False)
-  
-    
 
   return len(res)
+
+
+def redoEROCategorisation(self):
+    cat = self.portal_catalog
+    path = "/osha/portal/en/riskobservatory/"
+    # first pass
+    print "first pass\n"
+    objs = set()
+    topics = cat.uniqueValuesFor('ero_topic')
+    replacer = dict(hearingloss='hearing_loss', paceofwork='pace_of_work', 
+        workingtime='working_time', noiseexposure='noise_exposure')
+    for topic in topics:
+        res = cat(ero_topic=topic, portal_type="RichDocument", path=path)
+        print "%d results for %s" %(len(res), topic)
+        for r in res:
+            o = r.getObject()
+            if not o:
+                print "err, object is None"
+                continue
+            md = o.getOsha_metadata()
+            newmd = set(md)
+            topic = replacer.get(topic, topic)
+            newmd.add('ero_topic::%s'%topic)
+            newmd = tuple(newmd)
+            #print "new md: ", newmd
+            o.setOsha_metadata(newmd)
+            objs.add(o)
+    
+    print "second pass"
+    target_groups = cat.uniqueValuesFor('ero_target_group')
+    for target_group in target_groups:
+        res = cat(ero_target_group=target_group, portal_type="RichDocument", path=path)
+        print "%d results for %s" %(len(res), target_group)
+        for r in res:
+            o = r.getObject()
+            if not o:
+                print "err, object is None"
+                continue
+            md = o.getOsha_metadata()
+            newmd = set(md)
+            if target_group == "employmentstatus":
+                target_group = "employment_status"
+            newmd.add('ero_target_group::%s'%target_group)
+            newmd = tuple(newmd)
+            #print "new md: ", newmd
+            o.setOsha_metadata(newmd)
+            objs.add(o)
+    
+    print "reindxing %d objects" %len(objs)
+    for o in tuple(objs):
+        o.reindexObject()
+    
+    
+    return "fine"
