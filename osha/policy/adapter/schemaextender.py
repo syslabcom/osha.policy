@@ -727,7 +727,7 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
         self.context = context
         _myfields= list()
         for f in self._fields:
-            if f.getName() not in ('country', 'multilingual_thesaurus', 'subcategory', 'isNews', 'nace'):
+            if f.getName() not in ('multilingual_thesaurus', 'subcategory', 'isNews', 'nace'):
                 new_f = f.copy()
                 _myfields.append(new_f)
         self._myfields = _myfields
