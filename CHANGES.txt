@@ -1,6 +1,12 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.13 (2009-08-02)
+-------------------------------
+
+- re-added the "country" field globally to the TaggingSchemaExtenderDocument (thomasw)
+- added ero_topic and ero_target_group to the OSHAMetadata vdex vocabulary (thomasw)
+
 osha.policy 1.2.12 (2009-08-01)
 -------------------------------
 
