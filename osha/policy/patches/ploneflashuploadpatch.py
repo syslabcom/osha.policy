@@ -9,6 +9,7 @@ __docformat__ = 'plaintext'
 import logging
 import random
 import AccessControl
+from App.config import getConfiguration
 from zope.app.traversing.browser.absoluteurl import absoluteURL
 from zope.security.interfaces import Unauthorized
 from Products.PloneFlashUpload import utils
@@ -22,6 +23,7 @@ logger = logging.getLogger('PloneFlashUpload')
 logger.info('PATCHING PloneFlashUpload!')
 
 def _getCache():
+    import pdb; pdb.set_trace()
     servers = ('10.0.0.62:11211',) # XXX hardcoded
     client = memcache.Client(servers)
     return client
@@ -47,7 +49,8 @@ def _issueTicket(ident):
     cache.set(ident+ticket, uname)
     return ticket
 
-pfuticket.issueTicket = _issueTicket
+if not getConfiguration().debug_mode:
+    pfuticket.issueTicket = _issueTicket
 
 def _validateTicket(ident, ticket):
     """validates a ticket
@@ -56,7 +59,8 @@ def _validateTicket(ident, ticket):
     username = cache.get(ident+ticket)
     return username is not None
 
-pfuticket.validateTicket = _validateTicket
+if not getConfiguration().debug_mode:
+    pfuticket.validateTicket = _validateTicket
 
 def _ticketOwner(ident, ticket):
     """Return username of the owner of the ticket.
@@ -65,7 +69,8 @@ def _ticketOwner(ident, ticket):
     username = cache.get(ident+ticket)
     return username
 
-pfuticket.ticketOwner = _ticketOwner
+if not getConfiguration().debug_mode:
+    pfuticket.ticketOwner = _ticketOwner
 
 def _invalidateTicket(ident, ticket):
     """invalidates a ticket
@@ -74,4 +79,5 @@ def _invalidateTicket(ident, ticket):
     username = cache.delete(ident+ticket)
     return username
 
-pfuticket.invalidateTicket = _invalidateTicket
+if not getConfiguration().debug_mode:
+    pfuticket.invalidateTicket = _invalidateTicket
