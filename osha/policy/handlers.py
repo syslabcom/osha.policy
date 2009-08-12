@@ -1,10 +1,47 @@
+import logging
+import pyPdf
 from Acquisition import aq_parent
-from zLOG import WARNING
-from zLOG import LOG as zLOG
-from Products.Archetypes.event import ObjectInitializedEvent
 from zope.app.container.contained import ContainerModifiedEvent
+from plone.app.blob.interfaces import IBlobWrapper
+from Products.Archetypes.event import ObjectInitializedEvent
 
-ident = 'osha.policy'
+from utils import extractPDFText
+
+log = logging.getLogger('osha.policy/handlers.py')
+
+def handle_auto_translated_files(event):
+    """ Set the title, if retrieved from the pdf file.
+    """
+    file = event.object
+    parent = event.object.aq_parent 
+
+    data_folder_id = '%s_data' % file.getFile().filename.rsplit('.')[0]
+    if hasattr(parent, data_folder_id):
+        parent.manage_delObjects(ids=[data_folder_id])
+
+    file_obj = file.getFile().getBlob()
+    f = file_obj.open()
+    reader = pyPdf.PdfFileReader(f)
+    docinfo = reader.getDocumentInfo()
+    for attr, field in [
+                ('title', 'title'), 
+                ('subject', 'description'), 
+                ('creator', 'creators'), 
+                ]:
+        val = docinfo.get(attr) 
+        if val is not None:
+            file.Schema().get(field).set(trans_file, val)
+
+    if docinfo.title is None:
+        # Attempt to extract the title from the pdf text
+        page = reader.getPage(0)
+        text = extractPDFText(page)
+        content = text.replace(u"\xa0", " ").strip().split('\n')
+        # Complete thumbsuck...
+        title = content[2]
+        file.setTitle(title)
+    f.close()
+
 
 def handle_object_willbe_translated(event):
     object = event.object
@@ -22,7 +59,7 @@ def handle_object_willbe_translated(event):
         except Exception, err:
             text = "Unable to delete LinguaLink in language '%s' on object %s prior to adding translation" %(
                 language, object.absolute_url())
-            zLOG(ident, WARNING, text, error=str(err))
+            log.warn('%s %s' % (str(err), text))
 
 
 # If a canonical object gets saved, reindex all translations to keep the catalog
