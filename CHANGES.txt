@@ -1,6 +1,11 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.16 (2009-08-12)
+-------------------------------
+
+- reverted utils.py and handlers.py due to unsolved import/dependency issues (thomasw)
+
 osha.policy 1.2.15 (2009-08-12)
 -------------------------------
 
