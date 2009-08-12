@@ -1,6 +1,10 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.17 (2009-08-12)
+-------------------------------
+-reverting configure.zcml, which I had forgotten earlier (thomasw)
+
 osha.policy 1.2.16 (2009-08-12)
 -------------------------------
 
