@@ -1,8 +1,8 @@
 osha.policy Changelog
 =====================
 
-osha.policy 1.2.15 unreleased
------------------------------
+osha.policy 1.2.15 (2009-08-12)
+-------------------------------
 
 - For consistency reasons, we also include the "country" field in the PressRelease-schemaextender. PressRelease is derived
 from ATNewsItem, which is extended by our TaggingSchemaExtenderDocument. Lately, the document-extender has the country field. 
