@@ -24,8 +24,14 @@
         factory=".localroles.CheckerRole"
         />
 
-    <subscriber for="Products.LinguaPlone.events.IObjectWillBeTranslatedEvent"
+    <subscriber 
+        for="Products.LinguaPlone.events.IObjectWillBeTranslatedEvent"
         handler=".handlers.handle_object_willbe_translated"
+        />
+
+    <subscriber
+        for="slc.autotranslate.interfaces.IAutoTranslatedFlashUploadEvent"
+        handler=".handlers.handle_auto_translated_files"
         />
 
     <subscriber
