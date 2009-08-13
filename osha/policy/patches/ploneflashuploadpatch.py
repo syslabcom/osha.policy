@@ -23,7 +23,6 @@ logger = logging.getLogger('PloneFlashUpload')
 logger.info('PATCHING PloneFlashUpload!')
 
 def _getCache():
-    import pdb; pdb.set_trace()
     servers = ('10.0.0.62:11211',) # XXX hardcoded
     client = memcache.Client(servers)
     return client
