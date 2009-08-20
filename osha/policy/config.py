@@ -36,6 +36,7 @@ DEPENDENCIES = [
     'Products.OSHContentLink',
     'PublicJobVacancy',
     'slc.publications',
+    'slc.autotranslate',
     'slc.editonpro',
     'slc.shoppinglist',
     'slc.xliff',
