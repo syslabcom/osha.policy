@@ -30,11 +30,6 @@
         />
 
     <subscriber
-        for="slc.autotranslate.interfaces.IAutoTranslatedFlashUploadEvent"
-        handler=".handlers.handle_auto_translated_files"
-        />
-
-    <subscriber
         for="Products.Archetypes.interfaces.IBaseContent
             zope.lifecycleevent.interfaces.IObjectModifiedEvent"
         handler=".handlers.handle_objectModified"
