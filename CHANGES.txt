@@ -1,6 +1,11 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.19 (2009-08-24)
+-------------------------------
+
+- The slc.autotranslate event has been renamed. Updated in configure.zcml (jcbrand)
+
 osha.policy 1.2.18 (2009-08-17)
 -------------------------------
 
