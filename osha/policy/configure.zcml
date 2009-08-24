@@ -18,6 +18,11 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <subscriber
+        for="slc.autotranslate.interfaces.IAutoTranslatedFileEvent"
+        handler=".handlers.handle_auto_translated_files"
+        />
+
     <!-- Local roles managed in the @@sharing view -->
     <utility
         name="Checker"
