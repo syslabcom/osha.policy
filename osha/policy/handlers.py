@@ -19,8 +19,16 @@ def handle_auto_translated_files(event):
     if hasattr(parent, data_folder_id):
         parent.manage_delObjects(ids=[data_folder_id])
 
-    file_obj = file.getFile().getBlob()
-    f = file_obj.open()
+    file_obj = file.getFile()
+    if hasattr(file_obj, 'getBlob'):
+        file_obj = file_obj.getBlob()
+
+    if hasattr(file_obj, 'open'):
+        f = file_obj.open()
+    else:
+        # Don't yet know why, but this happens during doctests
+        return
+
     reader = pyPdf.PdfFileReader(f)
     docinfo = reader.getDocumentInfo()
     for attr, field in [
