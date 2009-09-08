@@ -5,6 +5,7 @@ osha.policy 1.2.20 (unreleased)
 -------------------------------
 
 - replaced several occurrences of parent-fieldname-image ids through classes (pilz)
+- added subtyper for Documents to mark them linklist annotatable (pilz)
 
 osha.policy 1.2.19 (2009-08-24)
 -------------------------------
