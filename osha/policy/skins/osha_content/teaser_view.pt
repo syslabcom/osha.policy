@@ -69,7 +69,7 @@
                                          tal:condition="python: obj.portal_type in ['News Item']">
                                         <a href="#"
                                            tal:attributes="href string:$url/image/image_view_fullscreen"
-                                           id="parent-fieldname-image">
+                                           class="parent-fieldname-image">
                                            <img tal:attributes="src string:${url}/image; alt title_or_id;" />
                                         </a>
                                     </div>                                     
