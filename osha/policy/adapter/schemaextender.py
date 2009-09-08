@@ -22,6 +22,8 @@ from Products.DataGridField.Column import Column
 from Products.DataGridField.SelectColumn import SelectColumn
 from osha.policy.adapter.subtyper import IAnnotatedLinkList
 
+from osha.theme.vocabulary import AnnotatableLinkListVocabulary
+
 
 
 class IOSHContent(zope.interface.Interface):
@@ -321,13 +323,13 @@ class TaggingSchemaExtender(object):
                 languageIndependent=False,
                 required=False,
                 multiValued=True,
-                columns=("column1", "column2"), #, "select_sample"),
-                
+                columns=("linktext", "title", "url", "section"),
                 widget = DataGridWidget(
                 columns={
-                    'column1' : Column("Toholampi city rox"),
-                    'column2' : Column("My friendly name"),
-                    #'select_sample' : SelectColumn("Friendly name", vocabulary="getSampleVocabulary")
+                    'linktext' : Column("Linktext"),
+                    'title' : Column("Title"),
+                    'url' : Column("URL"),
+                    'section' : SelectColumn("Section", vocabulary=AnnotatableLinkListVocabulary()),
                     },
                 ),
             ),
