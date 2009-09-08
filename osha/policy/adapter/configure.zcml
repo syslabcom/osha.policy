@@ -34,6 +34,7 @@
         factory=".schemaextender.TaggingSchemaExtenderDocument" 
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
 
+
     <adapter
         factory=".schemaextender.PressReleaseExtender" 
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>

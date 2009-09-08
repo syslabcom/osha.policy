@@ -17,6 +17,13 @@ import zope.component
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender, IBrowserLayerAwareExtender
 from osha.policy.interfaces import IOSHACommentsLayer
 
+from Products.DataGridField import DataGridField, DataGridWidget
+from Products.DataGridField.Column import Column
+from Products.DataGridField.SelectColumn import SelectColumn
+from osha.policy.adapter.subtyper import IAnnotatedLinkList
+
+
+
 class IOSHContent(zope.interface.Interface):
     """OSHContent
     """
@@ -57,6 +64,8 @@ class IOSHContentEvent(zope.interface.Interface):
 from Products.ATContentTypes.content.event import ATEvent
 zope.interface.classImplements(ATEvent, IOSHContentEvent)
 
+
+
 # Document types
 class IOSHContentDocument(zope.interface.Interface):
     """ OSH Content for Document types """
@@ -69,11 +78,19 @@ zope.interface.classImplements(RichDocument, IOSHContentDocument)
 zope.interface.classImplements(ATNewsItem, IOSHContentDocument)
 zope.interface.classImplements(whoswho, IOSHContentDocument)
 
+class IOSHNetworkDocument(zope.interface.Interface):
+    """ OSHDocument for OSHNetwork """
+#zope.interface.classImplements(ATDocument, IOSHNetworkDocument)
+
+
 # Publications / Files
 from Products.ATContentTypes.content.file import ATFile
 zope.interface.classImplements(ATFile, IOSHContent)
 from plone.app.blob.content import ATBlob
 zope.interface.classImplements(ATBlob, IOSHContent)
+
+
+
 
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
@@ -156,6 +173,10 @@ class ReferencedContentField(ExtensionFieldMixin, ExtensionField, atapi.Referenc
 
 class NewsMarkerField(ExtensionFieldMixin, ExtensionField, atapi.BooleanField):
     """ marker field to have object appear in news portlet """
+
+class SEDataGridField(ExtensionFieldMixin, ExtensionField, DataGridField):
+    """ marker field to have object appear in news portlet """
+
 
 #class EroTargetGroupField(ExtensionField, atapi.LinesField):
 #    """ target group for ERO """
@@ -294,13 +315,30 @@ class TaggingSchemaExtender(object):
                     condition="python:object.isCanonical()",
                 ),
             ),
+            SEDataGridField('annotatedlinklist',
+                schemata='default',
+                enforceVocabulary=False,
+                languageIndependent=False,
+                required=False,
+                multiValued=True,
+                columns=("column1", "column2"), #, "select_sample"),
+                
+                widget = DataGridWidget(
+                columns={
+                    'column1' : Column("Toholampi city rox"),
+                    'column2' : Column("My friendly name"),
+                    #'select_sample' : SelectColumn("Friendly name", vocabulary="getSampleVocabulary")
+                    },
+                ),
+            ),
+
         ]
 
     def __init__(self, context):
         self.context = context
         _myfields= list()
         for f in self._fields:
-            if f.getName() not in ['osha_metadata']:
+            if f.getName() not in ['osha_metadata', 'annotatedlinklist']:
                 new_f = f.copy()
                 _myfields.append(new_f)
         self._myfields = _myfields
@@ -745,7 +783,8 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
         self.context = context
         _myfields= list()
         for f in self._fields:
-            if f.getName() not in ('multilingual_thesaurus', 'subcategory', 'isNews', 'nace'):
+            if f.getName() not in ('multilingual_thesaurus', 'subcategory', 'isNews', 'nace', 'annotatedlinklist') or \
+                (f.getName()=='annotatedlinklist' and IAnnotatedLinkList.providedBy(context)):
                 new_f = f.copy()
                 _myfields.append(new_f)
         self._myfields = _myfields
@@ -759,3 +798,8 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
 
     def getFields(self):
         return self._myfields
+
+
+
+
+
