@@ -1,5 +1,3 @@
-from Products.CMFCore.utils import getToolByName
-
 from slc.autotranslate import utils
 
 def get_translations(folder, file_obj, base_filename, file_ext):
@@ -23,16 +21,6 @@ def get_translations(folder, file_obj, base_filename, file_ext):
         name = base_filename.lstrip('0')
         if hasattr(parent, name):
             obj = getattr(parent, name)
-            translations[langcode] = obj
-
-    langtool = getToolByName(folder, 'portal_languages')
-    languages = langtool.listAvailableLanguages()
-    for langcode, language in languages:
-        name = base_filename.lstrip('0')
-        if hasattr(folder, name):
-            obj = getattr(folder, name)
-            if obj.UID() == file_obj.UID():
-                continue
             translations[langcode] = obj
 
     return translations
