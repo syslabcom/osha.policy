@@ -1,6 +1,11 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.21 (2009-09-09)
+-------------------------------
+- Updated autotranslate_get_translations patch to not look for translations in
+  the current folder. (jcbrand)
+
 osha.policy 1.2.20 (2009-09-09)
 -------------------------------
 
