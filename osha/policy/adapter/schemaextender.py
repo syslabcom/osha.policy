@@ -325,12 +325,15 @@ class TaggingSchemaExtender(object):
                 multiValued=True,
                 columns=("linktext", "title", "url", "section"),
                 widget = DataGridWidget(
-                columns={
-                    'linktext' : Column("Linktext"),
-                    'title' : Column("Title"),
-                    'url' : Column("URL"),
-                    'section' : SelectColumn("Section", vocabulary=AnnotatableLinkListVocabulary()),
-                    },
+                    label=u"List of Links",
+                    description=u"Add as many links as you wish by adding new rows on the right. \
+                                  Choose a section from the dropdown to order the links.",
+                    columns={
+                        'linktext' : Column("Linktext"),
+                        'title' : Column("Title"),
+                        'url' : Column("URL"),
+                        'section' : SelectColumn("Section", vocabulary=AnnotatableLinkListVocabulary()),
+                        },
                 ),
             ),
 
