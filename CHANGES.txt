@@ -1,13 +1,15 @@
 osha.policy Changelog
 =====================
 
-osha.policy 1.2.20 (unreleased)
+osha.policy 1.2.20 (2009-09-09)
 -------------------------------
 
 - replaced several occurrences of parent-fieldname-image ids through classes (pilz)
 - added subtyper for Documents to mark them linklist annotatable (pilz)
 - added annotatableLinkList feature (pilz)
 - added title and description for the LineField (pilz)
+- patched slc.autotranslate/utiles.py:get_translations to detect file with osha
+  specific naming conventions (jcbrand)
 
 
 osha.policy 1.2.19 (2009-08-24)
