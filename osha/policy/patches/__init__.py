@@ -15,3 +15,4 @@ import ploneportlets_getGroup_allow_admin
 import linguaplone_defaultLanguage_patch
 import kupu_patch_subsite
 import queuecatalog_patch
+import autotranslate_get_translations 
