@@ -25,5 +25,3 @@ def get_translations(folder, file_obj, base_filename, file_ext):
 
     return translations
 
-utils.get_translations = get_translations
-
