@@ -1,5 +1,3 @@
-from slc.autotranslate import utils
-
 def get_translations(folder, file_obj, base_filename, file_ext):
     """ 
     Return any files in folder that are deemed translations, for conforming
