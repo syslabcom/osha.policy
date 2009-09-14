@@ -3,6 +3,10 @@
            xmlns:zcml="http://namespaces.zope.org/zcml"
            xmlns:five="http://namespaces.zope.org/five">
 
+	<utility
+		name="annotatedlinks"
+		factory = ".subtyper.AnnotatedLinkListDescriptor"
+		/>
 
     <adapter
         for="Products.ATContentTypes.interface.folder.IATFolder"

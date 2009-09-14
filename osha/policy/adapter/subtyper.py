@@ -14,4 +14,3 @@ class AnnotatedLinkListDescriptor(object):
     type_interface = IAnnotatedLinkList
     for_portal_type = 'Document'
 
-zope.component.provideUtility(AnnotatedLinkListDescriptor(), name=u'annotatedlinks')
