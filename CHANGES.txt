@@ -1,9 +1,11 @@
 osha.policy Changelog
 =====================
 
-osha.policy 1.2.23 (Unreleased)
+osha.policy 1.2.23 (2009-09-15)
 -------------------------------
 - Disable the handle_auto_translated_files subscriber. (jcbrand)
+- removed unnecessary import in patches/autotranslate_get_translations.py (deroiste)
+
 
 osha.policy 1.2.22 (2009-09-10)
 -------------------------------
