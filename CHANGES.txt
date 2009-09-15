@@ -1,6 +1,10 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.23 (Unreleased)
+-------------------------------
+- Disable the handle_auto_translated_files subscriber. (jcbrand)
+
 osha.policy 1.2.22 (2009-09-10)
 -------------------------------
 - Don't monkeypatch get_translations, it is now configurable in
