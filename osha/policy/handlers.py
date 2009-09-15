@@ -2,7 +2,6 @@ import logging
 import pyPdf
 from Acquisition import aq_parent
 from zope.app.container.contained import ContainerModifiedEvent
-from plone.app.blob.interfaces import IBlobWrapper
 from Products.Archetypes.event import ObjectInitializedEvent
 
 from utils import extractPDFText
@@ -38,7 +37,7 @@ def handle_auto_translated_files(event):
                 ]:
         val = docinfo.get(attr) 
         if val is not None:
-            file.Schema().get(field).set(trans_file, val)
+            file.Schema().get(field).set(file_obj, val)
 
     if docinfo.title is None:
         # Attempt to extract the title from the pdf text

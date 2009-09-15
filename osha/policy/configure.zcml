@@ -18,10 +18,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- This subscriber tries to retrieve the title from uploaded PDFs for the
+    autotranslation of publications (in cooperation with slc.autotranslate),
+    but it's very buggy :(
     <subscriber
         for="slc.autotranslate.interfaces.IAutoTranslatedFileEvent"
         handler=".handlers.handle_auto_translated_files"
         />
+    -->
 
     <!-- Local roles managed in the @@sharing view -->
     <utility
