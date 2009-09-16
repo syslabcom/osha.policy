@@ -39,7 +39,7 @@
                       src python:section_details['section_image_src']" />
               </span>
             
-              <span class="photoAlbumEntryTitle"
+              <span class="photoAlbumEntryTitle database-emphasis"
                   tal:content="section_title">
                   Section Title 
               </span>

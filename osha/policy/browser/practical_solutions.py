@@ -1,31 +1,33 @@
+from Acquisition import aq_inner, aq_parent
+from Products.AdvancedQuery import In, Eq, Ge, Le, And, Or, Generic
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone import PloneMessageFactory as _
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFCore.utils import getToolByName
-from Acquisition import aq_inner, aq_parent
+
 from osha.theme.browser.dbfilter import DBFilterView
 
-from Products.CMFPlone import PloneMessageFactory as _
-
 class PracticalSolutionsView(BrowserView):
-    """View for displaying the dynamic good practice overview page at /good_practice
-       This has been renamed to Practical Solutions and tidied up.
-       """
+    """ View Class for the Practical Solutions page. 
+
+        Provides a link to each section based on the folder title.
+        If there is an image called "section-image.png" in the folder
+        it will be used too.
+        """
     template = ViewPageTemplateFile('templates/practical_solutions.pt')
     template.id = "practical-solutions"
+
     gpawards = ''
     intro = ''
-
+    has_section_details = False
     sections = ['useful-links',
                 'risk-assessment-tools',
                 'case-studies',
                 'providers',
                 'faqs']
 
-    has_section_details = False
-
     def __call__(self):
         self.request.set('disable_border', True)
-
 
         intro = getattr(self.context, 'introduction_html', None)
         if intro is None:
@@ -43,7 +45,8 @@ class PracticalSolutionsView(BrowserView):
 
     def getSectionDetails(self):
         """ Return a path to an image and a title for each of the five Practical 
-            Solutions sections if they exists"""
+            Solutions sections.
+            """
         context = self.context
         section_details = {}
 
@@ -60,16 +63,10 @@ class PracticalSolutionsView(BrowserView):
                 self.has_section_details = True
         return section_details
 
-    def getAreaLinks(self, area=''):
-        """ return the SEPS under topics """
-        path = "/".join(self.context.getPhysicalPath())+'/' +area
-        pc = getToolByName(self.context, 'portal_catalog')
-        res = pc(path={'query': path, 'depth': 1}, portal_type="Folder", review_state='published', sort_on='sortable_title')
-        return res
-
-
     def getLatestAdditions(self):
-        """ Return latest additions to these categories """
+        """ TODO
+            Return latest additions to these categories """
+
         pc = getToolByName(self.context, 'portal_catalog')
         res = pc( sort_on='effective', sort_order='reverse', limit=1)
         if len(res)==0:
@@ -77,61 +74,65 @@ class PracticalSolutionsView(BrowserView):
         else:
             latestAdditions = res[0].getObject()
 
-
         return latestAdditions
 
-    def anon(self):
-        return getToolByName(self.context, 'portal_membership').isAnonymousUser()
-
-    def get_db_types(self):
-        """ return a list of object types with links to point to the clicksearch interface """
-        T = ['OSH_Link', 'RALink', 'CaseStudy', 'Provider', 'File']
-        typelist = []
-        ttool = getToolByName(self.context, 'portal_types')
-        for typ in T:
-            url = "%s/db/clicksearch?portal_type=%s" % (self.context.absolute_url(), typ)
-            if typ=='File':
-                type_name = _('Publication')
-            else:
-                type_name = _(ttool.getTypeInfo(typ).Title())
-            typelist.append(dict(caption=type_name, id=typ, url=url))
-
-        return typelist
-
-    def get_search_types(self):
-        """ return a list of object types with links to point to the clicksearch interface """
-        T = [('OSH_Link', 'index_oshlink'), ('RALink', 'index_ralink'), ('CaseStudy', 'index_casestudy'), ('Provider', 'index_provider')]
-        typelist = []
-        ttool = getToolByName(self.context, 'portal_types')
-        for typ in T:
-            url = "%s/%s" % (self.context.absolute_url(), typ[1])
-            title = ttool.getTypeInfo(typ[0]).Title()
-            if title.endswith('y'):
-                title = title[:-1] + "ies"
-            else:
-                title = title + "s"
-            type_name = _(title)
-            typelist.append(dict(caption=type_name, id=typ, url=url))
-
-        return typelist
-
-
 class PracticalSolutionView(DBFilterView):
-    """View for displaying the dynamic good practice overview page at /good_practice
-       This is being renamed to Practical Solutions and tidied up.
-       """
+    """View for displaying one of the practical solution sections.
+
+    The section heading, image and search parameters (portal_type) are derived
+    from the parent folder.
+
+    The Title of the parent folder is used as a caption under the image for the
+    current section (to be consistent with the PracticalSolutionsView).
+    If there is an image in that folder called 'section-image.png' it will be
+    used too. 
+    The portal-type to search for is derived from the id of the parent
+    folder.
+    """
+
     template = ViewPageTemplateFile('templates/practical_solution.pt')
     template.id = "practical-solution"
 
+    portal_types_map = {
+            "useful-links":"OSH_Link",
+            "risk-assessment-tools":"RALink",
+            "case-studies":"CaseStudy",
+            "providers":"Provider",
+            "faqs":"Publication",
+            }
+    
+     
     def __call__(self):
+        self.request.set('disable_border', True)
         return self.template()
 
     def has_section_image(self):
         """ Check if an image called section-image.png exists in the folder """
         context = self.context
-        return "section-image.png" in aq_parent(aq_inner(context)).objectIds()
+        parent = aq_parent(aq_inner(context)) 
+        return "section-image.png" in parent.objectIds()
 
     def getSectionTitle(self):
         """ Return the title of the parent folder """
         context = self.context
-        return aq_parent(aq_inner(context)).Title()
+        parent = aq_parent(aq_inner(context)) 
+        return parent.Title()
+
+    def search_portal_types(self):
+        context = self.context
+        parent = aq_parent(aq_inner(context)) 
+        search_portal_types = []
+        if self.portal_types_map.has_key(parent.id):
+            search_portal_types = [self.portal_types_map[parent.id]]
+
+        query = None
+        if 'Publication' in search_portal_types:
+            query = ( Eq('portal_type', 'File') & Eq('object_provides', 'slc.publications.interfaces.IPublicationEnhanced') )
+            search_portal_types.remove('Publication')
+            query = Or(query, In('portal_type', search_portal_types))
+        else:
+            query = In('portal_type', search_portal_types)
+
+        return query
+
+
