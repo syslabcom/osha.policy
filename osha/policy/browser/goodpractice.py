@@ -8,8 +8,17 @@ class GoodPracticeView(BrowserView):
     """View for displaying the dynamic good practice overview page at /good_practice
     """
     template = ViewPageTemplateFile('goodpractice.pt')
+    template.id = "practical-solutions"
     gpawards = ''
     intro = ''
+
+    sections = ['useful-links',
+                'risk-assessment-tools',
+                'case-studies',
+                'providers',
+                'faqs']
+
+    has_section_details = False
 
     def __call__(self):
         self.request.set('disable_border', True)
@@ -28,6 +37,25 @@ class GoodPracticeView(BrowserView):
             self.gpaward = gpaward.CookedBody()
 
         return self.template()
+
+    def getSectionDetails(self):
+        """ Return a path to an image and a title for each of the five Practical 
+            Solutions sections if they exists"""
+        context = self.context
+        section_details = {}
+
+        for section in self.sections:
+            if section in context.objectIds():
+                section_details[section] = {}
+                # The title is taken from the local version
+                section_details[section]["title"] = context[section].Title()
+                canonical_section = context.getCanonical()[section]
+                # The image is taken from the canonical version
+                if "section-image.png" in canonical_section.objectIds():
+                    section_details[section]["section_image_src"] = \
+                        canonical_section["section-image.png"].absolute_url()
+                self.has_section_details = True
+        return section_details
 
     def getAreaLinks(self, area=''):
         """ return the SEPS under topics """

@@ -25,10 +25,48 @@
          alt="Good Practice Logo"
          />
 
-
 <div tal:replace="structure view/intro"></div>
 
+<span tal:define="section_details view/getSectionDetails">
+  <div class="photoAlbum" 
+      tal:condition="view/has_section_details">
 
+    <span tal:repeat="section view/sections"
+        tal:omit-tag="">
+      <span tal:define="section_details python:section_details[section]"
+          tal:omit-tag="">
+
+        <div class="photoAlbumEntry photoAlbumFolder"
+            tal:condition="section_details"
+            tal:define="section_title python:section_details['title']">
+
+          <a title="Section Title" href="section"
+              tal:attributes="title section_title;
+                href string:${here/absolute_url}/${section}">
+            <span class="photoAlbumEntryWrapper">
+              <img width="128" title="Section Title" 
+                  alt="Section Alt" src=""
+                  tal:condition="
+                    python:section_details.has_key('section_image_src')"
+                  tal:attributes="alt section_title;
+                    src python:section_details['section_image_src']" />
+            </span>
+          
+            <span class="photoAlbumEntryTitle"
+                tal:content="section_title">
+                Section Title 
+            </span>
+          </a>
+
+        </div>
+
+      </span>
+    </span>
+
+  </div>
+</span>
+
+<div class="visualClear"></div>
 
 <div xtal:on-error="nothing" tal:condition="not:view/anon">
 
