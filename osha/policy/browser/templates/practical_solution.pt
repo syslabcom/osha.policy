@@ -9,9 +9,29 @@
     <div metal:fill-slot="main">
 
     <h1  class="documentFirstHeading" tal:content="context/Title">Title</h1>
-    <div class="visualClear"></div>
 
-    <h2>Here</h2>
+  <div class="photoAlbum">
+    <div class="photoAlbumEntry photoAlbumFolder">
+
+        <span class="photoAlbumEntryWrapperWrapper" 
+          tal:condition="view/has_section_image">
+          <span class="photoAlbumEntryWrapper">
+            <img width="128" title="Section Title" 
+                alt="Section Alt" src="../section-image.png"
+                tal:attributes="alt view/getSectionTitle" />
+          </span>
+          <span class="photoAlbumEntryTitle"
+              tal:content="view/getSectionTitle">
+              Section Title 
+          </span>
+        </span>
+      
+    </div>
+  </div>
+
+    <metal:field use-macro="python:here.widget('text', mode='view')">
+      Body text
+    </metal:field>
 
     <br clear="all">
 

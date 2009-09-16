@@ -106,7 +106,6 @@
         name="practical-solution"
         class=".practical_solutions.PracticalSolutionView"
         permission="zope.Public"
-        template="templates/practical_solution.pt"
         />
 
     <browser:page

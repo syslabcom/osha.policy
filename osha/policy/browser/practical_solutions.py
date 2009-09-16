@@ -1,6 +1,7 @@
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
+from Acquisition import aq_inner, aq_parent
 
 from Products.CMFPlone import PloneMessageFactory as _
 
@@ -118,5 +119,18 @@ class PracticalSolutionView(BrowserView):
     """View for displaying the dynamic good practice overview page at /good_practice
        This is being renamed to Practical Solutions and tidied up.
        """
-    template = ViewPageTemplateFile('templates/practical_solutions.pt')
-    template.id = "practical-solutions"
+    template = ViewPageTemplateFile('templates/practical_solution.pt')
+    template.id = "practical-solution"
+
+    def __call__(self):
+        return self.template()
+
+    def has_section_image(self):
+        """ Check if an image called section-image.png exists in the folder """
+        context = self.context
+        return "section-image.png" in aq_parent(aq_inner(context)).objectIds()
+
+    def getSectionTitle(self):
+        """ Return the title of the parent folder """
+        context = self.context
+        return aq_parent(aq_inner(context)).Title()
