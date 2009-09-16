@@ -2,6 +2,7 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_inner, aq_parent
+from osha.theme.browser.dbfilter import DBFilterView
 
 from Products.CMFPlone import PloneMessageFactory as _
 
@@ -115,7 +116,7 @@ class PracticalSolutionsView(BrowserView):
         return typelist
 
 
-class PracticalSolutionView(BrowserView):
+class PracticalSolutionView(DBFilterView):
     """View for displaying the dynamic good practice overview page at /good_practice
        This is being renamed to Practical Solutions and tidied up.
        """
