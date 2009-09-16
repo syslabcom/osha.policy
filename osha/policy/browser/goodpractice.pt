@@ -33,33 +33,35 @@
 
     <span tal:repeat="section view/sections"
         tal:omit-tag="">
-      <span tal:define="section_details python:section_details[section]"
-          tal:omit-tag="">
+      <span tal:condition="python:section_details.has_key(section)">
+        <span tal:define="section_details python:section_details[section]"
+            tal:omit-tag="">
 
-        <div class="photoAlbumEntry photoAlbumFolder"
-            tal:condition="section_details"
-            tal:define="section_title python:section_details['title']">
+          <div class="photoAlbumEntry photoAlbumFolder"
+              tal:condition="section_details"
+              tal:define="section_title python:section_details['title']">
 
-          <a title="Section Title" href="section"
-              tal:attributes="title section_title;
-                href string:${here/absolute_url}/${section}">
-            <span class="photoAlbumEntryWrapper">
-              <img width="128" title="Section Title" 
-                  alt="Section Alt" src=""
-                  tal:condition="
-                    python:section_details.has_key('section_image_src')"
-                  tal:attributes="alt section_title;
-                    src python:section_details['section_image_src']" />
-            </span>
-          
-            <span class="photoAlbumEntryTitle"
-                tal:content="section_title">
-                Section Title 
-            </span>
-          </a>
+            <a title="Section Title" href="section"
+                tal:attributes="title section_title;
+                  href string:${here/absolute_url}/${section}">
+              <span class="photoAlbumEntryWrapper">
+                <img width="128" title="Section Title" 
+                    alt="Section Alt" src=""
+                    tal:condition="
+                      python:section_details.has_key('section_image_src')"
+                    tal:attributes="alt section_title;
+                      src python:section_details['section_image_src']" />
+              </span>
+            
+              <span class="photoAlbumEntryTitle"
+                  tal:content="section_title">
+                  Section Title 
+              </span>
+            </a>
 
-        </div>
+          </div>
 
+        </span>
       </span>
     </span>
 
