@@ -94,7 +94,20 @@
         permission="zope.Public"
         />
 
+    <browser:page
+        for="Products.ATContentTypes.interface.folder.IATFolder"
+        name="practical-solutions"
+        class=".practical_solutions.PracticalSolutionsView"
+        permission="zope.Public"
+        />
 
+    <browser:page
+        for="*"
+        name="practical-solution"
+        class=".practical_solutions.PracticalSolutionView"
+        permission="zope.Public"
+        template="templates/practical_solution.pt"
+        />
 
     <browser:page
         for="*"

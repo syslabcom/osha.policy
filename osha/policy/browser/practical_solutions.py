@@ -4,11 +4,11 @@ from Products.CMFCore.utils import getToolByName
 
 from Products.CMFPlone import PloneMessageFactory as _
 
-class GoodPracticeView(BrowserView):
+class PracticalSolutionsView(BrowserView):
     """View for displaying the dynamic good practice overview page at /good_practice
-       This view will be replace with PracticalSolutionsView
-    """
-    template = ViewPageTemplateFile('goodpractice.pt')
+       This has been renamed to Practical Solutions and tidied up.
+       """
+    template = ViewPageTemplateFile('templates/practical_solutions.pt')
     template.id = "practical-solutions"
     gpawards = ''
     intro = ''
@@ -66,17 +66,17 @@ class GoodPracticeView(BrowserView):
         return res
 
 
-    def getLatestLink(self):
-        """ Return latest link """
+    def getLatestAdditions(self):
+        """ Return latest additions to these categories """
         pc = getToolByName(self.context, 'portal_catalog')
-        res = pc(portal_type='OSH_Link', review_state='published', sort_on='effective', sort_order='reverse', limit=1)
+        res = pc( sort_on='effective', sort_order='reverse', limit=1)
         if len(res)==0:
-            latestLink = None
+            latestAdditions = None
         else:
-            latestLink = res[0].getObject()
+            latestAdditions = res[0].getObject()
 
 
-        return latestLink
+        return latestAdditions
 
     def anon(self):
         return getToolByName(self.context, 'portal_membership').isAnonymousUser()
@@ -112,3 +112,11 @@ class GoodPracticeView(BrowserView):
             typelist.append(dict(caption=type_name, id=typ, url=url))
 
         return typelist
+
+
+class PracticalSolutionView(BrowserView):
+    """View for displaying the dynamic good practice overview page at /good_practice
+       This is being renamed to Practical Solutions and tidied up.
+       """
+    template = ViewPageTemplateFile('templates/practical_solutions.pt')
+    template.id = "practical-solutions"
