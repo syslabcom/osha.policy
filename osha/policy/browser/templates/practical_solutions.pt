@@ -58,36 +58,78 @@
 
     <div tal:replace="structure view/gpawards "></div>
 
-<!--
-    <div tal:define="obj view/getLatestAdditions"
-         id="latest-additions"
-         i18n:domain="osha">
-      <h1 i18n:translate="heading_latest_additions">Latest
-      Additions</h1>
+    <span tal:define="local_keyword string:;
+                      keywords string:;
+                      subcategory string:;
+                      object_implements string:;
+                      SearchableText string:;
+                      multilingual_thesaurus string:;
+                      nace string:;
+                      nace string:;
+                      category string:;
+                      getRemoteLanguage request/getRemoteLanguage|string:;
+                      country request/country|string:;
+                      search_portal_types view/search_portal_types;
+                      Batch python:modules['Products.CMFPlone'].Batch;
+                      DateTime python:modules['DateTime'].DateTime;
+                      b_size python:10;b_start python:0;
+                      b_start request/b_start | b_start;
+                      desc_length site_properties/search_results_description_length;
+                      desc_ellipsis site_properties/ellipsis;
+                      searchterm nothing;
+                      ">
+        <div tal:define="results view/search">
 
-         <strong>
-             <a href="#"
-                tal:attributes="href obj/absolute_url" tal:content="obj/Title">
-                   Topicresult
-             </a>
-         </strong>
+            <!--i>Filtered by:
+                <span tal:replace="view/buildQuery"/>
+            </i-->
 
-         <div>
-         <span tal:omit-tag="" tal:on-error="nothing"
-            tal:define="res_lang obj/getRemoteLanguage|nothing;
-                        ext_url obj/getRemoteUrl|string:;
-                        res_format obj/getOsh_format|nothing;
-                        res_url python:test(ext_url and ext_url!=None, ext_url, '')">
-           <tal:block condition="res_lang"><span class="bold"
-           i18n:translate="label_languages">Languages</span>: <span tal:replace="python:', '.join(res_lang)" /><br/></tal:block>
-           <tal:block condition="res_format"><span class="bold" i18n:translate="">Format</span>: <span tal:replace="res_format" /><br/></tal:block>
-           <tal:block condition="res_url"><span class="bold" i18n:translate="label_more_information">More Information</span>: <a
-           href="" tal:attributes="href res_url" tal:content="res_url" /></tal:block><br>
-           <tal:block on-error="nothing"><span class="bold" i18n:translate="label_modified">Modified</span>: <span tal:content="python:obj.modified()" /></tal:block>
-         </span>
-         </div>
-    </div>
--->
+        <span id="latest-additions"
+            i18n:domain="osha">
+            <h1 i18n:translate="heading_latest_additions">Latest
+            Additions</h1>
+
+        <div tal:condition="not: results">
+            <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+        </div>
+
+        <div tal:condition="results"
+            tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+
+            <dl id="db_results">
+            <tal:results repeat="result batch">
+            <tal:entry define="provider_helper here/@@provider_helper;
+                              result_url result/getURL;
+                              url result/getRemoteUrl | result_url;
+                              title result/Title|string:;
+                              item_cas result/getCas|string:;
+                              item_einecs result/getEinecs|string:;
+                              item_remoteLanguage result/getRemoteLanguage|string:;
+                              item_subject result/Subject | python:[];
+                              item_modified result/modified;
+                              item_pubdate result/effective;
+                              item_creator result/Creator;
+                              gc python:here.portal_languages.getNameForLanguageCode;
+                              ">
+
+                <metal:macro use-macro="here/oshmacros/macros/searchresults" />
+
+            </tal:entry>
+            </tal:results>
+            </dl>
+
+            <div class="visualClear" ></div>
+
+            <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+            <!-- Snapshot code -->
+            <script type="text/javascript" src="http://shots.snap.com/ss/8c2016f0b237f14c8e18548d26c3d103/snap_shots.js"></script>
+        </div>
+        </span>
+
+      </div>
+
+    </span>
 </div>
 </body>
 </html>

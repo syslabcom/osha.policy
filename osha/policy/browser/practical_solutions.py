@@ -7,7 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from osha.theme.browser.dbfilter import DBFilterView
 
-class PracticalSolutionsView(BrowserView):
+class PracticalSolutionsView(DBFilterView):
     """ View Class for the Practical Solutions page. 
 
         Provides a link to each section based on the folder title.
@@ -43,6 +43,13 @@ class PracticalSolutionsView(BrowserView):
 
         return self.template()
 
+    def search_portal_types(self):
+        context = self.context
+        search_portal_types = [ "OSH_Link", "RALink", "CaseStudy", "Provider"]
+        query = ( Eq('portal_type', 'File') & Eq('object_provides', 'slc.publications.interfaces.IPublicationEnhanced') )
+        query = Or(query, In('portal_type', search_portal_types))
+        return query
+
     def getSectionDetails(self):
         """ Return a path to an image and a title for each of the five Practical 
             Solutions sections.
@@ -63,18 +70,6 @@ class PracticalSolutionsView(BrowserView):
                 self.has_section_details = True
         return section_details
 
-    def getLatestAdditions(self):
-        """ TODO
-            Return latest additions to these categories """
-
-        pc = getToolByName(self.context, 'portal_catalog')
-        res = pc( sort_on='effective', sort_order='reverse', limit=1)
-        if len(res)==0:
-            latestAdditions = None
-        else:
-            latestAdditions = res[0].getObject()
-
-        return latestAdditions
 
 class PracticalSolutionView(DBFilterView):
     """View for displaying one of the practical solution sections.
