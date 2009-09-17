@@ -15,7 +15,7 @@ from Products.CMFCore.utils import getToolByName
 def run(self):
     ltool = getToolByName(self, 'portal_languages')
     langs = ltool.listSupportedLanguages()
-    f = open('/home/zope/osha3/osha_centralisation_log.txt', 'w')
+    f = open('var/log/osha_centralisation_log.txt', 'w')
     centraliseNews(self, langs, f)
     centraliseEvents(self, langs, f)
     f.close()
@@ -53,7 +53,6 @@ def _setKeywords(ls, f):
     return parents
 
 def centraliseEvents(self, langs, f):
-    langs = [('en', 'dummy')]
     for lang, dummy in langs:
         path = '/osha/portal/%s/' % lang
         query = {
@@ -74,7 +73,6 @@ def centraliseEvents(self, langs, f):
 
 
 def centraliseNews(self, langs, f):
-    langs = [('en', 'dummy')]
     for lang, dummy in langs:
         path = '/osha/portal/%s/' % lang
         query = {
