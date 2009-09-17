@@ -18,9 +18,10 @@
           <span class="photoAlbumEntryWrapper">
             <img width="128" title="Section Title" 
                 alt="Section Alt" src="../section-image.png"
-                tal:attributes="alt view/getSectionTitle" />
+                tal:attributes="alt view/getSectionTitle;
+                                title view/getSectionTitle" />
           </span>
-          <span class="photoAlbumEntryTitle"
+          <span class="photoAlbumEntryTitle database-emphasis"
               tal:content="view/getSectionTitle">
               Section Title 
           </span>
@@ -47,9 +48,12 @@
         </h1>
 
         <div class="field_default">
-          <input id="SearchableText" type="text" value="asdf" xonfocus="if (this.value ==
-          'label_search_term') this.value=''" xonblur="if (this.value == '') this.value =
-          'label_search_term'" size="25" name="SearchableText"/>
+          <input type="text"
+                  id="SearchableText"
+                  name="SearchableText"
+                  size="25"
+                  tal:attributes="value request/SearchableText|nothing"
+                  />
         </div>
 
         <div class="formControls">
