@@ -47,7 +47,7 @@ class PracticalSolutionsView(DBFilterView):
         context = self.context
         search_portal_types = [ "OSH_Link", "RALink", "CaseStudy", "Provider"]
         query = ( Eq('portal_type', 'File') & Eq('object_provides', 'slc.publications.interfaces.IPublicationEnhanced') )
-        query = Or(query, In('portal_type', search_portal_types))
+        query = Or(query, In('portal_type', search_portal_types)) & Eq('review_state','published')
         return query
 
     def getSectionDetails(self):
@@ -127,6 +127,7 @@ class PracticalSolutionView(DBFilterView):
             query = Or(query, In('portal_type', search_portal_types))
         else:
             query = In('portal_type', search_portal_types)
+        query = query & Eq('review_state','published')
 
         return query
 

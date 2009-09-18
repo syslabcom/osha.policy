@@ -56,29 +56,15 @@
 
 <div class="visualClear"></div>
 
-    <div tal:replace="structure view/gpawards "></div>
+    <tal:gpawards replace="structure view/gpawards "></tal:gpawards>
 
-    <span tal:define="local_keyword string:;
-                      keywords string:;
-                      subcategory string:;
-                      object_implements string:;
-                      SearchableText string:;
-                      multilingual_thesaurus string:;
-                      nace string:;
-                      nace string:;
-                      category string:;
-                      getRemoteLanguage request/getRemoteLanguage|string:;
+    <span tal:define="getRemoteLanguage request/getRemoteLanguage|string:;
                       country request/country|string:;
-                      search_portal_types view/search_portal_types;
-                      Batch python:modules['Products.CMFPlone'].Batch;
                       DateTime python:modules['DateTime'].DateTime;
-                      b_size python:10;b_start python:0;
-                      b_start request/b_start | b_start;
-                      desc_length site_properties/search_results_description_length;
                       desc_ellipsis site_properties/ellipsis;
                       searchterm nothing;
                       ">
-        <div tal:define="results view/search">
+        <div tal:define="results python:view.search()[:3]">
 
             <!--i>Filtered by:
                 <span tal:replace="view/buildQuery"/>
@@ -93,11 +79,10 @@
             <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
         </div>
 
-        <div tal:condition="results"
-            tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+        <div tal:condition="results">
 
             <dl id="db_results">
-            <tal:results repeat="result batch">
+            <tal:results repeat="result results">
             <tal:entry define="provider_helper here/@@provider_helper;
                               result_url result/getURL;
                               url result/getRemoteUrl | result_url;
@@ -120,7 +105,6 @@
 
             <div class="visualClear" ></div>
 
-            <div metal:use-macro="here/batch_macros/macros/navigation" />
 
             <!-- Snapshot code -->
             <script type="text/javascript" src="http://shots.snap.com/ss/8c2016f0b237f14c8e18548d26c3d103/snap_shots.js"></script>
