@@ -14,7 +14,7 @@ class OSHAPolicyLayer(SiteLayer):
 
     @classmethod
     def setUp(cls):
-        ptc.setupPloneSite(products=['osha.policy', 'CMFLinkChecker'])
+        ptc.setupPloneSite(products=('osha.policy',))
 
         ztc.installProduct('ATVocabularyManager')
         ztc.installProduct('LinguaPlone')
@@ -26,6 +26,8 @@ class OSHAPolicyLayer(SiteLayer):
         zcml.load_config('configure.zcml', osha.theme)
         import osha.policy
         zcml.load_config('configure.zcml', osha.policy)
+        import textindexng
+        zcml.load_config('configure.zcml', textindexng)
 
         SiteLayer.setUp()
 
