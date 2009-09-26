@@ -55,9 +55,8 @@ osha.policy 1.2.16 (2009-08-12)
 osha.policy 1.2.15 (2009-08-12)
 -------------------------------
 
-- For consistency reasons, we also include the "country" field in the PressRelease-schemaextender. PressRelease is derived
-from ATNewsItem, which is extended by our TaggingSchemaExtenderDocument. Lately, the document-extender has the country field. 
-If a PressRelease doesn't also have this field, it can lead to an error when trying to translate it. (thomasw)
+- For consistency reasons, we also include the "country" field in the PressRelease-schemaextender. PressRelease is derived from ATNewsItem, which is extended by our TaggingSchemaExtenderDocument. Lately, the document-extender has the country field. 
+  If a PressRelease doesn't also have this field, it can lead to an error when trying to translate it. (thomasw)
 - fixed typo in LEX vocabulary that prevented legislation directives showing up in section A/4 (thomasw)
 - Add scripts dir with new script set_pdf_metadata.py (brand)
 - Add extractPDFText to utils (brand)
