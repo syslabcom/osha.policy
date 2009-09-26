@@ -14,7 +14,9 @@ class OSHAPolicyLayer(SiteLayer):
 
     @classmethod
     def setUp(cls):
-        ptc.setupPloneSite(products=('osha.policy',))
+        ptc.setupPloneSite(products=(
+            'osha.policy', 
+            ))
 
         ztc.installProduct('ATVocabularyManager')
         ztc.installProduct('LinguaPlone')
@@ -30,6 +32,9 @@ class OSHAPolicyLayer(SiteLayer):
         zcml.load_config('configure.zcml', textindexng)
         import slc.clicksearch
         zcml.load_config('configure.zcml', slc.clicksearch)
+        import slc.xliff
+        zcml.load_config('configure.zcml', slc.xliff)
+
 
         SiteLayer.setUp()
 
