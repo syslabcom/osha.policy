@@ -34,11 +34,10 @@ class OSHAPolicyLayer(SiteLayer):
         zcml.load_config('configure.zcml', slc.clicksearch)
         import slc.xliff
         zcml.load_config('configure.zcml', slc.xliff)
-
+        import slc.shoppinglist
+        zcml.load_config('configure.zcml', slc.shoppinglist)
 
         SiteLayer.setUp()
-
-
 
 class OSHAPolicyTestCase(ptc.PloneTestCase):
     """We use this base class for all the tests in this package. If necessary,
