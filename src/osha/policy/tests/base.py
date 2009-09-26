@@ -21,14 +21,11 @@ class OSHAPolicyLayer(SiteLayer):
         ztc.installProduct('ATCountryWidget')
         ztc.installProduct('TextIndexNG3')
         ztc.installProduct('ProxyIndex')
-        ztc.installProduct('Relations')
 
         import osha.theme
         zcml.load_config('configure.zcml', osha.theme)
-
-        ztc.installPackage('slc.seminarportal')
-        ztc.installPackage('osha.legislation')
-        ztc.installPackage('slc.alertservice')
+        import osha.policy
+        zcml.load_config('configure.zcml', osha.policy)
 
         SiteLayer.setUp()
 
