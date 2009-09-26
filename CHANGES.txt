@@ -1,6 +1,11 @@
 osha.policy Changelog
 =====================
 
+osha.policy 1.2.25 (unreleased)
+-------------------------------
+- Nothing changed yet.
+
+
 osha.policy 1.2.24 (unreleased)
 -------------------------------
 - Make osha.policy standalone buildable (gerken)
