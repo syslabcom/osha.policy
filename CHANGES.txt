@@ -1,8 +1,12 @@
 osha.policy Changelog
 =====================
 
-1.2.24 (2009-09-26)
--------------------
+osha.policy 1.2.24 (unreleased)
+-------------------------------
+- Make osha.policy standalone buildable (gerken)
+
+osha.policy 1.2.23 (2009-09-26)
+-------------------------------
 - Disable the handle_auto_translated_files subscriber. (jcbrand)
 - removed unnecessary import in patches/autotranslate_get_translations.py (deroiste)
 
