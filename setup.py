@@ -74,6 +74,5 @@ setup(name='osha.policy',
       entry_points="""
       # -*- entry_points -*- 
       """,
-      paster_plugins = ["ZopeSkel"],
       )      
       
