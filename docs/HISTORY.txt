@@ -1,5 +1,11 @@
 Changelog for osha.policy
 
+1.2.25 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
     (name of developer listed in brackets)
 
 osha.policy - 0.1 Unreleased
