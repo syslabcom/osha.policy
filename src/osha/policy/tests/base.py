@@ -23,6 +23,9 @@ class OSHAPolicyLayer(SiteLayer):
         ztc.installProduct('ProxyIndex')
         ztc.installProduct('Relations')
 
+        import osha.theme
+        zcml.load_config('configure.zcml', osha.theme)
+
         ztc.installPackage('slc.seminarportal')
         ztc.installPackage('osha.legislation')
         ztc.installPackage('slc.alertservice')

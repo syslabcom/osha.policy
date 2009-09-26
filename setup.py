@@ -21,7 +21,7 @@ long_description = (
     'Detailed Documentation\n'
     '**********************\n'
     + '\n' +
-    read('osha', 'policy', 'README.txt')
+    read('src', 'osha', 'policy', 'README.txt')
     + '\n' +
     'Contributors\n'
     '************\n'
@@ -49,7 +49,8 @@ setup(name='osha.policy',
       author_email='info@syslab.com',
       url='https://svn.syslab.com/svn/OSHA/osha.policy',
       license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
+      packages=['osha', 'osha/policy'],
+      package_dir = {'' : 'src'},
       namespace_packages=['osha'],
       include_package_data=True,
       zip_safe=False,
@@ -60,6 +61,7 @@ setup(name='osha.policy',
         'collective.indexing',
         'collective.portlet.feedmixer',
         'collective.portlet.tal',
+        'gocept.linkchecker',
         'osha.legislation',
         'Products.ATVocabularyManager',
         'Products.CacheSetup',
