@@ -28,6 +28,8 @@ class OSHAPolicyLayer(SiteLayer):
         zcml.load_config('configure.zcml', osha.policy)
         import textindexng
         zcml.load_config('configure.zcml', textindexng)
+        import slc.clicksearch
+        zcml.load_config('configure.zcml', slc.clicksearch)
 
         SiteLayer.setUp()
 
