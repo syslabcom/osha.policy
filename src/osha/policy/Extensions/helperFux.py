@@ -9,8 +9,8 @@ from zope.component import getMultiAdapter, getUtility
 import Acquisition
 
 
-def helper(self, key):
-    print "\nhelper"
+def exchangeSEPPortlets(self, key):
+    portlet_name=u'sep_publications'
     
     path = '/'.join(self.getPhysicalPath())
     
@@ -20,11 +20,14 @@ def helper(self, key):
     
     right = assignment_mapping_from_key(self, 'plone.rightcolumn', CONTEXT_CATEGORY, path)
     print right.keys()
-    from plone.portlet.collection import collection as collection_portlet
-    
-    #key = 'organisation'
-    topic_path = "%s/directory/%s/Publication" %(portal_path, key)
-    right[u'sep_publications'] = collection_portlet.Assignment(header=_(u"legend_publications"), 
+    from osha.theme.portlets import oshcollection as collection_portlet
+       
+    if right.has_key(portlet_name):
+        topic_path = right.get(portlet_name).target_collection
+        del right[portlet_name]
+    else:
+        topic_path = "%s/directory/%s/Publication" %(portal_path, key)
+    right[portlet_name] = collection_portlet.Assignment(header=_(u"legend_publications"), 
                                    target_collection=topic_path, 
                                    limit=5)
     
