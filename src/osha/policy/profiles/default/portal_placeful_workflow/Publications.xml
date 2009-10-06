@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="Publications" meta_type="WorkflowPolicy">
+ <property name="title">Publications</property>
+ <bindings>
+  <default>
+   <bound-workflow workflow_id="osh_workflow"/>
+  </default>
+ </bindings>
+</object>
