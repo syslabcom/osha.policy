@@ -50,6 +50,10 @@ zope.interface.classImplements(Provider, IOSHContentProvider)
 from Products.OSHContentLink.OSH_Link import OSH_Link
 zope.interface.classImplements(OSH_Link, IOSHContent)
 
+#Regular Links
+from Products.ATContentTypes.content.link import ATLink
+zope.interface.classImplements(ATLink, IOSHContent)
+
 # RALink
 class IOSHContentRALink(zope.interface.Interface):
     """ OSHContent for RALink"""
@@ -251,7 +255,7 @@ class TaggingSchemaExtender(object):
                     label='Multilingual Thesaurus Subject',
                     description='Select one or more entries',
                     vocabulary="MultilingualThesaurus",
-                    label_msgid='label_category',
+                    label_msgid='label_multilingual_thesaurus',
                     description_msgid='help_multilingual_thesaurus',
                     i18n_domain='osha',
                     condition="python:len(object.getField('multilingual_thesaurus').Vocabulary(object))",

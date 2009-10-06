@@ -1,6 +1,11 @@
 osha.policy Changelog
 =====================
 
+osha.polict 1.2.26 (unreleased)
+-------------------------------
+- Add new fields to Links (gerken)
+- fixed the naming of multilingual_thesaurus. Had a wrong label
+
 osha.policy 1.2.25 (2009-09-30)
 -------------------------------
 - bugfix: removed a file that was added wrongly during the structural change
