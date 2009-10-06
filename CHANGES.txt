@@ -1,8 +1,8 @@
 osha.policy Changelog
 =====================
 
-1.2.26 (2009-10-06)
--------------------
+osha.policy 1.2.26 (2009-10-06)
+-------------------------------
 - Add new fields to Links (gerken)
 - fixed the naming of multilingual_thesaurus. Had a wrong label (gerken)
 - We now store workflow policies. in setup tools. Also there is now
