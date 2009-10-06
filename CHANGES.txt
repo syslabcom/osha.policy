@@ -1,8 +1,8 @@
 osha.policy Changelog
 =====================
 
-1.2.27 (2009-10-06)
--------------------
+osha.policy 1.2.27 (2009-10-06)
+-------------------------------
 
 - Overriding the Chapter Update functionality in slc.publications (gerken)
 
@@ -19,7 +19,7 @@ osha.policy 1.2.25 (2009-09-30)
 - bugfix: removed a file that was added wrongly during the structural change
   done in the last revision (gerken)
 
-osha.policy 1.2.24 (unreleased)
+osha.policy 1.2.24 (2009-09-26)
 -------------------------------
 - Make osha.policy standalone buildable (gerken)
 
@@ -73,10 +73,13 @@ osha.policy 1.2.16 (2009-08-12)
 osha.policy 1.2.15 (2009-08-12)
 -------------------------------
 
-- For consistency reasons, we also include the "country" field in the PressRelease-schemaextender. PressRelease is derived
-from ATNewsItem, which is extended by our TaggingSchemaExtenderDocument. Lately, the document-extender has the country field. 
-If a PressRelease doesn't also have this field, it can lead to an error when trying to translate it. (thomasw)
-- fixed typo in LEX vocabulary that prevented legislation directives showing up in section A/4 (thomasw)
+- For consistency reasons, we also include the "country" field in the 
+  PressRelease-schemaextender. PressRelease is derived from ATNewsItem, which 
+  is extended by our TaggingSchemaExtenderDocument. Lately, the 
+  document-extender has the country field. If a PressRelease doesn't also 
+  have this field, it can lead to an error when trying to translate it. (thomasw)
+- fixed typo in LEX vocabulary that prevented legislation directives 
+  showing up in section A/4 (thomasw)
 - Add scripts dir with new script set_pdf_metadata.py (brand)
 - Add extractPDFText to utils (brand)
 - Add event handler handle_auto_translated_files for the slc.autotranslate custom event (brand)
