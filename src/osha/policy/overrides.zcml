@@ -18,4 +18,18 @@ optimization -->
                 for="slc.publications.interfaces.IPublicationEnhanced"
                 provides="slc.publications.interfaces.IPrettyFormatter" />
 
+    <subscriber
+            for="slc.publications.interfaces.IPublicationEnhanced
+                 zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+            handler=".adapter.publication_customisations.OshaChapterUpdater"
+    />
+
+    <include package="z3c.unconfigure" file="meta.zcml" />
+    <unconfigure>
+        <subscriber 
+            for="slc.publications.interfaces.IPublicationEnhanced
+                 zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+            handler="slc.publications.adapter.events.ChapterUpdater"
+        />
+    </unconfigure>
 </configure>
