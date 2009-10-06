@@ -4,7 +4,7 @@ osha.policy Changelog
 1.2.27 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Overriding the Chapter Update functionality in slc.publications (gerken)
 
 
 osha.policy 1.2.26 (2009-10-06)
