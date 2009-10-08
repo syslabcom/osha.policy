@@ -19,11 +19,54 @@ log = logging.getLogger('osha_centralisation_helper')
 def run(self):
     ltool = getToolByName(self, 'portal_languages')
     langs = ltool.listSupportedLanguages()
-    f = open('var/log/osha_centralisation_log.txt', 'w')
-    centraliseNews(self, langs, f)
-    centraliseEvents(self, langs, f)
+    f = open('var/log/osha_centralisation.log', 'w')
+    _centraliseNews(self, langs, f)
+    _centraliseEvents(self, langs, f)
     f.close()
     return 'Done' 
+
+
+def _centraliseEvents(self, langs, f):
+    ls = [] 
+    for lang, dummy in langs:
+        path = '/osha/portal/%s/' % lang
+        query = {
+                'portal_type': 'Event',
+                'path': path,
+                }
+
+        for l in self.portal_catalog(query):
+            path = l.getPath()
+            if 'teaser' in path or '/sub/riskobservatory' in path or '/%s/events/' % lang in path:
+                continue
+
+            ls.append(l)
+
+    items, parents = _setKeywords(ls, f)
+    _assignContentRules(parents, 'move-events-after-publish', f)
+    _moveItemsToCentralLocation(self, items, f, 'events')
+
+
+def _centraliseNews(self, langs, f):
+    ls = [] 
+    for lang, dummy in langs:
+        path = '/osha/portal/%s/' % lang
+        query = {
+                'portal_type': 'News Item',
+                'path': path,
+                }
+
+        for l in self.portal_catalog(query):
+            path = l.getPath()
+            if 'teaser' in path or '/sub/riskobservatory' in path or '/%s/news/' % lang in path:
+                continue
+
+            ls.append(l)
+
+    items, parents = _setKeywords(ls, f)
+    _assignContentRules(parents, 'move-news-after-publish', f)
+    _moveItemsToCentralLocation(self, items, f, 'news')
+
 
 def _assignContentRules(parents, rule_id, f):
     storage = queryUtility(IRuleStorage)
@@ -36,6 +79,7 @@ def _assignContentRules(parents, rule_id, f):
         # assignments[rule_id] = rule_ass
         f.write("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
         log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
+
 
 def _setKeywords(ls, f):
     parents = []
@@ -72,47 +116,6 @@ def _setKeywords(ls, f):
 
     return items, parents
 
-def centraliseEvents(self, langs, f):
-    ls = [] 
-    for lang, dummy in langs:
-        path = '/osha/portal/%s/' % lang
-        query = {
-                'portal_type': 'Event',
-                'path': path,
-                }
-
-        for l in self.portal_catalog(query):
-            path = l.getPath()
-            if 'teaser' in path or '/sub/riskobservatory' in path or '/%s/events/' % lang in path:
-                continue
-
-            ls.append(l)
-
-    items, parents = _setKeywords(ls, f)
-    _assignContentRules(parents, 'move-events-after-publish', f)
-    _moveItemsToCentralLocation(self, items, f, 'events')
-
-
-def centraliseNews(self, langs, f):
-    ls = [] 
-    for lang, dummy in langs:
-        path = '/osha/portal/%s/' % lang
-        query = {
-                'portal_type': 'News Item',
-                'path': path,
-                }
-
-        for l in self.portal_catalog(query):
-            path = l.getPath()
-            if 'teaser' in path or '/sub/riskobservatory' in path or '/%s/news/' % lang in path:
-                continue
-
-            ls.append(l)
-
-    items, parents = _setKeywords(ls, f)
-    _assignContentRules(parents, 'move-news-after-publish', f)
-    _moveItemsToCentralLocation(self, items, f, 'news')
-
 
 def _moveItemsToCentralLocation(self, items, f, folderpath):
     log.info('_moveItemsToCentralLocation')
@@ -127,7 +130,6 @@ def _moveItemsToCentralLocation(self, items, f, folderpath):
         f.write("'%s' now contains %s \n" % (fullpath, item_path))
         log.info("'%s', now contains %s \n" % (fullpath, item_path))
         # transaction.savepoint(optimistic=True)
-
 
 
 
