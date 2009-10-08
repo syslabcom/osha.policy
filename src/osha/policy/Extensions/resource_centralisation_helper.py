@@ -37,7 +37,20 @@ def _centraliseEvents(self, langs, f):
 
         for l in self.portal_catalog(query):
             path = l.getPath()
-            if 'teaser' in path or '/sub/riskobservatory' in path or '/%s/events/' % lang in path:
+            if  'teaser' in path or  \
+                '/sub/riskobservatory' in path or  \
+                '/campaigns/ew2005/comments/' in path or \
+                '/campaigns/ew2006/accident_zone/' in path or \
+                '/campaigns/ew2006/comments/' in path or \
+                '/campaigns/ew2006/ideas_for_action/' in path or \
+                '/campaigns/ew2007/accident_zone/' in path or \
+                '/campaigns/ew2007/comments/' in path or \
+                '/campaigns/ew2007/ideas_for_action/' in path or \
+                '/campaigns/hw2008/ideas_action/' in path or \
+                '/campaigns/hw2008/partners/' in path or \
+                '/campaigns/hw2008/riskzone/' in path or \
+                '/%s/events/' % lang in path:
+
                 continue
 
             ls.append(l)
@@ -58,7 +71,20 @@ def _centraliseNews(self, langs, f):
 
         for l in self.portal_catalog(query):
             path = l.getPath()
-            if 'teaser' in path or '/sub/riskobservatory' in path or '/%s/news/' % lang in path:
+            if  'teaser' in path or \ 
+                '/sub/riskobservatory' in path or \
+                '/campaigns/ew2005/comments/' in path or \
+                '/campaigns/ew2006/accident_zone/' in path or \
+                '/campaigns/ew2006/comments/' in path or \
+                '/campaigns/ew2006/ideas_for_action/' in path or \
+                '/campaigns/ew2007/accident_zone/' in path or \
+                '/campaigns/ew2007/comments/' in path or \
+                '/campaigns/ew2007/ideas_for_action/' in path or \
+                '/campaigns/hw2008/ideas_action/' in path or \
+                '/campaigns/hw2008/partners/' in path or \
+                '/campaigns/hw2008/riskzone/' in path or \
+                '/%s/news/' % lang in path:
+
                 continue
 
             ls.append(l)
