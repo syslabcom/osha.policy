@@ -37,8 +37,7 @@ def _centraliseEvents(self, langs, f):
 
         for l in self.portal_catalog(query):
             path = l.getPath()
-            if  'teaser' in path or  \
-                '/sub/riskobservatory' in path or  \
+            if  'teaser' in path or '/sub/riskobservatory' in path or  \
                 '/campaigns/ew2005/comments/' in path or \
                 '/campaigns/ew2006/accident_zone/' in path or \
                 '/campaigns/ew2006/comments/' in path or \
@@ -56,7 +55,7 @@ def _centraliseEvents(self, langs, f):
             ls.append(l)
 
     items, parents = _setKeywords(ls, f)
-    _assignContentRules(parents, 'move-events-after-publish', f)
+    _assignContentRules(self, 'move-events-after-publish', f)
     _moveItemsToCentralLocation(self, items, f, 'events')
 
 
@@ -71,8 +70,7 @@ def _centraliseNews(self, langs, f):
 
         for l in self.portal_catalog(query):
             path = l.getPath()
-            if  'teaser' in path or \ 
-                '/sub/riskobservatory' in path or \
+            if  'teaser' in path or '/sub/riskobservatory' in path or \
                 '/campaigns/ew2005/comments/' in path or \
                 '/campaigns/ew2006/accident_zone/' in path or \
                 '/campaigns/ew2006/comments/' in path or \
@@ -90,14 +88,30 @@ def _centraliseNews(self, langs, f):
             ls.append(l)
 
     items, parents = _setKeywords(ls, f)
-    _assignContentRules(parents, 'move-news-after-publish', f)
+    _assignContentRules(self, 'move-news-after-publish', f)
     _moveItemsToCentralLocation(self, items, f, 'news')
 
 
-def _assignContentRules(parents, rule_id, f):
+def _assignContentRules(self, rule_id, f):
+    parents = [
+        'en/campaigns/ew2006/',
+        'en/campaigns/ew2007/',
+        'en/campaigns/hw2008/',
+        'en/campaigns/hwi/',
+        'en/campaigns/hwi/',
+        'en/campaigns/hwi/',
+        'en/campaigns/hwi/',
+        'en/good_practice/',
+        'en/oshnetwork/member-states/belgium/events',
+        'en/riskobservatory/',
+        'en/topics/business/',
+        ]
+
     storage = queryUtility(IRuleStorage)
     rule = storage.get(rule_id)
-    for parent in parents:
+    portal_obj = self.portal_url.getPortalObject()
+    for p in parents:
+        parent = portal_obj.unrestrictedTraverse(p)
         # XXX Disabled for dry run...
         # assignments = IRuleAssignmentManager(parent, None)
         # get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
@@ -124,8 +138,8 @@ def _setKeywords(ls, f):
             elif parent.absolute_url() in p.absolute_url():
                 parents.remove(p)
                  
-        if parent not in parents and not subparent:
-            parents.append(parent)
+        # if parent not in parents and not subparent:
+        parents.append(parent)
 
         for fid, kw  in [ 
                 ('ew2005', 'noise'), 
@@ -157,15 +171,3 @@ def _moveItemsToCentralLocation(self, items, f, folderpath):
         log.info("'%s', now contains %s \n" % (fullpath, item_path))
         # transaction.savepoint(optimistic=True)
 
-
-
-
-# rule_id = 'move-news-from-%s-to-global-news-folder' % parent.getId()
-# rule = Rule()
-# rule.title = \
-#     "Move Published News from '%s' to the global News folder" % parent.pretty_title_or_id()
-# rule.description = \
-#     'Move Published News Items from this folder (%s) to the global News folder' % parent.pretty_title_or_id()
-# rule.event = IObjectAddedEvent
-# storage[rule_id] = rule
-# XXX: Still not sure about this
