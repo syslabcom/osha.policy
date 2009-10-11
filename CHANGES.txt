@@ -6,6 +6,8 @@ osha.policy Changelog
 
 - adding nace and multilingual_thesaurus to Document & News; actually for 
   the blog, ticket 239 (thomasw)
+- using getSite() in the CategoriesVocabulary, because the context passed
+  in might not be suited for a PTS transaltion (thomasw)
 
 
 osha.policy 1.2.27 (2009-10-06)
