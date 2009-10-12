@@ -33,6 +33,20 @@ def _centraliseEvents(self, langs, f):
         query = {
                 'portal_type': 'Event',
                 'path': path,
+                'Language': lang,
+                }
+
+        ls += list(self.portal_catalog(query))
+
+    items, parents = _setKeywords(ls, f)
+
+    for lang, dummy in langs:
+        path = '/osha/portal/%s/' % lang
+        query = {
+                'portal_type': 'Event',
+                'path': path,
+                'review_state': 'published',
+                'Language': lang,
                 }
 
         for l in self.portal_catalog(query):
@@ -54,8 +68,7 @@ def _centraliseEvents(self, langs, f):
 
             ls.append(l)
 
-    items, parents = _setKeywords(ls, f)
-    _assignContentRules(self, 'move-events-after-publish', f)
+    _assignContentRules(self, 'move-events-after-publish', f, langs)
     _moveItemsToCentralLocation(self, items, f, 'events')
 
 
@@ -66,6 +79,19 @@ def _centraliseNews(self, langs, f):
         query = {
                 'portal_type': 'News Item',
                 'path': path,
+                'Language': lang,
+                }
+        ls += list(self.portal_catalog(query))
+
+    items, parents = _setKeywords(ls, f)
+
+    for lang, dummy in langs:
+        path = '/osha/portal/%s/' % lang
+        query = {
+                'portal_type': 'News Item',
+                'path': path,
+                'review_state': 'published',
+                'Language': lang,
                 }
 
         for l in self.portal_catalog(query):
@@ -87,45 +113,53 @@ def _centraliseNews(self, langs, f):
 
             ls.append(l)
 
-    items, parents = _setKeywords(ls, f)
-    _assignContentRules(self, 'move-news-after-publish', f)
+    
+    _assignContentRules(self, 'move-news-after-publish', f, langs)
     _moveItemsToCentralLocation(self, items, f, 'news')
 
 
-def _assignContentRules(self, rule_id, f):
-    parents = [
-        'en/campaigns/ew2006/',
-        'en/campaigns/ew2007/',
-        'en/campaigns/hw2008/',
-        'en/campaigns/hwi/',
-        'en/campaigns/hwi/',
-        'en/campaigns/hwi/',
-        'en/campaigns/hwi/',
-        'en/good_practice/',
-        'en/oshnetwork/member-states/belgium/events',
-        'en/riskobservatory/',
-        'en/topics/business/',
-        ]
+def _assignContentRules(self, rule_id, f, langs):
 
-    storage = queryUtility(IRuleStorage)
-    rule = storage.get(rule_id)
-    portal_obj = self.portal_url.getPortalObject()
-    for p in parents:
-        parent = portal_obj.unrestrictedTraverse(p)
-        # XXX Disabled for dry run...
-        # assignments = IRuleAssignmentManager(parent, None)
-        # get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
-        # rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
-        # assignments[rule_id] = rule_ass
-        f.write("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
-        log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
+    for lang, dummy in langs:
+
+        parents = [
+            '%s/campaigns/ew2006/' % lang,
+            '%s/campaigns/ew2007/' % lang,
+            '%s/campaigns/hw2008/' % lang,
+            '%s/campaigns/hwi/' % lang,
+            '%s/good_practice/' % lang,
+            '%s/oshnetwork/member-states/' % lang,
+            '%s/topics/business/' % lang,
+            '%s/riskobservatory/' % lang, 
+            ]
+
+        storage = queryUtility(IRuleStorage)
+        rule = storage.get(rule_id)
+        portal_obj = self.portal_url.getPortalObject()
+        for p in parents:
+            try:
+                parent = portal_obj.unrestrictedTraverse(p)
+            except:
+                continue
+            # XXX Disabled for dry run...
+            # assignments = IRuleAssignmentManager(parent, None)
+            # get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
+            # rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
+            # assignments[rule_id] = rule_ass
+            f.write("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
+            log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
 
 
 def _setKeywords(ls, f):
     parents = []
     items = []
     for l in ls:
-        item = l.getObject() 
+        try:
+            item = l.getObject() 
+        except:
+            f.write("Couldn't get object! '%s'\n" % l.getPath())
+            log.info("Couldn't get object! '%s'\n" % l.getPath())
+
         items.append(item)
         parent = item.aq_parent
         subparent = False
@@ -170,4 +204,5 @@ def _moveItemsToCentralLocation(self, items, f, folderpath):
         f.write("'%s' now contains %s \n" % (fullpath, item_path))
         log.info("'%s', now contains %s \n" % (fullpath, item_path))
         # transaction.savepoint(optimistic=True)
+
 
