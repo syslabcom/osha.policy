@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
     <vocabName>
-        <langstring language="en">OSHCategories</langstring>
+        <langstring language="en">Subcategory</langstring>
     </vocabName>
     <vocabIdentifier>http://osha.europa.eu/OSHCategories</vocabIdentifier>
 <term>
@@ -418,6 +418,14 @@
     </term>
 
     </term>
+
+<term>
+    <termIdentifier>cleaners</termIdentifier>
+    <caption><langstring language="da">rengøring arbejdstagere</langstring><langstring language="de">Reinigungskräfte</langstring><langstring language="et">Puhastus töötajate</langstring><langstring language="en">Cleaning workers</langstring><langstring language="es">Trabajadores de la limpiez</langstring><langstring language="fr">Employés de nettoyage</langstring><langstring language="it">Addetti alle pulizie</langstring><langstring language="lv">Uzkopšanas darbiniekiem</langstring><langstring language="lt">Valytojams</langstring><langstring language="hu">Takarító személyzet</langstring><langstring language="mt">ħaddiema tat-tindif</langstring><langstring language="nl">Reiniging werknemers</langstring><langstring language="pl">Pracowników do czyszczenia</langstring><langstring language="pt">Trabalhadores de limpeza</langstring><langstring language="ro">Personalului de curăţenie</langstring><langstring language="sk">čistenie pracovníkov</langstring><langstring language="sl">čiščenje delavci</langstring><langstring language="fi">Siivoustyöntekijöitä</langstring><langstring language="sv">Städpersonal</langstring><langstring language="cs">čištění pracovníků</langstring><langstring language="el">καθαρισμού εργαζομένων</langstring><langstring language="bg">почистване на работниците</langstring></caption>
+
+</term>
+
+
 <term>
     <termIdentifier>dangerous_substances</termIdentifier>
     <caption><langstring language="da">Farlige stoffer</langstring><langstring language="de">Gefahrstoffe</langstring><langstring language="et">Ohtlikud ained</langstring><langstring language="en">Dangerous Substances</langstring><langstring language="es">Sustancias peligrosas</langstring><langstring language="fr">Substances dangereuses</langstring><langstring language="it">Sostanze pericolose</langstring><langstring language="lv">Bīstamās vielas</langstring><langstring language="lt">Pavojingos medžiagos</langstring><langstring language="hu">Veszélyes anyagok</langstring><langstring language="mt">Sustanzi Perikolużi</langstring><langstring language="nl">Gevaarlijke stoffen</langstring><langstring language="pl">Substancje niebezpieczne</langstring><langstring language="pt">Substâncias perigosas</langstring><langstring language="sk">Nebezpečné látky</langstring><langstring language="sl">Nevarne snovi</langstring><langstring language="fi">Vaaralliset aineet</langstring><langstring language="sv">Farliga ämnen</langstring><langstring language="cs">Nebezpečné látky</langstring><langstring language="el">Επικίνδυνες ουσίες</langstring><langstring language="bg">Dangerous Substances</langstring></caption>
