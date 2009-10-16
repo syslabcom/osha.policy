@@ -4,8 +4,8 @@ osha.policy Changelog
 1.2.29 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- enhanced the field default mechanism for 'author' of slc.publicattion to
+  handle a special case in the Belgian FOP (thomasw)
 
 1.2.28 (2009-10-11)
 -------------------
