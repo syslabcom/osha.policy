@@ -1,11 +1,13 @@
 osha.policy Changelog
 =====================
 
-1.2.29 (unreleased)
+1.2.29 (2009-10-18)
 -------------------
 
 - enhanced the field default mechanism for 'author' of slc.publicattion to
   handle a special case in the Belgian FOP (thomasw)
+- resource centralisation: Only move published items, but tag all items. 
+  Fix queries to query in all languages (jcbrand)
 
 1.2.28 (2009-10-11)
 -------------------
