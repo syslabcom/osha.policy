@@ -1,5 +1,6 @@
 from Products.CMFCore.utils import getToolByName
 import os
+from DateTime import DateTime
 
 SEPARATOR = '\t'
 
@@ -60,8 +61,17 @@ def doit(self, path_to_file=""):
                 print "error in line", i
     
         title_nl = "%s %s: %s" %(rest, loc_nl, items[TITLE_NL])
+        title_nl = unicode(title_nl, 'utf-8')
         title_fr = "%s %s: %s" %(rest, loc_fr, items[TITLE_FR])
-        print i, title_fr
+        title_fr = unicode(title_fr, 'utf-8')
+        
+        try:
+            date = DateTime(items[DATE], datefmt="international")
+        except:
+            date = None
+        
+        descr_nl = "%s - Vraag gesteld door " %items[DESCR_NL]
+        descr_fr = "%s - Question posé par " %items[DESCR_FR]
         i+=1
     
     return "done - no problems"
