@@ -3,34 +3,34 @@ import transaction
 
 from webdav.Lockable import ResourceLockedError
 
-from zope.component import queryUtility
+from zope import component
+from zope.annotation.interfaces import IAnnotations
 
 from plone.contentrules.engine.assignments import RuleAssignment
 from plone.contentrules.engine.interfaces import IRuleStorage
 from plone.contentrules.engine.interfaces import IRuleAssignmentManager
-from plone.app.contentrules.rule import Rule
 
-from plone.app.contentrules.actions import move 
-from plone.app.contentrules.conditions import portaltype
 from plone.app.contentrules.rule import get_assignments
 
 from Products.CMFCore.utils import getToolByName
+
+from p4a.subtyper.interfaces import ISubtyper
 
 log = logging.getLogger('osha_centralisation_helper')
 
 def run(self):
     ltool = getToolByName(self, 'portal_languages')
     langs = ltool.listSupportedLanguages()
-    f = open('osha_centralisation.log', 'a')
+    f = open('osha_centralisation.log', 'w')
 
     # NEWS
     # _setNewsKeywords(self, langs, f)
-    # _assignContentRules(self, 'rule-5', f, langs)
+    # _assignContentRules(self, 'move-news-after-publish', f, langs)
     _centraliseNews(self, langs, f)
 
     # EVENTS
     # _setEventsKeywords(self, langs, f)
-    # _assignContentRules(self, 'rule-6', f, langs)
+    # _assignContentRules(self, 'move-events-after-publish', f, langs)
     # _centraliseEvents(self, langs, f)
 
     f.close()
@@ -162,15 +162,15 @@ def _assignContentRules(self, rule_id, f, langs):
             '%s/riskobservatory/' % lang, 
             ]
 
-        storage = queryUtility(IRuleStorage)
+        storage = component.queryUtility(IRuleStorage)
         rule = storage.get(rule_id)
         portal_obj = self.portal_url.getPortalObject()
         for p in parents:
             try:
                 parent = portal_obj.unrestrictedTraverse(p)
             except:
-                log.info("Couldn't find folder %s for adding content rule %s \n" % (rule_id, parent.absolute_url()))
-                f.write("Couldn't find folder %s for adding content rule %s \n" % (rule_id, parent.absolute_url()))
+                log.info("Couldn't find folder %s for adding content rule %s \n" % (parent.absolute_url(), rule_id))
+                f.write("Couldn't find folder %s for adding content rule %s \n" % (parent.absolute_url(), rule_id))
                 continue
 
             # XXX DOUBLE CHECK!!!!
@@ -216,6 +216,24 @@ def _setKeywords(ls, f):
                     log.info("Keyword '%s' already in %s: %s \n" % (kw, l.portal_type, l.getPath()))
 
 
+def _subtypeAndConfigureOldParent(parent, portal_type, keywords):
+    subtyper = component.getUtility(ISubtyper)
+    if subtyper.existing_type(parent) is None:
+        subtyper.change_type(parent, 'slc.aggregation.aggregator')
+        if not parent.isCanonical():
+            canonical = parent.getCanonical()
+        else:
+            canonical = parent
+
+        subtyper.change_type(canonical, 'slc.aggregation.aggregator')
+        annotations = IAnnotations(canonical)
+        annotations['content_types'] =  [portal_type]
+        annotations['review_state'] = 'published'
+        annotations['aggregation_sources'] = ['/en/news']
+        annotations['keyword_list'] = keywords
+        annotations['restrict_language'] = False
+
+
 def _moveItemsToCentralLocation(self, items, f, folderpath):
     log.info('_moveItemsToCentralLocation')
 
@@ -223,8 +241,14 @@ def _moveItemsToCentralLocation(self, items, f, folderpath):
     for item in items:
         fullpath = '%s/%s' % (item.getLanguage() or 'en', folderpath)
         newfolder = portal.unrestrictedTraverse(fullpath)
+        parent = item.aq_parent
         try:
-            cookie = item.aq_parent.manage_cutObjects(ids=[item.getId()])
+            subject = item.getSubject()
+        except:
+            subject = item.Schema().getField('subject').get(item)
+        _subtypeAndConfigureOldParent(parent, item.portal_type, subject)
+        try:
+            cookie = parent.manage_cutObjects(ids=[item.getId()])
         except ResourceLockedError:
             item_path = '/'.join(item.getPhysicalPath())
             f.write("Could not copy '%s' to %s, locked by WEBDAV! \n" % (item_path, fullpath))
@@ -236,6 +260,4 @@ def _moveItemsToCentralLocation(self, items, f, folderpath):
         f.write("'%s' now contains %s \n" % (fullpath, item_path))
         log.info("'%s', now contains %s \n" % (fullpath, item_path))
         transaction.commit()
-
-
 
