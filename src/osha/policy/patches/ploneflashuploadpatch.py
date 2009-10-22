@@ -19,7 +19,7 @@ try:
 except ImportError:
     import memcache
 
-logger = logging.getLogger('PloneFlashUpload')
+logger = logging.getLogger('osha.policy')
 logger.info('PATCHING PloneFlashUpload!')
 
 def _getCache():
