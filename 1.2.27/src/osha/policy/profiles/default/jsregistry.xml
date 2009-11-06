@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<object name="portal_javascripts" meta_type="JavaScripts Registry">
-    <!-- Datagridwidget registration -->
-    <javascript cacheable="true" compression="safe" cookable="true"
-        enabled="true" expression="" id="datagridwidget.js" inline="false"/>
-</object>
