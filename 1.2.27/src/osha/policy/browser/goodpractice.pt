@@ -1,0 +1,131 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:block tal:define="dummy python:request.RESPONSE.setHeader('Cache-control', 'max-age=0,s-maxage=3600')" />
+
+<body>
+
+<div metal:fill-slot="main">
+
+<style type="text/css">
+.gpbox { width: 100%; border: 1px solid #898A8E; margin:0px; padding:0px; background: #FDFDFD url(gpbg.jpg) repeat-y; clear:both;}
+.gpbox_title { float:left; font-weight: bold; padding: 5px 5px 5px 5px; clear:left;width:80%; }
+.gpbox_content { float:left; text-align:bottom; padding: 0px 5px 5px 5px;clear:left; width:80%;}
+.gplogo { padding:0px; margin:0px; float:right; height:56px; width:100px; text-align:right; vertical-align:top;}
+.gplogo img{ padding:0px; margin:0px; float:right; height:56px; }
+.visualBreak { clear:both;}
+</style>
+
+<h1  class="documentFirstHeading" tal:content="context/Title">Title</h1>
+
+<img class="image-left"
+         tal:attributes="src string:${context/portal_url}/images/good_practice.jpg"
+         alt="Good Practice Logo"
+         />
+
+
+<div tal:replace="structure view/intro"></div>
+
+
+
+<div xtal:on-error="nothing" tal:condition="not:view/anon">
+
+  <h2>Search OSH Resources by Type (Click &amp; browse - BETA):</h2>
+
+  <div class="gpbox" tal:define="results view/get_db_types">
+    <div class="gpbox_title" i18n:translate="">Databases</div>
+    <div class="gpbox_content">
+      <span tal:omit-tag="" tal:repeat="elem results">
+        <a href="" tal:attributes="href elem/url" tal:content="elem/caption" /><span tal:condition="not:repeat/elem/end"> | </span>
+      </span>
+    </div>
+    <div class="visualBreak"></div>
+  </div>
+</div>
+
+
+<div>
+  <h2>Search OSH Resources by Type:</h2>
+
+  <div class="gpbox" tal:define="results view/get_search_types">
+    <div class="gpbox_title" i18n:translate="">Databases</div>
+    <div class="gpbox_content">
+      <span tal:omit-tag="" tal:repeat="elem results">
+        <a href="" tal:attributes="href elem/url" tal:content="elem/caption" /><span tal:condition="not:repeat/elem/end"> | </span>
+      </span>
+    </div>
+    <div class="visualBreak"></div>
+  </div>
+</div>
+
+
+<h2>Access our OSH Resources by topic, sector and priority group:</h2>
+
+<div tal:define="node string:topics; icon string:gptopics.jpg" tal:on-error="nothing">
+ <metal:block define-macro="gpbox">
+  <div class="gpbox" tal:define="results python:view.getAreaLinks(node)">
+    <div class="gpbox_title" tal:content="python:getattr(here, node).Title()"></div>
+    <div class="gpbox_content">
+      <span tal:omit-tag="" tal:repeat="elem results">
+        <a href="" tal:attributes="href elem/getURL" tal:content="elem/Title" /><span tal:condition="not:repeat/elem/end"> | </span>
+      </span>
+    </div>
+    <div class="visualBreak"></div>
+  </div>
+ </metal:block>
+</div>
+
+<br clear="all">
+
+
+<div tal:define="node string:sector; icon string:gpsector.jpg" tal:on-error="nothing">
+  <metal:block use-macro="template/macros/gpbox"/>
+</div>
+
+
+<br clear="all">
+
+<div tal:define="node string:priority_groups; icon string:gppriority_groups.jpg" tal:on-error="nothing">
+  <metal:block use-macro="template/macros/gpbox"/>
+</div>
+
+<br clear="all">
+
+    <div tal:replace="structure view/gpawards "></div>
+
+    <label i18n:translate="label_goodpractice_latestaddition">Latest Addition</label>
+    <div tal:define="obj view/getLatestLink"
+        tal:condition="python:None is not obj"
+         class="gpbox"
+         style="padding:5px; width:99%;">
+
+         <img alt="" width="16" height="16" src="icon.gif"
+              tal:define="iconsrc string:oshlink_icon.gif;"
+              tal:attributes="src string:${here/portal_url}/${iconsrc}" />
+         <strong>
+             <a href="#"
+                tal:attributes="href obj/absolute_url" tal:content="obj/Title">
+                   Topicresult
+             </a>
+         </strong>
+         <div tal:on-error="nothing" tal:content="structure obj/getText" ></div>
+
+         <div>
+         <span tal:omit-tag="" tal:on-error="nothing"
+            tal:define="res_lang obj/getRemoteLanguage|nothing;
+                        ext_url obj/getRemoteUrl|string:;
+                        res_format obj/getOsh_format|nothing;
+                        res_url python:test(ext_url and ext_url!=None, ext_url, '')">
+           <tal:block condition="res_lang"><span class="bold" i18n:translate="">Language</span>: <span tal:replace="python:', '.join(res_lang)" /><br/></tal:block>
+           <tal:block condition="res_format"><span class="bold" i18n:translate="">Format</span>: <span tal:replace="res_format" /><br/></tal:block>
+           <tal:block condition="res_url"><span class="bold" i18n:translate="label_more_information">More Information</span>: <a
+           href="" tal:attributes="href res_url" tal:content="res_url" /></tal:block><br>
+           <tal:block on-error="nothing"><span class="bold" i18n:translate="label_modified">Modified</span>: <span tal:content="python:obj.modified()" /></tal:block>
+         </span>
+         </div>
+    </div>
+</div>
+</body>
+</html>

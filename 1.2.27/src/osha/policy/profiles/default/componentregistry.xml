@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<componentregistry> 
+ <utilities> 
+  <utility 
+     interface="osha.policy.interfaces.IDatabaseSettings" 
+     factory="osha.policy.adapter.db.OSHADatabaseSettings" 
+     /> 
+ </utilities> 
+</componentregistry> 

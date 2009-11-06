@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
+    <vocabName>
+        <langstring language="en">OSHLegislation</langstring>
+    </vocabName>
+    <vocabIdentifier>http://osha.europa.eu/OSHLegislation</vocabIdentifier>
+<term>
+    <termIdentifier>directives</termIdentifier>
+    <caption><langstring language="en">European Legislation - Directives</langstring></caption>
+
+    <description><langstring language="en">EU directices</langstring></description>
+
+<term>
+    <termIdentifier>A</termIdentifier>
+    <caption><langstring language="en">A. European directives concerning the protection of workers</langstring></caption>
+
+    <description><langstring language="en">A. European directives concerning the protection of workers</langstring></description>
+
+<term>
+    <termIdentifier>A/1</termIdentifier>
+    <caption><langstring language="en">1. Health and safety at work</langstring></caption>
+
+    <description><langstring language="en">1. Health and safety at work</langstring></description>
+
+<term>
+    <termIdentifier>A/1/1</termIdentifier>
+    <caption><langstring language="en">1.1 Framework directive</langstring></caption>
+
+    <description><langstring language="en">1.1 Framework directive</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2</termIdentifier>
+    <caption><langstring language="en">1.2 Individual directives (within the meaning of Article 16 of Directive 89/391/EEC)</langstring></caption>
+
+    <description><langstring language="en">1.2 Individual directives (within the meaning of Article 16 of Directive 89/391/EEC)</langstring></description>
+
+<term>
+    <termIdentifier>A/1/2/01</termIdentifier>
+    <caption><langstring language="en">1.2.01 Workplaces</langstring></caption>
+
+    <description><langstring language="en">1.2.01 Workplaces</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/02</termIdentifier>
+    <caption><langstring language="en">1.2.02 Use of work equipment</langstring></caption>
+
+    <description><langstring language="en">1.2.02 Use of work equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/03</termIdentifier>
+    <caption><langstring language="en">1.2.03 Use of personal protective equipment</langstring></caption>
+
+    <description><langstring language="en">1.2.03 Use of personal protective equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/04</termIdentifier>
+    <caption><langstring language="en">1.2.04 Work with display screen equipment</langstring></caption>
+
+    <description><langstring language="en">1.2.04 Work with display screen equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/05</termIdentifier>
+    <caption><langstring language="en">1.2.05 Manual handling</langstring></caption>
+
+    <description><langstring language="en">1.2.05 Manual handling</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/06</termIdentifier>
+    <caption><langstring language="en">1.2.06 Carcinogens</langstring></caption>
+
+    <description><langstring language="en">1.2.06 Carcinogens</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/07</termIdentifier>
+    <caption><langstring language="en">1.2.07 Biological agents</langstring></caption>
+
+    <description><langstring language="en">1.2.07 Biological agents</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/08</termIdentifier>
+    <caption><langstring language="en">1.2.08 Safety signs</langstring></caption>
+
+    <description><langstring language="en">1.2.08 Safety signs</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/09</termIdentifier>
+    <caption><langstring language="en">1.2.09 Pregnant workers</langstring></caption>
+
+    <description><langstring language="en">1.2.09 Pregnant workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/10</termIdentifier>
+    <caption><langstring language="en">1.2.10 Mineral-extracting industries (drilling)</langstring></caption>
+
+    <description><langstring language="en">1.2.10 Mineral-extracting industries (drilling)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/11</termIdentifier>
+    <caption><langstring language="en">1.2.11 Mineral-extracting industries</langstring></caption>
+
+    <description><langstring language="en">1.2.11 Mineral-extracting industries</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/12</termIdentifier>
+    <caption><langstring language="en">1.2.12 Fishing vessels</langstring></caption>
+
+    <description><langstring language="en">1.2.12 Fishing vessels</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/13</termIdentifier>
+    <caption><langstring language="en">1.2.13 Chemical agents</langstring></caption>
+
+    <description><langstring language="en">1.2.13 Chemical agents</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/16</termIdentifier>
+    <caption><langstring language="en">1.2.16 Temporary or mobile construction sites</langstring></caption>
+
+    <description><langstring language="en">1.2.16 Temporary or mobile construction sites</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/14</termIdentifier>
+    <caption><langstring language="en">1.2.14 Physical agents - vibration</langstring></caption>
+
+    <description><langstring language="en">1.2.14 Physical agents - vibration</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/2/15</termIdentifier>
+    <caption><langstring language="en">1.2.15 Physical agents - noise</langstring></caption>
+
+    <description><langstring language="en">1.2.15 Physical agents - noise</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>A/1/3</termIdentifier>
+    <caption><langstring language="en">1.3 Temporary workers</langstring></caption>
+
+    <description><langstring language="en">1.3 Temporary workers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/4</termIdentifier>
+    <caption><langstring language="en">1.4 Medical treatment on board vessels</langstring></caption>
+
+    <description><langstring language="en">1.4 Medical treatment on board vessels</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/5</termIdentifier>
+    <caption><langstring language="en">1.5 Young people</langstring></caption>
+
+    <description><langstring language="en">1.5 Young people</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/7</termIdentifier>
+    <caption><langstring language="en">1.7 Transport activities</langstring></caption>
+
+    <description><langstring language="en">1.7 Transport activities</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/8</termIdentifier>
+    <caption><langstring language="en">1.8 Explosive atmospheres</langstring></caption>
+
+    <description><langstring language="en">1.8 Explosive atmospheres</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/9</termIdentifier>
+    <caption><langstring language="en">1.9 Electrical equipment for use in potentially explosive atmospheres in mines susceptible to firedamp</langstring></caption>
+
+    <description><langstring language="en">1.9 Electrical equipment for use in potentially explosive atmospheres in mines susceptible to firedamp</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/1/10</termIdentifier>
+    <caption><langstring language="en">1.10 Commission Communication on the practical implementation of the  Framework Directive and first 5 daughter Directives, 05.02.2004</langstring></caption>
+
+    <description><langstring language="en">1.10 Commission Communication on the practical implementation of the  Framework Directive and first 5 daughter Directives, 05.02.2004</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>A/2</termIdentifier>
+    <caption><langstring language="en">2. Protection of workers from risks related to exposure to chemical, physical and biological agents</langstring></caption>
+
+    <description><langstring language="en">2. Protection of workers from risks related to exposure to chemical, physical and biological agents</langstring></description>
+
+<term>
+    <termIdentifier>A/2/1</termIdentifier>
+    <caption><langstring language="en">2.1 Chemical agents</langstring></caption>
+
+    <description><langstring language="en">2.1 Chemical agents</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/2/2</termIdentifier>
+    <caption><langstring language="en">2.2 Individual directives</langstring></caption>
+
+    <description><langstring language="en">2.2 Individual directives</langstring></description>
+
+<term>
+    <termIdentifier>A/2/2/1</termIdentifier>
+    <caption><langstring language="en">2.2.1 Metallic Lead</langstring></caption>
+
+    <description><langstring language="en">2.2.1 Metallic Lead</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/2/2/2</termIdentifier>
+    <caption><langstring language="en">2.2.2 Asbestos</langstring></caption>
+
+    <description><langstring language="en">2.2.2 Asbestos</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/2/2/3</termIdentifier>
+    <caption><langstring language="en">2.2.3 Noise</langstring></caption>
+
+    <description><langstring language="en">2.2.3 Noise</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/2/2/4</termIdentifier>
+    <caption><langstring language="en">2.2.4 Banning</langstring></caption>
+
+    <description><langstring language="en">2.2.4 Banning</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>A/2/2/5</termIdentifier>
+    <caption><langstring language="en">2.2.5 Indicative limit values</langstring></caption>
+
+    <description><langstring language="en">2.2.5 Indicative limit values</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>A/2/3</termIdentifier>
+    <caption><langstring language="en">2.3 Vinyl chloride monomer</langstring></caption>
+
+    <description><langstring language="en">2.3 Vinyl chloride monomer</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>A/3</termIdentifier>
+    <caption><langstring language="en">3. Working time</langstring></caption>
+
+    <description><langstring language="en">3. Working time</langstring></description>
+
+<term>
+    <termIdentifier>A/3/1</termIdentifier>
+    <caption><langstring language="en">3.1 Working time</langstring></caption>
+
+    <description><langstring language="en">3.1 Working time</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>A/4</termIdentifier>
+    <caption><langstring language="en">4. Equal treatment for men and women (employment, training and working conditions)</langstring></caption>
+
+    <description><langstring language="en">4. Equal treatment for men and women (employment, training and working conditions)</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>B</termIdentifier>
+    <caption><langstring language="en">B. Internal market: approximation of laws</langstring></caption>
+
+    <description><langstring language="en">B. Internal market: approximation of laws</langstring></description>
+
+<term>
+    <termIdentifier>B/1</termIdentifier>
+    <caption><langstring language="en">1. Machines, products and apparatus</langstring></caption>
+
+    <description><langstring language="en">1. Machines, products and apparatus</langstring></description>
+
+<term>
+    <termIdentifier>B/1/1</termIdentifier>
+    <caption><langstring language="en">1.1 CE marking 93/68</langstring></caption>
+
+    <description><langstring language="en">1.1 CE marking 93/68</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/2</termIdentifier>
+    <caption><langstring language="en">1.2 Machines</langstring></caption>
+
+    <description><langstring language="en">1.2 Machines</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/3</termIdentifier>
+    <caption><langstring language="en">1.3 Lifts</langstring></caption>
+
+    <description><langstring language="en">1.3 Lifts</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/4</termIdentifier>
+    <caption><langstring language="en">1.4 Personal protective equipment</langstring></caption>
+
+    <description><langstring language="en">1.4 Personal protective equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/5</termIdentifier>
+    <caption><langstring language="en">1.5 Equipment and protective systems intended for use in potentially explosive atmospheres (ATEX)</langstring></caption>
+
+    <description><langstring language="en">1.5 Equipment and protective systems intended for use in potentially explosive atmospheres (ATEX)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/6</termIdentifier>
+    <caption><langstring language="en">1.6 Pressure vessels</langstring></caption>
+
+    <description><langstring language="en">1.6 Pressure vessels</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/7</termIdentifier>
+    <caption><langstring language="en">1.7 Gas cylinders</langstring></caption>
+
+    <description><langstring language="en">1.7 Gas cylinders</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/8</termIdentifier>
+    <caption><langstring language="en">1.8 Aerosol dispensers</langstring></caption>
+
+    <description><langstring language="en">1.8 Aerosol dispensers</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/9</termIdentifier>
+    <caption><langstring language="en">1.9 Simple pressure vessels</langstring></caption>
+
+    <description><langstring language="en">1.9 Simple pressure vessels</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/10</termIdentifier>
+    <caption><langstring language="en">1.10 Pressure equipment</langstring></caption>
+
+    <description><langstring language="en">1.10 Pressure equipment</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/11</termIdentifier>
+    <caption><langstring language="en">1.11 Construction plant and equipment</langstring></caption>
+
+    <description><langstring language="en">1.11 Construction plant and equipment</langstring></description>
+
+<term>
+    <termIdentifier>B/1/11/1</termIdentifier>
+    <caption><langstring language="en">1.11.1 General provisions</langstring></caption>
+
+    <description><langstring language="en">1.11.1 General provisions</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/11/2</termIdentifier>
+    <caption><langstring language="en">1.11.2 Noise emission of construction plant and equipment</langstring></caption>
+
+    <description><langstring language="en">1.11.2 Noise emission of construction plant and equipment</langstring></description>
+
+<term>
+    <termIdentifier>B/1/11/2/1</termIdentifier>
+    <caption><langstring language="en">1.11.2.1 Sound power level of welding generators</langstring></caption>
+
+    <description><langstring language="en">1.11.2.1 Sound power level of welding generators</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/11/2/2</termIdentifier>
+    <caption><langstring language="en">1.11.2.2 Sound power level of compressors</langstring></caption>
+
+    <description><langstring language="en">1.11.2.2 Sound power level of compressors</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/11/2/3</termIdentifier>
+    <caption><langstring language="en">1.11.2.3 Sound power level of power generators</langstring></caption>
+
+    <description><langstring language="en">1.11.2.3 Sound power level of power generators</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/11/2/4</termIdentifier>
+    <caption><langstring language="en">1.11.2.4 Sound power level of powered hand-held concrete-breakers and picks</langstring></caption>
+
+    <description><langstring language="en">1.11.2.4 Sound power level of powered hand-held concrete-breakers and picks</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/11/2/5</termIdentifier>
+    <caption><langstring language="en">1.11.2.5 Sound power level of tower cranes</langstring></caption>
+
+    <description><langstring language="en">1.11.2.5 Sound power level of tower cranes</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/11/2/6</termIdentifier>
+    <caption><langstring language="en">1.11.2.6 Sound power level of lawnmowers</langstring></caption>
+
+    <description><langstring language="en">1.11.2.6 Sound power level of lawnmowers</langstring></description>
+
+
+    </term>
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>B/1/12</termIdentifier>
+    <caption><langstring language="en">1.12 Limitation of noise emitted by hydraulic excavators, rope-operated excavators, dozers, loaders and excavator-loaders</langstring></caption>
+
+    <description><langstring language="en">1.12 Limitation of noise emitted by hydraulic excavators, rope-operated excavators, dozers, loaders and excavator-loaders</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/13</termIdentifier>
+    <caption><langstring language="en">1.13 Construction products</langstring></caption>
+
+    <description><langstring language="en">1.13 Construction products</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/14</termIdentifier>
+    <caption><langstring language="en">1.14 Product safety</langstring></caption>
+
+    <description><langstring language="en">1.14 Product safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/15</termIdentifier>
+    <caption><langstring language="en">1.15 Electromagnetic compatibility (EMC)</langstring></caption>
+
+    <description><langstring language="en">1.15 Electromagnetic compatibility (EMC)</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/16</termIdentifier>
+    <caption><langstring language="en">1.16 Electrical equipment designed for use within certain voltage limits</langstring></caption>
+
+    <description><langstring language="en">1.16 Electrical equipment designed for use within certain voltage limits</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>B/1/17</termIdentifier>
+    <caption><langstring language="en">1.17 Appliances burning gaseous fuels</langstring></caption>
+
+    <description><langstring language="en">1.17 Appliances burning gaseous fuels</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>B/2</termIdentifier>
+    <caption><langstring language="en">2. Dangerous substances and preparations</langstring></caption>
+
+    <description><langstring language="en">2. Dangerous substances and preparations</langstring></description>
+
+<term>
+    <termIdentifier>B/2/1</termIdentifier>
+    <caption><langstring language="en">2.1 Framework directive</langstring></caption>
+
+    <description><langstring language="en">2.1 Framework directive</langstring></description>
+
+
+    </term>
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>C</termIdentifier>
+    <caption><langstring language="en">C. European directives concerning the protection of workers, consumers and population</langstring></caption>
+
+    <description><langstring language="en">C. European directives concerning the protection of workers, consumers and population</langstring></description>
+
+<term>
+    <termIdentifier>C/1</termIdentifier>
+    <caption><langstring language="en">1 Classification, packaging and labelling of dangerous substances</langstring></caption>
+
+    <description><langstring language="en">1 Classification, packaging and labelling of dangerous substances</langstring></description>
+
+<term>
+    <termIdentifier>C/1/1</termIdentifier>
+    <caption><langstring language="en">1.1 Framework directive</langstring></caption>
+
+    <description><langstring language="en">1.1 Framework directive</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>C/2</termIdentifier>
+    <caption><langstring language="en">2 Classification, packaging and labelling of dangerous preparations</langstring></caption>
+
+    <description><langstring language="en">2 Classification, packaging and labelling of dangerous preparations</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/3</termIdentifier>
+    <caption><langstring language="en">3 Safety data sheet</langstring></caption>
+
+    <description><langstring language="en">3 Safety data sheet</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/4</termIdentifier>
+    <caption><langstring language="en">4 Risk assessment of substances</langstring></caption>
+
+    <description><langstring language="en">4 Risk assessment of substances</langstring></description>
+
+<term>
+    <termIdentifier>C/4/1</termIdentifier>
+    <caption><langstring language="en">4.1 Risk assessment of existing substances</langstring></caption>
+
+    <description><langstring language="en">4.1 Risk assessment of existing substances</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/4/2</termIdentifier>
+    <caption><langstring language="en">4.2 Risk assessment of new substances</langstring></caption>
+
+    <description><langstring language="en">4.2 Risk assessment of new substances</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>C/5</termIdentifier>
+    <caption><langstring language="en">5 Liability for defective products</langstring></caption>
+
+    <description><langstring language="en">5 Liability for defective products</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/6</termIdentifier>
+    <caption><langstring language="en">6 General Product Safety</langstring></caption>
+
+    <description><langstring language="en">6 General Product Safety</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/7</termIdentifier>
+    <caption><langstring language="en">7 Major hazards of certain industrial activities</langstring></caption>
+
+    <description><langstring language="en">7 Major hazards of certain industrial activities</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/8</termIdentifier>
+    <caption><langstring language="en">8 Transport of dangerous goods by road</langstring></caption>
+
+    <description><langstring language="en">8 Transport of dangerous goods by road</langstring></description>
+
+<term>
+    <termIdentifier>C/8/1</termIdentifier>
+    <caption><langstring language="en">8.1 Transport of dangerous goods by road</langstring></caption>
+
+    <description><langstring language="en">8.1 Transport of dangerous goods by road</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/8/2</termIdentifier>
+    <caption><langstring language="en">8.2 Checks on the transport of dangerous goods by road</langstring></caption>
+
+    <description><langstring language="en">8.2 Checks on the transport of dangerous goods by road</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/8/3</termIdentifier>
+    <caption><langstring language="en">8.3 Safety adviser for the transport of dangerous goods</langstring></caption>
+
+    <description><langstring language="en">8.3 Safety adviser for the transport of dangerous goods</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>C/9</termIdentifier>
+    <caption><langstring language="en">9 Transport of dangerous goods by rail</langstring></caption>
+
+    <description><langstring language="en">9 Transport of dangerous goods by rail</langstring></description>
+
+
+    </term>
+<term>
+    <termIdentifier>C/10</termIdentifier>
+    <caption><langstring language="en">10 Biotechnology</langstring></caption>
+
+    <description><langstring language="en">10 Biotechnology</langstring></description>
+
+<term>
+    <termIdentifier>C/10/1</termIdentifier>
+    <caption><langstring language="en">10.1 Genetically modified micro-organisms</langstring></caption>
+
+    <description><langstring language="en">10.1 Genetically modified micro-organisms</langstring></description>
+
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>C/11</termIdentifier>
+    <caption><langstring language="en">11 Pesticides</langstring></caption>
+
+    <description><langstring language="en">11 Pesticides</langstring></description>
+
+<term>
+    <termIdentifier>C/11/1</termIdentifier>
+    <caption><langstring language="en">11.1 Pesticides – Agriculture</langstring></caption>
+
+    <description><langstring language="en">11.1 Pesticides – Agriculture</langstring></description>
+
+
+    </term>
+
+    </term>
+
+    </term>
+<term>
+    <termIdentifier>D</termIdentifier>
+    <caption><langstring language="en">D. Euratom</langstring></caption>
+
+    <description><langstring language="en">D. Euratom</langstring></description>
+
+<term>
+    <termIdentifier>D/1</termIdentifier>
+    <caption><langstring language="en">1 Ionising radiation</langstring></caption>
+
+    <description><langstring language="en">1 Ionising radiation</langstring></description>
+
+
+    </term>
+
+    </term>
+
+    </term>
+
+</vdex>

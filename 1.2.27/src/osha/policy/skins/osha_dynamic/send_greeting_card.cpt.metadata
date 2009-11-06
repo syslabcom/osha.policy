@@ -1,0 +1,10 @@
+[default]
+title=Send greeting card
+
+[validators]
+validators =validate_captcha
+
+[actions]
+action.NewCaptcha = traverse_to:string:send_greeting_card
+action.failure = traverse_to:string:send_greeting_card
+action.success = traverse_to:string:send_ecard_handler

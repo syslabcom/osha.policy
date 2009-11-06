@@ -1,0 +1,74 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+
+<!-- The SEP static database links Box -->
+
+<div metal:define-macro="portlet">
+
+<dl class="portlet" id="portlet-sep-db"
+    tal:define="sep_helpers context/@@sep_helpers;
+                SEP python:sep_helpers.getMySEP(here);
+                Categories python:sep_helpers.getCategories(SEP);
+                vocabulary_helpers context/@@vocabulary_helpers;
+                vocabResults python:vocabulary_helpers.getUIDsByTerms(termList=Categories, vocabularyName='Categories');
+                cat_uids vocabResults/cat_uids;
+                cat_str vocabResults/cat_str;"
+                >
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href=""
+           class="tile"
+           xtal:attributes="href string:${folder/absolute_url}/folder_contents"
+           i18n:translate="box_osh_database"
+           >OSH Database
+         </a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd">
+        <ul class="visualNoMarker">
+            <li>
+                <a class="tile" 
+                   href="index_topic">Index by topic</a>
+            </li>
+            <li>
+                <a class="tile" 
+                    href="index_atoz">A-Z Index</a></li>
+            <li>
+                <a class="tile" 
+                   href="index_provider">Index by Provider</a>  
+            </li>
+            <li>
+                <a class="title"
+                   href="index_nace"
+                   tal:attributes="href string:index_nace?$cat_str">Index by NACE</a>
+            </li>
+            <li>
+                <a class="tile" href="/search_form">Access the Search ...</a>
+            </li>
+
+        </ul>
+    </dd>
+
+    <dd class="portletFooter">
+        <!--a href=""
+           class="tile"
+           xtal:attributes="href string:${folder/absolute_url}/folder_contents"
+           i18n:translate="box_morelink">
+            More&hellip;
+        </a-->
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+<metal:cssslot fill-slot="css_slot"
+               tal:define="global mockup here/@@ATMockup;
+                           dummy python:mockup.preload(types=[('OSH_Link', 'OSHContentLink')]);">
+  <style type="text/css">
+    .column1 { float: left; width: 55%; padding-right: 10px; }
+    .column2 { float: right; width: 40%; padding-left: 10px; border-left: 1px dotted gray; }
+    
+    .column1 select { width: 100%; }
+    .column2 .field_default, 
+    .column2 .field_nace { width: 260px; padding: 2px 0; }
+    .column2 .field_default input, 
+    .column2 .field_default select { width: 260px; }
+    .column2 .field_nace #quicksearch_subcategory { width: 160px; }
+    .column2 .field_nace .searchButton { width: 80px; }
+    
+    #wf_results { width: 100%; margin-top: 2em; }
+    #wf_results th { background-color: #C5CBD8; border-bottom: 1px dotted gray; padding: 3px; }
+    #wf_results td { background-color: transparent; border-bottom: 1px dotted gray; padding: 3px; }
+    
+  </style>
+
+</metal:cssslot>
+
+<metal:javascriptslot fill-slot="javascript_head_slot">
+  <script language="JavaScript">
+  function resetSize(aSelect) {
+    if(aSelect) {
+      aSelect.style.width = 'auto';
+    }
+  }
+  </script>
+
+  <tal:js define="js python:here.getUniqueWidgetAttr(mockup.getFields(), 'helper_js')"
+          condition="js"
+          repeat="item js">
+    <script type="text/javascript"
+            charset="iso-8859-1"
+            tal:condition="python:exists('portal/%s' % item)"
+            tal:attributes="src string:$portal_url/$item">
+    </script>
+  </tal:js>
+</metal:javascriptslot>
+
+<div metal:fill-slot="main" i18n:domain="osha"
+       tal:define="keywords request/keywords|string:;
+                   SearchableText request/SearchableText|string:;
+                   nace request/NACE|string:;
+                   subcategory request/subcategory|string:;
+                   getRemoteLanguage request/getRemoteLanguage|string:;
+                   country request/country|string:;
+                   review_state request/review_state|string:;
+                   Creator request/Creator|member/getName|member/getUserName|string:;
+                   getRemoteUrl request/getRemoteUrl|string:;
+                   Batch python:modules['Products.CMFPlone'].Batch;
+                   DateTime python:modules['DateTime'].DateTime;
+                   b_size python:10;b_start python:0;
+                   b_start request/b_start | b_start;
+                   desc_length site_properties/search_results_description_length;
+                   desc_ellipsis site_properties/ellipsis;
+                   searchterm request/SearchableText|nothing;
+                   ">
+
+
+    
+    <h1 class="documentFirstHeading">Worklist</h1>
+    <div>
+        <p>Please use these fields to select workitems.</p>
+    </div>
+
+    <form tal:attributes="action template/id" method="get">
+    
+      <div id="searchfields" tal:define="view here/@@vocabulary_helper">
+      
+         <div class="column1">
+            <metal:use use-macro="here/filter_macros/macros/SearchableText_compact"></metal:use>
+            <div class="columnBottom field">
+             <div class="formHelp">
+                Filter your search by selecting one or more of the filters.
+                You can always remove any filter again by selecting the empty entry or by clicking the Reset button.
+             </div>
+
+            </div>
+            
+            <div class="field_default" 
+                 tal:define="size python:6;
+                    wfname string:osh_workflow">
+              <metal:use use-macro="here/filter_macros/macros/ReviewState_compact"></metal:use>
+            </div>
+            
+            
+          </div>
+          
+          <div class="column2">
+            <!--div class="columnTop field">
+              <label i18n:translate="label_search_filters">Filters</label>
+            </div-->
+
+            <div class="field_default">
+               <metal:use use-macro="here/filter_macros/macros/Author_compact"></metal:use>
+            </div> 
+             <div class="field_default" tal:define="portal_type string:OSH_Link">
+              <metal:use use-macro="here/filter_macros/macros/Country_compact"></metal:use>
+            </div>
+            <div class="field_default">
+                <metal:use use-macro="here/filter_macros/macros/RemoteLanguage_compact"></metal:use>
+            </div>
+            <div class="field_default">
+               <metal:use use-macro="here/filter_macros/macros/RemoteUrl_compact"></metal:use>
+            </div> 
+            <div class="field_nace">
+               <metal:use use-macro="here/filter_macros/macros/Subcategory"></metal:use>
+            </div> 
+            
+          </div>
+         
+
+        </div>
+       
+        <br clear="all">
+        
+        <div class="formControls">
+          <input class="context" type="submit" value="Search" />
+          <input  class="context" type="reset" value="Reset" 
+                    tal:attributes="onclick string:window.location='${here/absolute_url}/${template/getId}'" />
+        </div>
+        
+    </form>
+    <br clear="all"><br>
+    
+  <div tal:condition="python:SearchableText or review_state or Creator or getRemoteUrl 
+        or subcategory or getRemoteLanguage or country">
+    <div tal:define="subcategory python:[x for x in subcategory if x];
+                     subcategory python:test(len(subcategory), subcategory, '');
+                     getRemoteUrl python:getRemoteUrl.replace('+', '\+');
+                    query python:{'portal_type': ['OSH_Link', 'CaseStudy', 'Provider', 'RALink'],
+                                   'review_state':review_state,
+                                   'subcategory':subcategory,
+                                   'getRemoteUrl': getRemoteUrl,
+                                   'Creator': Creator,
+                                   'SearchableText':SearchableText,
+                                   'country' : country,
+                                   'getRemoteLanguage': getRemoteLanguage,
+                                   'sort_on': 'modified',
+                                   'sort_order':'desc'};
+                     res python:here.portal_catalog(query);
+                     results res;
+                    ">
+            <!-- query: <span tal:replace="query" /> -->
+        <h2>
+          <span i18n:translate="heading_search_results">
+              Search results
+          </span>
+          <span class="discreet">
+          &mdash;
+          <span i18n:translate="batch_x_items_matching_your_criteria"
+          ><span i18n:name="number" 
+          tal:omit-tag="" 
+          tal:content="python:len(results)">234</span> items matching your search terms</span>
+      </h2>
+
+        <div tal:condition="not: results">
+            <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+        </div>
+
+
+    <div tal:condition="results"
+          tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+
+        <table cellpadding="0" cellspacing="0" border="0" id="wf_results">
+        <tr>
+          <th>&nbsp;</th>
+          <th>Title</th>
+          
+          <th>Last modified / Creator</th>
+          <th>Review State</th>
+        </tr>
+        <tal:results repeat="result batch">
+            <tal:entry define="result_url result/getURL;
+                               url string:$result_url/view?searchterm=${searchterm};
+                               title result/Title|string:;
+                               title python:test(title.strip()!='', title, result.getId);
+                               ">
+                <tr>
+                  <td>
+                    <img tal:attributes="src string:${result/getIcon};
+                                         alt string:Link icon"
+                              tal:on-error="nothing" />
+                  </td>
+                  <td>
+                    <a href="#" tal:attributes="href url" >
+                        <span tal:replace="python:title" /><br />
+                       <nobr>[ <a href="" tal:attributes="href string:$result_url/edit">Edit</a>
+                    | <a href="" tal:attributes="href string:$result_url/content_status_history">Modify workflow</a> ]</nobr>
+                    </a>
+                  </td>
+                  <td>
+                      <nobr><span tal:on-error="nothing" tal:replace="python:toLocalizedTime(result['modified'])"/></nobr><br />
+                      <span tal:define="item_creator result/Creator;
+                            author python:mtool.getMemberInfo(item_creator)" 
+                            tal:replace="python:author and author['fullname'] or item_creator"/>
+                  </td>
+                  <td>
+                    <span tal:define="state result/review_state" tal:attributes="class string:state-$state"
+                        tal:content="state"/>
+                  </td>
+                 </tr>
+            </tal:entry>
+        </tal:results>
+        </table>
+        <br><br>
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+       </div>
+     </div>
+    </div>
+  </div>
+
+</html>
+

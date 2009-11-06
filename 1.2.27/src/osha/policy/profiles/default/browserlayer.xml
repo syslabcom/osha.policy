@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="osha.policy"
+       interface="osha.policy.interfaces.IOSHACommentsLayer" />
+</layers>

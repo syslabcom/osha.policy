@@ -1,0 +1,13 @@
+*.pyc
+*.swp
+osha.policy.egg-info
+.installed.cfg
+bin/
+develop-eggs/
+downloads/
+eggs/
+fake-eggs/
+include/
+lib/
+parts/
+

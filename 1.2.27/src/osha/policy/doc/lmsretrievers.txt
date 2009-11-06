@@ -1,0 +1,14 @@
+LMS Retrievers
+--------------
+
+This test checks the functionality of the lms retrievers for the osha specific products.
+
+    >>> self.loginAsPortalOwner()
+
+Starting with RichDocument, we create one, get the retriever for it and see if we get the proper links out again. 
+
+
+    
+
+
+

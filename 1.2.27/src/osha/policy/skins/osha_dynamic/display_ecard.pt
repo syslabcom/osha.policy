@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      i18n:domain="osha"
+      metal:use-macro="here/main_template/macros/master">
+<body>
+
+<div metal:fill-slot="main"
+   tal:define="ecard_key request/id|string:;
+       portal here/portal_url/getPortalObject;
+       result python:portal.sql.ecard_sql_fetch_record(ecard_key=ecard_key);
+       ">
+    <span tal:condition="python:len(result)">
+      <span tal:define="record python:result[0];
+        ecard_name record/ecard_name;
+        ecardtext record/ecardtext|string:;
+        images nocall:portal/images;
+        ecard python:getattr(images, ecard_name, None);
+        ecard_url ecard/absolute_url|string:;">
+        <h2 i18n:translate="ecard_sent_by">This OSHA-eCard has been sent to you by
+            <span i18n:name="name"><span tal:replace="record/sender_name"/></span></h2>
+            <div align="center" tal:content="structure ecardtext">
+            </div>
+            <div align="center">
+                <span metal:use-macro="here/ecard_snippet/macros/snippet"></span>
+            </div>
+      </span>
+    </span>
+    <span tal:condition="python:len(result)==0">
+        <h1>Your OSHA-eCard was not found.</h1>
+    </span>
+
+</div>
+
+</body>
+</html>

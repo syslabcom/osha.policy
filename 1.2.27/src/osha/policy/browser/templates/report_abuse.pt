@@ -1,0 +1,123 @@
+<metal:macro define-macro="form"
+        tal:define="utils nocall:context/@@report-abuse-form;
+                    visible request/show_form|nothing;
+                    tabindex tabindex|request/tabindex|utils/tabindex;
+                    portal_url portal_url|utils/portal_url">
+
+    <span id="span-reply-form" 
+          tal:attributes="style python:not visible and 'display: none' or ''"
+          tal:define="email_from_address utils/email_from_address;
+                      comment_id comment_id|request/comment_id">
+
+    <tal:if_not condition="not:email_from_address">
+        <p class="documentDescription"
+        i18n:translate="text_no_email_setup">
+            This site doesn't have a valid email setup, so you cannot use
+            the report abuse form. 
+        </p>
+    </tal:if_not>
+    <tal:if condition="email_from_address">
+        <form name="feedback_form"
+              class="enableAutoFocus"
+              tal:define="errors request/errors|python:{}" >
+
+        <fieldset>
+        <h1
+            i18n:translate="heading_report_abuse_form">Report Abuse</h1>
+
+        <tal:feedbackForm condition="isAnon">
+        <div class="field"
+            tal:define="error errors/sender_fullname|nothing"
+            tal:attributes="class python:error and 'field error' or 'field'">
+        <label for="sender_fullname" i18n:translate="label_sender_fullname">
+            Name
+        </label>
+        <div class="formHelp" i18n:translate="help_sender_fullname">
+            Please enter your full name
+        </div>
+        <div tal:content="error">Validation error output</div>            
+        <input type="text" 
+                id="sender_fullname" 
+                name="sender_fullname" 
+                size="40" 
+                value="" 
+                tal:attributes="value request/sender_fullname|nothing"
+                />
+        </div>
+        <div class="field"
+            tal:define="error errors/sender_from_address|nothing"
+            tal:attributes="class python:error and 'field error' or 'field'">
+        <label for="sender_from_address" i18n:translate="label_sender_from_address">
+            E-Mail
+        </label>
+        <span class="fieldRequired" title="Required"
+                i18n:attributes="title title_required;"
+                i18n:translate="label_required">(Required)</span>
+        <div class="formHelp" i18n:translate="help_sender_from_address">
+            Please enter your e-mail address
+        </div>
+        <div tal:content="error">Validation error output</div>            
+        <input type="text" 
+                id="sender_from_address" 
+                name="sender_from_address" 
+                size="40" 
+                value="" 
+                tal:attributes="value request/sender_from_address|nothing"
+                />
+        </div>
+        </tal:feedbackForm>
+        <tal:feedbackForm condition="not:isAnon" 
+                            define="fullname python:request.get('fullname', utils.member().getProperty('fullname', ''));
+                                    email python:request.get('email', utils.member().getProperty('email',''));">
+            <input type="hidden" name="sender_fullname" value="fullname" tal:attributes="value fullname" />
+            <input type="hidden" name="sender_from_address" value="email" tal:attributes="value email" />
+        </tal:feedbackForm>
+        <div class="field"
+             tal:define="error errors/message|nothing"
+             tal:attributes="class python:error and 'field error' or 'field'">
+        <label for="message" i18n:translate="label_message">
+            Description
+        </label>
+        <span class="fieldRequired" title="Required"
+                i18n:attributes="title title_required;"
+                i18n:translate="label_required">(Required)</span>
+
+        <div class="formHelp" i18n:translate="help_message">
+            Please state your reasons why you would like to report this comment as abusive.
+            Our administrator will be notified with your message.
+        </div>
+        <div tal:content="error">Validation error output</div>            
+        <textarea name="message"
+                    id="message"
+                    rows="5"
+                    cols="25"
+                    tal:content="request/message|nothing"
+                    > </textarea>
+        </div>
+        <div tal:condition="nocall:here/captcha_widget|nothing" tal:omit-tag="">
+            <div metal:use-macro="here/captcha_widget/macros/captcha" />
+        </div>
+
+        <div class="formControls">
+            <input 
+                class="context input-report-abuse-send"
+                value="Send"
+                type="submit"
+                tal:attributes="comment_id comment_id"
+                i18n:attributes="value label_send;"
+                />
+
+            <input 
+                id="input-report-abuse-cancel"
+                class="destructive"
+                value="Cancel"
+                type="button"
+                tal:attributes="onclick string:javascript:remove_abuse_report_form(${comment_id})"
+                i18n:attributes="value label_cancel;"
+                />
+        </div>
+        </fieldset>
+        </form>
+    </tal:if>
+    </span>
+</metal:macro>

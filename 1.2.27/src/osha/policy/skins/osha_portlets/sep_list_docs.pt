@@ -1,0 +1,65 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+
+<body>
+
+<!-- The SEP static documents Box -->
+
+<div metal:define-macro="portlet"
+     tal:define="folder python:getattr(here, 'about', None);"
+     tal:condition="python: folder is not None">
+
+<dl class="portlet" id="portlet-sep-docs"
+         tal:define="docs python:folder.getFolderContents({'portal_type': ['Document', 'RichDocument']});
+                     limit python:10;
+                     over_limit python:len(docs)>limit;
+                     docs python: docs[:limit]">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href=""
+           class="tile"
+           tal:attributes="href string:${folder/absolute_url}/folder_contents"
+           i18n:translate="box_about"
+           >About
+         </a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd" tal:condition="docs">
+        <ul class="visualNoMarker">
+            <li tal:repeat="o docs">
+                <a href=""
+                   class="tile"
+                   tal:attributes="href o/absolute_url"
+                   tal:content="o/pretty_title_or_id">Document title
+                </a>
+            </li>
+        </ul>
+    </dd>
+    
+    <dd class="portletItem"
+        tal:condition="not: docs"
+        i18n:translate="description_no_items_in_folder">
+        There are currently no items in this folder.
+    </dd>
+    
+    <dd class="portletFooter">
+        <a href=""
+           class="tile"
+           tal:attributes="href string:${folder/absolute_url}/folder_contents"
+           i18n:translate="box_morelink">
+            More&hellip;
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
+
+</div>
+
+</body>
+
+</html>

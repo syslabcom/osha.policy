@@ -1,0 +1,21 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal">
+<body>
+
+<tal:block define="portlet_title string:OSH information online;
+           portlet_id string:oshainfo"
+           metal:define-macro="portlet"
+           >
+<div metal:use-macro="here/portlet_macro_template/macros/portletBox" class="portlet" style="border: none">
+    <metal:block fill-slot="portlet_body">
+        <div i18n:domain="osha"
+             tal:attributes="style string:vertical-align:bottom;;background:transparent url(${portal_url}/img/OSHA_portlet_bg.gif) top center no-repeat">
+            <div class="portletContent" style="padding-top: 60px"><a class="link" href="/info" i18n:translate="">Direct access by topic, sector, group, country and language</a>
+            </div>
+        </div>
+    </metal:block>
+</div>
+</tal:block>
+
+</body>
+</html>

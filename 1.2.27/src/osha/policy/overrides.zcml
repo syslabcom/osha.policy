@@ -1,0 +1,35 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="osha">
+
+    <!-- temporary deactivated memcached support for @ram.cache because it conflicts with 
+archetypes.schematuning.
+It seems that we benefit much more from schematuning than from this specific memcached 
+optimization -->
+
+    <!--utility component=".adapter.memcached_support.choose_cache"
+             provides="plone.memoize.interfaces.ICacheChooser" /-->
+
+    <adapter factory=".adapter.calendar_eventprovider.ATEventProvider" />
+
+    <adapter factory=".adapter.formatter.PrettyFormatter"
+                for="slc.publications.interfaces.IPublicationEnhanced"
+                provides="slc.publications.interfaces.IPrettyFormatter" />
+
+    <subscriber
+            for="slc.publications.interfaces.IPublicationEnhanced
+                 zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+            handler=".adapter.publication_customisations.OshaChapterUpdater"
+    />
+
+    <include package="z3c.unconfigure" file="meta.zcml" />
+    <unconfigure>
+        <subscriber 
+            for="slc.publications.interfaces.IPublicationEnhanced
+                 zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+            handler="slc.publications.adapter.events.ChapterUpdater"
+        />
+    </unconfigure>
+</configure>

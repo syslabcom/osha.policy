@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+<body>
+<div metal:fill-slot="main" i18n:domain="osha">
+
+    <tal:main-macro metal:define-macro="main" 
+                    define="index python: test('index' in here.objectIds(), getattr(here,'index', None), here)">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+
+        <h1 class="documentFirstHeading">      
+            <span tal:replace="index/Title" />       
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+
+        <div class="figure-box">
+            <div class="figure">
+                <img tal:define="keyword python:here.getProperty('keyword');
+                                 timg_path string:theme_image_${keyword}.gif;
+                                 timg python:getattr(portal, timg_path,
+                                        getattr(portal, 'dummyimage80.gif'))"
+                     tal:condition="python:timg is not None" 
+                     tal:replace="structure timg/tag" />
+            </div>
+        </div>
+        
+        <p class="documentDescription">
+            <span tal:replace="here/Description" />       
+        </p>
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div class="visualClear"></div>
+
+        <div class="searchDatabaseBox">
+            <a href="db_filter">
+                <img tal:define="search_img python:getattr(portal, 'database_search.gif')"
+                     tal:replace="structure search_img/tag" />
+                     
+                <span i18n:translate="label_search_link_database" tal:omit-tag="">
+                    Search the Link Database on</span> <span tal:replace="index/Title" />
+            </a>
+        </div>
+
+    <div class="visualClear"></div>
+<!--
+        <div class="content-columns">
+          <div class="content-column-one">
+            <div class="inner-content">
+
+              <div metal:use-macro="here/sep_list_docs/macros/portlet"/>
+
+                <div tal:define="portlet_title string:Publications;
+                               portal_type python:['Publication']" tal:on-error="nothing">
+                    <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
+                </div>
+
+                <div tal:define="portlet_title string:Latest Content;
+                               portal_type string:OSH_Link"  tal:on-error="nothing">
+                    <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="content-column-two">
+            <div class="inner-content">
+
+                <div tal:define="portlet_title string:News;
+                                 portal_type python:['News Item']" tal:on-error="nothing">
+                    <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
+                </div>
+
+                <div tal:define="portlet_title string:Events;
+                                 portal_type python:['Event']" tal:on-error="nothing">
+                    <metal:block use-macro="here/portlet_relatedbytype/macros/portlet"/>
+                </div>
+
+
+            </div>
+          </div>
+        </div>
+-->
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="osha.policy">
+
+    <five:registerPackage package="." initialize=".initialize" />
+    <include package=".adapter" />
+    <include package=".browser" />
+    <include package="osha.theme" />
+    <include package="archetypes.schemaextender" />
+
+    <genericsetup:registerProfile
+        name="default"
+        title="OSHA Site Policy"
+        directory="profiles/default"
+        description="Turn a Plone site into the OSHA site."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <!-- This subscriber tries to retrieve the title from uploaded PDFs for the
+    autotranslation of publications (in cooperation with slc.autotranslate),
+    but it's very buggy :(
+    <subscriber
+        for="slc.autotranslate.interfaces.IAutoTranslatedFileEvent"
+        handler=".handlers.handle_auto_translated_files"
+        />
+    -->
+
+    <!-- Local roles managed in the @@sharing view -->
+    <utility
+        name="Checker"
+        factory=".localroles.CheckerRole"
+        />
+
+    <subscriber 
+        for="Products.LinguaPlone.events.IObjectWillBeTranslatedEvent"
+        handler=".handlers.handle_object_willbe_translated"
+        />
+
+    <subscriber
+        for="Products.Archetypes.interfaces.IBaseContent
+            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+        handler=".handlers.handle_objectModified"
+        />
+
+    <utility
+        component=".vocabularies.CategoriesVocabularyFactory"
+        name="osha.policy.vocabularies.categories"
+        />
+
+    <utility
+        provides="collective.lead.interfaces.IDatabase"
+        factory=".adapter.db.OSHADatabase"
+        name="osha.database"
+        />
+
+    <adapter
+        for=".adapter.db.OSHADatabase"
+        provides="collective.lead.interfaces.ITransactionAware"
+        factory="collective.lead.tx.ThreadlocalDatabaseTransactions" 
+        />
+    
+    <class class="Products.PressRoom.content.PressRoom.PressRoom">
+        <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
+    </class>
+
+
+</configure>

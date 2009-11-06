@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="osha_various"
+               version="20071021-01"
+               handler="osha.policy.setuphandlers.importVarious"
+               title="OSHA manual setup steps">
+    Policy installer steps
+    <dependency step="content"/>
+    <dependency step="toolset"/>
+  </import-step>
+  <import-step id="osha_setVersionedTypes"
+               version="20080407-01"
+               handler="osha.policy.setuphandlers.setVersionedTypes"
+               title="OSHA set versioned content types.">
+    Set versioned content types.
+    <dependency step="osha_various"/>
+  </import-step>
+</import-steps>
+
