@@ -17,3 +17,5 @@ import kupu_patch_subsite
 import queuecatalog_patch
 import autotranslate_get_translations
 import p4aimages_patch
+import linguaplone_addTranslation_patch
+import FCKeditor_patch

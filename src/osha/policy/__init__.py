@@ -14,9 +14,7 @@ def log(msg):
 
 import adapter
 
-from patches import linguaplone_addTranslation_patch
-from patches import FCKeditor_patch
-from patches import p4aimages_patch
+from patches import *
 
 # Enable getTranslation caching for LinguaPlone
 #from Products.LinguaPlone import config
@@ -30,5 +28,3 @@ ModuleSecurityInfo('osha.policy.utils').declarePublic('logit')
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product."""
-
-
