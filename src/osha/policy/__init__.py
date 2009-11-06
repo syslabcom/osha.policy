@@ -16,6 +16,7 @@ import adapter
 
 from patches import linguaplone_addTranslation_patch
 from patches import FCKeditor_patch
+from patches import p4aimages_patch
 
 # Enable getTranslation caching for LinguaPlone
 #from Products.LinguaPlone import config
