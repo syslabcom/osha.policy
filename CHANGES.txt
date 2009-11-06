@@ -4,7 +4,8 @@ osha.policy Changelog
 1.2.30 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added conditional patches for p4a.image, so that they don't add their indexes
+  (gerken)
 
 
 1.2.29 (2009-10-18)
