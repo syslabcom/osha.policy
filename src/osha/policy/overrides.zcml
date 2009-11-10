@@ -32,4 +32,24 @@ optimization -->
             handler="slc.publications.adapter.events.ChapterUpdater"
         />
     </unconfigure>
+
+
+    <!-- Subject widget for the clicksearch -->
+    <browser:page
+        name="slc.clicksearch.Subject"
+        for="Products.ATContentTypes.content.topic.ATTopic"
+        permission="zope.Public"
+        class=".browser.clicksearch_support.SubjectView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+
+    <browser:page
+        name="slc.clicksearch.index_Subject"
+        for="*"
+        permission="zope.Public"
+        class=".browser.clicksearch_support.SubjectIndexView"
+        layer="slc.clicksearch.interfaces.IThemeLayer"
+        />
+    <!-- * Subject * -->
+
 </configure>

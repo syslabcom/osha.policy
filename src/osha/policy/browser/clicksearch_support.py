@@ -14,6 +14,8 @@ from slc.clicksearch.browser.widgets import SimpleListView
 from slc.clicksearch.browser.widgets import ATVMTreeListView
 from slc.clicksearch.browser.widgets import DropdownView
 from slc.clicksearch.browser.indexes import DefaultIndexView, ATVMTreeIndexView
+from osha.theme import OSHAMessageFactory as _
+from Products.PlacelessTranslationService import getTranslationService
 
 
 class RemoteLanguageView(DropdownView):
@@ -96,4 +98,20 @@ class MultilingualThesaurusIndexView(ATVMTreeIndexView):
     vocabulary_name = "MultilingualThesaurus"
 
 
+class SubjectView(SimpleListView):
+    """ provide proper translation """
 
+    def prepare_title(self, id):
+        """ use some processing to find a human readable title for the given metadata element id
+            like Musculoskeletal disorders for msd
+        """
+        return getTranslationService().translate(domain='osha', msgid=id, context=self.context)
+
+class SubjectIndexView(DefaultIndexView):
+    """ provide proper translation """
+
+    def prepare_title(self, id):
+        """ use some processing to find a human readable title for the given metadata element id
+            like Musculoskeletal disorders for msd
+        """
+        return getTranslationService().translate(domain='osha', msgid=id, context=self.context)
