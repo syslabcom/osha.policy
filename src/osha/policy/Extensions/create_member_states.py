@@ -1,7 +1,5 @@
 import logging
-import types
 
-import Acquisition
 from OFS.event import ObjectClonedEvent
 from zExceptions import BadRequest
 
@@ -9,60 +7,21 @@ from zope import component
 from zope.event import notify
 from zope.lifecycleevent import ObjectCopiedEvent
 
-from plone.portlets.interfaces import IPortletManager
-from plone.portlets.interfaces import IPortletAssignmentMapping
-from plone.portlets.constants import CONTEXT_CATEGORY
+from plone.portlet.collection import collection
 
-from plone.app.portlets import portlets
+from plone.portlets.constants import CONTEXT_CATEGORY
+from plone.portlets.interfaces import IPortletAssignmentMapping
+from plone.portlets.interfaces import IPortletManager
+ 
 from plone.app.portlets.utils import assignment_mapping_from_key
 
 from Products.CMFCore.utils import getToolByName
+from Products.PlacelessTranslationService import getTranslationService
 
 from p4a.subtyper.interfaces import ISubtyper
 from osha.theme import portlets as osha_portlets
 
 log = logging.getLogger('osha.policy/Extensions/create_member_states.py')
-
-
-COUNTRY_LANGS = {'romania': [('en', u'English'), ('ro', u'Romanian')],
-                'united-kingdom': [('en', u'English')],
-                'estonia': [('en', u'English'), ('et', u'Estonian')],
-                'austria': [('de', u'German')],
-                'greece': [('en', u'English'), ('el', u'Greek')],
-                'hungary': [('en', u'English'), ('hu', u'Hungarian')],
-                'cyprus': [('en', u'English'), ('el', u'Greek')],
-                'turkey': [('en', u'English'), ('tr', u'Turkish')],
-                'eu-us': [('en', u'English')],
-                'mecklenburg-vorpommern': [('de', u'German')],
-                'italy': [('en', u'English'), ('it', u'Italian')],
-                'portugal': [('en', u'English'), ('pt', u'Portuguese')],
-                'lithuania': [('en', u'English'), ('lt', u'Lithuanian')],
-                'malta': [('en', u'English')],
-                'france': [('fr', u'French')],
-                'slovakia': [('en', u'English'), ('sk', u'Slovak')],
-                'ireland': [('en', u'English')],
-                'thueringen': [('de', u'German')],
-                'norway': [('en', u'English'), ('no', u'Norwegian')],
-                'luxemburg': [('fr', u'French')],
-                'sachsen-anhalt': [('de', u'German')],
-                'korea': [('en', u'English'), ('ko', u'Korean')],
-                'slovenia': [('en', u'English'), ('sl', u'Slovenian')],
-                'germany': [('en', u'English'), ('de', u'German')],
-                'bayern': [('de', u'German')],
-                'rheinland-pfalz': [('de', u'German')],
-                'spain': [('en', u'English'), ('es', u'Spanish')],
-                'netherlands': [('nl', u'Dutch'), ('en', u'English')],
-                'denmark': [('da', u'Danish'), ('en', u'English')],
-                'poland': [('en', u'English'), ('pl', u'Polish')],
-                'finland': [('en', u'English'), ('fi', u'Finnish'), ('sv', u'Swedish')],
-                'sweden': [('en', u'English')],
-                'latvia': [('en', u'English'), ('lv', u'Latvian')],
-                'croatia': [('hr', u'Croatian'), ('en', u'English')],
-                'uems': [('en', u'English')],
-                'switzerland': [('en', u'English'), ('fr', u'French'), ('de', u'German'), ('it', u'Italian')],
-                'czech-republic': [('cs', u'Czech'), ('en', u'English')],
-                'bulgaria': [('bg', u'Bulgarian'), ('en', u'English')]
-                }
 
 MEMBER_STATES = [
     "Bulgaria",
@@ -105,42 +64,21 @@ MEMBER_STATES = [
     "Serbia",
     ]
 
-
-# Unless already present use English(?)
-not_present_on_current_site = [
-    'luxembourg',
-    'iceland',
-    'liechtenstein',
-    'the-former-yugoslav-republic-of-macedonia',
-    'albania',
-    'bosnia-and-herzegovina',
-    'kosovo-under-unscr-1244/99',
-    'montenegro',
-    'serbia'
-    ]
-
-
 def run(self):
     """ """
     member_states = self.unrestrictedTraverse('oshnetwork/member-states')
     for country_name in MEMBER_STATES:
         name = country_name.lower().replace(' ', '-')
-        languages = []
-        if COUNTRY_LANGS.has_key(name):
-            languages = [l[0] for l in COUNTRY_LANGS[name]]
-            if "en" in languages:
-                languages.remove("en")
-        languages = ['en']+languages
-
+        languages = self.portal_languages.getSupportedLanguages()
         for lang in languages:
             country_folder = _create_country_folder(member_states, country_name, lang)
             if country_folder is None:
                 continue
-            _add_language_tool(country_folder, country_name, languages)
-            _add_news_folder(country_folder, lang)
-            _add_events_folder(country_folder, lang)
+            #_add_language_tool(country_folder, country_name, languages)
+            news_topic = _add_news_folder(country_folder, lang)
+            events_topic = _add_events_folder(country_folder, lang)
             _add_index_html_page(country_folder, country_name, lang)
-            _add_portlets(country_folder)
+            _add_portlets(country_folder, news_topic, events_topic, lang)
 
     return 'Finished!'
 
@@ -163,8 +101,8 @@ def _create_country_folder(member_states, country_name, lang):
 
     subtyper = component.getUtility(ISubtyper)
     subtyper.change_type(country_folder, 'slc.subsite.FolderSubsite')
-
     return country_folder
+
 
 def _add_language_tool(country_folder, country_name, languages):
     log.info('_add_language_tool for %s' % country_name)
@@ -185,53 +123,91 @@ def _add_language_tool(country_folder, country_name, languages):
 
 
 def _add_news_folder(country_folder, lang):
+    translate = getTranslationService().translate
+    news_trans = translate(
+                        target_language=lang, 
+                        msgid=u'News', 
+                        default=u'News', 
+                        context=object, 
+                        domain='plone'
+                        )
     log.info('_add_news_folder')
     if country_folder.portal_languages.isCanonical():
-        id = country_folder.invokeFactory('Folder', 'news', title='News')
+        id = country_folder.invokeFactory('Folder', 'news', title=news_trans)
         news = country_folder._getOb(id)
     else:
         canonical_country_folder = country_folder.getCanonical()
         canonical_news = canonical_country_folder._getOb("news")
         news = canonical_news.addTranslation(lang)
 
-    _add_news_topic(news, lang)
+    return _add_news_topic(news, lang)
 
 
 def _add_events_folder(country_folder, lang):
     log.info('_add_events_folder')
+    translate = getTranslationService().translate
+    events_trans = translate(
+                        target_language=lang, 
+                        msgid=u'Events', 
+                        default=u'Events', 
+                        context=object, 
+                        domain='plone'
+                        )
     if country_folder.portal_languages.isCanonical():
-        id = country_folder.invokeFactory('Folder', 'events', title='Events')
+        id = country_folder.invokeFactory('Folder', 'events', title=events_trans)
         events = country_folder._getOb(id)
     else:
         canonical_country_folder = country_folder.getCanonical()
         canonical_events = canonical_country_folder._getOb("events")
         events = canonical_events.addTranslation(lang)
 
-    _add_events_topic(events, lang)
+    return _add_events_topic(events, lang)
 
 
 def _add_index_html_page(country_folder, country_name, lang):
-    log.info('_add_index_html_page for %s' % country_name)
     if country_folder.portal_languages.isCanonical():
+        log.info('_add_index_html_page for %s' % country_name)
         id = country_folder.invokeFactory('Document', 'index_html', title=country_name)
         page = country_folder._getOb(id)
-    else:
-        canonical_country_folder = country_folder.getCanonical()
-        canonical_page = canonical_country_folder._getOb("index_html")
-        page = canonical_page.addTranslation(lang)
-
-    page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
-    subtyper = component.getUtility(ISubtyper)
-    subtyper.change_type(page, 'annotatedlinks')
+        page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
+        subtyper = component.getUtility(ISubtyper)
+        subtyper.change_type(page, 'annotatedlinks')
 
 
-def _add_portlets(object):
-    log.info('_add_portlets')
+def _add_portlets(object, events_topic, news_topic, lang):
+    log.info('_add_portlets for language %s' % lang)
     path = "/".join(object.getPhysicalPath())
     oshabelow = assignment_mapping_from_key(object, 'osha.belowcontent.portlets', CONTEXT_CATEGORY, path)
 
-    oshabelow[u'news'] = portlets.news.Assignment()
-    oshabelow[u'events'] = portlets.events.Assignment()
+    events_topic_path = "/".join(events_topic.getPhysicalPath())
+    news_topic_path = "/".join(news_topic.getPhysicalPath())
+
+    translate = getTranslationService().translate
+    news_trans = translate(
+                        target_language=lang, 
+                        msgid=u'News', 
+                        default=u'News', 
+                        context=object, 
+                        domain='plone'
+                        )
+    oshabelow[u'news-collection'] = collection.Assignment(
+                                        header=news_trans,
+                                        target_collection=news_topic_path,
+                                        limit=5,
+                                        )
+
+    events_trans = translate(
+                        target_language=lang, 
+                        msgid=u'Events', 
+                        default=u'Events', 
+                        context=object, 
+                        domain='plone'
+                        )
+    oshabelow[u'events-collection'] = collection.Assignment(
+                                        header=events_trans,
+                                        target_collection=events_topic_path,
+                                        limit=5,
+                                        )
 
     rightcolumn_manager = component.getUtility(
                     IPortletManager,
@@ -265,9 +241,11 @@ def _add_news_topic(news, lang):
     # Add the Topic criteria
     effective_date = news_topic.addCriterion('effective', 'ATFriendlyDateCriteria')
     effective_date.setValue(0) # Set date reference to now
+    effective_date.setOperation('less')
 
     expiration_date = news_topic.addCriterion('expires', 'ATFriendlyDateCriteria')
     expiration_date.setValue(0) # Set date reference to now
+    expiration_date.setOperation('more')
 
     state = news_topic.addCriterion('review_state', 'ATSimpleStringCriterion')
     state.setValue('published')
@@ -277,6 +255,8 @@ def _add_news_topic(news, lang):
 
     item_type = news_topic.addCriterion('portal_type', 'ATSimpleStringCriterion')
     item_type.setValue('News Item')
+
+    return news_topic
 
 
 def _add_events_topic(events, lang):
@@ -299,12 +279,16 @@ def _add_events_topic(events, lang):
 
     effective_date = events_topic.addCriterion('effective', 'ATFriendlyDateCriteria')
     effective_date.setValue(0) # Set date reference to now
+    effective_date.setOperation('less')
 
     expiration_date = events_topic.addCriterion('expires', 'ATFriendlyDateCriteria')
     expiration_date.setValue(0) # Set date reference to now
+    expiration_date.setOperation('more')
 
     location = events_topic.addCriterion('path', 'ATRelativePathCriterion')
     location.setRelativePath('..')
+
+    return events_topic
 
 
 
