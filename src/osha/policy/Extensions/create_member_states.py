@@ -64,6 +64,10 @@ MEMBER_STATES = [
     "Serbia",
     ]
 
+MEMBER_STATES = [
+    "Bulgaria",
+    ]
+
 def run(self):
     """ """
     member_states = self.unrestrictedTraverse('en/oshnetwork/member-states')
@@ -89,25 +93,25 @@ def _create_country_folder(member_states, country_name, lang):
              % (country_name, lang))
     sid = country_name.lower().replace(' ', '-').replace('/', '-')
     if member_states.portal_languages.getCanonicalLanguage() == lang:
-        translate = getTranslationService().translate
-        title_trans = translate(
-                            target_language=lang, 
-                            msgid=u'ew2000-navtitle_%s' % lang, 
-                            default=country_name, 
-                            context=member_states, 
-                            domain='osha-subsites'
-                            )
         try:
-            member_states.invokeFactory('Folder', sid, title=title_trans)
+            member_states.invokeFactory('Folder', sid)
         except BadRequest:
             log.info('Country folder %s already exists! Will take existing folder.' % country_name)
 
         country_folder = member_states._getOb(sid)
-
     else:
         canonical = member_states._getOb(sid)
         country_folder = canonical.addTranslation(lang)
 
+    translate = getTranslationService().translate
+    title_trans = translate(
+			target_language=lang, 
+			msgid=u'ew2000-navtitle_%s' % lang, 
+			default=country_name, 
+			context=member_states, 
+			domain='osha-subsites'
+			)
+    country_folder.setTitle(title_trans)
     subtyper = component.getUtility(ISubtyper)
     subtyper.change_type(country_folder, 'slc.subsite.FolderSubsite')
     return country_folder
@@ -142,13 +146,14 @@ def _add_news_folder(country_folder, lang):
                         )
     log.info('_add_news_folder')
     if country_folder.portal_languages.getCanonicalLanguage() == lang:
-        id = country_folder.invokeFactory('Folder', 'news', title=news_trans)
+        id = country_folder.invokeFactory('Folder', 'news')
         news = country_folder._getOb(id)
     else:
         canonical_country_folder = country_folder.getCanonical()
         canonical_news = canonical_country_folder._getOb("news")
         news = canonical_news.addTranslation(lang)
 
+    news.setTitle(news_trans)
     return _add_news_topic(news, lang)
 
 
@@ -170,6 +175,7 @@ def _add_events_folder(country_folder, lang):
         canonical_events = canonical_country_folder._getOb("events")
         events = canonical_events.addTranslation(lang)
 
+    events.setTitle(events_trans)
     return _add_events_topic(events, lang)
 
 
