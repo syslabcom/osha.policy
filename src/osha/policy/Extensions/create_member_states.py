@@ -180,14 +180,19 @@ def _add_index_html_page(country_folder, country_name, lang):
             country_folder.invokeFactory('Document', 'index_html', title=country_name)
         except BadRequest:
             log.info('index_html for  %s already exists! Will take existing folder.' % country_name)
-            
         page = country_folder._getOb('index_html')
-        try:
-            page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
-        except BadRequest:
-            log.info("Duplicate property '@@oshnetwork-member-view' for index_html of %s" % country_name)
-        subtyper = component.getUtility(ISubtyper)
-        subtyper.change_type(page, 'annotatedlinks')
+
+    else:
+        canonical_country_folder = country_folder.getCanonical()
+        canonical_page = canonical_country_folder._getOb("index_html")
+        page = canonical_page.addTranslation(lang)
+            
+    try:
+	page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
+    except BadRequest:
+	log.info("Duplicate property '@@oshnetwork-member-view' for index_html of %s" % country_name)
+    subtyper = component.getUtility(ISubtyper)
+    subtyper.change_type(page, 'annotatedlinks')
 
 
 def _add_portlets(obj, events_topic, news_topic, lang):
