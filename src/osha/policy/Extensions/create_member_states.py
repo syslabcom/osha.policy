@@ -1,8 +1,9 @@
-import logging 
+import logging
 import types
 
 import Acquisition
 from OFS.event import ObjectClonedEvent
+from zExceptions import BadRequest
 
 from zope import component
 from zope.event import notify
@@ -12,7 +13,7 @@ from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.constants import CONTEXT_CATEGORY
 
-from plone.app.portlets import portlets 
+from plone.app.portlets import portlets
 from plone.app.portlets.utils import assignment_mapping_from_key
 
 from Products.CMFCore.utils import getToolByName
@@ -118,39 +119,54 @@ not_present_on_current_site = [
     'serbia'
     ]
 
+
 def run(self):
     """ """
     member_states = self.unrestrictedTraverse('oshnetwork/member-states')
     for country_name in MEMBER_STATES:
-        country_folder = _create_country_folder(member_states, country_name)   
-        if country_folder is None:
-            continue
+        name = country_name.lower().replace(' ', '-')
+        languages = []
+        if COUNTRY_LANGS.has_key(name):
+            languages = [l[0] for l in COUNTRY_LANGS[name]]
+            if "en" in languages:
+                languages.remove("en")
+        languages = ['en']+languages
 
-        _add_language_tool(country_folder, country_name)
-        _add_news_folder(country_folder)
-        _add_events_folder(country_folder)
-        _add_index_html_page(country_folder, country_name)
-        _add_portlets(country_folder)
+        for lang in languages:
+            country_folder = _create_country_folder(member_states, country_name, lang)
+            if country_folder is None:
+                continue
+            _add_language_tool(country_folder, country_name, languages)
+            _add_news_folder(country_folder, lang)
+            _add_events_folder(country_folder, lang)
+            _add_index_html_page(country_folder, country_name, lang)
+            _add_portlets(country_folder)
 
     return 'Finished!'
 
 
-def _create_country_folder(member_states, country_name):
-    log.info('_create_country_folder for %s' % country_name)
+def _create_country_folder(member_states, country_name, lang):
+    log.info('_create_country_folder for %s in language: %s' \
+             % (country_name, lang))
     sid = country_name.lower().replace(' ', '-').replace('/', '-')
-    try:
-        id = member_states.invokeFactory('Folder', sid, title=country_name)
-    except BadRequest:
-        log.info('Country folder %s already exists!' % country_name)
-        return 
-        
-    country_folder = member_states._getOb(id)
+    if member_states.portal_languages.getCanonicalLanguage() == lang:
+        try:
+            id = member_states.invokeFactory('Folder', sid, title=country_name)
+        except BadRequest:
+            log.info('Country folder %s already exists!' % country_name)
+            return
+        country_folder = member_states._getOb(id)
+
+    else:
+        canonical = member_states._getOb(sid)
+        country_folder = canonical.addTranslation(lang)
+
     subtyper = component.getUtility(ISubtyper)
     subtyper.change_type(country_folder, 'slc.subsite.FolderSubsite')
+
     return country_folder
 
-
-def _add_language_tool(country_folder, country_name):
+def _add_language_tool(country_folder, country_name, languages):
     log.info('_add_language_tool for %s' % country_name)
     tool = getToolByName(country_folder, 'portal_languages')
     newob = tool._getCopy(tool)
@@ -165,63 +181,67 @@ def _add_language_tool(country_folder, country_name):
     ltool._postCopy(country_folder, op=0)
     ltool.manage_afterClone(ltool)
     notify(ObjectClonedEvent(ltool))
-
-    name = country_name.lower().replace(' ', '-')
-    if COUNTRY_LANGS.has_key(name):
-        languages = [l[0] for l in COUNTRY_LANGS[name]]
-    else:
-        languages = ['en']
-
-    if languages:
-        if isinstance(languages, tuple):
-            languages = list(languages)
-        elif isinstance(languages, types.StringType) or isinstance(languages, types.UnicodeType):
-            languages = [languages]
-
-        ltool.supported_langs = languages
+    ltool.supported_langs = languages
 
 
-def _add_news_folder(country_folder):
+def _add_news_folder(country_folder, lang):
     log.info('_add_news_folder')
-    id = country_folder.invokeFactory('Folder', 'news', title='News')
-    news = country_folder._getOb(id)
-    _add_news_topic(news)
+    if country_folder.portal_languages.isCanonical():
+        id = country_folder.invokeFactory('Folder', 'news', title='News')
+        news = country_folder._getOb(id)
+    else:
+        canonical_country_folder = country_folder.getCanonical()
+        canonical_news = canonical_country_folder._getOb("news")
+        news = canonical_news.addTranslation(lang)
+
+    _add_news_topic(news, lang)
 
 
-def _add_events_folder(country_folder):
+def _add_events_folder(country_folder, lang):
     log.info('_add_events_folder')
-    id = country_folder.invokeFactory('Folder', 'events', title='Events')
-    events = country_folder._getOb(id)
-    _add_events_topic(events)
+    if country_folder.portal_languages.isCanonical():
+        id = country_folder.invokeFactory('Folder', 'events', title='Events')
+        events = country_folder._getOb(id)
+    else:
+        canonical_country_folder = country_folder.getCanonical()
+        canonical_events = canonical_country_folder._getOb("events")
+        events = canonical_events.addTranslation(lang)
+
+    _add_events_topic(events, lang)
 
 
-def _add_index_html_page(country_folder, country_name):
+def _add_index_html_page(country_folder, country_name, lang):
     log.info('_add_index_html_page for %s' % country_name)
-    id = country_folder.invokeFactory('Document', 'index_html', title=country_name)
-    page = country_folder._getOb(id)
-    
+    if country_folder.portal_languages.isCanonical():
+        id = country_folder.invokeFactory('Document', 'index_html', title=country_name)
+        page = country_folder._getOb(id)
+    else:
+        canonical_country_folder = country_folder.getCanonical()
+        canonical_page = canonical_country_folder._getOb("index_html")
+        page = canonical_page.addTranslation(lang)
+
     page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
     subtyper = component.getUtility(ISubtyper)
     subtyper.change_type(page, 'annotatedlinks')
 
 
-def _add_portlets(page):
+def _add_portlets(object):
     log.info('_add_portlets')
-    path = "/".join(page.getPhysicalPath()) 
-    oshabelow = assignment_mapping_from_key(page, 'osha.belowcontent.portlets', CONTEXT_CATEGORY, path)
+    path = "/".join(object.getPhysicalPath())
+    oshabelow = assignment_mapping_from_key(object, 'osha.belowcontent.portlets', CONTEXT_CATEGORY, path)
 
     oshabelow[u'news'] = portlets.news.Assignment()
     oshabelow[u'events'] = portlets.events.Assignment()
 
     rightcolumn_manager = component.getUtility(
-                    IPortletManager, 
-                    name=u'plone.rightcolumn', 
-                    context=page
+                    IPortletManager,
+                    name=u'plone.rightcolumn',
+                    context=object
                     )
 
     rightcolumn = component.getMultiAdapter(
-                            (page, rightcolumn_manager), 
-                            IPortletAssignmentMapping, context=page
+                            (object, rightcolumn_manager),
+                            IPortletAssignmentMapping, context=object
                             )
 
     rightcolumn[u'activities'] = osha_portlets.image.Assignment(
@@ -232,10 +252,15 @@ def _add_portlets(page):
     rightcolumn[u'links'] = osha_portlets.network_member_links.Assignment()
 
 
-def _add_news_topic(news):
-    log.info('_add_news_topic')
-    id = news.invokeFactory('Topic', 'front-page')
-    news_topic = news._getOb(id)
+def _add_news_topic(news, lang):
+    log.info('_add_news_topic for language: %s' %lang)
+    if news.portal_languages.isCanonical():
+        id = news.invokeFactory('Topic', 'front-page')
+        news_topic = news._getOb(id)
+    else:
+        canonical_news = news.getCanonical()
+        canonical_topic = canonical_news._getOb("front-page")
+        news_topic = canonical_topic.addTranslation(lang)
 
     # Add the Topic criteria
     effective_date = news_topic.addCriterion('effective', 'ATFriendlyDateCriteria')
@@ -245,19 +270,25 @@ def _add_news_topic(news):
     expiration_date.setValue(0) # Set date reference to now
 
     state = news_topic.addCriterion('review_state', 'ATSimpleStringCriterion')
-    state.setValue('published') 
+    state.setValue('published')
 
     location = news_topic.addCriterion('path', 'ATRelativePathCriterion')
-    location.setRelativePath('..') 
+    location.setRelativePath('..')
 
     item_type = news_topic.addCriterion('portal_type', 'ATSimpleStringCriterion')
     item_type.setValue('News Item')
 
 
-def _add_events_topic(events):
-    log.info('_add_events_topic')
-    id = events.invokeFactory('Topic', 'front-page')
-    events_topic = events._getOb(id)
+def _add_events_topic(events, lang):
+    log.info('_add_events_topic for language: %s' %lang)
+    if events.portal_languages.isCanonical():
+        id = events.invokeFactory('Topic', 'front-page')
+        events_topic = events._getOb(id)
+    else:
+        canonical_events = events.getCanonical()
+        canonical_topic = canonical_events._getOb("front-page")
+        events_topic = canonical_topic.addTranslation(lang)
+
 
     # Add the Topic criteria
     item_type = events_topic.addCriterion('portal_type', 'ATSimpleStringCriterion')
@@ -273,7 +304,7 @@ def _add_events_topic(events):
     expiration_date.setValue(0) # Set date reference to now
 
     location = events_topic.addCriterion('path', 'ATRelativePathCriterion')
-    location.setRelativePath('..') 
+    location.setRelativePath('..')
 
 
-    
+
