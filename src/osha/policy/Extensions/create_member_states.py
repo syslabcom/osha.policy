@@ -24,9 +24,9 @@ from osha.theme import portlets as osha_portlets
 log = logging.getLogger('osha.policy/Extensions/create_member_states.py')
 
 MEMBER_STATES = [
+    "Denmark",
     "Bulgaria",
     "Czech Republic",
-    "Denmark",
     "Germany",
     "Estonia",
     "Ireland",
@@ -66,14 +66,15 @@ MEMBER_STATES = [
 
 def run(self):
     """ """
-    member_states = self.unrestrictedTraverse('oshnetwork/member-states')
+    member_states = self.unrestrictedTraverse('en/oshnetwork/member-states')
+    languages = self.portal_languages.getSupportedLanguages()
+    if 'en' in languages:
+        languages.remove('en')
+    languages = ['en'] + languages
+
     for country_name in MEMBER_STATES:
-        name = country_name.lower().replace(' ', '-')
-        languages = self.portal_languages.getSupportedLanguages()
         for lang in languages:
             country_folder = _create_country_folder(member_states, country_name, lang)
-            if country_folder is None:
-                continue
             #_add_language_tool(country_folder, country_name, languages)
             news_topic = _add_news_folder(country_folder, lang)
             events_topic = _add_events_folder(country_folder, lang)
@@ -89,11 +90,11 @@ def _create_country_folder(member_states, country_name, lang):
     sid = country_name.lower().replace(' ', '-').replace('/', '-')
     if member_states.portal_languages.getCanonicalLanguage() == lang:
         try:
-            id = member_states.invokeFactory('Folder', sid, title=country_name)
+            member_states.invokeFactory('Folder', sid, title=country_name)
         except BadRequest:
-            log.info('Country folder %s already exists!' % country_name)
-            return
-        country_folder = member_states._getOb(id)
+            log.info('Country folder %s already exists! Will take existing folder.' % country_name)
+
+        country_folder = member_states._getOb(sid)
 
     else:
         canonical = member_states._getOb(sid)
@@ -123,16 +124,17 @@ def _add_language_tool(country_folder, country_name, languages):
 
 
 def _add_news_folder(country_folder, lang):
+    import pdb; pdb.set_trace()
     translate = getTranslationService().translate
     news_trans = translate(
                         target_language=lang, 
                         msgid=u'News', 
                         default=u'News', 
-                        context=object, 
+                        context=country_folder, 
                         domain='plone'
                         )
     log.info('_add_news_folder')
-    if country_folder.portal_languages.isCanonical():
+    if country_folder.portal_languages.getCanonicalLanguage() == lang:
         id = country_folder.invokeFactory('Folder', 'news', title=news_trans)
         news = country_folder._getOb(id)
     else:
@@ -150,10 +152,10 @@ def _add_events_folder(country_folder, lang):
                         target_language=lang, 
                         msgid=u'Events', 
                         default=u'Events', 
-                        context=object, 
+                        context=country_folder, 
                         domain='plone'
                         )
-    if country_folder.portal_languages.isCanonical():
+    if country_folder.portal_languages.getCanonicalLanguage() == lang:
         id = country_folder.invokeFactory('Folder', 'events', title=events_trans)
         events = country_folder._getOb(id)
     else:
@@ -165,19 +167,26 @@ def _add_events_folder(country_folder, lang):
 
 
 def _add_index_html_page(country_folder, country_name, lang):
-    if country_folder.portal_languages.isCanonical():
+    if country_folder.portal_languages.getCanonicalLanguage() == lang:
         log.info('_add_index_html_page for %s' % country_name)
-        id = country_folder.invokeFactory('Document', 'index_html', title=country_name)
-        page = country_folder._getOb(id)
-        page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
+        try:
+            country_folder.invokeFactory('Document', 'index_html', title=country_name)
+        except BadRequest:
+            log.info('index_html for  %s already exists! Will take existing folder.' % country_name)
+            
+        page = country_folder._getOb('index_html')
+        try:
+            page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
+        except BadRequest:
+            log.info("Duplicate property '@@oshnetwork-member-view' for index_html of %s" % country_name)
         subtyper = component.getUtility(ISubtyper)
         subtyper.change_type(page, 'annotatedlinks')
 
 
-def _add_portlets(object, events_topic, news_topic, lang):
+def _add_portlets(obj, events_topic, news_topic, lang):
     log.info('_add_portlets for language %s' % lang)
-    path = "/".join(object.getPhysicalPath())
-    oshabelow = assignment_mapping_from_key(object, 'osha.belowcontent.portlets', CONTEXT_CATEGORY, path)
+    path = "/".join(obj.getPhysicalPath())
+    oshabelow = assignment_mapping_from_key(obj, 'osha.belowcontent.portlets', CONTEXT_CATEGORY, path)
 
     events_topic_path = "/".join(events_topic.getPhysicalPath())
     news_topic_path = "/".join(news_topic.getPhysicalPath())
@@ -187,7 +196,7 @@ def _add_portlets(object, events_topic, news_topic, lang):
                         target_language=lang, 
                         msgid=u'News', 
                         default=u'News', 
-                        context=object, 
+                        context=obj, 
                         domain='plone'
                         )
     oshabelow[u'news-collection'] = collection.Assignment(
@@ -200,7 +209,7 @@ def _add_portlets(object, events_topic, news_topic, lang):
                         target_language=lang, 
                         msgid=u'Events', 
                         default=u'Events', 
-                        context=object, 
+                        context=obj, 
                         domain='plone'
                         )
     oshabelow[u'events-collection'] = collection.Assignment(
@@ -212,12 +221,12 @@ def _add_portlets(object, events_topic, news_topic, lang):
     rightcolumn_manager = component.getUtility(
                     IPortletManager,
                     name=u'plone.rightcolumn',
-                    context=object
+                    context=obj
                     )
 
     rightcolumn = component.getMultiAdapter(
-                            (object, rightcolumn_manager),
-                            IPortletAssignmentMapping, context=object
+                            (obj, rightcolumn_manager),
+                            IPortletAssignmentMapping, context=obj
                             )
 
     rightcolumn[u'activities'] = osha_portlets.image.Assignment(
@@ -230,7 +239,7 @@ def _add_portlets(object, events_topic, news_topic, lang):
 
 def _add_news_topic(news, lang):
     log.info('_add_news_topic for language: %s' %lang)
-    if news.portal_languages.isCanonical():
+    if news.portal_languages.getCanonicalLanguage() == lang:
         id = news.invokeFactory('Topic', 'front-page')
         news_topic = news._getOb(id)
     else:
@@ -261,7 +270,7 @@ def _add_news_topic(news, lang):
 
 def _add_events_topic(events, lang):
     log.info('_add_events_topic for language: %s' %lang)
-    if events.portal_languages.isCanonical():
+    if events.portal_languages.getCanonicalLanguage() == lang:
         id = events.invokeFactory('Topic', 'front-page')
         events_topic = events._getOb(id)
     else:
