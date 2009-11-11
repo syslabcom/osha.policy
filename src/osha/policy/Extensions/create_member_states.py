@@ -89,8 +89,16 @@ def _create_country_folder(member_states, country_name, lang):
              % (country_name, lang))
     sid = country_name.lower().replace(' ', '-').replace('/', '-')
     if member_states.portal_languages.getCanonicalLanguage() == lang:
+        translate = getTranslationService().translate
+        title_trans = translate(
+                            target_language=lang, 
+                            msgid=u'ew2000-navtitle_%s' % lang, 
+                            default=country_name, 
+                            context=member_states, 
+                            domain='osha-subsites'
+                            )
         try:
-            member_states.invokeFactory('Folder', sid, title=country_name)
+            member_states.invokeFactory('Folder', sid, title=title_trans)
         except BadRequest:
             log.info('Country folder %s already exists! Will take existing folder.' % country_name)
 
@@ -124,7 +132,6 @@ def _add_language_tool(country_folder, country_name, languages):
 
 
 def _add_news_folder(country_folder, lang):
-    import pdb; pdb.set_trace()
     translate = getTranslationService().translate
     news_trans = translate(
                         target_language=lang, 
