@@ -248,9 +248,9 @@ def _add_portlets(obj, events_topic, news_topic, lang):
                             )
 
     rightcolumn[u'activities'] = osha_portlets.image.Assignment(
-                                                            header=u"Agency's Activities",
-                                                            image="/en/campaigns/hw2008/campaign/banner/hwp_en.swf",
-                                                            )
+                                        header=u"Agency's Activities",
+                                        image="/en/campaigns/hw2008/campaign/banner/hwp_en.swf",
+                                        )
 
     rightcolumn[u'links'] = osha_portlets.network_member_links.Assignment()
 
