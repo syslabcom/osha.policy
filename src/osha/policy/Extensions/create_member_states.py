@@ -194,11 +194,13 @@ def _add_index_html_page(country_folder, country_name, lang):
         page = canonical_page.addTranslation(lang)
             
     try:
-	page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
+        page.manage_addProperty('layout', '@@oshnetwork-member-view', 'string')
     except BadRequest:
-	log.info("Duplicate property '@@oshnetwork-member-view' for index_html of %s" % country_name)
+        log.info("Duplicate property '@@oshnetwork-member-view' for index_html of %s" % country_name)
+
     subtyper = component.getUtility(ISubtyper)
     subtyper.change_type(page, 'annotatedlinks')
+    page.annotatedlinks = ()
 
 
 def _add_portlets(obj, events_topic, news_topic, lang):
@@ -249,7 +251,10 @@ def _add_portlets(obj, events_topic, news_topic, lang):
 
     rightcolumn[u'activities'] = osha_portlets.image.Assignment(
                                         header=u"Agency's Activities",
-                                        image="/en/campaigns/hw2008/campaign/banner/hwp_en.swf",
+                                        image="/en/press/photos/banners/hw_08_banner/hwp_%s.swf" % lang,
+                                        url="/%s/campaigns/hw2008/" % lang,
+                                        width="167",
+                                        height="74",
                                         )
 
     rightcolumn[u'links'] = osha_portlets.network_member_links.Assignment()
