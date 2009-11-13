@@ -7,6 +7,7 @@ from zope.annotation.interfaces import IAnnotations
 
 from plone.contentrules.engine.assignments import RuleAssignment
 from plone.contentrules.engine.interfaces import IRuleAssignmentManager
+from plone.contentrules.engine.interfaces import IRuleStorage
 
 from plone.app.contentrules.rule import get_assignments
 
@@ -17,12 +18,14 @@ from p4a.subtyper.interfaces import ISubtyper
 log = logging.getLogger('faq_centralisation_helper')
 
 def run(self):
-    faq_docs =  get_possible_faqs(self)
+    faq_docs = get_possible_faqs(self)
+    import pdb; pdb.set_trace()
     parents = get_faq_containers(faq_docs)
+    create_faqs(self, faq_docs)
     add_content_rule_to_containers(parents)
     subtype_containers(parents)
     set_keywords(parents)
-    create_faqs(self, faq_docs)
+    raise 'whoaboy'
 
 
 def get_possible_faqs(self):
@@ -38,8 +41,9 @@ def get_possible_faqs(self):
     body = Eq('SearchableText', "FAQ")
     fop = Eq('path', '/osha/portal/fop')
     advanced_query = And(Or(id, title, body), portal_type, Not(fop))
-
     ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) ) 
+
+    ls = self.portal_catalog(getId='faq2.stm', path='/osha/portal/en/good_practice/topics/dangerious_substances/')
 
     odict = {}
     for l in ls:
@@ -50,6 +54,7 @@ def get_possible_faqs(self):
             odict[t[0].absolute_url()] = t[0]
 
     objects = odict.values()
+    return objects
 
     k = ['/'.join(o.getPhysicalPath()) for o in objects]
     k.sort()
@@ -62,6 +67,8 @@ def get_faq_containers(ls):
     for l in ls:
         p = l.aq_parent
         parents['/'.join(l.getPhysicalPath())] = p
+
+    return parents
 
     display_str = '\n'.join([p.absolute_url() for p in parents.values()]) or 'none'
     return display_str 
@@ -155,7 +162,7 @@ def create_faqs(self, faq_docs):
         soup = BeautifulSoup(body)
 
         faqs = []
-        questions = self.soup.findAll("strong")
+        questions = soup.findAll("strong")
         for question in questions:
             question_text = question.contents[0]
             answer_text = question.parent.nextSibling.next.next
