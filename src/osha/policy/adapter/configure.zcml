@@ -44,6 +44,10 @@
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
 
     <adapter
+        factory=".schemaextender.TaggingSchemaExtenderImage" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+
+    <adapter
         for="slc.publications.interfaces.IPublicationEnhanced"
         name="author"
         factory=".at_field_defaults.DefaultForPublicationAuthor"

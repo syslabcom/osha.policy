@@ -95,6 +95,33 @@
         />
 
     <browser:page
+        for="Products.ATContentTypes.interface.folder.IATFolder"
+        class=".foldercontents.CustomizedFolderContentsView"
+        name="bulk_tagger"
+        template="templates/foldercontents.pt"
+        permission="cmf.ListFolderContents" 
+        />
+
+     <include package="plone.app.contentmenu" />
+
+   <browser:menuItem
+        for="collective.plonetruegallery.interfaces.IGallery"
+        menu="plone_displayviews"
+        title="Bulk Tagger"
+        action="bulk_tagger"
+        description="Bulk Tagging of images"
+        />
+        
+    <browser:page
+        for="Products.ATContentTypes.interface.folder.IATFolder"
+        class=".foldercontents.FolderContentsKSSView"
+        attribute="update_table"
+        name="foldercontents_update_table"
+        permission="cmf.ListFolderContents" 
+        />
+
+
+    <browser:page
         for="*"
         name="captcha_helper"
         class=".CaptchaHelper.CaptchaHelper"

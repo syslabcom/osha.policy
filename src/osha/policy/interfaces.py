@@ -36,4 +36,3 @@ class IDatabaseSettings(Interface):
     database = schema.ASCIILine(title=_(u"Database name"), 
                    description=_(u"The name of the database on this server"), 
                    required=True) 
-    
