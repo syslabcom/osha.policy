@@ -160,12 +160,38 @@ def create_faqs(self, faq_docs):
     for doc in faq_docs:
         body = doc.CookedBody()
         soup = BeautifulSoup(body)
+        # Remove breadcrumb links
+        for crumb in soup.findAll("p", {"class" : "crumb"}):
+            crumb.extract()
+        # Remove links to the top of the page
+        for top_link in soup.findAll("a", {"href" : "#top"}):
+            top_link.parent.extract()
 
         faqs = []
         questions = soup.findAll("strong")
         for question in questions:
-            question_text = question.contents[0]
-            answer_text = question.parent.nextSibling.next.next
+            question_text = question.string
+
+            parent = question.parent
+            answer_text = ""
+            # Some docs have the Answer inside the same paragraph:
+            # <p><strong>Q:</strong>A</p>
+            if len(parent.contents) > 1:
+                answer_text = parent.contents[1:]
+            # Add everything up until the next <p><strong> to the answer
+            for nextSibling in parent.nextSiblingGenerator():
+                if hasattr(nextSibling, "contents"):
+                    # .contents returns a list of the subelements
+                    contents = nextSibling.contents
+                    if " " in contents:
+                        contents = contents.remove(" ")
+                    if contents:
+                        first_item = contents[0]
+                        if hasattr(first_item, "name"):
+                            if first_item.name == "strong":
+                                break
+                    answer_text += unicode(nextSibling)
+
             faqid = faq_folder.invokeFactory('HelpCenterFAQ', doc.getId())
             faq = faq_folder.get(faqid)
             faq.setDescription(question_text)
