@@ -17,19 +17,19 @@
         <table class="listing" id="listing-table" summary="Content listing" i18n:attributes="summary summary_content_listing;" tal:condition="view/items">
             <thead>
                 <tr tal:condition="not:view/selectcurrentbatch">
-                    <th colspan="7" class="nosort">
+                    <th colspan="9" class="nosort">
                         <span i18n:translate="label_select" tal:omit-tag="">Select:</span>
                         <a i18n:translate="label_all" tal:attributes="href view/selectscreen_url" id="foldercontents-selectall" class="update-selection">All</a>
                     </th>
                 </tr>
                 <tr tal:condition="view/show_select_all_items">
-                    <th colspan="7" class="nosort">
+                    <th colspan="9" class="nosort">
                         <span tal:omit-tag="" i18n:translate="tableheading_all_items_selected">All <tal:block replace="view/batch/items_on_page" i18n:name="count"/>items on this 
                             page are selected. </span><a tal:attributes="href view/selectall_url" id="foldercontents-selectall-completebatch" class="update-selection" i18n:translate="tableheading_select_all_items">Select all <tal:block replace="view/batch/size" i18n:name="count"/>items in this folder.</a>
                     </th>
                 </tr>
                 <tr tal:condition="view/selectall">
-                    <th colspan="7" class="nosort">
+                    <th colspan="9" class="nosort">
                         <span tal:omit-tag="" i18n:translate="tableheading_all_items_selected">All <tal:block replace="view/batch/size" i18n:name="count"/>items in this folder 
                             are selected. </span><a tal:attributes="href view/selectnone_url" i18n:translate="tableheading_clear_selection" id="foldercontents-clearselection" class="update-selection">Clear selection</a>
                     </th>
@@ -117,11 +117,11 @@
                                 <a href="" title="Move item up" i18n:attributes="title title_move_item_up;" tal:attributes="href string:${view/base_url}/folder_position?position=up&amp;id=${item/quoted_id}">&#9650;</a>
                                 &nbsp;<a href="" title="Move item down" i18n:attributes="title title_move_item_down;" tal:attributes="href string:${view/base_url}/folder_position?position=down&amp;id=${item/quoted_id}">&#9660;</a>
                             </td>
-                            <td class="subcategory" tal:content="structure item/subcategory">
+                            <td class="inlinetree subcategory" tal:content="structure item/subcategory">
                             </td>
-                            <td class="multilingualthesaurus" tal:content="structure item/multilingualthesaurus">
+                            <td class="inlinetree multilingualthesaurus" tal:content="structure item/multilingualthesaurus">
                             </td>
-                            <td class="nace" tal:content="structure item/nace">
+                            <td class="inlinetree nace" tal:content="structure item/nace">
                             </td>
 
                         </tr>
@@ -129,12 +129,12 @@
                 </tbody>
                 <tfooter tal:condition="not:view/within_batch_size">
                     <tr tal:condition="not:view/show_all">
-                        <th colspan="7" class="nosort">
+                        <th colspan="9" class="nosort">
                             <a tal:attributes="href view/show_all_url" i18n:translate="label_show_all" id="foldercontents-show-all" class="update-selection">Show all items</a>
                         </th>
                     </tr>
                     <tr tal:condition="view/show_all">
-                        <th colspan="7" class="nosort">
+                        <th colspan="9" class="nosort">
                             <a tal:attributes="href view/view_url" i18n:translate="label_show_batched" id="foldercontents-show-batched" class="update-selection">Show batched</a>
                         </th>
                     </tr>

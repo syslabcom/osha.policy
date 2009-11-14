@@ -50,9 +50,6 @@ class CustomizedFolderContentsTable(FolderContentsTable):
 
         results = []
         for i, obj in enumerate(contentsMethod(self.contentFilter)):
-            if i > 50:
-                break
-            print i
             if (i + 1) % 2 == 0:
                 table_row_class = "draggable even"
             else:
@@ -92,13 +89,13 @@ class CustomizedFolderContentsTable(FolderContentsTable):
             if obj.portal_type == 'Image':
                 if not hasattr(self, 'subcategory_field'):
                     self.subcategory_field = obj.getObject().Schema()['subcategory']
-                subcategory = getInlineTreeView(self.context, obj, self.request, self.subcategory_field).render()
+                subcategory = getInlineTreeView(self.context, obj, self.request, self.subcategory_field).render
                 if not hasattr(self, 'mt_field'):
                     self.mt_field = obj.getObject().Schema()['multilingual_thesaurus']
-                multilingualthesaurus = getInlineTreeView(self.context, obj, self.request, self.mt_field).render()
+                multilingualthesaurus = getInlineTreeView(self.context, obj, self.request, self.mt_field).render
                 if not hasattr(self, 'nace_field'):
                     self.nace_field = obj.getObject().Schema()['nace']
-                nace = getInlineTreeView(self.context, obj.getObject(), self.request, self.nace_field).render()
+                nace = getInlineTreeView(self.context, obj.getObject(), self.request, self.nace_field).render
 
             results.append(dict(
                 url=url,

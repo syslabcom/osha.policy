@@ -147,15 +147,17 @@ class ExtensionFieldMixin:
 
 
 class NACEField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
+    pass
 
-    def Vocabulary(self, content_instance):
-        return self._Vocabulary(content_instance, 'NACE')
+#    def Vocabulary(self, content_instance):
+#        return self._Vocabulary(content_instance, 'NACE')
 
 
 class SubcategoryField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
+    pass
 
-    def Vocabulary(self, content_instance):
-        return self._Vocabulary(content_instance, 'Subcategory')
+#    def Vocabulary(self, content_instance):
+#        return self._Vocabulary(content_instance, 'Subcategory')
 
 
 class CountryField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
@@ -165,9 +167,10 @@ class CountryField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
 
 
 class MTSubjectField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
+    pass
 
-    def Vocabulary(self, content_instance):
-        return self._Vocabulary(content_instance, 'MultilingualThesaurus')
+#    def Vocabulary(self, content_instance):
+#        return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
 class OSHAMetadataField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
 
