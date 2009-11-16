@@ -124,10 +124,8 @@ def probable_question(suspect):
         if suspect.name == "p":
             if hasattr(suspect, "contents"):
                 # .contents returns a list of the subelements
-                contents = suspect.contents
-                cnts = []
-                if " " in contents:
-                    cnts = copy(contents)
+                cnts = copy(suspect.contents)
+                if " " in cnts:
                     cnts.remove(" ")
                 if cnts:
                     first_item = cnts[0]
@@ -174,7 +172,7 @@ def parse_document_faq(doc):
                 answer = parent
 
 
-        if answer.contents:
+        if hasattr(answer, "contents"):
             answer_text = \
                 '\n'.join([t for t in answer.contents if type(t) == NavigableString])
         # Add everything up until the next <p><strong> to the answer
