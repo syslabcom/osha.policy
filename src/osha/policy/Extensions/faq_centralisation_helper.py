@@ -18,6 +18,8 @@ from p4a.subtyper.interfaces import ISubtyper
 
 log = logging.getLogger('faq_centralisation_helper')
 
+QUESTION_TAGS = ["strong", "h3", "h2", "b"]
+
 def run(self):
     faq_docs = get_possible_faqs(self)
     parents = get_faq_containers(faq_docs)
@@ -111,6 +113,29 @@ def parse_folder_faq(folder):
     return QA_dict
 
 
+def probable_question(suspect):
+    # <h2>,<h3>
+    # <p><strong></strong>
+    # <p><b></b></p>
+
+    if hasattr(suspect, "name"):
+        if suspect.name in ["h2", "h3"]:
+            return True
+        if suspect.name == "p":
+            if hasattr(suspect, "contents"):
+                # .contents returns a list of the subelements
+                contents = suspect.contents
+                cnts = []
+                if " " in contents:
+                    cnts = copy(contents)
+                    cnts.remove(" ")
+                if cnts:
+                    first_item = cnts[0]
+                    if hasattr(first_item, "name"):
+                        if first_item.name in QUESTION_TAGS:
+                            return True
+
+
 def parse_document_faq(doc):
     QA_dict = {}
     body = doc.CookedBody()
@@ -154,19 +179,9 @@ def parse_document_faq(doc):
                 '\n'.join([t for t in answer.contents if type(t) == NavigableString])
         # Add everything up until the next <p><strong> to the answer
         for nextSibling in answer.nextSiblingGenerator():
-            if hasattr(nextSibling, "contents"):
-                # .contents returns a list of the subelements
-                contents = nextSibling.contents
-                cnts = []
-                if " " in contents:
-                    cnts = copy(contents)
-                    cnts.remove(" ")
-                if cnts:
-                    first_item = cnts[0]
-                    if hasattr(first_item, "name"):
-                        if first_item.name in ["strong", "b"]:
-                            break
-                answer_text += unicode(nextSibling)
+            if probable_question(nextSibling):
+                break
+            answer_text += unicode(nextSibling)
 
         while QA_dict.get(question_text):
             log.info('Duplicate question in QA_dict found')
