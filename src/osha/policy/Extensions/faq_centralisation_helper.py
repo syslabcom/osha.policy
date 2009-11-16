@@ -92,7 +92,7 @@ def create_faqs(self, faq_docs):
         faqs = []
         questions = soup.findAll("strong")
         for question in questions:
-            question_text = question.string
+            question_text = unicode(question.string)
 
             parent = question.parent
             answer_text = ""
