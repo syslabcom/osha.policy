@@ -79,60 +79,15 @@ def create_faqs(self, faq_docs):
     # XXX: The location of the new Help Center
     faq_folder= self.en['osha-help-center']['faq']
     # faq_folder= self['help-center']['faq']
-    for doc in faq_docs:
-        if doc.portal_type == 'Folder':
-            continue
 
-        body = doc.CookedBody()
-        soup = BeautifulSoup(body)
-        # Remove breadcrumb links
-        for crumb in soup.findAll("p", {"class" : "crumb"}):
-            crumb.extract()
-        # Remove links to the top of the page
-        for top_link in soup.findAll("a", {"href" : "#top"}):
-            top_link.parent.extract()
+    for obj in faq_docs:
+        if obj.portal_type == 'Folder':
+            QA_dict = parse_folder_faq(obj)
 
-        faqs = []
-        for tag in ['strong', 'b']:
-            questions = soup.findAll(tag)
-            if questions:
-                break
-        
-        for question in questions:
-            question_text = question.string
-            parent = question.parent
+        else:
+            QA_dict = parse_document_faq(obj)
 
-            # Some docs have the Answer inside the same paragraph:
-            # <p><strong>Q:</strong>A</p>, so we'll first get the sibling for the
-            # question.
-            answer = question 
-            while answer in [question, parent] or answer in ['\n', ' ']:
-                answer = answer.nextSibling
-                if answer == None:
-                    # The question does not have an answer as sibling, i.e
-                    # <p><b>Q:</b></p><p>A</p>, so we'll get the sibling of the
-                    # parent.
-                    answer = parent
-
-            answer_text = ""
-
-            if answer.contents:
-                answer_text = \
-                    '\n'.join([t for t in answer.contents if type(t) == NavigableString])
-            # Add everything up until the next <p><strong> to the answer
-            for nextSibling in answer.nextSiblingGenerator():
-                if hasattr(nextSibling, "contents"):
-                    # .contents returns a list of the subelements
-                    contents = nextSibling.contents
-                    if " " in contents:
-                        contents = contents.remove(" ")
-                    if contents:
-                        first_item = contents[0]
-                        if hasattr(first_item, "name"):
-                            if first_item.name in ["strong", "b"]:
-                                break
-                    answer_text += unicode(nextSibling)
-
+        for question_text, answer_text in QA_dict.items():
             faq_id = faq_folder.generateUniqueId()
             faqid = faq_folder.invokeFactory('HelpCenterFAQ', faq_id)
             faq = faq_folder.get(faqid)
@@ -143,6 +98,74 @@ def create_faqs(self, faq_docs):
             faq.setAnswer(unicode(answer_text))
             faq.reindexObject()
 
+
+def parse_folder_faq(folder):
+    QA_dict = {}
+    return QA_dict
+
+
+def parse_document_faq(doc):
+    QA_dict = {}
+    body = doc.CookedBody()
+    soup = BeautifulSoup(body)
+    # Remove breadcrumb links
+    for crumb in soup.findAll("p", {"class" : "crumb"}):
+        crumb.extract()
+    # Remove links to the top of the page
+    for top_link in soup.findAll("a", {"href" : "#top"}):
+        top_link.parent.extract()
+
+    faqs = []
+    for tag in ['strong', 'b']:
+        questions = soup.findAll(tag)
+        if questions:
+            break
+    
+    question_text = ''
+    answer_text = ''
+    for question in questions:
+        answer_text = ""
+        question_text = question.string
+        parent = question.parent
+
+        # Some docs have the Answer inside the same paragraph:
+        # <p><strong>Q:</strong>A</p>, so we'll first get the sibling for the
+        # question.
+        answer = question 
+        while answer in [question, parent] or answer in ['\n', ' ']:
+            answer = answer.nextSibling
+            if answer == None:
+                # The question does not have an answer as sibling, i.e
+                # <p><b>Q:</b></p>
+                # <p>A</p> 
+                # so we'll get the sibling of the parent.
+                answer = parent
+
+
+        if answer.contents:
+            answer_text = \
+                '\n'.join([t for t in answer.contents if type(t) == NavigableString])
+        # Add everything up until the next <p><strong> to the answer
+        for nextSibling in answer.nextSiblingGenerator():
+            if hasattr(nextSibling, "contents"):
+                # .contents returns a list of the subelements
+                contents = nextSibling.contents
+                if " " in contents:
+                    contents = contents.remove(" ")
+                if contents:
+                    first_item = contents[0]
+                    if hasattr(first_item, "name"):
+                        if first_item.name in ["strong", "b"]:
+                            break
+                answer_text += unicode(nextSibling)
+
+        while QA_dict.get(question_text):
+            log.info('Duplicate question in QA_dict found')
+            question_text += ' '
+
+        QA_dict[question_text] = answer_text
+
+    return QA_dict 
 
 
 def set_keywords(parents):
