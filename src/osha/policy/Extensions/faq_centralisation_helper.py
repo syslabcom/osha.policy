@@ -139,8 +139,8 @@ def create_faqs(self, faq_docs):
             faq.setTitle(question_text)
             faq._renameAfterCreation(check_auto_id=True)
 
-            faq.setDescription(str(question_text))
-            faq.setAnswer(str(answer_text))
+            faq.setDescription(unicode(question_text))
+            faq.setAnswer(unicode(answer_text))
             faq.reindexObject()
 
 
