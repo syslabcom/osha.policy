@@ -17,7 +17,6 @@ import zope.component
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender, IBrowserLayerAwareExtender
 from osha.policy.interfaces import IOSHACommentsLayer
 
-from Products.ATContentTypes.interface.image import IATImage
 from Products.ATVocabularyManager.namedvocabulary import NamedVocabulary
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
@@ -35,6 +34,10 @@ class IOSHContent(zope.interface.Interface):
 
 class IOSHContentCaseStudy(zope.interface.Interface):
     """OSHContent for CaseStudy
+    """
+
+class IOSHFileContent(zope.interface.Interface):
+    """ Interface for Files and Images
     """
 
 from Products.Archetypes.utils import DisplayList
@@ -92,11 +95,13 @@ class IOSHNetworkDocument(zope.interface.Interface):
 #zope.interface.classImplements(ATDocument, IOSHNetworkDocument)
 
 
-# Publications / Files
+# Publications / Files / Images
 from Products.ATContentTypes.content.file import ATFile
-zope.interface.classImplements(ATFile, IOSHContent)
+zope.interface.classImplements(ATFile, IOSHFileContent)
 from plone.app.blob.content import ATBlob
-zope.interface.classImplements(ATBlob, IOSHContent)
+zope.interface.classImplements(ATBlob, IOSHFileContent)
+from Products.ATContentTypes.content.image import ATImage
+zope.interface.classImplements(ATImage, IOSHFileContent)
 
 
 
@@ -817,13 +822,13 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
 
 
 
-class TaggingSchemaExtenderImage(TaggingSchemaExtender):
+class TaggingSchemaExtenderFileContent(TaggingSchemaExtender):
     zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
-    zope.component.adapts(IATImage)
+    zope.component.adapts(IOSHFileContent)
     layer = IOSHACommentsLayer
     
     def __init__(self, context):
-        super(TaggingSchemaExtenderImage, self).__init__(context)
+        super(TaggingSchemaExtenderFileContent, self).__init__(context)
         for field in self._myfields:
             if field.__name__ in ['subcategory','multilingual_thesaurus','nace']:
                 vocabulary = NamedVocabulary(field.widget.vocabulary)

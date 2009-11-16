@@ -86,7 +86,7 @@ class CustomizedFolderContentsTable(FolderContentsTable):
                 obj.id == browser_default[1][0])
             
             subcategory = multilingualthesaurus = nace = ""
-            if obj.portal_type == 'Image':
+            if obj.portal_type in ('Image', 'File'):
                 if not hasattr(self, 'subcategory_field'):
                     self.subcategory_field = obj.getObject().Schema()['subcategory']
                 subcategory = getInlineTreeView(self.context, obj, self.request, self.subcategory_field).render
