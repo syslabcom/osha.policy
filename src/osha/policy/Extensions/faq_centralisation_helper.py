@@ -43,11 +43,13 @@ def get_possible_faqs(self):
     body = Eq('SearchableText', "FAQ")
     fop = Eq('path', '/osha/portal/fop')
     advanced_query = And(Or(id, title, body), portal_type, Not(fop))
-    ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) ) 
+    ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) )
 
-    # ls = self.portal_catalog(
-    #             getId='faq2.stm', 
-    #             path='/osha/portal/en/good_practice/topics/')
+    ls = self.portal_catalog(
+                getId='faq2.stm',
+                path='/osha/portal/en/good_practice/topics/')
+
+    log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
     odict = {}
     for l in ls:
@@ -75,7 +77,7 @@ def get_faq_containers(ls):
     return parents
 
     display_str = '\n'.join([p.absolute_url() for p in parents.values()]) or 'none'
-    return display_str 
+    return display_str
 
 
 def create_faqs(self, faq_docs):
@@ -113,7 +115,7 @@ def parse_folder_faq(folder):
     return QA_dict
 
 
-def probable_question(suspect):
+def is_probable_question(suspect):
     # <h2>,<h3>
     # <p><strong></strong>
     # <p><b></b></p>
@@ -121,7 +123,7 @@ def probable_question(suspect):
     if hasattr(suspect, "name"):
         if suspect.name in ["h2", "h3"]:
             return True
-        if suspect.name == "p":
+        elif suspect.name == "p":
             if hasattr(suspect, "contents"):
                 # .contents returns a list of the subelements
                 cnts = copy(suspect.contents)
@@ -146,57 +148,49 @@ def parse_document_faq(doc):
         top_link.parent.extract()
 
     faqs = []
-    for tag in ['strong', 'b']:
-        questions = soup.findAll(tag)
-        if questions:
-            break
-    
+    possible_questions = []
+    for tag in QUESTION_TAGS:
+        possible_questions += soup.findAll(tag)
+
+    probable_questions = []
+    for question in possible_questions:
+        if is_probable_question(question.parent):
+            if " " in question.parent.contents:
+                question.parent.contents.remove(" ")
+            probable_questions += question.parent
+        elif is_probable_question(question):
+            probable_questions += question
+
     question_text = ''
     answer_text = ''
-    for question in questions:
+    for question in probable_questions:
+
         answer_text = ""
-        question_text = question.string
-        parent = question.parent
+        question_text = unicode(question.string)
 
-        # Some docs have the Answer inside the same paragraph:
-        # <p><strong>Q:</strong>A</p>, so we'll first get the sibling for the
-        # question.
-        answer = question 
-        while answer in [question, parent] or answer in ['\n', ' ']:
-            answer = answer.nextSibling
-            if answer == None:
-                # The question does not have an answer as sibling, i.e
-                # <p><b>Q:</b></p>
-                # <p>A</p> 
-                # so we'll get the sibling of the parent.
-                answer = parent
-
-
-        if hasattr(answer, "contents"):
-            answer_text = \
-                '\n'.join([t for t in answer.contents if type(t) == NavigableString])
-        # Add everything up until the next <p><strong> to the answer
-        for nextSibling in answer.nextSiblingGenerator():
-            if probable_question(nextSibling):
+        for answer in question.parent.nextSiblingGenerator():
+            if is_probable_question(answer):
                 break
-            answer_text += unicode(nextSibling)
+            answer_text += unicode(answer)
 
         while QA_dict.get(question_text):
             log.info('Duplicate question in QA_dict found')
             question_text += ' '
 
-        QA_dict[question_text] = answer_text
+        # If there is no answer then it wasn't a question
+        if answer_text and answer_text not in ["\n", " "]:
+            QA_dict[question_text] = answer_text
 
-    return QA_dict 
+    return QA_dict
 
 
 def set_keywords(parents):
     log.info("set_keywords")
     for p in parents:
-        for fid, kw  in [ 
+        for fid, kw  in [
                 ('disability', 'disability'),
                 ('young_people', 'young_people'),
-                ('agriculture', 'agriculture'), 
+                ('agriculture', 'agriculture'),
                 ('construction', 'construction'),
                 ('education', 'education'),
                 ('fisheries', 'fisheries'),
@@ -238,10 +232,10 @@ def subtype_containers(parents):
             annotations['review_state'] = 'published'
             annotations['aggregation_sources'] = ['/en/osha-help-center/faq']
             keywords = []
-            for fid, kw  in [ 
+            for fid, kw  in [
                     ('disability', 'disability'),
                     ('young_people', 'young_people'),
-                    ('agriculture', 'agriculture'), 
+                    ('agriculture', 'agriculture'),
                     ('construction', 'construction'),
                     ('education', 'education'),
                     ('fisheries', 'fisheries'),
