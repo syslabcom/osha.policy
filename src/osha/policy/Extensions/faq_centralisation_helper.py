@@ -1,4 +1,5 @@
 import logging
+from copy import copy
 
 from BeautifulSoup import BeautifulSoup, NavigableString
 
@@ -150,10 +151,12 @@ def parse_document_faq(doc):
             if hasattr(nextSibling, "contents"):
                 # .contents returns a list of the subelements
                 contents = nextSibling.contents
+                cnts = []
                 if " " in contents:
-                    contents = contents.remove(" ")
-                if contents:
-                    first_item = contents[0]
+                    cnts = copy(contents)
+                    cnts.remove(" ")
+                if cnts:
+                    first_item = cnts[0]
                     if hasattr(first_item, "name"):
                         if first_item.name in ["strong", "b"]:
                             break
