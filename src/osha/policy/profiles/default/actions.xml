@@ -175,7 +175,7 @@
                 action_id="bulk_tagger"
                 category="object" 
                 condition_expr="object/@@plonetruegallery_util/enabled"
-                url_expr="string:${object_url}/@@bulk_Tagger" 
+                url_expr="string:${object_url}/@@bulk_tagger?Subject=${request/form/Subject|nothing}&SearchableText=${request/form/SearchableText|nothing}" 
                 visible="True">
          <permission value="collective.plonetruegallery: manage galleries"/>
         </action>
