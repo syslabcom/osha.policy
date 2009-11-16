@@ -43,7 +43,9 @@ def get_possible_faqs(self):
     advanced_query = And(Or(id, title, body), portal_type, Not(fop))
     ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) ) 
 
-    ls = self.portal_catalog(getId='faq2.stm', path='/osha/portal/en/good_practice/topics/dangerious_substances/')
+    ls = self.portal_catalog(
+                getId='faq2.stm', 
+                path='/osha/portal/en/good_practice/topics/')
 
     odict = {}
     for l in ls:
@@ -66,7 +68,7 @@ def get_faq_containers(ls):
     parents = {}
     for l in ls:
         p = l.aq_parent
-        parents['/'.join(l.getPhysicalPath())] = p
+        parents['/'.join(p.getPhysicalPath())] = p
 
     return parents
 
@@ -74,88 +76,8 @@ def get_faq_containers(ls):
     return display_str 
 
 
-def add_content_rule_to_containers(parents):
-    rule_id = 'rule-7'
-    storage = component.queryUtility(IRuleStorage)
-    rule = storage.get(rule_id)
-
-    for parent in parents:
-        assignments = IRuleAssignmentManager(parent, None)
-        get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
-        rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
-
-        assignments[rule_id] = rule_ass
-        log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
-
-
-def subtype_containers(parents):
-    subtyper = component.getUtility(ISubtyper)
-    for parent in parents:
-        if subtyper.existing_type(parent) is None:
-            subtyper.change_type(parent, 'slc.aggregation.aggregator')
-            if not parent.isCanonical():
-                canonical = parent.getCanonical()
-            else:
-                canonical = parent
-
-            subtyper.change_type(canonical, 'slc.aggregation.aggregator')
-            annotations = IAnnotations(canonical)
-            annotations['content_types'] =  ['HelpCenterFAQFolder']
-            annotations['review_state'] = 'published'
-            annotations['aggregation_sources'] = ['/en/osha-help-center/faq']
-            keywords = []
-            for fid, kw  in [ 
-                    ('disability', 'disability'),
-                    ('young_people', 'young_people'),
-                    ('agriculture', 'agriculture'), 
-                    ('construction', 'construction'),
-                    ('education', 'education'),
-                    ('fisheries', 'fisheries'),
-                    ('healthcare', 'healthcare'),
-                    ('accident_prevention', 'accident_prevention'),
-                    ('dangerous_substances', 'dangerous_substances'),
-                    ('msds', 'msd'),
-                    ('msd', 'msd'),
-                    ]:
-
-                if fid in parent.getPhysicalPath():
-                    keywords.append(kw)
-
-            annotations['keyword_list'] = keywords
-            annotations['restrict_language'] = False
-
-
-def set_keywords(parents):
-    log.info("set_keywords")
-    for p in parents:
-        for fid, kw  in [ 
-                ('disability', 'disability'),
-                ('young_people', 'young_people'),
-                ('agriculture', 'agriculture'), 
-                ('construction', 'construction'),
-                ('education', 'education'),
-                ('fisheries', 'fisheries'),
-                ('healthcare', 'healthcare'),
-                ('accident_prevention', 'accident_prevention'),
-                ('dangerous_substances', 'dangerous_substances'),
-                ('msds', 'msd'),
-                ('msd', 'msd'),
-                ]:
-            if fid in p.getPhysicalPath():
-                try:
-                    subject = p.getSubject()
-                except:
-                    subject = p.Schema().getField('subject').get(p)
-
-                if kw not in subject:
-                    subject = list(subject) + [kw]
-                    p.setSubject(subject)
-                    log.info("Add keyword '%s' to %s: %s \n" % (kw, item.portal_type, p.getPhysicalPath()))
-                else:
-                    log.info("Keyword '%s' already in %s: %s \n" % (kw, item.portal_type, p.getPhysicalPath()))
-
-
 def create_faqs(self, faq_docs):
+    # XXX: The location of the new Help Center
     faq_folder= self.en['osha-help-center']['faq']
     for doc in faq_docs:
         body = doc.CookedBody()
@@ -198,3 +120,84 @@ def create_faqs(self, faq_docs):
             faq.setAnswer(answer_text)
 
 
+def set_keywords(parents):
+    log.info("set_keywords")
+    for p in parents:
+        for fid, kw  in [ 
+                ('disability', 'disability'),
+                ('young_people', 'young_people'),
+                ('agriculture', 'agriculture'), 
+                ('construction', 'construction'),
+                ('education', 'education'),
+                ('fisheries', 'fisheries'),
+                ('healthcare', 'healthcare'),
+                ('accident_prevention', 'accident_prevention'),
+                ('dangerous_substances', 'dangerous_substances'),
+                ('msds', 'msd'),
+                ('msd', 'msd'),
+                ]:
+            if fid in p.getPhysicalPath():
+                try:
+                    subject = p.getSubject()
+                except:
+                    subject = p.Schema().getField('subject').get(p)
+
+                if kw not in subject:
+                    subject = list(subject) + [kw]
+                    p.setSubject(subject)
+                    log.info("Add keyword '%s' to %s: %s \n" \
+                            % (kw, item.portal_type, p.getPhysicalPath()))
+                else:
+                    log.info("Keyword '%s' already in %s: %s \n" \
+                            % (kw, item.portal_type, p.getPhysicalPath()))
+
+
+def subtype_containers(parents):
+    subtyper = component.getUtility(ISubtyper)
+    for parent in parents:
+        if subtyper.existing_type(parent) is None:
+            subtyper.change_type(parent, 'slc.aggregation.aggregator')
+            if not parent.isCanonical():
+                canonical = parent.getCanonical()
+            else:
+                canonical = parent
+
+            subtyper.change_type(canonical, 'slc.aggregation.aggregator')
+            annotations = IAnnotations(canonical)
+            annotations['content_types'] =  ['HelpCenterFAQFolder']
+            annotations['review_state'] = 'published'
+            annotations['aggregation_sources'] = ['/en/osha-help-center/faq']
+            keywords = []
+            for fid, kw  in [ 
+                    ('disability', 'disability'),
+                    ('young_people', 'young_people'),
+                    ('agriculture', 'agriculture'), 
+                    ('construction', 'construction'),
+                    ('education', 'education'),
+                    ('fisheries', 'fisheries'),
+                    ('healthcare', 'healthcare'),
+                    ('accident_prevention', 'accident_prevention'),
+                    ('dangerous_substances', 'dangerous_substances'),
+                    ('msds', 'msd'),
+                    ('msd', 'msd'),
+                    ]:
+
+                if fid in parent.getPhysicalPath():
+                    keywords.append(kw)
+
+            annotations['keyword_list'] = keywords
+            annotations['restrict_language'] = False
+
+
+def add_content_rule_to_containers(parents):
+    rule_id = 'rule-7'
+    storage = component.queryUtility(IRuleStorage)
+    rule = storage.get(rule_id)
+
+    for parent in parents:
+        assignments = IRuleAssignmentManager(parent, None)
+        get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
+        rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
+
+        assignments[rule_id] = rule_ass
+        log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
