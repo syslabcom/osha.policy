@@ -833,7 +833,7 @@ class TaggingSchemaExtenderFileContent(TaggingSchemaExtender):
             if field.__name__ in ['subcategory','multilingual_thesaurus','nace']:
                 vocabulary = NamedVocabulary(field.widget.vocabulary)
                 widget_args = {}
-                for arg in ('label', 'description', 'label_msg_id', 
+                for arg in ('label', 'description', 'label_msgid', 
                             'description_msgid, i18n_domain'):
                     widget_args[arg] = getattr(field.widget, arg, '')
                 widget_args['vocabulary'] = vocabulary
