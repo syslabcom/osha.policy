@@ -5,6 +5,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from plone.app.content.browser.foldercontents import FolderContentsView, \
     FolderContentsTable
+from plone.app.content.batching import Batch
 from plone.app.content.browser.tableview import Table, TableKSSView
 from plone.memoize import instance
 from slc.treecategories.widgets.widgets import getInlineTreeView
@@ -15,14 +16,26 @@ import urllib
 
 class CustomizedTable(Table):
     render = ViewPageTemplateFile("templates/table.pt")
+    batching = ViewPageTemplateFile('templates/batching.pt')
 
 class CustomizedFolderContentsTable(FolderContentsTable):
 
-    def __init__(self, context, request, contentFilter={}):
+    def __init__(self, context, request, contentFilter=None):
+        if contentFilter == None:
+            contentFilter = {}
+        
+        contentFilter.update(request.form)
         super(CustomizedFolderContentsTable, self).__init__(context, request, contentFilter)
 
         url = context.absolute_url()
-        view_url = url + '/@@folder_contents'
+        
+        filters = []
+        for filter_key in ('Subject', 'SearchableText', 'pagenumber'):
+            if request.form.has_key(filter_key):
+                filters.append("%s=%s" % (filter_key, request.form[filter_key]))
+        filter_url = "&".join(filters)
+                
+        view_url = '?'.join((url + '/@@bulk_tagger', filter_url))
         self.table = CustomizedTable(request, url, view_url, self.items,
                                      show_sort_column=self.show_sort_column,
                                      buttons=self.buttons)

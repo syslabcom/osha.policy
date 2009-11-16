@@ -16,7 +16,7 @@
                     <tal:block replace="structure view/icon" /><span tal:content="view/title" tal:omit-tag="">Directory Id</span>
                 </tal:block>
             </h1>
-            <div tal:replace="structure provider:plone.belowcontenttitle" /><a href="" class="link-parent" tal:define="parent_url view/parent_url" tal:condition="parent_url" tal:attributes="href string:${parent_url}/folder_contents" i18n:translate="go_to_parent_url">Up one level</a>
+            <div tal:replace="structure provider:plone.belowcontenttitle" /><a href="" class="link-parent" tal:define="parent_url view/parent_url" tal:condition="parent_url" tal:attributes="href string:${parent_url}/bulk_tagger" i18n:translate="go_to_parent_url">Up one level</a>
             <p class="documentDescription" tal:condition="exists:here/aq_explicit/widget">
                 <metal:field use-macro="python:here.widget('description', mode='view')">
                     Description
