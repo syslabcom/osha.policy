@@ -1,5 +1,5 @@
-import logging
 from copy import copy
+import logging
 
 from BeautifulSoup import BeautifulSoup, NavigableString
 
@@ -116,14 +116,19 @@ def parse_folder_faq(folder):
 
 
 def is_probable_question(suspect):
-    # <h2>,<h3>
-    # <p><strong></strong>
-    # <p><b></b></p>
+    # <h2>Q...
+    # <h3>Q...
+    # <p><strong>Q..
+    # <p><b>Q..
+    # endswith("?")
 
     if hasattr(suspect, "name"):
         if suspect.name in ["h2", "h3"]:
-            return True
-        elif suspect.name == "p":
+            if suspect.string\
+                   and suspect.string.endswith("?"):
+                return True
+
+        elif suspect.name in ["a", "p"]:
             if hasattr(suspect, "contents"):
                 # .contents returns a list of the subelements
                 cnts = copy(suspect.contents)
@@ -133,7 +138,9 @@ def is_probable_question(suspect):
                     first_item = cnts[0]
                     if hasattr(first_item, "name"):
                         if first_item.name in QUESTION_TAGS:
-                            return True
+                            if first_item.string\
+                                   and first_item.string.endswith("?"):
+                                return True
 
 
 def parse_document_faq(doc):
@@ -142,12 +149,19 @@ def parse_document_faq(doc):
     soup = BeautifulSoup(body)
     # Remove breadcrumb links
     for crumb in soup.findAll("p", {"class" : "crumb"}):
-        crumb.extract()
-    # Remove links to the top of the page
-    for top_link in soup.findAll("a", {"href" : "#top"}):
-        top_link.parent.extract()
+        if not crumb.contents:
+            crumb.extract()
+    for link in soup.findAll("a"):
+        if not link.contents:
+            # todo: remove the link but keep the contents
+            if link.has_key("href"):
+                if link["href"] == "#top":
+                    # Remove links to the top of the page
+                    link.extract()
+                elif link.has_key("name"):
+                    # Remove anchors
+                    link.extract()
 
-    faqs = []
     possible_questions = []
     for tag in QUESTION_TAGS:
         possible_questions += soup.findAll(tag)
@@ -161,12 +175,16 @@ def parse_document_faq(doc):
         elif is_probable_question(question):
             probable_questions += question
 
+    log.info("Probable Questions in this Document: %s"\
+             %"\n".join([unicode(i) for i in probable_questions]))
     question_text = ''
     answer_text = ''
     for question in probable_questions:
 
         answer_text = ""
         question_text = unicode(question.string)
+        if "Definitions" in question_text:
+            import pdb; pdb.set_trace()
 
         for answer in question.parent.nextSiblingGenerator():
             if is_probable_question(answer):
@@ -179,6 +197,7 @@ def parse_document_faq(doc):
 
         # If there is no answer then it wasn't a question
         if answer_text and answer_text not in ["\n", " "]:
+            # log.info("\nQ:%s\nA:%s" %(question_text, answer_text))
             QA_dict[question_text] = answer_text
 
     return QA_dict
