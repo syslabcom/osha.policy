@@ -114,10 +114,20 @@ def create_faqs(self, faq_docs):
                                 break
                     answer_text += unicode(nextSibling)
 
-            faqid = faq_folder.invokeFactory('HelpCenterFAQ', doc.getId())
-            faq = faq_folder.get(faqid)
+            # Create a nice id without "?"
+            faq_id = "".join(
+                [i for i in question_text.replace(" ","-").lower() \
+                 if i.isalnum() \
+                 or i in ["-", "_"]])
+            while faq_id in faq_folder.objectIds():
+                faq_id = faq_id + "-"
+            faq_folder.invokeFactory('HelpCenterFAQ',
+                                             id=faq_id,
+                                             title=question_text)
+            faq = faq_folder.get(faq_id)
             faq.setDescription(question_text)
             faq.setAnswer(answer_text)
+
 
 
 def set_keywords(parents):
