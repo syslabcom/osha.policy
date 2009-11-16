@@ -76,20 +76,20 @@
 //                            list = jq(this).parent().parent().children(".intranet-category").children().children("span")
                             list = jq(this).children().children('span')
                             list.children("div").children().each(function(){
-                                id = this.id
-                                if ('ajax_url' == id.substring(id.length - 'ajax_url'.length)) {
-                                    ajax = this.value
-                                }
-                                if ('fieldName' == id.substring(id.length - 'fieldName'.length)) {
-                                    fieldName = this.value
-                                }
+//                                id = this.id
+ //                               if ('ajax_url' == id.substring(id.length - 'ajax_url'.length)) {
+//                                    ajax = this.value
+//                                }
+//                                if ('fieldName' == id.substring(id.length - 'fieldName'.length)) {
+//                                    fieldName = this.value
+//                                }
                             
-                                addCategory({
-                                    ajax_url: ajax,
-                                    field: fieldName,
-                                    list: list.children().children('ul'),
-                                    base_id: list[0].id
-                                })
+//                                addCategory({
+//                                    ajax_url: ajax,
+//                                    field: fieldName,
+//                                    list: list.children().children('ul'),
+//                                    base_id: list[0].id
+//                                })
                             })
                         })
                     })

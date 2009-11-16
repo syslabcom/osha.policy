@@ -95,7 +95,7 @@ class CustomizedFolderContentsTable(FolderContentsTable):
                 multilingualthesaurus = getInlineTreeView(self.context, obj, self.request, self.mt_field).render
                 if not hasattr(self, 'nace_field'):
                     self.nace_field = obj.getObject().Schema()['nace']
-                nace = getInlineTreeView(self.context, obj.getObject(), self.request, self.nace_field).render
+                nace = getInlineTreeView(self.context, obj, self.request, self.nace_field).render
 
             results.append(dict(
                 url=url,
