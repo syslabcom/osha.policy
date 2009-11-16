@@ -19,3 +19,4 @@ import autotranslate_get_translations
 import p4aimages_patch
 import linguaplone_addTranslation_patch
 import FCKeditor_patch
+import slc_treecategories_patch
