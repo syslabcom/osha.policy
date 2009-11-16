@@ -14,7 +14,6 @@ from slc.clicksearch.browser.widgets import SimpleListView
 from slc.clicksearch.browser.widgets import ATVMTreeListView
 from slc.clicksearch.browser.widgets import DropdownView
 from slc.clicksearch.browser.indexes import DefaultIndexView, ATVMTreeIndexView
-from osha.theme import OSHAMessageFactory as _
 from Products.PlacelessTranslationService import getTranslationService
 
 
