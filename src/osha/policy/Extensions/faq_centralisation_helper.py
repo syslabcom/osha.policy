@@ -43,9 +43,9 @@ def get_possible_faqs(self):
     advanced_query = And(Or(id, title, body), portal_type, Not(fop))
     ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) ) 
 
-    ls = self.portal_catalog(
-                getId='faq2.stm', 
-                path='/osha/portal/en/good_practice/topics/')
+    # ls = self.portal_catalog(
+    #             getId='faq2.stm', 
+    #             path='/osha/portal/en/good_practice/topics/')
 
     odict = {}
     for l in ls:
@@ -102,6 +102,12 @@ def create_faqs(self, faq_docs):
 
 def parse_folder_faq(folder):
     QA_dict = {}
+    faq_docs = folder.objectValues()
+    for faq in faq_docs:
+        if not faq.Title():
+            continue # Ignore turds
+
+        QA_dict[faq.Title()] = faq.getText()
     return QA_dict
 
 
