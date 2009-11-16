@@ -69,13 +69,13 @@
                         </tal:order>&nbsp;
                     </th>
                     <th class="nosort column" id="foldercontents-subcategory-column" i18n:translate="">
-                        label_subcategory
+                        Subcategory
                     </th>
                     <th class="nosort column" id="foldercontents-multilingualthesaurus-column" i18n:translate="">
-                        label_multilingual_thesaurus
+                        Multilingual Thesaurus Subject
                     </th>
                     <th class="nosort column" id="foldercontents-nace-column" i18n:translate="">
-                        label_nace
+                        Sector (NACE code)
                     </th>
                </tr>
             </thead>
