@@ -1,6 +1,6 @@
 import logging
 
-from BeautifulSoup import BeautifulSoup
+from BeautifulSoup import BeautifulSoup, NavigableString
 
 from zope import component
 from zope.annotation.interfaces import IAnnotations
@@ -19,13 +19,12 @@ log = logging.getLogger('faq_centralisation_helper')
 
 def run(self):
     faq_docs = get_possible_faqs(self)
-    import pdb; pdb.set_trace()
     parents = get_faq_containers(faq_docs)
     create_faqs(self, faq_docs)
-    add_content_rule_to_containers(parents)
-    subtype_containers(parents)
-    set_keywords(parents)
-    raise 'whoaboy'
+    # add_content_rule_to_containers(parents)
+    # subtype_containers(parents)
+    # set_keywords(parents)
+    return 'done'
 
 
 def get_possible_faqs(self):
@@ -79,7 +78,11 @@ def get_faq_containers(ls):
 def create_faqs(self, faq_docs):
     # XXX: The location of the new Help Center
     faq_folder= self.en['osha-help-center']['faq']
+    # faq_folder= self['help-center']['faq']
     for doc in faq_docs:
+        if doc.portal_type == 'Folder':
+            continue
+
         body = doc.CookedBody()
         soup = BeautifulSoup(body)
         # Remove breadcrumb links
@@ -90,18 +93,34 @@ def create_faqs(self, faq_docs):
             top_link.parent.extract()
 
         faqs = []
-        questions = soup.findAll("strong")
+        for tag in ['strong', 'b']:
+            questions = soup.findAll(tag)
+            if questions:
+                break
+        
         for question in questions:
-            question_text = unicode(question.string)
-
+            question_text = question.string
             parent = question.parent
-            answer_text = ""
+
             # Some docs have the Answer inside the same paragraph:
-            # <p><strong>Q:</strong>A</p>
-            if len(parent.contents) > 1:
-                answer_text = parent.contents[1:]
+            # <p><strong>Q:</strong>A</p>, so we'll first get the sibling for the
+            # question.
+            answer = question 
+            while answer in [question, parent] or answer in ['\n', ' ']:
+                answer = answer.nextSibling
+                if answer == None:
+                    # The question does not have an answer as sibling, i.e
+                    # <p><b>Q:</b></p><p>A</p>, so we'll get the sibling of the
+                    # parent.
+                    answer = parent
+
+            answer_text = ""
+
+            if answer.contents:
+                answer_text = \
+                    '\n'.join([t for t in answer.contents if type(t) == NavigableString])
             # Add everything up until the next <p><strong> to the answer
-            for nextSibling in parent.nextSiblingGenerator():
+            for nextSibling in answer.nextSiblingGenerator():
                 if hasattr(nextSibling, "contents"):
                     # .contents returns a list of the subelements
                     contents = nextSibling.contents
@@ -110,23 +129,19 @@ def create_faqs(self, faq_docs):
                     if contents:
                         first_item = contents[0]
                         if hasattr(first_item, "name"):
-                            if first_item.name == "strong":
+                            if first_item.name in ["strong", "b"]:
                                 break
                     answer_text += unicode(nextSibling)
 
-            # Create a nice id without "?"
-            faq_id = "".join(
-                [i for i in question_text.replace(" ","-").lower() \
-                 if i.isalnum() \
-                 or i in ["-", "_"]])
-            while faq_id in faq_folder.objectIds():
-                faq_id = faq_id + "-"
-            faq_folder.invokeFactory('HelpCenterFAQ',
-                                             id=faq_id,
-                                             title=question_text)
-            faq = faq_folder.get(faq_id)
-            faq.setDescription(question_text)
-            faq.setAnswer(answer_text)
+            faq_id = faq_folder.generateUniqueId()
+            faqid = faq_folder.invokeFactory('HelpCenterFAQ', faq_id)
+            faq = faq_folder.get(faqid)
+            faq.setTitle(question_text)
+            faq._renameAfterCreation(check_auto_id=True)
+
+            faq.setDescription(str(question_text))
+            faq.setAnswer(str(answer_text))
+            faq.reindexObject()
 
 
 
@@ -156,10 +171,10 @@ def set_keywords(parents):
                     subject = list(subject) + [kw]
                     p.setSubject(subject)
                     log.info("Add keyword '%s' to %s: %s \n" \
-                            % (kw, item.portal_type, p.getPhysicalPath()))
+                            % (kw, p.portal_type, p.getPhysicalPath()))
                 else:
                     log.info("Keyword '%s' already in %s: %s \n" \
-                            % (kw, item.portal_type, p.getPhysicalPath()))
+                            % (kw, p.portal_type, p.getPhysicalPath()))
 
 
 def subtype_containers(parents):
