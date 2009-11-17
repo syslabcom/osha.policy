@@ -23,14 +23,15 @@ log = logging.getLogger('faq_centralisation_helper')
 QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 
 def run(self):
-    import pdb; pdb.set_trace()
-    faqs = create_faqs_folder(self)
+    # faqs = create_faqs_folder(self)
+    # return 'done'
+    faqs = self.portal_url.getPortalObject()['faq']
     faq_docs = get_possible_faqs(self)
+    import pdb; pdb.set_trace()
     parents = get_faq_containers(faq_docs)
     parse_and_create_faqs(self, faqs, faq_docs)
     add_content_rule_to_containers(parents)
     subtype_containers(parents)
-    raise 'hello'
     return 'done'
 
 
@@ -39,7 +40,9 @@ def create_faqs_folder(self):
     # XXX:
     # langfolder = self.portal_url.getPortalObject()['en']
     langfolder = self.portal_url.getPortalObject()
-    langfolder.manage_renameObjects(['faq'], ['faq-old'])
+    if hasattr(langfolder, 'faq'):
+        langfolder.manage_renameObjects(['faq'], ['faq-old'])
+
     langfolder._setObject('faq', HelpCenterFAQFolder('faq'))
     faq = langfolder._getOb('faq')
     for lang in self.portal_languages.getSupportedLanguages():
@@ -120,7 +123,7 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
     faq.setDescription(unicode(question_text))
     faq.setAnswer(unicode(answer_text))
     faq.setLanguage(obj.getLanguage())
-    faq._renameAfterCreation(check_auto_id=True)
+    faq._renameAfterCreation(check_auto_id=False)
     faq.reindexObject()
     # # Set aliases
     # if path:
@@ -130,6 +133,7 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
         try:
             wf.doActionFor(faq, "submit")
         except WorkflowException:
+            log.info('Could not submit the faq: %s' % '/'.join(faq.getPhysicalPath()))
             pass
 
     set_keywords(faq, obj.aq_parent)
@@ -145,13 +149,18 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
 
         if obj.portal_type == 'Folder':
             QA_dict = parse_folder_faq(obj)
-            for path, question_text, answer_text in QA_dict.items():
-                create_faq(question_text, answer_text, state, faq_folder, obj)
+            for question_text, answer_text in QA_dict.values():
+                create_faq(self, question_text, answer_text, state, faq_folder, obj)
 
         else:
             QA_dict = parse_document_faq(obj)
             for question_text, answer_text in QA_dict.items():
-                create_faq(question_text, answer_text, state, faq_folder, obj)
+                create_faq(self, question_text, answer_text, state, faq_folder, obj)
+
+        try:
+            wf.doActionFor(obj, "hide")
+        except WorkflowException:
+            log.info('Could not hide the old faq: %s' % '/'.join(obj.getPhysicalPath()))
 
 
 def parse_folder_faq(folder):
@@ -300,7 +309,7 @@ def set_keywords(faq, old_parent):
 
 def subtype_containers(parents):
     subtyper = component.getUtility(ISubtyper)
-    for parent in parents:
+    for parent in parents.values():
         if subtyper.existing_type(parent) is None:
             subtyper.change_type(parent, 'slc.aggregation.aggregator')
             if not parent.isCanonical():
@@ -333,20 +342,21 @@ def subtype_containers(parents):
 
             annotations['keyword_list'] = keywords
             annotations['restrict_language'] = False
-            log.info('%s subtyped as aggregator with keywords %s' % ('/'.join(parent.getPhysicalPath(), str(keywords))))
+            log.info('%s subtyped as aggregator with keywords %s' % ('/'.join(parent.getPhysicalPath()), str(keywords)))
 
 
 def add_content_rule_to_containers(parents):
     log.info('add_content_rule_to_containers')
-    rule_id = 'rule-7'
+    rule_id = 'rule-1'
     storage = component.queryUtility(IRuleStorage)
     rule = storage.get(rule_id)
 
-    for parent in parents:
+    for parent in parents.values():
         assignments = IRuleAssignmentManager(parent, None)
         get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
         rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
 
         assignments[rule_id] = rule_ass
         log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
+
 
