@@ -5,6 +5,7 @@ from BeautifulSoup import BeautifulSoup
 
 from zope import component
 from zope.annotation.interfaces import IAnnotations
+from zope.exceptions.interfaces import DuplicationError
 
 from plone.contentrules.engine.assignments import RuleAssignment
 from plone.contentrules.engine.interfaces import IRuleAssignmentManager
@@ -27,7 +28,6 @@ def run(self):
     # return 'done'
     faqs = self.portal_url.getPortalObject()['faq']
     faq_docs = get_possible_faqs(self)
-    import pdb; pdb.set_trace()
     parents = get_faq_containers(faq_docs)
     parse_and_create_faqs(self, faqs, faq_docs)
     add_content_rule_to_containers(parents)
@@ -129,11 +129,13 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
     # if path:
     #    rtool = self.portal_redirection
     #    rtool.addRedirect(path, '/'.join(faq.getPhysicalPath()))
+
+
     if state == 'published':
         try:
-            wf.doActionFor(faq, "submit")
+            wf.doActionFor(faq, "publish")
         except WorkflowException:
-            log.info('Could not submit the faq: %s' % '/'.join(faq.getPhysicalPath()))
+            log.info('Could not publish the faq: %s' % '/'.join(faq.getPhysicalPath()))
             pass
 
     set_keywords(faq, obj.aq_parent)
@@ -304,7 +306,7 @@ def set_keywords(faq, old_parent):
                 log.info("Keyword '%s' already in %s: %s \n" \
                         % (kw, old_parent.portal_type, old_parent.getPhysicalPath()))
                         
-            log.info('Added keyword to FAQ %s, %s' % ('/'.join(faq.getPhysicalPath(), kw)))
+            log.info('Added keyword to FAQ %s, %s' % ('/'.join(faq.getPhysicalPath()), kw))
 
 
 def subtype_containers(parents):
@@ -356,7 +358,11 @@ def add_content_rule_to_containers(parents):
         get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
         rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
 
-        assignments[rule_id] = rule_ass
+        try:
+            assignments[rule_id] = rule_ass
+        except DuplicationError:
+            log.info("Content Rule '%s'  was ALREADY assigned to %s \n" % (rule_id, parent.absolute_url()))
+            
         log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
 
 
