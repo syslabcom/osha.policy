@@ -34,7 +34,8 @@ def run(self):
 
 def create_faqs_folder(self):
     log.info('create_faqs_folder')
-    langfolder = self.portal_url.getPortalObject()['en']
+    # langfolder = self.portal_url.getPortalObject()['en']
+    langfolder = self.portal_url.getPortalObject()
     langfolder.manage_renameObjects(['faq'], ['faq-old'])
     langfolder._setObject('faq', HelpCenterFAQFolder('faq'))
     faq = langfolder._getOb('faq')
@@ -42,8 +43,9 @@ def create_faqs_folder(self):
         if lang == 'en':
             continue
 
-        transfolder = langfolder.getTranslation(lang)
-        transfolder.manage_renameObjects(['faq'], ['faq-old'])
+        import pdb; pdb.set_trace()
+        trans_faq = faq.getTranslation(lang)
+        trans_faq.aq_parent.manage_renameObjects(['faq'], ['faq-old'])
 
         faq.addTranslation(lang)
     return faq
