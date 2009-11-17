@@ -832,6 +832,24 @@ class TaggingSchemaExtenderFileContent(object):
 
 
     _fields = [
+            CountryField('country',
+                schemata='default',
+                enforceVocabulary=False,
+                languageIndependent=True,
+                required=False,
+                multiValued=True,
+                mutator='setCountry',
+                accessor='getCountry',
+                widget=MultiCountryWidget(
+                    label="Countries",
+                    description='Select one or more countries appropriate for this content',
+                    description_msgid='help_country',
+                    provideNullValue=1,
+                    nullValueTitle="Select...",
+                    label_msgid='label_country',
+                    i18n_domain='osha',
+                ),
+            ),
             BaseLinesField('subcategory',
                 schemata='default',
                 enforceVocabulary=True,
