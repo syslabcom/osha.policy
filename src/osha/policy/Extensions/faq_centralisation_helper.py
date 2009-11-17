@@ -184,6 +184,7 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
 
             subtype_container(obj)
             add_content_rule_to_container(obj)
+            constrain_addable_types(new_folder)
 
 
         else:
@@ -218,6 +219,7 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
             new_folder.reindexObject()
             subtype_container(new_folder)
             add_content_rule_to_container(new_folder)
+            constrain_addable_types(new_folder)
 
 
 
@@ -421,5 +423,12 @@ def add_content_rule_to_container(parent):
         log.info("Content Rule '%s'  was ALREADY assigned to %s \n" % (rule_id, parent.absolute_url()))
         
     log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
+
+
+def constrain_addable_type(parent):
+    log.info('constrain_addable_types')
+    parent.setConstrainTypesMode(True)
+    parent.setLocallyAllowedTypes('HelpCenterFAQ')
+
 
 
