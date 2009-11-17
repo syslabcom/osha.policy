@@ -46,7 +46,8 @@ def get_possible_faqs(self):
     ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) )
 
     ls = self.portal_catalog(
-                getId='faq2.stm',)
+                getId='faq2.stm',
+                path='/osha/portal/en/good_practice/topics/')
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -151,14 +152,25 @@ def parse_document_faq(doc):
         if not crumb.contents:
             crumb.extract()
     for link in soup.findAll("a"):
-        # todo: remove the link but keep the contents
         if link.has_key("href"):
             if link["href"] == "#top":
                 # Remove links to the top of the page
                 link.extract()
-            elif link.has_key("name") and not link.contents:
+            elif link.has_key("name")\
+                     and not link.has_key("href"):
                 # Remove anchors
-                link.extract()
+                # todo: remove but keep contents
+                cnts = copy(link.contents)
+                cnts.remove(" ")
+                if len(cnts) == 0:
+                    link.extract()
+                elif len(cnts) == 1:
+                    link.replaceWith(cnts)
+                else:
+                    log.info(
+                        "The anchor:%s contains more than one element"\
+                        %unicode(link)
+                        )
 
     possible_questions = []
     for tag in QUESTION_TAGS:
@@ -178,16 +190,15 @@ def parse_document_faq(doc):
     question_text = ''
     answer_text = ''
     for question in probable_questions:
-
         answer_text = ""
         question_text = unicode(question.string)
-        if "Definitions" in question_text:
-            import pdb; pdb.set_trace()
-
         for answer in question.parent.nextSiblingGenerator():
             if is_probable_question(answer):
                 break
-            answer_text += unicode(answer)
+            elif hasattr(answer , "name") and answer.name in ["h1", "h2", "h3"]:
+                break
+            else:
+                answer_text += unicode(answer)
 
         while QA_dict.get(question_text):
             log.info('Duplicate question in QA_dict found')
