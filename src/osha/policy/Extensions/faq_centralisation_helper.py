@@ -1,7 +1,7 @@
 from copy import copy
 import logging
 
-from BeautifulSoup import BeautifulSoup, NavigableString
+from BeautifulSoup import BeautifulSoup
 
 from zope import component
 from zope.annotation.interfaces import IAnnotations
@@ -13,6 +13,8 @@ from plone.contentrules.engine.interfaces import IRuleStorage
 from plone.app.contentrules.rule import get_assignments
 
 from Products.AdvancedQuery import Or, Eq, And, In, Not
+from Products.PloneHelpCenter.content.FAQFolder import HelpCenterFAQFolder
+from Products.CMFCore.WorkflowCore import WorkflowException
 
 from p4a.subtyper.interfaces import ISubtyper
 
@@ -21,14 +23,28 @@ log = logging.getLogger('faq_centralisation_helper')
 QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 
 def run(self):
+    faqs = create_faqs_folder(self)
     faq_docs = get_possible_faqs(self)
     parents = get_faq_containers(faq_docs)
-    create_faqs(self, faq_docs)
+    create_faqs(self, faqs, faq_docs)
     # add_content_rule_to_containers(parents)
     # subtype_containers(parents)
     # set_keywords(parents)
     return 'done'
 
+
+def create_faqs_folder(self):
+    langfolder = self.portal_url.getPortalObject()['en']
+    langfolder.manage_renameObjects(['faq'], ['faq-old'])
+    langfolder._setObject('faq', HelpCenterFAQFolder('faq'))
+    faq = langfolder._getOb('faq')
+    for lang in self.portal_languages.getSupportedLanguages():
+        transfolder = langfolder.getTranslation(lang)
+        transfolder.manage_renameObjects(['faq'], ['faq-old'])
+
+        faq.addTranslation(lang)
+    return faq
+    
 
 def get_possible_faqs(self):
     queries = []
@@ -45,9 +61,9 @@ def get_possible_faqs(self):
     advanced_query = And(Or(id, title, body), portal_type, Not(fop))
     ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) )
 
-    ls = self.portal_catalog(
-                getId='faq2.stm',
-                path='/osha/portal/en/good_practice/topics/')
+    # ls = self.portal_catalog(
+    #             getId='faq2.stm',
+    #             path='/osha/portal/en/good_practice/topics/')
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -71,7 +87,11 @@ def get_possible_faqs(self):
 def get_faq_containers(ls):
     parents = {}
     for l in ls:
-        p = l.aq_parent
+        if l.portal_type == 'Folder':
+            p = l
+        else:
+            p = l.aq_parent
+
         parents['/'.join(p.getPhysicalPath())] = p
 
     return parents
@@ -80,28 +100,44 @@ def get_faq_containers(ls):
     return display_str
 
 
-def create_faqs(self, faq_docs):
-    # XXX: The location of the new Help Center
-    faq_folder= self.en['osha-help-center']['faq']
-    # faq_folder= self['help-center']['faq']
+def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=None):
+    wf = self.portal_workflow
+    faq_id = faq_folder.generateUniqueId()
+    faqid = faq_folder.invokeFactory('HelpCenterFAQ', faq_id)
+    faq = faq_folder.get(faqid)
+    faq.setTitle(question_text)
+    faq.setDescription(unicode(question_text))
+    faq.setAnswer(unicode(answer_text))
+    faq.setLanguage(obj.getLanguage())
+    faq._renameAfterCreation(check_auto_id=True)
+    faq.reindexObject()
+    # # Set aliases
+    # if path:
+    #    rtool = self.portal_redirection
+    #    rtool.addRedirect(path, '/'.join(faq.getPhysicalPath()))
+    if state == 'published':
+        try:
+            wf.doActionFor(faq, "submit")
+        except WorkflowException:
+            pass
+            
 
+def parse_and_create_faqs(self, faq_folder, faq_docs):
+    wf = self.portal_workflow
     for obj in faq_docs:
+        chain = wf.getChainFor(obj)
+        status = self.portal_workflow.getStatusOf(obj, chain[0])
+        state = status["review_state"]
+
         if obj.portal_type == 'Folder':
             QA_dict = parse_folder_faq(obj)
+            for path, question_text, answer_text in QA_dict.items():
+                create_faq(question_text, answer_text, state, faq_folder, obj)
 
         else:
             QA_dict = parse_document_faq(obj)
-
-        for question_text, answer_text in QA_dict.items():
-            faq_id = faq_folder.generateUniqueId()
-            faqid = faq_folder.invokeFactory('HelpCenterFAQ', faq_id)
-            faq = faq_folder.get(faqid)
-            faq.setTitle(question_text)
-            faq._renameAfterCreation(check_auto_id=True)
-
-            faq.setDescription(unicode(question_text))
-            faq.setAnswer(unicode(answer_text))
-            faq.reindexObject()
+            for question_text, answer_text in QA_dict.items():
+                create_faq(question_text, answer_text, state, faq_folder, obj)
 
 
 def parse_folder_faq(folder):
@@ -111,36 +147,8 @@ def parse_folder_faq(folder):
         if not faq.Title():
             continue # Ignore turds
 
-        QA_dict[faq.Title()] = faq.getText()
+        QA_dict['/'.join(faq.getPhysicalPath())] =  (faq.Title(), faq.getText())
     return QA_dict
-
-
-def is_probable_question(suspect):
-    # <h2>Q...
-    # <h3>Q...
-    # <p><strong>Q..
-    # <p><b>Q..
-    # endswith("?")
-
-    if hasattr(suspect, "name"):
-        if suspect.name in ["h2", "h3"]:
-            if suspect.string\
-                   and suspect.string.strip().endswith("?"):
-                return True
-
-        elif suspect.name in ["a", "p"]:
-            if hasattr(suspect, "contents"):
-                # .contents returns a list of the subelements
-                cnts = copy(suspect.contents)
-                if " " in cnts:
-                    cnts.remove(" ")
-                if cnts:
-                    first_item = cnts[0]
-                    if hasattr(first_item, "name"):
-                        if first_item.name in QUESTION_TAGS:
-                            if first_item.string\
-                                   and first_item.string.strip().endswith("?"):
-                                return True
 
 
 def parse_document_faq(doc):
@@ -192,6 +200,7 @@ def parse_document_faq(doc):
     for question in probable_questions:
         answer_text = ""
         question_text = unicode(question.string)
+
         for answer in question.parent.nextSiblingGenerator():
             if is_probable_question(answer):
                 break
@@ -210,6 +219,36 @@ def parse_document_faq(doc):
             QA_dict[question_text] = answer_text
 
     return QA_dict
+
+
+def is_probable_question(suspect):
+    # <h2>Q...
+    # <h3>Q...
+    # <p><strong>Q..
+    # <p><b>Q..
+    # endswith("?")
+
+    if hasattr(suspect, "name"):
+        if suspect.name in ["h2", "h3"]:
+            if suspect.string\
+                   and suspect.string.strip().endswith("?"):
+                return True
+
+        elif suspect.name in ["a", "p"]:
+            if hasattr(suspect, "contents"):
+                # .contents returns a list of the subelements
+                cnts = copy(suspect.contents)
+                if " " in cnts:
+                    cnts.remove(" ")
+                if cnts:
+                    first_item = cnts[0]
+                    if hasattr(first_item, "name"):
+                        if first_item.name in QUESTION_TAGS:
+                            if first_item.string\
+                                   and first_item.string.strip().endswith("?"):
+                                return True
+                                
+
 
 
 def set_keywords(parents):
@@ -256,9 +295,9 @@ def subtype_containers(parents):
 
             subtyper.change_type(canonical, 'slc.aggregation.aggregator')
             annotations = IAnnotations(canonical)
-            annotations['content_types'] =  ['HelpCenterFAQFolder']
+            annotations['content_types'] =  ['HelpCenterFAQ']
             annotations['review_state'] = 'published'
-            annotations['aggregation_sources'] = ['/en/osha-help-center/faq']
+            annotations['aggregation_sources'] = ['/en/faqs']
             keywords = []
             for fid, kw  in [
                     ('disability', 'disability'),
@@ -293,3 +332,4 @@ def add_content_rule_to_containers(parents):
 
         assignments[rule_id] = rule_ass
         log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
+
