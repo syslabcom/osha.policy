@@ -103,6 +103,14 @@
         />
 
     <browser:page
+        for="Products.ATContentTypes.interface.folder.IATBTreeFolder"
+        class=".foldercontents.CustomizedFolderContentsView"
+        name="bulk_tagger"
+        template="templates/foldercontents.pt"
+        permission="cmf.ListFolderContents" 
+        />
+
+    <browser:page
         for="Products.ATContentTypes.interface.topic.IATTopic"
         class=".foldercontents.CustomizedFolderContentsView"
         name="bulk_tagger"
@@ -195,6 +203,7 @@
         class=".lc_osha.CSVSectionRewriteView"
         permission="cmf.ManagePortal"      
         />
+
 
 
     <!-- clicksearch portlet metadata widgets -->
