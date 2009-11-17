@@ -26,7 +26,7 @@ QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 def run(self):
     # faqs = create_faqs_folder(self)
     # return 'done'
-    faqs = self.portal_url.getPortalObject()['faq']
+    faqs = self.portal_url.getPortalObject()['en']['faq']
     faq_docs = get_possible_faqs(self)
     parents = get_faq_containers(faq_docs)
     parse_and_create_faqs(self, faqs, faq_docs)
@@ -35,10 +35,9 @@ def run(self):
 
 def create_faqs_folder(self):
     log.info('create_faqs_folder')
-    # XXX:
-    # langfolder = self.portal_url.getPortalObject()['en']
-    langfolder = self.portal_url.getPortalObject()
+    langfolder = self.portal_url.getPortalObject()['en']
     if hasattr(langfolder, 'faq'):
+        old_faq = langfolder.get('faq')
         langfolder.manage_renameObjects(['faq'], ['faq-old'])
 
     langfolder._setObject('faq', HelpCenterFAQFolder('faq'))
@@ -47,9 +46,12 @@ def create_faqs_folder(self):
         if lang == 'en':
             continue
 
-        trans_faq = faq.getTranslation(lang)
-        if trans_faq is not None:
-            trans_faq.aq_parent.manage_renameObjects(['faq'], ['faq-old'])
+        if old_faq:
+            trans_faq = old_faq.getTranslation(lang)
+
+            if trans_faq is not None:
+                trans_faq.aq_parent.manage_renameObjects(['faq'], ['faq-old'])
+                log.info('renamed faq to faq-old in %s' % trans_faq.aq_parent.getId())
 
         faq.addTranslation(lang)
     return faq
@@ -72,8 +74,18 @@ def get_possible_faqs(self):
     ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) )
 
     # ls = self.portal_catalog(
-    #             getId='faq2.stm',
-    #             path='/osha/portal/en/good_practice/topics/')
+    #             getId='faq.php',
+    #             path='/osha/portal/en/good_practice/topics/accident_prevention/')
+
+
+    # XXX: Didn't work :(
+    # ls = self.portal_catalog(
+    #             getId='faq.php',
+    #             path='/osha/portal/en/good_practice/priority_groups/disability/')
+    
+    ls = self.portal_catalog(
+                getId='faq.stm',
+                path='/osha/portal/en/good_practice/topics/dangerous_substances/')
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -120,6 +132,7 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
     faq.setDescription(question_text)
     faq.setAnswer(answer_text)
     faq.setLanguage(obj.getLanguage())
+
     faq._renameAfterCreation(check_auto_id=False)
     faq.reindexObject()
     # # Set aliases
@@ -151,7 +164,8 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
         if obj.portal_type == 'Folder':
             QA_dict = parse_folder_faq(obj)
             for question_text, answer_text in QA_dict.values():
-                create_faq(self, question_text, answer_text, state, faq_folder, obj)
+                correct_faq_folder = faq_folder.getTranslation(obj.getLanguage())
+                create_faq(self, question_text, answer_text, state, correct_faq_folder, obj)
 
                 # This is a one to one mapping.
                 # Each RichTextDocument contains one Q and A and each maps to a
@@ -175,7 +189,12 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
         else:
             QA_dict = parse_document_faq(obj)
             for question_text, answer_text in QA_dict.items():
-                faq = create_faq(self, question_text, answer_text, state, faq_folder, obj)
+                correct_faq_folder = faq_folder.getTranslation(obj.getLanguage())
+                faq = create_faq(self, question_text, answer_text, state, correct_faq_folder, obj)
+
+            if not QA_dict:
+                log.info('No questions found for %s' % obj.absolute_url())
+                continue
 
             # This is a one to many mapping.
             # One RichTextDocument with multiple Qs and As, that map to
@@ -330,20 +349,22 @@ def set_keywords(faq, old_parent):
             ]:
         if fid in old_parent.getPhysicalPath():
             try:
-                subject = old_parent.getSubject()
+                subject = faq.getSubject()
             except:
-                subject = old_parent.Schema().getField('subject').get(old_parent)
+                subject = faq.Schema().getField('subject').get(old_parent)
 
             if kw not in subject:
                 subject = list(subject) + [kw]
-                old_parent.setSubject(subject)
+                faq.setSubject(subject)
                 log.info("Add keyword '%s' to %s: %s \n" \
-                        % (kw, old_parent.portal_type, old_parent.getPhysicalPath()))
+                        % (kw, faq.portal_type, faq.getPhysicalPath()))
             else:
                 log.info("Keyword '%s' already in %s: %s \n" \
-                        % (kw, old_parent.portal_type, old_parent.getPhysicalPath()))
+                        % (faq, faq.portal_type, faq.getPhysicalPath()))
                         
             log.info('Added keyword to FAQ %s, %s' % ('/'.join(faq.getPhysicalPath()), kw))
+
+    faq.reindexObject()
 
 
 def subtype_container(parent):
@@ -359,7 +380,7 @@ def subtype_container(parent):
         annotations = IAnnotations(canonical)
         annotations['content_types'] =  ['HelpCenterFAQ']
         annotations['review_state'] = 'published'
-        annotations['aggregation_sources'] = ['/en/faqs']
+        annotations['aggregation_sources'] = ['/en/faq']
         keywords = []
         for fid, kw  in [
                 ('disability', 'disability'),
@@ -385,7 +406,8 @@ def subtype_container(parent):
 
 def add_content_rule_to_container(parent):
     log.info('add_content_rule_to_containers')
-    rule_id = 'rule-1'
+    # XXX: Change
+    rule_id = 'rule-7'
     storage = component.queryUtility(IRuleStorage)
     rule = storage.get(rule_id)
 
