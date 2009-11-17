@@ -46,8 +46,7 @@ def get_possible_faqs(self):
     ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) )
 
     ls = self.portal_catalog(
-                getId='faq2.stm',
-                path='/osha/portal/en/good_practice/topics/')
+                getId='faq2.stm',)
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -125,7 +124,7 @@ def is_probable_question(suspect):
     if hasattr(suspect, "name"):
         if suspect.name in ["h2", "h3"]:
             if suspect.string\
-                   and suspect.string.endswith("?"):
+                   and suspect.string.strip().endswith("?"):
                 return True
 
         elif suspect.name in ["a", "p"]:
@@ -139,7 +138,7 @@ def is_probable_question(suspect):
                     if hasattr(first_item, "name"):
                         if first_item.name in QUESTION_TAGS:
                             if first_item.string\
-                                   and first_item.string.endswith("?"):
+                                   and first_item.string.strip().endswith("?"):
                                 return True
 
 
@@ -152,15 +151,14 @@ def parse_document_faq(doc):
         if not crumb.contents:
             crumb.extract()
     for link in soup.findAll("a"):
-        if not link.contents:
-            # todo: remove the link but keep the contents
-            if link.has_key("href"):
-                if link["href"] == "#top":
-                    # Remove links to the top of the page
-                    link.extract()
-                elif link.has_key("name"):
-                    # Remove anchors
-                    link.extract()
+        # todo: remove the link but keep the contents
+        if link.has_key("href"):
+            if link["href"] == "#top":
+                # Remove links to the top of the page
+                link.extract()
+            elif link.has_key("name") and not link.contents:
+                # Remove anchors
+                link.extract()
 
     possible_questions = []
     for tag in QUESTION_TAGS:
