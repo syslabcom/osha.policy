@@ -140,7 +140,7 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
     wf = self.portal_workflow
     for obj in faq_docs:
         chain = wf.getChainFor(obj)
-        status = self.portal_workflow.getStatusOf(obj, chain[0])
+        status = self.portal_workflow.getStatusOf(chain[0], obj)
         state = status["review_state"]
 
         if obj.portal_type == 'Folder':
