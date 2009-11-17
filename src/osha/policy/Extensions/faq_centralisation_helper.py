@@ -26,17 +26,18 @@ def run(self):
     faqs = create_faqs_folder(self)
     faq_docs = get_possible_faqs(self)
     parents = get_faq_containers(faq_docs)
-    create_faqs_folder(self, faqs, faq_docs)
+    parse_and_create_faqs(self, faqs, faq_docs)
     add_content_rule_to_containers(parents)
     subtype_containers(parents)
+    raise 'hello'
     return 'done'
 
 
 def create_faqs_folder(self):
     log.info('create_faqs_folder')
+    # XXX:
     # langfolder = self.portal_url.getPortalObject()['en']
     langfolder = self.portal_url.getPortalObject()
-    import pdb; pdb.set_trace()
     langfolder.manage_renameObjects(['faq'], ['faq-old'])
     langfolder._setObject('faq', HelpCenterFAQFolder('faq'))
     faq = langfolder._getOb('faq')
