@@ -188,24 +188,24 @@ def parse_document_faq(doc):
             crumb.extract()
     for link in soup.findAll("a"):
         if link.has_key("href"):
-            if link["href"] == "#top":
+            if link["href"] in ["#top", "."]:
                 # Remove links to the top of the page
                 link.extract()
-            elif link.has_key("name")\
-                     and not link.has_key("href"):
-                # Remove anchors
-                # todo: remove but keep contents
-                cnts = copy(link.contents)
+        elif link.has_key("name"):
+            # Remove anchors
+            # todo: remove but keep contents
+            cnts = copy(link.contents)
+            if " " in cnts:
                 cnts.remove(" ")
-                if len(cnts) == 0:
-                    link.extract()
-                elif len(cnts) == 1:
-                    link.replaceWith(cnts)
-                else:
-                    log.info(
-                        "The anchor:%s contains more than one element"\
-                        %unicode(link)
-                        )
+            if len(cnts) == 0:
+                link.extract()
+            elif len(cnts) == 1:
+                link.replaceWith(cnts)
+            else:
+                log.info(
+                    "The anchor:%s contains more than one element"\
+                    %unicode(link)
+                    )
 
     possible_questions = []
     for tag in QUESTION_TAGS:
