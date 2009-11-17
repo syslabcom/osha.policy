@@ -23,6 +23,7 @@ log = logging.getLogger('faq_centralisation_helper')
 QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 
 def run(self):
+    import pdb; pdb.set_trace()
     faqs = create_faqs_folder(self)
     faq_docs = get_possible_faqs(self)
     parents = get_faq_containers(faq_docs)
