@@ -154,15 +154,15 @@ class ExtensionFieldMixin:
 class NACEField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
     pass
 
-#    def Vocabulary(self, content_instance):
-#        return self._Vocabulary(content_instance, 'NACE')
+    def Vocabulary(self, content_instance):
+        return self._Vocabulary(content_instance, 'NACE')
 
 
 class SubcategoryField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
     pass
 
-#    def Vocabulary(self, content_instance):
-#        return self._Vocabulary(content_instance, 'Subcategory')
+    def Vocabulary(self, content_instance):
+        return self._Vocabulary(content_instance, 'Subcategory')
 
 
 class CountryField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
@@ -174,8 +174,8 @@ class CountryField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
 class MTSubjectField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
     pass
 
-#    def Vocabulary(self, content_instance):
-#        return self._Vocabulary(content_instance, 'MultilingualThesaurus')
+    def Vocabulary(self, content_instance):
+        return self._Vocabulary(content_instance, 'MultilingualThesaurus')
 
 class OSHAMetadataField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
 
@@ -194,6 +194,8 @@ class NewsMarkerField(ExtensionFieldMixin, ExtensionField, atapi.BooleanField):
 class SEDataGridField(ExtensionFieldMixin, ExtensionField, DataGridField):
     """ marker field to have object appear in news portlet """
 
+class BaseLinesField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
+    pass
 
 #class EroTargetGroupField(ExtensionField, atapi.LinesField):
 #    """ target group for ERO """
@@ -822,20 +824,100 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
 
 
 
-class TaggingSchemaExtenderFileContent(TaggingSchemaExtender):
+class TaggingSchemaExtenderFileContent(object):
     zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     zope.component.adapts(IOSHFileContent)
     layer = IOSHACommentsLayer
+
+
+
+    _fields = [
+            BaseLinesField('subcategory',
+                schemata='default',
+                enforceVocabulary=True,
+                languageIndependent=True,
+                multiValued=True,
+                mutator='setSubcategory',
+                accessor='getSubcategory',
+                widget=VocabularyPickerWidget(
+                    label="Subcategory (Site position)",
+                    description="Choose the most relevant subcategories. This will decide where the information is displayed",
+                    vocabulary="Subcategory",
+                    label_msgid='label_subcategory',
+                    description_msgid='help_subcategory',
+                    i18n_domain='osha',
+                    condition="python:len(object.getField('subcategory').Vocabulary(object))",
+                    ),
+            ),
+            BaseLinesField('multilingual_thesaurus',
+                schemata='default',
+                enforceVocabulary=False,
+                languageIndependent=True,
+                required=False,
+                multiValued=True,
+                mutator='setMultilingual_thesaurus',
+                accessor='getMultilingual_thesaurus',
+                widget=VocabularyPickerWidget(
+                    label='Multilingual Thesaurus Subject',
+                    description='Select one or more entries',
+                    vocabulary="MultilingualThesaurus",
+                    label_msgid='label_multilingual_thesaurus',
+                    description_msgid='help_multilingual_thesaurus',
+                    i18n_domain='osha',
+                    condition="python:len(object.getField('multilingual_thesaurus').Vocabulary(object))",
+                ),
+            ),
+            BaseLinesField('nace',
+                schemata='default',
+                languageIndependent=True,
+                multiValued=True,
+                mutator='setNace',
+                accessor='getNace',
+                widget=VocabularyPickerWidget(
+                    label="Sector (NACE Code)",
+                    description="Pick one or more values by clicking the Add button or using the Quicksearch field below.",
+                    vocabulary="NACE",
+                    label_msgid='label_nace',
+                    description_msgid='help_nace',
+                    i18n_domain='osha',
+                    condition="python:len(object.getField('nace').Vocabulary(object))",
+                ),
+            ),    
     
+    ]
+ 
     def __init__(self, context):
         super(TaggingSchemaExtenderFileContent, self).__init__(context)
-        for field in self._myfields:
-            if field.__name__ in ['subcategory','multilingual_thesaurus','nace']:
-                vocabulary = NamedVocabulary(field.widget.vocabulary)
+        _myfields = list()
+        for field in self._fields:
+            new_f = field.copy()
+            if new_f.__name__ in ['subcategory','multilingual_thesaurus','nace']:
+                vocabulary = NamedVocabulary(new_f.widget.vocabulary)
                 widget_args = {}
                 for arg in ('label', 'description', 'label_msgid', 
                             'description_msgid, i18n_domain'):
-                    widget_args[arg] = getattr(field.widget, arg, '')
+                    widget_args[arg] = getattr(new_f.widget, arg, '')
                 widget_args['vocabulary'] = vocabulary
-                field.vocabulary = vocabulary
-                field.widget = InlineTreeWidget(**widget_args)
+                new_f.vocabulary = vocabulary
+                new_f.widget = InlineTreeWidget(**widget_args)
+            _myfields.append(new_f)
+        self._myfields = _myfields
+        
+        klass = context.__class__
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
+            fields = [field for field in _myfields if field.languageIndependent]
+            generateMethods(klass, fields)
+            LOG(MODULE, INFO, "called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
+
+
+
+    def getFields(self):
+        return self._myfields
+
+
+    def getOrder(self, original):
+        """ getting order """
+        return original
+        
+        
