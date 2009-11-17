@@ -30,8 +30,6 @@ def run(self):
     faq_docs = get_possible_faqs(self)
     parents = get_faq_containers(faq_docs)
     parse_and_create_faqs(self, faqs, faq_docs)
-    add_content_rule_to_containers(parents)
-    subtype_containers(parents)
     return 'done'
 
 
@@ -114,7 +112,6 @@ def get_faq_containers(ls):
 
 
 def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=None):
-    log.info('create_faq')
     wf = self.portal_workflow
     faq_id = faq_folder.generateUniqueId()
     faqid = faq_folder.invokeFactory('HelpCenterFAQ', faq_id)
@@ -130,6 +127,7 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
     #    rtool = self.portal_redirection
     #    rtool.addRedirect(path, '/'.join(faq.getPhysicalPath()))
 
+    log.info('created faq: %s' % '/'.join(faq.getPhysicalPath()))
 
     if state == 'published':
         try:
@@ -139,6 +137,7 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
             pass
 
     set_keywords(faq, obj.aq_parent)
+    return faq
             
 
 def parse_and_create_faqs(self, faq_folder, faq_docs):
@@ -154,15 +153,53 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
             for question_text, answer_text in QA_dict.values():
                 create_faq(self, question_text, answer_text, state, faq_folder, obj)
 
+                # This is a one to one mapping.
+                # Each RichTextDocument contains one Q and A and each maps to a
+                # corresponding FAQ object.
+                for doc in obj.objectValues():
+                    try:
+                        wf.doActionFor(doc, "reject")
+                    except WorkflowException:
+                        log.info('Could not reject the old faq: %s' % '/'.join(doc.getPhysicalPath()))
+
+                    old_title = doc.Title()
+                    if 'Migrated:' not in old_title:
+                        doc.setTitle('Migrated: %s' % old_title)
+
+                    doc.reindexObject()
+
+            subtype_container(obj)
+            add_content_rule_to_container(obj)
+
+
         else:
             QA_dict = parse_document_faq(obj)
             for question_text, answer_text in QA_dict.items():
-                create_faq(self, question_text, answer_text, state, faq_folder, obj)
+                faq = create_faq(self, question_text, answer_text, state, faq_folder, obj)
 
-        try:
-            wf.doActionFor(obj, "hide")
-        except WorkflowException:
-            log.info('Could not hide the old faq: %s' % '/'.join(obj.getPhysicalPath()))
+            # This is a one to many mapping.
+            # One RichTextDocument with multiple Qs and As, that map to
+            # multiple FAQ objects.
+            try:
+                wf.doActionFor(obj, "reject")
+            except WorkflowException:
+                log.info('Could not reject the old faq: %s' % '/'.join(obj.getPhysicalPath()))
+
+            obj.setTitle('Migrated: %s' % obj.Title())
+            obj.reindexObject()
+
+
+            # We need to replace the document with a folder, that is subtyped
+            # to slc.aggregator with an alias to the old document.
+            obj_id = obj.getId()
+            obj.aq_parent.manage_renameObjects([obj_id], ['%s-migrated' % obj_id])
+            fid = obj.aq_parent.invokeFactory('Folder', obj_id)
+            new_folder = obj.aq_parent.get(fid)
+            new_folder.setTitle('Frequently Asked Questions')
+            new_folder.reindexObject()
+            subtype_container(new_folder)
+            add_content_rule_to_container(new_folder)
+
 
 
 def parse_folder_faq(folder):
@@ -309,60 +346,58 @@ def set_keywords(faq, old_parent):
             log.info('Added keyword to FAQ %s, %s' % ('/'.join(faq.getPhysicalPath()), kw))
 
 
-def subtype_containers(parents):
+def subtype_container(parent):
     subtyper = component.getUtility(ISubtyper)
-    for parent in parents.values():
-        if subtyper.existing_type(parent) is None:
-            subtyper.change_type(parent, 'slc.aggregation.aggregator')
-            if not parent.isCanonical():
-                canonical = parent.getCanonical()
-            else:
-                canonical = parent
+    if subtyper.existing_type(parent) is None:
+        subtyper.change_type(parent, 'slc.aggregation.aggregator')
+        if not parent.isCanonical():
+            canonical = parent.getCanonical()
+        else:
+            canonical = parent
 
-            subtyper.change_type(canonical, 'slc.aggregation.aggregator')
-            annotations = IAnnotations(canonical)
-            annotations['content_types'] =  ['HelpCenterFAQ']
-            annotations['review_state'] = 'published'
-            annotations['aggregation_sources'] = ['/en/faqs']
-            keywords = []
-            for fid, kw  in [
-                    ('disability', 'disability'),
-                    ('young_people', 'young_people'),
-                    ('agriculture', 'agriculture'),
-                    ('construction', 'construction'),
-                    ('education', 'education'),
-                    ('fisheries', 'fisheries'),
-                    ('healthcare', 'healthcare'),
-                    ('accident_prevention', 'accident_prevention'),
-                    ('dangerous_substances', 'dangerous_substances'),
-                    ('msds', 'msd'),
-                    ('msd', 'msd'),
-                    ]:
+        subtyper.change_type(canonical, 'slc.aggregation.aggregator')
+        annotations = IAnnotations(canonical)
+        annotations['content_types'] =  ['HelpCenterFAQ']
+        annotations['review_state'] = 'published'
+        annotations['aggregation_sources'] = ['/en/faqs']
+        keywords = []
+        for fid, kw  in [
+                ('disability', 'disability'),
+                ('young_people', 'young_people'),
+                ('agriculture', 'agriculture'),
+                ('construction', 'construction'),
+                ('education', 'education'),
+                ('fisheries', 'fisheries'),
+                ('healthcare', 'healthcare'),
+                ('accident_prevention', 'accident_prevention'),
+                ('dangerous_substances', 'dangerous_substances'),
+                ('msds', 'msd'),
+                ('msd', 'msd'),
+                ]:
 
-                if fid in parent.getPhysicalPath():
-                    keywords.append(kw)
+            if fid in parent.getPhysicalPath():
+                keywords.append(kw)
 
-            annotations['keyword_list'] = keywords
-            annotations['restrict_language'] = False
-            log.info('%s subtyped as aggregator with keywords %s' % ('/'.join(parent.getPhysicalPath()), str(keywords)))
+        annotations['keyword_list'] = keywords
+        annotations['restrict_language'] = False
+        log.info('%s subtyped as aggregator with keywords %s' % ('/'.join(parent.getPhysicalPath()), str(keywords)))
 
 
-def add_content_rule_to_containers(parents):
+def add_content_rule_to_container(parent):
     log.info('add_content_rule_to_containers')
     rule_id = 'rule-1'
     storage = component.queryUtility(IRuleStorage)
     rule = storage.get(rule_id)
 
-    for parent in parents.values():
-        assignments = IRuleAssignmentManager(parent, None)
-        get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
-        rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
+    assignments = IRuleAssignmentManager(parent, None)
+    get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
+    rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
 
-        try:
-            assignments[rule_id] = rule_ass
-        except DuplicationError:
-            log.info("Content Rule '%s'  was ALREADY assigned to %s \n" % (rule_id, parent.absolute_url()))
-            
-        log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
+    try:
+        assignments[rule_id] = rule_ass
+    except DuplicationError:
+        log.info("Content Rule '%s'  was ALREADY assigned to %s \n" % (rule_id, parent.absolute_url()))
+        
+    log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
 
 
