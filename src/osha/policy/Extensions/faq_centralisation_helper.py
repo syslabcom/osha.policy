@@ -26,19 +26,22 @@ def run(self):
     faqs = create_faqs_folder(self)
     faq_docs = get_possible_faqs(self)
     parents = get_faq_containers(faq_docs)
-    create_faqs(self, faqs, faq_docs)
-    # add_content_rule_to_containers(parents)
-    # subtype_containers(parents)
-    # set_keywords(parents)
+    create_faqs_folder(self, faqs, faq_docs)
+    add_content_rule_to_containers(parents)
+    subtype_containers(parents)
     return 'done'
 
 
 def create_faqs_folder(self):
+    log.info('create_faqs_folder')
     langfolder = self.portal_url.getPortalObject()['en']
     langfolder.manage_renameObjects(['faq'], ['faq-old'])
     langfolder._setObject('faq', HelpCenterFAQFolder('faq'))
     faq = langfolder._getOb('faq')
     for lang in self.portal_languages.getSupportedLanguages():
+        if lang == 'en':
+            continue
+
         transfolder = langfolder.getTranslation(lang)
         transfolder.manage_renameObjects(['faq'], ['faq-old'])
 
@@ -47,6 +50,7 @@ def create_faqs_folder(self):
     
 
 def get_possible_faqs(self):
+    log.info('get_possible_faqs')
     queries = []
     title = In('Title', ["*frequently*", "*faq*", "FAQ*", "Frequently*"])
     portal_type = In("portal_type",  ["Document", "RichDocument", "Folder"])
@@ -85,6 +89,7 @@ def get_possible_faqs(self):
 
 
 def get_faq_containers(ls):
+    log.info('get_faq_containers')
     parents = {}
     for l in ls:
         if l.portal_type == 'Folder':
@@ -101,6 +106,7 @@ def get_faq_containers(ls):
 
 
 def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=None):
+    log.info('create_faq')
     wf = self.portal_workflow
     faq_id = faq_folder.generateUniqueId()
     faqid = faq_folder.invokeFactory('HelpCenterFAQ', faq_id)
@@ -120,9 +126,12 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
             wf.doActionFor(faq, "submit")
         except WorkflowException:
             pass
+
+    set_keywords(faq, obj.aq_parent)
             
 
 def parse_and_create_faqs(self, faq_folder, faq_docs):
+    log.info('parse_and_create_faqs')
     wf = self.portal_workflow
     for obj in faq_docs:
         chain = wf.getChainFor(obj)
@@ -141,6 +150,7 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
 
 
 def parse_folder_faq(folder):
+    log.info('parse_folder_faq')
     QA_dict = {}
     faq_docs = folder.objectValues()
     for faq in faq_docs:
@@ -152,6 +162,7 @@ def parse_folder_faq(folder):
 
 
 def parse_document_faq(doc):
+    log.info('parse_document_faq')
     QA_dict = {}
     body = doc.CookedBody()
     soup = BeautifulSoup(body)
@@ -249,38 +260,37 @@ def is_probable_question(suspect):
                                 return True
                                 
 
-
-
-def set_keywords(parents):
+def set_keywords(faq, old_parent):
     log.info("set_keywords")
-    for p in parents:
-        for fid, kw  in [
-                ('disability', 'disability'),
-                ('young_people', 'young_people'),
-                ('agriculture', 'agriculture'),
-                ('construction', 'construction'),
-                ('education', 'education'),
-                ('fisheries', 'fisheries'),
-                ('healthcare', 'healthcare'),
-                ('accident_prevention', 'accident_prevention'),
-                ('dangerous_substances', 'dangerous_substances'),
-                ('msds', 'msd'),
-                ('msd', 'msd'),
-                ]:
-            if fid in p.getPhysicalPath():
-                try:
-                    subject = p.getSubject()
-                except:
-                    subject = p.Schema().getField('subject').get(p)
+    for fid, kw  in [
+            ('disability', 'disability'),
+            ('young_people', 'young_people'),
+            ('agriculture', 'agriculture'),
+            ('construction', 'construction'),
+            ('education', 'education'),
+            ('fisheries', 'fisheries'),
+            ('healthcare', 'healthcare'),
+            ('accident_prevention', 'accident_prevention'),
+            ('dangerous_substances', 'dangerous_substances'),
+            ('msds', 'msd'),
+            ('msd', 'msd'),
+            ]:
+        if fid in old_parent.getPhysicalPath():
+            try:
+                subject = old_parent.getSubject()
+            except:
+                subject = old_parent.Schema().getField('subject').get(old_parent)
 
-                if kw not in subject:
-                    subject = list(subject) + [kw]
-                    p.setSubject(subject)
-                    log.info("Add keyword '%s' to %s: %s \n" \
-                            % (kw, p.portal_type, p.getPhysicalPath()))
-                else:
-                    log.info("Keyword '%s' already in %s: %s \n" \
-                            % (kw, p.portal_type, p.getPhysicalPath()))
+            if kw not in subject:
+                subject = list(subject) + [kw]
+                old_parent.setSubject(subject)
+                log.info("Add keyword '%s' to %s: %s \n" \
+                        % (kw, old_parent.portal_type, old_parent.getPhysicalPath()))
+            else:
+                log.info("Keyword '%s' already in %s: %s \n" \
+                        % (kw, old_parent.portal_type, old_parent.getPhysicalPath()))
+                        
+            log.info('Added keyword to FAQ %s, %s' % ('/'.join(faq.getPhysicalPath(), kw)))
 
 
 def subtype_containers(parents):
@@ -318,9 +328,11 @@ def subtype_containers(parents):
 
             annotations['keyword_list'] = keywords
             annotations['restrict_language'] = False
+            log.info('%s subtyped as aggregator with keywords %s' % ('/'.join(parent.getPhysicalPath(), str(keywords))))
 
 
 def add_content_rule_to_containers(parents):
+    log.info('add_content_rule_to_containers')
     rule_id = 'rule-7'
     storage = component.queryUtility(IRuleStorage)
     rule = storage.get(rule_id)
