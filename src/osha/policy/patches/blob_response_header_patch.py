@@ -18,8 +18,11 @@ def field_index_html(self, instance, REQUEST=None, RESPONSE=None, disposition='i
         RESPONSE = REQUEST.RESPONSE
     filename = self.getFilename(instance)
     if filename is not None:
-        filename = IUserPreferredFileNameNormalizer(REQUEST).normalize(
-            unicode(filename, instance.getCharset()))
+        try:
+            filename = IUserPreferredFileNameNormalizer(REQUEST).normalize(
+                unicode(filename, instance.getCharset()))
+        except TypeError:
+            pass #Then, use the normal one
         header_value = contentDispositionHeader(
             disposition=disposition,
             filename=filename)
