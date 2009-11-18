@@ -5,27 +5,41 @@
 #   - html_meta_keywords, which are used to optimize the SEO Keywords
 #   -
 
-from Products.OSHATranslations import OSHAMessageFactory as _
-from Products.LinguaPlone.utils import generateMethods
 from zLOG import LOG, INFO
-MODULE = 'osha.policy.schemaextender'
-LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
-LANGUAGE_INDEPENDENT_INITIALIZED_ERO = '_languageIndependent_initialized_oshapolicy_ero'
 
 import zope.interface
-import zope.component
-from archetypes.schemaextender.interfaces import IOrderableSchemaExtender, IBrowserLayerAwareExtender
-from osha.policy.interfaces import IOSHACommentsLayer
 
+from archetypes.schemaextender.interfaces import IOrderableSchemaExtender, IBrowserLayerAwareExtender
+from archetypes.schemaextender.field import ExtensionField
+
+from Products.ATCountryWidget.Widget import MultiCountryWidget
+from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.ATVocabularyManager.namedvocabulary import NamedVocabulary
+from Products.Archetypes import atapi
+from Products.Archetypes.Widget import BooleanWidget
+from Products.Archetypes.utils import DisplayList
+from Products.CMFCore.utils import getToolByName
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 from Products.DataGridField.SelectColumn import SelectColumn
+from Products.LinguaPlone.utils import generateMethods
+from Products.OSHATranslations import OSHAMessageFactory as _
+from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
 
-from slc.treecategories.widgets.widgets import InlineTreeWidget
-from osha.policy.adapter.subtyper import IAnnotatedLinkList
+try:
+    from slc.treecategories.widgets.widgets import InlineTreeWidget
+except ImportError:
+    InlineTreeWidget = None
+
 from osha.theme.vocabulary import AnnotatableLinkListVocabulary
 
+from osha.policy.interfaces import IOSHACommentsLayer
+from osha.policy.adapter.subtyper import IAnnotatedLinkList
+
+
+MODULE = 'osha.policy.schemaextender'
+LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
+LANGUAGE_INDEPENDENT_INITIALIZED_ERO = '_languageIndependent_initialized_oshapolicy_ero'
 
 
 class IOSHContent(zope.interface.Interface):
@@ -40,9 +54,6 @@ class IOSHFileContent(zope.interface.Interface):
     """ Interface for Files and Images
     """
 
-from Products.Archetypes.utils import DisplayList
-
-from Products.ATCountryWidget.Widget import CountryWidget, MultiCountryWidget
 
 
 # Provider
@@ -77,7 +88,6 @@ from Products.ATContentTypes.content.event import ATEvent
 zope.interface.classImplements(ATEvent, IOSHContentEvent)
 
 
-
 # Document types
 class IOSHContentDocument(zope.interface.Interface):
     """ OSH Content for Document types """
@@ -104,23 +114,12 @@ from Products.ATContentTypes.content.image import ATImage
 zope.interface.classImplements(ATImage, IOSHFileContent)
 
 
-
-
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
-from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
-
-from archetypes.schemaextender.field import ExtensionField
-from Products.Archetypes import atapi
-from Products.Archetypes.Widget import BooleanWidget, KeywordWidget
-from Products.CMFCore.utils import getToolByName
-
 # dummy
 DUMMY = False
 tags_default = ['A']
 tags_vocab = ['A', 'B', 'C']
 dummy_vocab = ['this', 'is', 'a', 'dummy', 'vocabulary']
 dummy_string = "this is a dummy string"
-
 
 
 class ExtensionFieldMixin:
@@ -704,87 +703,10 @@ class PressReleaseExtender(object):
         return original
 
 
-
 ###############################################################################
 # ERO
 ###############################################################################
 
-
-#class IEROExtender(zope.interface.Interface):
-#    """ Marker for ERO """
-#
-#
-#zope.interface.classImplements(RichDocument, IEROExtender)
-#
-#
-#class TaggingSchemaExtenderERO(object):
-#    zope.interface.implements(IOrderableSchemaExtender)
-#    zope.component.adapts(IEROExtender)
-#
-#
-#    _fields = [
-#           CountryField('country',
-#               schemata='ERO',
-#               mutator='setCountry',
-#               accessor='getCountry',
-#               enforceVocabulary=False,
-#               languageIndependent=True,
-#               required=False,
-#               multiValued=True,
-#               widget=MultiCountryWidget(
-#                   label="Countries",
-#                   description='Select one or more countries appropriate for this content',
-#                   description_msgid='help_country',
-#                   provideNullValue=1,
-#                   nullValueTitle="Select...",
-#                   label_msgid='label_country',
-#                   i18n_domain='osha',
-#               ),
-#           ),
-#           EroTargetGroupField('ero_target_group',
-#               schemata='ERO',
-#               mutator='setEro_target_group',
-#               accessor='ero_target_group',
-#               enforceVocabulary=False,
-#               languageIndependent=True,
-#               required=False,
-#               multiValued=True,
-#               widget=KeywordWidget(
-#                   label=_(u'osha_ero_target_group_label', default=u'Target group'),
-#                   description=_(u'osha_ero_target_group_description', default=u'Specifies the Target group for use in the Risk observatory'),
-#               ),
-#           ),
-#           EroTopicField('ero_topic',
-#               schemata='ERO',
-#               mutator='setEro_topic',
-#               accessor='ero_topic',
-#               enforceVocabulary=False,
-#               languageIndependent=True,
-#               required=False,
-#               multiValued=True,
-#               widget=KeywordWidget(
-#                   label=_(u'osha_ero_topic_label', default=u'Topic'),
-#                   description=_(u'osha_ero_topic_description', default=u'Specifies the Topic for use in the Risk observatory'),
-#               ),
-#           ),
-#       ]
-#
-#    def __init__(self, context):
-#        self.context = context
-#        klass = context.__class__
-#        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, False):
-#            fields = [field for field in self._fields if field.languageIndependent]
-#            generateMethods(klass, fields)
-#            LOG(MODULE, INFO, "called generateMethods (ERO) on %s (%s) " % (klass, self.__class__.__name__))
-#            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED_ERO, True)
-#
-#    def getFields(self):
-#        return self._fields
-#
-#    def getOrder(self, original):
-#        """ getting order """
-#        return original
-#
 ## ERO schema extension is no longer set globally.
 ## We only want it on the ERO subsite. This is done via a locally registered adapter.
 ## For the mechanism, see five.localsitemanager.localsitemaqnager.txt
@@ -820,7 +742,6 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
 
     def getFields(self):
         return self._myfields
-
 
 
 
@@ -917,7 +838,9 @@ class TaggingSchemaExtenderFileContent(object):
                     widget_args[arg] = getattr(new_f.widget, arg, '')
                 widget_args['vocabulary'] = vocabulary
                 new_f.vocabulary = vocabulary
-                new_f.widget = InlineTreeWidget(**widget_args)
+                if InlineTreeWidget:
+                    new_f.widget = InlineTreeWidget(**widget_args)
+
             _myfields.append(new_f)
         self._myfields = _myfields
         
@@ -937,5 +860,4 @@ class TaggingSchemaExtenderFileContent(object):
     def getOrder(self, original):
         """ getting order """
         return original
-        
         
