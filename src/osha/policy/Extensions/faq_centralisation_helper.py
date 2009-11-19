@@ -26,6 +26,7 @@ QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 def run(self):
     # faqs = create_faqs_folder(self)
     # return 'done'
+
     faqs = self.portal_url.getPortalObject()['en']['faq']
     faq_docs = get_possible_faqs(self)
     parents = get_faq_containers(faq_docs)
@@ -34,24 +35,27 @@ def run(self):
 
 
 def create_faqs_folder(self):
+    """ There already exists a 'faq' folder in each of the language folders.
+        For each of the language folders, rename it to faq-old, 
+        and add a new HelpCenterFAQFolder with id faq.
+    """
     log.info('create_faqs_folder')
-    langfolder = self.portal_url.getPortalObject()['en']
-    if hasattr(langfolder, 'faq'):
-        old_faq = langfolder.get('faq')
-        langfolder.manage_renameObjects(['faq'], ['faq-old'])
+    portal = self.portal_url.getPortalObject()
+    en_folder = portal['en']
+    if hasattr(en_folder, 'faq'):
+        old_faq = en_folder.get('faq')
+        en_folder.manage_renameObjects(['faq'], ['faq-old'])
 
-    langfolder._setObject('faq', HelpCenterFAQFolder('faq'))
-    faq = langfolder._getOb('faq')
+    en_folder._setObject('faq', HelpCenterFAQFolder('faq'))
+    faq = en_folder._getOb('faq')
     for lang in self.portal_languages.getSupportedLanguages():
-        if lang == 'en':
+        if lang == 'en' or not  hasattr(portal, lang):
             continue
-
-        if old_faq:
-            trans_faq = old_faq.getTranslation(lang)
-
-            if trans_faq is not None:
-                trans_faq.aq_parent.manage_renameObjects(['faq'], ['faq-old'])
-                log.info('renamed faq to faq-old in %s' % trans_faq.aq_parent.getId())
+        
+        lang_folder = portal[lang]
+        if hasattr(lang_folder, 'faq'):
+            lang_folder.manage_renameObjects(['faq'], ['faq-old'])
+            log.info('renamed faq to faq-old in %s' % lang)
 
         faq.addTranslation(lang)
     return faq
