@@ -94,14 +94,13 @@ def get_possible_faqs(self):
     #             getId='faq.php',
     #             path='/osha/portal/en/good_practice/priority_groups/disability/')
     
-    # XXX: Does not exist on production
-    # ls = self.portal_catalog(
-    #             getId='faq.stm',
-    #             path='/osha/portal/en/good_practice/topics/dangerous_substances/')
-
     ls = self.portal_catalog(
-                getId='faq.php',
-                path='osha/en/good_practice/topics/accident_prevention/')
+                getId='faq.stm',
+                path='osha/en/good_practice/topics/dangerous_substances/faq.stm')
+
+    # ls = self.portal_catalog(
+    #             getId='faq.php',
+    #             path='osha/en/good_practice/topics/accident_prevention/')
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -338,7 +337,13 @@ def is_probable_question(suspect):
 
     if hasattr(suspect, "name"):
         if suspect.name in QUESTION_TAGS:
-            suspect_text = suspect.findAll(text=True)[0]
+            # XXX: suspect = '<h2></h2>'
+            ls = suspect.findAll(text=True)
+            if ls:
+                suspect_text = ls[0]
+            else:
+                suspect_text = None
+
             if suspect_text\
                    and suspect_text.strip().endswith("?"):
                 return True
