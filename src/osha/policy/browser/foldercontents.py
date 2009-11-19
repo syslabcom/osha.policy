@@ -32,11 +32,11 @@ class CustomizedFolderContentsTable(FolderContentsTable):
         url = context.absolute_url()
         
         filters = []
-        for filter_key in ('Subject', 'SearchableText', 'pagenumber'):
+        for filter_key in ('Subject', 'SearchableText'): 
             if request.form.has_key(filter_key):
                 filters.append("%s=%s" % (filter_key, request.form[filter_key]))
         filter_url = "&".join(filters)
-                
+
         view_url = '?'.join((url + '/@@bulk_tagger', filter_url))
         self.table = CustomizedTable(request, url, view_url, self.items,
                                      show_sort_column=self.show_sort_column,
