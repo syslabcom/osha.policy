@@ -128,7 +128,7 @@
                     </tal:items>
                 </tbody>
                 <tfooter tal:condition="not:view/within_batch_size">
-                    <tr tal:condition="not:view/show_all">
+                    <tr tal:condition="nothing">
                         <th colspan="9" class="nosort">
                             <a tal:attributes="href view/show_all_url" i18n:translate="label_show_all" id="foldercontents-show-all" class="update-selection">Show all items</a>
                         </th>

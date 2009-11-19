@@ -137,6 +137,25 @@
         permission="cmf.ListFolderContents" 
         />
 
+    <browser:page
+        for="Products.ATContentTypes.interface.folder.IATBTreeFolder"
+        class=".foldercontents.FolderContentsKSSView"
+        attribute="update_table"
+        name="foldercontents_update_table"
+        permission="cmf.ListFolderContents" 
+        />
+
+
+
+    <browser:page
+        for="Products.ATContentTypes.interface.topic.IATTopic"
+        class=".foldercontents.FolderContentsKSSView"
+        attribute="update_table"
+        name="foldercontents_update_table"
+        permission="cmf.ListFolderContents" 
+        />
+
+
 
     <browser:page
         for="*"
