@@ -13,6 +13,10 @@
         <Label name="_cse_exclude_c1c8w5hnuam" />
         <AdditionalData attribute="original_url" value="http://osha.europa.eu/sub/*" />
     </Annotation>
+    <Annotation about="osha.europa.eu/en/sub/*">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/en/sub/*" />
+    </Annotation>
     <Annotation about="osha.europa.eu/*index_oshlink">
         <Label name="_cse_exclude_c1c8w5hnuam" />
         <AdditionalData attribute="original_url" value="http://osha.europa.eu/*sinList" />
@@ -36,6 +40,10 @@
     <Annotation about="osha.europa.eu/*index_topic">
         <Label name="_cse_exclude_c1c8w5hnuam" />
         <AdditionalData attribute="original_url" value="http://osha.europa.eu/*index_topic" />
+    </Annotation>
+    <Annotation about="osha.europa.eu/*image_view_fullscreen">
+        <Label name="_cse_exclude_c1c8w5hnuam" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*image_view_fullscreen" />
     </Annotation>
     
     <!-- Press -->
@@ -102,9 +110,9 @@
     </Annotation>
     
     <!-- SEPs -->
-    <Annotation about="osha.europa.eu/*/good_practice/*">
+    <Annotation about="osha.europa.eu/*/practical-solutions/*">
         <Label name="sep_promotion" />
-        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*/good_practice/*" />
+        <AdditionalData attribute="original_url" value="http://osha.europa.eu/*/practical-solutions/*" />
     </Annotation>
     <Annotation about="osha.europa.eu/*/topics/*">
         <Label name="sep_promotion" />
