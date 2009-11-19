@@ -139,12 +139,14 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
     return faq
 
 
-def create_helpcenter_faq_folders(self, QA_dict, global_faq_folder, obj):
+def create_helpcenter_faq_folders(self, QA_dict, obj):
     wf = self.portal_workflow
     chain = wf.getChainFor(obj)
     status = self.portal_workflow.getStatusOf(chain[0], obj)
     state = status["review_state"]
 
+    portal = self.portal_url.getPortalObject()
+    global_faq_folder = portal['en']['faq']
     for question_text, answer_text in QA_dict.items():
         correct_faq_folder = global_faq_folder.getTranslation(obj.getLanguage())
         # XXX: Beware, Title not always what we want...
@@ -155,6 +157,7 @@ def create_helpcenter_faq_folders(self, QA_dict, global_faq_folder, obj):
                             title=obj.Title()
                             )
         hcfaqfolder = correct_faq_folder._getOb(fid)
+        hcfaqfolder._renameAfterCreation(check_auto_id=False)
         create_faq(self, question_text, answer_text, state, hcfaqfolder, obj)
 
 
@@ -180,7 +183,7 @@ def decommision_old_faq(self, obj):
     return obj.aq_parent.get(fid)
 
 
-def parse_and_create_faqs(self, global_faq_folder, faq_docs):
+def parse_and_create_faqs(self, faq_docs):
     log.info('parse_and_create_faqs')
 
     for obj in faq_docs:
@@ -193,8 +196,8 @@ def parse_and_create_faqs(self, global_faq_folder, faq_docs):
             log.warn('No questions found for %s' % obj.absolute_url())
             return
 
-        create_helpcenter_faq_folders(self, QA_dict, global_faq_folder, obj)
-        new_folder = decommision_old_faq(self)
+        create_helpcenter_faq_folders(self, QA_dict, obj)
+        new_folder = decommision_old_faq(self, obj)
 
         new_folder.setTitle('Frequently Asked Questions')
         new_folder.reindexObject()
