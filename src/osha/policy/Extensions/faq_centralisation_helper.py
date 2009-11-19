@@ -147,17 +147,18 @@ def create_helpcenter_faq_folders(self, QA_dict, obj):
 
     portal = self.portal_url.getPortalObject()
     global_faq_folder = portal['en']['faq']
+    correct_faq_folder = global_faq_folder.getTranslation(obj.getLanguage())
+    # XXX: Beware, Title not always what we want...
+    fid = correct_faq_folder.generateUniqueId()
+    fid = correct_faq_folder.invokeFactory(
+                        'HelpCenterFAQFolder', 
+                        id=fid,
+                        title=obj.Title()
+                        )
+    hcfaqfolder = correct_faq_folder._getOb(fid)
+    hcfaqfolder._renameAfterCreation(check_auto_id=False)
+
     for question_text, answer_text in QA_dict.items():
-        correct_faq_folder = global_faq_folder.getTranslation(obj.getLanguage())
-        # XXX: Beware, Title not always what we want...
-        fid = correct_faq_folder.generateUniqueId()
-        fid = correct_faq_folder.invokeFactory(
-                            'HelpCenterFAQFolder', 
-                            id=fid,
-                            title=obj.Title()
-                            )
-        hcfaqfolder = correct_faq_folder._getOb(fid)
-        hcfaqfolder._renameAfterCreation(check_auto_id=False)
         create_faq(self, question_text, answer_text, state, hcfaqfolder, obj)
 
 
