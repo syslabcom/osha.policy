@@ -67,10 +67,6 @@ zope.interface.classImplements(Provider, IOSHContentProvider)
 from Products.OSHContentLink.OSH_Link import OSH_Link
 zope.interface.classImplements(OSH_Link, IOSHContent)
 
-#Regular Links
-from Products.ATContentTypes.content.link import ATLink
-zope.interface.classImplements(ATLink, IOSHContent)
-
 # RALink
 class IOSHContentRALink(zope.interface.Interface):
     """ OSHContent for RALink"""
@@ -104,15 +100,16 @@ class IOSHNetworkDocument(zope.interface.Interface):
     """ OSHDocument for OSHNetwork """
 #zope.interface.classImplements(ATDocument, IOSHNetworkDocument)
 
-
-# Publications / Files / Images
+# The cool new widget is used for the following, enabling bulk-tagger support
+# Publications / Files / Images / Regular Links
 from Products.ATContentTypes.content.file import ATFile
 zope.interface.classImplements(ATFile, IOSHFileContent)
 from plone.app.blob.content import ATBlob
 zope.interface.classImplements(ATBlob, IOSHFileContent)
 from Products.ATContentTypes.content.image import ATImage
 zope.interface.classImplements(ATImage, IOSHFileContent)
-
+from Products.ATContentTypes.content.link import ATLink
+zope.interface.classImplements(ATLink, IOSHFileContent)
 
 # dummy
 DUMMY = False
@@ -821,7 +818,18 @@ class TaggingSchemaExtenderFileContent(object):
                     i18n_domain='osha',
                     condition="python:len(object.getField('nace').Vocabulary(object))",
                 ),
-            ),    
+            ),
+            ReindexTranslationsField('reindexTranslations',
+                schemata='default',
+                default=False,
+                languageIndependent=False,
+                widget=BooleanWidget(
+                    label=u"Reindex translations on saving.",
+                    description=description_reindexTranslations,
+                    visible={'edit': 'visible', 'view': 'invisible'},
+                    condition="python:object.isCanonical()",
+                ),
+            ),
     
     ]
  
