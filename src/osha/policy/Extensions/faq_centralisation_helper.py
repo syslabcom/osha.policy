@@ -3,20 +3,11 @@ import logging
 
 from BeautifulSoup import BeautifulSoup, NavigableString
 
-from zExceptions import BadRequest
-
 from zope import component
 from zope.annotation.interfaces import IAnnotations
-from zope.exceptions.interfaces import DuplicationError
-
-from plone.contentrules.engine.assignments import RuleAssignment
-from plone.contentrules.engine.interfaces import IRuleAssignmentManager
-from plone.contentrules.engine.interfaces import IRuleStorage
-
-from plone.app.contentrules.rule import get_assignments
 
 from Products.AdvancedQuery import Or, Eq, And, In, Not
-from Products.PloneHelpCenter.content.FAQFolder import HelpCenterFAQFolder
+from Products.PloneHelpCenter.content.HelpCenter import HelpCenter
 from Products.CMFCore.WorkflowCore import WorkflowException
 
 from p4a.subtyper.interfaces import ISubtyper
@@ -26,37 +17,44 @@ log = logging.getLogger('faq_centralisation_helper')
 QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 
 def run(self):
-    # faqs = create_faqs_folder(self)
+    # faqs = create_helpcenter(self)
     # return 'done'
     portal = self.portal_url.getPortalObject()
 
     # Make the HelpCenterFAQ globally addable
-    faq = portal.portal_types['HelpCenterFAQ']
+    faq = portal.portal_types['HelpCenterFAQFolder']
     faq._updateProperty('global_allow', True)
 
-    faq_folder = portal['en']['faq']
-    constrain_addable_types(faq_folder)
+    # Constrain the addable types to only HelpCenterFAQFolder, for the global
+    # faq folders: i.e en/faq
+    translations = portal['en']['faq'].getTranslations()
+    for lang in translations:
+        tfolder = translations[lang][0]
+        tfolder.setConstrainTypesMode(True)
+        tfolder.setLocallyAllowedTypes('HelpCenterFAQFolder')
 
     faq_docs = get_possible_faqs(self)
-    
-    parents = get_faq_containers(faq_docs)
-    parse_and_create_faqs(self, faq_folder, faq_docs)
+
+    # Each one of the faq_docs will become a HelpCenterFAQFolder
+    # Each of the questions and answer combinations inside will become a
+    # HelpCenterFAQ
+    parse_and_create_faqs(self, faq_docs)
     return 'done'
 
 
-def create_faqs_folder(self):
+def create_helpcenter(self):
     """ There already exists a 'faq' folder in each of the language folders.
         For each of the language folders, rename it to faq-old, 
-        and add a new HelpCenterFAQFolder with id faq.
+        and add a new HelpCenter with id faq.
     """
-    log.info('create_faqs_folder')
+    log.info('create_helpcenter')
     portal = self.portal_url.getPortalObject()
     en_folder = portal['en']
     if hasattr(en_folder, 'faq'):
         old_faq = en_folder.get('faq')
         en_folder.manage_renameObjects(['faq'], ['faq-old'])
 
-    en_folder._setObject('faq', HelpCenterFAQFolder('faq'))
+    en_folder._setObject('faq', HelpCenter('faq'))
     faq = en_folder._getOb('faq')
     for lang in self.portal_languages.getSupportedLanguages():
         if lang == 'en' or not  hasattr(portal, lang):
@@ -95,8 +93,8 @@ def get_possible_faqs(self):
     #             path='/osha/portal/en/good_practice/priority_groups/disability/')
     
     ls = self.portal_catalog(
-                getId='faq.stm',
-                path='osha/en/good_practice/topics/dangerous_substances/faq.stm')
+                getId='faq2.stm',
+                path='osha/en/good_practice/topics/dangerous_substances/faq2.stm')
 
     # ls = self.portal_catalog(
     #             getId='faq.php',
@@ -118,23 +116,6 @@ def get_possible_faqs(self):
     k = ['/'.join(o.getPhysicalPath()) for o in objects]
     k.sort()
     display_str = '\n'.join(k) or 'none'
-    return display_str
-
-
-def get_faq_containers(ls):
-    log.info('get_faq_containers')
-    parents = {}
-    for l in ls:
-        if l.portal_type == 'Folder':
-            p = l
-        else:
-            p = l.aq_parent
-
-        parents['/'.join(p.getPhysicalPath())] = p
-
-    return parents
-
-    display_str = '\n'.join([p.absolute_url() for p in parents.values()]) or 'none'
     return display_str
 
 
@@ -166,80 +147,70 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
 
     set_keywords(faq, obj.aq_parent)
     return faq
-            
 
-def parse_and_create_faqs(self, faq_folder, faq_docs):
-    log.info('parse_and_create_faqs')
+
+def create_helpcenter_faq_folders(self, QA_dict, global_faq_folder, obj):
     wf = self.portal_workflow
-    for obj in faq_docs:
-        chain = wf.getChainFor(obj)
-        status = self.portal_workflow.getStatusOf(chain[0], obj)
-        state = status["review_state"]
+    chain = wf.getChainFor(obj)
+    status = self.portal_workflow.getStatusOf(chain[0], obj)
+    state = status["review_state"]
 
+    for question_text, answer_text in QA_dict.items():
+        correct_faq_folder = global_faq_folder.getTranslation(obj.getLanguage())
+        # XXX: Beware, Title not always what we want...
+        fid = correct_faq_folder.generateUniqueId()
+        fid = correct_faq_folder.invokeFactory(
+                            'HelpCenterFAQFolder', 
+                            id=fid,
+                            title=obj.Title()
+                            )
+        hcfaqfolder = correct_faq_folder._getOb(fid)
+        create_faq(self, question_text, answer_text, state, hcfaqfolder, obj)
+
+
+    if not QA_dict:
+        log.info('No questions found for %s' % obj.absolute_url())
+        continue
+
+
+def decommision_old_faq(self, obj):
+    """
+    Mark wf state of the old FAQ as private
+    Change it's id and title to indicate it's been migrated.
+    Create a new folder with the original id and return it.
+    """
+    wf = self.portal_workflow
+    try:
+        wf.doActionFor(obj, "reject")
+    except WorkflowException:
+        log.info('Could not reject the old faq: %s' % '/'.join(obj.getPhysicalPath()))
+
+    obj.setTitle('Migrated: %s' % obj.Title())
+    obj_id = obj.getId()
+    obj.aq_parent.manage_renameObjects([obj_id], ['%s-migrated' % obj_id])
+    obj.reindexObject()
+
+    # Create new folder with original id and return
+    fid = obj.aq_parent.invokeFactory('Folder', obj_id)
+    return obj.aq_parent.get(fid)
+
+
+def parse_and_create_faqs(self, global_faq_folder, faq_docs):
+    log.info('parse_and_create_faqs')
+
+    for obj in faq_docs:
         if obj.portal_type == 'Folder':
             QA_dict = parse_folder_faq(obj)
-            for question_text, answer_text in QA_dict.values():
-                correct_faq_folder = faq_folder.getTranslation(obj.getLanguage())
-                create_faq(self, question_text, answer_text, state, correct_faq_folder, obj)
-
-            # This is a one to one mapping.
-            # Each RichTextDocument contains one Q and A and each maps to a
-            # corresponding FAQ object.
-            for doc in obj.objectValues():
-                try:
-                    wf.doActionFor(doc, "reject")
-                except WorkflowException:
-                    log.info('Could not reject the old faq: %s' % '/'.join(doc.getPhysicalPath()))
-
-                old_title = doc.Title()
-                if 'Migrated:' not in old_title:
-                    doc.setTitle('Migrated: %s' % old_title)
-
-                doc.reindexObject()
-
-            try:
-                obj.manage_delProperties('layout')
-            except BadRequest:
-                log.info("Could not delete property 'layout' from %s" % obj.absolute_url())
-
-            new_folder =  obj # We use the existing folder as our new aggregator
-
         else:
             QA_dict = parse_document_faq(obj)
-            for question_text, answer_text in QA_dict.items():
-                correct_faq_folder = faq_folder.getTranslation(obj.getLanguage())
-                faq = create_faq(self, question_text, answer_text, state, correct_faq_folder, obj)
 
-            if not QA_dict:
-                log.info('No questions found for %s' % obj.absolute_url())
-                continue
-
-            # This is a one to many mapping.
-            # One RichTextDocument with multiple Qs and As, that map to
-            # multiple FAQ objects.
-            try:
-                wf.doActionFor(obj, "reject")
-            except WorkflowException:
-                log.info('Could not reject the old faq: %s' % '/'.join(obj.getPhysicalPath()))
-
-            obj.setTitle('Migrated: %s' % obj.Title())
-            obj.reindexObject()
-
-
-            # We need to replace the document with a folder, that is subtyped
-            # to slc.aggregator with an alias to the old document.
-            obj_id = obj.getId()
-            obj.aq_parent.manage_renameObjects([obj_id], ['%s-migrated' % obj_id])
-            fid = obj.aq_parent.invokeFactory('Folder', obj_id)
-            new_folder = obj.aq_parent.get(fid)
-
+        create_helpcenter_faq_folders(self, QA_dict, global_faq_folder, obj)
+        new_folder = decommision_old_faq(self)
 
         new_folder.setTitle('Frequently Asked Questions')
         new_folder.reindexObject()
 
-        subtype_container(new_folder)
-        add_content_rule_to_container(new_folder)
-        constrain_addable_types(new_folder)
+        aggregator = subtype_container(new_folder)
 
 
 
@@ -251,7 +222,7 @@ def parse_folder_faq(folder):
         if not faq.Title():
             continue # Ignore turds
 
-        QA_dict['/'.join(faq.getPhysicalPath())] =  (faq.Title(), faq.getText())
+        QA_dict[faq.Title()] = faq.getText()
     return QA_dict
 
 
@@ -410,10 +381,13 @@ def subtype_container(parent):
 
         subtyper.change_type(canonical, 'slc.aggregation.aggregator')
         annotations = IAnnotations(canonical)
-        annotations['content_types'] =  ['HelpCenterFAQ']
+        annotations['content_types'] =  ['HelpCenterFAQFolder']
         annotations['review_state'] = 'published'
         annotations['aggregation_sources'] = ['/en/faq']
         keywords = []
+
+        # The keyword we search for is the folder name of the single entry
+        # point in which the aggregator is located.
         for fid, kw  in [
                 ('disability', 'disability'),
                 ('young_people', 'young_people'),
@@ -434,31 +408,9 @@ def subtype_container(parent):
         annotations['keyword_list'] = keywords
         annotations['restrict_language'] = False
         log.info('%s subtyped as aggregator with keywords %s' % ('/'.join(parent.getPhysicalPath()), str(keywords)))
+        return parent
 
 
-def add_content_rule_to_container(parent):
-    log.info('add_content_rule_to_containers')
-    # XXX: Change
-    rule_id = 'rule-1'
-    storage = component.queryUtility(IRuleStorage)
-    rule = storage.get(rule_id)
-
-    assignments = IRuleAssignmentManager(parent, None)
-    get_assignments(storage[rule_id]).insert('/'.join(parent.getPhysicalPath()))
-    rule_ass = RuleAssignment(ruleid=rule_id, enabled=True, bubbles=True)
-
-    try:
-        assignments[rule_id] = rule_ass
-    except DuplicationError:
-        log.info("Content Rule '%s'  was ALREADY assigned to %s \n" % (rule_id, parent.absolute_url()))
-        
-    log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
-
-
-def constrain_addable_types(parent):
-    log.info('constrain_addable_types')
-    parent.setConstrainTypesMode(True)
-    parent.setLocallyAllowedTypes('HelpCenterFAQ')
 
 
 
