@@ -1,7 +1,7 @@
 from copy import copy
 import logging
 
-from BeautifulSoup import BeautifulSoup
+from BeautifulSoup import BeautifulSoup, NavigableString
 
 from zope import component
 from zope.annotation.interfaces import IAnnotations
@@ -265,16 +265,16 @@ def parse_document_faq(doc):
                 # Remove links to the top of the page
                 link.extract()
         elif link.has_key("name"):
-            # Remove anchors
-            # todo: remove but keep contents
-            cnts = copy(link.contents)
+            # Remove anchors but keep the contents
+            cnts = link.contents
             if " " in cnts:
                 cnts.remove(" ")
             if len(cnts) == 0:
                 link.extract()
             elif len(cnts) == 1:
-                link.replaceWith(cnts)
+                link.replaceWith(cnts[0])
             else:
+                import pdb; pdb.set_trace()
                 log.info(
                     "The anchor:%s contains more than one element"\
                     %unicode(link)
@@ -299,7 +299,12 @@ def parse_document_faq(doc):
     answer_text = ''
     for question in probable_questions:
         answer_text = ""
-        question_text = unicode(question.string)
+        if type(question) == NavigableString:
+            question_text = unicode(question)
+        else:
+            question_text = unicode(question.findAll(text=True)[0])
+            if len(question.findAll(text=True)) > 1:
+                import pdb; pdb.set_trace()
 
         for answer in question.parent.nextSiblingGenerator():
             if is_probable_question(answer):
@@ -329,9 +334,10 @@ def is_probable_question(suspect):
     # endswith("?")
 
     if hasattr(suspect, "name"):
-        if suspect.name in ["h2", "h3"]:
-            if suspect.string\
-                   and suspect.string.strip().endswith("?"):
+        if suspect.name in QUESTION_TAGS:
+            suspect_text = suspect.findAll(text=True)[0]
+            if suspect_text\
+                   and suspect_text.strip().endswith("?"):
                 return True
 
         elif suspect.name in ["a", "p"]:
@@ -344,8 +350,9 @@ def is_probable_question(suspect):
                     first_item = cnts[0]
                     if hasattr(first_item, "name"):
                         if first_item.name in QUESTION_TAGS:
-                            if first_item.string\
-                                   and first_item.string.strip().endswith("?"):
+                            first_item_text = first_item.findAll(text=True)[0]
+                            if first_item_text\
+                                   and first_item_text.strip().endswith("?"):
                                 return True
                                 
 
