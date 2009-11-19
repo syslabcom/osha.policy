@@ -26,11 +26,19 @@ QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 def run(self):
     # faqs = create_faqs_folder(self)
     # return 'done'
+    portal = self.portal_url.getPortalObject()
 
-    faqs = self.portal_url.getPortalObject()['en']['faq']
+    # Make the HelpCenterFAQ globally addable
+    faq = portal.portal_types['HelpCenterFAQ']
+    faq._updateProperty('global_allow', True)
+
+    faq_folder = portal['en']['faq']
+    constrain_addable_types(faq_folder)
+
     faq_docs = get_possible_faqs(self)
+
     parents = get_faq_containers(faq_docs)
-    parse_and_create_faqs(self, faqs, faq_docs)
+    parse_and_create_faqs(self, faq_folder, faq_docs)
     return 'done'
 
 
@@ -77,9 +85,6 @@ def get_possible_faqs(self):
     advanced_query = And(Or(id, title, body), portal_type, Not(fop))
     ls =  self.portal_catalog.evalAdvancedQuery(advanced_query, (('Date', 'desc'),) )
 
-    # ls = self.portal_catalog(
-    #             getId='faq.php',
-    #             path='/osha/portal/en/good_practice/topics/accident_prevention/')
 
 
     # XXX: Didn't work :(
@@ -87,9 +92,14 @@ def get_possible_faqs(self):
     #             getId='faq.php',
     #             path='/osha/portal/en/good_practice/priority_groups/disability/')
     
+    # XXX: Does not exist on production
+    # ls = self.portal_catalog(
+    #             getId='faq.stm',
+    #             path='/osha/portal/en/good_practice/topics/dangerous_substances/')
+
     ls = self.portal_catalog(
-                getId='faq.stm',
-                path='/osha/portal/en/good_practice/topics/dangerous_substances/')
+                getId='faq.php',
+                path='/osha/portal/en/good_practice/topics/accident_prevention/')
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -186,10 +196,8 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
 
                     doc.reindexObject()
 
-            subtype_container(obj)
-            add_content_rule_to_container(obj)
-            constrain_addable_types(new_folder)
-
+            obj.delProperty('layout')
+            new_folder =  obj # We use the existing folder as our new aggregator
 
         else:
             QA_dict = parse_document_faq(obj)
@@ -219,11 +227,14 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
             obj.aq_parent.manage_renameObjects([obj_id], ['%s-migrated' % obj_id])
             fid = obj.aq_parent.invokeFactory('Folder', obj_id)
             new_folder = obj.aq_parent.get(fid)
-            new_folder.setTitle('Frequently Asked Questions')
-            new_folder.reindexObject()
-            subtype_container(new_folder)
-            add_content_rule_to_container(new_folder)
-            constrain_addable_types(new_folder)
+
+
+        new_folder.setTitle('Frequently Asked Questions')
+        new_folder.reindexObject()
+
+        subtype_container(new_folder)
+        add_content_rule_to_container(new_folder)
+        constrain_addable_types(new_folder)
 
 
 
@@ -413,7 +424,7 @@ def subtype_container(parent):
 def add_content_rule_to_container(parent):
     log.info('add_content_rule_to_containers')
     # XXX: Change
-    rule_id = 'rule-7'
+    rule_id = 'rule-1'
     storage = component.queryUtility(IRuleStorage)
     rule = storage.get(rule_id)
 
@@ -429,7 +440,7 @@ def add_content_rule_to_container(parent):
     log.info("Content Rule '%s' assigned to %s \n" % (rule_id, parent.absolute_url()))
 
 
-def constrain_addable_type(parent):
+def constrain_addable_types(parent):
     log.info('constrain_addable_types')
     parent.setConstrainTypesMode(True)
     parent.setLocallyAllowedTypes('HelpCenterFAQ')
