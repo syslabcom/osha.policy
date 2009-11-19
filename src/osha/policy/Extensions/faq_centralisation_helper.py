@@ -3,6 +3,8 @@ import logging
 
 from BeautifulSoup import BeautifulSoup, NavigableString
 
+from zExceptions import BadRequest
+
 from zope import component
 from zope.annotation.interfaces import IAnnotations
 from zope.exceptions.interfaces import DuplicationError
@@ -37,7 +39,6 @@ def run(self):
 
     faq_docs = get_possible_faqs(self)
     
-    import pdb; pdb.set_trace()
     parents = get_faq_containers(faq_docs)
     parse_and_create_faqs(self, faq_folder, faq_docs)
     return 'done'
@@ -197,7 +198,11 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
 
                 doc.reindexObject()
 
-            obj.delProperty('layout')
+            try:
+                obj.manage_delProperties('layout')
+            except BadRequest:
+                log.info("Could not delete property 'layout' from %s" % obj.absolute_url())
+
             new_folder =  obj # We use the existing folder as our new aggregator
 
         else:
@@ -275,7 +280,6 @@ def parse_document_faq(doc):
             elif len(cnts) == 1:
                 link.replaceWith(cnts[0])
             else:
-                import pdb; pdb.set_trace()
                 log.info(
                     "The anchor:%s contains more than one element"\
                     %unicode(link)
@@ -304,8 +308,6 @@ def parse_document_faq(doc):
             question_text = unicode(question)
         else:
             question_text = unicode(question.findAll(text=True)[0])
-            if len(question.findAll(text=True)) > 1:
-                import pdb; pdb.set_trace()
 
         for answer in question.parent.nextSiblingGenerator():
             if is_probable_question(answer):
