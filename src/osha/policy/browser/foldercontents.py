@@ -14,6 +14,8 @@ from zope.component import getMultiAdapter #@UnresolvedImport
 from zope.i18n import translate
 import urllib
 
+SUPPORTED_PORTAL_TYPES = ('Image', 'File', 'Link')
+
 class CustomizedTable(Table):
     render = ViewPageTemplateFile("templates/table.pt")
     batching = ViewPageTemplateFile('templates/batching.pt')
@@ -99,16 +101,19 @@ class CustomizedFolderContentsTable(FolderContentsTable):
                 obj.id == browser_default[1][0])
             
             subcategory = multilingualthesaurus = nace = ""
-            if obj.portal_type in ('Image', 'File'):
-                if not hasattr(self, 'subcategory_field'):
-                    self.subcategory_field = obj.getObject().Schema()['subcategory']
-                subcategory = getInlineTreeView(self.context, obj, self.request, self.subcategory_field).render
-                if not hasattr(self, 'mt_field'):
-                    self.mt_field = obj.getObject().Schema()['multilingual_thesaurus']
-                multilingualthesaurus = getInlineTreeView(self.context, obj, self.request, self.mt_field).render
-                if not hasattr(self, 'nace_field'):
-                    self.nace_field = obj.getObject().Schema()['nace']
-                nace = getInlineTreeView(self.context, obj, self.request, self.nace_field).render
+            
+            if obj.portal_type not in SUPPORTED_PORTAL_TYPES:
+                continue
+
+            if not hasattr(self, 'subcategory_field'):
+                self.subcategory_field = obj.getObject().Schema()['subcategory']
+            subcategory = getInlineTreeView(self.context, obj, self.request, self.subcategory_field).render
+            if not hasattr(self, 'mt_field'):
+                self.mt_field = obj.getObject().Schema()['multilingual_thesaurus']
+            multilingualthesaurus = getInlineTreeView(self.context, obj, self.request, self.mt_field).render
+            if not hasattr(self, 'nace_field'):
+                self.nace_field = obj.getObject().Schema()['nace']
+            nace = getInlineTreeView(self.context, obj, self.request, self.nace_field).render
 
             results.append(dict(
                 url=url,
