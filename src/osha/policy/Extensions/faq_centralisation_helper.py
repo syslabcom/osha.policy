@@ -17,23 +17,10 @@ log = logging.getLogger('faq_centralisation_helper')
 QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 
 def run(self):
-    faqs = create_helpcenters(self)
-    return 'done'
+    # faqs = create_helpcenters(self)
+    # return 'done'
 
-    portal = self.portal_url.getPortalObject()
-
-    # Make the HelpCenterFAQ globally addable
-    faq = portal.portal_types['HelpCenterFAQFolder']
-    faq._updateProperty('global_allow', True)
-
-    # Constrain the addable types to only HelpCenterFAQFolder, for the global
-    # faq folders: i.e en/faq
-    translations = portal['en']['faq'].getTranslations()
-    for lang in translations:
-        tfolder = translations[lang][0]
-        tfolder.setConstrainTypesMode(True)
-        tfolder.setLocallyAllowedTypes('HelpCenterFAQFolder')
-
+    import pdb; pdb.set_trace()
     faq_docs = get_possible_faqs(self)
 
     # Each one of the faq_docs will become a HelpCenterFAQFolder
