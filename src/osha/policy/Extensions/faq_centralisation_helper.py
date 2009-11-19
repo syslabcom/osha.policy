@@ -17,8 +17,9 @@ log = logging.getLogger('faq_centralisation_helper')
 QUESTION_TAGS = ["strong", "h3", "h2", "b"]
 
 def run(self):
-    # faqs = create_helpcenter(self)
-    # return 'done'
+    faqs = create_helpcenters(self)
+    return 'done'
+
     portal = self.portal_url.getPortalObject()
 
     # Make the HelpCenterFAQ globally addable
@@ -42,12 +43,12 @@ def run(self):
     return 'done'
 
 
-def create_helpcenter(self):
+def create_helpcenters(self):
     """ There already exists a 'faq' folder in each of the language folders.
         For each of the language folders, rename it to faq-old, 
         and add a new HelpCenter with id faq.
     """
-    log.info('create_helpcenter')
+    log.info('create_helpcenters')
     portal = self.portal_url.getPortalObject()
     en_folder = portal['en']
     if hasattr(en_folder, 'faq'):
@@ -55,6 +56,7 @@ def create_helpcenter(self):
         en_folder.manage_renameObjects(['faq'], ['faq-old'])
 
     en_folder._setObject('faq', HelpCenter('faq'))
+    log.info('created en/faq')
     faq = en_folder._getOb('faq')
     for lang in self.portal_languages.getSupportedLanguages():
         if lang == 'en' or not  hasattr(portal, lang):
@@ -66,6 +68,7 @@ def create_helpcenter(self):
             log.info('renamed faq to faq-old in %s' % lang)
 
         faq.addTranslation(lang)
+        log.info('created %s/faq' % lang)
     return faq
     
 
@@ -168,11 +171,6 @@ def create_helpcenter_faq_folders(self, QA_dict, global_faq_folder, obj):
         create_faq(self, question_text, answer_text, state, hcfaqfolder, obj)
 
 
-    if not QA_dict:
-        log.info('No questions found for %s' % obj.absolute_url())
-        continue
-
-
 def decommision_old_faq(self, obj):
     """
     Mark wf state of the old FAQ as private
@@ -203,6 +201,10 @@ def parse_and_create_faqs(self, global_faq_folder, faq_docs):
             QA_dict = parse_folder_faq(obj)
         else:
             QA_dict = parse_document_faq(obj)
+
+        if not QA_dict:
+            log.warn('No questions found for %s' % obj.absolute_url())
+            return
 
         create_helpcenter_faq_folders(self, QA_dict, global_faq_folder, obj)
         new_folder = decommision_old_faq(self)
