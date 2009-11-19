@@ -36,7 +36,8 @@ def run(self):
     constrain_addable_types(faq_folder)
 
     faq_docs = get_possible_faqs(self)
-
+    
+    import pdb; pdb.set_trace()
     parents = get_faq_containers(faq_docs)
     parse_and_create_faqs(self, faq_folder, faq_docs)
     return 'done'
@@ -99,7 +100,7 @@ def get_possible_faqs(self):
 
     ls = self.portal_catalog(
                 getId='faq.php',
-                path='/osha/portal/en/good_practice/topics/accident_prevention/')
+                path='osha/en/good_practice/topics/accident_prevention/')
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -181,20 +182,20 @@ def parse_and_create_faqs(self, faq_folder, faq_docs):
                 correct_faq_folder = faq_folder.getTranslation(obj.getLanguage())
                 create_faq(self, question_text, answer_text, state, correct_faq_folder, obj)
 
-                # This is a one to one mapping.
-                # Each RichTextDocument contains one Q and A and each maps to a
-                # corresponding FAQ object.
-                for doc in obj.objectValues():
-                    try:
-                        wf.doActionFor(doc, "reject")
-                    except WorkflowException:
-                        log.info('Could not reject the old faq: %s' % '/'.join(doc.getPhysicalPath()))
+            # This is a one to one mapping.
+            # Each RichTextDocument contains one Q and A and each maps to a
+            # corresponding FAQ object.
+            for doc in obj.objectValues():
+                try:
+                    wf.doActionFor(doc, "reject")
+                except WorkflowException:
+                    log.info('Could not reject the old faq: %s' % '/'.join(doc.getPhysicalPath()))
 
-                    old_title = doc.Title()
-                    if 'Migrated:' not in old_title:
-                        doc.setTitle('Migrated: %s' % old_title)
+                old_title = doc.Title()
+                if 'Migrated:' not in old_title:
+                    doc.setTitle('Migrated: %s' % old_title)
 
-                    doc.reindexObject()
+                doc.reindexObject()
 
             obj.delProperty('layout')
             new_folder =  obj # We use the existing folder as our new aggregator
