@@ -133,7 +133,7 @@
         for="Products.ATContentTypes.interface.folder.IATFolder"
         class=".foldercontents.FolderContentsKSSView"
         attribute="update_table"
-        name="foldercontents_update_table"
+        name="bulktagger_update_table"
         permission="cmf.ListFolderContents" 
         />
 
@@ -141,7 +141,7 @@
         for="Products.ATContentTypes.interface.folder.IATBTreeFolder"
         class=".foldercontents.FolderContentsKSSView"
         attribute="update_table"
-        name="foldercontents_update_table"
+        name="bulktagger_update_table"
         permission="cmf.ListFolderContents" 
         />
 
@@ -151,7 +151,7 @@
         for="Products.ATContentTypes.interface.topic.IATTopic"
         class=".foldercontents.FolderContentsKSSView"
         attribute="update_table"
-        name="foldercontents_update_table"
+        name="bulktagger_update_table"
         permission="cmf.ListFolderContents" 
         />
 
