@@ -20,7 +20,6 @@ def run(self):
     # faqs = create_helpcenters(self)
     # return 'done'
 
-    import pdb; pdb.set_trace()
     faq_docs = get_possible_faqs(self)
 
     # Each one of the faq_docs will become a HelpCenterFAQFolder
@@ -82,13 +81,13 @@ def get_possible_faqs(self):
     #             getId='faq.php',
     #             path='/osha/portal/en/good_practice/priority_groups/disability/')
     
-    ls = self.portal_catalog(
-                getId='faq2.stm',
-                path='osha/en/good_practice/topics/dangerous_substances/faq2.stm')
-
     # ls = self.portal_catalog(
-    #             getId='faq.php',
-    #             path='osha/en/good_practice/topics/accident_prevention/')
+    #             getId='faq.stm',
+    #             path='osha/en/good_practice/topics/dangerous_substances/faq.stm')
+
+    ls = self.portal_catalog(
+                getId='faq.php',
+                path='osha/en/good_practice/topics/accident_prevention/')
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -120,14 +119,9 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
     faq.setLanguage(obj.getLanguage())
 
     faq._renameAfterCreation(check_auto_id=False)
-    faq.reindexObject()
-    # # Set aliases
-    # if path:
-    #    rtool = self.portal_redirection
-    #    rtool.addRedirect(path, '/'.join(faq.getPhysicalPath()))
+    set_keywords(faq, obj.aq_parent, reindex=True)
 
     log.info('created faq: %s' % '/'.join(faq.getPhysicalPath()))
-
     if state == 'published':
         try:
             wf.doActionFor(faq, "publish")
@@ -135,7 +129,6 @@ def create_faq(self, question_text, answer_text, state, faq_folder, obj, path=No
             log.info('Could not publish the faq: %s' % '/'.join(faq.getPhysicalPath()))
             pass
 
-    set_keywords(faq, obj.aq_parent)
     return faq
 
 
@@ -155,11 +148,12 @@ def create_helpcenter_faq_folders(self, QA_dict, obj):
                         id=fid,
                         title=obj.Title()
                         )
-    hcfaqfolder = correct_faq_folder._getOb(fid)
-    hcfaqfolder._renameAfterCreation(check_auto_id=False)
+    fcfaqsection = correct_faq_folder._getOb(fid)
+    fcfaqsection._renameAfterCreation(check_auto_id=False)
+    set_keywords(fcfaqsection, obj.aq_parent, reindex=True)
 
     for question_text, answer_text in QA_dict.items():
-        create_faq(self, question_text, answer_text, state, hcfaqfolder, obj)
+        faq = create_faq(self, question_text, answer_text, state, fcfaqsection, obj)
 
 
 def decommision_old_faq(self, obj):
@@ -328,7 +322,7 @@ def is_probable_question(suspect):
                                 return True
                                 
 
-def set_keywords(faq, old_parent):
+def set_keywords(obj, old_parent, reindex=True):
     log.info("set_keywords")
     for fid, kw  in [
             ('disability', 'disability'),
@@ -345,22 +339,23 @@ def set_keywords(faq, old_parent):
             ]:
         if fid in old_parent.getPhysicalPath():
             try:
-                subject = faq.getSubject()
+                subject = obj.getSubject()
             except:
-                subject = faq.Schema().getField('subject').get(old_parent)
+                subject = obj.Schema().getField('subject').get(obj)
 
             if kw not in subject:
                 subject = list(subject) + [kw]
-                faq.setSubject(subject)
+                obj.setSubject(subject)
                 log.info("Add keyword '%s' to %s: %s \n" \
-                        % (kw, faq.portal_type, faq.getPhysicalPath()))
+                        % (kw, obj.portal_type, obj.getPhysicalPath()))
             else:
                 log.info("Keyword '%s' already in %s: %s \n" \
-                        % (faq, faq.portal_type, faq.getPhysicalPath()))
+                        % (obj, obj.portal_type, obj.getPhysicalPath()))
                         
-            log.info('Added keyword to FAQ %s, %s' % ('/'.join(faq.getPhysicalPath()), kw))
+            log.info('Added keyword to obj %s, %s' % ('/'.join(obj.getPhysicalPath()), kw))
 
-    faq.reindexObject()
+    if reindex:
+        obj.reindexObject()
 
 
 def subtype_container(parent):
