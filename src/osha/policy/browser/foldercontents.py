@@ -64,32 +64,36 @@ class CustomizedFolderContentsTable(FolderContentsTable):
             contentsMethod = context.getFolderContents
 
         results = []
-        for i, obj in enumerate(contentsMethod(self.contentFilter)):
+        for i, brain in enumerate(contentsMethod(self.contentFilter)):
+            # don't bother if the object doesn't support bulk-tagging
+            if brain.portal_type not in SUPPORTED_PORTAL_TYPES:
+                continue
+
             if (i + 1) % 2 == 0:
                 table_row_class = "draggable even"
             else:
                 table_row_class = "draggable odd"
 
-            url = obj.getURL()
-            path = obj.getPath or "/".join(obj.getPhysicalPath())
-            icon = plone_view.getIcon(obj);
+            url = brain.getURL()
+            path = brain.getPath() or "/".join(brain.getPhysicalPath())
+            icon = plone_view.getIcon(brain);
 
             type_class = 'contenttype-' + plone_utils.normalizeString(
-                obj.portal_type)
+                brain.portal_type)
 
-            review_state = obj.review_state
+            review_state = brain.review_state
             state_class = 'state-' + plone_utils.normalizeString(review_state)
-            relative_url = obj.getURL(relative=True)
+            relative_url = brain.getURL(relative=True)
 
-            type_title_msgid = portal_types[obj.portal_type].Title()
+            type_title_msgid = portal_types[brain.portal_type].Title()
             url_href_title = u'%s: %s' % (translate(type_title_msgid,
                                                     context=self.request),
-                                          safe_unicode(obj.Description))
+                                          safe_unicode(brain.Description))
 
             modified = plone_view.toLocalizedTime(
-                obj.ModificationDate, long_format=1)
+                brain.ModificationDate, long_format=1)
 
-            obj_type = obj.Type
+            obj_type = brain.Type
             if obj_type in use_view_action:
                 view_url = url + '/view'
             elif obj.is_folderish:
@@ -98,32 +102,30 @@ class CustomizedFolderContentsTable(FolderContentsTable):
                 view_url = url
 
             is_browser_default = len(browser_default[1]) == 1 and (
-                obj.id == browser_default[1][0])
+                brain.id == browser_default[1][0])
             
             subcategory = multilingualthesaurus = nace = ""
             
-            if obj.portal_type not in SUPPORTED_PORTAL_TYPES:
-                continue
 
             if not hasattr(self, 'subcategory_field'):
-                self.subcategory_field = obj.getObject().Schema()['subcategory']
-            subcategory = getInlineTreeView(self.context, obj, self.request, self.subcategory_field).render
+                self.subcategory_field = brain.getObject().Schema()['subcategory']
+            subcategory = getInlineTreeView(self.context, brain, self.request, self.subcategory_field).render
             if not hasattr(self, 'mt_field'):
-                self.mt_field = obj.getObject().Schema()['multilingual_thesaurus']
-            multilingualthesaurus = getInlineTreeView(self.context, obj, self.request, self.mt_field).render
+                self.mt_field = brain.getObject().Schema()['multilingual_thesaurus']
+            multilingualthesaurus = getInlineTreeView(self.context, brain, self.request, self.mt_field).render
             if not hasattr(self, 'nace_field'):
-                self.nace_field = obj.getObject().Schema()['nace']
-            nace = getInlineTreeView(self.context, obj, self.request, self.nace_field).render
+                self.nace_field = brain.getObject().Schema()['nace']
+            nace = getInlineTreeView(self.context, brain, self.request, self.nace_field).render
 
             results.append(dict(
                 url=url,
                 url_href_title=url_href_title,
-                id=obj.getId,
-                quoted_id=urllib.quote_plus(obj.getId),
+                id=brain.getId,
+                quoted_id=urllib.quote_plus(brain.getId),
                 path=path,
-                title_or_id=obj.pretty_title_or_id(),
+                title_or_id=brain.pretty_title_or_id(),
                 obj_type=obj_type,
-                size=obj.getObjSize,
+                size=brain.getObjSize,
                 modified=modified,
                 icon=icon.html_tag(),
                 type_class=type_class,
@@ -132,11 +134,11 @@ class CustomizedFolderContentsTable(FolderContentsTable):
                                                            obj_type),
                 state_class=state_class,
                 is_browser_default=is_browser_default,
-                folderish=obj.is_folderish,
+                folderish=brain.is_folderish,
                 relative_url=relative_url,
                 view_url=view_url,
                 table_row_class=table_row_class,
-                is_expired=context.isExpired(obj),
+                is_expired=context.isExpired(brain),
                 subcategory=subcategory,
                 multilingualthesaurus=multilingualthesaurus,
                 nace=nace
