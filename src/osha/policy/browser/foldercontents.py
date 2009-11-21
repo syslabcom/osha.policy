@@ -41,6 +41,7 @@ class CustomizedFolderContentsTable(FolderContentsTable):
         self.table = CustomizedTable(request, url, view_url, self.items,
                                      show_sort_column=self.show_sort_column,
                                      buttons=self.buttons)
+        self.table.portal = getToolByName(context, 'portal_url').getPortalObject()
 
     @property
     @instance.memoize
@@ -107,15 +108,23 @@ class CustomizedFolderContentsTable(FolderContentsTable):
             subcategory = multilingualthesaurus = nace = ""
             
 
+            obj = brain.getObject()
+            is_canonical = obj.isCanonical()
             if not hasattr(self, 'subcategory_field'):
-                self.subcategory_field = brain.getObject().Schema()['subcategory']
-            subcategory = getInlineTreeView(self.context, brain, self.request, self.subcategory_field).render
+                self.subcategory_field = obj.getField('subcategory')
+            subcategory_pt = getInlineTreeView(self.context, brain, self.request, self.subcategory_field)
+            subcategory_mode = (is_canonical or not self.subcategory_field.languageIndependent) and 'edit' or 'view'
+            subcategory = subcategory_pt.render.macros.get(subcategory_mode)
             if not hasattr(self, 'mt_field'):
-                self.mt_field = brain.getObject().Schema()['multilingual_thesaurus']
-            multilingualthesaurus = getInlineTreeView(self.context, brain, self.request, self.mt_field).render
+                self.mt_field = obj.getField('multilingual_thesaurus')
+            multilingualthesaurus_pt = getInlineTreeView(self.context, brain, self.request, self.mt_field)
+            multilingualthesaurus_mode = (is_canonical or not self.mt_field.languageIndependent) and 'edit' or 'view'
+            multilingualthesaurus = multilingualthesaurus_pt.render.macros.get(multilingualthesaurus_mode)
             if not hasattr(self, 'nace_field'):
-                self.nace_field = brain.getObject().Schema()['nace']
-            nace = getInlineTreeView(self.context, brain, self.request, self.nace_field).render
+                self.nace_field = obj.getField('nace')
+            nace_pt = getInlineTreeView(self.context, brain, self.request, self.nace_field)
+            nace_mode = (is_canonical or not self.nace_field.languageIndependent) and 'edit' or 'view'
+            nace = nace_pt.render.macros.get(nace_mode)
 
             results.append(dict(
                 url=url,
@@ -141,7 +150,11 @@ class CustomizedFolderContentsTable(FolderContentsTable):
                 is_expired=context.isExpired(brain),
                 subcategory=subcategory,
                 multilingualthesaurus=multilingualthesaurus,
-                nace=nace
+                nace=nace,
+                subcategory_mode=subcategory_mode,
+                multilingualthesaurus_mode=multilingualthesaurus_mode,
+                nace_mode=nace_mode,
+                context=obj,
             ))
         return results
 

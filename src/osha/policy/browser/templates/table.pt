@@ -1,4 +1,5 @@
-<div id="folderlisting-main-table" i18n:domain="plone">
+<div id="folderlisting-main-table" i18n:domain="plone"
+    tal:define="portal nocall:view/portal">
     <input type="hidden" name="sort_on" tal:attributes="value request/sort_on|string:getObjPositionInParent" /><input type="hidden" name="pagenumber" tal:attributes="value view/batch/pagenumber"/><input type="hidden" name="show_all" tal:attributes="value view/show_all"/><input type="hidden" name="orig_template" tal:attributes="value view/viewname"/>
     <tal:block condition="view/selectall">
         <input type="hidden" name="paths:list" tal:repeat="item view/batch/items_not_on_page" tal:attributes="value item/path"/>
@@ -83,7 +84,10 @@
                 <tbody>
                     <tal:items tal:repeat="item view/batch">
                         <tr tal:attributes="class item/table_row_class;
- id string:folder-contents-item-${item/id};" >
+ id string:folder-contents-item-${item/id};" 
+                            tal:define="here python:item.get('context');
+                                            context nocall:here;
+                                            errors python:{};">
                             <tal:comment replace="nothing">
                                 * We have to check if the browserDefault stuff is really necessary
                                 * Create title_or_id metadata in the catalog (why not just use item.Title or item.getId? (alecm))
@@ -117,11 +121,26 @@
                                 <a href="" title="Move item up" i18n:attributes="title title_move_item_up;" tal:attributes="href string:${view/base_url}/folder_position?position=up&amp;id=${item/quoted_id}">&#9650;</a>
                                 &nbsp;<a href="" title="Move item down" i18n:attributes="title title_move_item_down;" tal:attributes="href string:${view/base_url}/folder_position?position=down&amp;id=${item/quoted_id}">&#9660;</a>
                             </td>
-                            <td class="inlinetree subcategory" tal:content="structure item/subcategory">
+                            <td tal:define="field python:here.getField('subcategory');
+                                            accessor python:field.getAccessor(here);
+                                            fieldName field/getName;
+                                            widget nocall:field/widget;
+                                            mode item/subcategory_mode;">
+                                <metal:use use-macro="item/subcategory" />
                             </td>
-                            <td class="inlinetree multilingualthesaurus" tal:content="structure item/multilingualthesaurus">
+                            <td tal:define="field python:here.getField('multilingual_thesaurus');
+                                            accessor python:field.getAccessor(here);
+                                            fieldName field/getName;
+                                            widget nocall:field/widget;
+                                            mode item/multilingualthesaurus_mode;">
+                                <metal:use use-macro="item/multilingualthesaurus" />
                             </td>
-                            <td class="inlinetree nace" tal:content="structure item/nace">
+                            <td tal:define="field python:here.getField('nace');
+                                            accessor python:field.getAccessor(here);
+                                            fieldName field/getName;
+                                            widget nocall:field/widget;
+                                            mode item/nace_mode;">
+                                <metal:use use-macro="item/nace" />
                             </td>
 
                         </tr>
