@@ -72,9 +72,8 @@
                     jq("#listing-table input[type=checkbox]:checked").each(function(){
                         var ajax = ''
                         var fieldName = ''
-                        jq(this).parent().parent().children('.inlinetree').each(function(){
-                            list = jq(this).parent().parent().children(".intranet-category").children().children("span")
-                            list = jq(this).children().children('span')
+                        jq(this).parent().parent().children().children('.ArchetypesInlineTreeWidget').each(function(){
+                            list = jq(this).children('span')
                             list.children("div").children().each(function(){
                                 id = this.id
                                 if ('ajax_url' == id.substring(id.length - 'ajax_url'.length)) {
