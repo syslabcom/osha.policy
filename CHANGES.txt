@@ -4,6 +4,7 @@ osha.policy Changelog
 1.2.30 (unreleased)
 -------------------
 
+- Added EUPL license (deroiste)
 - Added conditional patches for p4a.image, so that they don't add their indexes
   (gerken)
 - Custom views for index Subject for slc.clicksearch (thomasw)
