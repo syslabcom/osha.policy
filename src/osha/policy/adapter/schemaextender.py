@@ -17,6 +17,7 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import Reference
 from Products.ATVocabularyManager.namedvocabulary import NamedVocabulary
 from Products.Archetypes import atapi
 from Products.Archetypes.Widget import BooleanWidget
+from Products.Archetypes.Widget import KeywordWidget
 from Products.Archetypes.utils import DisplayList
 from Products.CMFCore.utils import getToolByName
 from Products.DataGridField import DataGridField, DataGridWidget
@@ -206,8 +207,6 @@ description_reindexTranslations = u"Check this box to have all translated versio
                             u"change language-independent fields suchs as dates and want the changes to be effective " \
                             u"in the catalog, too. WARNING: depending on the number of translations, this will lead to " \
                             u"a delay in the time it takes to save."
-
-
 
 
 class TaggingSchemaExtender(object):
@@ -698,6 +697,70 @@ class PressReleaseExtender(object):
         original['default'] = default
 
         return original
+
+
+###############################################################################
+# HelpCenterFAQ
+#
+# HelpCenterFAQ uses the AddRemoveWidget 'subject' widget instead of
+# the standard one. Since we have override the standard keyword.pt
+# template in
+# osha/theme/skins/osha_theme_custom_templates/widgets/keyword.pt to
+# provide translations for the keywords, here we subtype HelpCenterFAQ
+# so that it also uses the standard 'subject' widget.
+###############################################################################
+
+class IFAQExtender(zope.interface.Interface):
+    """ Marker for FAQ extender """
+
+from Products.PloneHelpCenter.content.FAQ import HelpCenterFAQ
+zope.interface.classImplements(HelpCenterFAQ, IFAQExtender)
+
+
+
+class FAQExtender(object):
+    zope.interface.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
+    zope.component.adapts(IFAQExtender)
+    layer = IOSHACommentsLayer
+
+    _fields = [
+            BaseLinesField(
+            'subject',
+            multiValued=1,
+            accessor="Subject",
+            searchable=True,
+            widget=KeywordWidget(
+                label=_(u'label_categories', default=u'Categories'),
+                description=_(u'help_categories',
+                              default=u'Also known as keywords, tags or labels, '
+                                       'these help you categorize your content.'),
+                ),
+            ),
+        ]
+
+    def __init__(self, context):
+        self.context = context
+        klass = context.__class__
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
+            fields = [field for field in self._fields if field.languageIndependent]
+            generateMethods(klass, fields)
+            LOG(MODULE, INFO, "called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
+            setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
+
+    def getFields(self):
+        return self._fields
+
+    def getOrder(self, original):
+
+        default = original.get('default', [])
+        if 'reindexTranslations' in default:
+            default.remove('reindexTranslations')
+            idx = len(default)
+            default.insert(idx, 'reindexTranslations')
+        original['default'] = default
+
+        return original
+
 
 
 ###############################################################################

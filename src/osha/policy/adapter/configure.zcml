@@ -44,6 +44,10 @@
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
 
     <adapter
+        factory=".schemaextender.FAQExtender" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+
+    <adapter
         factory=".schemaextender.TaggingSchemaExtenderFileContent" 
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
 
