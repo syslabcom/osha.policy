@@ -5,6 +5,7 @@ osha.policy Changelog
 -------------------
 
 - Added EUPL license (deroiste)
+- Subtyped HelpCenterFAQ to use translations for keywords RM #231 (deroiste)
 - Added conditional patches for p4a.image, so that they don't add their indexes
   (gerken)
 - Custom views for index Subject for slc.clicksearch (thomasw)
