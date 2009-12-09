@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.2.30 (unreleased)
+1.2.30 (2009-12-09)
 -------------------
 
 - Added EUPL license (deroiste)
