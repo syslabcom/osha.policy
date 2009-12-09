@@ -141,7 +141,7 @@ def doit(self, path_to_file=""):
         data = dataByFilename.get(base_filename, None)
         if not data:
             print "ERROR! No data found for %s" %(fname)
-            import pdb; pdb.set_trace()
+            #import pdb; pdb.set_trace()
             continue
         title = data.get('title_%s' %lang)
         descr = data.get('descr_%s' %lang)
