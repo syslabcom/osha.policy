@@ -11,7 +11,23 @@ osha.policy Changelog
 - Custom views for index Subject for slc.clicksearch (thomasw)
 - Extension for setting title, description and publication on uploaded questions
   (thomasw)
-
+- resource_centralisation_helper now queries for all languages + various 
+  bugfixes in that file (deroiste)
+- Make parents aggregators when pasting new objects (brand)
+- Extracted cleanwordpastedtext functionality into its own package (brand)
+- Made patching more uniform (gerken)
+- Extension for creating member states and content in oshnetwork/member-states
+  (deroiste, brand, thomasw)
+- Tool for removing traces of p4a.image added (thomasw)
+- Helper tool for faq_centralisation added (brand, deroiste)
+- Adding bulk tagger view (gerken)
+- Extending Schema of IATImage and IATFile (gerken, thomasw)
+- Adding little Helper for easy display of object RID (thomasw)
+- Modified Annotations? (thomasw)
+- Removed a new unneccessary plone.app.blob patch (thomasw)
+- New features regarding country fields and events (thomasw)
+- Extending control panel to add version configuration (brand)
+- Adding parsers for changed metadata (gerken)
 
 1.2.29 (2009-10-18)
 -------------------
