@@ -14,7 +14,7 @@
 
 
 Credits
-=======
+*******
 
 Copyright European Agency for Health and Safety at Work and Syslab.com
 GmbH.
@@ -24,7 +24,7 @@ and Safety at Work.
 
 
 License
-=======
+*******
 
 osha.policy is licensed under the GNU Lesser Generic Public License,
 version 2 or later and EUPL version 1.1 only. The complete license

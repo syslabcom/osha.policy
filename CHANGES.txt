@@ -51,45 +51,45 @@ osha.policy Changelog
 - set property svn:ignore (thomasw)
 
 
-osha.policy 1.2.27 (2009-10-06)
+1.2.27 (2009-10-06)
 -------------------------------
 
 - Overriding the Chapter Update functionality in slc.publications (gerken)
 
 
-osha.policy 1.2.26 (2009-10-06)
+1.2.26 (2009-10-06)
 -------------------------------
 - Add new fields to Links (gerken)
 - fixed the naming of multilingual_thesaurus. Had a wrong label (gerken)
 - We now store workflow policies. in setup tools. Also there is now
   a new policy for workflows (gerken)
 
-osha.policy 1.2.25 (2009-09-30)
+1.2.25 (2009-09-30)
 -------------------------------
 - bugfix: removed a file that was added wrongly during the structural change
   done in the last revision (gerken)
 
-osha.policy 1.2.24 (2009-09-26)
+1.2.24 (2009-09-26)
 -------------------------------
 - Make osha.policy standalone buildable (gerken)
 
-osha.policy 1.2.23 (2009-09-26)
+1.2.23 (2009-09-26)
 -------------------------------
 - Disable the handle_auto_translated_files subscriber. (jcbrand)
 - removed unnecessary import in patches/autotranslate_get_translations.py (deroiste)
 
 
-osha.policy 1.2.22 (2009-09-10)
+1.2.22 (2009-09-10)
 -------------------------------
 - Don't monkeypatch get_translations, it is now configurable in
   slc.autotranslateions (jcbrand)
 
-osha.policy 1.2.21 (2009-09-09)
+1.2.21 (2009-09-09)
 -------------------------------
 - Updated autotranslate_get_translations patch to not look for translations in
   the current folder. (jcbrand)
 
-osha.policy 1.2.20 (2009-09-09)
+1.2.20 (2009-09-09)
 -------------------------------
 
 - replaced several occurrences of parent-fieldname-image ids through classes (pilz)
@@ -100,27 +100,27 @@ osha.policy 1.2.20 (2009-09-09)
   specific naming conventions (jcbrand)
 
 
-osha.policy 1.2.19 (2009-08-24)
+1.2.19 (2009-08-24)
 -------------------------------
 
 - The slc.autotranslate event has been renamed. Updated in configure.zcml (jcbrand)
 
-osha.policy 1.2.18 (2009-08-17)
+1.2.18 (2009-08-17)
 -------------------------------
 
 - made the changes in utils.py and handlers.py available again with correct import/dependency (jcbrand)
 - removed a pdb statement from ploneflashuploadpatch (thomasw)
 
-osha.policy 1.2.17 (2009-08-12)
+1.2.17 (2009-08-12)
 -------------------------------
 -reverting configure.zcml, which I had forgotten earlier (thomasw)
 
-osha.policy 1.2.16 (2009-08-12)
+1.2.16 (2009-08-12)
 -------------------------------
 
 - reverted utils.py and handlers.py due to unsolved import/dependency issues (thomasw)
 
-osha.policy 1.2.15 (2009-08-12)
+1.2.15 (2009-08-12)
 -------------------------------
 
 - For consistency reasons, we also include the "country" field in the 
@@ -134,25 +134,25 @@ osha.policy 1.2.15 (2009-08-12)
 - Add extractPDFText to utils (brand)
 - Add event handler handle_auto_translated_files for the slc.autotranslate custom event (brand)
 
-osha.policy 1.2.14 (2009-08-02)
+1.2.14 (2009-08-02)
 -------------------------------
 
 - removed the getCountry script. We have a generated accessor with the same name. This can
   lead to wrong results in the catalog's metadata (thomasw)
 
-osha.policy 1.2.13 (2009-08-02)
+1.2.13 (2009-08-02)
 -------------------------------
 
 - re-added the "country" field globally to the TaggingSchemaExtenderDocument (thomasw)
 - added ero_topic and ero_target_group to the OSHAMetadata vdex vocabulary (thomasw)
 
-osha.policy 1.2.12 (2009-08-01)
+1.2.12 (2009-08-01)
 -------------------------------
 
 - REVERTED release 1.2.11 to status of release 1.2.10
   The solution in 1.2.11 was not valid (thomasw)
 
-osha.policy 1.2.11 (2009-08-01)
+1.2.11 (2009-08-01)
 -------------------------------
 
 - readded the ERO Schema extensions. Part of the problems were due to wrong
@@ -161,51 +161,51 @@ osha.policy 1.2.11 (2009-08-01)
   step. This step was extracted from the various steps, and it is safe to call
   the step on an already installed site. (gerken)
 
-osha.policy 1.2.10 (2009-07-28)
+1.2.10 (2009-07-28)
 -------------------------------
 
 - added patch to queuecatalog to make it work with relations (brand)
 
-osha.policy 1.2.9 (2009-07-26)
+1.2.9 (2009-07-26)
 ------------------------------
 
 - small fix to the oshmail creation form (thomas)
 
-osha.policy 1.2.8 (2009-07-19)
+1.2.8 (2009-07-19)
 ------------------------------
 
 - made a getObject in ProviderHelper robust to not quit on catalog inconsistency (pilz)
 - patching Press Release: Date() now returns storydate (==release date) (thomasw)
 - createOSHMail: fixed queries for news&events, made inserting content optional (thomasw)
 
-osha.policy 1.2.7 (2009-07-12)
+1.2.7 (2009-07-12)
 ------------------------------
 
 - modified FCKEditor patch, so that Images can be found via "Browse server" again (thomasw)
 
-osha.policy 1.2.6 (2009-07-03)
+1.2.6 (2009-07-03)
 ------------------------------
 
 - enhanced Collage (OSHMail) generating script. Teasers, news, events, press releases
   and publications are automatically filled in (thomasw)
 
-osha.policy 1.2.5 (2009-06-30)
+1.2.5 (2009-06-30)
 ------------------------------
 
 - changed path for arial fonts (pilz)
 
-osha.policy 1.2.4 (2009-06-25)
+1.2.4 (2009-06-25)
 ------------------------------
 
 - added notifyMemberAreaCreated from former SEPStructure (pilz)
 
 
-osha.policy 1.2.3 (2009-06-19)
+1.2.3 (2009-06-19)
 ------------------------------
 
 - bugfix in patch subject_accessor to prevent infinite recursions (thomasw)
 
-osha.policy 1.2.2 (2009-06-17)
+1.2.2 (2009-06-17)
 ------------------------------
 
 - Code cleanup, removed prints (gerken)
@@ -214,19 +214,19 @@ osha.policy 1.2.2 (2009-06-17)
 
 - Made schema-extender classes respect the browser-layer (thomasw)
 
-osha.policy 1.2.1 (2009-06-10)
+1.2.1 (2009-06-10)
 ------------------------------
 
 - Removed prints in schemaextender (thomasw)
 
 - Updated annotations file for google CSE (thomasw)
 
-osha.policy 1.1 (2009-05-12)
+1.1 (2009-05-12)
 ----------------------------
 
 - Packaged egg (pilz)
 
-osha.policy 1.0 (2008-03-31)
+1.0 (2008-03-31)
 ----------------------------
 
 - Initial port
