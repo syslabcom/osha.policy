@@ -129,18 +129,15 @@ class NACEField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
     def Vocabulary(self, content_instance):
         return self._Vocabulary(content_instance, 'NACE')
 
-
 class SubcategoryField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
 
     def Vocabulary(self, content_instance):
         return self._Vocabulary(content_instance, 'Subcategory')
 
-
 class CountryField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
 
     def Vocabulary(self, content_instance):
         return self._Vocabulary(content_instance, 'Country')
-
 
 class MTSubjectField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
 
@@ -160,16 +157,16 @@ class ReferencedContentField(ExtensionFieldMixin, ExtensionField, atapi.Referenc
     """ can be used to display inside the current object. """
 
 class NewsMarkerField(ExtensionFieldMixin, ExtensionField, atapi.BooleanField):
-    """ marker field to have object appear in news portlet """
+    """ Marker field to have object appear in news portlet """
 
 class SEDataGridField(ExtensionFieldMixin, ExtensionField, DataGridField):
-    """ marker field to have object appear in news portlet """
+    """ Marker field to have object appear in news portlet """
 
 class BaseLinesField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
     """ """
 
 class ReindexTranslationsField(ExtensionField, atapi.BooleanField):
-    """ indicate whether translations should be reindexd upon saving """
+    """ Indicate whether translations should be reindexd upon saving """
 
 description_reindexTranslations = \
     u"Check this box to have all translated versions reindexed. This is " \
@@ -292,7 +289,7 @@ tagging_fields_dict = {
                 i18n_domain='osha',
             ),
         ),
-    'ReindexTranslations':
+    'reindexTranslations':
         ReindexTranslationsField('reindexTranslations',
             schemata='default',
             default=False,
@@ -339,8 +336,8 @@ class OSHASchemaExtender(object):
                         )
     layer = IOSHACommentsLayer
 
-    def _generateMethodsForLanguageIndependentFields(self, fields):
-        klass = self.context.__class__
+    def _generateMethodsForLanguageIndependentFields(self, context, fields):
+        klass = context.__class__
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
             fields = [field for field in fields if field.languageIndependent]
             generateMethods(klass, fields)
@@ -349,6 +346,9 @@ class OSHASchemaExtender(object):
 
     def getOrder(self, original):
         return original
+
+    def getFields(self):
+        return self._fields
 
 
 class TaggingSchemaExtender(OSHASchemaExtender):
@@ -750,110 +750,27 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
 
 class TaggingSchemaExtenderFileContent(OSHASchemaExtender):
     zope.component.adapts(IOSHFileContent)
-
     _fields = [
-            CountryField('country',
-                schemata='default',
-                enforceVocabulary=False,
-                languageIndependent=True,
-                required=False,
-                multiValued=True,
-                mutator='setCountry',
-                accessor='getCountry',
-                widget=MultiCountryWidget(
-                    label="Countries",
-                    description='Select one or more countries appropriate for this content',
-                    description_msgid='help_country',
-                    provideNullValue=1,
-                    nullValueTitle="Select...",
-                    label_msgid='label_country',
-                    i18n_domain='osha',
-                ),
-            ),
-            BaseLinesField('subcategory',
-                schemata='default',
-                enforceVocabulary=True,
-                languageIndependent=True,
-                multiValued=True,
-                mutator='setSubcategory',
-                accessor='getSubcategory',
-                widget=VocabularyPickerWidget(
-                    label="Subcategory (Site position)",
-                    description="Choose the most relevant subcategories. This will decide where the information is displayed",
-                    vocabulary="Subcategory",
-                    label_msgid='label_subcategory',
-                    description_msgid='help_subcategory',
-                    i18n_domain='osha',
-                    condition="python:len(object.getField('subcategory').Vocabulary(object))",
-                    ),
-            ),
-            BaseLinesField('multilingual_thesaurus',
-                schemata='default',
-                enforceVocabulary=False,
-                languageIndependent=True,
-                required=False,
-                multiValued=True,
-                mutator='setMultilingual_thesaurus',
-                accessor='getMultilingual_thesaurus',
-                widget=VocabularyPickerWidget(
-                    label='Multilingual Thesaurus Subject',
-                    description='Select one or more entries',
-                    vocabulary="MultilingualThesaurus",
-                    label_msgid='label_multilingual_thesaurus',
-                    description_msgid='help_multilingual_thesaurus',
-                    i18n_domain='osha',
-                    condition="python:len(object.getField('multilingual_thesaurus').Vocabulary(object))",
-                ),
-            ),
-            BaseLinesField('nace',
-                schemata='default',
-                languageIndependent=True,
-                multiValued=True,
-                mutator='setNace',
-                accessor='getNace',
-                widget=VocabularyPickerWidget(
-                    label="Sector (NACE Code)",
-                    description="Pick one or more values by clicking the Add button or using the Quicksearch field below.",
-                    vocabulary="NACE",
-                    label_msgid='label_nace',
-                    description_msgid='help_nace',
-                    i18n_domain='osha',
-                    condition="python:len(object.getField('nace').Vocabulary(object))",
-                ),
-            ),
-            ReindexTranslationsField('reindexTranslations',
-                schemata='default',
-                default=False,
-                languageIndependent=False,
-                widget=atapi.BooleanWidget(
-                    label=u"Reindex translations on saving.",
-                    description=description_reindexTranslations,
-                    visible={'edit': 'visible', 'view': 'invisible'},
-                    condition="python:object.isCanonical()",
-                ),
-            ),
-    ]
+        tagging_fields_dict.get('country'),
+        tagging_fields_dict.get('subcategory'),
+        tagging_fields_dict.get('multilingual_thesaurus'),
+        tagging_fields_dict.get('nace'),
+        tagging_fields_dict.get('reindexTranslations'),
+        ]
  
     def __init__(self, context):
         super(TaggingSchemaExtenderFileContent, self).__init__(context)
-        _myfields = list()
         for field in self._fields:
-            new_f = field.copy()
-            if new_f.__name__ in ['subcategory','multilingual_thesaurus','nace']:
-                vocabulary = NamedVocabulary(new_f.widget.vocabulary)
+            if field.__name__ in ['subcategory','multilingual_thesaurus','nace']:
+                vocabulary = NamedVocabulary(field.widget.vocabulary)
                 widget_args = {}
                 for arg in ('label', 'description', 'label_msgid', 
                             'description_msgid, i18n_domain'):
-                    widget_args[arg] = getattr(new_f.widget, arg, '')
+                    widget_args[arg] = getattr(field.widget, arg, '')
                 widget_args['vocabulary'] = vocabulary
-                new_f.vocabulary = vocabulary
+                field.vocabulary = vocabulary
                 if InlineTreeWidget:
-                    new_f.widget = InlineTreeWidget(**widget_args)
+                    field.widget = InlineTreeWidget(**widget_args)
 
-            _myfields.append(new_f)
-        self._myfields = _myfields
-        self._generateMethodsForLanguageIndependentFields(self._myfields)
+        self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
-    def getFields(self):
-        return self._myfields
-        
