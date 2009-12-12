@@ -4,8 +4,7 @@ osha.policy Changelog
 1.2.31 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Bugfix in foldercontents: define obj before you reference it (thomasw)
 
 1.2.30 (2009-12-09)
 -------------------

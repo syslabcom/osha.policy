@@ -95,6 +95,7 @@ class CustomizedFolderContentsTable(FolderContentsTable):
                 brain.ModificationDate, long_format=1)
 
             obj_type = brain.Type
+            obj = brain.getObject()
             if obj_type in use_view_action:
                 view_url = url + '/view'
             elif obj.is_folderish:
@@ -108,7 +109,6 @@ class CustomizedFolderContentsTable(FolderContentsTable):
             subcategory = multilingualthesaurus = nace = ""
             
 
-            obj = brain.getObject()
             is_canonical = obj.isCanonical()
             if not hasattr(self, 'subcategory_field'):
                 self.subcategory_field = obj.getField('subcategory')
