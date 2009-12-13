@@ -364,7 +364,7 @@ class TaggingSchemaExtender(OSHASchemaExtender):
                 new_f = f.copy()
                 _myfields.append(new_f)
         self._myfields = _myfields
-        self._generateMethodsForLanguageIndependentFields(self._myfields)
+        self._generateMethodsForLanguageIndependentFields(context, self._myfields)
 
     def getFields(self):
         return self._myfields
@@ -420,7 +420,7 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
                 initialized = False
                 break
 
-        self._generateMethodsForLanguageIndependentFields(fields)
+        self._generateMethodsForLanguageIndependentFields(context, fields)
 
     def getFields(self):
         return self._myfields
@@ -480,7 +480,7 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
                 initialized = False
                 break
 
-        self._generateMethodsForLanguageIndependentFields(fields)
+        self._generateMethodsForLanguageIndependentFields(context, fields)
 
     def getFields(self):
         return self._myfields
@@ -541,7 +541,7 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
             if new_f.getName() not in ('nace',):
                 _myfields.append(new_f)
         self._myfields = _myfields + self._localFields
-        self._generateMethodsForLanguageIndependentFields(self._myfields)
+        self._generateMethodsForLanguageIndependentFields(context, self._myfields)
 
     def getFields(self):
         return self._myfields
@@ -633,7 +633,7 @@ class PressReleaseExtender(OSHASchemaExtender):
 
     def __init__(self, context):
         self.context = context
-        self._generateMethodsForLanguageIndependentFields(self._fields)
+        self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
     def getFields(self):
         return self._fields
@@ -688,7 +688,7 @@ class FAQExtender(OSHASchemaExtender):
 
     def __init__(self, context):
         self.context = context
-        self._generateMethodsForLanguageIndependentFields(self._fields)
+        self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
     def getFields(self):
         return self._fields
@@ -724,7 +724,7 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
                 new_f = f.copy()
                 _myfields.append(new_f)
         self._myfields = _myfields
-        self._generateMethodsForLanguageIndependentFields(self._myfields)
+        self._generateMethodsForLanguageIndependentFields(context, self._myfields)
 
     def getFields(self):
         return self._myfields
@@ -742,7 +742,7 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
                 new_f = f.copy()
                 _myfields.append(new_f)
         self._myfields = _myfields
-        self._generateMethodsForLanguageIndependentFields(self._myfields)
+        self._generateMethodsForLanguageIndependentFields(context, self._myfields)
 
     def getFields(self):
         return self._myfields
