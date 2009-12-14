@@ -19,7 +19,7 @@
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
 
     <adapter
-        factory=".schemaextender.TaggingSchemaExtenderCaseStudy" 
+        factory=".schemaextender.CaseStudyExtender" 
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
  
     <adapter

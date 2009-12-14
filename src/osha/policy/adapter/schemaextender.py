@@ -401,23 +401,29 @@ class TaggingSchemaExtender(OSHASchemaExtender):
         return original
 
 
-class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
+class CaseStudyExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHContentCaseStudy)
+
+    _fields = [
+        tagging_fields_dict.get('country'),
+        tagging_fields_dict.get('multilingual_thesaurus'),
+        tagging_fields_dict.get('nace'),
+        tagging_fields_dict.get('osha_metadata'),
+        tagging_fields_dict.get('isNews'),
+        tagging_fields_dict.get('reindexTranslations'),
+        tagging_fields_dict.get('annotatedlinklist'),
+        ]
 
     def __init__(self, context):
         self.context = context
-        _myfields= list()
         for f in self._fields:
-            new_f = f.copy()
-            if new_f.getName() in ('country', 'multilingual_thesaurus'):
-                new_f.required = True
-            if new_f.getName() != 'subcategory':
-                _myfields.append(new_f)
-        self._myfields = _myfields
+            if f.getName() in ('country', 'multilingual_thesaurus'):
+                f.required = True
+
         # Case Study inherits from ATDocument. We might get a false positive, so check that the
         # accessors are really there
         initialized = True
-        fields = [field for field in _myfields if field.languageIndependent]
+        fields = [field for field in self._fields if field.languageIndependent]
         for field in fields:
             if not getattr(context, field.accessor, None):
                 initialized = False
@@ -425,9 +431,6 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
 
         self._generateMethodsForLanguageIndependentFields(context, fields, initialized)
 
-
-    def getFields(self):
-        return self._myfields
 
     def getOrder(self, original):
         default = original.get('default', [])
