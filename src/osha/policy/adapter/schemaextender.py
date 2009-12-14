@@ -69,11 +69,7 @@ class IOSHContentRALink(zope.interface.Interface):
 class IOSHContentEvent(zope.interface.Interface):
     """ OSHContent for Event """
 
-class IOSHNewsItem(zope.interface.Interface):
-    """ OSHContent for News Item"""
-
 zope.interface.classImplements(ATEvent, IOSHContentEvent)
-zope.interface.classImplements(ATNewsItem, IOSHNewsItem)
 zope.interface.classImplements(CaseStudy, IOSHContentCaseStudy)
 zope.interface.classImplements(OSH_Link, IOSHContent)
 zope.interface.classImplements(RALink, IOSHContentRALink)
@@ -82,6 +78,7 @@ class IOSHContentDocument(zope.interface.Interface):
     """ OSH Content for Document types """
 
 zope.interface.classImplements(ATDocument, IOSHContentDocument)
+zope.interface.classImplements(ATNewsItem, IOSHContentDocument)
 zope.interface.classImplements(RichDocument, IOSHContentDocument)
 zope.interface.classImplements(whoswho, IOSHContentDocument)
 
@@ -336,12 +333,18 @@ class OSHASchemaExtender(object):
                         )
     layer = IOSHACommentsLayer
 
-    def _generateMethodsForLanguageIndependentFields(self, context, fields):
+    def _generateMethodsForLanguageIndependentFields(
+                                    self, context, fields, initialized=True):
+
         klass = context.__class__
-        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False):
+        if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False) \
+                                                        or not initialized:
+
             fields = [field for field in fields if field.languageIndependent]
             generateMethods(klass, fields)
-            log.info("called generateMethods on %s (%s) " % (klass, self.__class__.__name__))
+            log.info("called generateMethods on %s (%s) " \
+                                    % (klass, self.__class__.__name__))
+
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getOrder(self, original):
@@ -420,7 +423,8 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
                 initialized = False
                 break
 
-        self._generateMethodsForLanguageIndependentFields(context, fields)
+        self._generateMethodsForLanguageIndependentFields(context, fields, initialized)
+
 
     def getFields(self):
         return self._myfields
@@ -458,32 +462,35 @@ class TaggingSchemaExtenderCaseStudy(TaggingSchemaExtender):
         return original
 
 
-class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
+class RALinkExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHContentRALink)
+    _fields = [
+        tagging_fields_dict.get('country'),
+        tagging_fields_dict.get('osha_metadata'),
+        tagging_fields_dict.get('nace'),
+        tagging_fields_dict.get('multilingual_thesaurus'),
+        tagging_fields_dict.get('isNews'),
+        tagging_fields_dict.get('reindexTranslations'),
+        tagging_fields_dict.get('annotatedlinklist'),
+        ]
 
     def __init__(self, context):
         self.context = context
-        _myfields= list()
         for f in self._fields:
-            new_f = f.copy()
-            if new_f.getName() in ('country',): 
-                new_f.required = True
-            if new_f.getName() != 'subcategory':
-                _myfields.append(new_f)
-        self._myfields = _myfields
+            if f.getName() in ('country',): 
+                f.required = True
+
         # RA Link inherits from ATDocument. We might get a false positive, so check that the
         # accessors are really there
         initialized = True
-        fields = [field for field in _myfields if field.languageIndependent]
+        fields = [field for field in self._fields if field.languageIndependent]
         for field in fields:
             if not getattr(context, field.accessor, None):
                 initialized = False
                 break
 
-        self._generateMethodsForLanguageIndependentFields(context, fields)
+        self._generateMethodsForLanguageIndependentFields(context, fields, initialized)
 
-    def getFields(self):
-        return self._myfields
 
     def getOrder(self, original):
         default = original.get('default', [])
@@ -516,136 +523,36 @@ class TaggingSchemaExtenderRALink(TaggingSchemaExtender):
         return original
 
 
-class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
+class EventExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHContentEvent)
-    _localFields = [
-            AttachmentField('attachment',
-                schemata='default',
-                widget=atapi.FileWidget(
-                    label= _(u'osha_event_attachment_label', default=u'Attachment'),
-                    description= _(u'osha_event_attachment_label',
-                        default= \
-                            u"You can upload an optional attachment that will "
-                            u"be displayed with the event."),
-                ),
-            ),
-        ]
-
-    def __init__(self, context):
-        self.context = context
-        _myfields= list()
-        for f in self._fields:
-            new_f = f.copy()
-            if new_f.getName() in ('subcategory', 'multilingual_thesaurus'):
-                new_f.required = False
-            if new_f.getName() not in ('nace', 'subcategory'):
-                _myfields.append(new_f)
-        self._myfields = _myfields + self._localFields
-        self._generateMethodsForLanguageIndependentFields(context, self._myfields)
-
-    def getFields(self):
-        return self._myfields
-
-
-class PressReleaseExtender(OSHASchemaExtender):
     _fields = [
-            OSHAMetadataField('osha_metadata',
-                schemata='default',
-                enforceVocabulary=True,
-                languageIndependent=True,
-                multiValued=True,
-                mutator='setOsha_metadata',
-                accessor='getOsha_metadata',
-                widget=VocabularyPickerWidget(
-                    label=_(u'OSHAMetadata_label', default=u"OSHA Metadata"),
-                    description=
-                            _(u'OSHAMetadata_description', 
-                            default="Choose relevant metadata"),
-                    vocabulary="OSHAMetadata",
-                    i18n_domain='osha',
-                    ),
-                vocabulary="getOSHAMetadata"
+        tagging_fields_dict.get('country'),
+        tagging_fields_dict.get('osha_metadata'),
+        tagging_fields_dict.get('multilingual_thesaurus'),
+        tagging_fields_dict.get('isNews'),
+        tagging_fields_dict.get('reindexTranslations'),
+        tagging_fields_dict.get('annotatedlinklist'),
+
+        AttachmentField('attachment',
+            schemata='default',
+            widget=atapi.FileWidget(
+                label= _(u'osha_event_attachment_label', default=u'Attachment'),
+                description= _(u'osha_event_attachment_label',
+                    default= \
+                        u"You can upload an optional attachment that will "
+                        u"be displayed with the event."),
             ),
-            ReferencedContentField('referenced_content',
-                languageIndependent=True,
-                multiValued=True,
-                relationship='referenced_content',
-                allowed_types=('Document', 'RichDocument'),
-                mutator='setReferenced_content',
-                accessor='getReferenced_content',
-                widget=ReferenceBrowserWidget(
-                    label=u"Referenced content",
-                    description=
-                        u"Select one or more content items. Their body text "
-                        u"will be displayed as part of the press release",
-                    allow_search=True,
-                    allow_browse=False,
-                    base_query=dict(path=dict(query='textpieces', level=-1), Language=['en','']),
-                    show_results_without_query=True,
-                    ),
-            ),
-            NewsMarkerField('isNews',
-                schemata='default',
-                read_permission="Review portal content",
-                write_permission="Review portal content",
-                languageIndependent=True,
-                default=False,
-                mutator='setIsNews',
-                accessor='getIsNews',
-                widget=atapi.BooleanWidget(
-                    label="Mark as News",
-                    description="Check to have this appear as News in the portlet.",
-                    label_msgid='label_isnews',
-                    description_msgid='help_isnews',
-                    i18n_domain='osha',
-                ),
-            ),
-            CountryField('country',
-                schemata='default',
-                enforceVocabulary=False,
-                languageIndependent=True,
-                required=False,
-                multiValued=True,
-                mutator='setCountry',
-                accessor='getCountry',
-                widget=MultiCountryWidget(
-                    label="Countries",
-                    description='Select one or more countries appropriate for this content',
-                    description_msgid='help_country',
-                    provideNullValue=1,
-                    nullValueTitle="Select...",
-                    label_msgid='label_country',
-                    i18n_domain='osha',
-                ),
-            ),
-            ReindexTranslationsField('reindexTranslations',
-                schemata='default',
-                default=False,
-                languageIndependent=False,
-                widget=atapi.BooleanWidget(
-                    label=u"Reindex translations on saving.",
-                    description=description_reindexTranslations,
-                    visible={'edit': 'visible', 'view': 'invisible'},
-                    condition="python:object.isCanonical()",
-                ),
-            ),
+        ),
         ]
 
     def __init__(self, context):
         self.context = context
+        for f in self._fields:
+            if f.getName() in ('subcategory', 'multilingual_thesaurus'):
+                f.required = False
+
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
-    def getFields(self):
-        return self._fields
-
-    def getOrder(self, original):
-        default = original.get('default', [])
-        if 'reindexTranslations' in default:
-            default.remove('reindexTranslations')
-            idx = len(default)
-            default.insert(idx, 'reindexTranslations')
-        original['default'] = default
-        return original
 
 
 class FAQExtender(OSHASchemaExtender):
@@ -691,34 +598,6 @@ class FAQExtender(OSHASchemaExtender):
         original['default'] = default
         return original
 
-###############################################################################
-# ERO
-###############################################################################
-
-## ERO schema extension is no longer set globally.
-## We only want it on the ERO subsite. This is done via a locally registered adapter.
-## For the mechanism, see five.localsitemanager.localsitemaqnager.txt
-##zope.component.provideAdapter(TaggingSchemaExtenderERO,
-##                              name=u"osha.metadkkka.ero")
-
-
-class NewsItemExtender(OSHASchemaExtender):
-    _fields = [
-        tagging_fields_dict.get('country'),
-        tagging_fields_dict.get('multilingual_thesaurus'),
-        tagging_fields_dict.get('nace'),
-        tagging_fields_dict.get('osha_metadata'),
-        tagging_fields_dict.get('reindexTranslations'),
-        ]
-
-    def __init__(self, context):
-        self.context = context
-        if IAnnotatedLinkList.providedBy(context):
-            self._fields.append(
-                        tagging_fields_dict.get('annotatedlinklist')
-                        )
-
-        self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
 
 class DocumentExtender(OSHASchemaExtender):
@@ -739,8 +618,38 @@ class DocumentExtender(OSHASchemaExtender):
 
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
-    def getFields(self):
-        return self._fields
+
+class PressReleaseExtender(OSHASchemaExtender):
+    """ PressReleases are already extended by die DocumentExtender, due to
+        them subclassing ATNewsITem.
+        Here we just add extra fields.
+    """
+    _fields = [
+        tagging_fields_dict.get('isNews'),
+
+        ReferencedContentField('referenced_content',
+            languageIndependent=True,
+            multiValued=True,
+            relationship='referenced_content',
+            allowed_types=('Document', 'RichDocument'),
+            mutator='setReferenced_content',
+            accessor='getReferenced_content',
+            widget=ReferenceBrowserWidget(
+                label=u"Referenced content",
+                description=
+                    u"Select one or more content items. Their body text "
+                    u"will be displayed as part of the press release",
+                allow_search=True,
+                allow_browse=False,
+                base_query=dict(path=dict(query='textpieces', level=-1), Language=['en','']),
+                show_results_without_query=True,
+                ),
+        ),
+        ]
+
+    def __init__(self, context):
+        self.context = context
+        self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
 
 class FileContentExtender(OSHASchemaExtender):
@@ -768,5 +677,17 @@ class FileContentExtender(OSHASchemaExtender):
                     field.widget = InlineTreeWidget(**widget_args)
 
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
+
+
+
+###############################################################################
+# ERO
+###############################################################################
+
+## ERO schema extension is no longer set globally.
+## We only want it on the ERO subsite. This is done via a locally registered adapter.
+## For the mechanism, see five.localsitemanager.localsitemaqnager.txt
+##zope.component.provideAdapter(TaggingSchemaExtenderERO,
+##                              name=u"osha.metadkkka.ero")
 
 
