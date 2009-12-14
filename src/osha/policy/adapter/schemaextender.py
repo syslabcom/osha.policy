@@ -538,7 +538,7 @@ class TaggingSchemaExtenderEvent(TaggingSchemaExtender):
             new_f = f.copy()
             if new_f.getName() in ('subcategory', 'multilingual_thesaurus'):
                 new_f.required = False
-            if new_f.getName() not in ('nace',):
+            if new_f.getName() not in ('nace', 'subcategory'):
                 _myfields.append(new_f)
         self._myfields = _myfields + self._localFields
         self._generateMethodsForLanguageIndependentFields(context, self._myfields)
