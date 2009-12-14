@@ -24,19 +24,18 @@
  
     <adapter
         factory=".schemaextender.TaggingSchemaExtenderRALink" 
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        />
 
     <adapter
         factory=".schemaextender.TaggingSchemaExtenderEvent" 
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        />
 
     <adapter
-        factory=".schemaextender.TaggingSchemaExtenderDocument" 
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
-
-    <adapter
-        factory=".schemaextender.TaggingSchemaExtenderFileContent" 
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
+        factory=".schemaextender.FileContentExtender" 
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        />
 
     <adapter
         for="slc.publications.interfaces.IPublicationEnhanced"
@@ -44,12 +43,27 @@
         factory=".at_field_defaults.DefaultForPublicationAuthor"
         />
 
+    <adapter
+        factory=".schemaextender.NewsItemExtender" 
+        for="osha.policy.adapter.schemaextender.IOSHNewsItem"
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        name="osha-news-item"
+        />
+
+    <adapter
+        factory=".schemaextender.DocumentExtender" 
+        for="osha.policy.adapter.schemaextender.IOSHContentDocument"
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        name="osha-document"
+        />
+
     <configure zcml:condition="installed Products.RemoteProvider">
         <adapter
             factory=".schemaextender.TaggingSchemaExtender" 
             for="Products.RemoteProvider.content.Provider.Provider"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-            name="osha-provider"/>
+            name="osha-provider"
+            />
     </configure>
 
     <configure zcml:condition="installed Products.PressRoom">
@@ -57,7 +71,8 @@
             factory=".schemaextender.PressReleaseExtender" 
             for="Products.PressRoom.interfaces.content.IPressRelease"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-            name="osha-pressrelease"/>
+            name="osha-pressrelease"
+            />
     </configure>
 
     <configure zcml:condition="installed slc.seminarportal">
@@ -65,13 +80,15 @@
             factory=".schemaextender.TaggingSchemaExtender" 
             for="slc.seminarportal.content.speaker.SPSpeaker"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-            name="osha-speaker"/>
+            name="osha-speaker"
+            />
 
         <adapter
             factory=".schemaextender.TaggingSchemaExtender" 
             for="slc.seminarportal.content.speechvenue.SPSpeechVenue"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-            name="osha-speechvenue"/>
+            name="osha-speechvenue"
+            />
     </configure>
 
     <configure zcml:condition="installed Products.PloneHelpCenter">
@@ -79,7 +96,8 @@
             factory=".schemaextender.FAQExtender" 
             for="Products.PloneHelpCenter.content.FAQ.HelpCenterFAQ"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-            name="osha-faq"/>
+            name="osha-faq"
+            />
     </configure>
 
     <adapter

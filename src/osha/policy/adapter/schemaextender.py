@@ -35,7 +35,6 @@ from Products.DataGridField.SelectColumn import SelectColumn
 from Products.LinguaPlone.utils import generateMethods
 from Products.OSHATranslations import OSHAMessageFactory as _
 from Products.OSHContentLink.OSH_Link import OSH_Link
-from Products.PloneHelpCenter.content.FAQ import HelpCenterFAQ
 from Products.RALink.content.RALink import RALink
 from Products.RichDocument.content.richdocument import RichDocument
 from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
@@ -70,18 +69,19 @@ class IOSHContentRALink(zope.interface.Interface):
 class IOSHContentEvent(zope.interface.Interface):
     """ OSHContent for Event """
 
-class IOSHContentDocument(zope.interface.Interface):
-    """ OSH Content for Document types """
-
 class IOSHNewsItem(zope.interface.Interface):
-    """ OSH Content for Document types """
+    """ OSHContent for News Item"""
 
-zope.interface.classImplements(ATDocument, IOSHContentDocument)
 zope.interface.classImplements(ATEvent, IOSHContentEvent)
 zope.interface.classImplements(ATNewsItem, IOSHNewsItem)
 zope.interface.classImplements(CaseStudy, IOSHContentCaseStudy)
 zope.interface.classImplements(OSH_Link, IOSHContent)
 zope.interface.classImplements(RALink, IOSHContentRALink)
+
+class IOSHContentDocument(zope.interface.Interface):
+    """ OSH Content for Document types """
+
+zope.interface.classImplements(ATDocument, IOSHContentDocument)
 zope.interface.classImplements(RichDocument, IOSHContentDocument)
 zope.interface.classImplements(whoswho, IOSHContentDocument)
 
@@ -265,7 +265,7 @@ tagging_fields_dict = {
             accessor='getOsha_metadata',
             widget=VocabularyPickerWidget(
                 label=_(u'OSHAMetadata_label', default=u"OSHA Metadata"),
-                description=_(u'OSHAMetadata_description', default="Choose relevant metadata"),
+                description=_(u'OSHAMetadata_description', default="Choose the relevant metadata"),
                 vocabulary="OSHAMetadata",
                 i18n_domain='osha',
                 condition="python:len(object.getField('osha_metadata').Vocabulary(object))",
@@ -648,25 +648,14 @@ class PressReleaseExtender(OSHASchemaExtender):
         return original
 
 
-###############################################################################
-# HelpCenterFAQ
-#
-# HelpCenterFAQ uses the AddRemoveWidget 'subject' widget instead of
-# the standard one. Since we have override the standard keyword.pt
-# template in
-# osha/theme/skins/osha_theme_custom_templates/widgets/keyword.pt to
-# provide translations for the keywords, here we subtype HelpCenterFAQ
-# so that it also uses the standard 'subject' widget.
-###############################################################################
-
-class IFAQExtender(zope.interface.Interface):
-    """ Marker for FAQ extender """
-
-zope.interface.classImplements(HelpCenterFAQ, IFAQExtender)
-
 class FAQExtender(OSHASchemaExtender):
-    zope.component.adapts(IFAQExtender)
-
+    """ 
+    HelpCenterFAQ uses the AddRemoveWidget 'subject' widget instead of
+    the standard one. Since we have override the standard keyword.pt
+    template in osha/theme/skins/osha_theme_custom_templates/widgets/keyword.pt 
+    to provide translations for the keywords, here we subtype HelpCenterFAQ
+    so that it also uses the standard 'subject' widget.
+    """
     _fields = [
         tagging_fields_dict.get('multilingual_thesaurus'),
         tagging_fields_dict.get('nace'),
@@ -710,45 +699,51 @@ class FAQExtender(OSHASchemaExtender):
 ## We only want it on the ERO subsite. This is done via a locally registered adapter.
 ## For the mechanism, see five.localsitemanager.localsitemaqnager.txt
 ##zope.component.provideAdapter(TaggingSchemaExtenderERO,
-##                              name=u"osha.metadata.ero")
-
-class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
-    zope.component.adapts(IOSHContentDocument)
-
-    def __init__(self, context):
-        self.context = context
-        _myfields= list()
-        for f in self._fields:
-            if f.getName() not in ('subcategory', 'isNews', 'annotatedlinklist') or \
-                (f.getName()=='annotatedlinklist' and IAnnotatedLinkList.providedBy(context)):
-                new_f = f.copy()
-                _myfields.append(new_f)
-        self._myfields = _myfields
-        self._generateMethodsForLanguageIndependentFields(context, self._myfields)
-
-    def getFields(self):
-        return self._myfields
+##                              name=u"osha.metadkkka.ero")
 
 
-class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
-    zope.component.adapts(IOSHNewsItem)
+class NewsItemExtender(OSHASchemaExtender):
+    _fields = [
+        tagging_fields_dict.get('country'),
+        tagging_fields_dict.get('multilingual_thesaurus'),
+        tagging_fields_dict.get('nace'),
+        tagging_fields_dict.get('osha_metadata'),
+        tagging_fields_dict.get('reindexTranslations'),
+        ]
 
     def __init__(self, context):
         self.context = context
-        _myfields= list()
-        for f in self._fields:
-            if f.getName() not in ('subcategory', 'isNews', 'annotatedlinklist') or \
-                (f.getName()=='annotatedlinklist' and IAnnotatedLinkList.providedBy(context)):
-                new_f = f.copy()
-                _myfields.append(new_f)
-        self._myfields = _myfields
-        self._generateMethodsForLanguageIndependentFields(context, self._myfields)
+        if IAnnotatedLinkList.providedBy(context):
+            self._fields.append(
+                        tagging_fields_dict.get('annotatedlinklist')
+                        )
+
+        self._generateMethodsForLanguageIndependentFields(context, self._fields)
+
+
+class DocumentExtender(OSHASchemaExtender):
+    _fields = [
+        tagging_fields_dict.get('country'),
+        tagging_fields_dict.get('multilingual_thesaurus'),
+        tagging_fields_dict.get('nace'),
+        tagging_fields_dict.get('osha_metadata'),
+        tagging_fields_dict.get('reindexTranslations'),
+        ]
+
+    def __init__(self, context):
+        self.context = context
+        if IAnnotatedLinkList.providedBy(context):
+            self._fields.append(
+                        tagging_fields_dict.get('annotatedlinklist')
+                        )
+
+        self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
     def getFields(self):
-        return self._myfields
+        return self._fields
 
 
-class TaggingSchemaExtenderFileContent(OSHASchemaExtender):
+class FileContentExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHFileContent)
     _fields = [
         tagging_fields_dict.get('country'),
@@ -759,7 +754,7 @@ class TaggingSchemaExtenderFileContent(OSHASchemaExtender):
         ]
  
     def __init__(self, context):
-        super(TaggingSchemaExtenderFileContent, self).__init__(context)
+        super(FileContentExtender, self).__init__(context)
         for field in self._fields:
             if field.__name__ in ['subcategory','multilingual_thesaurus','nace']:
                 vocabulary = NamedVocabulary(field.widget.vocabulary)
@@ -773,4 +768,5 @@ class TaggingSchemaExtenderFileContent(OSHASchemaExtender):
                     field.widget = InlineTreeWidget(**widget_args)
 
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
+
 
