@@ -5,7 +5,6 @@ from Products.RemoteProvider.content.Provider import Provider
 #from Products.CaseStudy.CaseStudy import CaseStudy
 from Products.ATContentTypes.content.file import ATFile
 from plone.app.blob.content import ATBlob
-from Products.ATContentTypes.content.event import ATEvent
 from Products.ATContentTypes.content.image import ATImage
 from Products.ATContentTypes.content.link import ATLink
 
@@ -53,10 +52,6 @@ ATFile.Subject = Subject
 ATBlob._old_subject = ATBlob.Subject
 ATBlob.getSubject = getSubject
 ATBlob.Subject = Subject
-
-ATEvent._old_subject = ATEvent.Subject
-ATEvent.getSubject = getSubject
-ATEvent.Subject = Subject
 
 ATImage._old_subject = ATImage.Subject
 ATImage.getSubject = getSubject
