@@ -15,10 +15,6 @@
         />
 
     <adapter
-        factory=".schemaextender.TaggingSchemaExtender" 
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
-
-    <adapter
         factory=".schemaextender.CaseStudyExtender" 
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
  
@@ -52,9 +48,18 @@
         name="osha-event"
         />
 
+    <configure zcml:condition="installed Products.OSHContentLink">
+        <adapter
+            factory=".schemaextender.OSHContentExtender" 
+            for="Products.OSHContentLink.OSH_Link.OSH_Link"
+            provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+            name="osha-resource"
+            />
+    </configure>
+
     <configure zcml:condition="installed Products.RemoteProvider">
         <adapter
-            factory=".schemaextender.TaggingSchemaExtender" 
+            factory=".schemaextender.OSHContentExtender" 
             for="Products.RemoteProvider.content.Provider.Provider"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
             name="osha-provider"
@@ -72,14 +77,14 @@
 
     <configure zcml:condition="installed slc.seminarportal">
         <adapter
-            factory=".schemaextender.TaggingSchemaExtender" 
+            factory=".schemaextender.OSHContentExtender" 
             for="slc.seminarportal.content.speaker.SPSpeaker"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
             name="osha-speaker"
             />
 
         <adapter
-            factory=".schemaextender.TaggingSchemaExtender" 
+            factory=".schemaextender.OSHContentExtender" 
             for="slc.seminarportal.content.speechvenue.SPSpeechVenue"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
             name="osha-speechvenue"

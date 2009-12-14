@@ -34,7 +34,6 @@ from Products.DataGridField.Column import Column
 from Products.DataGridField.SelectColumn import SelectColumn
 from Products.LinguaPlone.utils import generateMethods
 from Products.OSHATranslations import OSHAMessageFactory as _
-from Products.OSHContentLink.OSH_Link import OSH_Link
 from Products.RALink.content.RALink import RALink
 from Products.RichDocument.content.richdocument import RichDocument
 from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
@@ -54,9 +53,6 @@ log = logging.getLogger('osha.policy/adapter/schemaextender.py')
 
 LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
 
-class IOSHContent(zope.interface.Interface):
-    """ OSHContent """
-
 class IOSHContentCaseStudy(zope.interface.Interface):
     """ OSHContent for CaseStudy """
 
@@ -71,7 +67,6 @@ class IOSHContentEvent(zope.interface.Interface):
 
 zope.interface.classImplements(ATEvent, IOSHContentEvent)
 zope.interface.classImplements(CaseStudy, IOSHContentCaseStudy)
-zope.interface.classImplements(OSH_Link, IOSHContent)
 zope.interface.classImplements(RALink, IOSHContentRALink)
 
 class IOSHContentDocument(zope.interface.Interface):
@@ -172,7 +167,7 @@ description_reindexTranslations = \
     u"depending on the number of translations, this will lead to " \
     u"a delay in the time it takes to save."
 
-tagging_fields_dict = {
+extended_fields_dict = {
     'country':
         CountryField('country',
             schemata='default',
@@ -354,26 +349,23 @@ class OSHASchemaExtender(object):
         return self._fields
 
 
-class TaggingSchemaExtender(OSHASchemaExtender):
-    zope.component.adapts(IOSHContent)
-
-    _fields = tagging_fields_dict.values()
+class OSHContentExtender(OSHASchemaExtender):
+    _fields = [
+        extended_fields_dict.get('country'),
+        extended_fields_dict.get('multilingual_thesaurus'),
+        extended_fields_dict.get('nace'),
+        extended_fields_dict.get('subcategory'),
+        extended_fields_dict.get('isNews'),
+        extended_fields_dict.get('reindexTranslations'),
+        ]
 
     def __init__(self, context):
         self.context = context
         _myfields= list()
-        for f in self._fields:
-            if f.getName() not in ['osha_metadata', 'annotatedlinklist']:
-                new_f = f.copy()
-                _myfields.append(new_f)
-        self._myfields = _myfields
-        self._generateMethodsForLanguageIndependentFields(context, self._myfields)
+        self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
-    def getFields(self):
-        return self._myfields
 
     def getOrder(self, original):
-        """ getting order """
         default = original.get('default', [])
         if 'remoteLanguage' in default:
             idx = default.index('remoteLanguage') + 1
@@ -405,13 +397,13 @@ class CaseStudyExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHContentCaseStudy)
 
     _fields = [
-        tagging_fields_dict.get('country'),
-        tagging_fields_dict.get('multilingual_thesaurus'),
-        tagging_fields_dict.get('nace'),
-        tagging_fields_dict.get('osha_metadata'),
-        tagging_fields_dict.get('isNews'),
-        tagging_fields_dict.get('reindexTranslations'),
-        tagging_fields_dict.get('annotatedlinklist'),
+        extended_fields_dict.get('country'),
+        extended_fields_dict.get('multilingual_thesaurus'),
+        extended_fields_dict.get('nace'),
+        extended_fields_dict.get('osha_metadata'),
+        extended_fields_dict.get('isNews'),
+        extended_fields_dict.get('reindexTranslations'),
+        extended_fields_dict.get('annotatedlinklist'),
         ]
 
     def __init__(self, context):
@@ -468,13 +460,13 @@ class CaseStudyExtender(OSHASchemaExtender):
 class RALinkExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHContentRALink)
     _fields = [
-        tagging_fields_dict.get('country'),
-        tagging_fields_dict.get('osha_metadata'),
-        tagging_fields_dict.get('nace'),
-        tagging_fields_dict.get('multilingual_thesaurus'),
-        tagging_fields_dict.get('isNews'),
-        tagging_fields_dict.get('reindexTranslations'),
-        tagging_fields_dict.get('annotatedlinklist'),
+        extended_fields_dict.get('country'),
+        extended_fields_dict.get('osha_metadata'),
+        extended_fields_dict.get('nace'),
+        extended_fields_dict.get('multilingual_thesaurus'),
+        extended_fields_dict.get('isNews'),
+        extended_fields_dict.get('reindexTranslations'),
+        extended_fields_dict.get('annotatedlinklist'),
         ]
 
     def __init__(self, context):
@@ -529,12 +521,12 @@ class RALinkExtender(OSHASchemaExtender):
 class EventExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHContentEvent)
     _fields = [
-        tagging_fields_dict.get('country'),
-        tagging_fields_dict.get('osha_metadata'),
-        tagging_fields_dict.get('multilingual_thesaurus'),
-        tagging_fields_dict.get('isNews'),
-        tagging_fields_dict.get('reindexTranslations'),
-        tagging_fields_dict.get('annotatedlinklist'),
+        extended_fields_dict.get('country'),
+        extended_fields_dict.get('osha_metadata'),
+        extended_fields_dict.get('multilingual_thesaurus'),
+        extended_fields_dict.get('isNews'),
+        extended_fields_dict.get('reindexTranslations'),
+        extended_fields_dict.get('annotatedlinklist'),
 
         AttachmentField('attachment',
             schemata='default',
@@ -567,9 +559,9 @@ class FAQExtender(OSHASchemaExtender):
     so that it also uses the standard 'subject' widget.
     """
     _fields = [
-        tagging_fields_dict.get('multilingual_thesaurus'),
-        tagging_fields_dict.get('nace'),
-        tagging_fields_dict.get('subcategory'),
+        extended_fields_dict.get('multilingual_thesaurus'),
+        extended_fields_dict.get('nace'),
+        extended_fields_dict.get('subcategory'),
 
         BaseLinesField(
             name='subject',
@@ -605,18 +597,18 @@ class FAQExtender(OSHASchemaExtender):
 
 class DocumentExtender(OSHASchemaExtender):
     _fields = [
-        tagging_fields_dict.get('country'),
-        tagging_fields_dict.get('multilingual_thesaurus'),
-        tagging_fields_dict.get('nace'),
-        tagging_fields_dict.get('osha_metadata'),
-        tagging_fields_dict.get('reindexTranslations'),
+        extended_fields_dict.get('country'),
+        extended_fields_dict.get('multilingual_thesaurus'),
+        extended_fields_dict.get('nace'),
+        extended_fields_dict.get('osha_metadata'),
+        extended_fields_dict.get('reindexTranslations'),
         ]
 
     def __init__(self, context):
         self.context = context
         if IAnnotatedLinkList.providedBy(context):
             self._fields.append(
-                        tagging_fields_dict.get('annotatedlinklist')
+                        extended_fields_dict.get('annotatedlinklist')
                         )
 
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
@@ -628,7 +620,7 @@ class PressReleaseExtender(OSHASchemaExtender):
         Here we just add extra fields.
     """
     _fields = [
-        tagging_fields_dict.get('isNews'),
+        extended_fields_dict.get('isNews'),
 
         ReferencedContentField('referenced_content',
             languageIndependent=True,
@@ -658,11 +650,11 @@ class PressReleaseExtender(OSHASchemaExtender):
 class FileContentExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHFileContent)
     _fields = [
-        tagging_fields_dict.get('country'),
-        tagging_fields_dict.get('subcategory'),
-        tagging_fields_dict.get('multilingual_thesaurus'),
-        tagging_fields_dict.get('nace'),
-        tagging_fields_dict.get('reindexTranslations'),
+        extended_fields_dict.get('country'),
+        extended_fields_dict.get('subcategory'),
+        extended_fields_dict.get('multilingual_thesaurus'),
+        extended_fields_dict.get('nace'),
+        extended_fields_dict.get('reindexTranslations'),
         ]
  
     def __init__(self, context):
