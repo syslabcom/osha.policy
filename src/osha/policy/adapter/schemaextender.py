@@ -28,7 +28,6 @@ from Products.Archetypes import atapi
 from Products.Archetypes.Widget import KeywordWidget
 from Products.Archetypes.utils import DisplayList
 from Products.CMFCore.utils import getToolByName
-from Products.CaseStudy.CaseStudy import CaseStudy
 from Products.DataGridField import DataGridField, DataGridWidget
 from Products.DataGridField.Column import Column
 from Products.DataGridField.SelectColumn import SelectColumn
@@ -53,12 +52,6 @@ log = logging.getLogger('osha.policy/adapter/schemaextender.py')
 
 LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
 
-class IOSHContentCaseStudy(zope.interface.Interface):
-    """ OSHContent for CaseStudy """
-
-class IOSHFileContent(zope.interface.Interface):
-    """ Interface for Files and Images """
-
 class IOSHContentRALink(zope.interface.Interface):
     """ OSHContent for RALink"""
 
@@ -66,7 +59,6 @@ class IOSHContentEvent(zope.interface.Interface):
     """ OSHContent for Event """
 
 zope.interface.classImplements(ATEvent, IOSHContentEvent)
-zope.interface.classImplements(CaseStudy, IOSHContentCaseStudy)
 zope.interface.classImplements(RALink, IOSHContentRALink)
 
 class IOSHContentDocument(zope.interface.Interface):
@@ -76,6 +68,10 @@ zope.interface.classImplements(ATDocument, IOSHContentDocument)
 zope.interface.classImplements(ATNewsItem, IOSHContentDocument)
 zope.interface.classImplements(RichDocument, IOSHContentDocument)
 zope.interface.classImplements(whoswho, IOSHContentDocument)
+
+
+class IOSHFileContent(zope.interface.Interface):
+    """ Interface for Files and Images """
 
 # The cool new widget is used for the following, enabling bulk-tagger support
 # Publications / Files / Images / Regular Links
@@ -394,7 +390,6 @@ class OSHContentExtender(OSHASchemaExtender):
 
 
 class CaseStudyExtender(OSHASchemaExtender):
-    zope.component.adapts(IOSHContentCaseStudy)
 
     _fields = [
         extended_fields_dict.get('country'),
@@ -457,67 +452,6 @@ class CaseStudyExtender(OSHASchemaExtender):
         return original
 
 
-class RALinkExtender(OSHASchemaExtender):
-    zope.component.adapts(IOSHContentRALink)
-    _fields = [
-        extended_fields_dict.get('country'),
-        extended_fields_dict.get('osha_metadata'),
-        extended_fields_dict.get('nace'),
-        extended_fields_dict.get('multilingual_thesaurus'),
-        extended_fields_dict.get('isNews'),
-        extended_fields_dict.get('reindexTranslations'),
-        extended_fields_dict.get('annotatedlinklist'),
-        ]
-
-    def __init__(self, context):
-        self.context = context
-        for f in self._fields:
-            if f.getName() in ('country',): 
-                f.required = True
-
-        # RA Link inherits from ATDocument. We might get a false positive, so check that the
-        # accessors are really there
-        initialized = True
-        fields = [field for field in self._fields if field.languageIndependent]
-        for field in fields:
-            if not getattr(context, field.accessor, None):
-                initialized = False
-                break
-
-        self._generateMethodsForLanguageIndependentFields(context, fields, initialized)
-
-
-    def getOrder(self, original):
-        default = original.get('default', [])
-
-        if 'remoteLanguage' in default:
-            default.remove('nace')
-            default.remove('country')
-            default.remove('multilingual_thesaurus')
-            idx = default.index('remoteLanguage') + 1
-            new_default = default[:idx] + ['country'] \
-                + [default[idx]] \
-                + ['multilingual_thesaurus', 'nace'] \
-                + default[idx+1:]
-            original['default'] = new_default
-
-        default = original.get('default', [])
-        if 'isNews' in default:
-            default.remove('isNews')
-            idx = default.index('description') + 1
-            default.insert(idx, 'isNews')
-        original['default'] = default
- 
-        default = original.get('default', [])
-        if 'reindexTranslations' in default:
-            default.remove('reindexTranslations')
-            idx = len(default)
-            default.insert(idx, 'reindexTranslations')
-        original['default'] = default
-
-        return original
-
-
 class EventExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHContentEvent)
     _fields = [
@@ -547,7 +481,6 @@ class EventExtender(OSHASchemaExtender):
                 f.required = False
 
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
-
 
 
 class FAQExtender(OSHASchemaExtender):
@@ -581,9 +514,6 @@ class FAQExtender(OSHASchemaExtender):
         self.context = context
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
-    def getFields(self):
-        return self._fields
-
     def getOrder(self, original):
         default = original.get('default', [])
         if 'reindexTranslations' in default:
@@ -592,7 +522,6 @@ class FAQExtender(OSHASchemaExtender):
             default.insert(idx, 'reindexTranslations')
         original['default'] = default
         return original
-
 
 
 class DocumentExtender(OSHASchemaExtender):
@@ -612,6 +541,34 @@ class DocumentExtender(OSHASchemaExtender):
                         )
 
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
+
+
+class RALinkExtender(OSHASchemaExtender):
+    """ RALinks are already extended by DocumentExtender because they subtype 
+        ATDocument. Here we add only the extra fields.
+    """
+    zope.component.adapts(IOSHContentRALink)
+    _fields = [
+        extended_fields_dict.get('isNews'),
+        extended_fields_dict.get('annotatedlinklist'),
+        ]
+
+    def __init__(self, context):
+        self.context = context
+        for f in self._fields:
+            if f.getName() in ('country',): 
+                f.required = True
+
+        # RA Link inherits from ATDocument. We might get a false positive, so check that the
+        # accessors are really there
+        initialized = True
+        fields = [field for field in self._fields if field.languageIndependent]
+        for field in fields:
+            if not getattr(context, field.accessor, None):
+                initialized = False
+                break
+
+        self._generateMethodsForLanguageIndependentFields(context, fields, initialized)
 
 
 class PressReleaseExtender(OSHASchemaExtender):

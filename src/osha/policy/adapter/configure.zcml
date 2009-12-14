@@ -9,25 +9,16 @@
 		/>
 
     <adapter
-        for="Products.ATContentTypes.interface.folder.IATFolder"
-        provides="..interfaces.ISingleEntryPoint"
-        factory=".singleentrypoint.SingleEntryPoint"
-        />
-
-    <adapter
-        factory=".schemaextender.CaseStudyExtender" 
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"/>
- 
-    <adapter
-        factory=".schemaextender.RALinkExtender" 
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-        />
-
-    <adapter
         factory=".schemaextender.FileContentExtender" 
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         />
 
+    <adapter
+        for="Products.ATContentTypes.interface.folder.IATFolder"
+        provides="..interfaces.ISingleEntryPoint"
+        factory=".singleentrypoint.SingleEntryPoint"
+        />
+ 
     <adapter
         for="slc.publications.interfaces.IPublicationEnhanced"
         name="author"
@@ -47,6 +38,24 @@
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         name="osha-event"
         />
+
+    <configure zcml:condition="installed Products.RALink">
+        <adapter
+            factory=".schemaextender.RALinkExtender" 
+            for="Products.RALink.content.interfaces.IRALink"
+            provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+            name="osha-ralink"
+            />
+    </configure>
+
+    <configure zcml:condition="installed Products.CaseStudy">
+        <adapter
+            factory=".schemaextender.CaseStudyExtender" 
+            for="Products.CaseStudy.interfaces.ICaseStudy"
+            provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+            name="osha-case-study"
+            />
+    </configure>
 
     <configure zcml:condition="installed Products.OSHContentLink">
         <adapter
