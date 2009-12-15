@@ -338,12 +338,12 @@ class OSHASchemaExtender(object):
 
 class OSHContentExtender(OSHASchemaExtender):
     _fields = [
-        extended_fields_dict.get('country'),
-        extended_fields_dict.get('multilingual_thesaurus'),
-        extended_fields_dict.get('nace'),
-        extended_fields_dict.get('subcategory'),
-        extended_fields_dict.get('isNews'),
-        extended_fields_dict.get('reindexTranslations'),
+        extended_fields_dict.get('country').copy(),
+        extended_fields_dict.get('multilingual_thesaurus').copy(),
+        extended_fields_dict.get('nace').copy(),
+        extended_fields_dict.get('subcategory').copy(),
+        extended_fields_dict.get('isNews').copy(),
+        extended_fields_dict.get('reindexTranslations').copy(),
         ]
 
     def __init__(self, context):
@@ -383,13 +383,13 @@ class OSHContentExtender(OSHASchemaExtender):
 class CaseStudyExtender(OSHASchemaExtender):
 
     _fields = [
-        extended_fields_dict.get('country'),
-        extended_fields_dict.get('multilingual_thesaurus'),
-        extended_fields_dict.get('nace'),
-        extended_fields_dict.get('osha_metadata'),
-        extended_fields_dict.get('isNews'),
-        extended_fields_dict.get('reindexTranslations'),
-        extended_fields_dict.get('annotatedlinklist'),
+        extended_fields_dict.get('country').copy(),
+        extended_fields_dict.get('multilingual_thesaurus').copy(),
+        extended_fields_dict.get('nace').copy(),
+        extended_fields_dict.get('osha_metadata').copy(),
+        extended_fields_dict.get('isNews').copy(),
+        extended_fields_dict.get('reindexTranslations').copy(),
+        extended_fields_dict.get('annotatedlinklist').copy(),
         ]
 
     def __init__(self, context):
@@ -445,13 +445,13 @@ class CaseStudyExtender(OSHASchemaExtender):
 
 class EventExtender(OSHASchemaExtender):
     _fields = [
-        extended_fields_dict.get('country'),
-        extended_fields_dict.get('osha_metadata'),
-        extended_fields_dict.get('multilingual_thesaurus'),
-        extended_fields_dict.get('isNews'),
-        extended_fields_dict.get('reindexTranslations'),
-        extended_fields_dict.get('annotatedlinklist'),
-        extended_fields_dict.get('attachment'),
+        extended_fields_dict.get('country').copy(),
+        extended_fields_dict.get('osha_metadata').copy(),
+        extended_fields_dict.get('multilingual_thesaurus').copy(),
+        extended_fields_dict.get('isNews').copy(),
+        extended_fields_dict.get('reindexTranslations').copy(),
+        extended_fields_dict.get('annotatedlinklist').copy(),
+        extended_fields_dict.get('attachment').copy(),
         ]
 
     def __init__(self, context):
@@ -472,9 +472,9 @@ class FAQExtender(OSHASchemaExtender):
     so that it also uses the standard 'subject' widget.
     """
     _fields = [
-        extended_fields_dict.get('multilingual_thesaurus'),
-        extended_fields_dict.get('nace'),
-        extended_fields_dict.get('subcategory'),
+        extended_fields_dict.get('multilingual_thesaurus').copy(),
+        extended_fields_dict.get('nace').copy(),
+        extended_fields_dict.get('subcategory').copy(),
 
         BaseLinesField(
             name='subject',
@@ -507,12 +507,12 @@ class FAQExtender(OSHASchemaExtender):
 
 class DocumentExtender(OSHASchemaExtender):
     _fields = [
-        extended_fields_dict.get('country'),
-        extended_fields_dict.get('subcategory'),
-        extended_fields_dict.get('multilingual_thesaurus'),
-        extended_fields_dict.get('nace'),
-        extended_fields_dict.get('osha_metadata'),
-        extended_fields_dict.get('reindexTranslations'),
+        extended_fields_dict.get('country').copy(),
+        extended_fields_dict.get('subcategory').copy(),
+        extended_fields_dict.get('multilingual_thesaurus').copy(),
+        extended_fields_dict.get('nace').copy(),
+        extended_fields_dict.get('osha_metadata').copy(),
+        extended_fields_dict.get('reindexTranslations').copy(),
         ]
 
     def __init__(self, context):
@@ -530,8 +530,8 @@ class RALinkExtender(OSHASchemaExtender):
         ATDocument. Here we add only the extra fields.
     """
     _fields = [
-        extended_fields_dict.get('isNews'),
-        extended_fields_dict.get('annotatedlinklist'),
+        extended_fields_dict.get('isNews').copy(),
+        extended_fields_dict.get('annotatedlinklist').copy(),
         ]
 
     def __init__(self, context):
@@ -558,7 +558,7 @@ class PressReleaseExtender(OSHASchemaExtender):
         Here we just add extra fields.
     """
     _fields = [
-        extended_fields_dict.get('isNews'),
+        extended_fields_dict.get('isNews').copy(),
 
         ReferencedContentField('referenced_content',
             languageIndependent=True,
@@ -584,11 +584,11 @@ class PressReleaseExtender(OSHASchemaExtender):
 class FileContentExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHFileContent)
     _fields = [
-        extended_fields_dict.get('country'),
-        extended_fields_dict.get('subcategory'),
-        extended_fields_dict.get('multilingual_thesaurus'),
-        extended_fields_dict.get('nace'),
-        extended_fields_dict.get('reindexTranslations'),
+        extended_fields_dict.get('country').copy(),
+        extended_fields_dict.get('subcategory').copy(),
+        extended_fields_dict.get('multilingual_thesaurus').copy(),
+        extended_fields_dict.get('nace').copy(),
+        extended_fields_dict.get('reindexTranslations').copy(),
         ]
  
     def __init__(self, context):
@@ -633,7 +633,7 @@ class LinkListExtender(OSHASchemaExtender):
     # XXX: Please note: This Extender is not yet in use!
 
     _fields = [
-        extended_fields_dict.get('annotatedlinklist'),
+        extended_fields_dict.get('annotatedlinklist').copy(),
         ]
 
 
