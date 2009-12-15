@@ -15,17 +15,13 @@ from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from archetypes.schemaextender.field import ExtensionField
 
-from Products.ATContentTypes.content.document import ATDocument
-from Products.ATContentTypes.content.event import ATEvent
 from Products.ATContentTypes.content.file import ATFile
 from Products.ATContentTypes.content.image import ATImage
 from Products.ATContentTypes.content.link import ATLink
-from Products.ATContentTypes.content.newsitem import ATNewsItem
 from Products.ATCountryWidget.Widget import MultiCountryWidget
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.ATVocabularyManager.namedvocabulary import NamedVocabulary
 from Products.Archetypes import atapi
-from Products.Archetypes.Widget import KeywordWidget
 from Products.Archetypes.utils import DisplayList
 from Products.CMFCore.utils import getToolByName
 from Products.DataGridField import DataGridField, DataGridWidget
@@ -33,8 +29,6 @@ from Products.DataGridField.Column import Column
 from Products.DataGridField.SelectColumn import SelectColumn
 from Products.LinguaPlone.utils import generateMethods
 from Products.OSHATranslations import OSHAMessageFactory as _
-from Products.RALink.content.RALink import RALink
-from Products.RichDocument.content.richdocument import RichDocument
 from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
 
 try:
@@ -43,7 +37,6 @@ except ImportError:
     InlineTreeWidget = None
 
 from osha.theme.vocabulary import AnnotatableLinkListVocabulary
-from osha.whoswho.content.whoswho import whoswho
 
 from osha.policy.adapter.subtyper import IAnnotatedLinkList
 from osha.policy.interfaces import IOSHACommentsLayer
@@ -51,24 +44,6 @@ from osha.policy.interfaces import IOSHACommentsLayer
 log = logging.getLogger('osha.policy/adapter/schemaextender.py')
 
 LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
-
-class IOSHContentRALink(zope.interface.Interface):
-    """ OSHContent for RALink"""
-
-class IOSHContentEvent(zope.interface.Interface):
-    """ OSHContent for Event """
-
-zope.interface.classImplements(ATEvent, IOSHContentEvent)
-zope.interface.classImplements(RALink, IOSHContentRALink)
-
-class IOSHContentDocument(zope.interface.Interface):
-    """ OSH Content for Document types """
-
-zope.interface.classImplements(ATDocument, IOSHContentDocument)
-zope.interface.classImplements(ATNewsItem, IOSHContentDocument)
-zope.interface.classImplements(RichDocument, IOSHContentDocument)
-zope.interface.classImplements(whoswho, IOSHContentDocument)
-
 
 class IOSHFileContent(zope.interface.Interface):
     """ Interface for Files and Images """
@@ -102,6 +77,7 @@ class ExtensionFieldMixin:
     def getMutator(self, instance):
         def mutator(value, **kw):
             self.set(instance, value, **kw)
+
         methodName = getattr(self, 'mutator', None)
         if methodName is None:  # Use default setter
             return mutator
@@ -311,6 +287,17 @@ extended_fields_dict = {
                     },
             ),
         ),
+    'attachment':
+        AttachmentField('attachment',
+            schemata='default',
+            widget=atapi.FileWidget(
+                label= _(u'osha_event_attachment_label', default=u'Attachment'),
+                description= _(u'osha_event_attachment_label',
+                    default= \
+                        u"You can upload an optional attachment that will "
+                        u"be displayed with the event."),
+            ),
+        ),
     }
 
 class OSHASchemaExtender(object):
@@ -323,6 +310,10 @@ class OSHASchemaExtender(object):
                         IBrowserLayerAwareExtender
                         )
     layer = IOSHACommentsLayer
+
+    def __init__(self, context):
+        self.context = context
+        self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
     def _generateMethodsForLanguageIndependentFields(
                                     self, context, fields, initialized=True):
@@ -453,7 +444,6 @@ class CaseStudyExtender(OSHASchemaExtender):
 
 
 class EventExtender(OSHASchemaExtender):
-    zope.component.adapts(IOSHContentEvent)
     _fields = [
         extended_fields_dict.get('country'),
         extended_fields_dict.get('osha_metadata'),
@@ -461,17 +451,7 @@ class EventExtender(OSHASchemaExtender):
         extended_fields_dict.get('isNews'),
         extended_fields_dict.get('reindexTranslations'),
         extended_fields_dict.get('annotatedlinklist'),
-
-        AttachmentField('attachment',
-            schemata='default',
-            widget=atapi.FileWidget(
-                label= _(u'osha_event_attachment_label', default=u'Attachment'),
-                description= _(u'osha_event_attachment_label',
-                    default= \
-                        u"You can upload an optional attachment that will "
-                        u"be displayed with the event."),
-            ),
-        ),
+        extended_fields_dict.get('attachment'),
         ]
 
     def __init__(self, context):
@@ -501,11 +481,11 @@ class FAQExtender(OSHASchemaExtender):
             multiValued=1,
             accessor="Subject",
             searchable=True,
-            widget=KeywordWidget(
+            widget=atapi.KeywordWidget(
                 label=_(u'label_categories', default=u'Categories'),
                 description=_(u'help_categories',
-                                default=u'Also known as keywords, tags or labels, '
-                                        'these help you categorize your content.'),
+                              default=u'Also known as keywords, tags or labels, '
+                                      'these help you categorize your content.'),
                 ),
             ),
     ]
@@ -520,6 +500,7 @@ class FAQExtender(OSHASchemaExtender):
             default.remove('reindexTranslations')
             idx = len(default)
             default.insert(idx, 'reindexTranslations')
+
         original['default'] = default
         return original
 
@@ -527,6 +508,7 @@ class FAQExtender(OSHASchemaExtender):
 class DocumentExtender(OSHASchemaExtender):
     _fields = [
         extended_fields_dict.get('country'),
+        extended_fields_dict.get('subcategory'),
         extended_fields_dict.get('multilingual_thesaurus'),
         extended_fields_dict.get('nace'),
         extended_fields_dict.get('osha_metadata'),
@@ -547,7 +529,6 @@ class RALinkExtender(OSHASchemaExtender):
     """ RALinks are already extended by DocumentExtender because they subtype 
         ATDocument. Here we add only the extra fields.
     """
-    zope.component.adapts(IOSHContentRALink)
     _fields = [
         extended_fields_dict.get('isNews'),
         extended_fields_dict.get('annotatedlinklist'),
@@ -599,10 +580,6 @@ class PressReleaseExtender(OSHASchemaExtender):
         ),
         ]
 
-    def __init__(self, context):
-        self.context = context
-        self._generateMethodsForLanguageIndependentFields(context, self._fields)
-
 
 class FileContentExtender(OSHASchemaExtender):
     zope.component.adapts(IOSHFileContent)
@@ -631,15 +608,32 @@ class FileContentExtender(OSHASchemaExtender):
         self._generateMethodsForLanguageIndependentFields(context, self._fields)
 
 
+class LinkListExtender(OSHASchemaExtender):
+    """ This is a general content agnostic extender.
 
-###############################################################################
-# ERO
-###############################################################################
+        We would like this extender to only be applicable to the OSHNetwork
+        area. Luckily OSHNetwork is in its own subsite and thus has its own
+        sitemanager.
 
-## ERO schema extension is no longer set globally.
-## We only want it on the ERO subsite. This is done via a locally registered adapter.
-## For the mechanism, see five.localsitemanager.localsitemaqnager.txt
-##zope.component.provideAdapter(TaggingSchemaExtenderERO,
-##                              name=u"osha.metadkkka.ero")
+        So we should be able to register the extender locally, by just doing 
+        this:
+            sm = portal.getSiteManager()
+            sm.registerAdapter(
+                            LinkListExtender,
+                            (IATEvent,),
+                            IOrderableSchemaExtender,
+                            )
+
+        We do this in an external method:
+            osha.policy/Extensions/setLinkListExtension.py
+        
+        For more info on the mechanism, see 
+        five.localsitemanager.localsitemaqnager.txt
+    """
+    # XXX: Please note: This Extender is not yet in use!
+
+    _fields = [
+        extended_fields_dict.get('annotatedlinklist'),
+        ]
 
 

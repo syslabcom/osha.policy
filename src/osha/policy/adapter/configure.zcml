@@ -27,14 +27,35 @@
 
     <adapter
         factory=".schemaextender.DocumentExtender" 
-        for="osha.policy.adapter.schemaextender.IOSHContentDocument"
+        for="Products.ATContentTypes.interface.IATDocument"
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         name="osha-document"
         />
 
     <adapter
+        factory=".schemaextender.DocumentExtender" 
+        for="Products.ATContentTypes.interface.IATNewsItem"
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        name="osha-news"
+        />
+
+    <adapter
+        factory=".schemaextender.DocumentExtender" 
+        for="Products.RichDocument.content.richdocument.RichDocument"
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        name="osha-rich-document"
+        />
+
+    <adapter
+        factory=".schemaextender.DocumentExtender" 
+        for="osha.whoswho.content.whoswho.whoswho"
+        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+        name="osha-whoswho"
+        />
+
+    <adapter
         factory=".schemaextender.EventExtender" 
-        for="osha.policy.adapter.schemaextender.IOSHContentEvent"
+        for="Products.ATContentTypes.interface.IATEvent"
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         name="osha-event"
         />
