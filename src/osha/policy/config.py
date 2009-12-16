@@ -41,7 +41,6 @@ DEPENDENCIES = [
     'slc.shoppinglist',
     'slc.xliff',
     'slc.foldercontentsfilter',
-    'slc.alertservice',
     'slc.subsite',
     'slc.clicksearch',
     'slc.seminarportal',
@@ -76,6 +75,12 @@ DEPENDENCIES = [
     'osha.legislation',
     'osha.theme',
     ]
+
+    # XXX: Remove slc.alertservice and osha.legislation.
+    # slc.alertservice is not found 
+    # osha.legislation throws 'invalid permission' error when being installed.
+
+
     # It is IMPORTANT that the linkchecker is installed at the end
     # because it relies on beforehand registered retrievers
     #quickinst.installProduct('CMFLinkChecker')
