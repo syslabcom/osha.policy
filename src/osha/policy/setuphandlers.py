@@ -53,7 +53,8 @@ def repositionActions(portal):
     portal_conf=getToolByName(portal,'portal_controlpanel')
     cpids = [x.id for x in portal_conf.listActions()]
     # if xliff is installed, move site action xliff import into the object actions dropdown
-    portal_actions.site_actions.xliffimport.visible = False
+    if getattr(portal_actions.site_actions, 'xliffimport', None):
+        portal_actions.site_actions.xliffimport.visible = False
     # xliff import is re added in actions.xml
     # If SEO Tools are installed, move object action into the action dropdown
     # => nice to have, but a todo
