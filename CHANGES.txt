@@ -18,20 +18,20 @@ osha.policy Changelog
   (thomasw)
 - resource_centralisation_helper now queries for all languages + various 
   bugfixes in that file (deroiste)
-- Make parents aggregators when pasting new objects (brand)
-- Extracted cleanwordpastedtext functionality into its own package (brand)
+- Make parents aggregators when pasting new objects (jcbrand)
+- Extracted cleanwordpastedtext functionality into its own package (jcbrand)
 - Made patching more uniform (gerken)
 - Extension for creating member states and content in oshnetwork/member-states
-  (deroiste, brand, thomasw)
+  (deroiste, jcbrand, thomasw)
 - Tool for removing traces of p4a.image added (thomasw)
-- Helper tool for faq_centralisation added (brand, deroiste)
+- Helper tool for faq_centralisation added (jcbrand, deroiste)
 - Adding bulk tagger view (gerken)
 - Extending Schema of IATImage and IATFile (gerken, thomasw)
 - Adding little Helper for easy display of object RID (thomasw)
 - Modified Annotations? (thomasw)
 - Removed a new unneccessary plone.app.blob patch (thomasw)
 - New features regarding country fields and events (thomasw)
-- Extending control panel to add version configuration (brand)
+- Extending control panel to add version configuration (jcbrand)
 - Adding parsers for changed metadata (gerken)
 
 1.2.29 (2009-10-18)
@@ -135,9 +135,10 @@ osha.policy 1.2.15 (2009-08-12)
   have this field, it can lead to an error when trying to translate it. (thomasw)
 - fixed typo in LEX vocabulary that prevented legislation directives 
   showing up in section A/4 (thomasw)
-- Add scripts dir with new script set_pdf_metadata.py (brand)
-- Add extractPDFText to utils (brand)
-- Add event handler handle_auto_translated_files for the slc.autotranslate custom event (brand)
+- Add scripts dir with new script set_pdf_metadata.py (jcbrand)
+- Add extractPDFText to utils (jcbrand)
+- Add event handler handle_auto_translated_files for the slc.autotranslate
+  custom event (jcbrand)
 
 osha.policy 1.2.14 (2009-08-02)
 -------------------------------
@@ -169,7 +170,7 @@ osha.policy 1.2.11 (2009-08-01)
 osha.policy 1.2.10 (2009-07-28)
 -------------------------------
 
-- added patch to queuecatalog to make it work with relations (brand)
+- added patch to queuecatalog to make it work with relations (jcbrand)
 
 osha.policy 1.2.9 (2009-07-26)
 ------------------------------
