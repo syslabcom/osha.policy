@@ -365,34 +365,6 @@ class OSHContentExtender(OSHASchemaExtender):
         self._generateMethods(context, self._fields)
 
 
-    def getOrder(self, original):
-        default = original.get('default', [])
-        if 'remoteLanguage' in default:
-            idx = default.index('remoteLanguage') + 1
-            myfields = [x.getName() for x in self.getFields()]
-            for myfield in myfields:
-                if myfield in default:
-                    default.remove(myfield)
-            new_default = default[:idx] + myfields + default[idx:]
-            original['default'] = new_default
-
-        default = original.get('default', [])
-        if 'isNews' in default and 'description' in default:
-            default.remove('isNews')
-            idx = default.index('description') + 1
-            default.insert(idx, 'isNews')
-        original['default'] = default
-
-        default = original.get('default', [])
-        if 'reindexTranslations' in default:
-            default.remove('reindexTranslations')
-            idx = len(default)
-            default.insert(idx, 'reindexTranslations')
-        original['default'] = default
-
-        return original
-
-
 class DocumentExtender(OSHASchemaExtender):
     _fields = [
         extended_fields_dict.get('osha_metadata').copy(),
@@ -542,6 +514,7 @@ class PressReleaseExtender(OSHASchemaExtender):
 
 class FileContentExtender(OSHASchemaExtender):
     _fields = [
+        extended_fields_dict.get('isNews').copy(),
         extended_fields_dict.get('country').copy(),
         extended_fields_dict.get('subcategory').copy(),
         extended_fields_dict.get('multilingual_thesaurus').copy(),
