@@ -121,7 +121,7 @@
  
      <include package="plone.app.contentmenu" />
 
-   <browser:menuItem
+   <browser:menuItem zcml:condition="installed collective.plonetruegallery"
         for="collective.plonetruegallery.interfaces.IGallery"
         menu="plone_displayviews"
         title="Bulk Tagger"
