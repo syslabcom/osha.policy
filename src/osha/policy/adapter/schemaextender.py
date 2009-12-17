@@ -324,6 +324,7 @@ class OSHASchemaExtender(object):
             osha.policy/config.py
             If no such ordering was provided, then return the original
         """
+        import pdb; pdb.set_trace()
         portal_type = self.context.portal_type
         original_fields = original['default']
         ordered_fields = config.DEFAULT_FIELDS.get(portal_type, [])
@@ -439,8 +440,8 @@ class CaseStudyExtender(OSHASchemaExtender):
 
 class EventExtender(OSHASchemaExtender):
     _fields = [
-        extended_fields_dict.get('country').copy(),
         extended_fields_dict.get('osha_metadata').copy(),
+        extended_fields_dict.get('subcategory').copy(),
         extended_fields_dict.get('multilingual_thesaurus').copy(),
         extended_fields_dict.get('isNews').copy(),
         extended_fields_dict.get('reindexTranslations').copy(),
@@ -482,20 +483,6 @@ class FAQExtender(OSHASchemaExtender):
                 ),
             ),
     ]
-
-    def __init__(self, context):
-        self.context = context
-        self._generateMethods(context, self._fields)
-
-    def getOrder(self, original):
-        default = original.get('default', [])
-        if 'reindexTranslations' in default:
-            default.remove('reindexTranslations')
-            idx = len(default)
-            default.insert(idx, 'reindexTranslations')
-
-        original['default'] = default
-        return original
 
 
 class RALinkExtender(OSHASchemaExtender):
