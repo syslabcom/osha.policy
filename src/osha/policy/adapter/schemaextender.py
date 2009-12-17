@@ -35,6 +35,7 @@ from osha.theme.vocabulary import AnnotatableLinkListVocabulary
 
 from osha.policy.adapter.subtyper import IAnnotatedLinkList
 from osha.policy.interfaces import IOSHACommentsLayer
+from osha.policy import config
 
 log = logging.getLogger('osha.policy/adapter/schemaextender.py')
 
@@ -318,8 +319,29 @@ class OSHASchemaExtender(object):
 
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
-
     def getOrder(self, original):
+        """ Try to set the fields order to the ordering provided in
+            osha.policy/config.py
+            If no such ordering was provided, then return the original
+        """
+        portal_type = self.context.portal_type
+        original_fields = original['default']
+        ordered_fields = config.DEFAULT_FIELDS.get(portal_type, [])
+
+        if len(ordered_fields) == len(original['default']):
+            original['default'] = ordered_fields
+            
+        elif len(ordered_fields) >= len(original['default']):
+            # The ordered_fields defined in config, contains all the
+            # schemaextended fields, not just the ones of the particular
+            # extender on which this method is being called. Since the 
+            # extenders are being called on after another, the case will arise 
+            # where not all the extension fields have been added. We attempt
+            # then to return the order for all the fields that *have* been
+            # extended.
+            actual_fields = [f for f in ordered_fields if f in original_fields]
+            original['default'] = actual_fields 
+
         return original
 
     def getFields(self):
@@ -372,11 +394,10 @@ class OSHContentExtender(OSHASchemaExtender):
 
 class DocumentExtender(OSHASchemaExtender):
     _fields = [
-        extended_fields_dict.get('country').copy(),
-        extended_fields_dict.get('subcategory').copy(),
-        extended_fields_dict.get('multilingual_thesaurus').copy(),
-        extended_fields_dict.get('nace').copy(),
         extended_fields_dict.get('osha_metadata').copy(),
+        extended_fields_dict.get('nace').copy(),
+        extended_fields_dict.get('country').copy(),
+        extended_fields_dict.get('multilingual_thesaurus').copy(),
         extended_fields_dict.get('reindexTranslations').copy(),
         ]
 
@@ -384,7 +405,7 @@ class DocumentExtender(OSHASchemaExtender):
         self.context = context
         if IAnnotatedLinkList.providedBy(context):
             self._fields.append(
-                        extended_fields_dict.get('annotatedlinklist')
+                        extended_fields_dict.get('annotatedlinklist').copy()
                         )
 
         self._generateMethods(context, self._fields)
@@ -394,7 +415,6 @@ class CaseStudyExtender(OSHASchemaExtender):
     """ CaseStudy inherits from RichDocument, therefore the DocumentExtender is
         already being applied. We add here only CaseStudy specific fields.
     """
-
     _fields = [
         extended_fields_dict.get('isNews').copy(),
         ]
@@ -415,39 +435,6 @@ class CaseStudyExtender(OSHASchemaExtender):
                 break
 
         self._generateMethods(context, fields, initialized)
-
-
-    def getOrder(self, original):
-        default = original.get('default', [])
-
-        if 'nace' in default:
-            default.remove('nace')
-        if 'country' in default:
-            default.remove('country')
-        if 'multilingual_thesaurus' in default:
-            default.remove('multilingual_thesaurus')
-
-        default.append('nace')
-        default.append('country')
-        default.append('multilingual_thesaurus')
-
-        original['default'] = default
-
-        default = original.get('default', [])
-        if 'isNews' in default:
-            default.remove('isNews')
-            idx = default.index('description') + 1
-            default.insert(idx, 'isNews')
-        original['default'] = default
-
-        default = original.get('default', [])
-        if 'reindexTranslations' in default:
-            default.remove('reindexTranslations')
-            idx = len(default)
-            default.insert(idx, 'reindexTranslations')
-        original['default'] = default
-
-        return original
 
 
 class EventExtender(OSHASchemaExtender):
