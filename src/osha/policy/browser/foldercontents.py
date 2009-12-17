@@ -1,18 +1,31 @@
+import urllib
+import logging
+
 from Acquisition import aq_inner
+
+from zope.app.pagetemplate import ViewPageTemplateFile
+from zope.component import getMultiAdapter #@UnresolvedImport
+from zope.i18n import translate
+
+from plone.memoize import instance
+
+from plone.app.content.batching import Batch
+from plone.app.content.browser.foldercontents import FolderContentsView
+from plone.app.content.browser.foldercontents import FolderContentsTable
+from plone.app.content.browser.tableview import Table, TableKSSView
+
 from Products.ATContentTypes.interface import IATTopic
 from Products.Archetypes.interfaces import ISchema
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
-from plone.app.content.browser.foldercontents import FolderContentsView, \
-    FolderContentsTable
-from plone.app.content.batching import Batch
-from plone.app.content.browser.tableview import Table, TableKSSView
-from plone.memoize import instance
-from slc.treecategories.widgets.widgets import getInlineTreeView
-from zope.app.pagetemplate import ViewPageTemplateFile
-from zope.component import getMultiAdapter #@UnresolvedImport
-from zope.i18n import translate
-import urllib
+
+log = logging.getLogger("osha.policy/foldercontents.py")
+try:
+    from slc.treecategories.widgets.widgets import getInlineTreeView
+except ImportError:
+    log.warn("slc.treecategories not found")
+    getInlineTreeView = None
+
 
 SUPPORTED_PORTAL_TYPES = ('Image', 'File', 'Link')
 
@@ -25,14 +38,14 @@ class CustomizedFolderContentsTable(FolderContentsTable):
     def __init__(self, context, request, contentFilter=None):
         if contentFilter == None:
             contentFilter = {}
-        
+
         contentFilter.update(request.form)
         super(CustomizedFolderContentsTable, self).__init__(context, request, contentFilter)
 
         url = context.absolute_url()
-        
+
         filters = []
-        for filter_key in ('Subject', 'SearchableText'): 
+        for filter_key in ('Subject', 'SearchableText'):
             if request.form.has_key(filter_key):
                 filters.append("%s=%s" % (filter_key, request.form[filter_key]))
         filter_url = "&".join(filters)
@@ -105,26 +118,31 @@ class CustomizedFolderContentsTable(FolderContentsTable):
 
             is_browser_default = len(browser_default[1]) == 1 and (
                 brain.id == browser_default[1][0])
-            
+
             subcategory = multilingualthesaurus = nace = ""
-            
 
             is_canonical = obj.isCanonical()
             if not hasattr(self, 'subcategory_field'):
                 self.subcategory_field = obj.getField('subcategory')
-            subcategory_pt = getInlineTreeView(self.context, brain, self.request, self.subcategory_field)
-            subcategory_mode = (is_canonical or not self.subcategory_field.languageIndependent) and 'edit' or 'view'
-            subcategory = subcategory_pt.render.macros.get(subcategory_mode)
-            if not hasattr(self, 'mt_field'):
-                self.mt_field = obj.getField('multilingual_thesaurus')
-            multilingualthesaurus_pt = getInlineTreeView(self.context, brain, self.request, self.mt_field)
-            multilingualthesaurus_mode = (is_canonical or not self.mt_field.languageIndependent) and 'edit' or 'view'
-            multilingualthesaurus = multilingualthesaurus_pt.render.macros.get(multilingualthesaurus_mode)
-            if not hasattr(self, 'nace_field'):
-                self.nace_field = obj.getField('nace')
-            nace_pt = getInlineTreeView(self.context, brain, self.request, self.nace_field)
-            nace_mode = (is_canonical or not self.nace_field.languageIndependent) and 'edit' or 'view'
-            nace = nace_pt.render.macros.get(nace_mode)
+            if getInlineTreeView is not None:
+                subcategory_pt = getInlineTreeView(self.context, brain, self.request, self.subcategory_field)
+                subcategory_mode = (is_canonical or not self.subcategory_field.languageIndependent) and 'edit' or 'view'
+                subcategory = subcategory_pt.render.macros.get(subcategory_mode)
+                if not hasattr(self, 'mt_field'):
+                    self.mt_field = obj.getField('multilingual_thesaurus')
+                multilingualthesaurus_pt = getInlineTreeView(self.context, brain, self.request, self.mt_field)
+                multilingualthesaurus_mode = (is_canonical or not self.mt_field.languageIndependent) and 'edit' or 'view'
+                multilingualthesaurus = multilingualthesaurus_pt.render.macros.get(multilingualthesaurus_mode)
+                if not hasattr(self, 'nace_field'):
+                    self.nace_field = obj.getField('nace')
+                nace_pt = getInlineTreeView(self.context, brain, self.request, self.nace_field)
+                nace_mode = (is_canonical or not self.nace_field.languageIndependent) and 'edit' or 'view'
+                nace = nace_pt.render.macros.get(nace_mode)
+            else:
+                error_msg = "slc.treecategories not available"
+                subcategory = multilingualthesaurus = nace = error_msg
+                subcategory_mode = multilingualthesaurus_mode = nace_mode = \
+                                   "view"
 
             results.append(dict(
                 url=url,
