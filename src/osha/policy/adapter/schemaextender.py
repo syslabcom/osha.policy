@@ -724,11 +724,63 @@ class FAQExtender(object):
     layer = IOSHACommentsLayer
 
     _fields = [
+            SubcategoryField('subcategory',
+                schemata='default',
+                enforceVocabulary=True,
+                languageIndependent=True,
+                multiValued=True,
+                mutator='setSubcategory',
+                accessor='getSubcategory',
+                widget=VocabularyPickerWidget(
+                    label="Subcategory (Site position)",
+                    description="Choose the most relevant subcategories. This will decide where the information is displayed",
+                    vocabulary="Subcategory",
+                    label_msgid='label_subcategory',
+                    description_msgid='help_subcategory',
+                    i18n_domain='osha',
+                    condition="python:len(object.getField('subcategory').Vocabulary(object))",
+                    ),
+            ),
+            MTSubjectField('multilingual_thesaurus',
+                schemata='default',
+                enforceVocabulary=False,
+                languageIndependent=True,
+                required=False,
+                multiValued=True,
+                mutator='setMultilingual_thesaurus',
+                accessor='getMultilingual_thesaurus',
+                widget=VocabularyPickerWidget(
+                    label='Multilingual Thesaurus Subject',
+                    description='Select one or more entries',
+                    vocabulary="MultilingualThesaurus",
+                    label_msgid='label_multilingual_thesaurus',
+                    description_msgid='help_multilingual_thesaurus',
+                    i18n_domain='osha',
+                    condition="python:len(object.getField('multilingual_thesaurus').Vocabulary(object))",
+                ),
+            ),
+            NACEField('nace',
+                schemata='default',
+                languageIndependent=True,
+                multiValued=True,
+                mutator='setNace',
+                accessor='getNace',
+                widget=VocabularyPickerWidget(
+                    label="Sector (NACE Code)",
+                    description="Pick one or more values by clicking the Add button or using the Quicksearch field below.",
+                    vocabulary="NACE",
+                    label_msgid='label_nace',
+                    description_msgid='help_nace',
+                    i18n_domain='osha',
+                    condition="python:len(object.getField('nace').Vocabulary(object))",
+                ),
+            ),
             BaseLinesField(
             'subject',
             multiValued=1,
             accessor="Subject",
             searchable=True,
+            languageIndependent=True,
             widget=KeywordWidget(
                 label=_(u'label_categories', default=u'Categories'),
                 description=_(u'help_categories',
@@ -787,7 +839,7 @@ class TaggingSchemaExtenderDocument(TaggingSchemaExtender):
         self.context = context
         _myfields= list()
         for f in self._fields:
-            if f.getName() not in ('subcategory', 'isNews', 'annotatedlinklist') or \
+            if f.getName() not in ('isNews', 'annotatedlinklist') or \
                 (f.getName()=='annotatedlinklist' and IAnnotatedLinkList.providedBy(context)):
                 new_f = f.copy()
                 _myfields.append(new_f)
