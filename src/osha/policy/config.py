@@ -141,17 +141,11 @@ DEFAULT_FIELDS = {
         'creation_date',
         'modification_date',
         'answer',
-        'versions',
-        'sections',
-        'contributors',
-        'startHere',
         'subject',
-        'relatedItems',
-        'cleanWordPastedText',
-        ]
+        ],
 
     "Blob" : [
-         'id',
+        'id',
         'title',
         'description',
         'isNews',
@@ -176,7 +170,6 @@ DEFAULT_FIELDS = {
         'excludeFromNav',
         'cleanWordPastedText',
         ],
-
 
     "Link" : [
         'id',
@@ -600,8 +593,5 @@ DEFAULT_FIELDS = {
         'excludeFromNav',
         'cleanWordPastedText',
         ],
-
->>>>>>> .r5341
-
 
     }
