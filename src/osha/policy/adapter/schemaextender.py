@@ -9,15 +9,10 @@ import logging
 
 import zope.interface
 
-from plone.app.blob.content import ATBlob
-
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from archetypes.schemaextender.field import ExtensionField
 
-from Products.ATContentTypes.content.file import ATFile
-from Products.ATContentTypes.content.image import ATImage
-from Products.ATContentTypes.content.link import ATLink
 from Products.ATCountryWidget.Widget import MultiCountryWidget
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from Products.ATVocabularyManager.namedvocabulary import NamedVocabulary
@@ -44,16 +39,6 @@ from osha.policy.interfaces import IOSHACommentsLayer
 log = logging.getLogger('osha.policy/adapter/schemaextender.py')
 
 LANGUAGE_INDEPENDENT_INITIALIZED = '_languageIndependent_initialized_oshapolicy'
-
-class IOSHFileContent(zope.interface.Interface):
-    """ Interface for Files and Images """
-
-# The cool new widget is used for the following, enabling bulk-tagger support
-# Publications / Files / Images / Regular Links
-# zope.interface.classImplements(ATFile, IOSHFileContent)
-# zope.interface.classImplements(ATBlob, IOSHFileContent)
-# zope.interface.classImplements(ATImage, IOSHFileContent)
-# zope.interface.classImplements(ATLink, IOSHFileContent)
 
 # dummy
 DUMMY = False
@@ -385,15 +370,33 @@ class OSHContentExtender(OSHASchemaExtender):
         return original
 
 
-class CaseStudyExtender(OSHASchemaExtender):
-
+class DocumentExtender(OSHASchemaExtender):
     _fields = [
         extended_fields_dict.get('country').copy(),
+        extended_fields_dict.get('subcategory').copy(),
         extended_fields_dict.get('multilingual_thesaurus').copy(),
         extended_fields_dict.get('nace').copy(),
         extended_fields_dict.get('osha_metadata').copy(),
-        extended_fields_dict.get('isNews').copy(),
         extended_fields_dict.get('reindexTranslations').copy(),
+        ]
+
+    def __init__(self, context):
+        self.context = context
+        if IAnnotatedLinkList.providedBy(context):
+            self._fields.append(
+                        extended_fields_dict.get('annotatedlinklist')
+                        )
+
+        self._generateMethods(context, self._fields)
+
+
+class CaseStudyExtender(OSHASchemaExtender):
+    """ CaseStudy inherits from RichDocument, therefore the DocumentExtender is
+        already being applied. We add here only CaseStudy specific fields.
+    """
+
+    _fields = [
+        extended_fields_dict.get('isNews').copy(),
         ]
 
     def __init__(self, context):
@@ -508,26 +511,6 @@ class FAQExtender(OSHASchemaExtender):
         return original
 
 
-class DocumentExtender(OSHASchemaExtender):
-    _fields = [
-        extended_fields_dict.get('country').copy(),
-        extended_fields_dict.get('subcategory').copy(),
-        extended_fields_dict.get('multilingual_thesaurus').copy(),
-        extended_fields_dict.get('nace').copy(),
-        extended_fields_dict.get('osha_metadata').copy(),
-        extended_fields_dict.get('reindexTranslations').copy(),
-        ]
-
-    def __init__(self, context):
-        self.context = context
-        if IAnnotatedLinkList.providedBy(context):
-            self._fields.append(
-                        extended_fields_dict.get('annotatedlinklist')
-                        )
-
-        self._generateMethods(context, self._fields)
-
-
 class RALinkExtender(OSHASchemaExtender):
     """ RALinks are already extended by DocumentExtender because they subtype 
         ATDocument. Here we add only the extra fields.
@@ -584,7 +567,6 @@ class PressReleaseExtender(OSHASchemaExtender):
 
 
 class FileContentExtender(OSHASchemaExtender):
-    # zope.component.adapts(IOSHFileContent)
     _fields = [
         extended_fields_dict.get('country').copy(),
         extended_fields_dict.get('subcategory').copy(),

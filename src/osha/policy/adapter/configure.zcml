@@ -8,7 +8,6 @@
 		factory=".subtyper.AnnotatedLinkListDescriptor"
 		/>
 
-
     <adapter
         for="plone.app.blob.interfaces.IATBlob"
         factory=".schemaextender.FileContentExtender" 
