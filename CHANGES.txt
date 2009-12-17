@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.2.33 (unreleased)
+1.2.33 (2009-12-17)
 -------------------
 
 - removed reference to plonetrugallery, not ready for prod yet (thomasw)
