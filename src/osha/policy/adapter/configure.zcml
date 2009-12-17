@@ -130,13 +130,13 @@
             />
     </configure>
 
-    <adapter zcml:condition="installed slc.treecategories">
+    <adapter zcml:condition="installed slc.treecategories"
         for="slc.treecategories.browser.browser.Json"
         name="MultilingualThesaurus"
         factory=".slcmedialibrary_support.OSHAVocabularyInfo"
         />
 
-    <adapter
+    <adapter zcml:condition="installed slc.treecategories"
         for="slc.treecategories.browser.browser.Json"
         name="NACE"
         factory=".slcmedialibrary_support.OSHAVocabularyInfo"
