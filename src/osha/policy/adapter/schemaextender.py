@@ -482,7 +482,7 @@ class FAQExtender(OSHASchemaExtender):
                                       'these help you categorize your content.'),
                 ),
             ),
-    ]
+        ]
 
 
 class RALinkExtender(OSHASchemaExtender):

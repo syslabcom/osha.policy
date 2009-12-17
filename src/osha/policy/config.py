@@ -141,7 +141,15 @@ DEFAULT_FIELDS = {
         'creation_date',
         'modification_date',
         'answer',
+        'versions',
+        'sections',
+        'contributors',
+        'startHere',
         'subject',
+        'relatedItems',
+        'subcategory',
+        'nace',
+        'multilingual_thesaurus',
         ],
 
     "Blob" : [
