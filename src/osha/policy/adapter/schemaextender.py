@@ -50,10 +50,10 @@ class IOSHFileContent(zope.interface.Interface):
 
 # The cool new widget is used for the following, enabling bulk-tagger support
 # Publications / Files / Images / Regular Links
-zope.interface.classImplements(ATFile, IOSHFileContent)
-zope.interface.classImplements(ATBlob, IOSHFileContent)
-zope.interface.classImplements(ATImage, IOSHFileContent)
-zope.interface.classImplements(ATLink, IOSHFileContent)
+# zope.interface.classImplements(ATFile, IOSHFileContent)
+# zope.interface.classImplements(ATBlob, IOSHFileContent)
+# zope.interface.classImplements(ATImage, IOSHFileContent)
+# zope.interface.classImplements(ATLink, IOSHFileContent)
 
 # dummy
 DUMMY = False
@@ -584,7 +584,7 @@ class PressReleaseExtender(OSHASchemaExtender):
 
 
 class FileContentExtender(OSHASchemaExtender):
-    zope.component.adapts(IOSHFileContent)
+    # zope.component.adapts(IOSHFileContent)
     _fields = [
         extended_fields_dict.get('country').copy(),
         extended_fields_dict.get('subcategory').copy(),
