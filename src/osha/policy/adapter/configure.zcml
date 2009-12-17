@@ -66,13 +66,6 @@
 
     <adapter
         factory=".schemaextender.DocumentExtender" 
-        for="Products.RichDocument.content.richdocument.RichDocument"
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-        name="osha-rich-document"
-        />
-
-    <adapter
-        factory=".schemaextender.DocumentExtender" 
         for="osha.whoswho.content.whoswho.whoswho"
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
         name="osha-whoswho"
