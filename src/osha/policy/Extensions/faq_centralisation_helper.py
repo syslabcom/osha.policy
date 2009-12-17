@@ -81,13 +81,13 @@ def get_possible_faqs(self):
     #             getId='faq.php',
     #             path='/osha/portal/en/good_practice/priority_groups/disability/')
     
-    # ls = self.portal_catalog(
-    #             getId='faq.stm',
-    #             path='osha/en/good_practice/topics/dangerous_substances/faq.stm')
-
     ls = self.portal_catalog(
-                getId='faq.php',
-                path='osha/en/good_practice/topics/accident_prevention/')
+                getId='faq2.stm',
+                path='osha/en/good_practice/topics/dangerous_substances/faq2.stm')
+
+    # ls = self.portal_catalog(
+    #             getId='faq.php',
+    #             path='osha/en/good_practice/topics/accident_prevention/')
 
     log.info("Processing FAQs: %s" % "\n".join([i.getURL() for i in ls]))
 
@@ -352,8 +352,6 @@ def set_keywords(obj, old_parent, reindex=True):
                 log.info("Keyword '%s' already in %s: %s \n" \
                         % (obj, obj.portal_type, obj.getPhysicalPath()))
                         
-            log.info('Added keyword to obj %s, %s' % ('/'.join(obj.getPhysicalPath()), kw))
-
     if reindex:
         obj.reindexObject()
 
@@ -362,6 +360,7 @@ def subtype_container(parent):
     subtyper = component.getUtility(ISubtyper)
     if subtyper.existing_type(parent) is None:
         subtyper.change_type(parent, 'slc.aggregation.aggregator')
+        parent.setLayout('faq_aggregation')
         if not parent.isCanonical():
             canonical = parent.getCanonical()
         else:
@@ -397,8 +396,5 @@ def subtype_container(parent):
         annotations['restrict_language'] = False
         log.info('%s subtyped as aggregator with keywords %s' % ('/'.join(parent.getPhysicalPath()), str(keywords)))
         return parent
-
-
-
 
 

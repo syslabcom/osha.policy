@@ -113,6 +113,7 @@ class OSHAMetadataField(ExtensionFieldMixin, ExtensionField, atapi.LinesField):
     def Vocabulary(self, content_instance):
         return self._Vocabulary(content_instance, 'OSHAMetadata')
 
+
 class AttachmentField(ExtensionField, atapi.FileField):
     """ additional file field for attachments """
 
@@ -313,12 +314,16 @@ class OSHASchemaExtender(object):
 
     def __init__(self, context):
         self.context = context
-        self._generateMethodsForLanguageIndependentFields(context, self._fields)
+        self._generateMethods(context, self._fields)
 
-    def _generateMethodsForLanguageIndependentFields(
-                                    self, context, fields, initialized=True):
 
+    def _generateMethods(self, context, fields, initialized=True):
+        """ Call LinguaPlone's generateMethods method to generate accessors 
+            which automatically update the values of languageIndependent 
+            fields on all translations.
+        """
         klass = context.__class__
+        import pdb; pdb.set_trace()
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False) \
                                                         or not initialized:
 
@@ -328,6 +333,7 @@ class OSHASchemaExtender(object):
                                     % (klass, self.__class__.__name__))
 
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
+
 
     def getOrder(self, original):
         return original
@@ -349,7 +355,7 @@ class OSHContentExtender(OSHASchemaExtender):
     def __init__(self, context):
         self.context = context
         _myfields= list()
-        self._generateMethodsForLanguageIndependentFields(context, self._fields)
+        self._generateMethods(context, self._fields)
 
 
     def getOrder(self, original):
@@ -397,16 +403,17 @@ class CaseStudyExtender(OSHASchemaExtender):
             if f.getName() in ('country', 'multilingual_thesaurus'):
                 f.required = True
 
-        # Case Study inherits from ATDocument. We might get a false positive, so check that the
-        # accessors are really there
+        # Case Study inherits from ATDocument. We might get a false positive, 
+        # so check that the accessors are really there
         initialized = True
         fields = [field for field in self._fields if field.languageIndependent]
+        import pdb; pdb.set_trace()
         for field in fields:
             if not getattr(context, field.accessor, None):
                 initialized = False
                 break
 
-        self._generateMethodsForLanguageIndependentFields(context, fields, initialized)
+        self._generateMethods(context, fields, initialized)
 
 
     def getOrder(self, original):
@@ -458,7 +465,7 @@ class EventExtender(OSHASchemaExtender):
             if f.getName() in ('subcategory', 'multilingual_thesaurus'):
                 f.required = False
 
-        self._generateMethodsForLanguageIndependentFields(context, self._fields)
+        self._generateMethods(context, self._fields)
 
 
 class FAQExtender(OSHASchemaExtender):
@@ -490,7 +497,7 @@ class FAQExtender(OSHASchemaExtender):
 
     def __init__(self, context):
         self.context = context
-        self._generateMethodsForLanguageIndependentFields(context, self._fields)
+        self._generateMethods(context, self._fields)
 
     def getOrder(self, original):
         default = original.get('default', [])
@@ -520,7 +527,7 @@ class DocumentExtender(OSHASchemaExtender):
                         extended_fields_dict.get('annotatedlinklist')
                         )
 
-        self._generateMethodsForLanguageIndependentFields(context, self._fields)
+        self._generateMethods(context, self._fields)
 
 
 class RALinkExtender(OSHASchemaExtender):
@@ -546,7 +553,7 @@ class RALinkExtender(OSHASchemaExtender):
                 initialized = False
                 break
 
-        self._generateMethodsForLanguageIndependentFields(context, fields, initialized)
+        self._generateMethods(context, fields, initialized)
 
 
 class PressReleaseExtender(OSHASchemaExtender):
@@ -602,7 +609,7 @@ class FileContentExtender(OSHASchemaExtender):
                 if InlineTreeWidget:
                     field.widget = InlineTreeWidget(**widget_args)
 
-        self._generateMethodsForLanguageIndependentFields(context, self._fields)
+        self._generateMethods(context, self._fields)
 
 
 class LinkListExtender(OSHASchemaExtender):
