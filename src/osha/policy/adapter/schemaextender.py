@@ -484,11 +484,10 @@ class RALinkExtender(OSHASchemaExtender):
 
 
 class PressReleaseExtender(OSHASchemaExtender):
-    """ PressReleases are already extended by die DocumentExtender, due to
-        them subclassing ATNewsITem.
-        Here we just add extra fields.
-    """
     _fields = [
+        extended_fields_dict.get('osha_metadata').copy(),
+        extended_fields_dict.get('country').copy(),
+        extended_fields_dict.get('reindexTranslations').copy(),
         extended_fields_dict.get('isNews').copy(),
 
         ReferencedContentField('referenced_content',

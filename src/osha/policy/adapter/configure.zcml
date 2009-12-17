@@ -54,14 +54,7 @@
         factory=".schemaextender.DocumentExtender" 
         for="Products.ATContentTypes.interface.IATDocument"
         provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-        name="osha-document"
-        />
-
-    <adapter
-        factory=".schemaextender.DocumentExtender" 
-        for="Products.ATContentTypes.interface.IATNewsItem"
-        provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-        name="osha-news"
+        name="osha-document-extended"
         />
 
     <adapter
@@ -115,11 +108,15 @@
     </configure>
 
     <configure zcml:condition="installed Products.PressRoom">
+        <!-- It's important that we give the same name 'osha-document-extended'
+             as the adapter for IATDocument, otherwise both adapters are
+             applied.
+        -->
         <adapter
             factory=".schemaextender.PressReleaseExtender" 
             for="Products.PressRoom.interfaces.content.IPressRelease"
             provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
-            name="osha-pressrelease"
+            name="osha-document-extended"
             />
     </configure>
 

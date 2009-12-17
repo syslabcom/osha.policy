@@ -279,7 +279,7 @@ DEFAULT_FIELDS = {
         'rights',
         ],
 
-    "NewsItem" : [
+    "News Item" : [
         'id',
         'title',
         'description',
@@ -399,18 +399,7 @@ DEFAULT_FIELDS = {
         'nace',
         'isNews',
         'reindexTranslations',
-        'contact_name',
-        'address',
-        'phone',
-        'fax',
-        'email',
-        'contact_url',
-        'creators',
-        'contributors',
-        'rights',
-        'cleanWordPastedText',
     ],
-
 
     "PressRelease" : [
         'id',
