@@ -72,16 +72,6 @@
   </configure>
 
 
-    <adapter
-        for="slc.treecategories.browser.browser.Json"
-        name="MultilingualThesaurus"
-        factory=".slcmedialibrary_support.OSHAVocabularyInfo"
-        />
 
-    <adapter
-        for="slc.treecategories.browser.browser.Json"
-        name="NACE"
-        factory=".slcmedialibrary_support.OSHAVocabularyInfo"
-        />
 
 </configure>

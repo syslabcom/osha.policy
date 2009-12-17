@@ -7,6 +7,7 @@ osha.policy Changelog
 - Schemaextender: added 1 field (subcat) for document, three fields (subcat,
   nace, thesaurus) to FAQ (thomasw)
 - Bugfix in the setuphandlers.py (thomasw)
+- removed all references to slc.treecategories, gives trouble when deploying (thomasw)
 
 1.2.30 (2009-12-09)
 -------------------

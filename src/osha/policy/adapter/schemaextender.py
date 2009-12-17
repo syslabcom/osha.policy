@@ -27,10 +27,6 @@ from Products.LinguaPlone.utils import generateMethods
 from Products.OSHATranslations import OSHAMessageFactory as _
 from Products.VocabularyPickerWidget.VocabularyPickerWidget import VocabularyPickerWidget
 
-try:
-    from slc.treecategories.widgets.widgets import InlineTreeWidget
-except ImportError:
-    InlineTreeWidget = None
 
 from osha.theme.vocabulary import AnnotatableLinkListVocabulary
 
@@ -961,8 +957,6 @@ class TaggingSchemaExtenderFileContent(object):
                     widget_args[arg] = getattr(new_f.widget, arg, '')
                 widget_args['vocabulary'] = vocabulary
                 new_f.vocabulary = vocabulary
-                if InlineTreeWidget:
-                    new_f.widget = InlineTreeWidget(**widget_args)
 
             _myfields.append(new_f)
         self._myfields = _myfields

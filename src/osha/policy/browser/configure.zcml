@@ -94,29 +94,6 @@
         permission="zope.Public"
         />
 
-    <browser:page
-        for="Products.ATContentTypes.interface.folder.IATFolder"
-        class=".foldercontents.CustomizedFolderContentsView"
-        name="bulk_tagger"
-        template="templates/foldercontents.pt"
-        permission="cmf.ListFolderContents" 
-        />
-
-    <browser:page
-        for="Products.ATContentTypes.interface.folder.IATBTreeFolder"
-        class=".foldercontents.CustomizedFolderContentsView"
-        name="bulk_tagger"
-        template="templates/foldercontents.pt"
-        permission="cmf.ListFolderContents" 
-        />
-
-    <browser:page
-        for="Products.ATContentTypes.interface.topic.IATTopic"
-        class=".foldercontents.CustomizedFolderContentsView"
-        name="bulk_tagger"
-        template="templates/foldercontents.pt"
-        permission="cmf.ListFolderContents" 
-        />
 
  
      <include package="plone.app.contentmenu" />
