@@ -98,39 +98,6 @@
  
      <include package="plone.app.contentmenu" />
 
-   <browser:menuItem
-        for="collective.plonetruegallery.interfaces.IGallery"
-        menu="plone_displayviews"
-        title="Bulk Tagger"
-        action="bulk_tagger"
-        description="Bulk Tagging of images"
-        />
-        
-    <browser:page
-        for="Products.ATContentTypes.interface.folder.IATFolder"
-        class=".foldercontents.FolderContentsKSSView"
-        attribute="update_table"
-        name="bulktagger_update_table"
-        permission="cmf.ListFolderContents" 
-        />
-
-    <browser:page
-        for="Products.ATContentTypes.interface.folder.IATBTreeFolder"
-        class=".foldercontents.FolderContentsKSSView"
-        attribute="update_table"
-        name="bulktagger_update_table"
-        permission="cmf.ListFolderContents" 
-        />
-
-
-
-    <browser:page
-        for="Products.ATContentTypes.interface.topic.IATTopic"
-        class=".foldercontents.FolderContentsKSSView"
-        attribute="update_table"
-        name="bulktagger_update_table"
-        permission="cmf.ListFolderContents" 
-        />
 
 
 
