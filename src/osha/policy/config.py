@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
-#
-# File: config.py
 
-
-__author__ = """SYSLAB.COM <info@syslab.com>"""
+__author__ = """Syslab.com <info@syslab.com>"""
 __docformat__ = 'plaintext'
 
-
 from Products.CMFCore.permissions import setDefaultRoles
+
+product_globals = globals()
 
 DEFAULT_RIGHTS = "European Agency for Safety and Health at Work"
 AUTHOR = "European Agency for Safety and Health at Work" # Set your default author here
@@ -20,7 +18,6 @@ setDefaultRoles(DEFAULT_ADD_CONTENT_PERMISSION, ('Manager', 'Owner'))
 DIFF_SUPPORT = [('OSH_Link', 'getText', 'Lines Diff')]
 
 TYPES_TO_VERSION = ['OSH_Link', 'RichDocument', 'Document']
-
 
 DEPENDENCIES = [
     'CMFPlacefulWorkflow',
@@ -80,10 +77,35 @@ DEPENDENCIES = [
     # slc.alertservice is not found 
     # osha.legislation throws 'invalid permission' error when being installed.
 
-
     # It is IMPORTANT that the linkchecker is installed at the end
     # because it relies on beforehand registered retrievers
     #quickinst.installProduct('CMFLinkChecker')
 
-product_globals = globals()
+
+DEFAULT_FIELDS = {
+    'CaseStudy':[
+        'id', 
+        'title', 
+        'description', 
+        'isNews',
+        'text', 
+        'displayImages', 
+        'action', 
+        'results', 
+        'publication_year', 
+        'organisation', 
+        'remoteLanguage', 
+        'remoteUrl', 
+        'displayAttachments', 
+        'subject', 
+        'relatedItems', 
+        'location', 
+        'osha_metadata', 
+        'annotatedlinklist',
+        'nace', 
+        'country', 
+        'multilingual_thesaurus', 
+        'reindexTranslations', 
+        ]
+    }
 
