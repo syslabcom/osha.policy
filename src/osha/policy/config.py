@@ -101,7 +101,6 @@ DEFAULT_FIELDS = {
         'relatedItems', 
         'location', 
         'osha_metadata', 
-        'annotatedlinklist',
         'nace', 
         'country', 
         'multilingual_thesaurus', 
