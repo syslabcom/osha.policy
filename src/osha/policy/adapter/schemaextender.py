@@ -323,7 +323,6 @@ class OSHASchemaExtender(object):
             fields on all translations.
         """
         klass = context.__class__
-        import pdb; pdb.set_trace()
         if not getattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, False) \
                                                         or not initialized:
 
@@ -407,7 +406,6 @@ class CaseStudyExtender(OSHASchemaExtender):
         # so check that the accessors are really there
         initialized = True
         fields = [field for field in self._fields if field.languageIndependent]
-        import pdb; pdb.set_trace()
         for field in fields:
             if not getattr(context, field.accessor, None):
                 initialized = False
