@@ -324,7 +324,6 @@ class OSHASchemaExtender(object):
             osha.policy/config.py
             If no such ordering was provided, then return the original
         """
-        import pdb; pdb.set_trace()
         portal_type = self.context.portal_type
         original_fields = original['default']
         ordered_fields = config.DEFAULT_FIELDS.get(portal_type, [])
