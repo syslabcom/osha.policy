@@ -320,9 +320,10 @@ class OSHASchemaExtender(object):
             setattr(klass, LANGUAGE_INDEPENDENT_INITIALIZED, True)
 
     def getOrder(self, original):
-        """ Try to set the fields order to the ordering provided in
+        """ Try to set the fields order according to the ordering provided in
             osha.policy/config.py
-            If no such ordering was provided, then return the original
+
+            If no such ordering was provided, then return the original.
         """
         portal_type = self.context.portal_type
         original_fields = original['default']
