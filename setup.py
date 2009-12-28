@@ -75,7 +75,8 @@ setup(name='osha.policy',
       extras_require=dict(tests=tests_require),
       test_suite = 'osha.policy.tests.test_docs.test_suite',
       entry_points="""
-      # -*- entry_points -*- 
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )      
       
