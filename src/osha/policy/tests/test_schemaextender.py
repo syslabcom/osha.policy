@@ -48,9 +48,16 @@ EXTENDED_TYPES = [
     "PressRelease"
     ]
 
+# These types are successfully extended
 EXTENDED_TYPES = [
+    'Link',
+    'Image',
+    'File',
+    'Document',
     'CaseStudy',
+    "PressRelease"
     ]
+
 
 def startZServer(browser=None):
     host, port = utils.startZServer()
@@ -79,14 +86,11 @@ class TestSchemaExtender(OSHAPolicyTestCase):
         """
         self.populate_site()
 
-
         for type in EXTENDED_TYPES:
             obj = self.portal.get(type)
 
             default_schema = obj.Schema().getSchemataFields("default")
             fields = [i.__name__ for i in default_schema]
-
-            print fields
 
             self.assertEquals(
                 DEFAULT_FIELDS[type],
