@@ -12,7 +12,8 @@ optimization -->
     <!--utility component=".adapter.memcached_support.choose_cache"
              provides="plone.memoize.interfaces.ICacheChooser" /-->
 
-    <adapter factory=".adapter.calendar_eventprovider.ATEventProvider" />
+    <adapter zcml:condition="installed p4a.plonecalendar"
+             factory=".adapter.calendar_eventprovider.ATEventProvider" />
 
     <adapter factory=".adapter.formatter.PrettyFormatter"
                 for="slc.publications.interfaces.IPublicationEnhanced"
