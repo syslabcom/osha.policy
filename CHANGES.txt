@@ -1,8 +1,8 @@
 osha.policy Changelog
 =====================
 
-1.3 (2009-12-28)
-----------------
+1.3b1 (2010-01-04)
+------------------
 
 - Bugfix in foldercontents: define obj before you reference it (thomasw)
 - Major refactoring of the adapter/schemaextender.py class. The adapter
