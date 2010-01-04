@@ -52,7 +52,6 @@ EXTENDED_TYPES = [
 EXTENDED_TYPES = [
     'Link',
     'Image',
-    'File',
     'Document',
     'CaseStudy',
     "PressRelease"
