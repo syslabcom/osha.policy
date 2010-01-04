@@ -14,6 +14,8 @@ from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase import layer
 from Products.PloneTestCase.layer import onsetup
 
+from plone import browserlayer
+
 from osha.policy.interfaces import IOSHACommentsLayer
 
 SiteLayer = layer.PloneSite
@@ -49,6 +51,9 @@ class OSHAPolicyLayer(SiteLayer):
         zcml.load_config('configure.zcml', slc.xliff)
         import slc.shoppinglist
         zcml.load_config('configure.zcml', slc.shoppinglist)
+
+        browserlayer.utils.register_layer(IOSHACommentsLayer,
+                                          name='osha.policy')
 
         component.provideAdapter(instanceSchemaFactory)
         SiteLayer.setUp()
