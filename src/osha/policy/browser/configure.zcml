@@ -121,13 +121,13 @@
  
      <include package="plone.app.contentmenu" />
 
-   <!-- <browser:menuItem zcml:condition="installed collective.plonetruegallery" -->
-   <!--      for="collective.plonetruegallery.interfaces.IGallery" -->
-   <!--      menu="plone_displayviews" -->
-   <!--      title="Bulk Tagger" -->
-   <!--      action="bulk_tagger" -->
-   <!--      description="Bulk Tagging of images" -->
-   <!--      /> -->
+   <browser:menuItem zcml:condition="installed collective.plonetruegallery"
+        for="collective.plonetruegallery.interfaces.IGallery"
+        menu="plone_displayviews"
+        title="Bulk Tagger"
+        action="bulk_tagger"
+        description="Bulk Tagging of images"
+        />
         
     <browser:page
         for="Products.ATContentTypes.interface.folder.IATFolder"
