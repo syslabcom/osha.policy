@@ -5,7 +5,7 @@ from five.localsitemanager import make_objectmanager_site
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 
 from Products.ATContentTypes.interface import IATEvent
-from Products.ATContentTypes.interface import IATNews
+from Products.ATContentTypes.interface import IATNewsItem
 from Products.ATContentTypes.interface import IATDocument
 from Products.PressRoom.interfaces.content import IPressRelease
 from Products.CMFCore.utils import getToolByName
@@ -49,7 +49,7 @@ def run(self, path=''):
 
     sitemanager.registerAdapter(
                             OshaMetadataExtender,
-                            (IATNews,),
+                            (IATNewsItem,),
                             IOrderableSchemaExtender,
                             name='news-oshametadata',
                             )
