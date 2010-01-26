@@ -18,5 +18,4 @@ import p4aimages_patch
 import p4aaudio_patch
 import linguaplone_addTranslation_patch
 import FCKeditor_patch
-import Archetypes_isFactoryContained_patch
 
