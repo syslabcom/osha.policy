@@ -4,7 +4,13 @@ osha.policy Changelog
 1.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Export of jsregistry from test.osha, this configuration fixed an issue with
+  jquery.dynatree.min.js (deroiste)
+- Add external method to migrate the annotatedlinks subtyped docs (jcbrand)
+- added ExternalMethod for locally registering the osha_metadata field,
+  works just like setLinkListExtension.py (thomasw)
+- Added a patch for LinguaPlone's method Generator, for details see notes in
+  the patch (thomasw)
 
 
 1.3b2 (2010-01-19)
