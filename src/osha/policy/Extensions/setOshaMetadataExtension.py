@@ -7,6 +7,7 @@ from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from Products.ATContentTypes.interface import IATEvent
 from Products.ATContentTypes.interface import IATNewsItem
 from Products.ATContentTypes.interface import IATDocument
+from osha.whoswho.interfaces import Iwhoswho
 from Products.PressRoom.interfaces.content import IPressRelease
 from Products.CMFCore.utils import getToolByName
 
@@ -57,6 +58,13 @@ def run(self, path=''):
     sitemanager.registerAdapter(
                             OshaMetadataExtender,
                             (IATDocument,),
+                            IOrderableSchemaExtender,
+                            name='document-oshametadata',
+                            )
+
+    sitemanager.registerAdapter(
+                            OshaMetadataExtender,
+                            (Iwhoswho,),
                             IOrderableSchemaExtender,
                             name='document-oshametadata',
                             )
