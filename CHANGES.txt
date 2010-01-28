@@ -1,8 +1,8 @@
 osha.policy Changelog
 =====================
 
-1.3 (unreleased)
-----------------
+1.3.0 (2010-01-28)
+------------------
 
 - Export of jsregistry from test.osha, this configuration fixed an issue with
   jquery.dynatree.min.js (deroiste)
