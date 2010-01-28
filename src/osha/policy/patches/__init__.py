@@ -19,4 +19,4 @@ import p4aaudio_patch
 import linguaplone_addTranslation_patch
 import FCKeditor_patch
 import LinguaPlone_generator_patch
-
+import blob_index_patch
