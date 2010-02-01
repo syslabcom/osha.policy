@@ -15,6 +15,7 @@
 print "\nosha.policy: patching Products.LinguaPlone.utils.Generator"
 
 from Products.LinguaPlone import utils
+from Products.LinguaPlone.utils import AT_GENERATE_METHOD
 
 from types import FunctionType as function
 from Products.Archetypes.ClassGen import GeneratorError, _modes
