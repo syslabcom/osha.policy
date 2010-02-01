@@ -37,12 +37,15 @@ class OSHAPolicyLayer(SiteLayer):
         ztc.installProduct('PressRoom')
         ztc.installProduct('RALink')
         ztc.installProduct('CaseStudy')
+        ztc.installPackage('osha.legislation')
 
 
         import osha.theme
         zcml.load_config('configure.zcml', osha.theme)
         import osha.policy
         zcml.load_config('configure.zcml', osha.policy)
+        import osha.legislation
+        zcml.load_config('configure.zcml', osha.legislation)
         import textindexng
         zcml.load_config('configure.zcml', textindexng)
         import slc.clicksearch
