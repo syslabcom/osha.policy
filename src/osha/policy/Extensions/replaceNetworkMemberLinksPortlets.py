@@ -37,7 +37,7 @@ def replace_nm_links_portlets(self):
         keys.insert(idx-1, name)
         assignments.updateOrder(keys)
 
-    def do_portlet_replacement(obj):
+    def do_portlet_replacement(obj, old_portlet, new_portlet):
         """
         Replace a "network-member-links" portlets with a "fop-links" portlet
         """
@@ -50,8 +50,7 @@ def replace_nm_links_portlets(self):
             return
 
         portlets = [x for x in list(right.keys())]
-        old_portlet = "network-member-links"
-        new_portlet = 'fop-links'
+        self.out.write("%s %s\n" %(path, " ".join(portlets)))
         if old_portlet in portlets:
             index = portlets.index(old_portlet)
             del right[old_portlet]
@@ -65,7 +64,7 @@ def replace_nm_links_portlets(self):
                 move_portlet_up(right, new_portlet)
                 keys =  list(right.keys())
                 new_portlet_index = keys.index(new_portlet)
-            print [x for x in list(right.keys())]
+            self.out.write("\n".join([x for x in list(right.keys())]))
             self.out.write('Portlet replacement on %s successful\n' %path)
 
     def get_translations(obj):
@@ -86,7 +85,17 @@ def replace_nm_links_portlets(self):
         translations = get_translations(member_state)
         for lang_code in translations:
             translation = translations[lang_code][0]
-            do_portlet_replacement(translation)
+            do_portlet_replacement(
+                translation, 
+                "links",
+                "fop-links"
+                )
+            do_portlet_replacement(
+                translation, 
+                "network-member-links",
+                "fop-links"
+                )
+
 
         # Also replace old portlets assigned to the index page
         index_page = getattr(member_state, "index_html", None)
@@ -94,6 +103,15 @@ def replace_nm_links_portlets(self):
             translations = get_translations(index_page)
             for lang_code in translations:
                 translation = translations[lang_code][0]
-                do_portlet_replacement(translation)
+                do_portlet_replacement(
+                    translation, 
+                    "links",
+                    "fop-links"
+                    )
+                do_portlet_replacement(
+                    translation, 
+                    "network-member-links",
+                    "fop-links"
+                    )
 
     return self.out.getvalue()
