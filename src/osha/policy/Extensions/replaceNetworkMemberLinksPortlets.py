@@ -68,19 +68,30 @@ def replace_nm_links_portlets(self):
             print [x for x in list(right.keys())]
             self.out.write('Portlet replacement on %s successful\n' %path)
 
+    def get_translations(obj):
+        translatable = ITranslatable(obj, None)
+        if translatable is not None:
+            translations = translatable.getTranslations()
+        else:
+            translations = {}
+        return translations
+
     portal = self.portal_url.getPortalObject()
     member_states = portal.en.oshnetwork["member-states"].listFolderContents(
         contentFilter={"portal_type": "Folder"}
         )
     for member_state in member_states:
+        # If there is an old portlet assigned to the folder, replace
+        # it with the new portlet
+        translations = get_translations(member_state)
+        for lang_code in translations:
+            translation = translations[lang_code][0]
+            do_portlet_replacement(translation)
+
+        # Also replace old portlets assigned to the index page
         index_page = getattr(member_state, "index_html", None)
         if index_page:
-            translatable = ITranslatable(index_page, None)
-            if translatable is not None:
-                translations = translatable.getTranslations()
-            else:
-                translations = {}
-
+            translations = get_translations(index_page)
             for lang_code in translations:
                 translation = translations[lang_code][0]
                 do_portlet_replacement(translation)
