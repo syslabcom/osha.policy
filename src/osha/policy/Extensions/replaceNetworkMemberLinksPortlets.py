@@ -1,87 +1,88 @@
-import Acquisition
-from Products.CMFCore.interfaces._content import IFolderish
-from Products.CMFCore.utils import getToolByName
-from zope.component.interfaces import ComponentLookupError
-from osha.fop.portlets import network_member_links
-#from slc.googlesearch.portlets import searchbox
-#from slc.googlesearch.browser.settings import AvailableCSEVocabularyFactory
-from plone.app.portlets.browser.editmanager import ManagePortletAssignments
-from plone.portlets.constants import CONTEXT_CATEGORY
-from plone.portlets.constants import GROUP_CATEGORY
-from plone.portlets.constants import CONTENT_TYPE_CATEGORY
-from plone.portlets.interfaces import IPortletManager
-from plone.portlets.interfaces import ILocalPortletAssignmentManager
-from plone.app.portlets.utils import assignment_mapping_from_key
-from zope.exceptions.interfaces import DuplicationError
+"""
+Run the script from "en" member-states folder
+
+get the index_html for each country, replace it's portlet, get all
+it's translations and do the same
+
+"""
+
 from StringIO import StringIO
 
+from zope.component.interfaces import ComponentLookupError
+
+from Products.LinguaPlone.interfaces import ITranslatable
+from plone.app.portlets.utils import assignment_mapping_from_key
+from plone.portlets.constants import CONTEXT_CATEGORY
+
+from osha.fop.portlets import fop_links
+
+
 def replace_nm_links_portlets(self):
-    """Recursively replace 'search' portlets with 'google-searchbox' """""
-    portal = self.portal_url.getPortalObject()
-    ltool = getToolByName(portal, 'portal_languages')
-    langs = ltool.getSupportedLanguages()
-    # # langs = ['en']
+    """
+    Recursively replace 'network-member-links' portlets with the
+    new 'fop-links' portlet
+    """
+    self.out = StringIO()
+    self.out.write(
+        'Replacing network-member-links portlets with fop-portlets.\n\n'
+        )
 
-    # No settings needed
-    # vocab = AvailableCSEVocabularyFactory(self)
-    # self.cse = len(vocab._terms) and vocab._terms[0].value or ''
-    # self.out = StringIO()
-    # self.out.write('Starting with replacement of the "search" portlet.\n\n')
+    def move_portlet_up(assignments, name):
+        """
+        copied from plone.app.portlets
+        """
+        keys = list(assignments.keys())
+        idx = keys.index(name)
+        keys.remove(name)
+        keys.insert(idx-1, name)
+        assignments.updateOrder(keys)
 
-    # # copied from plone.app.portlets
-    # def move_portlet_up(assignments, name):
-    #     keys = list(assignments.keys())
-    #     idx = keys.index(name)
-    #     keys.remove(name)
-    #     keys.insert(idx-1, name)
-    #     assignments.updateOrder(keys)
-
-
-    def doReplacement(self, obj):
-        ##print "handling", obj.absolute_url()
+    def do_portlet_replacement(obj):
+        """
+        Replace a "network-member-links" portlets with a "fop-links" portlet
+        """
         path = '/'.join(obj.getPhysicalPath())
         try:
             right = assignment_mapping_from_key(
                 obj, 'plone.rightcolumn', CONTEXT_CATEGORY, path
                 )
         except ComponentLookupError:
-            #print "no portlets possible for", obj
             return
+
         portlets = [x for x in list(right.keys())]
-        import pdb; pdb.set_trace()
-        
-        new_name = 'google-searchbox'
-        if 'search' in portlets:
-            # import pdb; pdb.set_trace()
-            index = portlets.index('search')
-            print "replacing portlets on ", obj
-            del right['search']
-            if new_name in portlets:
+        old_portlet = "network-member-links"
+        new_portlet = 'fop-links'
+        if old_portlet in portlets:
+            index = portlets.index(old_portlet)
+            del right[old_portlet]
+            if new_portlet in portlets:
                 return
-            right[new_name] = searchbox.Assignment(selected_CSE=self.cse)
+            right[new_portlet] = fop_links.Assignment()
 
             keys =  list(right.keys())
-            google_index = keys.index(new_name)
-            while google_index!=index:
-                #move_portlet_up(right, new_name)
+            new_portlet_index = keys.index(new_portlet)
+            while new_portlet_index > index:
+                move_portlet_up(right, new_portlet)
                 keys =  list(right.keys())
-                google_index = keys.index(new_name)
+                new_portlet_index = keys.index(new_portlet)
             print [x for x in list(right.keys())]
-            self.out.write('Did replacement on %s\n' %path)
+            self.out.write('Portlet replacement on %s successful\n' %path)
 
-    def doRecursion(self, obj):
-        for subobj in obj.objectValues():
-            doReplacement(self, subobj)
-            if IFolderish.providedBy(subobj):
-                doRecursion(self, subobj)
+    portal = self.portal_url.getPortalObject()
+    member_states = portal.en.oshnetwork["member-states"].listFolderContents(
+        contentFilter={"portal_type": "Folder"}
+        )
+    for member_state in member_states:
+        index_page = getattr(member_state, "index_html", None)
+        if index_page:
+            translatable = ITranslatable(index_page, None)
+            if translatable is not None:
+                translations = translatable.getTranslations()
+            else:
+                translations = {}
 
-    for lang in langs:
-        if not hasattr(Acquisition.aq_base(portal), lang):
-            self.out.write("\nNo folder '%s' found on portal, skipping\n" %lang)
-            continue
-        self.out.write("\nHandling language '%s'\n" %lang)
-        F = getattr(portal, lang)
-        doReplacement(self, F)
-        doRecursion(self, F)
+            for lang_code in translations:
+                translation = translations[lang_code][0]
+                do_portlet_replacement(translation)
 
     return self.out.getvalue()
