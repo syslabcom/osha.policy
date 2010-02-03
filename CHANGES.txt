@@ -10,6 +10,8 @@ osha.policy Changelog
   from LP.utils depends on it (thomasw)
 - allowing update_object_history() from slc.cleanwordpastedtext for untrusted
   code, because it's such a lovely and handy method (thomasw)
+- Tested the ExternalMethod for replacing the osha.theme Network
+  Member Links portlet with the osha.fop FOP Links portlet (deroiste)
 
 
 1.3.0 (2010-01-28)
