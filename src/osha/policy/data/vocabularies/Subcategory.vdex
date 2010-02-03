@@ -14770,27 +14770,27 @@
 <term>
     <termIdentifier>maintenance</termIdentifier>
     <caption>
-      <langstring language="bg">Maintenance</langstring>
-      <langstring language="cs">Maintenance</langstring>
-      <langstring language="da">Maintenance</langstring>
-      <langstring language="de">Maintenance</langstring>
-      <langstring language="el">Maintenance</langstring>
+      <langstring language="bg">Поддръжка</langstring>
+      <langstring language="cs">údržba</langstring>
+      <langstring language="da">vedligeholdelse</langstring>
+      <langstring language="de">Instandhaltung</langstring>
+      <langstring language="el">συντήρηση</langstring>
       <langstring language="en">Maintenance</langstring>
-      <langstring language="es">Maintenance</langstring>
-      <langstring language="et">Maintenance</langstring>
-      <langstring language="fi">Maintenance</langstring>
-      <langstring language="fr">Maintenance</langstring>
-      <langstring language="hu">Maintenance</langstring>
-      <langstring language="it">Maintenance</langstring>
-      <langstring language="lt">Maintenance</langstring>
-      <langstring language="lv">Maintenance</langstring>
-      <langstring language="mt">Maintenance</langstring>
-      <langstring language="nl">Maintenance</langstring>
-      <langstring language="pl">Maintenance</langstring>
-      <langstring language="pt">Maintenance</langstring>
-      <langstring language="ro">Maintenance</langstring>
-      <langstring language="sk">Maintenance</langstring>
-      <langstring language="sl">Maintenance</langstring>
+      <langstring language="es">mantenimiento</langstring>
+      <langstring language="et">hooldus</langstring>
+      <langstring language="fi">kunnossapito</langstring>
+      <langstring language="fr">maintenance</langstring>
+      <langstring language="hu">karbantartás</langstring>
+      <langstring language="it">manutenzione</langstring>
+      <langstring language="lt">techninė priežiūra</langstring>
+      <langstring language="lv">uzturēšana</langstring>
+      <langstring language="mt">manutenzjoni</langstring>
+      <langstring language="nl">onderhoud</langstring>
+      <langstring language="pl">Bezpieczeństwo eksploatacji</langstring>
+      <langstring language="pt">manutenção</langstring>
+      <langstring language="ro">mentenanţă</langstring>
+      <langstring language="sk">údržba</langstring>
+      <langstring language="sl">vzdrževalna dela</langstring>
       <langstring language="sv">Maintenance</langstring>
     </caption>
 </term>
