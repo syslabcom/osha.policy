@@ -8,6 +8,8 @@ osha.policy Changelog
 - Bugfix in the LinguaPlone_generator_patch.py: import AT_GENERATE_METHOD,
   even though it is not directly referencend in the code, but the ClassGenerator
   from LP.utils depends on it (thomasw)
+- allowing update_object_history() from slc.cleanwordpastedtext for untrusted
+  code, because it's such a lovely and handy method (thomasw)
 
 
 1.3.0 (2010-01-28)
