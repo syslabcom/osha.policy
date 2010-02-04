@@ -18,3 +18,6 @@ out.xml
 new_thesaurus2.xls
 osha.log
 reindex.log
+.mr.developer.cfg
+src/osha.adaptation/
+src/osha.theme/
