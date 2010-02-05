@@ -39,6 +39,14 @@
     <vocabIdentifier>NACE</vocabIdentifier>
 
     <term>
+        <termIdentifier>0</termIdentifier>
+        <caption>
+            <langstring language="en">Not sector specific</langstring>
+            <langstring language="de">Branchenunabhängig</langstring>
+        </caption>
+    </term>
+
+    <term>
         <termIdentifier>A</termIdentifier>
         <caption>
             <langstring language="el">ΤΟΜΕΑΣ Α — ΓΕΩΡΓΙΑ, ΔΑΣΟΚΟΜΙΑ ΚΑΙ ΑΛΙΕΙΑ</langstring>
