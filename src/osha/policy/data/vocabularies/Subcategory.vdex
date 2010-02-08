@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
   <vocabName>
+    <langstring language="bg">Subcategory</langstring>
+    <langstring language="cs">Subcategory</langstring>
+    <langstring language="da">Subcategory</langstring>
+    <langstring language="de">Subcategory</langstring>
+    <langstring language="el">Subcategory</langstring>
     <langstring language="en">Subcategory</langstring>
+    <langstring language="es">Subcategory</langstring>
+    <langstring language="et">Subcategory</langstring>
+    <langstring language="fi">Subcategory</langstring>
+    <langstring language="fr">Subcategory</langstring>
+    <langstring language="hu">Subcategory</langstring>
+    <langstring language="it">Subcategory</langstring>
+    <langstring language="lt">Subcategory</langstring>
+    <langstring language="lv">Subcategory</langstring>
+    <langstring language="mt">Subcategory</langstring>
+    <langstring language="nl">Subcategory</langstring>
+    <langstring language="pl">Subcategory</langstring>
+    <langstring language="pt">Subcategory</langstring>
+    <langstring language="ro">Subcategory</langstring>
+    <langstring language="sk">Subcategory</langstring>
+    <langstring language="sl">Subcategory</langstring>
+    <langstring language="sv">Subcategory</langstring>
   </vocabName>
-  <vocabIdentifier>http://osha.europa.eu/OSHCategories</vocabIdentifier>
+  <vocabIdentifier>Subcategory</vocabIdentifier>
   <term>
     <termIdentifier>accident_prevention</termIdentifier>
     <caption>
