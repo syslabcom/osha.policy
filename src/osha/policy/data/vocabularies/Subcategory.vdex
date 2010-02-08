@@ -10568,6 +10568,33 @@
     </caption>
   </term>
   <term>
+    <termIdentifier>research</termIdentifier>
+    <caption>
+      <langstring language="bg">Изследвания</langstring>
+      <langstring language="cs">Výzkum</langstring>
+      <langstring language="da">Forskning</langstring>
+      <langstring language="de">Forschung</langstring>
+      <langstring language="el">Έρευνα</langstring>
+      <langstring language="en">Research</langstring>
+      <langstring language="es">Investigación</langstring>
+      <langstring language="et">Teadusuuringud</langstring>
+      <langstring language="fi">Tutkimus</langstring>
+      <langstring language="fr">Recherche</langstring>
+      <langstring language="hu">Kutatás</langstring>
+      <langstring language="it">Ricerca</langstring>
+      <langstring language="lt">Tyrimai</langstring>
+      <langstring language="lv">Pētniecība</langstring>
+      <langstring language="mt">Riċerka</langstring>
+      <langstring language="nl">Onderzoek</langstring>
+      <langstring language="pl">Badania</langstring>
+      <langstring language="pt">Research</langstring>
+      <langstring language="ro">Cercetare</langstring>
+      <langstring language="sk">Výskum</langstring>
+      <langstring language="sl">Raziskovanje</langstring>
+      <langstring language="sv">Forskning</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>risk_assessment</termIdentifier>
     <caption>
       <langstring language="bg">Оценка на риска</langstring>
