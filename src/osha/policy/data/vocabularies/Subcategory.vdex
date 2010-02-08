@@ -3163,6 +3163,34 @@
 </term>
 
 <term>
+    <termIdentifier>legislation</termIdentifier>
+    <caption>
+      <langstring language="bg">Законодателство</langstring>
+      <langstring language="cs">Právní předpisy</langstring>
+      <langstring language="da">Lovgivning</langstring>
+      <langstring language="de">Rechtsvorschriften</langstring>
+      <langstring language="el">Νομοθεσία</langstring>
+      <langstring language="en">Legislation</langstring>
+      <langstring language="es">Legislación</langstring>
+      <langstring language="et">Õigusaktid</langstring>
+      <langstring language="fi">Lainsäädäntö</langstring>
+      <langstring language="fr">Législation</langstring>
+      <langstring language="hu">Jogszabályok</langstring>
+      <langstring language="it">Legislazione</langstring>
+      <langstring language="lt">Teisės aktai</langstring>
+      <langstring language="lv">Tiesību akti</langstring>
+      <langstring language="mt">Legiżlazzjoni</langstring>
+      <langstring language="nl">Wetgeving</langstring>
+      <langstring language="pl">Prawodawstwo</langstring>
+      <langstring language="pt">Legislação</langstring>
+      <langstring language="ro">Legislaţia</langstring>
+      <langstring language="sk">Legislatíva</langstring>
+      <langstring language="sl">Zakonodaja</langstring>
+      <langstring language="sv">Lagstiftning</langstring>
+    </caption>
+</term>
+
+<term>
     <termIdentifier>msd</termIdentifier>
     <caption>
       <langstring language="da">Lidelser i kroppens muskler og led</langstring>
