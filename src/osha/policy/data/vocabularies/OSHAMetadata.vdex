@@ -300,6 +300,13 @@
         <langstring language="nl">Whos Who Type</langstring>
      </caption>
     <term>
+        <termIdentifier>WhosWhoType::OT3LU</termIdentifier>
+        <caption>
+            <langstring language="fr">Administration</langstring>
+            <langstring language="nl">Overheid</langstring>
+         </caption>
+    </term>
+    <term>
         <termIdentifier>WhosWhoType::OT9</termIdentifier>
         <caption>
             <langstring language="fr">Association professionnelle</langstring>
@@ -309,7 +316,7 @@
     <term>
         <termIdentifier>WhosWhoType::OT66</termIdentifier>
         <caption>
-            <langstring language="fr">Service externe PPT</langstring>
+            <langstring language="fr">Service Externe PPT</langstring>
             <langstring language="nl">Externe Dienst PBW</langstring>
          </caption>
     </term>
@@ -318,41 +325,6 @@
         <caption>
             <langstring language="fr">Santé</langstring>
             <langstring language="nl">Gezondheid</langstring>
-         </caption>
-    </term>
-    <term>
-        <termIdentifier>WhosWhoType::OT3</termIdentifier>
-        <caption>
-            <langstring language="fr">Autorité Bruxelles</langstring>
-            <langstring language="nl">Overheid Brussel</langstring>
-         </caption>
-    </term>
-    <term>
-        <termIdentifier>WhosWhoType::OT3LU</termIdentifier>
-        <caption>
-            <langstring language="fr">Autorités</langstring>
-            <langstring language="nl">Overheid</langstring>
-         </caption>
-    </term>
-    <term>
-        <termIdentifier>WhosWhoType::OT1</termIdentifier>
-        <caption>
-            <langstring language="fr">Autorité Fédérale</langstring>
-            <langstring language="nl">Overheid Federaal</langstring>
-         </caption>
-    </term>
-    <term>
-        <termIdentifier>WhosWhoType::OT2</termIdentifier>
-        <caption>
-            <langstring language="fr">Autorité Flandre</langstring>
-            <langstring language="nl">Overheid Vlaanderen</langstring>
-         </caption>
-    </term>
-    <term>
-        <termIdentifier>WhosWhoType::OT4</termIdentifier>
-        <caption>
-            <langstring language="fr">Autorité Wallonie</langstring>
-            <langstring language="nl">Overheid Wallonië</langstring>
          </caption>
     </term>
     <term>
@@ -365,7 +337,7 @@
     <term>
         <termIdentifier>WhosWhoType::OT65</termIdentifier>
         <caption>
-            <langstring language="fr">Compagnie d'assurance</langstring>
+            <langstring language="fr">Organisme assureur</langstring>
             <langstring language="nl">Verzekeringsorganisme</langstring>
          </caption>
     </term>
@@ -379,8 +351,78 @@
     <term>
         <termIdentifier>WhosWhoType::OT10</termIdentifier>
         <caption>
-            <langstring language="fr">Organisation d'employés</langstring>
+            <langstring language="fr">Service Externe pour le Contrôle Technique sur le lieu de travail</langstring>
+            <langstring language="nl">Externe Dienst voor Technische Controle op de Werkplaats</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT12</termIdentifier>
+        <caption>
+            <langstring language="fr">Organisation d'travailleurs</langstring>
             <langstring language="nl">Werknemersorganisatie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT13</termIdentifier>
+        <caption>
+            <langstring language="fr">Enseignement</langstring>
+            <langstring language="nl">Onderwijs</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT14</termIdentifier>
+        <caption>
+            <langstring language="fr">Organisation d'travailleurs</langstring>
+            <langstring language="nl">Bouwdirectie erkend voor de veiligheidscoördinatie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT10</termIdentifier>
+        <caption>
+            <langstring language="fr">Maître d'œuvre agréé pour la coordination de la sécurité</langstring>
+            <langstring language="nl">Werknemersorganisatie</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT15</termIdentifier>
+        <caption>
+            <langstring language="fr">Laboratoire agréé</langstring>
+            <langstring language="nl">Erkend laboratorium</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT16</termIdentifier>
+        <caption>
+            <langstring language="fr">Entreprise agréée pour des travaux de démolition et retrait d'amiante</langstring>
+            <langstring language="nl">Bedrijf erkend voor de afbraak of verwijdering van asbest</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT17</termIdentifier>
+        <caption>
+            <langstring language="fr">Centre de formation</langstring>
+            <langstring language="nl">Opleidingsinstituut</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT18</termIdentifier>
+        <caption>
+            <langstring language="fr">Centre de recherche</langstring>
+            <langstring language="nl">Onderzoeksinstituut</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT19</termIdentifier>
+        <caption>
+            <langstring language="fr">Fondation d'utilité publique</langstring>
+            <langstring language="nl">Stichting van openbaar nut</langstring>
+         </caption>
+    </term>
+    <term>
+        <termIdentifier>WhosWhoType::OT20</termIdentifier>
+        <caption>
+            <langstring language="fr">Association de Patients atteints</langstring>
+            <langstring language="nl">Patiëntenvereniging</langstring>
          </caption>
     </term>
 </term>
