@@ -14,7 +14,7 @@ from Products.CMFCore.utils import getToolByName
 from osha.adaptation.schema import OshaMetadataExtender
 from zope.interface.declarations import noLongerProvides
 
-def run(self, path=''):
+def run(self, path='', do_delete=0):
     result = list()
     result.append('setOshaMetadataExtension')
     url_tool = getToolByName(self, 'portal_url')
@@ -26,6 +26,13 @@ def run(self, path=''):
         except:
             result.append("No object found for path %s" %path)
             return "\n".join(result)
+
+    if do_delete and ISite.providedBy(obj):
+        noLongerProvides(obj, ISite)
+        del obj._components
+        result.append('Deleted existing site manager')
+        return "\n".join(result)
+
 
     # very special and dirty hack
     # We need to kill the existing SiteManager in the European Riskobservatory
