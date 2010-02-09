@@ -1,958 +1,942 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" 
-    orderSignificant="true" 
-    profileType="flatTokenTerms" language="en">
-    <vocabName>
-        <langstring language="en">OSHA Metadata</langstring>
-        <langstring language="fr">OSHA Metadata</langstring>
-        <langstring language="nl">OSHA Metadata</langstring>
-    </vocabName>
-    <vocabIdentifier>OSHAMetadata</vocabIdentifier>
-<term>
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
+  <vocabName>
+    <langstring language="en">OSHA Metadata</langstring>
+    <langstring language="fr">OSHA Metadata</langstring>
+    <langstring language="nl">OSHA Metadata</langstring>
+  </vocabName>
+  <vocabIdentifier>OSHAMetadata</vocabIdentifier>
+  <term>
     <termIdentifier>good_practice_domain</termIdentifier>
     <caption>
-        <langstring language="fr">Bonne Pratique - Domaines</langstring>
-        <langstring language="nl">Goede praktijdvoorbeelden - Domein</langstring>
-     </caption>
+      <langstring language="fr">Bonne Pratique - Domaines</langstring>
+      <langstring language="nl">Goede praktijdvoorbeelden - Domein</langstring>
+    </caption>
     <term>
-        <termIdentifier>good_practice_domain::gpd01</termIdentifier>
-        <caption>
-            <langstring language="fr">Ergonomie</langstring>
-            <langstring language="nl">Ergonomie</langstring>
-         </caption>
+      <termIdentifier>good_practice_domain::gpd01</termIdentifier>
+      <caption>
+        <langstring language="fr">Ergonomie</langstring>
+        <langstring language="nl">Ergonomie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_domain::gpd02</termIdentifier>
-        <caption>
-            <langstring language="fr">Santé</langstring>
-            <langstring language="nl">Gezondheid</langstring>
-         </caption>
+      <termIdentifier>good_practice_domain::gpd02</termIdentifier>
+      <caption>
+        <langstring language="fr">Santé</langstring>
+        <langstring language="nl">Gezondheid</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_domain::gpd03</termIdentifier>
-        <caption>
-            <langstring language="fr">Hygiène</langstring>
-            <langstring language="nl">Hygiëne</langstring>
-         </caption>
+      <termIdentifier>good_practice_domain::gpd03</termIdentifier>
+      <caption>
+        <langstring language="fr">Hygiène</langstring>
+        <langstring language="nl">Hygiëne</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_domain::gpd04</termIdentifier>
-        <caption>
-            <langstring language="fr">Environnement</langstring>
-            <langstring language="nl">Leefmilieu</langstring>
-         </caption>
+      <termIdentifier>good_practice_domain::gpd04</termIdentifier>
+      <caption>
+        <langstring language="fr">Environnement</langstring>
+        <langstring language="nl">Leefmilieu</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_domain::gpd06</termIdentifier>
-        <caption>
-            <langstring language="fr">Charge psychosociale</langstring>
-            <langstring language="nl">Psychosociale</langstring>
-         </caption>
+      <termIdentifier>good_practice_domain::gpd06</termIdentifier>
+      <caption>
+        <langstring language="fr">Charge psychosociale</langstring>
+        <langstring language="nl">Psychosociale</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_domain::gpd07</termIdentifier>
-        <caption>
-            <langstring language="fr">Sécurité</langstring>
-            <langstring language="nl">Veiligheid</langstring>
-         </caption>
+      <termIdentifier>good_practice_domain::gpd07</termIdentifier>
+      <caption>
+        <langstring language="fr">Sécurité</langstring>
+        <langstring language="nl">Veiligheid</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_domain::gpd08</termIdentifier>
-        <caption>
-            <langstring language="fr">Embellissement</langstring>
-            <langstring language="nl">Verfraaiing</langstring>
-         </caption>
+      <termIdentifier>good_practice_domain::gpd08</termIdentifier>
+      <caption>
+        <langstring language="fr">Embellissement</langstring>
+        <langstring language="nl">Verfraaiing</langstring>
+      </caption>
     </term>
-</term>
-<term>
+  </term>
+  <term>
     <termIdentifier>good_practice_sector</termIdentifier>
     <caption>
-        <langstring language="fr">Bonne Pratique - Sector</langstring>
-        <langstring language="nl">Goede praktijdvoorbeelden - Sector</langstring>
-     </caption>
+      <langstring language="fr">Bonne Pratique - Sector</langstring>
+      <langstring language="nl">Goede praktijdvoorbeelden - Sector</langstring>
+    </caption>
     <term>
-        <termIdentifier>good_practice_sector::gps01</termIdentifier>
-        <caption>
-            <langstring language="fr">Construction</langstring>
-            <langstring language="nl">Bouw</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps01</termIdentifier>
+      <caption>
+        <langstring language="fr">Construction</langstring>
+        <langstring language="nl">Bouw</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps02</termIdentifier>
-        <caption>
-            <langstring language="fr">Défence</langstring>
-            <langstring language="nl">Defensie</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps02</termIdentifier>
+      <caption>
+        <langstring language="fr">Défence</langstring>
+        <langstring language="nl">Defensie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps03</termIdentifier>
-        <caption>
-            <langstring language="fr">Interim</langstring>
-            <langstring language="nl">Interim</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps03</termIdentifier>
+      <caption>
+        <langstring language="fr">Interim</langstring>
+        <langstring language="nl">Interim</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps04</termIdentifier>
-        <caption>
-            <langstring language="fr">PME</langstring>
-            <langstring language="nl">KMO</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps04</termIdentifier>
+      <caption>
+        <langstring language="fr">PME</langstring>
+        <langstring language="nl">KMO</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps05</termIdentifier>
-        <caption>
-            <langstring language="fr">Entreprises reconnues d'utilité publique</langstring>
-            <langstring language="nl">Nutsbedrijven</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps05</termIdentifier>
+      <caption>
+        <langstring language="fr">Entreprises reconnues d'utilité publique</langstring>
+        <langstring language="nl">Nutsbedrijven</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps06</termIdentifier>
-        <caption>
-            <langstring language="fr">Enseignement</langstring>
-            <langstring language="nl">Onderwijs</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps06</termIdentifier>
+      <caption>
+        <langstring language="fr">Enseignement</langstring>
+        <langstring language="nl">Onderwijs</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps07</termIdentifier>
-        <caption>
-            <langstring language="fr">Zorgsector</langstring>
-            <langstring language="nl">Zorgsector</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps07</termIdentifier>
+      <caption>
+        <langstring language="fr">Zorgsector</langstring>
+        <langstring language="nl">Zorgsector</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps99</termIdentifier>
-        <caption>
-            <langstring language="fr">test</langstring>
-            <langstring language="nl">test</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps99</termIdentifier>
+      <caption>
+        <langstring language="fr">test</langstring>
+        <langstring language="nl">test</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps08</termIdentifier>
-        <caption>
-            <langstring language="fr">Le secteur pharmaceutique</langstring>
-            <langstring language="nl">Farmaceutische sector</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps08</termIdentifier>
+      <caption>
+        <langstring language="fr">Le secteur pharmaceutique</langstring>
+        <langstring language="nl">Farmaceutische sector</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps09</termIdentifier>
-        <caption>
-            <langstring language="fr">Chimie</langstring>
-            <langstring language="nl">Chemie</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps09</termIdentifier>
+      <caption>
+        <langstring language="fr">Chimie</langstring>
+        <langstring language="nl">Chemie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps10</termIdentifier>
-        <caption>
-            <langstring language="fr">Transport</langstring>
-            <langstring language="nl">Transport</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps10</termIdentifier>
+      <caption>
+        <langstring language="fr">Transport</langstring>
+        <langstring language="nl">Transport</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps11</termIdentifier>
-        <caption>
-            <langstring language="fr">Métal</langstring>
-            <langstring language="nl">Metaal</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps11</termIdentifier>
+      <caption>
+        <langstring language="fr">Métal</langstring>
+        <langstring language="nl">Metaal</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps12</termIdentifier>
-        <caption>
-            <langstring language="fr">Gouvernement</langstring>
-            <langstring language="nl">Overheid</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps12</termIdentifier>
+      <caption>
+        <langstring language="fr">Gouvernement</langstring>
+        <langstring language="nl">Overheid</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps13</termIdentifier>
-        <caption>
-            <langstring language="fr">Distribution</langstring>
-            <langstring language="nl">Distribution</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps13</termIdentifier>
+      <caption>
+        <langstring language="fr">Distribution</langstring>
+        <langstring language="nl">Distribution</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps14</termIdentifier>
-        <caption>
-            <langstring language="fr">Horeca</langstring>
-            <langstring language="nl">Horeca</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps14</termIdentifier>
+      <caption>
+        <langstring language="fr">Horeca</langstring>
+        <langstring language="nl">Horeca</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps15</termIdentifier>
-        <caption>
-            <langstring language="fr">Agriculture et pêche</langstring>
-            <langstring language="nl">Landbouw en visserij</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps15</termIdentifier>
+      <caption>
+        <langstring language="fr">Agriculture et pêche</langstring>
+        <langstring language="nl">Landbouw en visserij</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps17</termIdentifier>
-        <caption>
-            <langstring language="fr">Secteur financier</langstring>
-            <langstring language="nl">Financiële sector</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps17</termIdentifier>
+      <caption>
+        <langstring language="fr">Secteur financier</langstring>
+        <langstring language="nl">Financiële sector</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps18</termIdentifier>
-        <caption>
-            <langstring language="fr">Télécommunication</langstring>
-            <langstring language="nl">Telecommunicatie</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps18</termIdentifier>
+      <caption>
+        <langstring language="fr">Télécommunication</langstring>
+        <langstring language="nl">Telecommunicatie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps19</termIdentifier>
-        <caption>
-            <langstring language="fr">Aviation</langstring>
-            <langstring language="nl">Luchtvaart</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps19</termIdentifier>
+      <caption>
+        <langstring language="fr">Aviation</langstring>
+        <langstring language="nl">Luchtvaart</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps20</termIdentifier>
-        <caption>
-            <langstring language="fr">Secteur tertiaire</langstring>
-            <langstring language="nl">Tertiaire sector</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps20</termIdentifier>
+      <caption>
+        <langstring language="fr">Secteur tertiaire</langstring>
+        <langstring language="nl">Tertiaire sector</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps21</termIdentifier>
-        <caption>
-            <langstring language="fr">Information et communication</langstring>
-            <langstring language="nl">Informatie en Communicatie</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps21</termIdentifier>
+      <caption>
+        <langstring language="fr">Information et communication</langstring>
+        <langstring language="nl">Informatie en Communicatie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps22</termIdentifier>
-        <caption>
-            <langstring language="fr">Industrie</langstring>
-            <langstring language="nl">Industrie</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps22</termIdentifier>
+      <caption>
+        <langstring language="fr">Industrie</langstring>
+        <langstring language="nl">Industrie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps23</termIdentifier>
-        <caption>
-            <langstring language="fr">Industrie extractive</langstring>
-            <langstring language="nl">Winning van delfstoffen</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps23</termIdentifier>
+      <caption>
+        <langstring language="fr">Industrie extractive</langstring>
+        <langstring language="nl">Winning van delfstoffen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps24</termIdentifier>
-        <caption>
-            <langstring language="fr">Art, divertissement et récréation</langstring>
-            <langstring language="nl">Kunst, amusement en recreatie</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps24</termIdentifier>
+      <caption>
+        <langstring language="fr">Art, divertissement et récréation</langstring>
+        <langstring language="nl">Kunst, amusement en recreatie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_sector::gps25</termIdentifier>
-        <caption>
-            <langstring language="fr">Commerce de gros et de détail</langstring>
-            <langstring language="nl">Groot- en detailhandel</langstring>
-         </caption>
+      <termIdentifier>good_practice_sector::gps25</termIdentifier>
+      <caption>
+        <langstring language="fr">Commerce de gros et de détail</langstring>
+        <langstring language="nl">Groot- en detailhandel</langstring>
+      </caption>
     </term>
-</term>
-<term>
+  </term>
+  <term>
     <termIdentifier>good_practice_competition</termIdentifier>
     <caption>
-        <langstring language="fr">Bonne Pratique - Domaines</langstring>
-        <langstring language="nl">Goede praktijdvoorbeelden - Wedstrijden</langstring>
-     </caption>
+      <langstring language="fr">Bonne Pratique - Domaines</langstring>
+      <langstring language="nl">Goede praktijdvoorbeelden - Wedstrijden</langstring>
+    </caption>
     <term>
-        <termIdentifier>good_practice_competition::gpc01</termIdentifier>
-        <caption>
-            <langstring language="fr">Award des examples de bonne pratique</langstring>
-            <langstring language="nl">Award voor Goede Praktijkvoorbeelden</langstring>
-         </caption>
+      <termIdentifier>good_practice_competition::gpc01</termIdentifier>
+      <caption>
+        <langstring language="fr">Award des examples de bonne pratique</langstring>
+        <langstring language="nl">Award voor Goede Praktijkvoorbeelden</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_competition::gpc02</termIdentifier>
-        <caption>
-            <langstring language="fr">Prix du conseil supérieur pour la prévention et la protection</langstring>
-            <langstring language="nl">Prijs van de Hoge Raad voor preventie en bescherming op het werk</langstring>
-         </caption>
+      <termIdentifier>good_practice_competition::gpc02</termIdentifier>
+      <caption>
+        <langstring language="fr">Prix du conseil supérieur pour la prévention et la protection</langstring>
+        <langstring language="nl">Prijs van de Hoge Raad voor preventie en bescherming op het werk</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_competition::gpc03</termIdentifier>
-        <caption>
-            <langstring language="fr">Prix Santé et Entreprise</langstring>
-            <langstring language="nl">Prijs Gezondheid en Onderneming</langstring>
-         </caption>
+      <termIdentifier>good_practice_competition::gpc03</termIdentifier>
+      <caption>
+        <langstring language="fr">Prix Santé et Entreprise</langstring>
+        <langstring language="nl">Prijs Gezondheid en Onderneming</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_competition::gpc04</termIdentifier>
-        <caption>
-            <langstring language="fr">Pro-safe award</langstring>
-            <langstring language="nl">Pro-safe award</langstring>
-         </caption>
+      <termIdentifier>good_practice_competition::gpc04</termIdentifier>
+      <caption>
+        <langstring language="fr">Pro-safe award</langstring>
+        <langstring language="nl">Pro-safe award</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>good_practice_competition::gpc05</termIdentifier>
-        <caption>
-            <langstring language="fr">Safe Start Award</langstring>
-            <langstring language="nl">Safe Start Award</langstring>
-         </caption>
+      <termIdentifier>good_practice_competition::gpc05</termIdentifier>
+      <caption>
+        <langstring language="fr">Safe Start Award</langstring>
+        <langstring language="nl">Safe Start Award</langstring>
+      </caption>
     </term>
-</term>
-
-
-
-<term>
+  </term>
+  <term>
     <termIdentifier>WhosWhoType</termIdentifier>
     <caption>
-        <langstring language="fr">Whos Who Type</langstring>
-        <langstring language="nl">Whos Who Type</langstring>
-     </caption>
+      <langstring language="fr">Whos Who Type</langstring>
+      <langstring language="nl">Whos Who Type</langstring>
+    </caption>
     <term>
-        <termIdentifier>WhosWhoType::OT3LU</termIdentifier>
-        <caption>
-            <langstring language="fr">Administration</langstring>
-            <langstring language="nl">Overheid</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT3LU</termIdentifier>
+      <caption>
+        <langstring language="fr">Administration</langstring>
+        <langstring language="nl">Overheid</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT9</termIdentifier>
-        <caption>
-            <langstring language="fr">Association professionnelle</langstring>
-            <langstring language="nl">Beroepsvereniging</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT9</termIdentifier>
+      <caption>
+        <langstring language="fr">Association professionnelle</langstring>
+        <langstring language="nl">Beroepsvereniging</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT66</termIdentifier>
-        <caption>
-            <langstring language="fr">Service Externe PPT</langstring>
-            <langstring language="nl">Externe Dienst PBW</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT66</termIdentifier>
+      <caption>
+        <langstring language="fr">Service Externe PPT</langstring>
+        <langstring language="nl">Externe Dienst PBW</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT66LU</termIdentifier>
-        <caption>
-            <langstring language="fr">Santé</langstring>
-            <langstring language="nl">Gezondheid</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT66LU</termIdentifier>
+      <caption>
+        <langstring language="fr">Santé</langstring>
+        <langstring language="nl">Gezondheid</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT8</termIdentifier>
-        <caption>
-            <langstring language="fr">Institution de prévention</langstring>
-            <langstring language="nl">Preventieinstituut</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT8</termIdentifier>
+      <caption>
+        <langstring language="fr">Institution de prévention</langstring>
+        <langstring language="nl">Preventieinstituut</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT65</termIdentifier>
-        <caption>
-            <langstring language="fr">Organisme assureur</langstring>
-            <langstring language="nl">Verzekeringsorganisme</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT65</termIdentifier>
+      <caption>
+        <langstring language="fr">Organisme assureur</langstring>
+        <langstring language="nl">Verzekeringsorganisme</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT11</termIdentifier>
-        <caption>
-            <langstring language="fr">Organisation d'employeurs</langstring>
-            <langstring language="nl">Werkgeversorganisatie</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT11</termIdentifier>
+      <caption>
+        <langstring language="fr">Organisation d'employeurs</langstring>
+        <langstring language="nl">Werkgeversorganisatie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT10</termIdentifier>
-        <caption>
-            <langstring language="fr">Service Externe pour le Contrôle Technique sur le lieu de travail</langstring>
-            <langstring language="nl">Externe Dienst voor Technische Controle op de Werkplaats</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT10</termIdentifier>
+      <caption>
+        <langstring language="fr">Service Externe pour le Contrôle Technique sur le lieu de travail</langstring>
+        <langstring language="nl">Externe Dienst voor Technische Controle op de Werkplaats</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT12</termIdentifier>
-        <caption>
-            <langstring language="fr">Organisation d'travailleurs</langstring>
-            <langstring language="nl">Werknemersorganisatie</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT12</termIdentifier>
+      <caption>
+        <langstring language="fr">Organisation d'travailleurs</langstring>
+        <langstring language="nl">Werknemersorganisatie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT13</termIdentifier>
-        <caption>
-            <langstring language="fr">Enseignement</langstring>
-            <langstring language="nl">Onderwijs</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT13</termIdentifier>
+      <caption>
+        <langstring language="fr">Enseignement</langstring>
+        <langstring language="nl">Onderwijs</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT14</termIdentifier>
-        <caption>
-            <langstring language="fr">Organisation d'travailleurs</langstring>
-            <langstring language="nl">Bouwdirectie erkend voor de veiligheidscoördinatie</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT14</termIdentifier>
+      <caption>
+        <langstring language="fr">Organisation d'travailleurs</langstring>
+        <langstring language="nl">Bouwdirectie erkend voor de veiligheidscoördinatie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT10</termIdentifier>
-        <caption>
-            <langstring language="fr">Maître d'œuvre agréé pour la coordination de la sécurité</langstring>
-            <langstring language="nl">Werknemersorganisatie</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT10</termIdentifier>
+      <caption>
+        <langstring language="fr">Maître d'œuvre agréé pour la coordination de la sécurité</langstring>
+        <langstring language="nl">Werknemersorganisatie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT15</termIdentifier>
-        <caption>
-            <langstring language="fr">Laboratoire agréé</langstring>
-            <langstring language="nl">Erkend laboratorium</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT15</termIdentifier>
+      <caption>
+        <langstring language="fr">Laboratoire agréé</langstring>
+        <langstring language="nl">Erkend laboratorium</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT16</termIdentifier>
-        <caption>
-            <langstring language="fr">Entreprise agréée pour des travaux de démolition et retrait d'amiante</langstring>
-            <langstring language="nl">Bedrijf erkend voor de afbraak of verwijdering van asbest</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT16</termIdentifier>
+      <caption>
+        <langstring language="fr">Entreprise agréée pour des travaux de démolition et retrait d'amiante</langstring>
+        <langstring language="nl">Bedrijf erkend voor de afbraak of verwijdering van asbest</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT17</termIdentifier>
-        <caption>
-            <langstring language="fr">Centre de formation</langstring>
-            <langstring language="nl">Opleidingsinstituut</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT17</termIdentifier>
+      <caption>
+        <langstring language="fr">Centre de formation</langstring>
+        <langstring language="nl">Opleidingsinstituut</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT18</termIdentifier>
-        <caption>
-            <langstring language="fr">Centre de recherche</langstring>
-            <langstring language="nl">Onderzoeksinstituut</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT18</termIdentifier>
+      <caption>
+        <langstring language="fr">Centre de recherche</langstring>
+        <langstring language="nl">Onderzoeksinstituut</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT19</termIdentifier>
-        <caption>
-            <langstring language="fr">Fondation d'utilité publique</langstring>
-            <langstring language="nl">Stichting van openbaar nut</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT19</termIdentifier>
+      <caption>
+        <langstring language="fr">Fondation d'utilité publique</langstring>
+        <langstring language="nl">Stichting van openbaar nut</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoType::OT20</termIdentifier>
-        <caption>
-            <langstring language="fr">Association de Patients atteints</langstring>
-            <langstring language="nl">Patiëntenvereniging</langstring>
-         </caption>
+      <termIdentifier>WhosWhoType::OT20</termIdentifier>
+      <caption>
+        <langstring language="fr">Association de Patients atteints</langstring>
+        <langstring language="nl">Patiëntenvereniging</langstring>
+      </caption>
     </term>
-</term>
-
-
-<term>
+  </term>
+  <term>
     <termIdentifier>WhosWhoTraining</termIdentifier>
     <caption>
-        <langstring language="fr">Whos Who Training</langstring>
-        <langstring language="nl">Whos Who Training</langstring>
-     </caption>
+      <langstring language="fr">Whos Who Training</langstring>
+      <langstring language="nl">Whos Who Training</langstring>
+    </caption>
     <term>
-        <termIdentifier>WhosWhoTraining::TG01</termIdentifier>
-        <caption>
-            <langstring language="fr">Conseillers en prévention</langstring>
-            <langstring language="nl">Preventieadviseur</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG01</termIdentifier>
+      <caption>
+        <langstring language="fr">Conseillers en prévention</langstring>
+        <langstring language="nl">Preventieadviseur</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG02</termIdentifier>
-        <caption>
-            <langstring language="fr">Equipements de travail</langstring>
-            <langstring language="nl">Arbeidsmiddelen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG02</termIdentifier>
+      <caption>
+        <langstring language="fr">Equipements de travail</langstring>
+        <langstring language="nl">Arbeidsmiddelen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG03</termIdentifier>
-        <caption>
-            <langstring language="fr">Enlèvement d'amiante</langstring>
-            <langstring language="nl">Asbestverwijdering</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG03</termIdentifier>
+      <caption>
+        <langstring language="fr">Enlèvement d'amiante</langstring>
+        <langstring language="nl">Asbestverwijdering</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG04</termIdentifier>
-        <caption>
-            <langstring language="fr">Ecrans de visualisation</langstring>
-            <langstring language="nl">Beeldschermen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG04</termIdentifier>
+      <caption>
+        <langstring language="fr">Ecrans de visualisation</langstring>
+        <langstring language="nl">Beeldschermen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG05</termIdentifier>
-        <caption>
-            <langstring language="fr">Agents biologiques</langstring>
-            <langstring language="nl">Biologische agentia</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG05</termIdentifier>
+      <caption>
+        <langstring language="fr">Agents biologiques</langstring>
+        <langstring language="nl">Biologische agentia</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG06</termIdentifier>
-        <caption>
-            <langstring language="fr">Agents chimiques</langstring>
-            <langstring language="nl">Chemische agentia</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG06</termIdentifier>
+      <caption>
+        <langstring language="fr">Agents chimiques</langstring>
+        <langstring language="nl">Chemische agentia</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG07</termIdentifier>
-        <caption>
-            <langstring language="fr">Secouriste industriel (Premiers soins)</langstring>
-            <langstring language="nl">Nijverheidshelper (EHBO)</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG07</termIdentifier>
+      <caption>
+        <langstring language="fr">Secouriste industriel (Premiers soins)</langstring>
+        <langstring language="nl">Nijverheidshelper (EHBO)</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG08</termIdentifier>
-        <caption>
-            <langstring language="fr">Installations électriques</langstring>
-            <langstring language="nl">Elektrische installaties</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG08</termIdentifier>
+      <caption>
+        <langstring language="fr">Installations électriques</langstring>
+        <langstring language="nl">Elektrische installaties</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG09</termIdentifier>
-        <caption>
-            <langstring language="fr">Danger d’explosion</langstring>
-            <langstring language="nl">Explosiegevaar</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG09</termIdentifier>
+      <caption>
+        <langstring language="fr">Danger d’explosion</langstring>
+        <langstring language="nl">Explosiegevaar</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG10</termIdentifier>
-        <caption>
-            <langstring language="fr">Violences, harcèlement moral et sexuel</langstring>
-            <langstring language="nl">Geweld, pesterijen en ongewenst seksueel gedrag</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG10</termIdentifier>
+      <caption>
+        <langstring language="fr">Violences, harcèlement moral et sexuel</langstring>
+        <langstring language="nl">Geweld, pesterijen en ongewenst seksueel gedrag</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG11</termIdentifier>
-        <caption>
-            <langstring language="fr">Milieu hyperbare</langstring>
-            <langstring language="nl">Hyperbare omgeving</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG11</termIdentifier>
+      <caption>
+        <langstring language="fr">Milieu hyperbare</langstring>
+        <langstring language="nl">Hyperbare omgeving</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG12</termIdentifier>
-        <caption>
-            <langstring language="fr">Rayonnements ionisants</langstring>
-            <langstring language="nl">Ioniserende stralingen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG12</termIdentifier>
+      <caption>
+        <langstring language="fr">Rayonnements ionisants</langstring>
+        <langstring language="nl">Ioniserende stralingen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG13</termIdentifier>
-        <caption>
-            <langstring language="fr">Agents cancérigènes et mutagènes</langstring>
-            <langstring language="nl">Kankerverwekkende en mutagene agentia</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG13</termIdentifier>
+      <caption>
+        <langstring language="fr">Agents cancérigènes et mutagènes</langstring>
+        <langstring language="nl">Kankerverwekkende en mutagene agentia</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG14</termIdentifier>
-        <caption>
-            <langstring language="fr">Bruit</langstring>
-            <langstring language="nl">Lawaai</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG14</termIdentifier>
+      <caption>
+        <langstring language="fr">Bruit</langstring>
+        <langstring language="nl">Lawaai</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG15</termIdentifier>
-        <caption>
-            <langstring language="fr">Manutentions manuelle de charges</langstring>
-            <langstring language="nl">Manueel hanteren van lasten</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG15</termIdentifier>
+      <caption>
+        <langstring language="fr">Manutentions manuelle de charges</langstring>
+        <langstring language="nl">Manueel hanteren van lasten</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG16</termIdentifier>
-        <caption>
-            <langstring language="fr">Equipements de travail mobiles</langstring>
-            <langstring language="nl">Mobiele arbeidsmiddelen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG16</termIdentifier>
+      <caption>
+        <langstring language="fr">Equipements de travail mobiles</langstring>
+        <langstring language="nl">Mobiele arbeidsmiddelen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG17</termIdentifier>
-        <caption>
-            <langstring language="fr">Dépôts de liquides inflammables</langstring>
-            <langstring language="nl">Opslagplaatsen voor ontvlambare vloeistoffen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG17</termIdentifier>
+      <caption>
+        <langstring language="fr">Dépôts de liquides inflammables</langstring>
+        <langstring language="nl">Opslagplaatsen voor ontvlambare vloeistoffen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG18</termIdentifier>
-        <caption>
-            <langstring language="fr">Equipements de protection individuelle</langstring>
-            <langstring language="nl">Persoonlijke beschermingsmiddelen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG18</termIdentifier>
+      <caption>
+        <langstring language="fr">Equipements de protection individuelle</langstring>
+        <langstring language="nl">Persoonlijke beschermingsmiddelen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG19</termIdentifier>
-        <caption>
-            <langstring language="fr">Echafaudages</langstring>
-            <langstring language="nl">Steigers</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG19</termIdentifier>
+      <caption>
+        <langstring language="fr">Echafaudages</langstring>
+        <langstring language="nl">Steigers</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG20</termIdentifier>
-        <caption>
-            <langstring language="fr">Cordes</langstring>
-            <langstring language="nl">Touwen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG20</termIdentifier>
+      <caption>
+        <langstring language="fr">Cordes</langstring>
+        <langstring language="nl">Touwen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG21</termIdentifier>
-        <caption>
-            <langstring language="fr">Vibrations</langstring>
-            <langstring language="nl">Trillingen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG21</termIdentifier>
+      <caption>
+        <langstring language="fr">Vibrations</langstring>
+        <langstring language="nl">Trillingen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG22</termIdentifier>
-        <caption>
-            <langstring language="fr">Travailleurs intérimaires</langstring>
-            <langstring language="nl">Uitzendkrachten</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG22</termIdentifier>
+      <caption>
+        <langstring language="fr">Travailleurs intérimaires</langstring>
+        <langstring language="nl">Uitzendkrachten</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG23</termIdentifier>
-        <caption>
-            <langstring language="fr">Conducteur de chariot élévateur</langstring>
-            <langstring language="nl">Heftruckbestuurder</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG23</termIdentifier>
+      <caption>
+        <langstring language="fr">Conducteur de chariot élévateur</langstring>
+        <langstring language="nl">Heftruckbestuurder</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG24</termIdentifier>
-        <caption>
-            <langstring language="fr">Coordinateur de sécurité</langstring>
-            <langstring language="nl">Veiligheidscoördinator</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG24</termIdentifier>
+      <caption>
+        <langstring language="fr">Coordinateur de sécurité</langstring>
+        <langstring language="nl">Veiligheidscoördinator</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG25</termIdentifier>
-        <caption>
-            <langstring language="fr">Incendie</langstring>
-            <langstring language="nl">Brand</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG25</termIdentifier>
+      <caption>
+        <langstring language="fr">Incendie</langstring>
+        <langstring language="nl">Brand</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG26</termIdentifier>
-        <caption>
-            <langstring language="fr">Médecin du travail</langstring>
-            <langstring language="nl">Arbeidsgeneesheer</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG26</termIdentifier>
+      <caption>
+        <langstring language="fr">Médecin du travail</langstring>
+        <langstring language="nl">Arbeidsgeneesheer</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG27</termIdentifier>
-        <caption>
-            <langstring language="fr">Accidents de travail</langstring>
-            <langstring language="nl">Arbeidsongevallen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG27</termIdentifier>
+      <caption>
+        <langstring language="fr">Accidents de travail</langstring>
+        <langstring language="nl">Arbeidsongevallen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG28</termIdentifier>
-        <caption>
-            <langstring language="fr">Maladies professionnelles</langstring>
-            <langstring language="nl">Beroepsziekten</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG28</termIdentifier>
+      <caption>
+        <langstring language="fr">Maladies professionnelles</langstring>
+        <langstring language="nl">Beroepsziekten</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG29</termIdentifier>
-        <caption>
-            <langstring language="fr">Ligne hiérarchique</langstring>
-            <langstring language="nl">Hiërarchische lijn</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG29</termIdentifier>
+      <caption>
+        <langstring language="fr">Ligne hiérarchique</langstring>
+        <langstring language="nl">Hiërarchische lijn</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG30</termIdentifier>
-        <caption>
-            <langstring language="fr">Assistent infirmier (Premiers soins)</langstring>
-            <langstring language="nl">Verpleegassistent (EHBO)</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG30</termIdentifier>
+      <caption>
+        <langstring language="fr">Assistent infirmier (Premiers soins)</langstring>
+        <langstring language="nl">Verpleegassistent (EHBO)</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG31</termIdentifier>
-        <caption>
-            <langstring language="fr">Personne de confiance</langstring>
-            <langstring language="nl">Vertrouwenspersoon</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG31</termIdentifier>
+      <caption>
+        <langstring language="fr">Personne de confiance</langstring>
+        <langstring language="nl">Vertrouwenspersoon</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG32</termIdentifier>
-        <caption>
-            <langstring language="fr">Alcool et drogue</langstring>
-            <langstring language="nl">Alcohol en drugs</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG32</termIdentifier>
+      <caption>
+        <langstring language="fr">Alcool et drogue</langstring>
+        <langstring language="nl">Alcohol en drugs</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG33</termIdentifier>
-        <caption>
-            <langstring language="fr">Troubles musculo-squelettiques</langstring>
-            <langstring language="nl">Spier- en skeletaandoeningen</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG33</termIdentifier>
+      <caption>
+        <langstring language="fr">Troubles musculo-squelettiques</langstring>
+        <langstring language="nl">Spier- en skeletaandoeningen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>WhosWhoTraining::TG34</termIdentifier>
-        <caption>
-            <langstring language="fr">Stress et burnout</langstring>
-            <langstring language="nl">Stress en burnout</langstring>
-         </caption>
+      <termIdentifier>WhosWhoTraining::TG34</termIdentifier>
+      <caption>
+        <langstring language="fr">Stress et burnout</langstring>
+        <langstring language="nl">Stress en burnout</langstring>
+      </caption>
     </term>
-</term>
-
-
-<term>
+  </term>
+  <term>
     <termIdentifier>respect_doc_cat</termIdentifier>
     <caption>
-        <langstring language="fr">Respect au travail - publications</langstring>
-        <langstring language="nl">Respect op het werk - Categorie Publicaties</langstring>
-     </caption>
+      <langstring language="fr">Respect au travail - publications</langstring>
+      <langstring language="nl">Respect op het werk - Categorie Publicaties</langstring>
+    </caption>
     <term>
-        <termIdentifier>respect_doc_cat::respect_doc_02</termIdentifier>
-        <caption>
-            <langstring language="fr">SPF ETCS - Violence, harcèlement moral ou sexuel au travail</langstring>
-            <langstring language="nl">FOD WASO - geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
-         </caption>
+      <termIdentifier>respect_doc_cat::respect_doc_02</termIdentifier>
+      <caption>
+        <langstring language="fr">SPF ETCS - Violence, harcèlement moral ou sexuel au travail</langstring>
+        <langstring language="nl">FOD WASO - geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>respect_doc_cat::respect_doc_03</termIdentifier>
-        <caption>
-            <langstring language="fr">SPF ETCS - Stress</langstring>
-            <langstring language="nl">FOD WASO - stress</langstring>
-         </caption>
+      <termIdentifier>respect_doc_cat::respect_doc_03</termIdentifier>
+      <caption>
+        <langstring language="fr">SPF ETCS - Stress</langstring>
+        <langstring language="nl">FOD WASO - stress</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>respect_doc_cat::respect_doc_10</termIdentifier>
-        <caption>
-            <langstring language="fr">Publications externes - Violence, harcèlement moral ou sexuel au travail</langstring>
-            <langstring language="nl">Externe publicaties - geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
-         </caption>
+      <termIdentifier>respect_doc_cat::respect_doc_10</termIdentifier>
+      <caption>
+        <langstring language="fr">Publications externes - Violence, harcèlement moral ou sexuel au travail</langstring>
+        <langstring language="nl">Externe publicaties - geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>respect_doc_cat::respect_doc_11</termIdentifier>
-        <caption>
-            <langstring language="fr">Externe publicaties - stress</langstring>
-            <langstring language="nl">Externe publicaties - stress</langstring>
-         </caption>
+      <termIdentifier>respect_doc_cat::respect_doc_11</termIdentifier>
+      <caption>
+        <langstring language="fr">Externe publicaties - stress</langstring>
+        <langstring language="nl">Externe publicaties - stress</langstring>
+      </caption>
     </term>
-</term>
-<term>
+  </term>
+  <term>
     <termIdentifier>respect_research</termIdentifier>
     <caption>
-        <langstring language="fr">Respect - Recherche</langstring>
-        <langstring language="nl">Respect - Onderzoek</langstring>
-     </caption>
+      <langstring language="fr">Respect - Recherche</langstring>
+      <langstring language="nl">Respect - Onderzoek</langstring>
+    </caption>
     <term>
-        <termIdentifier>respect_research::respect_research_01</termIdentifier>
-        <caption>
-            <langstring language="fr">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
-            <langstring language="nl">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
-         </caption>
+      <termIdentifier>respect_research::respect_research_01</termIdentifier>
+      <caption>
+        <langstring language="fr">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
+        <langstring language="nl">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>respect_research::respect_research_02</termIdentifier>
-        <caption>
-            <langstring language="fr">Stress</langstring>
-            <langstring language="nl">Stress</langstring>
-         </caption>
+      <termIdentifier>respect_research::respect_research_02</termIdentifier>
+      <caption>
+        <langstring language="fr">Stress</langstring>
+        <langstring language="nl">Stress</langstring>
+      </caption>
     </term>
-</term>
-
-<term>
+  </term>
+  <term>
     <termIdentifier>eventtype</termIdentifier>
     <caption>
-        <langstring language="fr">Event type</langstring>
-        <langstring language="nl">Event type</langstring>
-     </caption>
+      <langstring language="fr">Event type</langstring>
+      <langstring language="nl">Event type</langstring>
+    </caption>
     <term>
-        <termIdentifier>eventtype::Studiedag</termIdentifier>
-        <caption>
-            <langstring language="fr">Journée d'étude</langstring>
-            <langstring language="nl">Studiedag</langstring>
-         </caption>
+      <termIdentifier>eventtype::Studiedag</termIdentifier>
+      <caption>
+        <langstring language="fr">Journée d'étude</langstring>
+        <langstring language="nl">Studiedag</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::Seminar</termIdentifier>
-        <caption>
-            <langstring language="fr">Séminaire</langstring>
-            <langstring language="nl">Seminar</langstring>
-         </caption>
+      <termIdentifier>eventtype::Seminar</termIdentifier>
+      <caption>
+        <langstring language="fr">Séminaire</langstring>
+        <langstring language="nl">Seminar</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::Beurs</termIdentifier>
-        <caption>
-            <langstring language="fr">Salon</langstring>
-            <langstring language="nl">Beurs</langstring>
-         </caption>
+      <termIdentifier>eventtype::Beurs</termIdentifier>
+      <caption>
+        <langstring language="fr">Salon</langstring>
+        <langstring language="nl">Beurs</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::Opleiding</termIdentifier>
-        <caption>
-            <langstring language="fr">Formation</langstring>
-            <langstring language="nl">Opleiding</langstring>
-         </caption>
+      <termIdentifier>eventtype::Opleiding</termIdentifier>
+      <caption>
+        <langstring language="fr">Formation</langstring>
+        <langstring language="nl">Opleiding</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::Infosessie</termIdentifier>
-        <caption>
-            <langstring language="fr">Session d'information</langstring>
-            <langstring language="nl">Infosessie</langstring>
-         </caption>
+      <termIdentifier>eventtype::Infosessie</termIdentifier>
+      <caption>
+        <langstring language="fr">Session d'information</langstring>
+        <langstring language="nl">Infosessie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::Infosessie_workshop</termIdentifier>
-        <caption>
-            <langstring language="fr">Session d'information et ateliers</langstring>
-            <langstring language="nl">Infosessie met workshops</langstring>
-         </caption>
+      <termIdentifier>eventtype::Infosessie_workshop</termIdentifier>
+      <caption>
+        <langstring language="fr">Session d'information et ateliers</langstring>
+        <langstring language="nl">Infosessie met workshops</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::Workshop</termIdentifier>
-        <caption>
-            <langstring language="fr">Ateliers</langstring>
-            <langstring language="nl">Workshop</langstring>
-         </caption>
+      <termIdentifier>eventtype::Workshop</termIdentifier>
+      <caption>
+        <langstring language="fr">Ateliers</langstring>
+        <langstring language="nl">Workshop</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::Sensibilisatiedag</termIdentifier>
-        <caption>
-            <langstring language="fr">Journée de sensibilisation</langstring>
-            <langstring language="nl">Sensibilisatiedag</langstring>
-         </caption>
+      <termIdentifier>eventtype::Sensibilisatiedag</termIdentifier>
+      <caption>
+        <langstring language="fr">Journée de sensibilisation</langstring>
+        <langstring language="nl">Sensibilisatiedag</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::congres</termIdentifier>
-        <caption>
-            <langstring language="fr">Congrès</langstring>
-            <langstring language="nl">Congres</langstring>
-         </caption>
+      <termIdentifier>eventtype::congres</termIdentifier>
+      <caption>
+        <langstring language="fr">Congrès</langstring>
+        <langstring language="nl">Congres</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::conferentie</termIdentifier>
-        <caption>
-            <langstring language="fr">Conférence</langstring>
-            <langstring language="nl">Conferentie</langstring>
-         </caption>
+      <termIdentifier>eventtype::conferentie</termIdentifier>
+      <caption>
+        <langstring language="fr">Conférence</langstring>
+        <langstring language="nl">Conferentie</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>eventtype::colloque</termIdentifier>
-        <caption>
-            <langstring language="fr">Colloque</langstring>
-            <langstring language="nl">Colloqium</langstring>
-         </caption>
+      <termIdentifier>eventtype::colloque</termIdentifier>
+      <caption>
+        <langstring language="fr">Colloque</langstring>
+        <langstring language="nl">Colloqium</langstring>
+      </caption>
     </term>
-</term>
-
-<term>
+  </term>
+  <term>
     <termIdentifier>organizer</termIdentifier>
     <caption>
-        <langstring language="fr">Calendrier - organisateur évenment</langstring>
-        <langstring language="nl">Kalender Organisator</langstring>
-     </caption>
+      <langstring language="fr">Calendrier - organisateur évenment</langstring>
+      <langstring language="nl">Kalender Organisator</langstring>
+    </caption>
     <term>
-        <termIdentifier>organizer::org01</termIdentifier>
-        <caption>
-            <langstring language="fr">FOD WASO -SPF ETCS</langstring>
-            <langstring language="nl">FOD WASO -SPF ETCS</langstring>
-         </caption>
+      <termIdentifier>organizer::org01</termIdentifier>
+      <caption>
+        <langstring language="fr">FOD WASO -SPF ETCS</langstring>
+        <langstring language="nl">FOD WASO -SPF ETCS</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>organizer::org02</termIdentifier>
-        <caption>
-            <langstring language="fr">Comité d'action Bruxelles capitale</langstring>
-            <langstring language="nl">Actiecomité Brussel</langstring>
-         </caption>
+      <termIdentifier>organizer::org02</termIdentifier>
+      <caption>
+        <langstring language="fr">Comité d'action Bruxelles capitale</langstring>
+        <langstring language="nl">Actiecomité Brussel</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>organizer::org03</termIdentifier>
-        <caption>
-            <langstring language="fr">Prov. Comité Vlaams-Brabant</langstring>
-            <langstring language="nl">Prov. Comité Vlaams-Brabant</langstring>
-         </caption>
+      <termIdentifier>organizer::org03</termIdentifier>
+      <caption>
+        <langstring language="fr">Prov. Comité Vlaams-Brabant</langstring>
+        <langstring language="nl">Prov. Comité Vlaams-Brabant</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>organizer::org04</termIdentifier>
-        <caption>
-            <langstring language="fr">Prov. comité West-Vlaanderen</langstring>
-            <langstring language="nl">Prov. comité West-Vlaanderen</langstring>
-         </caption>
+      <termIdentifier>organizer::org04</termIdentifier>
+      <caption>
+        <langstring language="fr">Prov. comité West-Vlaanderen</langstring>
+        <langstring language="nl">Prov. comité West-Vlaanderen</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>organizer::org05</termIdentifier>
-        <caption>
-            <langstring language="fr">Prov Comité Oost-Vlaanderen</langstring>
-            <langstring language="nl">Prov Comité Oost-Vlaanderen</langstring>
-         </caption>
+      <termIdentifier>organizer::org05</termIdentifier>
+      <caption>
+        <langstring language="fr">Prov Comité Oost-Vlaanderen</langstring>
+        <langstring language="nl">Prov Comité Oost-Vlaanderen</langstring>
+      </caption>
     </term>
-</term>
-
-<term>
+  </term>
+  <term>
     <termIdentifier>ero_topic</termIdentifier>
     <caption>
-        <langstring language="en">Topic (ERO)</langstring>
-     </caption>
+      <langstring language="en">Topic (ERO)</langstring>
+    </caption>
     <term>
-        <termIdentifier>ero_topic::absenteeism</termIdentifier>
-        <caption>
-            <langstring language="en">Absenteeism</langstring>
-         </caption>
+      <termIdentifier>ero_topic::absenteeism</termIdentifier>
+      <caption>
+        <langstring language="en">Absenteeism</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_topic::hearing_loss</termIdentifier>
-        <caption>
-            <langstring language="en">Hearing Loss</langstring>
-         </caption>
+      <termIdentifier>ero_topic::hearing_loss</termIdentifier>
+      <caption>
+        <langstring language="en">Hearing Loss</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_topic::noise_exposure</termIdentifier>
-        <caption>
-            <langstring language="en">Noise Exposure</langstring>
-         </caption>
+      <termIdentifier>ero_topic::noise_exposure</termIdentifier>
+      <caption>
+        <langstring language="en">Noise Exposure</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_topic::pace_of_work</termIdentifier>
-        <caption>
-            <langstring language="en">Pace of Work</langstring>
-         </caption>
+      <termIdentifier>ero_topic::pace_of_work</termIdentifier>
+      <caption>
+        <langstring language="en">Pace of Work</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_topic::working_time</termIdentifier>
-        <caption>
-            <langstring language="en">Working Time</langstring>
-         </caption>
+      <termIdentifier>ero_topic::working_time</termIdentifier>
+      <caption>
+        <langstring language="en">Working Time</langstring>
+      </caption>
     </term>
-</term>
-
-<term>
+  </term>
+  <term>
     <termIdentifier>ero_target_group</termIdentifier>
     <caption>
-        <langstring language="en">Target Group (ERO)</langstring>
-     </caption>
+      <langstring language="en">Target Group (ERO)</langstring>
+    </caption>
     <term>
-        <termIdentifier>ero_target_group::age</termIdentifier>
-        <caption>
-            <langstring language="en">age</langstring>
-         </caption>
+      <termIdentifier>ero_target_group::age</termIdentifier>
+      <caption>
+        <langstring language="en">age</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_target_group::employment_status</termIdentifier>
-        <caption>
-            <langstring language="en">Employment status</langstring>
-         </caption>
+      <termIdentifier>ero_target_group::employment_status</termIdentifier>
+      <caption>
+        <langstring language="en">Employment status</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_target_group::gender</termIdentifier>
-        <caption>
-            <langstring language="en">Gender</langstring>
-         </caption>
+      <termIdentifier>ero_target_group::gender</termIdentifier>
+      <caption>
+        <langstring language="en">Gender</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_target_group::general_prevalence</termIdentifier>
-        <caption>
-            <langstring language="en">General prevalence</langstring>
-         </caption>
+      <termIdentifier>ero_target_group::general_prevalence</termIdentifier>
+      <caption>
+        <langstring language="en">General prevalence</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_target_group::occupation</termIdentifier>
-        <caption>
-            <langstring language="en">Occupation</langstring>
-         </caption>
+      <termIdentifier>ero_target_group::occupation</termIdentifier>
+      <caption>
+        <langstring language="en">Occupation</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_target_group::others</termIdentifier>
-        <caption>
-            <langstring language="en">Others</langstring>
-         </caption>
+      <termIdentifier>ero_target_group::others</termIdentifier>
+      <caption>
+        <langstring language="en">Others</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_target_group::sector</termIdentifier>
-        <caption>
-            <langstring language="en">Sector</langstring>
-         </caption>
+      <termIdentifier>ero_target_group::sector</termIdentifier>
+      <caption>
+        <langstring language="en">Sector</langstring>
+      </caption>
     </term>
     <term>
-        <termIdentifier>ero_target_group::summary</termIdentifier>
-        <caption>
-            <langstring language="en">summary</langstring>
-         </caption>
+      <termIdentifier>ero_target_group::summary</termIdentifier>
+      <caption>
+        <langstring language="en">summary</langstring>
+      </caption>
     </term>
-</term>
+  </term>
 </vdex>
-
 <!--
         <caption>
             <langstring language="fr">string</langstring>
