@@ -113,15 +113,8 @@
     <term>
       <termIdentifier>good_practice_sector::gps07</termIdentifier>
       <caption>
-        <langstring language="fr">Zorgsector</langstring>
+        <langstring language="fr">Secteur de l'assistance sociale </langstring>
         <langstring language="nl">Zorgsector</langstring>
-      </caption>
-    </term>
-    <term>
-      <termIdentifier>good_practice_sector::gps99</termIdentifier>
-      <caption>
-        <langstring language="fr">test</langstring>
-        <langstring language="nl">test</langstring>
       </caption>
     </term>
     <term>
@@ -163,7 +156,7 @@
       <termIdentifier>good_practice_sector::gps13</termIdentifier>
       <caption>
         <langstring language="fr">Distribution</langstring>
-        <langstring language="nl">Distribution</langstring>
+        <langstring language="nl">Distributie</langstring>
       </caption>
     </term>
     <term>
@@ -351,8 +344,8 @@
     <term>
       <termIdentifier>WhosWhoType::OT12</termIdentifier>
       <caption>
-        <langstring language="fr">Organisation d'travailleurs</langstring>
-        <langstring language="nl">Werknemersorganisatie</langstring>
+        <langstring language="fr">Service Externe pour le Contrôle Technique sur le lieu de travail</langstring>
+        <langstring language="nl">Externe Dienst voor Technische Controle op de Werkplaats</langstring>
       </caption>
     </term>
     <term>
