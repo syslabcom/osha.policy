@@ -1,11 +1,89 @@
 from zope.interface import implements
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter, getUtility 
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from urlparse import urljoin
 from osha.policy.browser.interfaces import ILinkcheckerOSHA
 import zLOG
+from collective.lead.interfaces import IDatabase
+import sqlalchemy as sa
+from sqlalchemy.orm import sessionmaker
 
+class PostgresExportView(BrowserView):
+    
+    def __call__(self, link_state='red', path_filter='', multilingual_thesaurus=[], subcategory=[], no_download=False):
+        """ export the database in csv format """
+        portal_languages = getToolByName(self.context, 'portal_languages')
+        self.langs = portal_languages.getSupportedLanguages()
+        self.portal_path = self.context.portal_url.getPortalPath()
+        
+        lcosha = getMultiAdapter((self.context, self.request), name='lc_osha_view')
+        zLOG.LOG('osha.policy::PostgresExportView', zLOG.INFO, "Exporting link state %s to Postgres Database"%link_state)
+        
+        db = getUtility(IDatabase, name='osha.database')
+        connection = db.connection 
+        meta = sa.MetaData()
+        meta.bind = connection
+        checkresults = sa.Table('checkresults', meta, autoload=True)
+        
+        # clear the current table for all items with given state
+        statecol = getattr(checkresults.c, 'state')
+        delete = checkresults.delete(statecol==link_state)
+        result = connection.execute(delete)
+        
+        for item in lcosha.LinksInState(state=link_state,
+                                        b_start=0,
+                                        b_size=-1,
+                                        path_filter=path_filter,
+                                        multilingual_thesaurus=multilingual_thesaurus,
+                                        subcategory=subcategory
+                                        ):
+            # insert
+            doc = item['document']
+            docpath = doc.getPath()
+            subjects = doc.Subject or tuple()
+            if subjects == tuple():
+                subjects = ('',)
+                
+            # Careful: Here we count one record per section. If a link appears in several sections
+            # it is counted several times. But as people will look at the links from a section perspective
+            # we want the broken links to appear everywhere. A total of all broken links will not be correct 
+            # if not done distinct by url and link!!
+            for subject in subjects:
+                toset = dict(state = link_state, 
+                             document = link['document'].getPath(),
+                             brokenlink = item["url"],
+                             reason = item["reason"],
+                             section = subject,
+                             lastcheck = item["lastcheck"],
+                             subsite = self.get_subsite(docpath)
+                             )
+                ins = checkresults.insert(toset)
+                result = connection.execute(ins)
+        
+        
+        zLOG.LOG('osha.policy::PostgresExportView', zLOG.INFO, "Postgres Export Done")
+        
+    def get_subsite(self, path):
+        zLOG.LOG('osha.policy::PostgresExportView', zLOG.INFO, "get_subsite path is %s" % path)
+        path = path.replace(self.portal_path, '')
+
+        elems = path.split('/')
+        elems.reverse()
+        # remove first elem, which is an empty string
+        elems.pop()
+        # remove language tree elem
+        if elems[-1] in self.langs:
+            elems.pop()
+        print elems
+        if elems[-1] == 'fop':
+            return elems[-2]
+        if elems[-1] == 'sub':
+            return elems[-2]
+            
+        return 'main'
+        
+    
 class CSVExportView(BrowserView):
     
     def __call__(self, link_state='red', path_filter='', multilingual_thesaurus=[], subcategory=[], no_download=False):

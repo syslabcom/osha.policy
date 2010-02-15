@@ -215,6 +215,13 @@
         class=".lc_osha.CSVExportView"
         permission="cmf.ManagePortal"      
         />
+        
+    <browser:page
+        for="*"
+        name="lc_pg_export"
+        class=".lc_osha.PostgresExportView"
+        permission="cmf.ManagePortal"      
+        />
 
     <browser:page
         for="*"
