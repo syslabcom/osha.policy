@@ -51,7 +51,7 @@ class PostgresExportView(BrowserView):
             # if not done distinct by url and link!!
             for subject in subjects:
                 toset = dict(state = link_state, 
-                             document = link['document'].getPath(),
+                             document = docpath,
                              brokenlink = item["url"],
                              reason = item["reason"],
                              section = subject,
@@ -65,9 +65,7 @@ class PostgresExportView(BrowserView):
         zLOG.LOG('osha.policy::PostgresExportView', zLOG.INFO, "Postgres Export Done")
         
     def get_subsite(self, path):
-        zLOG.LOG('osha.policy::PostgresExportView', zLOG.INFO, "get_subsite path is %s" % path)
         path = path.replace(self.portal_path, '')
-
         elems = path.split('/')
         elems.reverse()
         # remove first elem, which is an empty string
@@ -75,7 +73,6 @@ class PostgresExportView(BrowserView):
         # remove language tree elem
         if elems[-1] in self.langs:
             elems.pop()
-        print elems
         if elems[-1] == 'fop':
             return elems[-2]
         if elems[-1] == 'sub':
