@@ -5,6 +5,9 @@ osha.policy Changelog
 ------------------
 
 - Added LinkChecker Postgres Importer (pilz)
+- Patched getViewActions in Collage. Hardcoded to always return 'view' and 'edit'
+  instead of sending huge catalog queries for every single item in the collage.
+  Greatly reduces loading speed on the compose page (thomasw)
 
 
 1.3.1 (2010-02-09)

@@ -3,12 +3,14 @@ from Products.Collage.browser.viewlet import ActionsViewlet
 
 def getViewActions(self):
 
-    atool = getToolByName(self.context, 'portal_actions')
-    # This is the killer line that leads to an incredible loading time
-    # on the compose page.
-    # It is apparently NOT NEEDED!!
-#    actions = atool.listFilteredActionsFor(self.context.aq_inner)
-    plone_view = self.context.restrictedTraverse('@@plone')
-    return plone_view.prepareObjectTabs()
+    # Instead of calling plone_view.prepareObjectTabs() on every single
+    # item in the Collage for information we don't need anyway, we simply
+    # return two views: edit and view, which is enough for our case
+    url = self.context.absolute_url()
+    actions = [
+        dict(id='view', selected=False, title=u'View', url=url),
+        dict(id='edit', selected=False, title=u'Edit', url=url + '/edit'),
+    ]
+    return actions
 
 ActionsViewlet.getViewActions = getViewActions
