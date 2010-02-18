@@ -6,8 +6,12 @@
 
 print "\n\nplone.app.blob.field patch"
 
-from plone.app.blob.field import BlobField
+from webdav.common import rfc1123_date
 
+from Products.Archetypes.utils import contentDispositionHeader
+from plone.app.blob.download import handleIfModifiedSince, handleRequestRange
+from plone.app.blob.field import BlobField
+from plone.i18n.normalizer.interfaces import IUserPreferredFileNameNormalizer
 
 def index_html(self, instance, REQUEST=None, RESPONSE=None, disposition='inline'):
     """ make it directly viewable when entering the objects URL """
@@ -33,6 +37,6 @@ def index_html(self, instance, REQUEST=None, RESPONSE=None, disposition='inline'
             filename=filename)
         RESPONSE.setHeader("Content-disposition", header_value)
     range = handleRequestRange(instance, length, REQUEST, RESPONSE)
-        return blob.getIterator(**range)
+    return blob.getIterator(**range)
 
 BlobField.index_html = index_html
