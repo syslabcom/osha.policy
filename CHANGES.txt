@@ -4,7 +4,8 @@ osha.policy Changelog
 1.3.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added patch to disable Accept-Range requests in plone.app.blob.field
+  (deroiste) #716
 
 
 1.3.2 (2010-02-17)
