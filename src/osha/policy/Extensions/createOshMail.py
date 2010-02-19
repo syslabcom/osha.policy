@@ -75,16 +75,18 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
     path = "en/news/oshmail/latest-news"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col1_1, uid)
-    manager = IDynamicViewManager(alias)
-    manager.setLayout('oshmail')
+    if uid:
+        alias = insertAlias(col1_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
     
     path = "en/news/oshmail/news"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col1_2, uid)
-    manager = IDynamicViewManager(alias)
-    manager.setLayout('right_column')
+    if uid:
+        alias = insertAlias(col1_2, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('right_column')
     
     # row 2 (highlights, did you know // events)
     row2, col2_1 = insertRow(om)
@@ -94,23 +96,26 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
     path = "en/news/oshmail/highlights"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col2_1, uid)
-    manager = IDynamicViewManager(alias)
-    manager.setLayout('oshmail')
+    if uid:
+        alias = insertAlias(col2_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
     
     path = "en/news/oshmail/did-you-know"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col2_1, uid)
-    manager = IDynamicViewManager(alias)
-    manager.setLayout('oshmail')
+    if uid:
+        alias = insertAlias(col2_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
     
     path = "en/news/oshmail/events"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col2_2, uid)
-    manager = IDynamicViewManager(alias)
-    manager.setLayout('right_column')
+    if uid:
+        alias = insertAlias(col2_2, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('right_column')
     
     
     # row 3 (site in focus // nothing)
@@ -121,9 +126,10 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
     path = "en/news/oshmail/site-in-focus"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col3_1, uid)
-    manager = IDynamicViewManager(alias)
-    manager.setLayout('oshmail')
+    if uid:
+        alias = insertAlias(col3_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
     
     
     # row 4 (Press releases // nothing)
@@ -134,9 +140,10 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
     path = "en/news/oshmail/read-our-latest-press-releases"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col4_1, uid)
-    manager = IDynamicViewManager(alias)
-    manager.setLayout('oshmail')
+    if uid:
+        alias = insertAlias(col4_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
     
     
     # row 5 (Publications // nothing)
@@ -147,20 +154,23 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
     path = "en/news/oshmail/read-our-latest-publications"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col5_1, uid)
-    manager = IDynamicViewManager(alias)
-    manager.setLayout('oshmail')
+    if uid:
+        alias = insertAlias(col5_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
     
-    # row 6 (tell a friend)
+    # row 6 (subscription info, tell a friend)
     row6, col6_1 = insertRow(om)
-    path = "en/news/oshmail/subscription-informationx"
+    path = "en/news/oshmail/subscription-information"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col6_1, uid)
+    if uid:
+        alias = insertAlias(col6_1, uid)
     path = "en/news/oshmail/tellafriend"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
-    alias = insertAlias(col6_1, uid)
+    if uid:
+        alias = insertAlias(col6_1, uid)
     
     ## END Framework
 
