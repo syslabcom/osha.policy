@@ -7,6 +7,7 @@ from plone.portlets.constants import CONTEXT_CATEGORY, GROUP_CATEGORY, CONTENT_T
 from plone.portlets.interfaces import IPortletManager, ILocalPortletAssignmentManager
 from zope.component import getMultiAdapter, getUtility
 import Acquisition
+from Products.CMFCore.utils import getToolByName
 
 
 def exchangeSEPPortlets(self, key):
@@ -219,5 +220,11 @@ def redoEROCategorisation(self):
     for o in tuple(objs):
         o.reindexObject()
     
-    
     return "fine"
+
+
+def hasVersionInfo(obj, tool=None):
+    if not tool:
+        tool = getToolByName(obj, 'portal_archivist')
+    history = tool.queryHistory(obj, default=None)
+    return bool(history and len(history))
