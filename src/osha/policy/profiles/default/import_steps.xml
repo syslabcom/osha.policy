@@ -8,6 +8,13 @@
     <dependency step="content"/>
     <dependency step="toolset"/>
   </import-step>
+  <import-step
+    id='osha-jsregistry'
+    version='20100223-01'
+    handler="Products.ResourceRegistries.exportimport.jsregistry.importJSRegistry"
+    >
+    <dependency step="osha_various" />
+  </import-step>
   <import-step id="osha_setVersionedTypes"
                version="20080407-01"
                handler="osha.policy.setuphandlers.setVersionedTypes"

@@ -11,6 +11,7 @@ from ConfigParser import ConfigParser
 from Products.ATVocabularyManager.utils.vocabs import createSimpleVocabs
 from Products.CMFCore.utils import getToolByName
 from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
+from Products.ResourceRegistries.exportimport.resourceregistry import importResRegistry
 
 from slc.clicksearch.interfaces import IClickSearchConfiguration
 
@@ -141,7 +142,9 @@ def configurePortal(portal):
     portal_workflow = getToolByName(portal, 'portal_workflow')
     portal_workflow.setChainForPortalTypes(['LinguaLink'], None)
 
-
+def resetJSRegistry(context):
+    return importResRegistry(context, 'osha_javascripts', 'OSHA Javascript registry', 'osha-jsregistry.xml')
+    
 def importVocabularies(self):
     logger = logging.getLogger("VocabularyImporter")
     logger.info("Importing Vocabularies")
