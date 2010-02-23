@@ -42,6 +42,7 @@ class PostgresExportView(BrowserView):
             doc = item['document']
             docpath = doc.getPath()
             subjects = doc.Subject or tuple()
+            portal_type = doc.portal_type
             if subjects == tuple():
                 subjects = ('',)
                 
@@ -54,9 +55,10 @@ class PostgresExportView(BrowserView):
                              document = docpath,
                              brokenlink = item["url"],
                              reason = item["reason"],
-                             section = subject,
-                             lastcheck = item["lastcheck"],
-                             subsite = self.get_subsite(docpath)
+                             sitesection = subject,
+                             lastcheck = item["lastcheck"] or '',
+                             subsite = self.get_subsite(docpath),
+                             portal_type = portal_type or ''
                              )
                 ins = checkresults.insert(toset)
                 result = connection.execute(ins)
