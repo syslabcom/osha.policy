@@ -10,6 +10,7 @@
     <include package="osha.theme" />
     <include package="archetypes.schemaextender" />
     <include package="quintagroup.plonecaptchas" />
+    <include package="quintagroup.plonecomments" />
 
     <genericsetup:registerProfile
         name="default"
