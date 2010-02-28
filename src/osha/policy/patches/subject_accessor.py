@@ -1,10 +1,11 @@
 
 from Products.OSHContentLink.OSH_Link import OSH_Link
-#from Products.RALink.content.RALink import RALink
+from Products.RALink.content.RALink import RALink
 from Products.RemoteProvider.content.Provider import Provider
-#from Products.CaseStudy.CaseStudy import CaseStudy
+from Products.CaseStudy.CaseStudy import CaseStudy
 from Products.ATContentTypes.content.file import ATFile
 from plone.app.blob.content import ATBlob
+from Products.ATContentTypes.content.event import ATEvent
 from Products.ATContentTypes.content.image import ATImage
 from Products.ATContentTypes.content.link import ATLink
 
@@ -38,8 +39,9 @@ OSH_Link._old_subject = OSH_Link.Subject
 OSH_Link.getSubject = getSubject
 OSH_Link.Subject = Subject
 
-#RALink.getSubject = getSubject
-#RALink.Subject = Subject
+RALink._old_subject = RALink.Subject
+RALink.getSubject = getSubject
+RALink.Subject = Subject
 
 Provider._old_subject = Provider.Subject
 Provider.getSubject = getSubject
@@ -53,6 +55,10 @@ ATBlob._old_subject = ATBlob.Subject
 ATBlob.getSubject = getSubject
 ATBlob.Subject = Subject
 
+ATEvent._old_subject = ATEvent.Subject
+ATEvent.getSubject = getSubject
+ATEvent.Subject = Subject
+
 ATImage._old_subject = ATImage.Subject
 ATImage.getSubject = getSubject
 ATImage.Subject = Subject
@@ -61,6 +67,6 @@ ATLink._old_subject = ATLink.Subject
 ATLink.getSubject = getSubject
 ATLink.Subject = Subject
 
-# There are no longer subcategories on CaseStudies
-#CaseStudy.getSubject = getSubject
-#CaseStudy.Subject = Subject
+CaseStudy._old_subject = CaseStudy.Subject
+CaseStudy.getSubject = getSubject
+CaseStudy.Subject = Subject
