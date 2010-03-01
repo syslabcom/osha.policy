@@ -37,8 +37,6 @@ class OSHAPolicyLayer(SiteLayer):
         ztc.installProduct('PressRoom')
         ztc.installProduct('RALink')
         ztc.installProduct('CaseStudy')
-        ztc.installPackage('osha.legislation')
-
 
         import osha.theme
         zcml.load_config('configure.zcml', osha.theme)
@@ -54,6 +52,7 @@ class OSHAPolicyLayer(SiteLayer):
         zcml.load_config('configure.zcml', slc.xliff)
         import slc.shoppinglist
         zcml.load_config('configure.zcml', slc.shoppinglist)
+        ztc.installPackage('osha.legislation')
 
         browserlayer.utils.register_layer(IOSHACommentsLayer,
                                           name='osha.policy')
