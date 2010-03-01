@@ -1,3 +1,4 @@
+#from lxml.etree import parse, Element, tostring
 from elementtree.ElementTree import parse, Element, tostring
 from xlrd import open_workbook
 import logging
@@ -169,11 +170,12 @@ def inner_register_move_term(line, row, old, new):
                     if not data['father_authorative']:
                         data['father_authorative'] = True
                         data['father'] = father
-                        debugging_log.warning(problem)
+                        #debugging_log.warning(problem)
                     else:
                         data['error'] = problem
                 else:
-                    debugging_log.warning(problem)
+                    pass
+                    #debugging_log.warning(problem)
 
 def move_term(old, data, errors):
     if len(data['lines']) == 1:
@@ -302,6 +304,6 @@ errors = list(set(errors))
 errors.sort()
 for error in errors:
     osha_log.warning(error)
-    
-tree.write('out.xml')
+
+tree.write('out.xml', 'utf-8')
     
