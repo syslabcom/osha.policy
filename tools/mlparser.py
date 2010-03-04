@@ -85,6 +85,8 @@ def new_term(wrapped, errors):
     termIdentifier = row[10].value
     termCaption = row[11].value
     termDescription = row[12].value
+    if termIdentifier in items.keys():
+        import pdb;pdb.set_trace()
     assert termIdentifier not in items.keys()
     try:
         debugging_log.debug(row[17].value.strip())
@@ -248,7 +250,7 @@ def delete_term(wrapped, errors):
     reindex_log.info('Delete key: %s' % kid_id)
     return False
 
-sheet = get_xls('./new_thesaurus2.xls')
+sheet = get_xls('./new_thesaurus3.xls')
 for i in range(sheet.nrows):
     row = sheet.row(i)
     if not (row[9].value or row[13].value):
