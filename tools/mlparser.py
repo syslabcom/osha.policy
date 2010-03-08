@@ -85,8 +85,6 @@ def new_term(wrapped, errors):
     termIdentifier = row[10].value
     termCaption = row[11].value
     termDescription = row[12].value
-    if termIdentifier in items.keys():
-        import pdb;pdb.set_trace()
     assert termIdentifier not in items.keys()
     try:
         debugging_log.debug(row[17].value.strip())
