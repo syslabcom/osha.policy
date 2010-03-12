@@ -88,7 +88,8 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         manager = IDynamicViewManager(alias)
         manager.setLayout('right_column')
     
-    # row 2 (highlights, did you know // events)
+    # row 2 (highlights, did you know, site in focus, Press releases,
+    # Publications // events)
     row2, col2_1 = insertRow(om)
     col2_2 = splitColumn(row2)
     manager = IDynamicViewManager(row2)
@@ -108,7 +109,31 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         alias = insertAlias(col2_1, uid)
         manager = IDynamicViewManager(alias)
         manager.setLayout('oshmail')
-    
+
+    path = "en/news/oshmail/site-in-focus"
+    abspath = urljoin(portal_path(self), path)
+    uid = getUIDForPath(pc, abspath)
+    if uid:
+        alias = insertAlias(col2_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
+
+    path = "en/news/oshmail/read-our-latest-press-releases"
+    abspath = urljoin(portal_path(self), path)
+    uid = getUIDForPath(pc, abspath)
+    if uid:
+        alias = insertAlias(col2_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
+
+    path = "en/news/oshmail/read-our-latest-publications"
+    abspath = urljoin(portal_path(self), path)
+    uid = getUIDForPath(pc, abspath)
+    if uid:
+        alias = insertAlias(col2_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
+
     path = "en/news/oshmail/events"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
@@ -116,49 +141,9 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         alias = insertAlias(col2_2, uid)
         manager = IDynamicViewManager(alias)
         manager.setLayout('right_column')
-    
-    
-    # row 3 (site in focus // nothing)
-    row3, col3_1 = insertRow(om)
-    col3_2 = splitColumn(row3)
-    manager = IDynamicViewManager(row3)
-    manager.setLayout('large-left')
-    path = "en/news/oshmail/site-in-focus"
-    abspath = urljoin(portal_path(self), path)
-    uid = getUIDForPath(pc, abspath)
-    if uid:
-        alias = insertAlias(col3_1, uid)
-        manager = IDynamicViewManager(alias)
-        manager.setLayout('oshmail')
-    
-    
-    # row 4 (Press releases // nothing)
-    row4, col4_1 = insertRow(om)
-    col4_2 = splitColumn(row4)
-    manager = IDynamicViewManager(row4)
-    manager.setLayout('large-left')
-    path = "en/news/oshmail/read-our-latest-press-releases"
-    abspath = urljoin(portal_path(self), path)
-    uid = getUIDForPath(pc, abspath)
-    if uid:
-        alias = insertAlias(col4_1, uid)
-        manager = IDynamicViewManager(alias)
-        manager.setLayout('oshmail')
-    
-    
-    # row 5 (Publications // nothing)
-    row5, col5_1 = insertRow(om)
-    col5_2 = splitColumn(row5)
-    manager = IDynamicViewManager(row5)
-    manager.setLayout('large-left')
-    path = "en/news/oshmail/read-our-latest-publications"
-    abspath = urljoin(portal_path(self), path)
-    uid = getUIDForPath(pc, abspath)
-    if uid:
-        alias = insertAlias(col5_1, uid)
-        manager = IDynamicViewManager(alias)
-        manager.setLayout('oshmail')
-    
+
+    # row 3,4,5 were merged into row 2
+
     # row 6 (subscription info, tell a friend)
     row6, col6_1 = insertRow(om)
     path = "en/news/oshmail/subscription-information"
@@ -171,7 +156,7 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
     uid = getUIDForPath(pc, abspath)
     if uid:
         alias = insertAlias(col6_1, uid)
-    
+
     ## END Framework
 
     ## Begin Content
