@@ -16,35 +16,41 @@ from osha.theme.browser.viewlets import OSHANetworkchooser
 #networks = OSHANetworkchooser(self, self.REQUEST, None, None).networks()
 
 fop_main_sites = {
-    'austria': 'at.osha.europa.eu',
     'belgium': 'be.osha.europa.eu',
     'bulgaria': 'bg.osha.europa.eu',
     'cyprus': 'cy.osha.europa.eu',
     'czech-republic': 'cz.osha.europa.eu',
-    'denmark': 'dk.osha.europa.eu',
     'estonia': 'ee.osha.europa.eu',
     'finland': 'fi.osha.europa.eu',
     'france': 'fr.osha.europa.eu',
     'germany': 'de.osha.europa.eu',
     'greece': 'gr.osha.europa.eu',
     'hungary': 'hu.osha.europa.eu',
-    'iceland': 'www.vinnueftirlit.is',
-    'ireland': 'ie.osha.europa.eu',
     'italy': 'it.osha.europa.eu',
     'latvia': 'lv.osha.europa.eu',
-    'lithuania': 'osha.vdi.lt',
-    'luxembourg': 'lu.osha.europa.eu',
-    'malta': 'mt.osha.europa.eu',
     'netherlands': 'nl.osha.europa.eu',
     'norway': 'no.osha.europa.eu',
-    'poland': 'pl.osha.europa.eu',
-    'portugal': 'pt.osha.europa.eu',
     'romania': 'ro.osha.europa.eu',
     'slovakia': 'sk.osha.europa.eu',
     'slovenia': 'si.osha.europa.eu',
     'spain': 'es.osha.europa.eu',
     'sweden': 'se.osha.europa.eu',
     'switzerland': 'ch.osha.europa.eu',
+}
+
+{
+#dropped
+    'denmark': 'dk.osha.europa.eu',
+    'poland': 'pl.osha.europa.eu',
+
+#not mentioned
+    'austria': 'at.osha.europa.eu',
+    'iceland': 'www.vinnueftirlit.is',
+    'ireland': 'ie.osha.europa.eu',
+    'lithuania': 'osha.vdi.lt',
+    'luxembourg': 'lu.osha.europa.eu',
+    'malta': 'mt.osha.europa.eu',
+    'portugal': 'pt.osha.europa.eu',
     'turkey': 'tr.osha.europa.eu',
     'united-kingdom': 'uk.osha.europa.eu',
     }
@@ -80,7 +86,7 @@ def main(self):
         if "fop-main-site" in portlets:
             log("Removing existing FOP main site portlet")
             del right["fop-main-site"]
-	if "activities" in portlets:
+        if "activities" in portlets:
             log("Removing existing activities portlet")
             del right["activities"]
 
