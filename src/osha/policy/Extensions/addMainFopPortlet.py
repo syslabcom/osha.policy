@@ -55,7 +55,6 @@ def main(self):
     # 2) Assign a new one in the desired position
     # 3) If there is a url already defined for it add this to the EN portlet
     def log(message):
-        # write a message to the browser
         self.REQUEST.response.write(str(message)+"\n")
 
     def get_translation_obs(ob):
@@ -79,8 +78,11 @@ def main(self):
             return
         portlets = [x for x in list(right.keys())]
         if "fop-main-site" in portlets:
-            log("removing existing portlet")
+            log("Removing existing FOP main site portlet")
             del right["fop-main-site"]
+	if "activities" in portlets:
+            log("Removing existing activities portlet")
+            del right["activities"]
 
         fop_url = ""
         # The url only needs to be defined on the canonical translation
@@ -92,7 +94,8 @@ def main(self):
         right["fop-main-site"] = fop_main_promotion.Assignment(url=fop_url)
         log("Added main FOP portlet")
 
-        fop_position = 1
+        fop_position = 0
+        portlets = [x for x in list(right.keys())]
         index = portlets.index('fop-main-site')
         while index > fop_position:
             log("Moving the portlet to the correct position")
