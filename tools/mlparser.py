@@ -148,7 +148,7 @@ def inner_register_move_term(line, row, old, new, fake_move):
     if not moved_terms.has_key(old):
         moved_terms[old] = {}
     data = moved_terms[old]
-    data['fake'] = data.get('fake', fake_move)
+    data['fake'] = data.get('fake', False) or fake_move
     if not data.has_key('lines'):
         data['lines'] = []
     data['lines'].append(line)
