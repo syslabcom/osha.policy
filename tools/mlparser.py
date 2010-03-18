@@ -214,7 +214,7 @@ def move_term(old, data, errors):
     except KeyError:
         errors.append("Lines: %s parent \"%s\" not found, don't know where to add" % (str(data['lines']), data['father']))
         return True
-    if data['fake']:
+    if data['fake'] or new in items.keys():
         reindex_log.info('move old-new: %s-%s' % (old, new))
         return False
     old_child[0].text = new
