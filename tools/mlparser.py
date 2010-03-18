@@ -24,9 +24,6 @@ debugging_log.setLevel(logging.WARN)
 osha_log.setLevel(logging.DEBUG)
 reindex_log.setLevel(logging.DEBUG)
 
-deleted_fathers = []
-
-
 items = {}
 
 def get_xls(filename):
@@ -195,11 +192,7 @@ def move_term(old, data, errors):
         return True
     try:
         old_father_id = original_fathers[old_child]
-        if old_father_id not in deleted_fathers:
-            old_father = items[original_fathers[old_child]]
-            deleted = False
-        else:
-            deleted = True
+        old_father = items[original_fathers[old_child]]
     except KeyError:
         errors.append("Lines: %s This cannot be moved, father of %s unknown" %(str(data['lines']), items[old][0].text))
         return True
@@ -235,10 +228,7 @@ def move_term(old, data, errors):
         parentTerm.insert(last_brother, old_child)
     if not has_brothers:
         parentTerm.insert(index, old_child)
-    deleted_fathers.append(old)
-    if not deleted:
-        print old_child[0].text
-        old_father.remove(old_child)
+    old_father.remove(old_child)
     reindex_log.info('move old-new: %s-%s' % (old, new))
     return False
 
