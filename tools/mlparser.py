@@ -135,19 +135,23 @@ def register_move_term(line, row):
     old = row[13].value.strip()
     new = row[14].value.strip()
     if '+' in old:
+        count = 0
         for one_old in old.split('+'):
+            count += 1
+            fake = count > 1
             one_old = one_old.strip()
-            if inner_register_move_term(line, row, one_old, new):
+            if inner_register_move_term(line, row, one_old, new, fake):
                 return True
         return False
     else:
-        return inner_register_move_term(line, row, old, new)
+        return inner_register_move_term(line, row, old, new, False)
 
-def inner_register_move_term(line, row, old, new):
+def inner_register_move_term(line, row, old, new, fake_move):
     father = row[17].value.strip()
     if not moved_terms.has_key(old):
         moved_terms[old] = {}
     data = moved_terms[old]
+    data['fake'] = fake_move
     if not data.has_key('lines'):
         data['lines'] = []
     data['lines'].append(line)
@@ -210,6 +214,9 @@ def move_term(old, data, errors):
     except KeyError:
         errors.append("Lines: %s parent \"%s\" not found, don't know where to add" % (str(data['lines']), data['father']))
         return True
+    if data['fake']:
+        reindex_log.info('move old-new: %s-%s' % (old, new))
+        return False
     old_child[0].text = new
     last_brother = None
     has_brothers = False
@@ -230,6 +237,7 @@ def move_term(old, data, errors):
         parentTerm.insert(index, old_child)
     deleted_fathers.append(old)
     if not deleted:
+        print old_child[0].text
         old_father.remove(old_child)
     reindex_log.info('move old-new: %s-%s' % (old, new))
     return False
