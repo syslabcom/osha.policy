@@ -184,7 +184,6 @@ def inner_register_move_term(line, row, old, new, fake_move):
                 else:
                     pass
                     #debugging_log.warning(problem)
-
 def move_term(old, data, errors):
     if len(data['lines']) == 1:
         errors.append('Lines: %s I was asked to perform a move operation, but I have only one excel line related to it.' % str(data['lines']))
@@ -199,7 +198,10 @@ def move_term(old, data, errors):
         return True
     try:
         old_father_id = original_fathers[old_child]
-        old_father = items[original_fathers[old_child]]
+        try:
+            old_father = items[old_father_id]
+        except KeyError:
+            old_father = items[renamed_keys[old_father_id]]
     except KeyError:
         errors.append("Lines: %s This cannot be moved, father of %s unknown" %(str(data['lines']), items[old][0].text))
         return True
@@ -239,6 +241,7 @@ def move_term(old, data, errors):
         parentTerm.insert(last_brother, old_child)
     if not has_brothers:
         parentTerm.insert(index, old_child)
+    deleted_fathers.append(old)
     old_father.remove(old_child)
     reindex_log.info('move old-new: %s-%s' % (old, new))
     return False
