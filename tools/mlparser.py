@@ -267,8 +267,10 @@ for i in range(sheet.nrows):
         continue
     if row[9].value.lower() == 'new term' and not row[13].value:
         register_new_term(i+1, row)
-    elif row[9].value.lower() == 'amend term' and not row[13].value:
+    elif row[9].value.lower() == 'amend term':# and not row[13].value:
         register_amend_term(i+1, row)
+        if row[13].value:
+            register_move_term(i+1, row)
     elif row[9].value.lower() == 'delete term' and not row[13].value:
         register_delete_term(i+1, row)
     elif row[13].value and not row[9].value == u'Accept / Reject':
