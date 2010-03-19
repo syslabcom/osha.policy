@@ -42,6 +42,8 @@ def updateCaches():
         fathers.pop(key)
     for key in items.keys():
         items.pop(key)
+    while deleted_fathers:
+        deleted_fathers.pop()
     for term in tree.findall('.//%sterm' % ns):
         debugging_log.debug('terms: \"%s\"', term[0].text)
         items[term[0].text] = term
