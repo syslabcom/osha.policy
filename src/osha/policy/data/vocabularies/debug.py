@@ -1,7 +1,8 @@
 #!/opt/python/python-2.4/bin/python
+import sys
 
 print "x"
-fh = open('MultilingualThesaurus.vdex', 'r')
+fh = open(sys.argv[1], 'r')
 data = fh.read()
 fh.close()
 
