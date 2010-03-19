@@ -24,6 +24,11 @@ debugging_log.setLevel(logging.WARN)
 osha_log.setLevel(logging.DEBUG)
 reindex_log.setLevel(logging.DEBUG)
 
+deleted_fathers = []
+
+renamed_keys = {}
+
+
 items = {}
 
 def get_xls(filename):
@@ -205,11 +210,15 @@ def move_term(old, data, errors):
     try:
         parentTerm = items[data['father']]
     except KeyError:
-        errors.append("Lines: %s parent \"%s\" not found, don't know where to add" % (str(data['lines']), data['father']))
-        return True
+        try:
+            parentTerm = items[renamed_keys[data['father']]]
+        except KeyError:
+            errors.append("Lines: %s parent \"%s\" not found, don't know where to add" % (str(data['lines']), data['father']))
+            return True
     if data['fake'] or new in items.keys():
         reindex_log.info('move old-new: %s-%s' % (old, new))
         return False
+    renamed_keys[old_child[0].text] = new
     old_child[0].text = new
     last_brother = None
     has_brothers = False
@@ -285,7 +294,13 @@ while old_tasks != tasks:
             new_amended_terms.append(term)
     amended_terms = new_amended_terms
     new_moved_terms = {}
-    for key, value in moved_terms.items():
+    moved_terms_as_items = moved_terms.items()
+    def custom_sort(b, a):
+        if a[0] in tostring(items[b[0]]):
+            return 1
+        return -1
+    moved_terms_as_items.sort(custom_sort)
+    for key, value in moved_terms_as_items:
         if move_term(key, value, errors):
             new_moved_terms[key] = value
     moved_terms = new_moved_terms
