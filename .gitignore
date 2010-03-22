@@ -1,4 +1,5 @@
 *.pyc
+*.svn
 *.swp
 osha.policy.egg-info
 .installed.cfg
