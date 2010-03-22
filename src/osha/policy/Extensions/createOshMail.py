@@ -4,6 +4,7 @@ from urlparse import urljoin
 from Acquisition import aq_base
 from DateTime import DateTime
 from slc.publications.interfaces import IPublicationEnhanced
+from Products.CMFPlone import utils as cmfutils
 
 def insertRow(collage):
     desired_id = generateNewId(collage)
@@ -168,7 +169,7 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         except:
             valid_from = now-30
 
-    
+
         # teasers
         query = {'path': {'query': ['/osha/portal/en/teaser'], 'depth': 1}, 
             'sort_on': 'effective', 'portal_type': 'News Item',
@@ -179,7 +180,7 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         teasers = pc(query)
         for ob in teasers[:5]:
             alias = insertAlias(col1_1, ob.UID)
-    
+
         # news
         query = {'sort_on': 'effective',
             'effective': {'query': valid_from, 'range': 'min'}, 
@@ -193,8 +194,7 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
             alias = insertAlias(col1_2, ob.UID)
             manager = IDynamicViewManager(alias)
             manager.setLayout('right_column')
-        
-    
+
         # events
 
         query = dict(portal_type=['Event','SPSeminar'],
@@ -218,10 +218,13 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
                            created=dict(query=(valid_from, now), range='min:max'),
                            sort_limit=5)
         pressreleases = pc(query)
+
         for ob in pressreleases[:5]:
-            alias = insertAlias(col4_1, ob.UID)
+            alias = insertAlias(col2_1, ob.UID)
             manager = IDynamicViewManager(alias)
-            manager.setLayout('right_column')     
+            manager.setLayout('right_column')
+            col2_1.moveObjectsUp(alias.id)
+            cmfutils.getToolByName(self, 'plone_utils').reindexOnReorder(col2_1)
 
         # publications
 
@@ -234,7 +237,7 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
                            sort_limit=5)
         publications = pc(query)
         for ob in publications[:5]:
-            alias = insertAlias(col5_1, ob.UID)
+            alias = insertAlias(col2_1, ob.UID)
         
         msg = "Collage template including content was successfully created"
     else:
