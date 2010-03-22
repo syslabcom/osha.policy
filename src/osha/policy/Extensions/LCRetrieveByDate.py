@@ -21,10 +21,8 @@ def LCRetrieveByDate(self, skiplist=[]):
 #    # in the installer, so this seems the next logical place to do it.
 #    self.portal_catalog.reindexIndex('portal_linkchecker_uid', self.REQUEST)
     try:
-        database = lc.database
         # gather all objects that are of a type we can check for links
         if 1:
-        #for type in lc.retrieving.listSupportedTypes():
             objects = self.portal_catalog(Language='all', modified={'query':sincedate,'range':'min'})
             os_ = len(objects)
             i = 0
@@ -45,7 +43,7 @@ def LCRetrieveByDate(self, skiplist=[]):
                 if not i % 500 :
                     transaction.savepoint()
                     zLOG.LOG('CMFLinkChecker', zLOG.INFO,
-                        "Crawling site - commited after %d objects of type %s" %(i, type))
+                        "Crawling site - commited after %d objects" %(i))
     finally:
         pass
         #server.setClientNotifications(True)
