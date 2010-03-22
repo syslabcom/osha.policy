@@ -1,3 +1,6 @@
+from copy import copy
+from StringIO import StringIO
+
 import Acquisition
 from Products.CMFCore.interfaces._content import IFolderish
 from Products.CMFCore.utils import getToolByName
@@ -8,7 +11,6 @@ from plone.portlets.constants import CONTEXT_CATEGORY, GROUP_CATEGORY, CONTENT_T
 from plone.portlets.interfaces import IPortletManager, ILocalPortletAssignmentManager
 from plone.app.portlets.utils import assignment_mapping_from_key
 from zope.exceptions.interfaces import DuplicationError
-from StringIO import StringIO
 
 from osha.theme.browser.viewlets import OSHANetworkchooser
 
@@ -38,6 +40,7 @@ fop_main_sites = {
     'switzerland': 'ch.osha.europa.eu',
 }
 
+
 {
 #dropped
     'denmark': 'dk.osha.europa.eu',
@@ -55,11 +58,14 @@ fop_main_sites = {
     'united-kingdom': 'uk.osha.europa.eu',
     }
 
+
 def main(self):
     # Assing the FOP main site portlet to each FOP section
     # 1) Remove any FOP main site portlets already assigned
     # 2) Assign a new one in the desired position
     # 3) If there is a url already defined for it add this to the EN portlet
+    portal = self.portal_url.getPortalObject()
+
     def log(message):
         self.REQUEST.response.write(str(message)+"\n")
 
@@ -74,8 +80,23 @@ def main(self):
         keys.insert(idx-1, name)
         assignments.updateOrder(keys)
 
+    def set_path_criterion_to_uid(ob, uid):
+        try:
+            location_criterion = ob.getCriterion(
+                "crit__path_ATPathCriterion"
+                )
+        except AttributeError:
+            location_criterion = ob.addCriterion(
+                field="path",criterion_type="ATPathCriterion"
+                )
+        location_criterion._setUID(target_uid)
 
-    def remove_add(obj):
+
+    def add_remove_portlets(country, obj):
+        """
+        Add/Configure/Position the FOP main site portlet
+        Remove the "activities" portlet if present
+        """
         path = '/'.join(obj.getPhysicalPath())
         try:
             right = assignment_mapping_from_key(obj, 'plone.rightcolumn', CONTEXT_CATEGORY, path)
@@ -108,11 +129,28 @@ def main(self):
             move_portlet_up(right, "fop-main-site")
             index = list(right.keys()).index("fop-main-site")
 
-    portal = self.portal_url.getPortalObject()
+    def configure_news_and_events(country, translation):
+        """
+        FOPs which have a Main Site should display news and events
+        from the main site.
+        """
+        if country in fop_main_sites.keys():
+            """point the news and events at the main site"""
+            main_fop = portal.fop[country]
+            default_lang = main_fop.portal_languages.getDefaultLanguage()
+            main_news = main_fop.default_lang.news
+            main_events = main_fop.default_lang.events
+            set_path_criterion_to_uid(translation.news, main_news.UID())
+            set_path_criterion_to_uid(translation.events, main_events.UID())
+            log("Set news and events to show results from the main site")
+
     fop_root = portal.en.oshnetwork["member-states"]
     countries = fop_root.objectIds()
     for country in countries:
         fop = fop_root[country]
-        for i in get_translation_obs(fop):
+        fop_links = copy(fop.annotatedlinklist)
+        for translation in get_translation_obs(fop):
             log(i.absolute_url())
-            remove_add(i)
+            add_remove_portlets(country, translation)
+            configure_news_and_events(country, translation)
+            translation.annotatedlinklist = fop_links
