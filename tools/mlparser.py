@@ -3,8 +3,15 @@ from elementtree.ElementTree import parse, Element, tostring
 from xlrd import open_workbook
 import logging
 import logging.handlers
+import sys
 
-tree = parse('./src/osha/policy/data/vocabularies/MultilingualThesaurus.vdex')
+if len(sys.argv) > 1:
+    thesaurus_file = sys.argv[1]
+else:
+    thesaurus_file = './src/osha/policy/data/vocabularies/MultilingualThesaurus.vdex'
+
+tree = parse(thesaurus_file)
+
 
 ns = '{http://www.imsglobal.org/xsd/imsvdex_v1p0}'
 
