@@ -5,12 +5,17 @@ from DateTime import DateTime
 def LCRetrieveByDate(self, skiplist=[]):
     """Retrieves the links from all objects in the site by Date."""
     sincedate = DateTime()-6*30
+    since = self.REQUEST.get('since')
+    if since is not None:
+        since = DateTime(since)
+    sincedate = since or sincedate
+    
     lc = self.portal_linkchecker
     server = lc.database._getWebServiceConnection()
     if server is None:
         raise RuntimeError, "The site could not be crawled because no " \
                             "connection to the lms could be established."
-    server.setClientNotifications(False)
+    #server.setClientNotifications(False)
 
 #    # Not actually necessary on every crawl, but it doesn't seem to work
 #    # in the installer, so this seems the next logical place to do it.
@@ -33,17 +38,15 @@ def LCRetrieveByDate(self, skiplist=[]):
                     # Maybe the catalog isn't up to date
                     continue
                 #try:
-                lc.retrieving.retrieveObject(ob)
+                lc.retrieving.retrieveObject(ob, online=False)
                 #except Exception,e:
                 #    zLOG.LOG('CMFLinkChecker', zLOG.INFO,
                 #      "Unable to retrieveObject for %s. Error: %s" %([ob], e))
-                if i % 500 ==0:
-                    transaction.commit()
+                if not i % 500 :
+                    transaction.savepoint()
                     zLOG.LOG('CMFLinkChecker', zLOG.INFO,
                         "Crawling site - commited after %d objects of type %s" %(i, type))
-            transaction.commit()
-        # Remove unused urls
-        database.cleanup()
     finally:
-        server.setClientNotifications(True)
+        pass
+        #server.setClientNotifications(True)
 
