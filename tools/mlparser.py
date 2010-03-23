@@ -272,8 +272,14 @@ for i in range(sheet.nrows):
     row = sheet.row(i)
     if not (row[9].value or row[13].value):
         continue
-    if row[9].value.lower() == 'new term' and not row[13].value:
-        register_new_term(i+1, row)
+    if row[9].value.lower() == 'new term':# and not row[13].value:
+        if row[13].value:
+            print row[14].value
+            row[0].value = row[14].value.strip()
+            register_amend_term(i+1, row)
+            register_move_term(i+1, row)
+        else:
+            register_new_term(i+1, row)
     elif row[9].value.lower() == 'amend term':# and not row[13].value:
         register_amend_term(i+1, row)
         if row[13].value:
