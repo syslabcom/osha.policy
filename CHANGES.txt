@@ -1,10 +1,13 @@
 osha.policy Changelog
 =====================
 
-1.3.7 (unreleased)
+1.3.7 (2010-03-23)
 ------------------
 
 - Create OSHMail: bugfix, don't reference no longer existing colums (thomasw)
+- migrateOshaAdaptation: bugfix and improvement (deroiste)
+- Further enhanced the mlparser for the MultilingualThesaurus (gerkern)
+- LCRetrieveByDate: bugfixes (pilz)
 
 1.3.6 (2010-03-16)
 ------------------
