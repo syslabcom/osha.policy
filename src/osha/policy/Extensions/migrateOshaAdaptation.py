@@ -45,7 +45,7 @@ annotated_link_subtyped = \
 'http://tdeimos1:5040/osha/portal/en/oshnetwork/member-states/kosovo-under-unscr-1244-99/index_html',
 'http://tdeimos1:5040/osha/portal/en/oshnetwork/member-states/bulgaria/index_html']
 
-
+import transaction
 def run(self):
     def log(message):
         self.REQUEST.response.write(str(message)+"\n")
@@ -56,23 +56,33 @@ def run(self):
     obs = []
     duds = []
     subtyper = component.getUtility(ISubtyper)
-    documents = self.portal_catalog(portal_type='Document')
-    for doc in documents:
-        type = None
-        try:
-            doc = doc.getObject()
-        except:
-            duds.append(doc.getPath())
-            continue
+    #documents = self.portal_catalog(portal_type='Document')
 
-        type = subtyper.existing_type(doc)
-        if type:
-            if type.name == 'annotatedlinks':
-                for translation in get_translation_obs(doc):
-                    obs.append(translation.absolute_url())
-                    subtyper.remove_type(translation)
-                    subtyper.change_type(translation, 'annotatedlinks')
-                    log("Updated %s" %translation.absolute_url())
-
+    portal = self.portal_url.getPortalObject()
+    fop_root = portal.en.oshnetwork["member-states"]
+    countries = fop_root.objectIds()
+    for country in countries:
+        fop = fop_root[country]
+        doc = fop.get("index_html", None)
+    #for doc in documents:
+    #    type = None
+    #    try:
+    #        doc = doc.getObject()
+    #    except:
+    #        duds.append(doc.getPath())
+    #        continue
+        if doc:
+            type = subtyper.existing_type(doc)
+            if type:
+                if type.name == 'annotatedlinks':
+                    for translation in get_translation_obs(doc):
+                        obs.append(translation.absolute_url())
+                        try:
+                            subtyper.remove_type(translation)
+                        except:
+                            pass
+                        subtyper.change_type(translation, 'annotatedlinks')
+                        log("Updated %s" %translation.absolute_url())
+                    transaction.commit()
     return obs
 
