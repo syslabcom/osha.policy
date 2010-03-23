@@ -336,7 +336,7 @@ deleted_terms = new_deleted_terms
 errors = list(set(errors))
 errors.sort()
 for error in errors:
+    print error
     osha_log.warning(error)
 
 tree.write('out.xml', 'utf-8')
-    
