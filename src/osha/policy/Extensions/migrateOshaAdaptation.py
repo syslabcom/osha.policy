@@ -47,6 +47,12 @@ annotated_link_subtyped = \
 
 
 def run(self):
+    def log(message):
+        self.REQUEST.response.write(str(message)+"\n")
+
+    def get_translation_obs(ob):
+        return [i[0] for i in ob.getTranslations().values()]
+
     obs = []
     duds = []
     subtyper = component.getUtility(ISubtyper)
@@ -62,9 +68,11 @@ def run(self):
         type = subtyper.existing_type(doc)
         if type:
             if type.name == 'annotatedlinks':
-                obs.append(doc.absolute_url())
-                subtyper.remove_type(doc)
-                subtyper.change_type(doc, 'annotatedlinks')
+                for translation in get_translation_obs(doc):
+                    obs.append(translation.absolute_url())
+                    subtyper.remove_type(translation)
+                    subtyper.change_type(translation, 'annotatedlinks')
+                    log("Updated %s" %translation.absolute_url())
 
     return obs
 
