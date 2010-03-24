@@ -91,7 +91,7 @@ def main(self):
                 field="path",criterion_type="ATPathCriterion"
                 )
         location_criterion.setValue([target_uid])
-        location_criterion.setRecures(True)
+        location_criterion.setRecurse(True)
         #location_criterion._setUID(target_uid)
 
 
@@ -142,16 +142,18 @@ def main(self):
             main_fop = portal.fop[country]
             default_lang = main_fop.portal_languages.getDefaultLanguage()
             main_fop_lang = main_fop[default_lang]
-            if hasattr(main_fop_lang, "news"):
-                main_news = main_fop_lang.news
-                set_path_criterion_to_uid(translation.news["front-page"], main_news.UID())
-            else:
-                log("ERROR %s has no news folder" %main_fop_lang.absolute_url())
-            if hasattr(main_fop_lang, "events"):
-                main_events = main_fop_lang.events
-                set_path_criterion_to_uid(translation.events["front-page"], main_events.UID())
-            else:
-                log("ERROR %s has no events folder" %main_fop_lang.absolute_url())
+            if not hasattr(main_fop_lang, "news"):
+                main_fop_lang.invokeFactory(type_name="Folder", id="news")
+                log("Created News folder")
+            main_news = main_fop_lang.news
+            set_path_criterion_to_uid(
+                translation.news["front-page"], main_news.UID()
+                )
+            if not hasattr(main_fop_lang, "events"):
+                main_fop_lang.invokeFactory(type_name="Folder", id="events")
+                log("Created Events folder")
+            main_events = main_fop_lang.events
+            set_path_criterion_to_uid(translation.events["front-page"], main_events.UID())
             log("Set news and events to show results from the main site")
 
     fop_root = portal.en.oshnetwork["member-states"]
@@ -166,11 +168,12 @@ def main(self):
             log(translation.absolute_url())
             index = translation.get("index_html", None)
             if index and links:
-                index.annotatedlinklist = links 
+                index.annotatedlinklist = links
                 log("Copied links for %s" %index.absolute_url())
             else:
                 log("ERROR: %s is missing an index page" %translation.absolute_url())
 
             add_remove_portlets(country, translation)
             configure_news_and_events(country, translation)
+            # set_path_criterion_to_uid(translation, portal.en.news.UID())
         transaction.commit()
