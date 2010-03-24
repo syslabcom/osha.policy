@@ -90,7 +90,9 @@ def main(self):
             location_criterion = ob.addCriterion(
                 field="path",criterion_type="ATPathCriterion"
                 )
-        location_criterion._setUID(target_uid)
+        location_criterion.setValue([target_uid])
+        location_criterion.setRecures(True)
+        #location_criterion._setUID(target_uid)
 
 
     def add_remove_portlets(country, obj):
@@ -161,7 +163,7 @@ def main(self):
         if index and hasattr(index, "annotatedlinklist"):
             links = copy(fop["index_html"].annotatedlinklist)
         for translation in get_translation_obs(fop):
-            # log(translation.absolute_url())
+            log(translation.absolute_url())
             index = translation.get("index_html", None)
             if index and links:
                 index.annotatedlinklist = links 
