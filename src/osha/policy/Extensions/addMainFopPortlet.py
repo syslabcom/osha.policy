@@ -2,6 +2,8 @@ from copy import copy
 from StringIO import StringIO
 
 import Acquisition
+import transaction
+
 from Products.CMFCore.interfaces._content import IFolderish
 from Products.CMFCore.utils import getToolByName
 from zope.component.interfaces import ComponentLookupError
@@ -39,7 +41,6 @@ fop_main_sites = {
     'sweden': 'se.osha.europa.eu',
     'switzerland': 'ch.osha.europa.eu',
 }
-
 
 {
 #dropped
@@ -80,7 +81,7 @@ def main(self):
         keys.insert(idx-1, name)
         assignments.updateOrder(keys)
 
-    def set_path_criterion_to_uid(ob, uid):
+    def set_path_criterion_to_uid(ob, target_uid):
         try:
             location_criterion = ob.getCriterion(
                 "crit__path_ATPathCriterion"
@@ -115,7 +116,7 @@ def main(self):
         # The url only needs to be defined on the canonical translation
         if obj.Language() == "en" and country in fop_main_sites.keys():
             # Add the main FOP url url to the portlet
-            fop_url = fop_main_sites[country]
+            fop_url = "http://"+fop_main_sites[country]
             log("Set url to %s" %fop_url)
 
         right["fop-main-site"] = fop_main_promotion.Assignment(url=fop_url)
@@ -138,19 +139,36 @@ def main(self):
             """point the news and events at the main site"""
             main_fop = portal.fop[country]
             default_lang = main_fop.portal_languages.getDefaultLanguage()
-            main_news = main_fop.default_lang.news
-            main_events = main_fop.default_lang.events
-            set_path_criterion_to_uid(translation.news, main_news.UID())
-            set_path_criterion_to_uid(translation.events, main_events.UID())
+            main_fop_lang = main_fop[default_lang]
+            if hasattr(main_fop_lang, "news"):
+                main_news = main_fop_lang.news
+                set_path_criterion_to_uid(translation.news["front-page"], main_news.UID())
+            else:
+                log("ERROR %s has no news folder" %main_fop_lang.absolute_url())
+            if hasattr(main_fop_lang, "events"):
+                main_events = main_fop_lang.events
+                set_path_criterion_to_uid(translation.events["front-page"], main_events.UID())
+            else:
+                log("ERROR %s has no events folder" %main_fop_lang.absolute_url())
             log("Set news and events to show results from the main site")
 
     fop_root = portal.en.oshnetwork["member-states"]
-    countries = fop_root.objectIds()
-    for country in countries:
-        fop = fop_root[country]
-        fop_links = copy(fop.annotatedlinklist)
+    countries = fop_root.listFolderContents(contentFilter={"portal_type":"Folder"})
+    for fop in countries:
+        country = fop.getId()
+        index = fop.get("index_html", None)
+        links = ()
+        if index and hasattr(index, "annotatedlinklist"):
+            links = copy(fop["index_html"].annotatedlinklist)
         for translation in get_translation_obs(fop):
-            log(i.absolute_url())
+            # log(translation.absolute_url())
+            index = translation.get("index_html", None)
+            if index and links:
+                index.annotatedlinklist = links 
+                log("Copied links for %s" %index.absolute_url())
+            else:
+                log("ERROR: %s is missing an index page" %translation.absolute_url())
+
             add_remove_portlets(country, translation)
             configure_news_and_events(country, translation)
-            translation.annotatedlinklist = fop_links
+        transaction.commit()
