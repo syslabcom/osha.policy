@@ -132,6 +132,8 @@ def main(self):
             move_portlet_up(right, "fop-main-site")
             index = list(right.keys()).index("fop-main-site")
 
+
+
     def configure_news_and_events(country, translation):
         """
         FOPs which have a Main Site should display news and events
@@ -142,15 +144,28 @@ def main(self):
             main_fop = portal.fop[country]
             default_lang = main_fop.portal_languages.getDefaultLanguage()
             main_fop_lang = main_fop[default_lang]
+            pt = getToolByName(portal, 'portal_types')
+            folder_type = pt.getTypeInfo("Folder")
+            # Deliberately bypassing the security mechanism so that
+            # Anonymous users can also create this folder
             if not hasattr(main_fop_lang, "news"):
-                main_fop_lang.invokeFactory(type_name="Folder", id="news")
+                # Some FOPs don't allow folders to be created so we're
+                # bypassing security checks
+                # main_fop_lang.invokeFactory(type_name="Folder", id="news")
+                factory_method = folder_type._getFactoryMethod(
+                    main_fop_lang, check`_security=0
+                    )
+                factory_method("news")
                 log("Created News folder")
             main_news = main_fop_lang.news
             set_path_criterion_to_uid(
                 translation.news["front-page"], main_news.UID()
                 )
             if not hasattr(main_fop_lang, "events"):
-                main_fop_lang.invokeFactory(type_name="Folder", id="events")
+                factory_method = folder_type._getFactoryMethod(
+                    main_fop_lang, check`_security=0
+                    )
+                factory_method("events")
                 log("Created Events folder")
             main_events = main_fop_lang.events
             set_path_criterion_to_uid(translation.events["front-page"], main_events.UID())
