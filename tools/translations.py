@@ -40,4 +40,4 @@ for term in untranslated_terms:
     id = term[0].text
     ttt = term[1][0].text
     path = ' -> '.join(getParents(term))
-    writer.writerow([id, ttt, path, ''])
+    writer.writerow([id, path, ttt, ''])
