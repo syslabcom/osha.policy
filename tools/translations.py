@@ -9,11 +9,13 @@ ns = '{http://www.imsglobal.org/xsd/imsvdex_v1p0}'
 all_terms = [term for term in tree.findall('//%sterm' % ns)]
 parents = {}
 for term in all_terms:
-    for children in term[3:]:
-        parents[children[0].text] = term
+    for children in term.findall('%sterm' % ns):
+        childid = children.find('%stermIdentifier' % ns).text
+        assert childid
+        parents[childid] = term
 
 def getParents(term):
-    id = term[0].text
+    id = term.find('%stermIdentifier' % ns).text
     try:
         parent = parents[id]
     except KeyError:
