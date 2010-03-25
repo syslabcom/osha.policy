@@ -102,9 +102,10 @@ def main(self):
         except AttributeError:
             language_criterion = ob.addCriterion(
                 field="Language",
-                criterion_type='crit__Language_ATSelectionCriterion'
+                criterion_type='ATSelectionCriterion'
                 )
         language_criterion.setValue([lang])
+        log("Set language criterion")
 
     def add_remove_portlets(country, obj):
         """
@@ -181,6 +182,9 @@ def main(self):
             main_events = main_fop_lang.events
             set_path_criterion_to_uid(
                 translation.events["front-page"], main_events.UID()
+                )
+            set_language_criterion_to_lang(
+                translation.news["front-page"], default_lang
                 )
             set_language_criterion_to_lang(
                 translation.events["front-page"], default_lang
