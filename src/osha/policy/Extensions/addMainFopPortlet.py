@@ -94,6 +94,17 @@ def main(self):
         location_criterion.setRecurse(True)
         #location_criterion._setUID(target_uid)
 
+    def set_language_criterion_to_lang(ob, lang):
+        try:
+            language_criterion = ob.getCriterion(
+                'crit__Language_ATSelectionCriterion'
+                )
+        except AttributeError:
+            language_criterion = ob.addCriterion(
+                field="Language",
+                criterion_type='crit__Language_ATSelectionCriterion'
+                )
+        language_criterion.setValue([lang])
 
     def add_remove_portlets(country, obj):
         """
@@ -153,7 +164,7 @@ def main(self):
                 # bypassing security checks
                 # main_fop_lang.invokeFactory(type_name="Folder", id="news")
                 factory_method = folder_type._getFactoryMethod(
-                    main_fop_lang, check`_security=0
+                    main_fop_lang, check_security=0
                     )
                 factory_method("news")
                 log("Created News folder")
@@ -163,12 +174,17 @@ def main(self):
                 )
             if not hasattr(main_fop_lang, "events"):
                 factory_method = folder_type._getFactoryMethod(
-                    main_fop_lang, check`_security=0
+                    main_fop_lang, check_security=0
                     )
                 factory_method("events")
                 log("Created Events folder")
             main_events = main_fop_lang.events
-            set_path_criterion_to_uid(translation.events["front-page"], main_events.UID())
+            set_path_criterion_to_uid(
+                translation.events["front-page"], main_events.UID()
+                )
+            set_language_criterion_to_lang(
+                translation.events["front-page"], default_lang
+                )
             log("Set news and events to show results from the main site")
 
     fop_root = portal.en.oshnetwork["member-states"]
