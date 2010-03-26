@@ -44,7 +44,7 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
     pdfmetrics.registerFont( TTFont('ArialNarrowBold', arial_nb) )
 
     # get the frontimage and write it to the canvas
-    charterfilename = "osha_certificate_%s.jpg"
+    charterfilename = "charter_hw2010_%s.jpg"
     frontfile = getattr(self.charter_img, charterfilename % language, None)
     # Fallback to English
     if not frontfile:
@@ -142,7 +142,7 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
     if usePDFTK == 0:
         print "Set Charter-Image as second page w/o PDFTK"
         # set the webcharter-image as second page
-        chartername = "charter_hw2008-%s.jpg" 
+        chartername = "charter_hw2010_%s.jpg" 
         charterfile = getattr(self.charter_img, chartername % language, None)
         # Fallback to English
         if not charterfile:
@@ -159,7 +159,7 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
     if usePDFTK == 1:
         print "Start merging with PDFTK"
         # merge the webcharter and the acknowledge PDFs
-        chartername = "charter_hw2008-%s.jpg" 
+        chartername = "charter_hw2010_%s.jpg" 
         charterfile = getattr(self.charter_img, chartername % language, None)
         # Fallback to English
         if not charterfile:
