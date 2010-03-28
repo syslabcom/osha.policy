@@ -4,7 +4,7 @@ osha.policy Changelog
 1.3.8 (2010-03-28)
 ------------------
 
-- Nothing changed yet.
+- Added two new external methods, for charter PDF generation and for getting translated validation messages for HW2010 form validation (jcbrand)
 
 
 1.3.7 (2010-03-23)
