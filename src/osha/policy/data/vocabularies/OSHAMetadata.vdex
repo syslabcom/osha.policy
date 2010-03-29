@@ -236,6 +236,13 @@
         <langstring language="nl">Groot- en detailhandel</langstring>
       </caption>
     </term>
+    <term>
+      <termIdentifier>good_practice_sector::gps26</termIdentifier>
+      <caption>
+        <langstring language="fr">Technologie</langstring>
+        <langstring language="nl">Technologie</langstring>
+      </caption>
+    </term>
   </term>
   <term>
     <termIdentifier>good_practice_competition</termIdentifier>
