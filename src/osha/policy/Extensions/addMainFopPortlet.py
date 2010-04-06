@@ -61,6 +61,7 @@ fop_main_sites = {
 
 
 def main(self):
+    raise Exception("This script must be customised before running")
     # Assing the FOP main site portlet to each FOP section
     # 1) Remove any FOP main site portlets already assigned
     # 2) Assign a new one in the desired position
@@ -191,8 +192,9 @@ def main(self):
                 )
             log("Set news and events to show results from the main site")
 
-    fop_root = portal.en.oshnetwork["member-states"]
-    countries = fop_root.listFolderContents(contentFilter={"portal_type":"Folder"})
+    fop_root = portal.en.oshnetwork["focal-points"]
+    # countries = fop_root.listFolderContents(contentFilter={"portal_type":"Folder"})
+    countries = [fop_root.croatia]
     for fop in countries:
         country = fop.getId()
         index = fop.get("index_html", None)
@@ -206,9 +208,9 @@ def main(self):
                 index.annotatedlinklist = links
                 log("Copied links for %s" %index.absolute_url())
             else:
-                log("ERROR: %s is missing an index page" %translation.absolute_url())
+               log("ERROR: %s is missing an index page" %translation.absolute_url())
 
-            add_remove_portlets(country, translation)
-            configure_news_and_events(country, translation)
+            # add_remove_portlets(country, translation)
+            # configure_news_and_events(country, translation)
             # set_path_criterion_to_uid(translation, portal.en.news.UID())
         transaction.commit()
