@@ -228,3 +228,10 @@ def hasVersionInfo(obj, tool=None):
         tool = getToolByName(obj, 'portal_archivist')
     history = tool.queryHistory(obj, default=None)
     return bool(history and len(history))
+
+
+def updateLC(self):
+    lc = getToolByName(self, 'portal_linkchecker')
+    print "_updateWSRegistrations"
+    lc.database._updateWSRegistrations()
+    return "updated"
