@@ -8,6 +8,23 @@ import zLOG
 from collective.lead.interfaces import IDatabase
 import sqlalchemy as sa
 from sqlalchemy.orm import sessionmaker
+from DateTime import DateTime
+
+
+class UpdateWSRegistrationView(BrowserView):
+    """ Communicates offline retrieved links to the lms. 
+        Should be called nightly, is a long running job """
+
+    def __call__(self, request, response):
+        """ update the server """
+        start = DateTime()
+        db = self.context.portal_linkchecker.aq_inner.database
+        db._updateWSRegistrations()
+        stop = DateTime()
+        delta = (stop-start)*84600
+        return "update took %s seconds" % delta
+
+
 
 class PostgresExportView(BrowserView):
     

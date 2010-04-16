@@ -230,7 +230,12 @@
         permission="cmf.ManagePortal"      
         />
 
-
+    <browser:page
+        for="*"
+        name="lc_update_ws"
+        class=".lc_osha.UpdateWSRegistrationView"
+        permission="zope2.View"      
+        />
 
     <!-- clicksearch portlet metadata widgets -->
 
