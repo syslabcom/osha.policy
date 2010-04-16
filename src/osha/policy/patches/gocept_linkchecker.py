@@ -1,7 +1,6 @@
-from gocept.linkchecker import link, utils
+from gocept.linkchecker import link, utils, database
 import gocept.linkchecker.interfaces
 import gocept.linkchecker.utils
-
 
 import zLOG
 from Products.CMFCore.utils import getToolByName
@@ -86,8 +85,36 @@ def resolveRelativeLink(url, context):
     new_url = str(url_)
     return new_url
 
-        
+
+def _register_urls_at_lms(self, url_objects):
+    """Register the given URL objects at the LMS web service.
+    """
+    # Do we have an LMS connection?
+    print "PATCHED _register_urls_at_lms"
+    lms = self._getWebServiceConnection()
+    if lms is None:
+        return
+    urls = [url.url for url in url_objects]
+    states = lms.registerManyLinks(urls)
+    # The server *may* report the status of URls it already knows.
+    for url, state, reason in states:
+        state = WEBSERVICE_STATEMAP[state]
+        # don't fail if the url object is missing due to inconsistencies of
+        # the database
+        try:
+            url = self[gocept.linkchecker.utils.hash_url(url)]
+        except:
+            continue
+        url.updateStatus(state, reason)
+    # Mark all of the URLs as registered
+    for url in url_objects:
+        if not url.registered:
+            url.registered = True
+            # update the url_catalog about the status
+            url.index()
+
+
 link.Link.getURL = getURL
 link.Link.index = index        
 utils.resolveRelativeLink = resolveRelativeLink
-
+database.LinkDatabase._register_urls_at_lms = _register_urls_at_lms
