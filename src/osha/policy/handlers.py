@@ -1,8 +1,10 @@
 import logging
 import pyPdf
+from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_parent
 from zope.app.container.contained import ContainerModifiedEvent
 from Products.Archetypes.event import ObjectInitializedEvent
+import zope.component
 
 from utils import extractPDFText
 
@@ -95,3 +97,27 @@ def handle_objectModified(object, event):
 
         # reset the field to False
         field.getMutator(object)(False)
+
+
+@zope.component.adapter(
+    zope.app.container.interfaces.IObjectRemovedEvent)
+def remove_links(event):
+    
+    object = event.object
+    try:
+        link_checker = getToolByName(object, 'portal_linkchecker').aq_inner
+    except AttributeError:
+        return
+    link_checker.database.unregisterObject(object)
+
+
+@zope.component.adapter(
+    zope.lifecycleevent.interfaces.IObjectModifiedEvent)
+def update_links(event):
+    #import pdb; pdb.set_trace()
+    object = event.object
+    try:
+        link_checker = getToolByName(object, 'portal_linkchecker').aq_inner
+    except AttributeError:
+        return
+    link_checker.retrieving.retrieveObject(object, online=False)

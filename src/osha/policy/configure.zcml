@@ -67,5 +67,7 @@
         <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
     </class>
 
+  <subscriber handler=".handlers.update_links" />
+  <subscriber handler=".handlers.remove_links" />
 
 </configure>
