@@ -1,10 +1,11 @@
-from gocept.linkchecker import link, utils, database
+from gocept.linkchecker import link, utils, database, url
 import gocept.linkchecker.interfaces
 import gocept.linkchecker.utils
 
 import zLOG
 from Products.CMFCore.utils import getToolByName
 from urlparse import urlparse, urlunparse, urljoin
+from DateTime import DateTime
 
 zLOG.LOG('gocept.linkchecker', zLOG.INFO, 'Patching Linkchecker')
 
@@ -114,7 +115,25 @@ def _register_urls_at_lms(self, url_objects):
             url.index()
 
 
+def updateStatus(self, state, reason):
+    assert state in ['red', 'green', 'orange', 'grey'], \
+        "Invalid state %s" % state
+    self.reason = reason
+    now = DateTime()
+    if state != self.state:
+        self.laststate = self.state
+        self.state = state
+        self.lastupdate = now
+    # here patched: always set the lastchecked param
+    self.lastcheck = now
+    self.index()
+    # Reindex link objects to update their status caches
+    for link in self.getLinks():
+        link.index()
+
+
 link.Link.getURL = getURL
 link.Link.index = index        
 utils.resolveRelativeLink = resolveRelativeLink
 database.LinkDatabase._register_urls_at_lms = _register_urls_at_lms
+url.URL.updateStatus = updateStatus
