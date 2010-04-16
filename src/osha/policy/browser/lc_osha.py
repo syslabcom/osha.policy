@@ -15,13 +15,15 @@ class UpdateWSRegistrationView(BrowserView):
     """ Communicates offline retrieved links to the lms. 
         Should be called nightly, is a long running job """
 
-    def __call__(self, request, response):
+    def __call__(self):
         """ update the server """
         start = DateTime()
+        zLOG.LOG('osha.policy::UpdateWSRegistrationView', zLOG.INFO, "Starting to transmit unregistered links to lms")
         db = self.context.portal_linkchecker.aq_inner.database
         db._updateWSRegistrations()
         stop = DateTime()
         delta = (stop-start)*84600
+        zLOG.LOG('osha.policy::UpdateWSRegistrationView', zLOG.INFO, "Finished transmitting unregistered links to lms after %s seconds."%delta)
         return "update took %s seconds" % delta
 
 
