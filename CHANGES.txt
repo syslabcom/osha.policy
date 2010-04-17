@@ -5,8 +5,8 @@ osha.policy Changelog
 ------------------
 
 - registering handlers for ObjectModified and ObjectRemoved, that retrieve or
- unregister links regardless of the link_checker's active state. The registration
- is done with offline=True (thomasw)
+  unregister links regardless of the link_checker's active state. The registration
+  is done with offline=True (thomasw)
 - patching linkchecker's _register_urls_at_lms, to make sure url objects
   are re-indexed, and missing url objects in the database don't cause a failure (thomasw)
 - patching linkchecker's url.updateStatus so that lastupdate gets written (thomasw)
