@@ -1,6 +1,7 @@
 from gocept.linkchecker import link, utils, database, url
 import gocept.linkchecker.interfaces
 import gocept.linkchecker.utils
+from gocept.linkchecker.database import WEBSERVICE_STATEMAP
 
 import zLOG
 from Products.CMFCore.utils import getToolByName
