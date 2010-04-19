@@ -6,6 +6,7 @@ from zope.app.container.contained import ContainerModifiedEvent
 from Products.Archetypes.event import ObjectInitializedEvent
 import zope.component
 import Products.Archetypes.interfaces
+from gocept.linkchecker.interfacesi import IRetriever
 
 from utils import extractPDFText
 
@@ -121,6 +122,6 @@ def update_links(event):
         link_checker = getToolByName(object, 'portal_linkchecker').aq_inner
     except AttributeError:
         return
-    retriever = gocept.linkchecker.interfaces.IRetriever(object, None)
+    retriever = IRetriever(object, None)
     if retriever is not None:
         link_checker.retrieving.retrieveObject(object, online=False)
