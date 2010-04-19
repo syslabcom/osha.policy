@@ -75,7 +75,7 @@ class PostgresExportView(BrowserView):
                              brokenlink = item["url"],
                              reason = item["reason"],
                              sitesection = subject,
-                             lastcheck = item["lastcheck"] or '',
+                             lastcheck = str(item["lastcheck"]) or '',
                              subsite = self.get_subsite(docpath),
                              portal_type = portal_type or ''
                              )
