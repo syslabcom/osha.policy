@@ -4,7 +4,15 @@ osha.policy Changelog
 1.3.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Bugfix for linkchecker patch (pilz)
+- workaround for LC problem "Unauthorized: You can't retrieve links for this object."
+  The event handler listens for IObjectModified on ALL objects. When the actual object
+  has been retrieved and links are added to the LinkDatabse, is also sends a modified event.
+  The RetrieveManager tests if the user has the ModifyPortalContent on an object before
+  attemting to retrieve. In case of the LinkDatabse, this leads to an Unauthorized for all
+  non-managers.
+  Our work-araound first tests if a retriever exists for the current object, which is not
+  the case for the LinkDatabase (thomasw)
 
 
 1.3.9 (2010-04-18)
