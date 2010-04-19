@@ -39,6 +39,11 @@ def resolveRelativeLink(url, context):
     component, if any.
     """
     url_ = utils.urlrecord(url)
+    try:
+        unicode(url_, 'ascii')
+    except:
+        zLOG.LOG('gocept.linkchecker', zLOG.WARNING, 'Found a non-ascii url. skipping: %s ' %s str([url_]) )
+        return ''
 
     if url_.scheme:
         # Url has a protocol specified, e.g. HTTP, so we need not complete it.
