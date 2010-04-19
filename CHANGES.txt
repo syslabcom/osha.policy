@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.3.10 (unreleased)
+1.3.10 (2010-04-19)
 -------------------
 
 - Bugfix for linkchecker patch (pilz)
