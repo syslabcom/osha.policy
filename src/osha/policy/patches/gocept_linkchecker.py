@@ -42,7 +42,7 @@ def resolveRelativeLink(url, context):
     try:
         unicode(url_, 'ascii')
     except:
-        zLOG.LOG('gocept.linkchecker', zLOG.WARNING, 'Found a non-ascii url. skipping: %s ' %s str([url_]) )
+        zLOG.LOG('gocept.linkchecker', zLOG.WARNING, 'Found a non-ascii url. skipping: %s ' % str([url_]) )
         return ''
 
     if url_.scheme:
