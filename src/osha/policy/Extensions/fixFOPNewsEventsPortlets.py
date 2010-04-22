@@ -59,6 +59,48 @@ fop_main_sites = {
     'united-kingdom': 'uk.osha.europa.eu',
     }
 
+fop_group_map = {
+ "albania" : "fop_albania",
+ "austria" : "fop_austria",
+ "belgium" : "fop_belgium_editors",
+ "bosnia-and-herzegovina" : "fop_bosnia_and_herzegovina",
+ "bulgaria" : "fop_bulgaria",
+ "croatia" : "fop_croatia",
+ "cyprus" : "fop_cyprus",
+ "czech-republic" : "fop_czech_republic",
+ "denmark" : "fop_denmark",
+ "estonia" : "fop_estonia",
+ "finland" : "fop_finland",
+ "france" : "fop_france",
+ "germany" : "fop_germany",
+ "greece" : "fop_greece",
+ "hungary" : "fop_hungary",
+ "iceland" : "fop_iceland",
+ "ireland" : "fop_ireland",
+ "italy" : "fop_italy",
+ "kosovo-under-unscr-1244-99" : "fop_kosovo_under_unscr_1244_99",
+ "latvia" : "fop_latvia",
+ "liechtenstein" : "fop_liechtenstein",
+ "lithuania" : "fop_lithuania",
+ "luxembourg" : "fop_luxemburg",
+ "malta" : "fop_malta",
+ "montenegro" : "fop_montenegro",
+ "netherlands" : "fop_netherlands",
+ "norway" : "fop_norway",
+ "poland" : "fop_poland",
+ "portugal" : "fop_portugal",
+ "romania" : "fop_romania",
+ "serbia" : "fop_serbia",
+ "slovakia" : "fop_slovakia",
+ "slovenia" : "fop_slovenia",
+ "spain" : "fop_spain",
+ "sweden" : "fop_sweden",
+ "switzerland" : "fop_switzerland",
+ "the-former-yugoslav-republic-of-macedonia" : "fop_the_former_yugoslav_republic_of_macedonia",
+ "turkey" : "fop_turkey",
+ "united-kingdom" : "fop_united_kingdom",
+}
+
 
 def main(self):
     #raise Exception("This script must be customised before running")
@@ -192,26 +234,16 @@ def main(self):
                 )
             log("Set news and events to show results from the main site")
 
-    fop_root = portal.en.oshnetwork["member-states"]
+    fop_root = portal.en.oshnetwork["focal-points"]
     countries = fop_root.listFolderContents(contentFilter={"portal_type":"Folder"})
-    countries = [i for i in countries if i.id != "belgium"]
     log(countries)
     #countries = [fop_root.austria]
     for fop in countries:
         country = fop.getId()
+        group = fop_group_map[country]
         for translation in get_translation_obs(fop):
-            #log(translation.absolute_url())
-            obj = translation
-            path = '/'.join(obj.getPhysicalPath())
-            oshbelow = assignment_mapping_from_key(obj, 'osha.belowcontent.portlets', CONTEXT_CATEGORY, path)
-            news = oshbelow.get("news-collection", None)
-            if news:
-                news.target_collection = news.target_collection.replace("member-states","focal-points") 
-                log("Changed news %s" %news.target_collection)
-            events = oshbelow.get("events-collection", None)
-            if events:
-                events.target_collection = events.target_collection.replace("member-states","focal-points") 
-                log("Changed events %s" %events.target_collection)
+            log("Setting local role on %s"%translation.absolute_url())
+            translation.manage_setLocalRoles(group, ["Editor"])
             # add_remove_portlets(country, translation)
             # configure_news_and_events(country, translation)
             # set_path_criterion_to_uid(translation, portal.en.news.UID())
