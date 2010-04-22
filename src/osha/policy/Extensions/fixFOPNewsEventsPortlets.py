@@ -192,8 +192,10 @@ def main(self):
                 )
             log("Set news and events to show results from the main site")
 
-    fop_root = portal.en.oshnetwork["focal-points"]
+    fop_root = portal.en.oshnetwork["member-states"]
     countries = fop_root.listFolderContents(contentFilter={"portal_type":"Folder"})
+    countries = [i for i in countries if i.id != "belgium"]
+    log(countries)
     #countries = [fop_root.austria]
     for fop in countries:
         country = fop.getId()
@@ -202,10 +204,14 @@ def main(self):
             obj = translation
             path = '/'.join(obj.getPhysicalPath())
             oshbelow = assignment_mapping_from_key(obj, 'osha.belowcontent.portlets', CONTEXT_CATEGORY, path)
-            news = oshbelow["news-collection"].target_collection
-            events = oshbelow["events-collection"].target_collection
-            log(news)
-            log(events)
+            news = oshbelow.get("news-collection", None)
+            if news:
+                news.target_collection = news.target_collection.replace("member-states","focal-points") 
+                log("Changed news %s" %news.target_collection)
+            events = oshbelow.get("events-collection", None)
+            if events:
+                events.target_collection = events.target_collection.replace("member-states","focal-points") 
+                log("Changed events %s" %events.target_collection)
             # add_remove_portlets(country, translation)
             # configure_news_and_events(country, translation)
             # set_path_criterion_to_uid(translation, portal.en.news.UID())
