@@ -1,6 +1,6 @@
 import os, tempfile
 from StringIO import StringIO
-from reportlab.lib.pagesizes import A4, landscape
+from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
@@ -22,7 +22,13 @@ def generatePDF(self,
         
     language = language.lower()
     
-    if language not in ['bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'hu', 'it', 'lt', 'lv', 'mt', 'nl', 'pl', 'ro', 'pt', 'sk', 'sl', 'sv']:
+    if language not in [
+                'bg', 'cs', 'da', 'de', 
+                'el', 'en', 'es', 'et', 
+                'fi', 'fr', 'hu', 'it', 
+                'lt', 'lv', 'mt', 'nl', 
+                'pl', 'ro', 'pt', 'sk', 
+                'sl', 'sv']:
         language = "en"
 
     # get translation-service
@@ -33,7 +39,7 @@ def generatePDF(self,
 
     # create a canvas and set metadata
     acknowledge = StringIO()
-    my_canvas = canvas.Canvas(acknowledge, pagesize=landscape(A4))
+    my_canvas = canvas.Canvas(acknowledge, pagesize=A4)
     my_canvas.setTitle('Charter of the Healthy Workplaces campaign')
     my_canvas.setAuthor('European Agency for Safety and Health at Work')
     my_canvas.setSubject('Charter of the Healthy Workplaces campaign')
@@ -59,8 +65,8 @@ def generatePDF(self,
     frontdata = str(frontfile.data)
     frontfile =StringIO(frontdata)
     frontimage = ImageReader(frontfile)
-    # my_canvas.drawImage(frontimage, 0 , 0, 29.7*cm, 21*cm)
-    my_canvas.drawImage(frontimage, 0 , 0, 87.5*cm, 123.8*cm)
+    # my_canvas.drawImage(frontimage, 0 , 0, 87.5*cm, 123.8*cm)
+    my_canvas.drawImage(frontimage, 0 , 0, 21*cm, 29.7*cm)
 
     msg_id = 'campaign_slogan_'+year
     u_campaign_slogan = ptt.translate(
@@ -76,8 +82,8 @@ def generatePDF(self,
                                 target_language=language, 
                                 context=self
                                 )
-    x = 14.85 * cm
-    y = 16.6 * cm
+    x = 10.4 * cm
+    y = 22 * cm
     my_canvas.setFont('Arial', 30)
     my_canvas.drawCentredString(x, y, certificate_title.upper())
     print " +- set Headline"#, certificate_title
@@ -90,15 +96,15 @@ def generatePDF(self,
                                     target_language=language,
                                     context=self)
     certificate_for = certificate_for.encode('utf-8')
-    x = 14.85 * cm
-    y = 15.0 * cm
+    x = 10.4 * cm
+    y = 18 * cm
     my_canvas.setFont('Arial', 16)
     my_canvas.drawCentredString(x, y, certificate_for)
     print " +- set first subline"#, certificate_for
 
     # print company name
-    x = 14.85 * cm
-    y = 13.0 * cm
+    x = 10.4 * cm
+    y = 16 * cm
     my_canvas.setFont('Arial', 30)
     my_canvas.drawCentredString(x, y, company)
     print " +- set comany name"#, company
@@ -127,7 +133,7 @@ def generatePDF(self,
     lines.append( Paragraph(contribution_headline_1, style) )
     contribution_headline_2 = contribution_headline_2.encode('utf-8')
     lines.append( Paragraph(contribution_headline_2, style) )
-    cFrame = Frame(2*cm, 9.0*cm, 25.7*cm, 3*cm)
+    cFrame = Frame(0.95*cm, 12*cm, 19*cm, 3*cm)
     cFrame.addFromList(lines, my_canvas)
     
     # Director's signature
@@ -150,7 +156,7 @@ def generatePDF(self,
     lines = []
     lines.append(Paragraph(director_name, style))
     lines.append(Paragraph(director_indentifiyier, style))
-    dFrame = Frame(3.5*cm, 3.7*cm, 5*cm, 3*cm)
+    dFrame = Frame(0.8*cm, 5*cm, 5*cm, 3*cm)
     dFrame.addFromList(lines, my_canvas)
     
     
