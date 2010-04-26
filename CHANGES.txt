@@ -4,7 +4,12 @@ osha.policy Changelog
 1.3.14 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- fixFOPNewsEventsPortlets: list the target_collection for the news and events portlets in the FOP oshabe-
+  low for all countries/languages (deroiste)
+- fixFOPNewsEventsPortlets: replace member-states with focal-points in the target_collection (deroiste)
+- fixFOPNewsEventsPortlets: Set the local role of the correct fop to editor for each translation (deroiste)
+- generateHW2010pdf: Tweaked dimensions and changed from landscape to portrait
+  since we now have a new background image (brand)
 
 
 1.3.13 (2010-04-19)
