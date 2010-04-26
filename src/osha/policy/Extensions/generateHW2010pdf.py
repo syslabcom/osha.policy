@@ -12,7 +12,14 @@ import reportlab.rl_config
 
 reportlab.rl_config.warnOnMissingFontGlyphs = 0
 
-def generatePDF(self, company="European Agency for Safety and Health at Work", language='en', firstname='', lastname='', checkboxes={}, usePDFTK=0):
+def generatePDF(self, 
+        company="European Agency for Safety and Health at Work", 
+        language='en', 
+        firstname='', 
+        lastname='', 
+        checkboxes={}, 
+        usePDFTK=0):
+        
     language = language.lower()
     
     if language not in ['bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'hu', 'it', 'lt', 'lv', 'mt', 'nl', 'pl', 'ro', 'pt', 'sk', 'sl', 'sv']:
@@ -52,14 +59,23 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
     frontdata = str(frontfile.data)
     frontfile =StringIO(frontdata)
     frontimage = ImageReader(frontfile)
-    my_canvas.drawImage(frontimage, 0 , 0, 29.7*cm, 21*cm)
+    # my_canvas.drawImage(frontimage, 0 , 0, 29.7*cm, 21*cm)
+    my_canvas.drawImage(frontimage, 0 , 0, 87.5*cm, 123.8*cm)
 
     msg_id = 'campaign_slogan_'+year
-    u_campaign_slogan = ptt.translate(domain=ptt_domain, msgid=msg_id, target_language=language, context=self)
-    certificate_title = ptt.translate(domain=ptt_domain, 
-                                      msgid='certificate_title_'+year, 
-                                      target_language=language, 
-                                      context=self)
+    u_campaign_slogan = ptt.translate(
+                                domain=ptt_domain, 
+                                msgid=msg_id, 
+                                target_language=language, 
+                                context=self
+                                )
+
+    certificate_title = ptt.translate(
+                                domain=ptt_domain, 
+                                msgid='certificate_title_'+year, 
+                                target_language=language, 
+                                context=self
+                                )
     x = 14.85 * cm
     y = 16.6 * cm
     my_canvas.setFont('Arial', 30)
