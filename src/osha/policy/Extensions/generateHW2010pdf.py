@@ -8,6 +8,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Paragraph, Frame
+from reportlab.lib.colors import red, black
 import reportlab.rl_config
 
 reportlab.rl_config.warnOnMissingFontGlyphs = 0
@@ -68,6 +69,20 @@ def generatePDF(self,
     # my_canvas.drawImage(frontimage, 0 , 0, 87.5*cm, 123.8*cm)
     my_canvas.drawImage(frontimage, 0 , 0, 21*cm, 29.7*cm)
 
+    msg_id = 'campaign_name_'+year
+    u_campaign_name = ptt.translate(
+                                domain=ptt_domain, 
+                                msgid=msg_id, 
+                                target_language=language, 
+                                context=self
+                                )
+    x = 10.4 * cm
+    y = 28 * cm
+    my_canvas.setFont('ArialBold', 34)
+    my_canvas.drawCentredString(x, y, u_campaign_name.upper())
+    print " +- set Heading"
+    mapping = {'campaign_slogan':u_campaign_name, 'year':year}
+
     msg_id = 'campaign_slogan_'+year
     u_campaign_slogan = ptt.translate(
                                 domain=ptt_domain, 
@@ -75,6 +90,21 @@ def generatePDF(self,
                                 target_language=language, 
                                 context=self
                                 )
+    x = 10.5 * cm
+    y = 26.3 * cm
+    my_canvas.setFont('ArialBold', 30)
+    my_canvas.setFillColor(red)
+    my_canvas.drawCentredString(x, y, u_campaign_slogan.upper())
+    print " +- set slogan"
+    mapping = {'campaign_slogan':u_campaign_slogan, 'year':year}
+        
+    # print first subline
+    certificate_for = ptt.translate(domain=ptt_domain, 
+                                    msgid='certificate_for_'+year, 
+                                    mapping=mapping, 
+                                    target_language=language,
+                                    context=self)
+
 
     certificate_title = ptt.translate(
                                 domain=ptt_domain, 
@@ -83,8 +113,9 @@ def generatePDF(self,
                                 context=self
                                 )
     x = 10.4 * cm
-    y = 22 * cm
-    my_canvas.setFont('Arial', 30)
+    y = 22.5 * cm
+    my_canvas.setFont('Arial', 32)
+    my_canvas.setFillColor(black)
     my_canvas.drawCentredString(x, y, certificate_title.upper())
     print " +- set Headline"#, certificate_title
     mapping = {'campaign_slogan':u_campaign_slogan, 'year':year}
@@ -97,22 +128,22 @@ def generatePDF(self,
                                     context=self)
     certificate_for = certificate_for.encode('utf-8')
     x = 10.4 * cm
-    y = 18 * cm
-    my_canvas.setFont('Arial', 16)
+    y = 21.5 * cm
+    my_canvas.setFont('Arial', 18)
     my_canvas.drawCentredString(x, y, certificate_for)
     print " +- set first subline"#, certificate_for
 
     # print company name
     x = 10.4 * cm
     y = 16 * cm
-    my_canvas.setFont('Arial', 30)
+    my_canvas.setFont('Arial', 32)
     my_canvas.drawCentredString(x, y, company)
     print " +- set comany name"#, company
 
     style = ParagraphStyle(
             name='ContributionHeadline',
             fontName='Arial',
-            fontSize=16,
+            fontSize=18,
             spaceAfter=0,
             leading=22,
             alignment=1
@@ -127,7 +158,7 @@ def generatePDF(self,
 
     contribution_headline = contribution_headline.encode('utf-8')
     lines.append( Paragraph(contribution_headline, style) )
-    cFrame = Frame(0.95*cm, 12*cm, 19*cm, 3*cm)
+    cFrame = Frame(3*cm, 10*cm, 15*cm, 3*cm)
     cFrame.addFromList(lines, my_canvas)
     
     # Director's signature
