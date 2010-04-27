@@ -119,32 +119,26 @@ def generatePDF(self,
         )
 
     lines = []
-    contribution_headline_1 = ptt.translate(domain=ptt_domain, 
-                                          msgid='contribution_headline_'+year+'_1', 
+    contribution_headline = ptt.translate(domain=ptt_domain, 
+                                          msgid='contribution_headline_'+year, 
                                           mapping=mapping, 
                                           target_language=language,
                                           context=self)
-    contribution_headline_2 = ptt.translate(domain=ptt_domain, 
-                                          msgid='contribution_headline_'+year+'_2', 
-                                          mapping=mapping, 
-                                          target_language=language,
-                                          context=self)
-    contribution_headline_1 = contribution_headline_1.encode('utf-8')
-    lines.append( Paragraph(contribution_headline_1, style) )
-    contribution_headline_2 = contribution_headline_2.encode('utf-8')
-    lines.append( Paragraph(contribution_headline_2, style) )
+
+    contribution_headline = contribution_headline.encode('utf-8')
+    lines.append( Paragraph(contribution_headline, style) )
     cFrame = Frame(0.95*cm, 12*cm, 19*cm, 3*cm)
     cFrame.addFromList(lines, my_canvas)
     
     # Director's signature
     director_name = "Jukka Takala,"
     director_name = director_name.encode('utf-8')
-    director_indentifiyier = ptt.translate(domain=ptt_domain, 
-                                           msgid='director', 
+    director_indentifier = ptt.translate(domain=ptt_domain, 
+                                           msgid='director_'+year, 
                                            mapping=mapping, 
                                            target_language=language,
                                            context=self)
-    director_indentifiyier = director_indentifiyier.encode('utf-8')
+    director_indentifier = director_indentifier.encode('utf-8')
     
     style = ParagraphStyle(
             name='ContributionHeadline',
@@ -155,8 +149,15 @@ def generatePDF(self,
         )
     lines = []
     lines.append(Paragraph(director_name, style))
-    lines.append(Paragraph(director_indentifiyier, style))
-    dFrame = Frame(0.8*cm, 5*cm, 5*cm, 3*cm)
+    style = ParagraphStyle(
+            name='ContributionHeadline',
+            fontName='Arial',
+            fontSize=14,
+            spaceAfter=6,
+            alignment=0
+        )
+    lines.append(Paragraph(director_indentifier, style))
+    dFrame = Frame(0.8*cm, 5*cm, 20*cm, 3*cm)
     dFrame.addFromList(lines, my_canvas)
     
     
