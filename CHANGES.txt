@@ -4,7 +4,8 @@ osha.policy Changelog
 1.3.16 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added ESENER as subcategory to risk_observatory #1153 (thomasw)
+- Automatically add Social Media section to OSHMail #1063 (thomasw)
 
 
 1.3.15 (2010-04-27)
