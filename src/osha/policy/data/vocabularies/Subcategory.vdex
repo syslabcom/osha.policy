@@ -10648,7 +10648,7 @@
       <langstring language="sv">Riskcentrum</langstring>
     </caption>
     <term>
-      <termIdentifier>esener</termIdentifier>
+      <termIdentifier>risk_observatory::esener</termIdentifier>
       <caption>
         <langstring language="da">ESENER</langstring>
         <langstring language="de">ESENER</langstring>
