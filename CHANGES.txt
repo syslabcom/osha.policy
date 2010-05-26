@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.3.16 (unreleased)
+1.3.16 (2010-05-26)
 -------------------
 
 - Added ESENER as subcategory to risk_observatory #1153 (thomasw)
