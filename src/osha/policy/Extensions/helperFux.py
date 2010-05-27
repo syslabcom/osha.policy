@@ -8,6 +8,57 @@ from plone.portlets.interfaces import IPortletManager, ILocalPortletAssignmentMa
 from zope.component import getMultiAdapter, getUtility
 import Acquisition
 from Products.CMFCore.utils import getToolByName
+import transaction
+from DateTime import DateTime
+import time
+
+types_to_dest = dict(
+    OSH_Link='data/links',
+    Provider='data/provider',
+    RALink='data/risk-assessment-links',
+    CaseStudy='data/case-studies'
+  )
+
+def reindexDBcontent(self, ptype='OSH_Link', thresh=200, start_from=0):
+  pu = getToolByName(self, 'portal_url')
+  portal = pu.getPortalObject()
+  start = DateTime()
+
+  parent = portal.restrictedTraverse(types_to_dest.get(ptype, None), None)
+  if not parent:
+    return "relevant data folder not found"
+  print "got folder:", parent.absolute_url()
+  cnt = 0
+  fh = open('/tmp/reindex.log','a')
+  fh.write('Start reindex of %s at %s\n\n' %(ptype, start))
+  fh.write('Iterating over contents of %s\n' % parent.absolute_url())
+  fh.write('Starting at %d\n' % start_from)
+  for ob in parent.objectValues()[start_from:]:
+    try:
+      ob.reindexObject()
+    except:
+      print "ERROR: %s" % ob.absolute_url()
+      fh.write("ERROR: %s\n" % ob.absolute_url())
+    cnt += 1
+    if cnt % thresh == 0:
+      try:
+        transaction.commit()
+        print "COMMIT after %d\n" % cnt
+        fh.write("COMMIT after %d\n" % cnt)
+      except:
+        print "ERROR, could not commit after %d\n" % cnt
+        fh.write("ERROR, could not commit after %d\n" % cnt)
+        raise
+
+      time.sleep(1)
+
+  delta = (DateTime() - start) * 3600 * 24
+  fh.write('\nFinished after %d seconds\n' % delta)
+  fh.write('Processed %d items\n' % cnt)
+  fh.close()
+
+  return "finished after %d seconds" % delta
+
 
 
 def exchangeSEPPortlets(self, key):
