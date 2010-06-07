@@ -22,3 +22,4 @@ reindex.log
 .mr.developer.cfg
 src/osha.adaptation/
 src/osha.theme/
+*.xls
