@@ -364,3 +364,34 @@ def _xmltoxls():
         new_row['translations'] = translations
         print id, new_row.keys()
         out.writerow(new_row)
+
+def ordervdex():
+    try:
+        _ordervdex()
+    except Exception, e:
+        print e
+        import pdb;pdb.post_mortem(sys.exc_traceback)
+
+def _ordervdex():
+    if len(sys.argv) > 1:
+        vdex_filename = sys.argv[1]
+    else:
+        vdex_filename = 'out.xml'
+    vdex = parse(vdex_filename)
+    orderNode(vdex.getroot())
+    vdex.write(vdex_filename, 'utf-8')
+
+def orderNode(node):
+    terms = [(index, x) for (index, x) in enumerate(node) if x.tag.endswith('term')]
+    current_order = [x[0] for x in terms]
+    map(orderNode, [x[1] for x in terms])
+    sorter = lambda a, b: unicode(a[1][0].text.strip()).__cmp__(unicode(b[1][0].text.strip()))
+    terms.sort(sorter)
+    new_order = [x[0] for x in terms]
+    if new_order != current_order:
+        print "%s has unsorted children" % node[0].text
+        for ((ignore, term), new_pos) in zip(terms, current_order):
+            node.remove(term)
+            node.insert(new_pos, term)
+
+
