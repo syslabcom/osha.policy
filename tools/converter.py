@@ -12,10 +12,11 @@ def get_xls(filename):
 
 sheet = get_xls('./new_thesaurus3.xls')
 class Command(object):
-    def __init__(self, command_type, old_id, new_id, caption, description, parent_id):
+    def __init__(self, command_type, old_id, new_id, create_id, caption, description, parent_id):
         self.command_type = command_type
         self.old_id = old_id
         self.new_id = new_id
+        self.create_id = create_id
         self.caption = caption
         self.description = description
         self.parent_id = parent_id
@@ -35,11 +36,11 @@ class Command(object):
                     return 1
 
     def show_cmd(self):
-        cmd, old_id, new_id, caption, description, parent_id = \
-            self.command_type, self.old_id, self.new_id, self.caption, \
+        cmd, old_id, new_id, create_id, caption, description, parent_id = \
+            self.command_type, self.old_id, self.new_id, self.create_id, self.caption, \
             self.description, self.parent_id
         if cmd == 'c':
-            return '|'.join((cmd, new_id, parent_id, caption, description))
+            return '|'.join((cmd, create_id, parent_id, caption, description))
         if cmd == 'u':
             return '|'.join((cmd, new_id, caption, description))
         if cmd == 'm':
@@ -51,12 +52,13 @@ commands = []
 for i in range(sheet.nrows):
     row = sheet.row(i)
     command = row[9].value.lower()
+    create_id = row[10].value
     old_id = row[13].value
     new_id = row[14].value.strip()
     caption = row[11].value.strip()
     description = row[12].value.strip()
     parent_id = row[17].value.strip()
-    args = (old_id, new_id, caption, description, parent_id)
+    args = (old_id, new_id, create_id, caption, description, parent_id)
 
     if not (command or old_id):
         continue
