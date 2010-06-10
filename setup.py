@@ -86,6 +86,7 @@ setup(name='osha.policy',
       [console_scripts]
       converter = osha.policy.tools:converter
       vdexupdater = osha.policy.tools:vdexupdater
+      xmltoxls = osha.policy.tools:xmltoxls
       """,
       )      
       

@@ -1,6 +1,7 @@
 #from lxml.etree import parse, Element, tostring
 from elementtree.ElementTree import parse, Element, tostring
 from xlrd import open_workbook
+import csv
 import logging
 import sys
 
@@ -27,8 +28,8 @@ class Command(object):
         their_level = (other.old_id and other.old_id[-1]) or (self.original_id and self.original_id[-1]) or (other.new_move_id and other.new_move_id[-1]) or (other.create_id and other.create_id[-1])
         if our_level != their_level:
             if our_level < their_level:
-                return -1
-            return 1
+                return 1
+            return -1
         else:
             for order in ('c', 'm', 'd', 'u'):
                 if self.command_type == order:
@@ -45,7 +46,7 @@ class Command(object):
         if cmd == 'u':
             return '|'.join((cmd, original_id, caption, description))
         if cmd == 'm':
-            return '|'.join((cmd, old_id, new_move_id, caption, parent_id))
+            return '|'.join((cmd, old_id, new_move_id, parent_id))
         if cmd == 'd':
             return '|'.join((cmd, old_id))
 
@@ -64,7 +65,7 @@ def _converter():
         row = sheet.row(i)
         command = row[9].value.lower().strip()
         create_id = row[10].value
-        old_id = row[13].value
+        old_id = row[13].value.strip()
         original_id = row[0].value.strip()
         new_move_id = row[14].value.strip()
         caption = row[11].value.strip()
@@ -95,7 +96,6 @@ def _converter():
         else:
             raise Exception("Unknown case")
 
-    commands.sort()
     cleaning = True
     while cleaning:
         cleaning = False
@@ -130,6 +130,7 @@ def _converter():
                 commands.remove(cmd)
                 cleaning = True
                 break
+    commands.sort()
     for command in commands:
         print command.show_cmd()
 
@@ -180,7 +181,7 @@ class CreateCommand(BaseCommand):
             last_brother = index
         if last_brother:
             insert_check = True
-            parentTerm.insert(last_brother, new_term)
+            parentTerm.insert(last_brother + 1, new_term)
         if not has_brothers:
             insert_check = True
             parentTerm.insert(index, new_term)
@@ -200,10 +201,15 @@ class UpdateCommand(BaseCommand):
         term = self.tree.items[self.id]
         new_term = self.tree.new_tree_term('ignore', self.caption, self.description)
         caption = new_term[1]
+        description = new_term[2]
         # how to get descriptions?
-        import pdb;pdb.set_trace()
         term.remove(term[1])
         term.insert(1, caption)
+        for i in range(20):
+            if term[i].tag == '{http://www.imsglobal.org/xsd/imsvdex_v1p0}description':
+                break
+        term.remove(term[i])
+        term.insert(i, description)
 
     def untranslated_ids(self):
         return self.id, self.caption, self.description
@@ -219,6 +225,9 @@ class MoveCommand(BaseCommand):
         old_child = self.tree.items[self.old]
         old_father = self.tree.fathers[old_child]
         new = self.new
+        if new in self.tree.items.keys():
+            old_father.remove(old_child)
+            return
         parentTerm = self.tree.items[self.new_father]
         last_brother = None
         has_brothers = False
@@ -237,7 +246,9 @@ class MoveCommand(BaseCommand):
             parentTerm.insert(last_brother, old_child)
         if not has_brothers:
             parentTerm.insert(index, old_child)
+
         old_father.remove(old_child)
+        old_child[0].text = new
 
     def untranslated_ids(self):
         return None
@@ -277,7 +288,7 @@ class Tree(object):
         treeTermIdentifier = Element(NS + 'termIdentifier')
         treeTermIdentifier.text = termIdentifier
         term.append(treeTermIdentifier)
-        treeCaption = Element('caption')
+        treeCaption = Element(NS + 'caption')
         self.addLangs(treeCaption, caption)
         term.append(treeCaption)
         treeDesc = Element('description')
@@ -296,7 +307,7 @@ class Tree(object):
         self.__tree.write('out.xml', 'utf-8')
 
 def cmd_parser(line, tree):
-    tokens = line.split('|')
+    tokens = line.strip().split('|')
     cmd_token = tokens[0]
     args = tokens[1:]
     cmd = {'c' : CreateCommand,
@@ -321,8 +332,34 @@ def _vdexupdater():
     tree = Tree(thesaurus_file)
     translations = []
     for line in file(sys.argv[1]):
+        print line
         instance = cmd_parser(line, tree)
         instance.run()
         translations.append(instance.untranslated_ids())
         tree.update()
     tree.close()
+
+def xmltoxls():
+    try:
+        _xmltoxls()
+    except Exception, e:
+        print e
+        import pdb;pdb.post_mortem(sys.exc_traceback)
+
+def _xmltoxls():
+    if len(sys.argv) > 1:
+        xml = parse(sys.argv[1])
+    else:
+        xml = parse('out.xml')
+    out = csv.DictWriter(file('out.csv', 'w'), ['id', 'levela', 'levelb', 'levelc', 'leveld', 'levele', 'levelf', 'levelg', 'levelh', 'translations'])
+    for term in xml.findall('.//%sterm' % NS):
+        id = term.find('%stermIdentifier' % NS).text
+        level = 'level' + id[-1].lower()
+        caption = [x.text for x in term.findall('%scaption/%slangstring' % (NS, NS)) if x.attrib['language'] == 'en'][0].encode('ascii', 'ignore')
+        translations = len(set([x.text for x in term.findall('%scaption/%slangstring' % (NS, NS))]))
+        new_row = {}
+        new_row['id'] = id
+        new_row[level] = caption
+        new_row['translations'] = translations
+        print id, new_row.keys()
+        out.writerow(new_row)
