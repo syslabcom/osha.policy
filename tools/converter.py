@@ -20,6 +20,33 @@ class Command(object):
         self.description = description
         self.parent_id = parent_id
 
+    def __cmp__(self, other):
+        our_level = self.old_id or self.new_id
+        their_level = other.old_id or other.new_id
+        if our_level != their_level:
+            if our_level < their_level:
+                return -1
+            return 1
+        else:
+            for order in ('c', 'm', 'd', 'u'):
+                if self.command_type == order:
+                    return -1
+                if other.command_type == order:
+                    return 1
+
+    def show_cmd(self):
+        cmd, old_id, new_id, caption, description, parent_id = \
+            self.command_type, self.old_id, self.new_id, self.caption, \
+            self.description, self.parent_id
+        if cmd == 'c':
+            return '|'.join((cmd, new_id, parent_id, caption, description))
+        if cmd == 'u':
+            return '|'.join((cmd, new_id, caption, description))
+        if cmd == 'm':
+            return '|'.join((cmd, old_id, new_id, caption, parent_id))
+        if cmd == 'd':
+            return '|'.join((cmd, old_id))
+
 commands = []
 for i in range(sheet.nrows):
     row = sheet.row(i)
@@ -39,7 +66,7 @@ for i in range(sheet.nrows):
             commands.append(Command('u', *args))
             commands.append(Command('m', *args))
         else:
-            commands.append(Command('r', *args))
+            commands.append(Command('c', *args))
     elif command == 'amend term':
         commands.append(Command('u', *args))
         if old_id:
@@ -53,3 +80,8 @@ for i in range(sheet.nrows):
         continue
     else:
         raise Exception("Unknown case")
+
+commands.sort()
+for command in commands:
+    print command.show_cmd()
+
