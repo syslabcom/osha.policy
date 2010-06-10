@@ -129,7 +129,7 @@
 04611E,,,,,Lifelong learning,,,,1
 04641D,,,,Re-integration,,,,,21
 04681D,,,,Work ability,,,,,21
-04741E,,,,,Work capacity evaluation,,,,1
+04741E,,,,,Work capacity evaluation,,,,21
 04761C,,,Professionalism,,,,,,21
 04801D,,,,Professional autonomy,,,,,21
 04841D,,,,Professional corporations,,,,,21
@@ -294,7 +294,7 @@
 23064E,,,,,Tobacco awareness,,,,1
 23067E,,,,,Alcohol awareness,,,,1
 23071E,,,,,Drugs awareness,,,,1
-23076D,,,,Well-being,,,,,1
+23076D,,,,Well-being,,,,,21
 23201C,,,Health surveillance,,,,,,21
 23401C,,,Medical consultation,,,,,,21
 23441D,,,,Clinical trials,,,,,21
@@ -1239,24 +1239,24 @@
 46161C,,,Intensity of work,,,,,,21
 46201D,,,,High speed of work,,,,,21
 46321C,,,Lack of control,,,,,,21
-46326D,,,,Machine dictated work pace,,,,,1
+46326D,,,,Machine dictated work pace,,,,,21
 46331C,,,Psychosocial work demands,,,,,,1
-46336D,,,,Psychosocial work environment,,,,,1
-46341E,,,,,Communication,,,,1
-46346E,,,,,Decision authority,,,,1
-46351E,,,,,Information at work,,,,1
-46356E,,,,,Job satisfaction,,,,1
-46358F,,,,,,Dignity at work,,,1
-46366E,,,,,Managerial style,,,,1
-46368F,,,,,,Quality of leadership,,,1
-46371E,,,,,Organisational culture,,,,1
-46373F,,,,,,Organisational climate,,,1
-46376E,,,,,Organisational structure,,,,1
-46381E,,,,,Participation,,,,1
+46336D,,,,Psychosocial work environment,,,,,21
+46341E,,,,,Communication,,,,21
+46346E,,,,,Decision authority,,,,21
+46351E,,,,,Information at work,,,,21
+46356E,,,,,Job satisfaction,,,,21
+46358F,,,,,,Dignity at work,,,21
+46366E,,,,,Managerial style,,,,21
+46368F,,,,,,Quality of leadership,,,21
+46371E,,,,,Organisational culture,,,,20
+46373F,,,,,,Organisational climate,,,21
+46376E,,,,,Organisational structure,,,,20
+46381E,,,,,Participation,,,,21
 46386E,,,,,Performance monitoring and rewards,,,,1
-46388F,,,,,,Electronic work monitoring,,,1
-46391E,,,,,Social support,,,,1
-46396E,,,,,Work motivation,,,,1
+46388F,,,,,,Electronic work monitoring,,,21
+46391E,,,,,Social support,,,,21
+46396E,,,,,Work motivation,,,,21
 46401A,Ill health and accidents,,,,,,,,21
 46441B,,"Accidents, incidents",,,,,,,21
 46481C,,,Causes of accidents,,,,,,21
@@ -1318,10 +1318,10 @@
 48481E,,,,,Lacerations,,,,21
 48521D,,,,Bone fractures,,,,,21
 48561D,,,,Dislocations,,,,,21
-48571D,,,,Eye injuries,,,,,1
-48581E,,,,,Arc-eye,,,,1
+48571D,,,,Eye injuries,,,,,21
+48581E,,,,,Arc-eye,,,,21
 48601D,,,,Sprains,,,,,21
-48621D,,,,Head injuries,,,,,1
+48621D,,,,Head injuries,,,,,21
 48641D,,,,Loss of body parts,,,,,21
 48681D,,,,Concussions,,,,,21
 48721D,,,,Internal injuries,,,,,21
@@ -1336,7 +1336,7 @@
 49081E,,,,,Effects of pressure,,,,21
 49091D,,,,Effects of radiation exposure,,,,,1
 49121D,,,,"Effects of temperature extremes, light, radiation",,,,,21
-49131E,,,,,Heat stress,,,,1
+49131E,,,,,Heat stress,,,,21
 49141F,,,,,,Heat stroke,,,1
 49201D,,,,Shocks,,,,,20
 49241D,,,,Multiple injuries,,,,,21
@@ -1386,7 +1386,7 @@
 50256D,,,,Diabetes,,,,,1
 50258D,,,,Metabolic disorders,,,,,1
 50261C,,,Digestive system disorders,,,,,,1
-50266D,,,,Hernias,,,,,1
+50266D,,,,Hernias,,,,,21
 50361C,,,Fatigue,,,,,,21
 50401D,,,,Sleep problems,,,,,21
 50441D,,,,Driver fatigue,,,,,21
@@ -1417,7 +1417,7 @@
 51361E,,,,,Brucellosis,,,,19
 51371E,,,,,Hantavirus,,,,1
 51401E,,,,,Leptospirosis,,,,18
-51421F,,,,,,Weils disease,,,1
+51421F,,,,,,Weils disease,,,21
 51441E,,,,,Foot and Mouth Disease,,,,21
 51481E,,,,,Q fever,,,,21
 51521E,,,,,Toxoplasmosis,,,,18
@@ -1622,7 +1622,7 @@
 58141C,,,Garages and depots,,,,,,1
 58161C,,,Hazardous installations,,,,,,21
 58211C,,,Health care facility,,,,,,1
-58221D,,,,Hospitals,,,,,1
+58221D,,,,Hospitals,,,,,20
 58231D,,,,Dental clinic,,,,,1
 58241C,,,Hostels,,,,,,21
 58281C,,,Kitchens,,,,,,21
@@ -1680,12 +1680,12 @@
 59901D,,,,Tunnelling,,,,,1
 59904C,,,Delivery of goods,,,,,,1
 59907C,,,Diving,,,,,,1
-59911C,,,Driving,,,,,,1
+59911C,,,Driving,,,,,,21
 59921C,,,Processing,,,,,,21
 59931C,,,Demolition work,,,,,,1
 59941C,,,Electrical work,,,,,,1
 59946C,,,Food preparation,,,,,,1
-59951C,,,Laboratory work,,,,,,1
+59951C,,,Laboratory work,,,,,,21
 59961C,,,Machining,,,,,,21
 60001D,,,,Filing,,,,,1
 60041D,,,,Turning,,,,,21
@@ -1705,8 +1705,8 @@
 60601D,,,,Welding,,,,,21
 60641D,,,,Gluing,,,,,20
 60681D,,,,Riveting,,,,,20
-60691C,,,Packing,,,,,,1
-60701D,,,,Filling,,,,,1
+60691C,,,Packing,,,,,,20
+60701D,,,,Charging,,,,,21
 60721C,,,Shearing,,,,,,21
 60761C,,,Surface treatment,,,,,,21
 60801D,,,,Sanding,,,,,21
@@ -1724,6 +1724,6 @@
 61281E,,,,,Spray painting,,,,21
 61321E,,,,,Wet spraying,,,,21
 61361C,,,Heat treatment,,,,,,21
-61741C,,,Waste handling,,,,,,1
+61741C,,,Waste handling,,,,,,21
 61761B,,Sectors,,,,,,,19
 89401B,,Occupations,,,,,,,21

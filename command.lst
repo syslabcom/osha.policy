@@ -118,9 +118,7 @@ c|01381E|01201D|Family enterprise|A business in which more than one member of a 
 m|51561E|51421F|51401E
 m|50721C|49131E|49121D
 m|49161E|49141F|49131E
-u|46336D|Psychosocial work environment|Work environment factors that affect the workers' psychosocial well-being
 m|02361D|46386E|46336D
-u|49131E|Heat stress|When the human body absorbs more heat than it can dissipate
 u|46386E|Performance monitoring and rewards|The methods of monitoring and rewarding performance at work
 m|02401E|46388F|46386E
 c|52151D|52121C|Arthrosis|A disease of a joint
@@ -145,23 +143,17 @@ c|49091D|48321C|Effects of radiation exposure|The health effects of exposure to 
 c|51581C|49441B|Kidney disease|
 c|50901C|49441B|Hypoxia|The deprivation of an oxygen supply to part or all of a body
 c|50261C|49441B|Digestive system disorders|
-u|51421F|Weils disease|A secondary, more severe phase of Leptospirosis
 m|50761C|50266D|50261C
-u|50266D|Hernias|
 u|49141F|Heat stroke|A form of heat stress when the body becomes unable to regulate its temperature
 m|50321D|48581E|48321C
 m|50561C|48621D|48321C
-u|48621D|Head injuries|Injuries to the head area
-u|46388F|Electronic work monitoring|Automated methods for recording work performance, e.g. counting the number of keystrokes on a keyboard.
 m|02521D|46371E|46336D
 m|02561E|46373F|46371E
 c|48331D|48321C|Abdominal injury|Injuries suffered by a worker to the abdomen area
 c|46941D|46921C|Crowd control|The management of large groups of persons during work activity
 m|50281C|48571D|48321C
-u|46373F|Organisational climate|Perceived aspects of the work environment that impact on workers' well-being
 m|02201D|46366E|46336D
 m|02241E|46368F|46366E
-u|46368F|Quality of leadership|The effect of leadership quality on workers' well-being
 m|02481E|46358F|46336D
 m|61641D|59891C|59881B
 c|59901D|59891C|Tunnelling|The creation of an underground passage as a work activity
@@ -220,29 +212,18 @@ c|00861D|00801C|Irregular working hours|Working time that does not follow a regu
 c|00141D|00081C|Outsourcing|Using an external provider to carry out work rather than performing the tasks internally
 m|61721D|61741C|59881B
 m|61521D|60691C|59881B
-m|61481D|60701D|60691C
 m|61561D|60701D|60691C
+m|61481D|60701D|60691C
 m|61681D|59951C|59881B
 m|61601D|59941C|59881B
 m|61441D|59911C|59881B
-u|48581E|Arc-eye|Damage to the eye caused ultra-violet radiation typically suffered by those welding metal
-u|46396E|Work motivation|The impact of work motivation on workers' psychosocial well-being
 m|02161D|46391E|46336D
-u|46391E|Social support|Support to workers on issues not directly associated with their work activities
 m|02641D|46381E|46336D
 u|46761D|Absence from work following accident|Absence of worker from work following accident
-u|46381E|Participation|The involvement of a worker into the decision-making processes of a workplace
 m|02601D|46376E|46336D
-u|46376E|Organisational structure|The framework in which work is organised and its impact on workers' psychosocial well-being
-u|46371E|Organisational culture|An organisation's attitudes and values and how they impact on workers' psychosocial well-being
-u|46366E|Managerial style|The impact of managerial style on a workers' psychosocial well-being
-u|46358F|Dignity at work|The right of all workers to be treated with dignity and respect
 m|02441D|46356E|46336D
-u|46356E|Job satisfaction|The job satisfaction of a worker
 m|02321D|46351E|46336D
-u|46351E|Information at work|The (lack of) provision of information to workers at work affecting the workers' psychosocial well being
 m|02121D|46346E|46336D
-u|46346E|Decision authority|The (in)ability of a worker to make decisions
 m|02041D|46341E|46336D
 c|59946C|59881B|Food preparation|Work activity where food is prepared directly for consumption
 c|59931C|59881B|Demolition work|The taking down of structures
@@ -284,14 +265,12 @@ u|22961D|Exercise and physical activity|
 u|15281F|Labelling of dangerous substances|
 m|45481C|11641E|11401D
 u|10241D|Vocational training|Training specific to a job, trade, or profession
-u|04741E|Work capacity evaluation|The evaluation of a workers physical capacity to carry out a specific job
 u|04321D|Community occupational safety and health strategies|EU strategies on occupational safety and health
 u|04161D|New technology demands on workers|New technologies and their impact on workers
 u|04121D|Information and communication technology (ICT)|Communication and information technology tools in the workplace
 u|02941D|Ethnicity and race|Race describes biological descent. Ethnicity describes cultural heritage.
 m|02081D|46331C|45361B
 u|46331C|Psychosocial work demands|Demands on workers affecting their psychosocial well-being
-u|46326D|Machine dictated work pace|The effect on the psychosocial well-being of a worker of having to work at a speed set by a machine
 u|45386D|Discrimination on the basis of race or ethnicity|Discrimination against a worker on the basis of race, ethnicity, religion, or belief system
 m|45681C|45361B|28521A
 c|40271B|40251B|Nanotechnology|The design and creation of objects where at least one dimension is in the scale of nanometres.
@@ -299,29 +278,20 @@ u|57361D|Hotels and guesthouses|Premises where rooms are let on a short-term bas
 u|57321D|Cafes and restaurants|Premises where the sale of food is the main activity
 m|40241C|53701C|49441B
 c|53501D|52801C|Silo filler's disease|Disease caused by lung exposure to nitrogen oxides
-u|60701D|Filling|The process of filling a container, typically with liquids or powder
 u|60001D|Filing|The act of using a file to remove material from a surface
 m|61401C|59881B|54161A
 m|58201C|58221D|58211C
-u|58221D|Hospitals|Health care facilities where persons are treated, typically having facilities for patients to reside while being treated
-u|61741C|Waste handling|Work activities relating to the removal and processing of waste materials
-u|60691C|Packing|The process of putting items in a container, typically items into a larger box
-u|59951C|Laboratory work|Activities carried out in any laboratory type
 u|59941C|Electrical work|The installation or maintenance of electrical systems
-u|59911C|Driving|The control of a vehicle as a work activity
 u|59891C|Construction work|Work activities related to the building, maintaining, or development of structures
 u|58211C|Health care facility|A workplace where medical treatment is given to humans
 u|57161C|Activity centres and amusement parks|
 u|54961D|Migrant and immigrant workers|Persons who move significant distances to find work
 u|54281D|Ageing and older workers|Workers typically over the age of 45
-u|48571D|Eye injuries|Injuries to the eye
-u|46341E|Communication|Workplace communication that can affect the workers psychosocial well-being
 u|43096E|Lift truck|A powered vehicle for transporting materials generally within a workplace
 u|28461C|Return to work|Getting excluded workers back to work
 u|26041D|Statistics on sickness absence|
 u|25281D|Research findings|Outcomes of OSH research
 u|23681C|Psychosocial health services|
-u|23076D|Well-being|A positive health and social state
 u|53701C|Sick building syndrome|A group of symptoms linked to an individual's place of work
 u|52801C|Respiratory and lung diseases|
 u|23061D|Substances awareness|The use, abuse, and management of substances such as drugs, alcohol and tobacco

@@ -87,6 +87,7 @@ setup(name='osha.policy',
       converter = osha.policy.tools:converter
       vdexupdater = osha.policy.tools:vdexupdater
       xmltoxls = osha.policy.tools:xmltoxls
+      ordervdex = osha.policy.tools:ordervdex
       """,
       )      
       
