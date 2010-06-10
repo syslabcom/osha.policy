@@ -15,8 +15,8 @@ class BaseCommand(object):
     def run(self):
         return NotImplemented()
 
-    def untranslated_ids():
-        return NotImplemented()
+    def untranslated_ids(self):
+        return NotImplemented
 
 class CreateCommand(BaseCommand):
     def __init__(self, tree, id, parent_id, caption, description):
@@ -56,6 +56,9 @@ class CreateCommand(BaseCommand):
             parentTerm.insert(index, new_term)
         assert insert_check
 
+    def untranslated_ids(self):
+        return self.id, self.caption, self.description
+
 class UpdateCommand(BaseCommand):
     def __init__(self, tree, id, caption, description):
         self.tree = tree
@@ -71,6 +74,9 @@ class UpdateCommand(BaseCommand):
         import pdb;pdb.set_trace()
         term.remove(term[1])
         term.insert(1, caption)
+
+    def untranslated_ids(self):
+        return self.id, self.caption, self.description
 
 class MoveCommand(BaseCommand):
     def __init__(self, tree,  old, new, new_father):
@@ -103,6 +109,9 @@ class MoveCommand(BaseCommand):
             parentTerm.insert(index, old_child)
         old_father.remove(old_child)
 
+    def untranslated_ids(self):
+        return None
+
 class DeleteCommand(BaseCommand):
     def __init__(self, tree, id):
         self.tree = tree
@@ -114,6 +123,9 @@ class DeleteCommand(BaseCommand):
         father = self.tree.fathers[kid]
         father.remove(kid)
         return False
+
+    def untranslated_ids(self):
+        return None
 
 class Tree(object):
     def __init__(self, thesaurus_file):
@@ -161,6 +173,7 @@ def cmd_parser(line, tree):
            'u' : UpdateCommand,
            'm' : MoveCommand,
            'd' : DeleteCommand}[cmd_token](tree, *args)
+    return cmd
 
 def get_xls(filename):
     book = open_workbook(file_contents=file(filename).read())
@@ -174,7 +187,8 @@ if __name__ == '__main__':
         thesaurus_file = './src/osha/policy/data/vocabularies/MultilingualThesaurus.vdex'
     tree = Tree(thesaurus_file)
     translations = []
-    for line in file(sys.argv[1]).readline():
+    for line in file(sys.argv[1]):
+        print line
         instance = cmd_parser(line, tree)
         instance.run()
         translations.append(instance.untranslated_ids())
