@@ -30,7 +30,7 @@ class CreateCommand(BaseCommand):
         termIdentifier = self.id
         termCaption = self.caption
         termDescription = self.description
-        tassert termIdentifier not in self.tree.items.keys()
+        assert termIdentifier not in self.tree.items.keys()
         parentTerm = self.tree.items[self.parent_id]
         new_term =  self.tree.new_tree_term(termIdentifier, termCaption, termDescription)
         last_brother = None
