@@ -1,0 +1,1729 @@
+00001A,"Political, social and economic conditions",,,,,,,,21
+00041B,,Organisation of work,,,,,,,21
+00081C,,,Contracting,,,,,,21
+00121D,,,,Labour contracts,,,,,21
+00141D,,,,Outsourcing,,,,,1
+00161D,,,,Principal contracts,,,,,21
+00201D,,,,Sub-contracts,,,,,21
+00241D,,,,Franchising,,,,,13
+00281C,,,Human resource management,,,,,,21
+00321D,,,,Human relations management,,,,,20
+00361D,,,,Management practices,,,,,21
+00401E,,,,,Knowledge management,,,,21
+00441D,,,,Human resource development,,,,,21
+00481E,,,,,Career issues,,,,21
+00521F,,,,,,Career stages,,,21
+00561F,,,,,,Possibilities of development,,,21
+00601D,,,,Staffing,,,,,20
+00641E,,,,,Dismissal,,,,21
+00681E,,,,,Personnel downsizing,,,,21
+00721E,,,,,Personnel selection,,,,21
+00761E,,,,,Staff turnover,,,,21
+00801C,,,Working time,,,,,,21
+00841D,,,,Flexible working hours,,,,,21
+00861D,,,,Irregular working hours,,,,,1
+00881D,,,,Normal hours,,,,,21
+00921D,,,,Legal working hours,,,,,21
+00961D,,,,Weekend working,,,,,1
+01001D,,,,Shift work,,,,,21
+01041E,,,,,Night shift,,,,21
+01081D,,,,Overtime,,,,,21
+01091D,,,,Rest period,,,,,1
+01101D,,,,Driving period,,,,,1
+01121C,,,Private sector,,,,,,21
+01161D,,,,Large business,,,,,21
+01201D,,,,Small and medium-sized companies,,,,,21
+01241E,,,,,Home-based businesses,,,,21
+01281E,,,,,Small business,,,,21
+01321E,,,,,Micro-enterprises,,,,21
+01361E,,,,,Self-employed,,,,21
+01381E,,,,,Family enterprise,,,,1
+01401C,,,Public sector,,,,,,21
+01441C,,,Non-governmental organisations,,,,,,21
+01481D,,,,Charities,,,,,21
+01521C,,,Quality of work,,,,,,20
+01541D,,,,Decent work,,,,,1
+01561C,,,Forms of work organisation,,,,,,21
+01601D,,,,Industrial organisation,,,,,21
+01641D,,,,Lean organisation,,,,,21
+01681D,,,,Working alone,,,,,21
+01721D,,,,Home-based work,,,,,21
+01741D,,,,Sheltered employment,,,,,1
+01761D,,,,Teamwork,,,,,21
+01771D,,,,Undeclared work,,,,,1
+01801D,,,,Teleworking,,,,,21
+01841C,,,Forms of work contracts,,,,,,21
+01851D,,,,Full time employment,,,,,1
+01861D,,,,Job sharing,,,,,1
+01881D,,,,Permanent contracts,,,,,21
+01921D,,,,Temporary contracts,,,,,21
+01961D,,,,Part time contracts,,,,,21
+01971D,,,,Piece work,,,,,1
+01981D,,,,Short-time working,,,,,1
+02681B,,"Political, social, economic issues",,,,,,,21
+02721C,,,Co-operation,,,,,,21
+02761D,,,,Networks,,,,,21
+02801C,,,Demography,,,,,,15
+02806D,,,,Age and work,,,,,1
+02811E,,,,,Ageing workforce,,,,1
+02816D,,,,Disability issues,,,,,1
+02821E,,,,,Mental disability issues,,,,1
+02823E,,,,,Physical disability issues,,,,1
+02826F,,,,,,Sight disability issues,,,1
+02829F,,,,,,Hearing disability issues,,,1
+02833F,,,,,,Mobility issues,,,1
+02836E,,,,,Learning disability issues,,,,1
+02941D,,,,Ethnicity and race,,,,,1
+02951C,,,Diversity at Work,,,,,,1
+02961C,,,Economic aspects,,,,,,20
+02971D,,,,Economic incentives for occupational safety and health performance,,,,,1
+02981D,,,,Business competitiveness and occupational safety and health,,,,,1
+03001C,,,Enlargement of the EU,,,,,,21
+03081C,,,Gender issues,,,,,,21
+03161C,,,Globalisation,,,,,,19
+03201C,,,Industrial relations,,,,,,21
+03241D,,,,Collective bargaining,,,,,21
+03281E,,,,,Collective labour agreements,,,,21
+03321D,,,,Industrial democracy,,,,,21
+03331D,,,,Sectoral social dialogue,,,,,1
+03341D,,,,Social partner agreement,,,,,1
+03361C,,,Intellectual property,,,,,,21
+03401D,,,,Copyright,,,,,21
+03441D,,,,Patents,,,,,19
+03481D,,,,Trademark,,,,,21
+03521C,,,Labour market,,,,,,21
+03561D,,,,Employment,,,,,21
+03571E,,,,,Designated employment,,,,1
+03581E,,,,,Reservation of special posts,,,,1
+03601D,,,,Labour studies,,,,,21
+03621E,,,,,Outplacement,,,,1
+03641D,,,,Workforce,,,,,21
+03651E,,,,,Flexible labour force,,,,1
+03661E,,,,,Flexicurity,,,,1
+03671E,,,,,Free movement of workers,,,,1
+03681D,,,,Unemployment,,,,,21
+03721E,,,,,Unemployment policy,,,,21
+03761D,,,,Trends,,,,,20
+03801D,,,,Wages,,,,,21
+03841D,,,,Retirement,,,,,20
+03881D,,,,Unpaid work,,,,,21
+03921C,,,Corporate accountability,,,,,,21
+03961C,,,Corporate Social Responsibility,,,,,,21
+04001D,,,,Global Reporting Initiative,,,,,16
+04041C,,,Changing world of work,,,,,,21
+04081D,,,,E-business,,,,,21
+04121D,,,,Information and communication technology (ICT),,,,,1
+04161D,,,,New technology demands on workers,,,,,1
+04201D,,,,Virtual networks,,,,,21
+04241D,,,,24 hour working life,,,,,21
+04281C,,,Strategies,,,,,,19
+04321D,,,,Community occupational safety and health strategies,,,,,1
+04361D,,,,Health and safety policy,,,,,21
+04401C,,,Mainstreaming,,,,,,19
+04421D,,,,Mainstreaming occupational safety and health into education,,,,,1
+04441C,,,Immigration,,,,,,21
+04481D,,,,Cultural differences,,,,,21
+04521D,,,,Language issues,,,,,21
+04561C,,,Employability,,,,,,21
+04601D,,,,Competence,,,,,20
+04611E,,,,,Lifelong learning,,,,1
+04641D,,,,Re-integration,,,,,21
+04681D,,,,Work ability,,,,,21
+04741E,,,,,Work capacity evaluation,,,,1
+04761C,,,Professionalism,,,,,,21
+04801D,,,,Professional autonomy,,,,,21
+04841D,,,,Professional corporations,,,,,21
+04881D,,,,Professional practice,,,,,21
+04921D,,,,Professional staff committees,,,,,21
+04961C,,,Public health,,,,,,21
+05001D,,,,Care systems,,,,,21
+05041D,,,,Consumer safety,,,,,21
+05081D,,,,Community health services,,,,,21
+05121D,,,,Health care access,,,,,21
+05161D,,,,Health care evaluation,,,,,21
+05201D,,,,Health education,,,,,21
+05241D,,,,Health insurance,,,,,21
+05281D,,,,Health surveys,,,,,21
+05321D,,,,Public health practice,,,,,21
+05361C,,,Environmental protection,,,,,,21
+05401D,,,,Environmental exposure,,,,,21
+05441D,,,,Environmental monitoring,,,,,21
+05481D,,,,Environmental pollution,,,,,21
+05521E,,,,,Environmental pollutants,,,,21
+05561C,,,Work life balance,,,,,,21
+05601D,,,,Holidays,,,,,21
+05611E,,,,,Paternal leave,,,,1
+05621E,,,,,Paternity leave,,,,1
+05631E,,,,,Maternity leave,,,,1
+05641D,,,,Families,,,,,21
+05681D,,,,Off-the-job activities,,,,,20
+05721E,,,,,Cultural activities,,,,21
+05761B,,Agency network partners,,,,,,,21
+05801C,,,Administrative Board,,,,,,21
+05841D,,,,Bureau of the Administrative Board,,,,,21
+05881D,,,,Chairperson,,,,,20
+05921D,,,,Vice-chairperson,,,,,20
+05961C,,,European Agency for Safety and Health at Work,,,,,,21
+05971D,,,,European Risk Observatory,,,,,1
+06001C,,,National Authorities,,,,,,21
+06041C,,,Focal Points,,,,,,21
+06081D,,,,National information network,,,,,21
+06121C,,,Employers organisations,,,,,,21
+06161D,,,,Union of Industrial and Employers' Confederations of Europe,,,,,20
+06201C,,,Workers organisations,,,,,,21
+06241D,,,,European Trade Union Confederation,,,,,21
+06281E,,,,,European Trade Union Technical Bureau for Health and Safety,,,,21
+06321C,,,Governments,,,,,,20
+06361C,,,Agency Network,,,,,,21
+06401D,,,,Topic Centres,,,,,20
+06481D,,,,European Week Group,,,,,21
+06521D,,,,Internet group,,,,,20
+06561D,,,,Other expert groups,,,,,21
+06601D,,,,Other consultants,,,,,21
+06641B,,European organisations,,,,,,,21
+06681C,,,European Commission,,,,,,21
+06721D,,,,DG Employment and Social Affairs,,,,,21
+06761E,,,,,European Foundation for the Improvement of Living and Working Conditions,,,,21
+06801D,,,,DG Enterprise,,,,,21
+06841D,,,,DG Research,,,,,21
+06881E,,,,,6th Framework Programme,,,,19
+06921D,,,,Statistical office of the European Commission,,,,,21
+06961D,,,,DG Enlargement,,,,,21
+07001D,,,,DG Education and Culture,,,,,21
+07041D,,,,DG Health and Consumer Protection,,,,,21
+07081D,,,,DG Fisheries,,,,,20
+07121D,,,,DG Internal Market,,,,,21
+07161D,,,,DG Environment,,,,,20
+07201D,,,,DG Information Society,,,,,21
+07241D,,,,Joint Research Centre,,,,,21
+07281D,,,,Office for Official Publications of the European Communities,,,,,21
+07321D,,,,Translation Centre for the Bodies of the European Union,,,,,21
+07361C,,,"Advisory Committee on Safety, Hygiene and Health Protection at Work",,,,,,21
+07401C,,,Senior Labour Inspectors Committee,,,,,,21
+07441C,,,Scientific Committee on Occupational Exposure Limits,,,,,,21
+07481C,,,European Parliament,,,,,,21
+07521D,,,,EP Committee on Employment and Social Affairs,,,,,21
+07561D,,,,European Economic and Social Committee,,,,,21
+07601C,,,European Agencies,,,,,,21
+07641D,,,,European Environment Agency,,,,,21
+07681C,,,European Centre of Enterprises with Public Participation,,,,,,21
+07721C,,,"European Association of Craft, Small and Medium-Sized Enterprises",,,,,,21
+07761C,,,European Council,,,,,,21
+07801C,,,European Committee for Standardisation,,,,,,21
+07841C,,,European Union,,,,,,21
+07881B,,International organisations,,,,,,,21
+07921C,,,International Labour Organization,,,,,,21
+07961C,,,World Health Organization,,,,,,21
+08001C,,,International Social Security Association,,,,,,21
+08041C,,,International Association of Labour Inspection,,,,,,18
+08081C,,,International Agency for Research on Cancer,,,,,,21
+08121C,,,International Atomic Energy Agency,,,,,,21
+08161C,,,International Commission for Occupational and Environmental Health,,,,,,17
+08201C,,,International Confederation of Free Trade Unions,,,,,,21
+08241C,,,International Standards Organisation,,,,,,21
+08281C,,,Organisation for Economic Co-operation and Development,,,,,,21
+08321C,,,United Nations,,,,,,21
+08361C,,,World Safety Organization,,,,,,17
+08401C,,,World Trade Organisation,,,,,,21
+08441B,,National organisations,,,,,,,21
+08481C,,,Canadian Centre for Occupational Health and Safety,,,,,,17
+08521C,,,National Occupational Health and Safety Commission (Australia),,,,,,18
+08561C,,,National Institute for Occupational Safety and Health (USA),,,,,,18
+08601C,,,Occupational Health and Safety Administration (USA),,,,,,19
+08641C,,,Japan Industrial Safety and Health Association,,,,,,18
+08681C,,,Korea Occupational Safety and Health Agency,,,,,,18
+08721C,,,Health and Safety Commission (UK),,,,,,19
+08761C,,,Health and Safety Executive (UK),,,,,,20
+08801A,Risk analysis and management,,,,,,,,21
+21241B,,Work equipment and plant,,,,,,,21
+21281C,,,Industrial planning,,,,,,21
+21321C,,,Equipment,,,,,,21
+21361C,,,Machinery,,,,,,21
+21401C,,,Maintenance,,,,,,20
+21441C,,,Plant,,,,,,20
+21481D,,,,Design of plant,,,,,21
+21521D,,,,Operating plant,,,,,21
+21561C,,,Workplace transport,,,,,,21
+21601B,,Quality assurance,,,,,,,21
+21641C,,,Continuous Quality Improvement,,,,,,21
+21681C,,,Quality control,,,,,,21
+21721C,,,Product quality,,,,,,20
+21761C,,,Production quality,,,,,,19
+21801B,,Legal requirements,,,,,,,21
+21821C,,,Case law,,,,,,1
+21841C,,,Codes of practice,,,,,,21
+21881C,,,Compliance,,,,,,21
+21921C,,,Duty of care,,,,,,21
+21961C,,,Enforcement,,,,,,21
+22001C,,,Guidance notes,,,,,,21
+22041C,,,Improvement notices,,,,,,21
+22081C,,,International harmonisation,,,,,,21
+22121C,,,Legislation,,,,,,21
+22161D,,,,Acts,,,,,21
+22201D,,,,Common law,,,,,21
+22241D,,,,Regulations,,,,,21
+22281D,,,,Directives,,,,,21
+22321C,,,Labour inspectorate,,,,,,21
+22361C,,,Liability,,,,,,21
+22401C,,,Licensing,,,,,,21
+22441C,,,Notification of accidents,,,,,,21
+22481C,,,Notification of chemical substances,,,,,,21
+22501C,,,Notification of diseases,,,,,,1
+22521C,,,Prohibition notices,,,,,,21
+22561C,,,Prosecutions,,,,,,21
+22601C,,,Penalties,,,,,,21
+22641C,,,Responsibility,,,,,,21
+22681C,,,Sanctions,,,,,,21
+22721B,,Occupational health services,,,,,,,21
+22761C,,,First aid,,,,,,21
+22801D,,,,First aid kit,,,,,21
+22841D,,,,Sick room,,,,,21
+22851D,,,,First aid personnel,,,,,1
+22861D,,,,First aid training,,,,,1
+22881C,,,Health promotion,,,,,,21
+22921D,,,,Back care,,,,,21
+22961D,,,,Exercise and physical activity,,,,,1
+22971D,,,,Health monitoring and screening,,,,,1
+22981D,,,,Healthy eating,,,,,1
+23001D,,,,Health promotion programs,,,,,21
+23041D,,,,Healthy life-style,,,,,20
+23046D,,,,Mental health promotion,,,,,1
+23051D,,,,Sexual health promotion,,,,,1
+23056D,,,,Sickness absence management,,,,,1
+23061D,,,,Substances awareness,,,,,1
+23064E,,,,,Tobacco awareness,,,,1
+23067E,,,,,Alcohol awareness,,,,1
+23071E,,,,,Drugs awareness,,,,1
+23076D,,,,Well-being,,,,,1
+23201C,,,Health surveillance,,,,,,21
+23401C,,,Medical consultation,,,,,,21
+23441D,,,,Clinical trials,,,,,21
+23481D,,,,Medical diagnosis,,,,,21
+23521E,,,,,Diagnostic services,,,,21
+23561E,,,,,Diagnostic techniques and procedures,,,,21
+23601C,,,Occupational medicine,,,,,,21
+23641C,,,Occupational nursing,,,,,,21
+23681C,,,Psychosocial health services,,,,,,1
+23721C,,,Occupational therapy,,,,,,21
+23761D,,,,Exercise therapy,,,,,21
+23801D,,,,Physiotherapy,,,,,17
+23841C,,,Medical treatment,,,,,,20
+23881D,,,,Medication,,,,,20
+23921C,,,Primary prevention,,,,,,21
+23961C,,,Quality of health care,,,,,,21
+24001D,,,,Treatment failure,,,,,21
+24041B,,Methodologies,,,,,,,20
+24081C,,,Analysis,,,,,,19
+24121D,,,,Economical analysis,,,,,21
+24161E,,,,,Cost-benefit analysis,,,,21
+24201E,,,,,Economic impact analysis,,,,21
+24241D,,,,Qualitative analysis,,,,,21
+24281D,,,,Quantitative analysis,,,,,21
+24321C,,,Benchmarking,,,,,,17
+24361C,,,Good Practice,,,,,,21
+24401C,,,Case studies,,,,,,21
+24441C,,,Classifications,,,,,,21
+24481D,,,,Thesaurus,,,,,18
+24521C,,,Discussion,,,,,,21
+24561C,,,Epidemiology,,,,,,14
+24601D,,,,Epidemiological measurements,,,,,21
+24641D,,,,Epidemiological methods,,,,,21
+24681D,,,,Epidemiological studies,,,,,21
+24721C,,,Evaluation,,,,,,21
+24761D,,,,Evaluation studies,,,,,21
+24801D,,,,Program evaluation,,,,,21
+24841C,,,Feasibility studies,,,,,,21
+24881C,,,Funding,,,,,,20
+24921D,,,,Research funding,,,,,21
+24961D,,,,SME funding scheme,,,,,21
+25001C,,,Data collection,,,,,,21
+25041C,,,Innovations,,,,,,21
+25081C,,,Investigation,,,,,,21
+25121D,,,,Accident investigations,,,,,21
+25161C,,,OSH Monitoring,,,,,,21
+25201D,,,,Risk observatory,,,,,21
+25241C,,,OSH Research,,,,,,21
+25261D,,,,Emerging risk,,,,,1
+25281D,,,,Research findings,,,,,1
+25321D,,,,Research needs,,,,,21
+25361D,,,,Intervention studies,,,,,21
+25381D,,,,Survey,,,,,1
+25401C,,,OSH systems and programmes,,,,,,21
+25441D,,,,European level,,,,,21
+25481D,,,,National level,,,,,21
+25521D,,,,Sector level,,,,,21
+25561C,,,Performance indicators,,,,,,21
+25601C,,,Probability,,,,,,21
+25641C,,,Problem-solving,,,,,,21
+25681C,,,Prognosis,,,,,,21
+25721C,,,Questionnaires,,,,,,21
+25761C,,,Registers,,,,,,20
+25801D,,,,Disease and death registers,,,,,21
+25811E,,,,,Cancer register,,,,1
+25841D,,,,Other registers,,,,,21
+25881C,,,Simulation,,,,,,19
+25921C,,,Statistics,,,,,,17
+25961D,,,,Accident statistics,,,,,21
+26001D,,,,Statistics on occupational diseases,,,,,21
+26041D,,,,Statistics on sickness absence,,,,,1
+26121C,,,Surveillance of the working environment,,,,,,21
+26161D,,,,Interviews,,,,,21
+26201D,,,,Observations,,,,,21
+26241C,,,Toxicology,,,,,,18
+26281D,,,,Carcinogenesis,,,,,21
+26321D,,,,Cardiovascular toxicology,,,,,21
+26361D,,,,Dermatotoxicology,,,,,19
+26401D,,,,Endocrine toxicology,,,,,21
+26441D,,,,Exposure routes,,,,,21
+26481E,,,,,Inhalation,,,,20
+26521E,,,,,Oral absorption,,,,20
+26561E,,,,,Skin absorption,,,,20
+26601D,,,,Genetic toxicology,,,,,21
+26641E,,,,,Mutagenesis,,,,19
+26681D,,,,Hepatotoxicology,,,,,19
+26721D,,,,Immunotoxicology,,,,,20
+26761D,,,,Nephrotoxicology,,,,,20
+26801D,,,,Neurotoxicology,,,,,19
+26841D,,,,Pulmonary toxicology,,,,,21
+26881D,,,,Regulatory toxicology,,,,,21
+26921D,,,,Reproductive toxicology,,,,,21
+26961E,,,,,Teratogenesis,,,,20
+27001D,,,,Toxicity testing,,,,,21
+27041D,,,,Toxicokinetics,,,,,19
+08841B,,Standardisation,,,,,,,20
+08881C,,,Accreditation,,,,,,21
+08921C,,,CE marking,,,,,,21
+08961C,,,Standards,,,,,,20
+09001D,,,,Emission standards,,,,,21
+09041D,,,,Occupational safety and health standards,,,,,21
+09081D,,,,Quality standards,,,,,21
+09121C,,,Standards organisations,,,,,,20
+09161B,,"Education, OSH information, OSH training",,,,,,,21
+09201C,,,Certification of training,,,,,,21
+09241C,,,Competency training,,,,,,21
+09281C,,,Computer-aided learning,,,,,,21
+09321C,,,Curriculum materials,,,,,,21
+09361C,,,Campaigns,,,,,,20
+09401D,,,,European Week on Safety and Health at Work,,,,,21
+09441C,,,Distance learning,,,,,,21
+09481D,,,,On-line training,,,,,21
+09521D,,,,Correspondence courses,,,,,21
+09561C,,,Guidelines,,,,,,20
+09601C,,,Information dissemination,,,,,,21
+09641D,,,,Printed material,,,,,21
+09681D,,,,Internet,,,,,6
+09721E,,,,,Email,,,,15
+09761F,,,,,,OSHmail,,,13
+09801D,,,,Conferences,,,,,20
+09841D,,,,Frequently asked questions,,,,,21
+09921D,,,,Teleconferencing,,,,,21
+09961C,,,Intellectual level,,,,,,21
+10001D,,,,Expert level,,,,,21
+10041D,,,,Competent Person,,,,,19
+10081D,,,,Lay person level,,,,,21
+10121D,,,,School level,,,,,21
+10161C,,,Educational level,,,,,,21
+10201D,,,,Universities,,,,,19
+10241D,,,,Vocational training,,,,,1
+10281D,,,,Secondary schools,,,,,21
+10311D,,,,Postgraduate education,,,,,1
+10321D,,,,Primary schools,,,,,21
+10361C,,,User feedback,,,,,,21
+10401C,,,Professional education,,,,,,21
+10441D,,,,Occupational health physician,,,,,21
+10481D,,,,Occupational health nurse,,,,,21
+10521D,,,,Ergonomist,,,,,21
+10561D,,,,Organisational OSH consultant,,,,,21
+10601D,,,,Occupational hygienist,,,,,21
+10621C,,,Professional qualification,,,,,,1
+10641C,,,Promotion,,,,,,21
+10681C,,,Public awareness,,,,,,21
+10721D,,,,Awareness raising,,,,,21
+10761C,,,Retraining,,,,,,21
+10801D,,,,Refresher training,,,,,21
+10841C,,,Training assessment,,,,,,21
+10881C,,,Training courses,,,,,,21
+10921D,,,,Accredited training courses,,,,,21
+10961C,,,Training materials,,,,,,21
+11001C,,,Training organisation,,,,,,21
+11041D,,,,Off-the-job training,,,,,21
+11081D,,,,On-the-job training,,,,,21
+11091E,,,,,Induction training,,,,1
+11101E,,,,,Work experience,,,,1
+11111E,,,,,Traineeship,,,,1
+11121C,,,Training policies,,,,,,21
+11161C,,,Interventions,,,,,,20
+11201B,,Safety and health management,,,,,,,21
+18521C,,,Safety management,,,,,,21
+18561D,,,,Agreements,,,,,21
+18601D,,,,Competencies,,,,,21
+18641D,,,,Decision-making,,,,,21
+18681D,,,,Emergency planning,,,,,21
+18721E,,,,,Emergency procedures,,,,21
+18761F,,,,,,Egress,,,21
+18801F,,,,,,Medical provision,,,21
+18841F,,,,,,Emergency showers,,,21
+18881E,,,,,Emergency response,,,,21
+18921E,,,,,Emergency services,,,,21
+18961F,,,,,,Ambulances,,,21
+19001F,,,,,,Fire brigades,,,21
+19041F,,,,,,Police,,,19
+19061F,,,,,,Coastguard,,,1
+19081D,,,,Hazard identification,,,,,21
+19121D,,,,Safety officers,,,,,21
+19161D,,,,Integration of OSH management system,,,,,21
+19201E,,,,,Business management,,,,21
+19241E,,,,,Quality management,,,,21
+19281E,,,,,Environmental protection management,,,,21
+19321E,,,,,Purchasing,,,,21
+19361D,,,,Labour inspection,,,,,21
+19401D,,,,Productivity,,,,,20
+19441D,,,,Reporting systems,,,,,21
+19481E,,,,,Early reporting systems,,,,21
+19521E,,,,,Hazard recording,,,,21
+19561E,,,,,Injury recording,,,,21
+19601E,,,,,Absenteeism recording,,,,21
+19641D,,,,Risk assessment,,,,,21
+19681D,,,,Safety audits,,,,,21
+19721E,,,,,Checklists,,,,21
+19761E,,,,,Internal workplace inspections,,,,21
+19801D,,,,Safety communication,,,,,21
+19841E,,,,,Safety guides,,,,21
+19881E,,,,,Safety instructions,,,,21
+19921D,,,,Safety consultation,,,,,21
+19961D,,,,Safety culture,,,,,21
+20001E,,,,,Safety attitudes,,,,21
+20041E,,,,,Safety behaviour,,,,21
+20081E,,,,,Safety values,,,,21
+20121D,,,,Safety performance,,,,,21
+20161D,,,,Safety planning,,,,,21
+20201D,,,,Safety policies and procedures,,,,,21
+20241D,,,,Safety programs,,,,,21
+20281E,,,,,Employee assistance programs,,,,21
+20321D,,,,Safety systems,,,,,21
+20361E,,,,,Back-up systems,,,,21
+20401E,,,,,Compatibility,,,,19
+20441E,,,,,Reliability in safety design,,,,21
+20481D,,,,Security measures,,,,,21
+20521E,,,,,Access control,,,,21
+20561D,,,,Stress management,,,,,21
+20601D,,,,Supervision,,,,,21
+20641D,,,,Worker participation,,,,,21
+20681E,,,,,Work councils,,,,21
+20721E,,,,,Worker representatives,,,,21
+20761E,,,,,Safety and health representatives,,,,21
+20801E,,,,,Safety and health committees,,,,21
+20841E,,,,,Worker consultation,,,,21
+20881F,,,,,,Body mapping,,,18
+20921C,,,Welfare provision,,,,,,21
+20961D,,,,Catering facilities,,,,,21
+21001D,,,,Clothes storage facilities,,,,,21
+21041D,,,,Lockers,,,,,21
+21081D,,,,Personal hygiene,,,,,21
+21121D,,,,Toilets,,,,,20
+21161D,,,,Washing facilities,,,,,21
+21201E,,,,,Showers,,,,20
+11241C,,,Ergonomics,,,,,,12
+11281D,,,,Anthropometry,,,,,14
+11321D,,,,Human factors,,,,,21
+11361D,,,,Humanisation of work,,,,,21
+11401D,,,,Design,,,,,21
+11441E,,,,,Equipment design,,,,21
+11481F,,,,,,Machine design,,,21
+11521F,,,,,,Tool design,,,21
+11561G,,,,,,,Hand tool design,,21
+11601F,,,,,,Workstation design,,,21
+11621E,,,,,Vehicle design,,,,1
+11641E,,,,,Job analysis and design,,,,21
+11681E,,,,,Planning of the workflow,,,,21
+11721E,,,,,Work systems design,,,,21
+11761E,,,,,Workplace design and layout,,,,21
+11801F,,,,,,Office layout,,,21
+11841D,,,,Ergonomic factors,,,,,20
+11881E,,,,,Acoustics and hearing,,,,21
+11921F,,,,,,Use of warning signals,,,21
+11961E,,,,,Assistive technologies,,,,21
+12001E,,,,,Equipment modification,,,,21
+12041E,,,,,Equipment replacement,,,,21
+12061E,,,,,Human-machine interface,,,,1
+12081E,,,,,Lifting,,,,21
+12121E,,,,,Physical work,,,,21
+12161E,,,,,"Lighting, vision",,,,21
+12201F,,,,,,Artificial light,,,21
+12241F,,,,,,Glare,,,21
+12281E,,,,,Mechanisation,,,,20
+12321E,,,,,Repetitive work,,,,21
+12361E,,,,,Sitting,,,,21
+12401E,,,,,Standing,,,,21
+12441E,,,,,Static work,,,,21
+12481D,,,,Occupational physiology,,,,,21
+12521C,,,"Control techniques, incl. occupational hygiene",,,,,,21
+13401D,,,,Control measures,,,,,21
+13441E,,,,,Administrative controls,,,,21
+13481E,,,,,Air quality management,,,,21
+13521F,,,,,,Dust control,,,21
+13561F,,,,,,Indoor air quality management,,,21
+13601G,,,,,,,Ventilation,,18
+13641H,,,,,,,,Extraction,21
+13681H,,,,,,,,Dilution ventilation,21
+13721H,,,,,,,,Replacement ventilation,21
+13761H,,,,,,,,Local exhaust ventilation,21
+13801E,,,,,Communication systems,,,,21
+13841E,,,,,Elimination of hazards,,,,21
+13881E,,,,,Enclosures,,,,21
+13921F,,,,,,Biological safety cabinets,,,21
+13961F,,,,,,Fume hoods,,,21
+14001E,,,,,Engineering controls,,,,21
+14041F,,,,,,Electrosensitive protective devices,,,21
+14081F,,,,,,Machine guarding,,,21
+14121F,,,,,,Movable guards,,,21
+14161F,,,,,,Trip devices,,,21
+14201E,,,,,Eye protection,,,,21
+14241F,,,,,,Eye wash kits,,,21
+14281E,,,,,Examination of control measures,,,,21
+14321E,,,,,Fall arrest systems,,,,21
+14361F,,,,,,Harnesses,,,21
+14401E,,,,,Fire and explosion safety,,,,21
+14441F,,,,,,Fireproofing of buildings,,,21
+14481F,,,,,,Explosion control,,,21
+14521F,,,,,,Emergency exits,,,21
+14561F,,,,,,Fire alarms,,,21
+14601F,,,,,,Fire escapes,,,21
+14641F,,,,,,Fire extinguishers,,,21
+14681F,,,,,,Fire drills,,,21
+14721E,,,,,Hand protection,,,,21
+14761E,,,,,Dangerous substances management,,,,21
+14801F,,,,,,Asbestos management,,,21
+14841F,,,,,,Classification of substances,,,21
+14881F,,,,,,Criteria documents,,,21
+14921F,,,,,,Disinfection of equipment,,,21
+14961F,,,,,,Occupational exposure limits,,,21
+15001G,,,,,,,Ceiling values,,21
+15041G,,,,,,,Maximum exposure limits,,20
+15081G,,,,,,,Maximum acceptable concentration,,21
+15121G,,,,,,,Short-term exposure limits,,21
+15161G,,,,,,,Threshold limit values,,21
+15201G,,,,,,,Time-weighted averages,,21
+15241F,,,,,,Occupational exposure standards,,,21
+15281F,,,,,,Labelling of dangerous substances,,,1
+15321G,,,,,,,Risk phrases,,21
+15361G,,,,,,,Safety phrases,,21
+15401F,,,,,,Material safety data sheets,,,21
+15441G,,,,,,,Decomposition,,21
+15481F,,,,,,Packaging of dangerous substances,,,1
+15521F,,,,,,Poisoning remedies,,,21
+15561F,,,,,,Sterilisation,,,19
+15601F,,,,,,Storage of dangerous substances,,,1
+15641G,,,,,,,Segregation of goods,,21
+15681F,,,,,,Substitution,,,20
+15721F,,,,,,Workplace monitoring,,,21
+15761E,,,,,Head protection,,,,21
+15801E,,,,,Hearing conservation programs,,,,21
+15841E,,,,,Hearing protection,,,,21
+15881E,,,,,Hierarchy of control,,,,21
+15921E,,,,,Housekeeping,,,,21
+15961E,,,,,Lockout/tagout procedures,,,,21
+16001F,,,,,,Energy-isolating devices,,,21
+16041E,,,,,Maintenance of control measures,,,,21
+16081E,,,,,Noise control,,,,21
+16121F,,,,,,Acoustical insulation,,,21
+16161E,,,,,Odour control,,,,21
+16201E,,,,,Personal monitoring,,,,21
+16241F,,,,,,Body counters,,,21
+16281E,,,,,Personal protective equipment,,,,21
+16321F,,,,,,Aprons,,,21
+16361F,,,,,,Barrier creams,,,21
+16401F,,,,,,Diver's suits,,,21
+16441F,,,,,,Ear plugs,,,21
+16481F,,,,,,Earmuffs,,,21
+16521F,,,,,,Face shields,,,21
+16561F,,,,,,Gloves,,,21
+16601F,,,,,,Hand guards,,,21
+16641F,,,,,,Hard hats,,,21
+16681F,,,,,,Helmets,,,21
+16721G,,,,,,,Acoustic helmets,,21
+16761F,,,,,,Insulation clothes,,,21
+16801F,,,,,,Life jackets,,,21
+16841F,,,,,,Masks,,,19
+16881G,,,,,,,Dust masks,,21
+16921G,,,,,,,Gas masks,,20
+16961F,,,,,,Overalls,,,21
+17001F,,,,,,Protective clothing,,,21
+17041F,,,,,,Respirators,,,21
+17081F,,,,,,Safety belts,,,21
+17121F,,,,,,Safety footwear,,,21
+17161G,,,,,,,Safety boots,,21
+17201F,,,,,,Safety glasses,,,21
+17241F,,,,,,Seat belts,,,21
+17281F,,,,,,Sleevelets,,,21
+17321E,,,,,Rescue measures,,,,21
+17361F,,,,,,Life belts,,,21
+17401F,,,,,,Life boats,,,21
+17441F,,,,,,Life lines,,,21
+17481F,,,,,,Life preservers,,,21
+17521F,,,,,,Life rafts,,,21
+17561E,,,,,Rollover protection,,,,21
+17601E,,,,,Safety switches,,,,21
+17641E,,,,,Safety valves,,,,21
+17681E,,,,,Salt tablets,,,,20
+17721E,,,,,Shields,,,,21
+17761E,,,,,Skin protection,,,,21
+17771E,,,,,Temperature control in workplaces,,,,1
+17781F,,,,,,Air conditioning systems,,,1
+17791F,,,,,,Heating systems,,,1
+17801E,,,,,Testing of control measures,,,,21
+17841E,,,,,Vibration control,,,,21
+17881E,,,,,Hazard warnings,,,,21
+17921F,,,,,,Alarm systems,,,21
+17961F,,,,,,Safety signs,,,21
+18001E,,,,,Water quality management,,,,21
+18041F,,,,,,Drinking water,,,21
+18081D,,,,Accident prevention,,,,,21
+18121E,,,,,Safe animal handling,,,,21
+18161E,,,,,Chemical safety,,,,21
+18241E,,,,,Construction safety,,,,21
+18281E,,,,,Electrical safety,,,,21
+18301E,,,,,Farm safety,,,,1
+18321E,,,,,Biosafety,,,,1
+18341E,,,,,Laboratory safety,,,,1
+18361E,,,,,Machine safety,,,,21
+18401E,,,,,Mine safety,,,,21
+18441E,,,,,Radiation safety,,,,21
+18481E,,,,,Transport safety,,,,21
+12561D,,,,Measurement and assessment,,,,,21
+12721E,,,,,Audiometric testing,,,,21
+12761E,,,,,Biological monitoring,,,,21
+12801E,,,,,Equipment testing,,,,21
+12841E,,,,,Exposure assessment,,,,21
+12881F,,,,,,Retrospective exposure assessment,,,21
+12921E,,,,,Illumination measurement,,,,21
+12961E,,,,,Monitoring of microorganisms,,,,21
+13001E,,,,,Noise level measurement,,,,21
+13041E,,,,,Physiological work measurement,,,,21
+13081E,,,,,Radiation measurement,,,,21
+13121F,,,,,,Ionising,,,21
+13161F,,,,,,Non-ionising,,,21
+13201E,,,,,Static fields measurement,,,,21
+13241E,,,,,Thermal stress measurement,,,,21
+13281E,,,,,Sampling,,,,21
+13321E,,,,,Vibration measurement,,,,21
+13361E,,,,,Vision testing,,,,21
+12601E,,,,,Air monitoring,,,,21
+12681F,,,,,,Particulate monitoring,,,21
+12641F,,,,,,Monitoring of gases and vapours,,,21
+27081B,,Workers compensation,,,,,,,21
+27121C,,,Compensation,,,,,,21
+27161D,,,,Benefits,,,,,21
+27201E,,,,,Disability pensions,,,,21
+27241D,,,,Claims,,,,,21
+27281D,,,,Compensation insurance policies,,,,,21
+27321D,,,,Dismissal of injured employees,,,,,21
+27361D,,,,Employers' liability,,,,,21
+27401D,,,,Failure to insure,,,,,21
+27441D,,,,Injured workers' rights,,,,,21
+27481D,,,,Insurance companies,,,,,21
+27521D,,,,Premiums,,,,,21
+27561D,,,,Records of wages,,,,,21
+27601D,,,,Third party liability,,,,,21
+27641C,,,Rehabilitation,,,,,,19
+27681D,,,,Alternative employment,,,,,21
+27721E,,,,,Placement assistance,,,,21
+27761E,,,,,Relocation,,,,21
+27801D,,,,Case management,,,,,21
+27841E,,,,,Case reviews,,,,21
+27881E,,,,,Disability evaluation,,,,21
+27921F,,,,,,Impairment assessment,,,21
+27961E,,,,,Injured workers' files,,,,21
+28001E,,,,,Rehabilitation assessment,,,,21
+28041F,,,,,,Re-employability,,,21
+28081F,,,,,,Functional assessment,,,21
+28121F,,,,,,Skill analysis,,,21
+28161F,,,,,,Workplace assessment,,,21
+28201E,,,,,Rehabilitation plans,,,,21
+28241E,,,,,Rehabilitation programs,,,,21
+28281D,,,,Rehabilitation co-ordinators,,,,,21
+28321D,,,,Rehabilitation costs,,,,,21
+28361D,,,,Rehabilitation counselling,,,,,20
+28401D,,,,Rehabilitation providers,,,,,21
+28481D,,,,Work adjustment training,,,,,21
+28451C,,,Retention of ill and injured workers,,,,,,1
+28461C,,,Return to work,,,,,,1
+28521A,Hazards at work,,,,,,,,21
+28561B,,Biological hazards,,,,,,,21
+28601C,,,Biochemical hazards,,,,,,20
+28641C,,,Genetically modified organisms,,,,,,21
+28681C,,,Fungi,,,,,,21
+28701C,,,Hypoglycin,,,,,,1
+28711C,,,Marine toxin,,,,,,1
+28721C,,,Microbiological hazards,,,,,,21
+28761D,,,,Microorganisms,,,,,20
+28801E,,,,,Bacteria,,,,20
+28841E,,,,,Endotoxins,,,,20
+28851E,,,,,Exotoxin,,,,1
+28881E,,,,,Hazards from genetically modified microorganisms,,,,21
+28921E,,,,,Mycotoxins,,,,21
+28961E,,,,,Parasites,,,,20
+29001F,,,,,,Protozoa,,,20
+29041E,,,,,Priones,,,,17
+29081E,,,,,Viruses,,,,18
+29121E,,,,,Spores,,,,19
+29161C,,,Sharps,,,,,,21
+29201D,,,,Needlesticks,,,,,21
+29231C,,,Venom,,,,,,1
+29241B,,Chemical hazards,,,,,,,21
+29281C,,,General chemical terms,,,,,,21
+29321D,,,,Contamination,,,,,21
+29361D,,,,Dangerous substances,,,,,21
+29401D,,,,Dangerous goods,,,,,20
+29441D,,,,Hazardous materials,,,,,21
+29481D,,,,Chemical substances,,,,,21
+29521E,,,,,Chemical reaction,,,,20
+29561F,,,,,,Exothermic reaction,,,21
+29601D,,,,Handling chemicals,,,,,21
+29606D,,,,REACH,,,,,1
+29611E,,,,,Chemical safety assessment,,,,1
+29616E,,,,,Chemical safety report,,,,1
+29621E,,,,,Downstream user,,,,1
+29626E,,,,,Globally harmonised system (GHS),,,,1
+29631E,,,,,Registration of chemicals under REACH,,,,1
+29641C,,,Chemical hazards related to chemical properties,,,,,,21
+29681D,,,,Corrosives,,,,,21
+29721E,,,,,Hydrogen fluoride,,,,21
+29761D,,,,Oxidisers,,,,,21
+29801E,,,,,Organic peroxides,,,,21
+29841C,,,Chemical hazards related to physical properties,,,,,,21
+29881D,,,,Explosives,,,,,21
+29921D,,,,Exothermic mixtures,,,,,21
+29961D,,,,Flammable substances,,,,,21
+30001E,,,,,Flammable dust,,,,21
+30041E,,,,,Flammable gas,,,,20
+30081E,,,,,Flammable liquids,,,,21
+30121E,,,,,Flammable solids,,,,21
+30161D,,,,Combustible substances,,,,,21
+30201D,,,,Inert substances,,,,,21
+30241D,,,,Fire resistant substances,,,,,21
+30281D,,,,Soluble substances,,,,,21
+30321D,,,,Volatile substances,,,,,21
+30361C,,,Chemical hazards related  to origins,,,,,,21
+30401D,,,,Acids,,,,,21
+30441E,,,,,Inorganic acids,,,,21
+30481F,,,,,,Hydrochloric acid,,,21
+30521F,,,,,,Hydrofluoric acid,,,21
+30561F,,,,,,Phosphoric acid,,,21
+30601F,,,,,,Sulphuric acid,,,21
+30641E,,,,,Organic acids,,,,21
+30681F,,,,,,Acetic acid,,,21
+30721F,,,,,,Formic acid,,,21
+30761F,,,,,,Lactic acid,,,21
+30801F,,,,,,Oxalic acid,,,21
+30841D,,,,Bases,,,,,17
+30881D,,,,Inorganic compounds,,,,,21
+30921D,,,,Organic compounds,,,,,21
+30941E,,,,,Formaldehyde,,,,1
+30961E,,,,,Halogenated organic compounds,,,,21
+31001F,,,,,,Chlorinated organic compounds,,,21
+31041F,,,,,,Brominated organic compounds,,,21
+31081F,,,,,,Fluorinated organic compounds,,,21
+31121D,,,,Coal products,,,,,21
+31161E,,,,,Coal by-products,,,,21
+31201F,,,,,,Coal tar,,,21
+31241G,,,,,,,Creosite,,20
+34281H,,,,,,,,TO BE REPLACED,1
+31281D,,,,Enzymes,,,,,19
+31321D,,,,Metals,,,,,19
+31361E,,,,,Heavy metals,,,,20
+31401F,,,,,,Antimony,,,15
+31441F,,,,,,Arsenic,,,17
+31481F,,,,,,Cadmium,,,14
+31521F,,,,,,Cobalt,,,13
+31561F,,,,,,Copper,,,21
+31601F,,,,,,Chromium,,,18
+31641F,,,,,,Lead,,,20
+31681F,,,,,,Manganese,,,16
+31721F,,,,,,Mercury,,,20
+31761F,,,,,,Nickel,,,17
+31801F,,,,,,Platinum,,,13
+31841F,,,,,,Selenium,,,16
+31881F,,,,,,Thallium,,,16
+31921F,,,,,,Tin,,,19
+31961F,,,,,,Uranium,,,15
+32001F,,,,,,Vanadium,,,18
+32041F,,,,,,Zinc,,,17
+32081E,,,,,Other toxic metals,,,,21
+32121F,,,,,,Aluminium,,,17
+32161F,,,,,,Beryllium,,,17
+32201F,,,,,,Lithium,,,16
+32241E,,,,,Metal compounds,,,,21
+32281D,,,,Metallurgical products,,,,,21
+32321D,,,,Minerals,,,,,20
+32361E,,,,,Asbestos,,,,14
+32401F,,,,,,Blue asbestos,,,21
+32441F,,,,,,White asbestos,,,19
+32481F,,,,,,Brown asbestos,,,21
+32521E,,,,,Bauxite,,,,16
+32561E,,,,,Clays,,,,21
+32601E,,,,,Coal,,,,21
+32641E,,,,,Graphite,,,,16
+32681E,,,,,Limestone,,,,20
+32721E,,,,,Quartz,,,,20
+32761E,,,,,Sandstone,,,,20
+32801E,,,,,Silica,,,,18
+32841E,,,,,Slate,,,,21
+32881E,,,,,Talc,,,,18
+32921D,,,,Petroleum products,,,,,21
+32961E,,,,,Asphalt,,,,12
+33001E,,,,,Diesel oil,,,,20
+33041E,,,,,Kerosene,,,,19
+33081E,,,,,Naphtha,,,,13
+33121E,,,,,Jet fuel,,,,21
+33161E,,,,,Petrol,,,,20
+33201E,,,,,Turpentine,,,,18
+33241E,,,,,White spirit,,,,17
+33281D,,,,Polymers,,,,,19
+33321D,,,,Pyrolysis products,,,,,21
+33361D,,,,Substances originating from production processes,,,,,21
+33401E,,,,,Animal feedstuff dust,,,,21
+33441E,,,,,Cotton dust,,,,21
+33481E,,,,,Grain dust,,,,21
+33521E,,,,,Engine exhaust,,,,21
+33531F,,,,,,Diesel engine exhaust,,,1
+33561E,,,,,Flour dust,,,,21
+33601E,,,,,Rubber fumes,,,,21
+33641E,,,,,Textile fibres,,,,21
+33681E,,,,,Welding fumes,,,,21
+33721E,,,,,Wood dust,,,,21
+33761C,,,Chemical hazards related to effects,,,,,,21
+33801D,,,,Allergens,,,,,18
+33841E,,,,,Isocyanates,,,,20
+33881E,,,,,Respiratory sensitisers,,,,21
+33921E,,,,,Skin sensitisers,,,,21
+33961D,,,,Asthmagens,,,,,21
+34001D,,,,Asphyxiants,,,,,21
+34041D,,,,Carcinogens,,,,,20
+34051D,,,,Dermotoxin,,,,,1
+34061D,,,,Dioxin,,,,,1
+34071D,,,,Immunotoxin,,,,,1
+34081D,,,,Irritants,,,,,21
+34121D,,,,Mutagens,,,,,19
+34141D,,,,Ototoxic substances,,,,,1
+34161D,,,,Reprotoxic substances,,,,,21
+34201E,,,,,Teratogenic substances,,,,21
+34241E,,,,,Endocrine disruptors,,,,21
+34321D,,,,Narcotics,,,,,20
+34361D,,,,Neurotoxic substances,,,,,21
+34381D,,,,Oxidants,,,,,1
+34401D,,,,Toxic substances,,,,,21
+34441D,,,,Lacrimating agents,,,,,20
+34481D,,,,Fibrogenic agents,,,,,21
+34521C,,,Chemical hazards related to state,,,,,,21
+34561D,,,,Aerosols,,,,,18
+34601E,,,,,Bioaerosols,,,,18
+34641D,,,,Colloids,,,,,20
+34681D,,,,Crystals,,,,,21
+34721D,,,,Emulsions,,,,,20
+34761D,,,,Fluids,,,,,21
+34801D,,,,Foams,,,,,20
+34841D,,,,Fumes,,,,,21
+34881D,,,,Gases,,,,,20
+34921E,,,,,Compressed gases,,,,21
+34961F,,,,,,Ammonia,,,20
+35001F,,,,,,Carbon dioxide,,,20
+35041F,,,,,,Carbon monoxide,,,21
+35081F,,,,,,Chlorine,,,19
+35091F,,,,,,Compressed air,,,1
+35121F,,,,,,Ethylene oxide,,,21
+35161F,,,,,,Hydrogen cyanide,,,20
+35201F,,,,,,Hydrogen sulphide,,,21
+35221F,,,,,,Liquefied natural gas (LNG),,,1
+35241F,,,,,,Liquefied petroleum gas,,,21
+35281F,,,,,,Ozone,,,15
+35321F,,,,,,Phosgene,,,18
+35361F,,,,,,Phosphine,,,20
+35401F,,,,,,Sulphur dioxide,,,21
+35441E,,,,,Dissolved gases,,,,21
+35481D,,,,Gels,,,,,19
+35521D,,,,Inorganic dusts,,,,,20
+35561D,,,,Organic dusts,,,,,21
+35601D,,,,Liquids,,,,,21
+35641D,,,,Mists,,,,,21
+35681D,,,,Mixtures,,,,,21
+35721E,,,,,Gas-air mixtures,,,,21
+35761D,,,,Molten materials,,,,,21
+35801D,,,,Solids,,,,,20
+35841D,,,,Solutions,,,,,21
+35881D,,,,Suspensions,,,,,20
+35921C,,,Chemical hazards related to occurrence in the workplace,,,,,,21
+35961D,,,,Dusts,,,,,21
+36001E,,,,,Airborne,,,,21
+36041E,,,,,Respirable,,,,20
+36081E,,,,,Deposited,,,,21
+36121E,,,,,Thoracic,,,,21
+36161D,,,,Vapours,,,,,21
+36201D,,,,Fibres,,,,,19
+36241E,,,,,Textile fibres,,,,21
+36281E,,,,,Man-made fibres,,,,21
+36321F,,,,,,Fibre glass,,,20
+36361D,,,,Ashes,,,,,21
+36401E,,,,,Flyash,,,,20
+36441D,,,,Smoke,,,,,21
+36481E,,,,,Tobacco smoke,,,,21
+36521D,,,,Soot,,,,,21
+36561C,,,Chemical hazards related to use in the workplace,,,,,,21
+36601D,,,,Abrasives,,,,,21
+36641D,,,,Additives,,,,,20
+36681D,,,,Adhesives,,,,,21
+36691D,,,,Biocide,,,,,1
+36721D,,,,Building materials,,,,,21
+36761E,,,,,Cement,,,,13
+36801F,,,,,,Concrete,,,15
+36841D,,,,Catalysts,,,,,20
+36881D,,,,Cleaning agents,,,,,21
+36921D,,,,Cutting fluids,,,,,21
+36961D,,,,Cosmetics,,,,,19
+37001D,,,,Detergents,,,,,20
+37041D,,,,Disinfectants,,,,,21
+37081D,,,,Dyes,,,,,21
+37121D,,,,Electrolytes,,,,,21
+37161D,,,,Fertilizers,,,,,21
+37201D,,,,Fuels,,,,,19
+37241D,,,,Glues,,,,,20
+37281D,,,,Inhibitors,,,,,18
+37321D,,,,Insulators,,,,,20
+37361D,,,,Inks,,,,,21
+37401D,,,,Ion exchangers,,,,,21
+37441D,,,,Leather chemicals,,,,,21
+37481D,,,,Lubricants,,,,,20
+37521D,,,,Packaging materials,,,,,21
+37561D,,,,Paints,,,,,21
+37601D,,,,Pesticides,,,,,21
+37641E,,,,,Bipyridyl compounds,,,,21
+37681F,,,,,,Diquat,,,12
+37721F,,,,,,Paraquat,,,12
+37761E,,,,,Carbamates,,,,21
+37771E,,,,,Chemosterilant,,,,1
+37801E,,,,,Crop Spraying,,,,21
+37841E,,,,,Dips,,,,21
+37881E,,,,,Dithiocarbamates,,,,21
+37921E,,,,,Fumigants,,,,20
+37961E,,,,,Fungicides,,,,21
+38001E,,,,,Germicides,,,,20
+38051E,,,,,Insecticide,,,,1
+38061F,,,,,,Insect repellent,,,1
+38071E,,,,,Molluscicide,,,,1
+38081E,,,,,Organochlorines,,,,21
+38121E,,,,,Organophosphates,,,,21
+38131E,,,,,Pesticide residue,,,,1
+38141E,,,,,Pesticide Synergist,,,,1
+38161E,,,,,Pyrethroids,,,,19
+38041E,,,,,Herbicides,,,,21
+38181E,,,,,Rodenticide,,,,1
+38201D,,,,Pharmaceuticals,,,,,21
+38241E,,,,,Anaesthetics,,,,21
+38281E,,,,,Antibiotics,,,,19
+38321E,,,,,Antidotes,,,,21
+38361E,,,,,Antineoplastic drugs,,,,21
+38401E,,,,,Antiviral substances,,,,21
+38441E,,,,,Cytotoxic drugs,,,,21
+38481E,,,,,Recreational drugs,,,,21
+38521E,,,,,Vaccinations,,,,21
+38561E,,,,,Veterinary medicines,,,,21
+38601D,,,,Photographic chemicals,,,,,20
+38641D,,,,Plastics,,,,,21
+38681E,,,,,Polystyrene,,,,19
+38721F,,,,,,Styrene,,,18
+38761E,,,,,Polyvinylchloride,,,,18
+38801F,,,,,,Vinyl chloride,,,18
+38841D,,,,Preservatives,,,,,21
+38881E,,,,,Wood preservatives,,,,21
+38921D,,,,Refrigerants,,,,,21
+38961D,,,,Solvents,,,,,21
+39001E,,,,,Cleaning fluids,,,,21
+39041E,,,,,Degreasing agents,,,,21
+39081E,,,,,Thinners,,,,21
+39121E,,,,,Alcohols,,,,17
+39161F,,,,,,Ethanol,,,13
+39201F,,,,,,Isopropanol,,,13
+39241E,,,,,Chlorinated hydrocarbons,,,,21
+39281E,,,,,Esters,,,,19
+39321E,,,,,Ethers,,,,20
+39331F,,,,,,Phthalates,,,1
+39341F,,,,,,Phenols,,,1
+39361E,,,,,Glycol ethers,,,,21
+39401E,,,,,Glycols,,,,19
+39441E,,,,,Hydrocarbons,,,,21
+39481F,,,,,,Benzene,,,18
+39521F,,,,,,Toluene,,,16
+39561E,,,,,Ketones,,,,19
+39601D,,,,Sorbents,,,,,19
+39641D,,,,Surfactants,,,,,21
+39681D,,,,Tanning agents,,,,,21
+39721D,,,,Textiles,,,,,20
+39761D,,,,Textile chemicals,,,,,21
+39801D,,,,Varnishes,,,,,20
+39841D,,,,Vulcanising agents,,,,,21
+39881B,,Materials handling hazards,,,,,,,21
+39921C,,,Manual handling,,,,,,21
+39961D,,,,Carrying,,,,,21
+40001D,,,,Heavy lifting,,,,,21
+40041D,,,,Patient handling,,,,,21
+40081D,,,,"Pushing, pulling",,,,,21
+40121D,,,,Holding,,,,,21
+40161C,,,Mechanical handling,,,,,,21
+40201B,,Multi-factorial work hazards,,,,,,,21
+40251B,,Nanoscale materials,,,,,,,1
+40256C,,,Nanoparticles,,,,,,1
+40261C,,,Ultrafine particles,,,,,,1
+40271B,,Nanotechnology,,,,,,,1
+40281B,,Physical hazards,,,,,,,21
+40321C,,,Electrical hazards,,,,,,21
+40361D,,,,Electrical cabling and wiring,,,,,21
+40401E,,,,,Extension cords,,,,21
+40441E,,,,,Power lines,,,,21
+40481D,,,,Electricity,,,,,20
+40521E,,,,,Static electricity,,,,20
+40561C,,,Noise,,,,,,20
+40601D,,,,Long-term exposure to excessive noise,,,,,21
+40641D,,,,Impulse noise,,,,,21
+40681D,,,,Peak sound level (acute exposure),,,,,21
+40721D,,,,Disturbing noise (below 85dB),,,,,21
+40761D,,,,Ultra sound,,,,,21
+40801C,,,Pressure,,,,,,20
+40841C,,,Radiation hazards,,,,,,21
+40881D,,,,Ionising radiation,,,,,21
+40921E,,,,,Gamma rays,,,,21
+40961E,,,,,Radon,,,,9
+41001E,,,,,X-rays,,,,21
+41021D,,,,Radioactive substances,,,,,1
+41041D,,,,Non-ionising radiation,,,,,21
+41081E,,,,,Electromagnetic radiation,,,,21
+41091E,,,,,Electromagnetic compatibility,,,,1
+41121E,,,,,ELF radiation,,,,21
+41161E,,,,,Infrared radiation,,,,21
+41201E,,,,,Laser radiation,,,,21
+41241E,,,,,Magnetic fields,,,,21
+41281E,,,,,Microwave radiation,,,,21
+41301E,,,,,Optical radiation,,,,1
+41321E,,,,,Radio-frequency radiation,,,,21
+41361E,,,,,Solar radiation,,,,21
+41401E,,,,,Ultraviolet radiation,,,,21
+41441C,,,Thermal hazards,,,,,,21
+41481D,,,,Cold,,,,,21
+41521D,,,,Heat,,,,,21
+41561C,,,Vibration,,,,,,19
+41601D,,,,Hand-arm vibration,,,,,21
+41641D,,,,Whole body vibration,,,,,21
+41681B,,"Hazards in plant, machinery and work equipment",,,,,,,21
+41721C,,,Agricultural machinery,,,,,,21
+41761D,,,,Mechanical harvesters,,,,,21
+41801D,,,,Tractors,,,,,19
+41841C,,,Amusement devices,,,,,,21
+41881C,,,Automation,,,,,,20
+41921D,,,,Automated assembly lines,,,,,21
+41961D,,,,Robots,,,,,18
+42001C,,,Compressors,,,,,,19
+42041D,,,,Air compressors,,,,,20
+42081C,,,Conveyors,,,,,,21
+42121C,,,Containers,,,,,,21
+42161C,,,Electrical equipment,,,,,,21
+42201D,,,,Batteries,,,,,20
+42241E,,,,,Lead-acid batteries,,,,21
+42281E,,,,,Lithium batteries,,,,21
+42321D,,,,Electric motors,,,,,21
+42361D,,,,Generators,,,,,19
+42401C,,,Elevated work platforms,,,,,,21
+42441C,,,Gas cylinders,,,,,,21
+42481C,,,Ladders,,,,,,21
+42521C,,,Levers,,,,,,20
+42561C,,,Material handling equipment,,,,,,21
+42601D,,,,Earthmoving equipment,,,,,21
+42641E,,,,,Bulldozers,,,,18
+42681E,,,,,Excavators,,,,21
+42721E,,,,,Front end loaders,,,,21
+42761E,,,,,Graders,,,,21
+42801E,,,,,Wheel barrow,,,,21
+42841D,,,,Lifting equipment,,,,,21
+42881E,,,,,Cranes,,,,21
+42921E,,,,,Derricks,,,,21
+43001E,,,,,Hoists,,,,21
+43041E,,,,,Lifts,,,,21
+43081E,,,,,Slings,,,,21
+43091D,,,,Mobile work equipment,,,,,1
+43096E,,,,,Lift truck,,,,1
+43121C,,,Machine tools,,,,,,21
+43161D,,,,Abrasive blasting equipment,,,,,21
+43201D,,,,Abrasive wheels,,,,,21
+43241D,,,,Buffing machines,,,,,21
+43281D,,,,Grinding machines,,,,,21
+43321D,,,,Polishing machines,,,,,21
+43361C,,,Medical equipment,,,,,,21
+43401C,,,Metalworking machinery,,,,,,21
+43441C,,,Mining machinery,,,,,,21
+43481C,,,Moving vehicles,,,,,,21
+43491D,,,,Human-powered vehicle,,,,,1
+43501E,,,,,Bicycle,,,,1
+43521D,,,,Motor vehicles,,,,,21
+43561E,,,,,Cars,,,,21
+43581E,,,,,Bus,,,,1
+43601E,,,,,Lorries,,,,21
+43611E,,,,,Motorcycle,,,,1
+43616E,,,,,Taxi,,,,1
+43621E,,,,,Van,,,,1
+43641C,,,Office equipment,,,,,,21
+43681D,,,,Computers,,,,,21
+43721E,,,,,Laptops,,,,21
+43761E,,,,,Visual display units,,,,21
+43801E,,,,,Mouse,,,,19
+43841E,,,,,Keyboards,,,,21
+43881E,,,,,Software,,,,15
+43921E,,,,,Computer networks,,,,21
+43961F,,,,,,Wireless data communication,,,21
+44001D,,,,Photocopiers,,,,,21
+44041D,,,,Printers,,,,,21
+44081D,,,,Telephones,,,,,18
+44121E,,,,,Mobile phones,,,,20
+44161C,,,Pallets,,,,,,20
+44201C,,,Pressure systems,,,,,,20
+44241D,,,,Pressure vessels,,,,,20
+44281E,,,,,Boilers,,,,21
+44321E,,,,,Turbines,,,,15
+44361C,,,Pumps,,,,,,21
+44381C,,,Radio equipment,,,,,,1
+44401C,,,Refrigeration machinery,,,,,,21
+44441C,,,Saws,,,,,,21
+44481D,,,,Chain saws,,,,,21
+44521D,,,,Circular saws,,,,,21
+44561C,,,Scaffolds,,,,,,21
+44601C,,,Silos,,,,,,18
+44641C,,,Engines,,,,,,20
+44681C,,,Tanks,,,,,,21
+44721C,,,Textile industry machinery,,,,,,21
+44761C,,,Tools,,,,,,21
+44801D,,,,Hand tools,,,,,21
+44841E,,,,,Knife handling,,,,21
+44881D,,,,Power tools,,,,,21
+44921E,,,,,Gas-powered tools,,,,21
+44961E,,,,,Hydraulic power tools,,,,21
+45001F,,,,,,Jacks,,,21
+45041E,,,,,Pneumatic tools,,,,21
+45081F,,,,,,Drills,,,21
+45121F,,,,,,Jackhammers,,,21
+45161E,,,,,Powder-actuated tools,,,,21
+45201C,,,Trailers,,,,,,21
+45241C,,,Trolleys,,,,,,21
+45281C,,,Tyres,,,,,,20
+45321C,,,Woodworking machinery,,,,,,21
+45361B,,Psychological and organisational hazards,,,,,,,21
+45371C,,,Discrimination,,,,,,1
+45376D,,,,Age discrimination,,,,,1
+45381D,,,,Discrimination on the basis of disability,,,,,1
+45386D,,,,Discrimination on the basis of race or ethnicity,,,,,1
+45391D,,,,Discrimination on the basis of sexual orientation,,,,,1
+45396D,,,,Discrimination by gender,,,,,1
+45401C,,,Job insecurity,,,,,,21
+45441C,,,Sexual harassment,,,,,,21
+45521C,,,Monotonous work,,,,,,21
+45561C,,,Role in organisation,,,,,,21
+45601D,,,,Role ambiguities,,,,,21
+45641D,,,,Role conflicts,,,,,21
+45721C,,,Isolated work,,,,,,21
+45761C,,,Bullying,,,,,,21
+45801C,,,Violence,,,,,,21
+45841D,,,,Aggression,,,,,19
+45881E,,,,,Verbal abuse,,,,21
+45921E,,,,,Threats,,,,21
+45961D,,,,Robbery,,,,,21
+46001E,,,,,Armed robbery,,,,21
+46041C,,,Work load,,,,,,21
+46081D,,,,Work overload,,,,,21
+46121D,,,,Work underload,,,,,21
+46161C,,,Intensity of work,,,,,,21
+46201D,,,,High speed of work,,,,,21
+46321C,,,Lack of control,,,,,,21
+46326D,,,,Machine dictated work pace,,,,,1
+46331C,,,Psychosocial work demands,,,,,,1
+46336D,,,,Psychosocial work environment,,,,,1
+46341E,,,,,Communication,,,,1
+46346E,,,,,Decision authority,,,,1
+46351E,,,,,Information at work,,,,1
+46356E,,,,,Job satisfaction,,,,1
+46358F,,,,,,Dignity at work,,,1
+46366E,,,,,Managerial style,,,,1
+46368F,,,,,,Quality of leadership,,,1
+46371E,,,,,Organisational culture,,,,1
+46373F,,,,,,Organisational climate,,,1
+46376E,,,,,Organisational structure,,,,1
+46381E,,,,,Participation,,,,1
+46386E,,,,,Performance monitoring and rewards,,,,1
+46388F,,,,,,Electronic work monitoring,,,1
+46391E,,,,,Social support,,,,1
+46396E,,,,,Work motivation,,,,1
+46401A,Ill health and accidents,,,,,,,,21
+46441B,,"Accidents, incidents",,,,,,,21
+46481C,,,Causes of accidents,,,,,,21
+46521D,,,,Accident models,,,,,21
+46561D,,,,Human errors,,,,,21
+46601D,,,,Unsafe conditions,,,,,21
+46641C,,,Commuting accidents,,,,,,21
+46681C,,,Consequences of accidents,,,,,,21
+46721D,,,,Costs of accidents,,,,,21
+46761D,,,,Absence from work following accident,,,,,1
+46801D,,,,Lost working time,,,,,21
+46841D,,,,Production disturbances,,,,,21
+46881C,,,Disasters,,,,,,20
+46921C,,,Evacuations,,,,,,21
+46941D,,,,Crowd control,,,,,1
+46961C,,,Explosions,,,,,,21
+47001D,,,,Dust explosions,,,,,21
+47041D,,,,Gas explosions,,,,,21
+47081C,,,Fires,,,,,,21
+47121D,,,,Building fires,,,,,21
+47161D,,,,Forest fires,,,,,21
+47201C,,,Leisure time accidents,,,,,,21
+47241D,,,,Home accidents,,,,,21
+47281D,,,,Sport accidents,,,,,21
+47321C,,,Work accidents,,,,,,21
+47361D,,,,Agricultural accidents,,,,,21
+47401D,,,,Chemical spills,,,,,21
+47441D,,,,Construction accidents,,,,,21
+47481D,,,,Electrical accidents,,,,,21
+47521E,,,,,Electric shocks,,,,21
+47561E,,,,,Electrocution,,,,21
+47601D,,,,"Injuries from falling, flying or other moving object",,,,,21
+47641D,,,,Hurting oneself on an object,,,,,21
+47681D,,,,Injuries from moving machine part or tool,,,,,21
+47721D,,,,Radiation accidents,,,,,21
+47761D,,,,"Slips, trips, falls",,,,,21
+47771E,,,,,Fall from height,,,,1
+47781E,,,,,Fall into water,,,,1
+47801C,,,Transport accidents,,,,,,21
+47841D,,,,Air transport accidents,,,,,21
+47881D,,,,Rail accidents,,,,,21
+47921D,,,,Road accidents,,,,,21
+47961D,,,,Transport accidents at the workplace,,,,,21
+48001D,,,,Transport accidents of dangerous goods,,,,,21
+48041D,,,,Water transport accidents,,,,,21
+48081C,,,Severity of accidents,,,,,,21
+48121D,,,,Near misses,,,,,21
+48161D,,,,Minor accidents,,,,,21
+48201D,,,,3 days or more-accidents,,,,,21
+48241D,,,,Permanent disabilities,,,,,20
+48281D,,,,Fatalities,,,,,21
+48321C,,,Type of injuries,,,,,,21
+48331D,,,,Abdominal injury,,,,,1
+48341D,,,,Bites and stings,,,,,1
+48351D,,,,Electrical injuries,,,,,1
+48361D,,,,Superficial injuries,,,,,21
+48401E,,,,,Wounds,,,,20
+48441F,,,,,,Gun wounds,,,21
+48481E,,,,,Lacerations,,,,21
+48521D,,,,Bone fractures,,,,,21
+48561D,,,,Dislocations,,,,,21
+48571D,,,,Eye injuries,,,,,1
+48581E,,,,,Arc-eye,,,,1
+48601D,,,,Sprains,,,,,21
+48621D,,,,Head injuries,,,,,1
+48641D,,,,Loss of body parts,,,,,21
+48681D,,,,Concussions,,,,,21
+48721D,,,,Internal injuries,,,,,21
+48761D,,,,Burns,,,,,20
+48801D,,,,Chemical burns (corrosions),,,,,21
+48841D,,,,Frostbites,,,,,20
+48881D,,,,Acute poisonings,,,,,21
+48921D,,,,Acute infections,,,,,21
+48961D,,,,Drowning,,,,,21
+49001D,,,,"Effects of sound, vibration and pressure",,,,,21
+49041E,,,,,Acute hearing losses,,,,21
+49081E,,,,,Effects of pressure,,,,21
+49091D,,,,Effects of radiation exposure,,,,,1
+49121D,,,,"Effects of temperature extremes, light, radiation",,,,,21
+49131E,,,,,Heat stress,,,,1
+49141F,,,,,,Heat stroke,,,1
+49201D,,,,Shocks,,,,,20
+49241D,,,,Multiple injuries,,,,,21
+49281C,,,Sabotages,,,,,,19
+49321D,,,,Terrorist attacks,,,,,20
+49361B,,Disease susceptibility,,,,,,,21
+49401B,,Recognised occupational diseases,,,,,,,21
+49441B,,Diseases,,,,,,,20
+49481C,,,Allergy,,,,,,15
+49521D,,,,Allergic alveolitis,,,,,21
+49561E,,,,,Farmers lung,,,,21
+49601D,,,,Allergic rhinitis,,,,,21
+49641D,,,,Allergy to laboratory animals,,,,,21
+49681D,,,,Latex allergy,,,,,19
+49721C,,,Cancer,,,,,,19
+49761D,,,,Bladder cancer,,,,,21
+49781D,,,,Bone cancer,,,,,1
+49801D,,,,Brain cancer,,,,,21
+49811D,,,,Breast cancer,,,,,1
+49821D,,,,Colon cancer,,,,,1
+49831D,,,,Colorectal cancer,,,,,1
+49841D,,,,Eye cancer,,,,,21
+49851D,,,,Gastrointestinal cancer,,,,,1
+49861D,,,,Kidney cancer,,,,,1
+49871D,,,,Larynx cancer,,,,,1
+49881D,,,,Leukaemia,,,,,20
+49891D,,,,Liver cancer,,,,,1
+49921D,,,,Lung cancer,,,,,21
+49931D,,,,Lymphatic cancer,,,,,1
+49941E,,,,,Lymphoma,,,,1
+49946F,,,,,,Hodgkin's disease,,,1
+49951D,,,,Melanoma,,,,,1
+49961D,,,,Mesothelioma,,,,,16
+50001D,,,,Nasal cancer,,,,,21
+500021D,,,,Pancreatic cancer,,,,,1
+50041D,,,,Skin cancer,,,,,21
+50061D,,,,Stomach cancer,,,,,1
+50081D,,,,Throat cancer,,,,,21
+50121D,,,,Other cancers,,,,,21
+50161C,,,Chronic disease,,,,,,21
+50201C,,,Chronic pain,,,,,,21
+50211C,,,Circulatory diseases,,,,,,1
+50216D,,,,Cardiovascular diseases,,,,,1
+50221E,,,,,Varicose veins,,,,1
+50241C,,,Decompression sickness,,,,,,21
+50251C,,,"Endocrine, nutritional and metabolic diseases",,,,,,1
+50256D,,,,Diabetes,,,,,1
+50258D,,,,Metabolic disorders,,,,,1
+50261C,,,Digestive system disorders,,,,,,1
+50266D,,,,Hernias,,,,,1
+50361C,,,Fatigue,,,,,,21
+50401D,,,,Sleep problems,,,,,21
+50441D,,,,Driver fatigue,,,,,21
+50481D,,,,Mental fatigue,,,,,21
+50521D,,,,Physical fatigue,,,,,20
+50601C,,,Headaches,,,,,,21
+50641C,,,Hearing loss,,,,,,21
+50681C,,,Heart attack,,,,,,20
+50801C,,,Hypertension,,,,,,19
+50841C,,,Hyperthermia,,,,,,16
+50881C,,,Hypothermia,,,,,,16
+50901C,,,Hypoxia,,,,,,1
+50921C,,,Infectious diseases,,,,,,21
+50961D,,,,Blood borne diseases,,,,,21
+51001E,,,,,AIDS,,,,7
+51041E,,,,,Hepatitis,,,,17
+51081F,,,,,,Hepatitis A,,,16
+51121F,,,,,,Hepatitis B,,,16
+51161F,,,,,,Hepatitis C,,,16
+51201F,,,,,,Jacob-Kreutzfeld disease,,,21
+51241D,,,,Hospital acquired infections,,,,,21
+51251D,,,,Influenza,,,,,1
+51271D,,,,Tuberculosis,,,,,1
+51281D,,,,Zoonoses,,,,,19
+51291E,,,,,Anthrax,,,,1
+51301E,,,,,Avian influenza,,,,1
+51321E,,,,,Borreliosis,,,,20
+51361E,,,,,Brucellosis,,,,19
+51371E,,,,,Hantavirus,,,,1
+51401E,,,,,Leptospirosis,,,,18
+51421F,,,,,,Weils disease,,,1
+51441E,,,,,Foot and Mouth Disease,,,,21
+51481E,,,,,Q fever,,,,21
+51521E,,,,,Toxoplasmosis,,,,18
+51581C,,,Kidney disease,,,,,,1
+51601C,,,Liver diseases,,,,,,21
+51641C,,,Mental health disorders,,,,,,21
+51681D,,,,Mental illness,,,,,21
+51721D,,,,Psychiatric disorders,,,,,20
+51761E,,,,,Addiction,,,,21
+51801E,,,,,Anxiety disorders,,,,21
+51841E,,,,,Depression,,,,18
+51881E,,,,,Eating disorders,,,,21
+51921E,,,,,Phobias,,,,18
+51961D,,,,Stress,,,,,10
+52001E,,,,,Burnout,,,,20
+52041E,,,,,Post-traumatic stress syndrome,,,,21
+52081C,,,Metal fume fevers,,,,,,21
+52121C,,,Musculoskeletal disorders,,,,,,21
+52141D,,,,Arthritis,,,,,1
+52151D,,,,Arthrosis,,,,,1
+52161D,,,,Back injuries,,,,,21
+52201D,,,,Neck injuries,,,,,21
+52241D,,,,Carpal tunnel syndromes,,,,,21
+52281D,,,,Repetitive strain injuries,,,,,20
+52321D,,,,Tendinitis,,,,,16
+52331D,,,,Tenosynovitis,,,,,1
+52361D,,,,Shoulder injuries,,,,,21
+52401D,,,,Upper limb disorders,,,,,21
+52441E,,,,,Arm injuries,,,,21
+52481E,,,,,Elbow injuries,,,,21
+52521E,,,,,Hand injuries,,,,21
+52561E,,,,,Hand-arm vibration syndrome,,,,21
+52601E,,,,,Wrist injuries,,,,21
+52641D,,,,Lower limb disorders,,,,,21
+52651E,,,,,Foot disorders,,,,1
+52656E,,,,,Knee disorders,,,,1
+52661E,,,,,Hip disorder,,,,1
+52671C,,,Nasal disorders,,,,,,1
+52681C,,,Neuropsychiatric diseases,,,,,,21
+52721D,,,,Brain damages,,,,,21
+52761D,,,,Nerve damages,,,,,21
+52771D,,,,Parkinson's disease,,,,,1
+52781C,,,Obesity,,,,,,1
+52801C,,,Respiratory and lung diseases,,,,,,1
+52811D,,,,Aspergillosis,,,,,1
+52841D,,,,Asthma,,,,,10
+52881E,,,,,Scampi peelers asthma,,,,21
+52921D,,,,Breathing problems,,,,,21
+52961D,,,,Bronchitis,,,,,19
+53001D,,,,Byssinosis,,,,,20
+53011D,,,,Caplan's syndrome,,,,,1
+53041D,,,,Emphysema,,,,,20
+53081D,,,,Sinusitis,,,,,18
+53121D,,,,Legionnaires' disease,,,,,21
+53161D,,,,Mushroom workers lung,,,,,21
+53201D,,,,Obstructive respiratory diseases,,,,,21
+53221D,,,,Organic dust diseases,,,,,1
+53241D,,,,Pneumoconiosis,,,,,21
+53281E,,,,,Anthracosis,,,,21
+53321E,,,,,Asbestosis,,,,18
+53361E,,,,,Beryllium disease,,,,21
+53401E,,,,,Silicosis,,,,19
+53421D,,,,Pneumonia,,,,,1
+53431E,,,,,Psittacosis,,,,1
+53441D,,,,Rhinitis,,,,,21
+53481D,,,,Severe acute respiratory syndrome,,,,,21
+53491D,,,,Siderosis,,,,,1
+53501D,,,,Silo filler's disease,,,,,1
+53521C,,,Reproductive disorders,,,,,,21
+53561C,,,Sensitisation,,,,,,21
+53601D,,,,Drug induced hypersensitivity,,,,,21
+53641E,,,,,Photosensitivity,,,,21
+53681D,,,,Multiple chemical sensitivity,,,,,21
+53701C,,,Sick building syndrome,,,,,,1
+53721C,,,Skin diseases,,,,,,21
+53761D,,,,Acne,,,,,13
+53801D,,,,Contact dermatitis,,,,,21
+53841D,,,,Chromium ulcers,,,,,20
+53881D,,,,Rashes,,,,,20
+53921D,,,,Skin sensitisation,,,,,21
+53961C,,,Tinnitus,,,,,,19
+54001C,,,Viral diseases,,,,,,21
+54041D,,,,Rabies,,,,,20
+54081D,,,,Smallpox,,,,,21
+54121D,,,,Viral haemorrhagic fever,,,,,21
+54131C,,,Voice and speech disorders,,,,,,1
+54141D,,,,Vocal cord injuries,,,,,1
+54161A,Work and workers,,,,,,,,21
+54201B,,Stakeholders,,,,,,,21
+54241C,,,Type of workers,,,,,,21
+54281D,,,,Ageing and older workers,,,,,1
+54321D,,,,Atypical workers,,,,,21
+54361E,,,,,Temporary workers,,,,21
+54401E,,,,,Agency workers,,,,21
+54441D,,,,Blue-collar workers,,,,,21
+54451D,,,,Care worker,,,,,1
+54461D,,,,Clandestine worker,,,,,1
+54471D,,,,Cleaning worker,,,,,1
+54481D,,,,Contingent workers,,,,,21
+54521D,,,,Disabled workers,,,,,20
+54541D,,,,Drivers,,,,,1
+54561D,,,,Employees,,,,,21
+54601D,,,,Executives,,,,,21
+54641E,,,,,Chief Executive Officers,,,,21
+54681D,,,,Home carers,,,,,21
+54721D,,,,Home workers,,,,,21
+54781D,,,,Lifeguard,,,,,1
+54801D,,,,Lone workers,,,,,21
+54841D,,,,Managers,,,,,21
+54881D,,,,Men,,,,,21
+54921E,,,,,Fathers,,,,21
+54961D,,,,Migrant and immigrant workers,,,,,1
+55001D,,,,New workers,,,,,20
+55041D,,,,On-call workers,,,,,21
+55081D,,,,Relocated workers,,,,,21
+55091D,,,,Rescue worker,,,,,1
+55121D,,,,Supervisors,,,,,21
+55161D,,,,Union officials,,,,,21
+55201D,,,,Volunteers,,,,,21
+55261D,,,,Maintenance worker,,,,,1
+55281D,,,,Mobile workers,,,,,20
+55321D,,,,Part-time workers,,,,,21
+55361D,,,,Seasonal workers,,,,,21
+55371D,,,,Service sector workers,,,,,1
+55381E,,,,,Hairdressers and barbers,,,,1
+55391E,,,,,Security workers,,,,1
+55401D,,,,Sex workers,,,,,21
+55441D,,,,Shift workers,,,,,21
+55481D,,,,Soldiers,,,,,20
+55521E,,,,,Officers,,,,21
+55541D,,,,Teachers and educators,,,,,1
+55561D,,,,Teleworkers,,,,,21
+55601D,,,,White-collar workers,,,,,21
+55641D,,,,Women,,,,,20
+55681E,,,,,Pregnant workers,,,,21
+55721E,,,,,Mothers,,,,20
+55761F,,,,,,Nursing mothers,,,21
+55781E,,,,,Women going through the menopause,,,,1
+55801D,,,,Unemployed,,,,,21
+55841D,,,,Young workers,,,,,20
+55851E,,,,,Child worker,,,,1
+55861E,,,,,Adolescent workers,,,,1
+55881E,,,,,Apprentices,,,,20
+55921C,,,Other stakeholders,,,,,,21
+55961D,,,,Architects,,,,,19
+56001D,,,,Children,,,,,21
+56041D,,,,Clients,,,,,19
+56081D,,,,Contractors,,,,,21
+56121D,,,,Designers,,,,,20
+56161D,,,,Insurance officers,,,,,21
+56201D,,,,Labour inspectors,,,,,21
+56241D,,,,Mediators,,,,,21
+56281D,,,,Patients,,,,,18
+56321D,,,,Pupils,,,,,20
+56361D,,,,Policy makers,,,,,21
+56371D,,,,Parent,,,,,1
+56401D,,,,Public,,,,,20
+56441D,,,,Researchers,,,,,21
+56481D,,,,Residents of care facilities,,,,,21
+56521D,,,,Shareholders,,,,,21
+56561D,,,,Suppliers,,,,,21
+56601D,,,,Social partners,,,,,21
+56641E,,,,,Employers,,,,21
+56681E,,,,,Trade unions,,,,21
+56721D,,,,Visitors,,,,,21
+56761B,,Workplaces,,,,,,,21
+56801C,,,Character of workplaces,,,,,,21
+56841D,,,,Outdoor work,,,,,21
+56881E,,,,,Roof work,,,,21
+56921E,,,,,Natural environment,,,,21
+56961F,,,,,,Weather conditions,,,21
+57001D,,,,Temporary workplaces,,,,,21
+57041D,,,,Permanent workplaces,,,,,21
+57081E,,,,,Buildings,,,,20
+57121D,,,,Mobile workplaces,,,,,21
+57161C,,,Activity centres and amusement parks,,,,,,1
+57201C,,,Banks and building societies,,,,,,21
+57241C,,,Call centres,,,,,,21
+57281C,,,Catering and accommodation establishments,,,,,,21
+57301D,,,,Bars and pubs,,,,,1
+57321D,,,,Cafes and restaurants,,,,,1
+57361D,,,,Hotels and guesthouses,,,,,1
+57401D,,,,Licensed clubs,,,,,21
+57441E,,,,,Nightclubs,,,,21
+57481E,,,,,Social clubs,,,,21
+57521C,,,Chemical plants,,,,,,21
+57561C,,,Child care establishments,,,,,,21
+57601D,,,,Childrens homes,,,,,21
+57641D,,,,Day nurseries,,,,,21
+57681C,,,Cold stores,,,,,,21
+57721C,,,Construction sites,,,,,,21
+57761C,,,Container terminals,,,,,,20
+57801C,,,Confined spaces,,,,,,21
+57841C,,,Harbours,,,,,,21
+57881C,,,Domestic workplaces,,,,,,21
+57921C,,,Educational establishments,,,,,,21
+57961D,,,,Colleges,,,,,21
+58001D,,,,Schools,,,,,20
+58041C,,,Factories,,,,,,21
+58081C,,,Farms,,,,,,20
+58121C,,,Foundries,,,,,,21
+58141C,,,Garages and depots,,,,,,1
+58161C,,,Hazardous installations,,,,,,21
+58211C,,,Health care facility,,,,,,1
+58221D,,,,Hospitals,,,,,1
+58231D,,,,Dental clinic,,,,,1
+58241C,,,Hostels,,,,,,21
+58281C,,,Kitchens,,,,,,21
+58321C,,,Laboratories,,,,,,20
+58331C,,,Laundry,,,,,,1
+58361C,,,Leisure centres,,,,,,21
+58401C,,,Libraries,,,,,,21
+58441C,,,Mines,,,,,,21
+58481C,,,Military bases,,,,,,21
+58521C,,,Nuclear installations,,,,,,21
+58561C,,,Offices,,,,,,21
+58601C,,,Offshore installations,,,,,,21
+58641C,,,Oil refineries,,,,,,20
+58661C,,,Performance venue,,,,,,1
+58681C,,,Places of worship,,,,,,21
+58721C,,,Post offices,,,,,,21
+58761C,,,Power stations,,,,,,21
+58771C,,,Prison,,,,,,1
+58801C,,,Public spaces,,,,,,21
+58841C,,,Quarries,,,,,,20
+58881C,,,Residential care homes,,,,,,21
+58921C,,,Retail outlets,,,,,,21
+58961D,,,,Bakeries,,,,,20
+59001D,,,,Car salesrooms,,,,,21
+59041D,,,,Department stores,,,,,21
+59081D,,,,Petrol stations,,,,,21
+59121D,,,,Garden centres,,,,,21
+59161D,,,,Grocery stores,,,,,21
+59201D,,,,Markets,,,,,21
+59241E,,,,,Livestock markets,,,,21
+59281D,,,,Off licences,,,,,21
+59321D,,,,Pharmacies,,,,,21
+59361D,,,,Shopping centres,,,,,21
+59401D,,,,Shops,,,,,21
+59441D,,,,Supermarkets,,,,,20
+59481E,,,,,Hypermarkets,,,,20
+59521D,,,,Superstores,,,,,21
+59561C,,,Ships,,,,,,21
+59581D,,,,Passenger vessel,,,,,1
+59591D,,,,Cargo or merchant vessel,,,,,1
+59601D,,,,Fishing vessels,,,,,21
+59641C,,,Slaughterhouses,,,,,,21
+59681C,,,Stables,,,,,,21
+59731C,,,Transport hub,,,,,,1
+59741D,,,,Airport,,,,,1
+59751D,,,,Bus station,,,,,1
+59761C,,,Warehouses,,,,,,20
+59801C,,,Workshops,,,,,,21
+59841C,,,Zoos,,,,,,20
+59881B,,Work processes,,,,,,,21
+59886C,,,Assembly line work,,,,,,1
+59891C,,,Construction work,,,,,,1
+59894D,,,,Excavation work,,,,,1
+59897D,,,,Road construction and maintenance,,,,,1
+59901D,,,,Tunnelling,,,,,1
+59904C,,,Delivery of goods,,,,,,1
+59907C,,,Diving,,,,,,1
+59911C,,,Driving,,,,,,1
+59921C,,,Processing,,,,,,21
+59931C,,,Demolition work,,,,,,1
+59941C,,,Electrical work,,,,,,1
+59946C,,,Food preparation,,,,,,1
+59951C,,,Laboratory work,,,,,,1
+59961C,,,Machining,,,,,,21
+60001D,,,,Filing,,,,,1
+60041D,,,,Turning,,,,,21
+60081D,,,,Drilling,,,,,21
+60121D,,,,Planing,,,,,21
+60161D,,,,Milling,,,,,21
+60201D,,,,Sawing,,,,,21
+60241C,,,Non-cutting forming,,,,,,21
+60281D,,,,Forging,,,,,21
+60321D,,,,Bending,,,,,21
+60361D,,,,Punching,,,,,20
+60401D,,,,Rolling,,,,,20
+60441D,,,,Drawing,,,,,21
+60481D,,,,Founding,,,,,21
+60521C,,,Connecting processes,,,,,,21
+60561D,,,,Soldering,,,,,21
+60601D,,,,Welding,,,,,21
+60641D,,,,Gluing,,,,,20
+60681D,,,,Riveting,,,,,20
+60691C,,,Packing,,,,,,1
+60701D,,,,Filling,,,,,1
+60721C,,,Shearing,,,,,,21
+60761C,,,Surface treatment,,,,,,21
+60801D,,,,Sanding,,,,,21
+60841D,,,,Grinding,,,,,21
+60881D,,,,Polishing,,,,,20
+60921D,,,,Cleaning,,,,,21
+60961E,,,,,Chemical cleaning,,,,21
+61001E,,,,,Degreasing,,,,21
+61041E,,,,,Disinfecting,,,,20
+61081E,,,,,Dry cleaning,,,,21
+61121E,,,,,Sterilising,,,,20
+61161D,,,,"Painting, dying, coating",,,,,21
+61201E,,,,,Dyeing,,,,21
+61241E,,,,,Powder coating,,,,21
+61281E,,,,,Spray painting,,,,21
+61321E,,,,,Wet spraying,,,,21
+61361C,,,Heat treatment,,,,,,21
+61741C,,,Waste handling,,,,,,1
+61761B,,Sectors,,,,,,,19
+89401B,,Occupations,,,,,,,21
