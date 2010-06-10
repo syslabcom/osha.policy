@@ -53,11 +53,12 @@ m|46281E|46326D|46321C
 c|43091D|42561C|Mobile work equipment|Work equipment that can carry out work while travelling between different locations
 m|42961E|43096E|43091D
 m|04721E|23076D|22881C
-m|23361E|23071E|23081D
+m|23241D|23061D|22881C
+m|23361E|23071E|23061D
 u|23071E|Drugs awareness|Recreational and prescriptive drug use, abuse, and management
-m|23321E|23067E|23081D
+m|23321E|23067E|23061D
 u|23067E|Alcohol awareness|Alcohol consumption, abuse, and management
-m|23281E|23064E|23081D
+m|23281E|23064E|23061D
 u|23064E|Tobacco awareness|Tobacco consumption, abuse, and management
 m|02921E|02941D|02801C
 m|46361C|46331C|45361B
@@ -282,7 +283,6 @@ u|22971D|Health monitoring and screening|Tracking the health status of persons
 u|22961D|Exercise and physical activity|
 u|15281F|Labelling of dangerous substances|
 m|45481C|11641E|11401D
-u|22881C|Workplace health promotion|Holistic approaches to worker health based in the workplace
 u|10241D|Vocational training|Training specific to a job, trade, or profession
 u|04741E|Work capacity evaluation|The evaluation of a workers physical capacity to carry out a specific job
 u|04321D|Community occupational safety and health strategies|EU strategies on occupational safety and health
@@ -322,7 +322,6 @@ u|26041D|Statistics on sickness absence|
 u|25281D|Research findings|Outcomes of OSH research
 u|23681C|Psychosocial health services|
 u|23076D|Well-being|A positive health and social state
-m|23241D|23061D|22881C
 u|53701C|Sick building syndrome|A group of symptoms linked to an individual's place of work
 u|52801C|Respiratory and lung diseases|
 u|23061D|Substances awareness|The use, abuse, and management of substances such as drugs, alcohol and tobacco

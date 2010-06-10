@@ -224,9 +224,10 @@ class MoveCommand(BaseCommand):
     def run(self):
         old_child = self.tree.items[self.old]
         old_father = self.tree.fathers[old_child]
+        old_father.remove(old_child)
         new = self.new
         if new in self.tree.items.keys():
-            old_father.remove(old_child)
+#            old_father.remove(old_child)
             return
         parentTerm = self.tree.items[self.new_father]
         last_brother = None
@@ -243,11 +244,10 @@ class MoveCommand(BaseCommand):
                 break
             last_brother = index
         if last_brother:
-            parentTerm.insert(last_brother, old_child)
+            parentTerm.insert(last_brother + 1, old_child)
         if not has_brothers:
             parentTerm.insert(index, old_child)
 
-        old_father.remove(old_child)
         old_child[0].text = new
 
     def untranslated_ids(self):
@@ -333,6 +333,7 @@ def _vdexupdater():
     translations = []
     for line in file(sys.argv[1]):
         print line
+        #print '23064E' in tostring(tree._Tree__tree.getroot())
         instance = cmd_parser(line, tree)
         instance.run()
         translations.append(instance.untranslated_ids())
