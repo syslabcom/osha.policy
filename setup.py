@@ -57,12 +57,14 @@ setup(name='osha.policy',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+        'Zope2',
         'collective.indexing',
         'collective.portlet.feedmixer',
         'collective.portlet.tal',
         'gocept.linkchecker',
         'osha.legislation',
         'osha.theme',
+        'Products.ATCountryWidget',
         'Products.ATVocabularyManager',
         'Products.CacheSetup',
         'Products.LinguaPlone',
@@ -81,6 +83,9 @@ setup(name='osha.policy',
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone
+      [console_scripts]
+      converter = osha.policy.tools:converter
+      vdexupdater = osha.policy.tools:vdexupdater
       """,
       )      
       
