@@ -8,6 +8,7 @@ from plone.app.blob.content import ATBlob
 from Products.ATContentTypes.content.event import ATEvent
 from Products.ATContentTypes.content.image import ATImage
 from Products.ATContentTypes.content.link import ATLink
+from Products.PloneHelpCenter.content.FAQ import HelpCenterFAQ
 
 def getSubject(self):
     """ Very specific osha getter. We want to make sure that the toplevel cats always represent the subject
@@ -70,3 +71,6 @@ ATLink.Subject = Subject
 CaseStudy._old_subject = CaseStudy.Subject
 CaseStudy.getSubject = getSubject
 CaseStudy.Subject = Subject
+
+HelpCenterFAQ.getSubject = getSubject
+HelpCenterFAQ.Subject = Subject
