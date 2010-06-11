@@ -5049,6 +5049,33 @@
     </term>
   </term>
   <term>
+    <termIdentifier>economic_incentives</termIdentifier>
+    <caption>
+      <langstring language="da">Økonomiske incitamenter</langstring>
+      <langstring language="de">Wirtschaftliche Anreize</langstring>
+      <langstring language="et">Majanduslikud stiimulid</langstring>
+      <langstring language="en">Economic incentives</langstring>
+      <langstring language="es">Incentivos económicos</langstring>
+      <langstring language="fr">Incitations économiques</langstring>
+      <langstring language="it">Incentivi economici</langstring>
+      <langstring language="lv">Ekonomiski stimuli</langstring>
+      <langstring language="lt">Ekonominės paskatos</langstring>
+      <langstring language="hu">Gazdasági ösztönzők</langstring>
+      <langstring language="mt">Inċentivi ekonomiċi</langstring>
+      <langstring language="nl">Economische stimulansen</langstring>
+      <langstring language="pl">Zachęty gospodarcze</langstring>
+      <langstring language="pt">Incemtivos económicos</langstring>
+      <langstring language="ro">Stimulente economice</langstring>
+      <langstring language="sk">Hospodárske stimuly</langstring>
+      <langstring language="sl">Gospodarske spodbude</langstring>
+      <langstring language="fi">Taloudelliset kannustimet</langstring>
+      <langstring language="sv">Ekonomiska incitament</langstring>
+      <langstring language="cs">Ekonomické pobídky</langstring>
+      <langstring language="el">Οικονομικά κίνητρα</langstring>
+      <langstring language="bg">Икономически стимули</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>education</termIdentifier>
     <caption>
       <langstring language="da">Arbejdsmiljø og uddannelse</langstring>
