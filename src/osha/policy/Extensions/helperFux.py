@@ -33,7 +33,16 @@ def reindexDBcontent(self, ptype='OSH_Link', thresh=200, start_from=0):
   fh.write('Start reindex of %s at %s\n\n' %(ptype, start))
   fh.write('Iterating over contents of %s\n' % parent.absolute_url())
   fh.write('Starting at %d\n' % start_from)
-  for ob in parent.objectValues()[start_from:]:
+  objs = list()
+  for id in parent.objectIds()[start_from:]:
+    try:
+      ob = getattr(parent, id, None)
+      if ob:
+        objs.append(ob)
+    except:
+      fh.write('Could not get %s\n' %id)
+#  for ob in parent.objectValues()[start_from:]:
+  for ob in objs:
     try:
       ob.reindexObject()
     except:
