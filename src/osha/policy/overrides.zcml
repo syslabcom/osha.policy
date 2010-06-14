@@ -52,4 +52,15 @@ optimization -->
         />
     <!-- * Subject * -->
 
+
+    <!-- Don't allow public access to the subtyper -->
+  <browser:page
+      name="subtyper"
+      for="*"
+      permission="cmf.ManagePortal"
+      class="p4a.subtyper.browser.SubtyperView"
+      allowed_interface="p4a.subtyper.browser.ISubtyperView"
+      />
+
+
 </configure>
