@@ -83,7 +83,7 @@ c|25261D|25241C|Emerging risk|An issue that is identified as becoming significan
 c|23056D|22881C|Sickness absence management|The management of ill health absence from work regardless of cause
 c|23051D|22881C|Sexual health promotion|Promoting measures to improve the sexual health of a population
 m|46241D|46201D|46161C
-m|28441D|28461C|27081B
+m|28441D|28501C|27081B
 m|26081D|25921C|24041B
 m|23081D|22881C|22721B
 c|19061F|18921E|Coastguard|Emergency service for incidents on and off-shore in coastal areas
@@ -193,7 +193,7 @@ c|22851D|22761C|First aid personnel|Workers who have received suitable first aid
 c|10311D|10161C|Postgraduate education|Education received above degree level
 c|05971D|05961C|European Risk Observatory|Unit of EU-OSHA
 c|04421D|04401C|Mainstreaming occupational safety and health into education|Actions integrating occupational safety and health into education curricula, systems and programmes
-c|03621E|03601D|Outplacement|Help for workers who may become redundant to find new work elsewhere
+c|03576E|03561D|Outplacement|Help for workers who may become redundant to find new work elsewhere
 c|03581E|03561D|Reservation of special posts|Policies identifying and reserving posts for workers with disabilities
 c|03341D|03201C|Social partner agreement|An agreement at above workplace level reached by social partners to implement specific requirements in a specified group of workplaces
 c|03331D|03201C|Sectoral social dialogue|Sectoral social dialogue is the formal dialogue between social partners representing members in a specific sector
@@ -254,7 +254,7 @@ c|40256C|40251B|Nanoparticles|Particles sized between 1 and 100 nanometre in two
 c|29231C|28561B|Venom|A toxin injected by an animal by means such as a bite or sting
 c|28711C|28561B|Marine toxin|Toxins from a marine source that typically cause poisoning during consumption or from other exposure routes
 c|28701C|28561B|Hypoglycin|Toxic organic compound
-c|28451C|27081B|Retention of ill and injured workers|Keeping ill and injured workers in work
+c|28491C|27081B|Retention of ill and injured workers|Keeping ill and injured workers in work
 c|22501C|21801B|Notification of diseases|The notification of diseases to the relevant authorities
 c|21821C|21801B|Case law|Case law is the body of available writings explaining the verdicts in a case.
 c|10621C|10401C|Professional qualification|Qualifications recognised or awarded by professional bodies that may either be postgraduate or below degree level
@@ -288,7 +288,7 @@ u|57161C|Activity centres and amusement parks|
 u|54961D|Migrant and immigrant workers|Persons who move significant distances to find work
 u|54281D|Ageing and older workers|Workers typically over the age of 45
 u|43096E|Lift truck|A powered vehicle for transporting materials generally within a workplace
-u|28461C|Return to work|Getting excluded workers back to work
+u|28501C|Return to work|Getting excluded workers back to work
 u|26041D|Statistics on sickness absence|
 u|25281D|Research findings|Outcomes of OSH research
 u|23681C|Psychosocial health services|
@@ -296,3 +296,6 @@ u|53701C|Sick building syndrome|A group of symptoms linked to an individual's pl
 u|52801C|Respiratory and lung diseases|
 u|23061D|Substances awareness|The use, abuse, and management of substances such as drugs, alcohol and tobacco
 u|00961D|Weekend working|Working on Saturdays and Sundays
+u|05841D|Bureau of Governing board|
+u|05801C|Governing Board|
+d|34281H

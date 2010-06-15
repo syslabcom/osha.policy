@@ -94,9 +94,9 @@
 03521C,,,Labour market,,,,,,21
 03561D,,,,Employment,,,,,21
 03571E,,,,,Designated employment,,,,1
+03576E,,,,,Outplacement,,,,1
 03581E,,,,,Reservation of special posts,,,,1
 03601D,,,,Labour studies,,,,,21
-03621E,,,,,Outplacement,,,,1
 03641D,,,,Workforce,,,,,21
 03651E,,,,,Flexible labour force,,,,1
 03661E,,,,,Flexicurity,,,,1
@@ -159,8 +159,8 @@
 05681D,,,,Off-the-job activities,,,,,20
 05721E,,,,,Cultural activities,,,,21
 05761B,,Agency network partners,,,,,,,21
-05801C,,,Administrative Board,,,,,,21
-05841D,,,,Bureau of the Administrative Board,,,,,21
+05801C,,,Governing Board,,,,,,1
+05841D,,,,Bureau of Governing board,,,,,1
 05881D,,,,Chairperson,,,,,20
 05921D,,,,Vice-chairperson,,,,,20
 05961C,,,European Agency for Safety and Health at Work,,,,,,21
@@ -235,6 +235,327 @@
 08721C,,,Health and Safety Commission (UK),,,,,,19
 08761C,,,Health and Safety Executive (UK),,,,,,20
 08801A,Risk analysis and management,,,,,,,,21
+08841B,,Standardisation,,,,,,,20
+08881C,,,Accreditation,,,,,,21
+08921C,,,CE marking,,,,,,21
+08961C,,,Standards,,,,,,20
+09001D,,,,Emission standards,,,,,21
+09041D,,,,Occupational safety and health standards,,,,,21
+09081D,,,,Quality standards,,,,,21
+09121C,,,Standards organisations,,,,,,20
+09161B,,"Education, OSH information, OSH training",,,,,,,21
+09201C,,,Certification of training,,,,,,21
+09241C,,,Competency training,,,,,,21
+09281C,,,Computer-aided learning,,,,,,21
+09321C,,,Curriculum materials,,,,,,21
+09361C,,,Campaigns,,,,,,20
+09401D,,,,European Week on Safety and Health at Work,,,,,21
+09441C,,,Distance learning,,,,,,21
+09481D,,,,On-line training,,,,,21
+09521D,,,,Correspondence courses,,,,,21
+09561C,,,Guidelines,,,,,,20
+09601C,,,Information dissemination,,,,,,21
+09641D,,,,Printed material,,,,,21
+09681D,,,,Internet,,,,,6
+09721E,,,,,Email,,,,15
+09761F,,,,,,OSHmail,,,13
+09801D,,,,Conferences,,,,,20
+09841D,,,,Frequently asked questions,,,,,21
+09921D,,,,Teleconferencing,,,,,21
+09961C,,,Intellectual level,,,,,,21
+10001D,,,,Expert level,,,,,21
+10041D,,,,Competent Person,,,,,19
+10081D,,,,Lay person level,,,,,21
+10121D,,,,School level,,,,,21
+10161C,,,Educational level,,,,,,21
+10201D,,,,Universities,,,,,19
+10241D,,,,Vocational training,,,,,1
+10281D,,,,Secondary schools,,,,,21
+10311D,,,,Postgraduate education,,,,,1
+10321D,,,,Primary schools,,,,,21
+10361C,,,User feedback,,,,,,21
+10401C,,,Professional education,,,,,,21
+10441D,,,,Occupational health physician,,,,,21
+10481D,,,,Occupational health nurse,,,,,21
+10521D,,,,Ergonomist,,,,,21
+10561D,,,,Organisational OSH consultant,,,,,21
+10601D,,,,Occupational hygienist,,,,,21
+10621C,,,Professional qualification,,,,,,1
+10641C,,,Promotion,,,,,,21
+10681C,,,Public awareness,,,,,,21
+10721D,,,,Awareness raising,,,,,21
+10761C,,,Retraining,,,,,,21
+10801D,,,,Refresher training,,,,,21
+10841C,,,Training assessment,,,,,,21
+10881C,,,Training courses,,,,,,21
+10921D,,,,Accredited training courses,,,,,21
+10961C,,,Training materials,,,,,,21
+11001C,,,Training organisation,,,,,,21
+11041D,,,,Off-the-job training,,,,,21
+11081D,,,,On-the-job training,,,,,21
+11091E,,,,,Induction training,,,,1
+11101E,,,,,Work experience,,,,1
+11111E,,,,,Traineeship,,,,1
+11121C,,,Training policies,,,,,,21
+11161C,,,Interventions,,,,,,20
+11201B,,Safety and health management,,,,,,,21
+11241C,,,Ergonomics,,,,,,12
+11281D,,,,Anthropometry,,,,,14
+11321D,,,,Human factors,,,,,21
+11361D,,,,Humanisation of work,,,,,21
+11401D,,,,Design,,,,,21
+11441E,,,,,Equipment design,,,,21
+11481F,,,,,,Machine design,,,21
+11521F,,,,,,Tool design,,,21
+11561G,,,,,,,Hand tool design,,21
+11601F,,,,,,Workstation design,,,21
+11621E,,,,,Vehicle design,,,,1
+11641E,,,,,Job analysis and design,,,,21
+11681E,,,,,Planning of the workflow,,,,21
+11721E,,,,,Work systems design,,,,21
+11761E,,,,,Workplace design and layout,,,,21
+11801F,,,,,,Office layout,,,21
+11841D,,,,Ergonomic factors,,,,,20
+11881E,,,,,Acoustics and hearing,,,,21
+11921F,,,,,,Use of warning signals,,,21
+11961E,,,,,Assistive technologies,,,,21
+12001E,,,,,Equipment modification,,,,21
+12041E,,,,,Equipment replacement,,,,21
+12061E,,,,,Human-machine interface,,,,1
+12081E,,,,,Lifting,,,,21
+12121E,,,,,Physical work,,,,21
+12161E,,,,,"Lighting, vision",,,,21
+12201F,,,,,,Artificial light,,,21
+12241F,,,,,,Glare,,,21
+12281E,,,,,Mechanisation,,,,20
+12321E,,,,,Repetitive work,,,,21
+12361E,,,,,Sitting,,,,21
+12401E,,,,,Standing,,,,21
+12441E,,,,,Static work,,,,21
+12481D,,,,Occupational physiology,,,,,21
+12521C,,,"Control techniques, incl. occupational hygiene",,,,,,21
+12561D,,,,Measurement and assessment,,,,,21
+12601E,,,,,Air monitoring,,,,21
+12641F,,,,,,Monitoring of gases and vapours,,,21
+12681F,,,,,,Particulate monitoring,,,21
+12721E,,,,,Audiometric testing,,,,21
+12761E,,,,,Biological monitoring,,,,21
+12801E,,,,,Equipment testing,,,,21
+12841E,,,,,Exposure assessment,,,,21
+12881F,,,,,,Retrospective exposure assessment,,,21
+12921E,,,,,Illumination measurement,,,,21
+12961E,,,,,Monitoring of microorganisms,,,,21
+13001E,,,,,Noise level measurement,,,,21
+13041E,,,,,Physiological work measurement,,,,21
+13081E,,,,,Radiation measurement,,,,21
+13121F,,,,,,Ionising,,,21
+13161F,,,,,,Non-ionising,,,21
+13201E,,,,,Static fields measurement,,,,21
+13241E,,,,,Thermal stress measurement,,,,21
+13281E,,,,,Sampling,,,,21
+13321E,,,,,Vibration measurement,,,,21
+13361E,,,,,Vision testing,,,,21
+13401D,,,,Control measures,,,,,21
+13441E,,,,,Administrative controls,,,,21
+13481E,,,,,Air quality management,,,,21
+13521F,,,,,,Dust control,,,21
+13561F,,,,,,Indoor air quality management,,,21
+13601G,,,,,,,Ventilation,,18
+13641H,,,,,,,,Extraction,21
+13681H,,,,,,,,Dilution ventilation,21
+13721H,,,,,,,,Replacement ventilation,21
+13761H,,,,,,,,Local exhaust ventilation,21
+13801E,,,,,Communication systems,,,,21
+13841E,,,,,Elimination of hazards,,,,21
+13881E,,,,,Enclosures,,,,21
+13921F,,,,,,Biological safety cabinets,,,21
+13961F,,,,,,Fume hoods,,,21
+14001E,,,,,Engineering controls,,,,21
+14041F,,,,,,Electrosensitive protective devices,,,21
+14081F,,,,,,Machine guarding,,,21
+14121F,,,,,,Movable guards,,,21
+14161F,,,,,,Trip devices,,,21
+14201E,,,,,Eye protection,,,,21
+14241F,,,,,,Eye wash kits,,,21
+14281E,,,,,Examination of control measures,,,,21
+14321E,,,,,Fall arrest systems,,,,21
+14361F,,,,,,Harnesses,,,21
+14401E,,,,,Fire and explosion safety,,,,21
+14441F,,,,,,Fireproofing of buildings,,,21
+14481F,,,,,,Explosion control,,,21
+14521F,,,,,,Emergency exits,,,21
+14561F,,,,,,Fire alarms,,,21
+14601F,,,,,,Fire escapes,,,21
+14641F,,,,,,Fire extinguishers,,,21
+14681F,,,,,,Fire drills,,,21
+14721E,,,,,Hand protection,,,,21
+14761E,,,,,Dangerous substances management,,,,21
+14801F,,,,,,Asbestos management,,,21
+14841F,,,,,,Classification of substances,,,21
+14881F,,,,,,Criteria documents,,,21
+14921F,,,,,,Disinfection of equipment,,,21
+14961F,,,,,,Occupational exposure limits,,,21
+15001G,,,,,,,Ceiling values,,21
+15041G,,,,,,,Maximum exposure limits,,20
+15081G,,,,,,,Maximum acceptable concentration,,21
+15121G,,,,,,,Short-term exposure limits,,21
+15161G,,,,,,,Threshold limit values,,21
+15201G,,,,,,,Time-weighted averages,,21
+15241F,,,,,,Occupational exposure standards,,,21
+15281F,,,,,,Labelling of dangerous substances,,,1
+15321G,,,,,,,Risk phrases,,21
+15361G,,,,,,,Safety phrases,,21
+15401F,,,,,,Material safety data sheets,,,21
+15441G,,,,,,,Decomposition,,21
+15481F,,,,,,Packaging of dangerous substances,,,1
+15521F,,,,,,Poisoning remedies,,,21
+15561F,,,,,,Sterilisation,,,19
+15601F,,,,,,Storage of dangerous substances,,,1
+15641G,,,,,,,Segregation of goods,,21
+15681F,,,,,,Substitution,,,20
+15721F,,,,,,Workplace monitoring,,,21
+15761E,,,,,Head protection,,,,21
+15801E,,,,,Hearing conservation programs,,,,21
+15841E,,,,,Hearing protection,,,,21
+15881E,,,,,Hierarchy of control,,,,21
+15921E,,,,,Housekeeping,,,,21
+15961E,,,,,Lockout/tagout procedures,,,,21
+16001F,,,,,,Energy-isolating devices,,,21
+16041E,,,,,Maintenance of control measures,,,,21
+16081E,,,,,Noise control,,,,21
+16121F,,,,,,Acoustical insulation,,,21
+16161E,,,,,Odour control,,,,21
+16201E,,,,,Personal monitoring,,,,21
+16241F,,,,,,Body counters,,,21
+16281E,,,,,Personal protective equipment,,,,21
+16321F,,,,,,Aprons,,,21
+16361F,,,,,,Barrier creams,,,21
+16401F,,,,,,Diver's suits,,,21
+16441F,,,,,,Ear plugs,,,21
+16481F,,,,,,Earmuffs,,,21
+16521F,,,,,,Face shields,,,21
+16561F,,,,,,Gloves,,,21
+16601F,,,,,,Hand guards,,,21
+16641F,,,,,,Hard hats,,,21
+16681F,,,,,,Helmets,,,21
+16721G,,,,,,,Acoustic helmets,,21
+16761F,,,,,,Insulation clothes,,,21
+16801F,,,,,,Life jackets,,,21
+16841F,,,,,,Masks,,,19
+16881G,,,,,,,Dust masks,,21
+16921G,,,,,,,Gas masks,,20
+16961F,,,,,,Overalls,,,21
+17001F,,,,,,Protective clothing,,,21
+17041F,,,,,,Respirators,,,21
+17081F,,,,,,Safety belts,,,21
+17121F,,,,,,Safety footwear,,,21
+17161G,,,,,,,Safety boots,,21
+17201F,,,,,,Safety glasses,,,21
+17241F,,,,,,Seat belts,,,21
+17281F,,,,,,Sleevelets,,,21
+17321E,,,,,Rescue measures,,,,21
+17361F,,,,,,Life belts,,,21
+17401F,,,,,,Life boats,,,21
+17441F,,,,,,Life lines,,,21
+17481F,,,,,,Life preservers,,,21
+17521F,,,,,,Life rafts,,,21
+17561E,,,,,Rollover protection,,,,21
+17601E,,,,,Safety switches,,,,21
+17641E,,,,,Safety valves,,,,21
+17681E,,,,,Salt tablets,,,,20
+17721E,,,,,Shields,,,,21
+17761E,,,,,Skin protection,,,,21
+17771E,,,,,Temperature control in workplaces,,,,1
+17781F,,,,,,Air conditioning systems,,,1
+17791F,,,,,,Heating systems,,,1
+17801E,,,,,Testing of control measures,,,,21
+17841E,,,,,Vibration control,,,,21
+17881E,,,,,Hazard warnings,,,,21
+17921F,,,,,,Alarm systems,,,21
+17961F,,,,,,Safety signs,,,21
+18001E,,,,,Water quality management,,,,21
+18041F,,,,,,Drinking water,,,21
+18081D,,,,Accident prevention,,,,,21
+18121E,,,,,Safe animal handling,,,,21
+18161E,,,,,Chemical safety,,,,21
+18241E,,,,,Construction safety,,,,21
+18281E,,,,,Electrical safety,,,,21
+18301E,,,,,Farm safety,,,,1
+18321E,,,,,Biosafety,,,,1
+18341E,,,,,Laboratory safety,,,,1
+18361E,,,,,Machine safety,,,,21
+18401E,,,,,Mine safety,,,,21
+18441E,,,,,Radiation safety,,,,21
+18481E,,,,,Transport safety,,,,21
+18521C,,,Safety management,,,,,,21
+18561D,,,,Agreements,,,,,21
+18601D,,,,Competencies,,,,,21
+18641D,,,,Decision-making,,,,,21
+18681D,,,,Emergency planning,,,,,21
+18721E,,,,,Emergency procedures,,,,21
+18761F,,,,,,Egress,,,21
+18801F,,,,,,Medical provision,,,21
+18841F,,,,,,Emergency showers,,,21
+18881E,,,,,Emergency response,,,,21
+18921E,,,,,Emergency services,,,,21
+18961F,,,,,,Ambulances,,,21
+19001F,,,,,,Fire brigades,,,21
+19041F,,,,,,Police,,,19
+19061F,,,,,,Coastguard,,,1
+19081D,,,,Hazard identification,,,,,21
+19121D,,,,Safety officers,,,,,21
+19161D,,,,Integration of OSH management system,,,,,21
+19201E,,,,,Business management,,,,21
+19241E,,,,,Quality management,,,,21
+19281E,,,,,Environmental protection management,,,,21
+19321E,,,,,Purchasing,,,,21
+19361D,,,,Labour inspection,,,,,21
+19401D,,,,Productivity,,,,,20
+19441D,,,,Reporting systems,,,,,21
+19481E,,,,,Early reporting systems,,,,21
+19521E,,,,,Hazard recording,,,,21
+19561E,,,,,Injury recording,,,,21
+19601E,,,,,Absenteeism recording,,,,21
+19641D,,,,Risk assessment,,,,,21
+19681D,,,,Safety audits,,,,,21
+19721E,,,,,Checklists,,,,21
+19761E,,,,,Internal workplace inspections,,,,21
+19801D,,,,Safety communication,,,,,21
+19841E,,,,,Safety guides,,,,21
+19881E,,,,,Safety instructions,,,,21
+19921D,,,,Safety consultation,,,,,21
+19961D,,,,Safety culture,,,,,21
+20001E,,,,,Safety attitudes,,,,21
+20041E,,,,,Safety behaviour,,,,21
+20081E,,,,,Safety values,,,,21
+20121D,,,,Safety performance,,,,,21
+20161D,,,,Safety planning,,,,,21
+20201D,,,,Safety policies and procedures,,,,,21
+20241D,,,,Safety programs,,,,,21
+20281E,,,,,Employee assistance programs,,,,21
+20321D,,,,Safety systems,,,,,21
+20361E,,,,,Back-up systems,,,,21
+20401E,,,,,Compatibility,,,,19
+20441E,,,,,Reliability in safety design,,,,21
+20481D,,,,Security measures,,,,,21
+20521E,,,,,Access control,,,,21
+20561D,,,,Stress management,,,,,21
+20601D,,,,Supervision,,,,,21
+20641D,,,,Worker participation,,,,,21
+20681E,,,,,Work councils,,,,21
+20721E,,,,,Worker representatives,,,,21
+20761E,,,,,Safety and health representatives,,,,21
+20801E,,,,,Safety and health committees,,,,21
+20841E,,,,,Worker consultation,,,,21
+20881F,,,,,,Body mapping,,,18
+20921C,,,Welfare provision,,,,,,21
+20961D,,,,Catering facilities,,,,,21
+21001D,,,,Clothes storage facilities,,,,,21
+21041D,,,,Lockers,,,,,21
+21081D,,,,Personal hygiene,,,,,21
+21121D,,,,Toilets,,,,,20
+21161D,,,,Washing facilities,,,,,21
+21201E,,,,,Showers,,,,20
 21241B,,Work equipment and plant,,,,,,,21
 21281C,,,Industrial planning,,,,,,21
 21321C,,,Equipment,,,,,,21
@@ -390,327 +711,6 @@
 26961E,,,,,Teratogenesis,,,,20
 27001D,,,,Toxicity testing,,,,,21
 27041D,,,,Toxicokinetics,,,,,19
-08841B,,Standardisation,,,,,,,20
-08881C,,,Accreditation,,,,,,21
-08921C,,,CE marking,,,,,,21
-08961C,,,Standards,,,,,,20
-09001D,,,,Emission standards,,,,,21
-09041D,,,,Occupational safety and health standards,,,,,21
-09081D,,,,Quality standards,,,,,21
-09121C,,,Standards organisations,,,,,,20
-09161B,,"Education, OSH information, OSH training",,,,,,,21
-09201C,,,Certification of training,,,,,,21
-09241C,,,Competency training,,,,,,21
-09281C,,,Computer-aided learning,,,,,,21
-09321C,,,Curriculum materials,,,,,,21
-09361C,,,Campaigns,,,,,,20
-09401D,,,,European Week on Safety and Health at Work,,,,,21
-09441C,,,Distance learning,,,,,,21
-09481D,,,,On-line training,,,,,21
-09521D,,,,Correspondence courses,,,,,21
-09561C,,,Guidelines,,,,,,20
-09601C,,,Information dissemination,,,,,,21
-09641D,,,,Printed material,,,,,21
-09681D,,,,Internet,,,,,6
-09721E,,,,,Email,,,,15
-09761F,,,,,,OSHmail,,,13
-09801D,,,,Conferences,,,,,20
-09841D,,,,Frequently asked questions,,,,,21
-09921D,,,,Teleconferencing,,,,,21
-09961C,,,Intellectual level,,,,,,21
-10001D,,,,Expert level,,,,,21
-10041D,,,,Competent Person,,,,,19
-10081D,,,,Lay person level,,,,,21
-10121D,,,,School level,,,,,21
-10161C,,,Educational level,,,,,,21
-10201D,,,,Universities,,,,,19
-10241D,,,,Vocational training,,,,,1
-10281D,,,,Secondary schools,,,,,21
-10311D,,,,Postgraduate education,,,,,1
-10321D,,,,Primary schools,,,,,21
-10361C,,,User feedback,,,,,,21
-10401C,,,Professional education,,,,,,21
-10441D,,,,Occupational health physician,,,,,21
-10481D,,,,Occupational health nurse,,,,,21
-10521D,,,,Ergonomist,,,,,21
-10561D,,,,Organisational OSH consultant,,,,,21
-10601D,,,,Occupational hygienist,,,,,21
-10621C,,,Professional qualification,,,,,,1
-10641C,,,Promotion,,,,,,21
-10681C,,,Public awareness,,,,,,21
-10721D,,,,Awareness raising,,,,,21
-10761C,,,Retraining,,,,,,21
-10801D,,,,Refresher training,,,,,21
-10841C,,,Training assessment,,,,,,21
-10881C,,,Training courses,,,,,,21
-10921D,,,,Accredited training courses,,,,,21
-10961C,,,Training materials,,,,,,21
-11001C,,,Training organisation,,,,,,21
-11041D,,,,Off-the-job training,,,,,21
-11081D,,,,On-the-job training,,,,,21
-11091E,,,,,Induction training,,,,1
-11101E,,,,,Work experience,,,,1
-11111E,,,,,Traineeship,,,,1
-11121C,,,Training policies,,,,,,21
-11161C,,,Interventions,,,,,,20
-11201B,,Safety and health management,,,,,,,21
-18521C,,,Safety management,,,,,,21
-18561D,,,,Agreements,,,,,21
-18601D,,,,Competencies,,,,,21
-18641D,,,,Decision-making,,,,,21
-18681D,,,,Emergency planning,,,,,21
-18721E,,,,,Emergency procedures,,,,21
-18761F,,,,,,Egress,,,21
-18801F,,,,,,Medical provision,,,21
-18841F,,,,,,Emergency showers,,,21
-18881E,,,,,Emergency response,,,,21
-18921E,,,,,Emergency services,,,,21
-18961F,,,,,,Ambulances,,,21
-19001F,,,,,,Fire brigades,,,21
-19041F,,,,,,Police,,,19
-19061F,,,,,,Coastguard,,,1
-19081D,,,,Hazard identification,,,,,21
-19121D,,,,Safety officers,,,,,21
-19161D,,,,Integration of OSH management system,,,,,21
-19201E,,,,,Business management,,,,21
-19241E,,,,,Quality management,,,,21
-19281E,,,,,Environmental protection management,,,,21
-19321E,,,,,Purchasing,,,,21
-19361D,,,,Labour inspection,,,,,21
-19401D,,,,Productivity,,,,,20
-19441D,,,,Reporting systems,,,,,21
-19481E,,,,,Early reporting systems,,,,21
-19521E,,,,,Hazard recording,,,,21
-19561E,,,,,Injury recording,,,,21
-19601E,,,,,Absenteeism recording,,,,21
-19641D,,,,Risk assessment,,,,,21
-19681D,,,,Safety audits,,,,,21
-19721E,,,,,Checklists,,,,21
-19761E,,,,,Internal workplace inspections,,,,21
-19801D,,,,Safety communication,,,,,21
-19841E,,,,,Safety guides,,,,21
-19881E,,,,,Safety instructions,,,,21
-19921D,,,,Safety consultation,,,,,21
-19961D,,,,Safety culture,,,,,21
-20001E,,,,,Safety attitudes,,,,21
-20041E,,,,,Safety behaviour,,,,21
-20081E,,,,,Safety values,,,,21
-20121D,,,,Safety performance,,,,,21
-20161D,,,,Safety planning,,,,,21
-20201D,,,,Safety policies and procedures,,,,,21
-20241D,,,,Safety programs,,,,,21
-20281E,,,,,Employee assistance programs,,,,21
-20321D,,,,Safety systems,,,,,21
-20361E,,,,,Back-up systems,,,,21
-20401E,,,,,Compatibility,,,,19
-20441E,,,,,Reliability in safety design,,,,21
-20481D,,,,Security measures,,,,,21
-20521E,,,,,Access control,,,,21
-20561D,,,,Stress management,,,,,21
-20601D,,,,Supervision,,,,,21
-20641D,,,,Worker participation,,,,,21
-20681E,,,,,Work councils,,,,21
-20721E,,,,,Worker representatives,,,,21
-20761E,,,,,Safety and health representatives,,,,21
-20801E,,,,,Safety and health committees,,,,21
-20841E,,,,,Worker consultation,,,,21
-20881F,,,,,,Body mapping,,,18
-20921C,,,Welfare provision,,,,,,21
-20961D,,,,Catering facilities,,,,,21
-21001D,,,,Clothes storage facilities,,,,,21
-21041D,,,,Lockers,,,,,21
-21081D,,,,Personal hygiene,,,,,21
-21121D,,,,Toilets,,,,,20
-21161D,,,,Washing facilities,,,,,21
-21201E,,,,,Showers,,,,20
-11241C,,,Ergonomics,,,,,,12
-11281D,,,,Anthropometry,,,,,14
-11321D,,,,Human factors,,,,,21
-11361D,,,,Humanisation of work,,,,,21
-11401D,,,,Design,,,,,21
-11441E,,,,,Equipment design,,,,21
-11481F,,,,,,Machine design,,,21
-11521F,,,,,,Tool design,,,21
-11561G,,,,,,,Hand tool design,,21
-11601F,,,,,,Workstation design,,,21
-11621E,,,,,Vehicle design,,,,1
-11641E,,,,,Job analysis and design,,,,21
-11681E,,,,,Planning of the workflow,,,,21
-11721E,,,,,Work systems design,,,,21
-11761E,,,,,Workplace design and layout,,,,21
-11801F,,,,,,Office layout,,,21
-11841D,,,,Ergonomic factors,,,,,20
-11881E,,,,,Acoustics and hearing,,,,21
-11921F,,,,,,Use of warning signals,,,21
-11961E,,,,,Assistive technologies,,,,21
-12001E,,,,,Equipment modification,,,,21
-12041E,,,,,Equipment replacement,,,,21
-12061E,,,,,Human-machine interface,,,,1
-12081E,,,,,Lifting,,,,21
-12121E,,,,,Physical work,,,,21
-12161E,,,,,"Lighting, vision",,,,21
-12201F,,,,,,Artificial light,,,21
-12241F,,,,,,Glare,,,21
-12281E,,,,,Mechanisation,,,,20
-12321E,,,,,Repetitive work,,,,21
-12361E,,,,,Sitting,,,,21
-12401E,,,,,Standing,,,,21
-12441E,,,,,Static work,,,,21
-12481D,,,,Occupational physiology,,,,,21
-12521C,,,"Control techniques, incl. occupational hygiene",,,,,,21
-13401D,,,,Control measures,,,,,21
-13441E,,,,,Administrative controls,,,,21
-13481E,,,,,Air quality management,,,,21
-13521F,,,,,,Dust control,,,21
-13561F,,,,,,Indoor air quality management,,,21
-13601G,,,,,,,Ventilation,,18
-13641H,,,,,,,,Extraction,21
-13681H,,,,,,,,Dilution ventilation,21
-13721H,,,,,,,,Replacement ventilation,21
-13761H,,,,,,,,Local exhaust ventilation,21
-13801E,,,,,Communication systems,,,,21
-13841E,,,,,Elimination of hazards,,,,21
-13881E,,,,,Enclosures,,,,21
-13921F,,,,,,Biological safety cabinets,,,21
-13961F,,,,,,Fume hoods,,,21
-14001E,,,,,Engineering controls,,,,21
-14041F,,,,,,Electrosensitive protective devices,,,21
-14081F,,,,,,Machine guarding,,,21
-14121F,,,,,,Movable guards,,,21
-14161F,,,,,,Trip devices,,,21
-14201E,,,,,Eye protection,,,,21
-14241F,,,,,,Eye wash kits,,,21
-14281E,,,,,Examination of control measures,,,,21
-14321E,,,,,Fall arrest systems,,,,21
-14361F,,,,,,Harnesses,,,21
-14401E,,,,,Fire and explosion safety,,,,21
-14441F,,,,,,Fireproofing of buildings,,,21
-14481F,,,,,,Explosion control,,,21
-14521F,,,,,,Emergency exits,,,21
-14561F,,,,,,Fire alarms,,,21
-14601F,,,,,,Fire escapes,,,21
-14641F,,,,,,Fire extinguishers,,,21
-14681F,,,,,,Fire drills,,,21
-14721E,,,,,Hand protection,,,,21
-14761E,,,,,Dangerous substances management,,,,21
-14801F,,,,,,Asbestos management,,,21
-14841F,,,,,,Classification of substances,,,21
-14881F,,,,,,Criteria documents,,,21
-14921F,,,,,,Disinfection of equipment,,,21
-14961F,,,,,,Occupational exposure limits,,,21
-15001G,,,,,,,Ceiling values,,21
-15041G,,,,,,,Maximum exposure limits,,20
-15081G,,,,,,,Maximum acceptable concentration,,21
-15121G,,,,,,,Short-term exposure limits,,21
-15161G,,,,,,,Threshold limit values,,21
-15201G,,,,,,,Time-weighted averages,,21
-15241F,,,,,,Occupational exposure standards,,,21
-15281F,,,,,,Labelling of dangerous substances,,,1
-15321G,,,,,,,Risk phrases,,21
-15361G,,,,,,,Safety phrases,,21
-15401F,,,,,,Material safety data sheets,,,21
-15441G,,,,,,,Decomposition,,21
-15481F,,,,,,Packaging of dangerous substances,,,1
-15521F,,,,,,Poisoning remedies,,,21
-15561F,,,,,,Sterilisation,,,19
-15601F,,,,,,Storage of dangerous substances,,,1
-15641G,,,,,,,Segregation of goods,,21
-15681F,,,,,,Substitution,,,20
-15721F,,,,,,Workplace monitoring,,,21
-15761E,,,,,Head protection,,,,21
-15801E,,,,,Hearing conservation programs,,,,21
-15841E,,,,,Hearing protection,,,,21
-15881E,,,,,Hierarchy of control,,,,21
-15921E,,,,,Housekeeping,,,,21
-15961E,,,,,Lockout/tagout procedures,,,,21
-16001F,,,,,,Energy-isolating devices,,,21
-16041E,,,,,Maintenance of control measures,,,,21
-16081E,,,,,Noise control,,,,21
-16121F,,,,,,Acoustical insulation,,,21
-16161E,,,,,Odour control,,,,21
-16201E,,,,,Personal monitoring,,,,21
-16241F,,,,,,Body counters,,,21
-16281E,,,,,Personal protective equipment,,,,21
-16321F,,,,,,Aprons,,,21
-16361F,,,,,,Barrier creams,,,21
-16401F,,,,,,Diver's suits,,,21
-16441F,,,,,,Ear plugs,,,21
-16481F,,,,,,Earmuffs,,,21
-16521F,,,,,,Face shields,,,21
-16561F,,,,,,Gloves,,,21
-16601F,,,,,,Hand guards,,,21
-16641F,,,,,,Hard hats,,,21
-16681F,,,,,,Helmets,,,21
-16721G,,,,,,,Acoustic helmets,,21
-16761F,,,,,,Insulation clothes,,,21
-16801F,,,,,,Life jackets,,,21
-16841F,,,,,,Masks,,,19
-16881G,,,,,,,Dust masks,,21
-16921G,,,,,,,Gas masks,,20
-16961F,,,,,,Overalls,,,21
-17001F,,,,,,Protective clothing,,,21
-17041F,,,,,,Respirators,,,21
-17081F,,,,,,Safety belts,,,21
-17121F,,,,,,Safety footwear,,,21
-17161G,,,,,,,Safety boots,,21
-17201F,,,,,,Safety glasses,,,21
-17241F,,,,,,Seat belts,,,21
-17281F,,,,,,Sleevelets,,,21
-17321E,,,,,Rescue measures,,,,21
-17361F,,,,,,Life belts,,,21
-17401F,,,,,,Life boats,,,21
-17441F,,,,,,Life lines,,,21
-17481F,,,,,,Life preservers,,,21
-17521F,,,,,,Life rafts,,,21
-17561E,,,,,Rollover protection,,,,21
-17601E,,,,,Safety switches,,,,21
-17641E,,,,,Safety valves,,,,21
-17681E,,,,,Salt tablets,,,,20
-17721E,,,,,Shields,,,,21
-17761E,,,,,Skin protection,,,,21
-17771E,,,,,Temperature control in workplaces,,,,1
-17781F,,,,,,Air conditioning systems,,,1
-17791F,,,,,,Heating systems,,,1
-17801E,,,,,Testing of control measures,,,,21
-17841E,,,,,Vibration control,,,,21
-17881E,,,,,Hazard warnings,,,,21
-17921F,,,,,,Alarm systems,,,21
-17961F,,,,,,Safety signs,,,21
-18001E,,,,,Water quality management,,,,21
-18041F,,,,,,Drinking water,,,21
-18081D,,,,Accident prevention,,,,,21
-18121E,,,,,Safe animal handling,,,,21
-18161E,,,,,Chemical safety,,,,21
-18241E,,,,,Construction safety,,,,21
-18281E,,,,,Electrical safety,,,,21
-18301E,,,,,Farm safety,,,,1
-18321E,,,,,Biosafety,,,,1
-18341E,,,,,Laboratory safety,,,,1
-18361E,,,,,Machine safety,,,,21
-18401E,,,,,Mine safety,,,,21
-18441E,,,,,Radiation safety,,,,21
-18481E,,,,,Transport safety,,,,21
-12561D,,,,Measurement and assessment,,,,,21
-12721E,,,,,Audiometric testing,,,,21
-12761E,,,,,Biological monitoring,,,,21
-12801E,,,,,Equipment testing,,,,21
-12841E,,,,,Exposure assessment,,,,21
-12881F,,,,,,Retrospective exposure assessment,,,21
-12921E,,,,,Illumination measurement,,,,21
-12961E,,,,,Monitoring of microorganisms,,,,21
-13001E,,,,,Noise level measurement,,,,21
-13041E,,,,,Physiological work measurement,,,,21
-13081E,,,,,Radiation measurement,,,,21
-13121F,,,,,,Ionising,,,21
-13161F,,,,,,Non-ionising,,,21
-13201E,,,,,Static fields measurement,,,,21
-13241E,,,,,Thermal stress measurement,,,,21
-13281E,,,,,Sampling,,,,21
-13321E,,,,,Vibration measurement,,,,21
-13361E,,,,,Vision testing,,,,21
-12601E,,,,,Air monitoring,,,,21
-12681F,,,,,,Particulate monitoring,,,21
-12641F,,,,,,Monitoring of gases and vapours,,,21
 27081B,,Workers compensation,,,,,,,21
 27121C,,,Compensation,,,,,,21
 27161D,,,,Benefits,,,,,21
@@ -746,8 +746,8 @@
 28361D,,,,Rehabilitation counselling,,,,,20
 28401D,,,,Rehabilitation providers,,,,,21
 28481D,,,,Work adjustment training,,,,,21
-28451C,,,Retention of ill and injured workers,,,,,,1
-28461C,,,Return to work,,,,,,1
+28491C,,,Retention of ill and injured workers,,,,,,1
+28501C,,,Return to work,,,,,,1
 28521A,Hazards at work,,,,,,,,21
 28561B,,Biological hazards,,,,,,,21
 28601C,,,Biochemical hazards,,,,,,20
@@ -828,7 +828,6 @@
 31161E,,,,,Coal by-products,,,,21
 31201F,,,,,,Coal tar,,,21
 31241G,,,,,,,Creosite,,20
-34281H,,,,,,,,TO BE REPLACED,1
 31281D,,,,Enzymes,,,,,19
 31321D,,,,Metals,,,,,19
 31361E,,,,,Heavy metals,,,,20
@@ -1007,6 +1006,7 @@
 37921E,,,,,Fumigants,,,,20
 37961E,,,,,Fungicides,,,,21
 38001E,,,,,Germicides,,,,20
+38041E,,,,,Herbicides,,,,21
 38051E,,,,,Insecticide,,,,1
 38061F,,,,,,Insect repellent,,,1
 38071E,,,,,Molluscicide,,,,1
@@ -1015,7 +1015,6 @@
 38131E,,,,,Pesticide residue,,,,1
 38141E,,,,,Pesticide Synergist,,,,1
 38161E,,,,,Pyrethroids,,,,19
-38041E,,,,,Herbicides,,,,21
 38181E,,,,,Rodenticide,,,,1
 38201D,,,,Pharmaceuticals,,,,,21
 38241E,,,,,Anaesthetics,,,,21
