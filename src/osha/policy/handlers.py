@@ -7,6 +7,7 @@ from Products.Archetypes.event import ObjectInitializedEvent
 import zope.component
 import Products.Archetypes.interfaces
 from gocept.linkchecker.interfaces import IRetriever
+from DateTime import DateTime
 
 from utils import extractPDFText
 
@@ -125,3 +126,13 @@ def update_links(event):
     retriever = IRetriever(object, None)
     if retriever is not None:
         link_checker.retrieving.retrieveObject(object, online=False)
+
+
+def handle_edit_begun(obj, event):
+    """ If an object gets edited and has no effective date yet,
+        its effective date will be set to the current date.
+    """
+    if not obj.getEffectiveDate():
+        now = DateTime().strftime('%Y-%m-%d')
+        obj.setEffectiveDate(now)
+            

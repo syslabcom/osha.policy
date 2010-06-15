@@ -70,4 +70,9 @@
   <subscriber handler=".handlers.update_links" />
   <subscriber handler=".handlers.remove_links" />
 
+    <subscriber for="Products.ATContentTypes.content.newsitem.ATNewsItem
+        Products.Archetypes.interfaces.IEditBegunEvent"
+        handler=".handlers.handle_edit_begun"
+        />
+
 </configure>
