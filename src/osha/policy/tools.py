@@ -202,7 +202,6 @@ class UpdateCommand(BaseCommand):
         new_term = self.tree.new_tree_term('ignore', self.caption, self.description)
         caption = new_term[1]
         description = new_term[2]
-        # how to get descriptions?
         term.remove(term[1])
         term.insert(1, caption)
         for i in range(20):
@@ -215,7 +214,8 @@ class UpdateCommand(BaseCommand):
         return self.id, self.caption, self.description
 
 class MoveCommand(BaseCommand):
-    def __init__(self, tree,  old, new, new_father):
+    def __init__(self, tree,  old, new, new_father, keep_names):
+        self.keep_names = 'keep_names' == keep_names.lower()
         self.tree = tree
         self.old = old
         self.new = new
@@ -227,7 +227,17 @@ class MoveCommand(BaseCommand):
         old_father.remove(old_child)
         new = self.new
         if new in self.tree.items.keys():
-#            old_father.remove(old_child)
+            if not self.keep_names:
+                caption = old_child[1]
+                description = old_child[2]
+                new.remove(new[1])
+                new.insert(1, caption)
+                for i in range(20):
+                    if new[i].tag == '{http://www.imsglobal.org/xsd/imsvdex_v1p0}description':
+                        break
+                new.remove(new[i])
+                new.insert(i, description)
+
             return
         parentTerm = self.tree.items[self.new_father]
         last_brother = None
