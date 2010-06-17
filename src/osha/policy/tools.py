@@ -228,15 +228,16 @@ class MoveCommand(BaseCommand):
         new = self.new
         if new in self.tree.items.keys():
             if not self.keep_names:
+                new_term = self.tree.items[new]
                 caption = old_child[1]
                 description = old_child[2]
-                new.remove(new[1])
-                new.insert(1, caption)
+                new_term.remove(new_term[1])
+                new_term.insert(1, caption)
                 for i in range(20):
-                    if new[i].tag == '{http://www.imsglobal.org/xsd/imsvdex_v1p0}description':
+                    if new_term[i].tag == '{http://www.imsglobal.org/xsd/imsvdex_v1p0}description':
                         break
-                new.remove(new[i])
-                new.insert(i, description)
+                new_term.remove(new_term[i])
+                new_term.insert(i, description)
 
             return
         parentTerm = self.tree.items[self.new_father]

@@ -59,7 +59,12 @@ m = Move
     The next fields contain the old id, the new id and the new father id.
     The Term gets removed from the old place and added below the father.
     Where it gets added is calculated with the same rules as the Create
-    command
+    command. All commands have another parameter now, the last one, must
+    be keep_names or something else. This is only relevant if you copy
+    your term over to an existing term. with keep_names, in any combination
+    of upper and lower case letter, we will not do anything. With another
+    value, like, overwrite_names, we will override the target term name
+    and its translations.
 
 d = Delete
     The next field contains the id of the term to be deleted.
