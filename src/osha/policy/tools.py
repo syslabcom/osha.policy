@@ -405,4 +405,33 @@ def orderNode(node):
             node.remove(term)
             node.insert(new_pos, term)
 
+def find_missing_translations():
+    try:
+        _find_missing_translations()
+    except Exception, e:
+        print e
+        import pdb;pdb.post_mortem(sys.exc_traceback)
 
+def _find_missing_translations():
+    levels = [None for i in range(6)]
+    if len(sys.argv) > 1:
+        filename = sys.argv[1]
+    else:
+        filename = 'out.csv'
+    data = csv.reader(file(filename))
+    translations = ['id', 'Path (for context only)', 'Term to translate','translation']
+    writer = csv.writer(open('translate.csv', 'wb'))
+    writer.writerow(translations)
+    for row in data:
+        translations = int(row[9])
+        for level in range(1, 7):
+            if row[level]:
+                levels[level-1] = row[level]
+                break
+        if translations > 1:
+            continue
+
+        id = row[0]
+        ttt = row[level]
+        path = ' -> '.join(levels[:level])
+        writer.writerow([id, path, ttt, ''])
