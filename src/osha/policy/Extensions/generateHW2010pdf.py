@@ -9,6 +9,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Paragraph, Frame
 from reportlab.lib.colors import red, black
+from reportlab.lib.enums import TA_CENTER
 import reportlab.rl_config
 
 reportlab.rl_config.warnOnMissingFontGlyphs = 0
@@ -78,7 +79,7 @@ def generatePDF(self,
                                 )
     x = 10.4 * cm
     y = 28 * cm
-    my_canvas.setFont('ArialBold', 34)
+    my_canvas.setFont('ArialBold', 20)
     my_canvas.drawCentredString(x, y, u_campaign_name.upper())
     print " +- set Heading"
     mapping = {'campaign_slogan':u_campaign_name, 'year':year}
@@ -92,7 +93,7 @@ def generatePDF(self,
                                 )
     x = 10.5 * cm
     y = 26.3 * cm
-    my_canvas.setFont('ArialBold', 30)
+    my_canvas.setFont('ArialBold', 17)
     my_canvas.setFillColor(red)
     my_canvas.drawCentredString(x, y, u_campaign_slogan.upper())
     print " +- set slogan"
@@ -138,13 +139,18 @@ def generatePDF(self,
     y = 16 * cm
     width, height = A4
     width -= 5 * cm
-    #my_canvas.setFont('Arial', 32)
+    height = 10 * cm
 
-    style = ParagraphStyle('company_style', fontName='Arial', fontSize=32, alignment=TA_CENTER)
+    style = ParagraphStyle(
+            name='companyName', 
+            fontName='Arial', 
+            fontSize=32, 
+            leading=34, 
+            alignment=TA_CENTER)
+
     P = Paragraph(company, style)
-    P.wrap(width, height)
-    P.drawOn(my_canvas, x, y)
-    #my_canvas.drawCentredString(x, y, company)
+    wi, he = P.wrap(width, height)
+    P.drawOn(my_canvas, x - wi/2, y - he/2)
     print " +- set company name"#, company
 
     style = ParagraphStyle(
@@ -192,7 +198,8 @@ def generatePDF(self,
             fontName='Arial',
             fontSize=14,
             spaceAfter=6,
-            alignment=0
+            alignment=0,
+            leading=16
         )
     lines.append(Paragraph(director_indentifier, style))
     dFrame = Frame(0.8*cm, 5*cm, 20*cm, 3*cm)
