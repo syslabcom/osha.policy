@@ -136,9 +136,16 @@ def generatePDF(self,
     # print company name
     x = 10.4 * cm
     y = 16 * cm
-    my_canvas.setFont('Arial', 32)
-    my_canvas.drawCentredString(x, y, company)
-    print " +- set comany name"#, company
+    width, height = A4
+    width -= 5 * cm
+    #my_canvas.setFont('Arial', 32)
+
+    style = ParagraphStyle('company_style', fontName='Arial', fontSize=32, alignment=TA_CENTER)
+    P = Paragraph(company, style)
+    P.wrap(width, height)
+    P.drawOn(my_canvas, x, y)
+    #my_canvas.drawCentredString(x, y, company)
+    print " +- set company name"#, company
 
     style = ParagraphStyle(
             name='ContributionHeadline',
