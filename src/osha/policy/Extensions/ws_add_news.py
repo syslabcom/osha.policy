@@ -3,6 +3,7 @@ from Products.CMFCore.utils import getToolByName
 from logging import getLogger
 
 
+
 def ws_add_news(self,id,title,description,text,effective,image):
 
     portal = getToolByName(self, 'portal_url').getPortalObject()
