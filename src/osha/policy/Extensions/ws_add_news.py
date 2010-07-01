@@ -10,7 +10,7 @@ def ws_add_news(self,id,title,description,text,effective,image):
 
     log = getLogger('/en/campaigns/hw2010/events/ws_add_news')
 
-    targetfolder = portal.tmp
+    targetfolder = portal.en.campaigns.hw2010.news
     targetfolder.invokeFactory(id=id, type_name=u"News Item")
 
 
