@@ -11,7 +11,9 @@ def ws_add_news(self,id,title,description,text,effective,image):
     log = getLogger('/en/campaigns/hw2010/events/ws_add_news')
 
     targetfolder = portal.en.campaigns.hw2010.news
-    targetfolder.invokeFactory(id=id, type_name=u"News Item")
+###    #import pdb;pdb.set_trace()
+#    targetfolder.invokeFactory(id=id, type_name=u"News Item")
+    targetfolder.manage_addProduct['ATContentTypes'].addATNewsItem(id)
 
 
     ob = getattr(targetfolder, id, None)
@@ -32,7 +34,7 @@ def ws_add_news(self,id,title,description,text,effective,image):
     ob.setSubject('maintenance')
 
     # publish
-    pwt.doActionFor(ob, 'publish')
+    #pwt.doActionFor(ob, 'publish')
 
     ob.reindexObject()
     log.info('Created new News Item at %s' %ob.absolute_url())
