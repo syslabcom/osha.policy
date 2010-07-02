@@ -3,13 +3,27 @@ from Products.CMFCore.utils import getToolByName
 from logging import getLogger
 
 
+def ws_add_news_helper(self, ob, image):
+
+    ob.setImage(image.data)
+    return 1
+
+########
+# 
+# NOT USED ANY MORE
+#
+#######
 
 def ws_add_news(self,id,title,description,text,effective,image):
 
     portal = getToolByName(self, 'portal_url').getPortalObject()
+    pmt = portal.portal_membership
     pwt = portal.portal_workflow
 
     log = getLogger('/en/campaigns/hw2010/events/ws_add_news')
+
+    member = pmt.getAuthenticatedMember()
+    log.info('Member: %s' % member)
 
     targetfolder = portal.en.campaigns.hw2010.news
 ###    targetfolder.invokeFactory(id=id, type_name=u"News Item")
@@ -34,7 +48,6 @@ def ws_add_news(self,id,title,description,text,effective,image):
     ob.setSubject('maintenance')
 
     log.info('Created new News Item at %s' %ob.absolute_url())
-
 
     # publish
     try:
