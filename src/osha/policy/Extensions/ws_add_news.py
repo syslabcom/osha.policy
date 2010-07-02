@@ -12,8 +12,7 @@ def ws_add_news(self,id,title,description,text,effective,image):
     log = getLogger('/en/campaigns/hw2010/events/ws_add_news')
 
     targetfolder = portal.en.campaigns.hw2010.news
-###    #import pdb;pdb.set_trace()
-#    targetfolder.invokeFactory(id=id, type_name=u"News Item")
+###    targetfolder.invokeFactory(id=id, type_name=u"News Item")
     targetfolder.manage_addProduct['ATContentTypes'].addATNewsItem(id)
 
 
@@ -34,11 +33,16 @@ def ws_add_news(self,id,title,description,text,effective,image):
     # set the subject
     ob.setSubject('maintenance')
 
+    log.info('Created new News Item at %s' %ob.absolute_url())
+
+
     # publish
-    #pwt.doActionFor(ob, 'publish')
+    try:
+        pwt.doActionFor(ob, 'publish')
+    except:
+        log.warn('Publishing the News Item was not possible!')
 
     ob.reindexObject()
-    log.info('Created new News Item at %s' %ob.absolute_url())
 
     return 0
 
