@@ -4,8 +4,8 @@ osha.policy Changelog
 1.3.21 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Added Extensions/ws_add_news.py, a helper for xmlrpclib-based upload
+  of News Items #1269 (thomasw)
 
 1.3.20 (2010-06-26)
 -------------------
