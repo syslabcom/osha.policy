@@ -243,6 +243,7 @@
         name="lc_maintenance"
         class=".lc_osha.LCMaintenanceView"
         permission="zope2.View"      
+        allowed_interface=".interfaces.ILCMaintenanceView"
         />
 
     <!-- clicksearch portlet metadata widgets -->
