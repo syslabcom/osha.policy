@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.3.22 (unreleased)
+1.3.22 (2010-07-18)
 -------------------
 
 - added allowed interface to lc maintenance view 
