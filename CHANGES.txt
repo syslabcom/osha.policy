@@ -4,7 +4,8 @@ osha.policy Changelog
 1.3.22 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- added allowed interface to lc maintenance view 
+  [pilz]
 
 
 1.3.21 (2010-07-06)
