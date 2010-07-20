@@ -11,6 +11,7 @@ from Products.CMFCore.utils import getToolByName
 import transaction
 from DateTime import DateTime
 import time
+from slc.linguatools import utils as linguautils
 
 types_to_dest = dict(
     OSH_Link='data/links',
@@ -295,3 +296,50 @@ def updateLC(self):
     print "_updateWSRegistrations"
     lc.database._updateWSRegistrations()
     return "updated"
+
+def copyLegislation(self):
+    portal = getToolByName(self, 'portal_url').getPortalObject()
+    folder = portal.en.legislation.directives
+
+    subfolders = self.ZopeFind(obj=folder, search_sub=1,
+    obj_metatypes='ATFolder')
+    langs = folder.getTranslationLanguages()
+    for subf in subfolders:
+        id, ob = subf
+        print "translating folder", ob.absolute_url()
+        linguautils.translate_this(ob, [], 0, langs) 
+
+    documents = self.ZopeFind(obj=folder, search_sub=1,
+        obj_metatypes='ATDocument')
+    for doc in documents:
+        id, ob = doc
+        print "translating document", ob.absolute_url()
+        linguautils.translate_this(ob, [], 0, langs)
+
+    print "folder:", folder
+    objs = self.ZopeFind(obj=folder, search_sub=1, obj_metatypes='Collage')
+
+    for item in objs:
+        id, ob = item
+        id = id.split('/')[-1]
+        print "id:", id
+        print "url", ob.absolute_url()
+        print item
+        parent = Acquisition.aq_parent(ob)
+        print parent
+        parentlang = parent.Language()
+        trans = parent.getTranslations()
+        for lang in trans.keys():
+            if lang == parentlang:
+                continue
+            target = trans[lang][0]
+            if not getattr(Acquisition.aq_base(target), id, None) or not \
+            type(getattr(Acquisition.aq_base(target), id, None))==type(ob):
+                cp = ob._getCopy(ob)
+                target._setObject(id, cp)
+                print "doing the copying", cp, [id]
+            else:
+                print "target in lang %s at %s already has obj with id %s" % (lang,
+                target.absolute_url(), id)
+
+    return "ok!"
