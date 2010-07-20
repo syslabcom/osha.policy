@@ -299,22 +299,28 @@ def updateLC(self):
 
 def copyLegislation(self):
     portal = getToolByName(self, 'portal_url').getPortalObject()
-    folder = portal.en.legislation.directives
+    folder = getattr(portal.en.legislation.directives,  'provisions-on-workload-ergonomical-and-psychosocial-risks')
 
     subfolders = self.ZopeFind(obj=folder, search_sub=1,
     obj_metatypes='ATFolder')
     langs = folder.getTranslationLanguages()
     for subf in subfolders:
         id, ob = subf
+        if ob.Language() not in ('en',''):
+            continue
         print "translating folder", ob.absolute_url()
         linguautils.translate_this(ob, [], 0, langs) 
+        linguautils.exec_for_all_langs(ob, linguautils.workflow_action, transition="publish")
 
     documents = self.ZopeFind(obj=folder, search_sub=1,
         obj_metatypes='ATDocument')
     for doc in documents:
         id, ob = doc
+        if ob.Language() not in ('en', ''):
+            continue
         print "translating document", ob.absolute_url()
-        linguautils.translate_this(ob, [], 0, langs)
+        linguautils.translate_this(ob, ['title', 'description', 'text'], 0, langs)
+        linguautils.exec_for_all_langs(ob, linguautils.workflow_action, transition="publish")
 
     print "folder:", folder
     objs = self.ZopeFind(obj=folder, search_sub=1, obj_metatypes='Collage')
@@ -333,6 +339,8 @@ def copyLegislation(self):
             if lang == parentlang:
                 continue
             target = trans[lang][0]
+#            if getattr(Acquisition.aq_base(target), id, None) and type(getattr(Acquisition.aq_base(target), id, None)) == type(ob):
+#                target.manage_delObjects(id)
             if not getattr(Acquisition.aq_base(target), id, None) or not \
             type(getattr(Acquisition.aq_base(target), id, None))==type(ob):
                 cp = ob._getCopy(ob)
