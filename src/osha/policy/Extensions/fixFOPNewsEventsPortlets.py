@@ -103,7 +103,7 @@ fop_group_map = {
 
 
 def main(self):
-    #raise Exception("This script must be customised before running")
+    raise Exception("This script must be customised before running")
     # Assing the FOP main site portlet to each FOP section
     # 1) Remove any FOP main site portlets already assigned
     # 2) Assign a new one in the desired position
@@ -243,7 +243,7 @@ def main(self):
         group = fop_group_map[country]
         for translation in get_translation_obs(fop):
             log("Setting local role on %s"%translation.absolute_url())
-            translation.manage_setLocalRoles(group, ["Editor"])
+            translation.manage_setLocalRoles(group, ["Contributor", "Editor", "Member", "Reviewer"])
             # add_remove_portlets(country, translation)
             # configure_news_and_events(country, translation)
             # set_path_criterion_to_uid(translation, portal.en.news.UID())
