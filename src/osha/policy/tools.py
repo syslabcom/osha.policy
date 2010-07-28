@@ -435,3 +435,43 @@ def _find_missing_translations():
         ttt = row[level]
         path = ' -> '.join(levels[:level])
         writer.writerow([id, path, ttt, ''])
+
+def insertTranslations():
+    try:
+        _insertTranslations()
+    except Exception, e:
+        print e
+        import pdb;pdb.post_mortem(sys.exc_traceback)
+
+def _insertTranslations():
+    xml = file(sys.argv[1])
+    vdex = parse(xml)
+    root = vdex.getroot()
+    terms = {}
+    keys = {}
+    for term in root.findall('.//%sterm' % NS):
+        terms[term[0].text.lower()] = term
+    for translation_filename in sys.argv[2:]:
+        language = translation_filename[27:29].lower()
+        xls = get_xls(translation_filename)
+        keys[language] = []
+        for i in range(1, xls.nrows):
+            row = xls.row(i)
+            id = row[0].value.lower().strip().lower()
+            keys[language].append(id)
+            translation = row[3].value.lower().strip()
+            assert translation
+            term = terms[id]
+            found = False
+            for language_term in term.findall('./%scaption/%slangstring' % (NS, NS)):
+                if language_term.attrib['language'] == language:
+                    language_term.text = translation
+                    if found:
+                        assert False, "TWICE???"
+                    found = True
+            assert found
+    ref_ids = keys.values()[0]
+    for ids in keys.values():
+        assert ref_ids == ids
+    vdex.write('new.vdex', 'utf-8')
+            

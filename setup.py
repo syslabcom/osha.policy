@@ -91,6 +91,7 @@ setup(name='osha.policy',
       xmltoxls = osha.policy.tools:xmltoxls
       ordervdex = osha.policy.tools:ordervdex
       find_missing_translations = osha.policy.tools:find_missing_translations
+      insertTranslations = osha.policy.tools:insertTranslations
       """,
       )      
       

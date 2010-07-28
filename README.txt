@@ -38,6 +38,13 @@ ordervdex
     This tool takes a vdex file and orders the element according to id.
     It overrides the old xml file!
 
+insertTranslations
+    This tool takes the vdex file and then a list of translations provided
+    as xls as in the form given out from xltoxsl.
+    It assumes that the language id is in the filename in [27:29].
+    It inserte the provided translations.
+    The outputfile is always new.vdex.
+
 VDEX UPDATER DSL
 ================
 A line is one command.
