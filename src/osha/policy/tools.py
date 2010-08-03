@@ -459,7 +459,7 @@ def _insertTranslations():
             row = xls.row(i)
             id = row[0].value.lower().strip().lower()
             keys[language].append(id)
-            translation = row[3].value.lower().strip()
+            translation = row[3].value.strip()
             assert translation
             term = terms[id]
             found = False
