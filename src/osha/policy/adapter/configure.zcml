@@ -27,4 +27,16 @@
         factory=".slcmedialibrary_support.OSHAVocabularyInfo"
         />
 
+
+    <!-- Support IIndexableObject for QueueCatalogs -->
+    <class class="Products.QueueCatalog.QueueCatalog.QueueCatalog">
+        <implements interface="osha.policy.adapter.queuecatalog_wrapper.IQueueCatalog" />
+    </class>
+    
+    <adapter zcml:condition="installed Products.QueueCatalog"
+        for="zope.interface.Interface .queuecatalog_wrapper.IQueueCatalog"
+        provides="plone.indexer.interfaces.IIndexableObject"
+        factory=".queuecatalog_wrapper.IndexableObjectWrapper"
+        />
+        
 </configure>
