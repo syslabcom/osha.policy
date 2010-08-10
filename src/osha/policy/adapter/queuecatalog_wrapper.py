@@ -18,9 +18,7 @@ class IndexableObjectWrapper(IOW):
     
     implements(IIndexableObject, IIndexableObjectWrapper)
     adapts(Interface, IQueueCatalog)
-    
-#    __providedBy__ = WrapperSpecification()
-    
+        
     def __init__(self, object, catalog):
         super(IndexableObjectWrapper, self).__init__(object, catalog)
         self.__catalog = self.__catalog.getZCatalog()
