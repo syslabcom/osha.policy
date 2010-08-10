@@ -23,10 +23,12 @@ logger = logging.getLogger('osha.policy')
 logger.info('PATCHING PloneFlashUpload!')
 
 def _getCache():
-    servers = ('10.0.0.62:11211',) # XXX hardcoded
+    config = getConfiguration()
+    servers = config.product_config['flashuploader'].get('memcache-address')
+    servers = servers.split(',')
+    servers = [x.strip() for x in servers]
     client = memcache.Client(servers)
     return client
-    
 
 def _issueTicket(ident):
     """ issues a timelimit ticket 
