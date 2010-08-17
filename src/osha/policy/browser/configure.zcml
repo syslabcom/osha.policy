@@ -246,6 +246,13 @@
         allowed_interface=".interfaces.ILCMaintenanceView"
         />
 
+    <browser:page
+        for="*"
+        name="content_statistics_export"
+        class=".content_stats.ContentStatisticsExportView"
+        permission="zope2.View"      
+        />
+
     <!-- clicksearch portlet metadata widgets -->
 
     <!-- Multilingual Thesaurus -->
