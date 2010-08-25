@@ -1,10 +1,21 @@
 osha.policy Changelog
 =====================
 
-1.3.23 (unreleased)
+1.3.23 (2010-08-25)
 -------------------
 
-- Nothing changed yet.
+- theuni hat einen patch für ploneflashupload eingebaut, so dass der
+      memcache host aus der product config ausgelesen wird. Habe diesen in unserer
+      buildoutconf nachgetragen.
+      [pilz]
+
+- Adapter um solr mit queuecatalog kompatibel zu machen.
+      [pilz]
+
+- added collective_solr_patch so that we can switch collective.solr and
+      collective.indexing back from svn trunk to release eggs. Remove
+      src/collective.solr and src/collective.indexing (just to be sure) and run
+      buildout [reinhardt]
 
 
 1.3.22 (2010-07-18)
