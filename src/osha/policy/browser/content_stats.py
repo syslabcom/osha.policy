@@ -25,6 +25,14 @@ class ContentStatisticsExportView(BrowserView):
         stats_table = sqlalchemy.Table('site_content_statistics_main', meta, autoload=True)
         subjects_table = sqlalchemy.Table('site_content_statistics_subject', meta, autoload=True)
 
+        dele = stats_table.delete()
+        result = connection.execute(dele)
+        logger.debug(result)
+
+        dele = subjects_table.delete()
+        result = connection.execute(dele)
+        logger.debug(result)
+
         # get data from catalog
         cat = getToolByName(self.context, 'portal_catalog')
         res = cat(Language='all')
@@ -51,14 +59,15 @@ class ContentStatisticsExportView(BrowserView):
             ins = stats_table.insert(obj_data)
             result = connection.execute(ins)
             logger.debug(result)
-
-            for subject in brain.Subject:
-                subject_data = dict(uid = brain.UID,
-                                    subject = subject
-                                   )
-                ins = subjects_table.insert(subject_data)
-                result = connection.execute(ins)
-                logger.debug(result)
+            
+            if not subject == Missing.Value:
+                for subject in brain.Subject:
+                    subject_data = dict(uid = brain.UID,
+                                        subject = subject
+                                       )
+                    ins = subjects_table.insert(subject_data)
+                    result = connection.execute(ins)
+                    logger.debug(result)
             n = n + 1
             if n % 10000 == 0:
                 log('%d items processed' % n)
