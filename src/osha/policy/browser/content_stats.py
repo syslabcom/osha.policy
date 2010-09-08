@@ -41,6 +41,7 @@ class ContentStatisticsExportView(BrowserView):
         # iterate through catalog data and write to DB
         for brain in res:
             obj_data = dict(uid = brain.UID,
+                            path = brain.getPath,
                             portal_type = brain.portal_type,
                             creationdate = brain.CreationDate,
                             effectivedate = str(brain.EffectiveDate),
@@ -60,14 +61,13 @@ class ContentStatisticsExportView(BrowserView):
             result = connection.execute(ins)
             logger.debug(result)
             
-            if not subject == Missing.Value:
-                for subject in brain.Subject:
-                    subject_data = dict(uid = brain.UID,
-                                        subject = subject
-                                       )
-                    ins = subjects_table.insert(subject_data)
-                    result = connection.execute(ins)
-                    logger.debug(result)
+            for subject in brain.Subject:
+                subject_data = dict(uid = brain.UID,
+                                    subject = subject
+                                   )
+                ins = subjects_table.insert(subject_data)
+                result = connection.execute(ins)
+                logger.debug(result)
             n = n + 1
             if n % 10000 == 0:
                 log('%d items processed' % n)
