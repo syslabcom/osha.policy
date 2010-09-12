@@ -1,10 +1,13 @@
 osha.policy Changelog
 =====================
 
-1.3.24 (unreleased)
+1.3.24 (2010-09-12)
 -------------------
 
-- Nothing changed yet.
+- Overwriting SpeakerView of slc.seminarportal to make sure only canonical
+  Speeches are linked [thomasw]
+- content_stats: get path from brain and write to db, delete misplaced check
+  [reinhardt]
 
 
 1.3.23 (2010-08-25)
