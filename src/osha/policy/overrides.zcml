@@ -23,6 +23,11 @@ optimization -->
                  zope.lifecycleevent.interfaces.IObjectModifiedEvent"
             handler=".adapter.publication_customisations.OshaChapterUpdater"
     />
+    <subscriber 
+        for="slc.publications.interfaces.IPublicationEnhanced
+             Products.LinguaPlone.events.IObjectTranslatedEvent"
+        handler=".adapter.publication_customisations.OshaTranslationChapterUpdater"
+    />
 
     <include package="z3c.unconfigure" file="meta.zcml" />
     <unconfigure>
@@ -30,6 +35,11 @@ optimization -->
             for="slc.publications.interfaces.IPublicationEnhanced
                  zope.lifecycleevent.interfaces.IObjectModifiedEvent"
             handler="slc.publications.adapter.events.ChapterUpdater"
+        />
+        <subscriber 
+            for="slc.publications.interfaces.IPublicationEnhanced
+                 Products.LinguaPlone.events.IObjectTranslatedEvent"
+            handler="slc.publications.adapter.events.TranslationChapterUpdater"
         />
     </unconfigure>
 
