@@ -4,7 +4,9 @@ osha.policy Changelog
 1.3.25 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- since there's a new event handler in slc.publications for updating chapters
+  in a translation, wen need to overwrite it here too  
+  [thomasw]
 
 
 1.3.24 (2010-09-12)
