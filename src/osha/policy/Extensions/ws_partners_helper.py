@@ -36,3 +36,9 @@ def setAttachment(ob, file, filename):
   setattr(fileob, 'filename', filename)
   mutator(fileob)
 
+
+def setImage(ob, image):
+
+    ob.setImage(image.data)
+    return 1
+
