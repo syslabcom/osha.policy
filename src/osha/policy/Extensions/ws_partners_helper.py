@@ -1,4 +1,5 @@
 import re
+from OFS.Image import File
 from logging import getLogger
 log = getLogger('osha.policy::ws_partners_helper')
 
@@ -26,3 +27,12 @@ def parsePartners(self, txt, size):
         except:
             log.error("Could not eval line: %s" % line)
     return partners
+
+def setAttachment(ob, file, filename):
+  if len(file.data) == 0:
+    return
+  mutator = ob.getField('attachment').getMutator(ob)
+  fileob = File(filename, filename, file.data)
+  setattr(fileob, 'filename', filename)
+  mutator(fileob)
+
