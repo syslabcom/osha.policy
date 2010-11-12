@@ -37,11 +37,16 @@ def copyDefaultViewCategory(self):
         sep_subjects = sep.Subject()
         if sep_subjects:
             continue
-        page = sep.getDefaultPage()
+        try:
+            page = sep._getOb(sep.getDefaultPage())
+        except:
+            continue
         page_subjects = page.Subject()
+        if not page_subjects:
+            continue
+
         sep.setSubject(page_subjects)
         seps_set.append('/'.join(sep.getPhysicalPath()))
-        
 
     return seps_set or 'None'
 
