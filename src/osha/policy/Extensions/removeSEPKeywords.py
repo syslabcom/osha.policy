@@ -1,5 +1,3 @@
-from zope.component import getMultiAdapter
-
 def run(self):
     """ Some SEPs still have a keyword property set on them.
         Look for them, set the prop as the SEP's subject and remove the 
@@ -10,19 +8,18 @@ def run(self):
                 object_provides='osha.policy.interfaces.ISingleEntryPoint',
                 review_state="published"
                 )
-    import pdb; pdb.set_trace()
     for sep in seps:
         sep = sep.getObject()
         kw = sep.getProperty('keyword')
         if not kw:
             continue
-        sep.delProperty('keyword')
+        sep._delProperty('keyword')
+        logdict['/'.join(sep.getPhysicalPath())] = kw
         subjects = sep.Subject()
         if kw in subjects:
             continue 
         subjects += (kw,)
         sep.setSubject(subjects)
-        logdict['/'.sep.getPhysicalPath()] = kw
 
-    return logdict
+    return logdict or 'None'
 
