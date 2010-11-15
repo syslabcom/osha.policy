@@ -47,7 +47,6 @@ class ATEventProvider(BASEATEventProvider):
         portal_languages = getToolByName(self.context, 'portal_languages')
         preflang = portal_languages.getPreferredLanguage()
 
-
         query = And(
             Eq('portal_type', 'Event'), 
             In('path', paths), 
@@ -78,6 +77,9 @@ class ATEventProvider(BASEATEventProvider):
             else:
                 query = And(query, Eq(key, value)) 
 
+        if hasattr(catalog, 'getZCatalog'):
+            catalog = catalog.getZCatalog()
+            
         event_brains = catalog.evalAdvancedQuery(query, (('Date', 'desc'),))
         return (interfaces.IEvent(x) for x in event_brains)
 
