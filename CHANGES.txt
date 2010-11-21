@@ -4,7 +4,9 @@ osha.policy Changelog
 1.3.27 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Issue #1861: Refactored the Calendar's event provider to not show events from
+  the /oshnetwork folder on the main (or other non-oshnetwork) event foldersi [brand]
+- Changed subcategories for WHP #1457 [thomasw]
 
 
 1.3.26 (2010-10-27)
