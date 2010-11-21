@@ -13546,114 +13546,6 @@
       <langstring language="sv">Hälsofrämjande insatser på arbetsplatsen</langstring>
     </caption>
     <term>
-      <termIdentifier>whp::csr</termIdentifier>
-      <caption>
-          <langstring language="bg">Corporate social responsibility (CSR)</langstring>
-          <langstring language="cs">Corporate social responsibility (CSR)</langstring>
-          <langstring language="da">Corporate social responsibility (CSR)</langstring>
-          <langstring language="de">Corporate social responsibility (CSR)</langstring>
-          <langstring language="el">Corporate social responsibility (CSR)</langstring>
-          <langstring language="en">Corporate social responsibility (CSR)</langstring>
-          <langstring language="es">Corporate social responsibility (CSR)</langstring>
-          <langstring language="et">Corporate social responsibility (CSR)</langstring>
-          <langstring language="fi">Corporate social responsibility (CSR)</langstring>
-          <langstring language="fr">Corporate social responsibility (CSR)</langstring>
-          <langstring language="hu">Corporate social responsibility (CSR)</langstring>
-          <langstring language="it">Corporate social responsibility (CSR)</langstring>
-          <langstring language="lt">Corporate social responsibility (CSR)</langstring>
-          <langstring language="lv">Corporate social responsibility (CSR)</langstring>
-          <langstring language="mt">Corporate social responsibility (CSR)</langstring>
-          <langstring language="nl">Corporate social responsibility (CSR)</langstring>
-          <langstring language="pl">Corporate social responsibility (CSR)</langstring>
-          <langstring language="pt">Corporate social responsibility (CSR)</langstring>
-          <langstring language="ro">Corporate social responsibility (CSR)</langstring>
-          <langstring language="sk">Corporate social responsibility (CSR)</langstring>
-          <langstring language="sl">Corporate social responsibility (CSR)</langstring>
-          <langstring language="sv">Corporate social responsibility (CSR)</langstring>
-      </caption>
-    </term>
-    <term>
-      <termIdentifier>whp::costs_and_economic_factors</termIdentifier>
-      <caption>
-          <langstring language="bg">Costs and economic factors</langstring>
-          <langstring language="cs">Costs and economic factors</langstring>
-          <langstring language="da">Costs and economic factors</langstring>
-          <langstring language="de">Costs and economic factors</langstring>
-          <langstring language="el">Costs and economic factors</langstring>
-          <langstring language="en">Costs and economic factors</langstring>
-          <langstring language="es">Costs and economic factors</langstring>
-          <langstring language="et">Costs and economic factors</langstring>
-          <langstring language="fi">Costs and economic factors</langstring>
-          <langstring language="fr">Costs and economic factors</langstring>
-          <langstring language="hu">Costs and economic factors</langstring>
-          <langstring language="it">Costs and economic factors</langstring>
-          <langstring language="lt">Costs and economic factors</langstring>
-          <langstring language="lv">Costs and economic factors</langstring>
-          <langstring language="mt">Costs and economic factors</langstring>
-          <langstring language="nl">Costs and economic factors</langstring>
-          <langstring language="pl">Costs and economic factors</langstring>
-          <langstring language="pt">Costs and economic factors</langstring>
-          <langstring language="ro">Costs and economic factors</langstring>
-          <langstring language="sk">Costs and economic factors</langstring>
-          <langstring language="sl">Costs and economic factors</langstring>
-          <langstring language="sv">Costs and economic factors</langstring>
-      </caption>
-    </term>
-    <term>
-      <termIdentifier>whp::ergonomic_improvements</termIdentifier>
-      <caption>
-          <langstring language="bg">Ergonomic improvements</langstring>
-          <langstring language="cs">Ergonomic improvements</langstring>
-          <langstring language="da">Ergonomic improvements</langstring>
-          <langstring language="de">Ergonomic improvements</langstring>
-          <langstring language="el">Ergonomic improvements</langstring>
-          <langstring language="en">Ergonomic improvements</langstring>
-          <langstring language="es">Ergonomic improvements</langstring>
-          <langstring language="et">Ergonomic improvements</langstring>
-          <langstring language="fi">Ergonomic improvements</langstring>
-          <langstring language="fr">Ergonomic improvements</langstring>
-          <langstring language="hu">Ergonomic improvements</langstring>
-          <langstring language="it">Ergonomic improvements</langstring>
-          <langstring language="lt">Ergonomic improvements</langstring>
-          <langstring language="lv">Ergonomic improvements</langstring>
-          <langstring language="mt">Ergonomic improvements</langstring>
-          <langstring language="nl">Ergonomic improvements</langstring>
-          <langstring language="pl">Ergonomic improvements</langstring>
-          <langstring language="pt">Ergonomic improvements</langstring>
-          <langstring language="ro">Ergonomic improvements</langstring>
-          <langstring language="sk">Ergonomic improvements</langstring>
-          <langstring language="sl">Ergonomic improvements</langstring>
-          <langstring language="sv">Ergonomic improvements</langstring>
-      </caption>
-    </term>
-    <term>
-      <termIdentifier>whp::public_health</termIdentifier>
-      <caption>
-          <langstring language="bg">Public health</langstring>
-          <langstring language="cs">Public health</langstring>
-          <langstring language="da">Public health</langstring>
-          <langstring language="de">Public health</langstring>
-          <langstring language="el">Public health</langstring>
-          <langstring language="en">Public health</langstring>
-          <langstring language="es">Public health</langstring>
-          <langstring language="et">Public health</langstring>
-          <langstring language="fi">Public health</langstring>
-          <langstring language="fr">Public health</langstring>
-          <langstring language="hu">Public health</langstring>
-          <langstring language="it">Public health</langstring>
-          <langstring language="lt">Public health</langstring>
-          <langstring language="lv">Public health</langstring>
-          <langstring language="mt">Public health</langstring>
-          <langstring language="nl">Public health</langstring>
-          <langstring language="pl">Public health</langstring>
-          <langstring language="pt">Public health</langstring>
-          <langstring language="ro">Public health</langstring>
-          <langstring language="sk">Public health</langstring>
-          <langstring language="sl">Public health</langstring>
-          <langstring language="sv">Public health</langstring>
-      </caption>
-    </term>
-    <term>
       <termIdentifier>whp::healthy_lifestyle</termIdentifier>
       <caption>
           <langstring language="bg">Healthy lifestyle</langstring>
@@ -13678,6 +13570,168 @@
           <langstring language="sk">Healthy lifestyle</langstring>
           <langstring language="sl">Healthy lifestyle</langstring>
           <langstring language="sv">Healthy lifestyle</langstring>
+      </caption>
+    </term>
+    <term>
+      <termIdentifier>whp::health_monitoring</termIdentifier>
+      <caption>
+          <langstring language="bg">Health monitoring</langstring>
+          <langstring language="cs">Health monitoring</langstring>
+          <langstring language="da">Health monitoring</langstring>
+          <langstring language="de">Health monitoring</langstring>
+          <langstring language="el">Health monitoring</langstring>
+          <langstring language="en">Health monitoring</langstring>
+          <langstring language="es">Health monitoring</langstring>
+          <langstring language="et">Health monitoring</langstring>
+          <langstring language="fi">Health monitoring</langstring>
+          <langstring language="fr">Health monitoring</langstring>
+          <langstring language="hu">Health monitoring</langstring>
+          <langstring language="it">Health monitoring</langstring>
+          <langstring language="lt">Health monitoring</langstring>
+          <langstring language="lv">Health monitoring</langstring>
+          <langstring language="mt">Health monitoring</langstring>
+          <langstring language="nl">Health monitoring</langstring>
+          <langstring language="pl">Health monitoring</langstring>
+          <langstring language="pt">Health monitoring</langstring>
+          <langstring language="ro">Health monitoring</langstring>
+          <langstring language="sk">Health monitoring</langstring>
+          <langstring language="sl">Health monitoring</langstring>
+          <langstring language="sv">Health monitoring</langstring>
+      </caption>
+    </term>
+    <term>
+      <termIdentifier>whp::healthy_eating</termIdentifier>
+      <caption>
+          <langstring language="bg">Healthy eating</langstring>
+          <langstring language="cs">Healthy eating</langstring>
+          <langstring language="da">Healthy eating</langstring>
+          <langstring language="de">Healthy eating</langstring>
+          <langstring language="el">Healthy eating</langstring>
+          <langstring language="en">Healthy eating</langstring>
+          <langstring language="es">Healthy eating</langstring>
+          <langstring language="et">Healthy eating</langstring>
+          <langstring language="fi">Healthy eating</langstring>
+          <langstring language="fr">Healthy eating</langstring>
+          <langstring language="hu">Healthy eating</langstring>
+          <langstring language="it">Healthy eating</langstring>
+          <langstring language="lt">Healthy eating</langstring>
+          <langstring language="lv">Healthy eating</langstring>
+          <langstring language="mt">Healthy eating</langstring>
+          <langstring language="nl">Healthy eating</langstring>
+          <langstring language="pl">Healthy eating</langstring>
+          <langstring language="pt">Healthy eating</langstring>
+          <langstring language="ro">Healthy eating</langstring>
+          <langstring language="sk">Healthy eating</langstring>
+          <langstring language="sl">Healthy eating</langstring>
+          <langstring language="sv">Healthy eating</langstring>
+      </caption>
+    </term>
+    <term>
+      <termIdentifier>whp::physical_activity</termIdentifier>
+      <caption>
+          <langstring language="bg">Physical activity</langstring>
+          <langstring language="cs">Physical activity</langstring>
+          <langstring language="da">Physical activity</langstring>
+          <langstring language="de">Physical activity</langstring>
+          <langstring language="el">Physical activity</langstring>
+          <langstring language="en">Physical activity</langstring>
+          <langstring language="es">Physical activity</langstring>
+          <langstring language="et">Physical activity</langstring>
+          <langstring language="fi">Physical activity</langstring>
+          <langstring language="fr">Physical activity</langstring>
+          <langstring language="hu">Physical activity</langstring>
+          <langstring language="it">Physical activity</langstring>
+          <langstring language="lt">Physical activity</langstring>
+          <langstring language="lv">Physical activity</langstring>
+          <langstring language="mt">Physical activity</langstring>
+          <langstring language="nl">Physical activity</langstring>
+          <langstring language="pl">Physical activity</langstring>
+          <langstring language="pt">Physical activity</langstring>
+          <langstring language="ro">Physical activity</langstring>
+          <langstring language="sk">Physical activity</langstring>
+          <langstring language="sl">Physical activity</langstring>
+          <langstring language="sv">Physical activity</langstring>
+      </caption>
+    </term>
+    <term>
+      <termIdentifier>whp::smoking_cessation</termIdentifier>
+      <caption>
+          <langstring language="bg">Smoking cessation</langstring>
+          <langstring language="cs">Smoking cessation</langstring>
+          <langstring language="da">Smoking cessation</langstring>
+          <langstring language="de">Smoking cessation</langstring>
+          <langstring language="el">Smoking cessation</langstring>
+          <langstring language="en">Smoking cessation</langstring>
+          <langstring language="es">Smoking cessation</langstring>
+          <langstring language="et">Smoking cessation</langstring>
+          <langstring language="fi">Smoking cessation</langstring>
+          <langstring language="fr">Smoking cessation</langstring>
+          <langstring language="hu">Smoking cessation</langstring>
+          <langstring language="it">Smoking cessation</langstring>
+          <langstring language="lt">Smoking cessation</langstring>
+          <langstring language="lv">Smoking cessation</langstring>
+          <langstring language="mt">Smoking cessation</langstring>
+          <langstring language="nl">Smoking cessation</langstring>
+          <langstring language="pl">Smoking cessation</langstring>
+          <langstring language="pt">Smoking cessation</langstring>
+          <langstring language="ro">Smoking cessation</langstring>
+          <langstring language="sk">Smoking cessation</langstring>
+          <langstring language="sl">Smoking cessation</langstring>
+          <langstring language="sv">Smoking cessation</langstring>
+      </caption>
+    </term>
+    <term>
+      <termIdentifier>whp::smoke_free_workplaces</termIdentifier>
+      <caption>
+          <langstring language="bg">Smoke free workplaces</langstring>
+          <langstring language="cs">Smoke free workplaces</langstring>
+          <langstring language="da">Smoke free workplaces</langstring>
+          <langstring language="de">Smoke free workplaces</langstring>
+          <langstring language="el">Smoke free workplaces</langstring>
+          <langstring language="en">Smoke free workplaces</langstring>
+          <langstring language="es">Smoke free workplaces</langstring>
+          <langstring language="et">Smoke free workplaces</langstring>
+          <langstring language="fi">Smoke free workplaces</langstring>
+          <langstring language="fr">Smoke free workplaces</langstring>
+          <langstring language="hu">Smoke free workplaces</langstring>
+          <langstring language="it">Smoke free workplaces</langstring>
+          <langstring language="lt">Smoke free workplaces</langstring>
+          <langstring language="lv">Smoke free workplaces</langstring>
+          <langstring language="mt">Smoke free workplaces</langstring>
+          <langstring language="nl">Smoke free workplaces</langstring>
+          <langstring language="pl">Smoke free workplaces</langstring>
+          <langstring language="pt">Smoke free workplaces</langstring>
+          <langstring language="ro">Smoke free workplaces</langstring>
+          <langstring language="sk">Smoke free workplaces</langstring>
+          <langstring language="sl">Smoke free workplaces</langstring>
+          <langstring language="sv">Smoke free workplaces</langstring>
+      </caption>
+    </term>
+    <term>
+      <termIdentifier>whp::alcohol_and_drugs</termIdentifier>
+      <caption>
+          <langstring language="bg">Alcohol and drugs</langstring>
+          <langstring language="cs">Alcohol and drugs</langstring>
+          <langstring language="da">Alcohol and drugs</langstring>
+          <langstring language="de">Alcohol and drugs</langstring>
+          <langstring language="el">Alcohol and drugs</langstring>
+          <langstring language="en">Alcohol and drugs</langstring>
+          <langstring language="es">Alcohol and drugs</langstring>
+          <langstring language="et">Alcohol and drugs</langstring>
+          <langstring language="fi">Alcohol and drugs</langstring>
+          <langstring language="fr">Alcohol and drugs</langstring>
+          <langstring language="hu">Alcohol and drugs</langstring>
+          <langstring language="it">Alcohol and drugs</langstring>
+          <langstring language="lt">Alcohol and drugs</langstring>
+          <langstring language="lv">Alcohol and drugs</langstring>
+          <langstring language="mt">Alcohol and drugs</langstring>
+          <langstring language="nl">Alcohol and drugs</langstring>
+          <langstring language="pl">Alcohol and drugs</langstring>
+          <langstring language="pt">Alcohol and drugs</langstring>
+          <langstring language="ro">Alcohol and drugs</langstring>
+          <langstring language="sk">Alcohol and drugs</langstring>
+          <langstring language="sl">Alcohol and drugs</langstring>
+          <langstring language="sv">Alcohol and drugs</langstring>
       </caption>
     </term>
     <term>
@@ -13708,111 +13762,30 @@
       </caption>
     </term>
     <term>
-      <termIdentifier>whp::multicomponent_programmes</termIdentifier>
-      <caption>
-          <langstring language="bg">Multicomponent programmes</langstring>
-          <langstring language="cs">Multicomponent programmes</langstring>
-          <langstring language="da">Multicomponent programmes</langstring>
-          <langstring language="de">Multicomponent programmes</langstring>
-          <langstring language="el">Multicomponent programmes</langstring>
-          <langstring language="en">Multicomponent programmes</langstring>
-          <langstring language="es">Multicomponent programmes</langstring>
-          <langstring language="et">Multicomponent programmes</langstring>
-          <langstring language="fi">Multicomponent programmes</langstring>
-          <langstring language="fr">Multicomponent programmes</langstring>
-          <langstring language="hu">Multicomponent programmes</langstring>
-          <langstring language="it">Multicomponent programmes</langstring>
-          <langstring language="lt">Multicomponent programmes</langstring>
-          <langstring language="lv">Multicomponent programmes</langstring>
-          <langstring language="mt">Multicomponent programmes</langstring>
-          <langstring language="nl">Multicomponent programmes</langstring>
-          <langstring language="pl">Multicomponent programmes</langstring>
-          <langstring language="pt">Multicomponent programmes</langstring>
-          <langstring language="ro">Multicomponent programmes</langstring>
-          <langstring language="sk">Multicomponent programmes</langstring>
-          <langstring language="sl">Multicomponent programmes</langstring>
-          <langstring language="sv">Multicomponent programmes</langstring>
-      </caption>
-    </term>
-    <term>
-      <termIdentifier>whp::organisational_aspects</termIdentifier>
-      <caption>
-          <langstring language="bg">Organisational aspects</langstring>
-          <langstring language="cs">Organisational aspects</langstring>
-          <langstring language="da">Organisational aspects</langstring>
-          <langstring language="de">Organisational aspects</langstring>
-          <langstring language="el">Organisational aspects</langstring>
-          <langstring language="en">Organisational aspects</langstring>
-          <langstring language="es">Organisational aspects</langstring>
-          <langstring language="et">Organisational aspects</langstring>
-          <langstring language="fi">Organisational aspects</langstring>
-          <langstring language="fr">Organisational aspects</langstring>
-          <langstring language="hu">Organisational aspects</langstring>
-          <langstring language="it">Organisational aspects</langstring>
-          <langstring language="lt">Organisational aspects</langstring>
-          <langstring language="lv">Organisational aspects</langstring>
-          <langstring language="mt">Organisational aspects</langstring>
-          <langstring language="nl">Organisational aspects</langstring>
-          <langstring language="pl">Organisational aspects</langstring>
-          <langstring language="pt">Organisational aspects</langstring>
-          <langstring language="ro">Organisational aspects</langstring>
-          <langstring language="sk">Organisational aspects</langstring>
-          <langstring language="sl">Organisational aspects</langstring>
-          <langstring language="sv">Organisational aspects</langstring>
-      </caption>
-    </term>
-    <term>
       <termIdentifier>whp::sick_leave_management</termIdentifier>
       <caption>
-          <langstring language="bg">Sick leave management</langstring>
-          <langstring language="cs">Sick leave management</langstring>
-          <langstring language="da">Sick leave management</langstring>
-          <langstring language="de">Sick leave management</langstring>
-          <langstring language="el">Sick leave management</langstring>
-          <langstring language="en">Sick leave management</langstring>
-          <langstring language="es">Sick leave management</langstring>
-          <langstring language="et">Sick leave management</langstring>
-          <langstring language="fi">Sick leave management</langstring>
-          <langstring language="fr">Sick leave management</langstring>
-          <langstring language="hu">Sick leave management</langstring>
-          <langstring language="it">Sick leave management</langstring>
-          <langstring language="lt">Sick leave management</langstring>
-          <langstring language="lv">Sick leave management</langstring>
-          <langstring language="mt">Sick leave management</langstring>
-          <langstring language="nl">Sick leave management</langstring>
-          <langstring language="pl">Sick leave management</langstring>
-          <langstring language="pt">Sick leave management</langstring>
-          <langstring language="ro">Sick leave management</langstring>
-          <langstring language="sk">Sick leave management</langstring>
-          <langstring language="sl">Sick leave management</langstring>
-          <langstring language="sv">Sick leave management</langstring>
-      </caption>
-    </term>
-    <term>
-      <termIdentifier>whp::supportive_working_environment</termIdentifier>
-      <caption>
-          <langstring language="bg">Supportive working environment</langstring>
-          <langstring language="cs">Supportive working environment</langstring>
-          <langstring language="da">Supportive working environment</langstring>
-          <langstring language="de">Supportive working environment</langstring>
-          <langstring language="el">Supportive working environment</langstring>
-          <langstring language="en">Supportive working environment</langstring>
-          <langstring language="es">Supportive working environment</langstring>
-          <langstring language="et">Supportive working environment</langstring>
-          <langstring language="fi">Supportive working environment</langstring>
-          <langstring language="fr">Supportive working environment</langstring>
-          <langstring language="hu">Supportive working environment</langstring>
-          <langstring language="it">Supportive working environment</langstring>
-          <langstring language="lt">Supportive working environment</langstring>
-          <langstring language="lv">Supportive working environment</langstring>
-          <langstring language="mt">Supportive working environment</langstring>
-          <langstring language="nl">Supportive working environment</langstring>
-          <langstring language="pl">Supportive working environment</langstring>
-          <langstring language="pt">Supportive working environment</langstring>
-          <langstring language="ro">Supportive working environment</langstring>
-          <langstring language="sk">Supportive working environment</langstring>
-          <langstring language="sl">Supportive working environment</langstring>
-          <langstring language="sv">Supportive working environment</langstring>
+          <langstring language="bg">Sickness absence</langstring>
+          <langstring language="cs">Sickness absence</langstring>
+          <langstring language="da">Sickness absence</langstring>
+          <langstring language="de">Sickness absence</langstring>
+          <langstring language="el">Sickness absence</langstring>
+          <langstring language="en">Sickness absence</langstring>
+          <langstring language="es">Sickness absence</langstring>
+          <langstring language="et">Sickness absence</langstring>
+          <langstring language="fi">Sickness absence</langstring>
+          <langstring language="fr">Sickness absence</langstring>
+          <langstring language="hu">Sickness absence</langstring>
+          <langstring language="it">Sickness absence</langstring>
+          <langstring language="lt">Sickness absence</langstring>
+          <langstring language="lv">Sickness absence</langstring>
+          <langstring language="mt">Sickness absence</langstring>
+          <langstring language="nl">Sickness absence</langstring>
+          <langstring language="pl">Sickness absence</langstring>
+          <langstring language="pt">Sickness absence</langstring>
+          <langstring language="ro">Sickness absence</langstring>
+          <langstring language="sk">Sickness absence</langstring>
+          <langstring language="sl">Sickness absence</langstring>
+          <langstring language="sv">Sickness absence</langstring>
       </caption>
     </term>
     <term>
@@ -13867,33 +13840,6 @@
           <langstring language="sk">Sexual health promotion</langstring>
           <langstring language="sl">Sexual health promotion</langstring>
           <langstring language="sv">Sexual health promotion</langstring>
-      </caption>
-    </term>
-    <term>
-      <termIdentifier>whp::young_ageing_workers_women</termIdentifier>
-      <caption>
-          <langstring language="bg">Young workers/women/Ageing workers</langstring>
-          <langstring language="cs">Young workers/women/Ageing workers</langstring>
-          <langstring language="da">Young workers/women/Ageing workers</langstring>
-          <langstring language="de">Young workers/women/Ageing workers</langstring>
-          <langstring language="el">Young workers/women/Ageing workers</langstring>
-          <langstring language="en">Young workers/women/Ageing workers</langstring>
-          <langstring language="es">Young workers/women/Ageing workers</langstring>
-          <langstring language="et">Young workers/women/Ageing workers</langstring>
-          <langstring language="fi">Young workers/women/Ageing workers</langstring>
-          <langstring language="fr">Young workers/women/Ageing workers</langstring>
-          <langstring language="hu">Young workers/women/Ageing workers</langstring>
-          <langstring language="it">Young workers/women/Ageing workers</langstring>
-          <langstring language="lt">Young workers/women/Ageing workers</langstring>
-          <langstring language="lv">Young workers/women/Ageing workers</langstring>
-          <langstring language="mt">Young workers/women/Ageing workers</langstring>
-          <langstring language="nl">Young workers/women/Ageing workers</langstring>
-          <langstring language="pl">Young workers/women/Ageing workers</langstring>
-          <langstring language="pt">Young workers/women/Ageing workers</langstring>
-          <langstring language="ro">Young workers/women/Ageing workers</langstring>
-          <langstring language="sk">Young workers/women/Ageing workers</langstring>
-          <langstring language="sl">Young workers/women/Ageing workers</langstring>
-          <langstring language="sv">Young workers/women/Ageing workers</langstring>
       </caption>
     </term>
   </term>
