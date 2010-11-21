@@ -12,6 +12,7 @@ from p4a.plonecalendar.eventprovider import _make_zcatalog_query
 from p4a.plonecalendar.eventprovider import \
         ATEventProvider as BASEATEventProvider
 
+
 class ATEventProvider(BASEATEventProvider):
     interface.implements(interfaces.IEventProvider)
     component.adapts(atapi.BaseObject)
@@ -19,25 +20,22 @@ class ATEventProvider(BASEATEventProvider):
     def __init__(self, context):
         self.context = context
 
-    def gather_events(self, 
-                start=None, 
-                stop=None, **kw):
+    def gather_events(self, start=None, stop=None, **kw):
         catalog = cmfutils.getToolByName(self.context, 'portal_catalog')
 
-        # search in the navigation root of the currently selected language 
-        # and in the canonical root path with Language = preferredLanguage or 
+        # search in the navigation root of the currently selected language
+        # and in the canonical root path with Language = preferredLanguage or
         # neutral
-        pstate = getMultiAdapter(
-                        (self.context, self.context.request), 
-                        name=u'plone_portal_state'
-                        )
+        pstate = getMultiAdapter((self.context, self.context.request),
+                        name=u'plone_portal_state')
 
         nav_root_path = pstate.navigation_root_path()
         paths = [nav_root_path]
 
         nav_root = pstate.portal().restrictedTraverse(nav_root_path)
         try:
-            canonical_path = '/'.join(nav_root.getCanonical().getPhysicalPath())
+            canonical_path = '/'.join(
+                nav_root.getCanonical().getPhysicalPath())
         except AttributeError:
             pass
         else:
@@ -48,20 +46,19 @@ class ATEventProvider(BASEATEventProvider):
         preflang = portal_languages.getPreferredLanguage()
 
         query = And(
-            Eq('portal_type', 'Event'), 
-            In('path', paths), 
+            Eq('portal_type', 'Event'),
+            In('path', paths),
             In('Language', ['', preflang]),
             )
 
         # We don't want to show events from Focal Points, in the oshnetwork/
         # folder, in Calenders outside of these FOPs.
-        oshaview = getMultiAdapter(
-                    (self.context, self.context.request), 
-                    name=u'oshaview'
-                    )
+        oshaview = getMultiAdapter((self.context, self.context.request),
+                    name=u'oshaview')
         subsite = oshaview.getCurrentSubsite()
         if subsite is None:
-            query = And(query, Not(In('path', [p + '/oshnetwork' for p in paths])))
+            query = And(query, Not(In('path',
+                [p + '/oshnetwork' for p in paths])))
 
         # Not sure where this key comes from, but it is not an index...
         if '-C' in kw:
@@ -70,17 +67,15 @@ class ATEventProvider(BASEATEventProvider):
         kw = _make_zcatalog_query(start, stop, kw)
         for key, value in kw.items():
             if key in ['start', 'end']:
-                if value['range'] == 'max': 
+                if value['range'] == 'max':
                     query = And(query, Le(key, value['query']))
                 else:
                     query = And(query, Ge(key, value['query']))
             else:
-                query = And(query, Eq(key, value)) 
+                query = And(query, Eq(key, value))
 
         if hasattr(catalog, 'getZCatalog'):
             catalog = catalog.getZCatalog()
-            
+
         event_brains = catalog.evalAdvancedQuery(query, (('Date', 'desc'),))
         return (interfaces.IEvent(x) for x in event_brains)
-
-
