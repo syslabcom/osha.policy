@@ -4,8 +4,11 @@ osha.policy Changelog
 1.3.28 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- ATEventProvider.gather_events(): 
+  If we are in the root (i. e. not inside a subsite), restrict
+  to the current folder. This restores the p4a.calendar's behaviour of
+  gather_events, since that also returns only events from the current
+  calendar. [thomasw]
 
 1.3.27 (2010-11-21)
 -------------------

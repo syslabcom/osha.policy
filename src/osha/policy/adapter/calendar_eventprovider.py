@@ -45,20 +45,22 @@ class ATEventProvider(BASEATEventProvider):
         portal_languages = getToolByName(self.context, 'portal_languages')
         preflang = portal_languages.getPreferredLanguage()
 
+        # If we are in the root (i. e. not inside a subsite), restrict
+        # to the current folder. This restores the p4a.calendar's behaviour of
+        # gather_events, since that also returns only events from the current
+        # calendar.
+        oshaview = getMultiAdapter((self.context, self.context.request),
+                    name=u'oshaview')
+        subsite = oshaview.getCurrentSubsite()
+
+        if subsite is None:
+            paths = ['/'.join(self.context.getPhysicalPath())]
+
         query = And(
             Eq('portal_type', 'Event'),
             In('path', paths),
             In('Language', ['', preflang]),
             )
-
-        # We don't want to show events from Focal Points, in the oshnetwork/
-        # folder, in Calenders outside of these FOPs.
-        oshaview = getMultiAdapter((self.context, self.context.request),
-                    name=u'oshaview')
-        subsite = oshaview.getCurrentSubsite()
-        if subsite is None:
-            query = And(query, Not(In('path',
-                [p + '/oshnetwork' for p in paths])))
 
         # Not sure where this key comes from, but it is not an index...
         if '-C' in kw:
