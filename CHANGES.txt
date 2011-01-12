@@ -4,7 +4,11 @@ osha.policy Changelog
 1.3.29 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Removed the categories vocabulary. It is now defined in slc.seminarportal
+  because it's used their for the Seminars portlet. No use in having it twice.
+  [jcbrand]
+- Remove the SpeakerView override, it's been backported to slc.seminarportal.
+  [jcbrand]
 
 
 1.3.28 (2010-11-22)
