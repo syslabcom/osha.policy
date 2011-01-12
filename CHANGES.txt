@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.3.29 (unreleased)
+1.3.29 (2011-01-12)
 -------------------
 
 - Removed the categories vocabulary. It is now defined in slc.seminarportal
