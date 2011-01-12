@@ -72,12 +72,6 @@ optimization -->
       allowed_interface="p4a.subtyper.browser.ISubtyperView"
       />
 
-    <browser:page
-        for="slc.seminarportal.interfaces.ISpeaker"
-        name="speaker-view"
-        class=".browser.seminar_view.SpeakerView"
-        permission="zope.Public"
-        />
 
 
 </configure>
