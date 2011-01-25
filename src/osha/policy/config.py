@@ -71,11 +71,11 @@ DEPENDENCIES = [
     'RedirectionTool',
     'osha.legislation',
     'osha.theme',
-    'slc.calendarfetcher',
     ]
 
-    # XXX: Remove slc.alertservice 
+    # XXX: Remove slc.alertservice and osha.legislation.
     # slc.alertservice is not found
+    # osha.legislation throws 'invalid permission' error when being installed.
 
     # It is IMPORTANT that the linkchecker is installed at the end
     # because it relies on beforehand registered retrievers

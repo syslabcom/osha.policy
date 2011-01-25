@@ -4,8 +4,9 @@ osha.policy Changelog
 1.3.31 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- REVERTING changes done in 1.3.29 (related to slc.seminarportal). They are not
+  compatible with the current version of the EU-OSHA site yet
+  [thomasw]
 
 1.3.30 (2011-01-25)
 -------------------
