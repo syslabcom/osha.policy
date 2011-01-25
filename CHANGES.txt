@@ -1,16 +1,12 @@
 osha.policy Changelog
 =====================
 
-1.3.30 (unreleased)
+1.3.30 (2011-01-25)
 -------------------
 
-- Nothing changed yet.
-
-
-y (unreleased)
---------------
-
-- Nothing changed yet.
+- Removed patch gocept_linkchecker as requested by gocept, since they
+  have updated the linkchecker accordingly
+  [thomasw]
 
 
 1.3.29 (2011-01-12)
