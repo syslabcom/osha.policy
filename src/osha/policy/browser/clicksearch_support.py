@@ -14,7 +14,7 @@ from slc.clicksearch.browser.widgets import SimpleListView
 from slc.clicksearch.browser.widgets import ATVMTreeListView
 from slc.clicksearch.browser.widgets import DropdownView
 from slc.clicksearch.browser.indexes import DefaultIndexView, ATVMTreeIndexView
-from Products.PlacelessTranslationService import getTranslationService
+from zope.i18n import translate
 
 
 class RemoteLanguageView(DropdownView):
@@ -104,7 +104,7 @@ class SubjectView(SimpleListView):
         """ use some processing to find a human readable title for the given metadata element id
             like Musculoskeletal disorders for msd
         """
-        return getTranslationService().translate(domain='osha', msgid=id, context=self.context)
+        return translate(domain='osha', msgid=id, context=self.context)
 
 class SubjectIndexView(DefaultIndexView):
     """ provide proper translation """
@@ -113,4 +113,4 @@ class SubjectIndexView(DefaultIndexView):
         """ use some processing to find a human readable title for the given metadata element id
             like Musculoskeletal disorders for msd
         """
-        return getTranslationService().translate(domain='osha', msgid=id, context=self.context)
+        return translate(domain='osha', msgid=id, context=self.context)

@@ -2,7 +2,7 @@ from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-from Products.PlacelessTranslationService import getTranslationService
+from zope.i18n import translate
 from zope.app.component.hooks import getSite
 
 from Products.CMFCore.utils import getToolByName
@@ -22,8 +22,7 @@ class CategoriesVocabulary(object):
         result = catalog.uniqueValuesFor(index)
         result = list(result)
         result.sort()
-        pts = getTranslationService()
-        terms = [SimpleTerm(k, title=pts.translate(domain="osha", msgid=k, context=context) ) for k in result]
+        terms = [SimpleTerm(k, title=translate(domain="osha", msgid=k, context=context) ) for k in result]
 
         return SimpleVocabulary(terms)
 
