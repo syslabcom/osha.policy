@@ -19,10 +19,12 @@ class CategoriesVocabulary(object):
 
         index = "Subject"
         catalog = getToolByName(context, 'portal_catalog')
+        language = getToolByName(context, 'portal_languages').getPreferredLanguage()
         result = catalog.uniqueValuesFor(index)
         result = list(result)
         result.sort()
-        terms = [SimpleTerm(k, title=translate(domain="osha", msgid=k, context=context) ) for k in result]
+        terms = [SimpleTerm(k, title=translate(domain="osha", msgid=k, context=context,
+            target_language=language) ) for k in result]
 
         return SimpleVocabulary(terms)
 
