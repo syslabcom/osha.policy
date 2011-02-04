@@ -4,8 +4,9 @@ osha.policy Changelog
 1.3.32 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Remove the SpeakerView override, it's been backported to slc.seminarportal.
+  [jcbrand]
+- replaced getTranslationService().translate with zope.i18n.translate [thomasw]
 
 1.3.31 (2011-01-25)
 -------------------
