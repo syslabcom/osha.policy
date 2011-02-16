@@ -1,4 +1,5 @@
 from zope.i18n import translate
+from Products.CMFCore.utils import getToolByName
 
 class PrettyFormatter(object):
     
@@ -6,5 +7,6 @@ class PrettyFormatter(object):
         self.context = context
     
     def formatKeyword(self, kw):
-        kw = translate(domain="osha", msgid=kw, context=self.context)
+        lang = getToolByName(self.context, 'portal_languages').getPreferredLanguage()
+        kw = translate(domain="osha", msgid=kw, target_language=lang)
         return kw
