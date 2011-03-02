@@ -4,7 +4,8 @@ osha.policy Changelog
 1.3.33 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- In calendar_eventprovider: don't use key "set_language" for generating a
+  catalog query, fixes #2725 [thomasw]
 
 
 1.3.32 (2011-02-21)

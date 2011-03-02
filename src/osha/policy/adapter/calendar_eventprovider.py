@@ -63,8 +63,9 @@ class ATEventProvider(BASEATEventProvider):
             )
 
         # Not sure where this key comes from, but it is not an index...
-        if '-C' in kw:
-            del kw['-C']
+        for bad in ['-C', 'set_language']:
+            if bad in kw:
+                del kw[bad]
 
         kw = _make_zcatalog_query(start, stop, kw)
         for key, value in kw.items():
