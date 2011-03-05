@@ -11,6 +11,7 @@ from reportlab.platypus import Paragraph, Frame
 from reportlab.lib.colors import red, black
 from reportlab.lib.enums import TA_CENTER
 import reportlab.rl_config
+from zope.i18n import translate
 
 reportlab.rl_config.warnOnMissingFontGlyphs = 0
 
@@ -33,9 +34,6 @@ def generatePDF(self,
                 'sl', 'sv']:
         language = "en"
 
-    # get translation-service
-    from Products.PlacelessTranslationService import getTranslationService
-    ptt = getTranslationService()
     ptt_domain = 'osha_ew'
     year = "2010"
 
@@ -71,7 +69,7 @@ def generatePDF(self,
     my_canvas.drawImage(frontimage, 0 , 0, 21*cm, 29.7*cm)
 
     msg_id = 'campaign_name_'+year
-    u_campaign_name = ptt.translate(
+    u_campaign_name = translate(
                                 domain=ptt_domain, 
                                 msgid=msg_id, 
                                 target_language=language, 
@@ -85,7 +83,7 @@ def generatePDF(self,
     mapping = {'campaign_slogan':u_campaign_name, 'year':year}
 
     msg_id = 'campaign_slogan_'+year
-    u_campaign_slogan = ptt.translate(
+    u_campaign_slogan = translate(
                                 domain=ptt_domain, 
                                 msgid=msg_id, 
                                 target_language=language, 
@@ -100,14 +98,14 @@ def generatePDF(self,
     mapping = {'campaign_slogan':u_campaign_slogan, 'year':year}
         
     # print first subline
-    certificate_for = ptt.translate(domain=ptt_domain, 
+    certificate_for = translate(domain=ptt_domain, 
                                     msgid='certificate_for_'+year, 
                                     mapping=mapping, 
                                     target_language=language,
                                     context=self)
 
 
-    certificate_title = ptt.translate(
+    certificate_title = translate(
                                 domain=ptt_domain, 
                                 msgid='certificate_title_'+year, 
                                 target_language=language, 
@@ -122,7 +120,7 @@ def generatePDF(self,
     mapping = {'campaign_slogan':u_campaign_slogan, 'year':year}
         
     # print first subline
-    certificate_for = ptt.translate(domain=ptt_domain, 
+    certificate_for = translate(domain=ptt_domain, 
                                     msgid='certificate_for_'+year, 
                                     mapping=mapping, 
                                     target_language=language,
@@ -163,7 +161,7 @@ def generatePDF(self,
         )
 
     lines = []
-    contribution_headline = ptt.translate(domain=ptt_domain, 
+    contribution_headline = translate(domain=ptt_domain, 
                                           msgid='contribution_headline_'+year, 
                                           mapping=mapping, 
                                           target_language=language,
@@ -177,7 +175,7 @@ def generatePDF(self,
     # Director's signature
     director_name = "Jukka Takala,"
     director_name = director_name.encode('utf-8')
-    director_indentifier = ptt.translate(domain=ptt_domain, 
+    director_indentifier = translate(domain=ptt_domain, 
                                            msgid='director_'+year, 
                                            mapping=mapping, 
                                            target_language=language,

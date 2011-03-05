@@ -10,7 +10,7 @@ from reportlab.platypus.flowables import PageBreak
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.platypus import Paragraph, Frame
 import os, tempfile
-
+from zope.i18n import translate
 
 import reportlab.rl_config
 reportlab.rl_config.warnOnMissingFontGlyphs = 0
@@ -24,10 +24,6 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
     if language not in ['bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'hu', 'it', 'lt', 'lv', 'mt', 'nl', 'pl', 'ro', 'pt', 'sk', 'sl', 'sv']:
         language = "en"
 
-    # get translation-service
-    from Products.PlacelessTranslationService import getTranslationService
-    ptt = getTranslationService()
-    #ptt = self.Control_Panel.TranslationService
     ptt_domain = 'osha_ew'
     #year = str(DateTime().year())
     year = "2008"
@@ -65,10 +61,10 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
 
 #    # print campaign-slogan
     msg_id = 'campaign_slogan_'+year
-    u_campaign_slogan = ptt.translate(domain=ptt_domain, msgid=msg_id, target_language=language, context=self)
+    u_campaign_slogan = translate(domain=ptt_domain, msgid=msg_id, target_language=language, context=self)
 
     
-    certificate_title = ptt.translate(domain=ptt_domain, 
+    certificate_title = translate(domain=ptt_domain, 
                                       msgid='certificate_title_'+year, 
                                       target_language=language, 
                                       context=self)
@@ -81,7 +77,7 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
     mapping = {'campaign_slogan':u_campaign_slogan, 'year':year}
         
     # print first subline
-    certificate_for = ptt.translate(domain=ptt_domain, 
+    certificate_for = translate(domain=ptt_domain, 
                                     msgid='certificate_for_'+year, 
                                     mapping=mapping, 
                                     target_language=language,
@@ -111,12 +107,12 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
         )
 
     lines = []
-    contribution_headline_1 = ptt.translate(domain=ptt_domain, 
+    contribution_headline_1 = translate(domain=ptt_domain, 
                                           msgid='contribution_headline_'+year+'_1', 
                                           mapping=mapping, 
                                           target_language=language,
                                           context=self)
-    contribution_headline_2 = ptt.translate(domain=ptt_domain, 
+    contribution_headline_2 = translate(domain=ptt_domain, 
                                           msgid='contribution_headline_'+year+'_2', 
                                           mapping=mapping, 
                                           target_language=language,
@@ -131,7 +127,7 @@ def generatePDF(self, company="European Agency for Safety and Health at Work", l
     # Director's signature
     director_name = "Jukka Takala,"
     director_name = director_name.encode('utf-8')
-    director_indentifiyier = ptt.translate(domain=ptt_domain, 
+    director_indentifiyier = translate(domain=ptt_domain, 
                                            msgid='director', 
                                            mapping=mapping, 
                                            target_language=language,

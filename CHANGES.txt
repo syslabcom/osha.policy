@@ -6,6 +6,8 @@ osha.policy Changelog
 
 - In calendar_eventprovider: don't use key "set_language" for generating a
   catalog query, fixes #2725 [thomasw]
+- replaced getTranslationService().translate with zope.i18n.translate in charter
+  PDF generation, fixes #2749 [thomasw]
 
 
 1.3.32 (2011-02-21)
