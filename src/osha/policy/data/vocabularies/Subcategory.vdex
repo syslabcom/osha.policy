@@ -10705,28 +10705,28 @@
   <term>
     <termIdentifier>road_transport</termIdentifier>
     <caption>
-      <langstring language="da">Road Transport</langstring>
-      <langstring language="de">Road Transport</langstring>
-      <langstring language="et">Road Transport</langstring>
+      <langstring language="da">Vejtransport</langstring>
+      <langstring language="de">Straßenverkehr</langstring>
+      <langstring language="et">Maanteetransport</langstring>
       <langstring language="en">Road Transport</langstring>
-      <langstring language="es">Road Transport</langstring>
-      <langstring language="fr">Road Transport</langstring>
-      <langstring language="it">Road Transport</langstring>
-      <langstring language="lv">Road Transport</langstring>
-      <langstring language="lt">Road Transport</langstring>
-      <langstring language="hu">Road Transport</langstring>
-      <langstring language="mt">Road Transport</langstring>
-      <langstring language="nl">Road Transport</langstring>
-      <langstring language="pl">Road Transport</langstring>
-      <langstring language="pt">Road Transport</langstring>
-      <langstring language="ro">Road Transport</langstring>
-      <langstring language="sk">Road Transport</langstring>
-      <langstring language="sl">Road Transport</langstring>
-      <langstring language="fi">Road Transport</langstring>
-      <langstring language="sv">Road Transport</langstring>
-      <langstring language="cs">Road Transport</langstring>
-      <langstring language="el">Road Transport</langstring>
-      <langstring language="bg">Road Transport</langstring>
+      <langstring language="es">Transporte por carretera</langstring>
+      <langstring language="fr">Transport routier</langstring>
+      <langstring language="it">Trasporto su strada</langstring>
+      <langstring language="lv">Autopārvadājumi</langstring>
+      <langstring language="lt">Kelių transportas</langstring>
+      <langstring language="hu">Közúti közlekedés</langstring>
+      <langstring language="mt">Trasport bit-Triq</langstring>
+      <langstring language="nl">Wegvervoer</langstring>
+      <langstring language="pl">Transport drogowy</langstring>
+      <langstring language="pt">Transporte rodoviário</langstring>
+      <langstring language="ro">Transport rutier</langstring>
+      <langstring language="sk">Cestná doprava</langstring>
+      <langstring language="sl">Cestni promet</langstring>
+      <langstring language="fi">Maantiekuljetukset</langstring>
+      <langstring language="sv">Vägtransport</langstring>
+      <langstring language="cs">Silniční doprava</langstring>
+      <langstring language="el">Οδικές μεταφορές</langstring>
+      <langstring language="bg">Автомобилен транспорт</langstring>
     </caption>
     <term>
       <termIdentifier>road_transport::as-driving</termIdentifier>
@@ -12790,6 +12790,33 @@
         <langstring language="bg">Guides to Risk Reduction Implementation</langstring>
       </caption>
     </term>
+  </term>
+  <term>
+    <termIdentifier>transport</termIdentifier>
+    <caption>
+      <langstring language="da">Transport</langstring>
+      <langstring language="de">Verkehr</langstring>
+      <langstring language="et">Transport</langstring>
+      <langstring language="en">Transport</langstring>
+      <langstring language="es">Transportes</langstring>
+      <langstring language="fr">Transports</langstring>
+      <langstring language="it">Trasporti</langstring>
+      <langstring language="lv">Transports</langstring>
+      <langstring language="lt">Transportas</langstring>
+      <langstring language="hu">Közlekedés</langstring>
+      <langstring language="mt">Trasport</langstring>
+      <langstring language="nl">Vervoer</langstring>
+      <langstring language="pl">Transport</langstring>
+      <langstring language="pt">Transportes</langstring>
+      <langstring language="sk">Doprava</langstring>
+      <langstring language="sl">Promet</langstring>
+      <langstring language="fi">Liikenne</langstring>
+      <langstring language="sv">Transporter</langstring>
+      <langstring language="cs">Doprava</langstring>
+      <langstring language="el">Μεταφορές</langstring>
+      <langstring language="bg">Транспорт</langstring>
+      <langstring language="ro">Transport</langstring>
+    </caption>
   </term>
   <term>
     <termIdentifier>gender</termIdentifier>
