@@ -329,5 +329,12 @@
         />
     <!-- * NACE * -->
 
+
+    <browser:page
+        name="getHostname"
+        for="*"
+        permission="zope.Public"
+        class=".HostnameView"
+        />
 </configure>
 
