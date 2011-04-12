@@ -11,7 +11,17 @@ from p4a.calendar import interfaces
 from p4a.plonecalendar.eventprovider import _make_zcatalog_query
 from p4a.plonecalendar.eventprovider import \
         ATEventProvider as BASEATEventProvider
+from p4a.plonecalendar.eventprovider import BrainEvent
 
+from osha.theme.browser.calendar_helper_view import getEventDateToBeConfirmed
+
+
+class OSHBrainEvent(BrainEvent):
+
+    @property
+    def dateToBeConfirmed(self):
+        event = self.context.getObject()
+        return getEventDateToBeConfirmed(event)
 
 class ATEventProvider(BASEATEventProvider):
     interface.implements(interfaces.IEventProvider)
@@ -81,4 +91,4 @@ class ATEventProvider(BASEATEventProvider):
             catalog = catalog.getZCatalog()
 
         event_brains = catalog.evalAdvancedQuery(query, (('Date', 'desc'),))
-        return (interfaces.IEvent(x) for x in event_brains)
+        return (OSHBrainEvent(x) for x in event_brains)
