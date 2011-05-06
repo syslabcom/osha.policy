@@ -4,8 +4,8 @@ osha.policy Changelog
 1.3.36 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- generateHW2010PDF: we need to escape the company name, since pure & characters
+  will cause reportlab to puke, fixes #3213 [thomasw]
 
 1.3.35 (2011-05-04)
 -------------------
