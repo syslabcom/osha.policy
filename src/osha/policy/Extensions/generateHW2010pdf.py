@@ -12,6 +12,7 @@ from reportlab.lib.colors import red, black
 from reportlab.lib.enums import TA_CENTER
 import reportlab.rl_config
 from zope.i18n import translate
+import xml.sax.saxutils as saxutils
 
 reportlab.rl_config.warnOnMissingFontGlyphs = 0
 
@@ -146,6 +147,7 @@ def generatePDF(self,
             leading=34, 
             alignment=TA_CENTER)
 
+    company = saxutils.escape(company)
     P = Paragraph(company, style)
     wi, he = P.wrap(width, height)
     P.drawOn(my_canvas, x - wi/2, y - he/2)
