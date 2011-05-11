@@ -3,7 +3,7 @@
 # Default is 7, so google complains.
 # We increase the value to 14
 
-from Products.ResourceRegistry import config
+from Products.ResourceRegistries import config
 
 config.CSS_CACHE_DURATION = 14  # css cache life in days (note: value can be a float)
 config.KSS_CACHE_DURATION = 14  # kss cache life in days (note: value can be a float)
