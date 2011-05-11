@@ -22,3 +22,4 @@ import blob_index_patch
 import blob_field_patch
 import collage_actionsviewlet_patch
 import collective_solr_patch
+import increase_resourceregistry_cache_duration
