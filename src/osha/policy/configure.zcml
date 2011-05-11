@@ -2,15 +2,21 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="osha.policy">
 
     <five:registerPackage package="." initialize=".initialize" />
+
+    <include package="five.dbevent" />
     <include package=".adapter" />
     <include package=".browser" />
     <include package="osha.theme" />
     <include package="archetypes.schemaextender" />
     <include package="quintagroup.plonecaptchas" />
     <include package="quintagroup.plonecomments" />
+
+    <!-- needed to make zope.app.generations work -->
+    <include  package="zope.app.generations" file="subscriber.zcml" />
 
     <genericsetup:registerProfile
         name="default"
