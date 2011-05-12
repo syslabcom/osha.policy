@@ -6,18 +6,13 @@
 __author__ = """Jens Klein <jens@bluedynamics.com>"""              
 __docformat__ = 'plaintext'
 
-import logging
-import random
 import AccessControl
+import logging
+import memcache
+import random
 from App.config import getConfiguration
-from zope.app.traversing.browser.absoluteurl import absoluteURL
 from zope.security.interfaces import Unauthorized
-from Products.PloneFlashUpload import utils
 from Products.PloneFlashUpload import ticket as pfuticket
-try:
-    import cmemcache as memcache
-except ImportError:
-    import memcache
 
 logger = logging.getLogger('osha.policy')
 logger.info('PATCHING PloneFlashUpload!')
