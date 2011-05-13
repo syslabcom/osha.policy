@@ -11,15 +11,12 @@
 
 # Only one line is actually modified
 
-
 print "\nosha.policy: patching Products.LinguaPlone.utils.Generator"
 
-from Products.LinguaPlone import utils
-from Products.LinguaPlone.utils import AT_GENERATE_METHOD
-
-from types import FunctionType as function
-from Products.Archetypes.ClassGen import GeneratorError, _modes
 from Products.Archetypes.ClassGen import Generator as ATGenerator
+from Products.Archetypes.ClassGen import GeneratorError
+from Products.LinguaPlone import utils
+from types import FunctionType as function
 
 class Generator(ATGenerator):
     """Generates methods for language independent fields."""
