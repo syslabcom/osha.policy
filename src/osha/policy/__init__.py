@@ -1,10 +1,5 @@
 from AccessControl import ModuleSecurityInfo
-
 from Products.CMFCore import DirectoryView
-from Products.ATContentTypes.content.document import ATDocument
-
-import new
-import adapter
 from patches import *
 
 osha_globals= globals()

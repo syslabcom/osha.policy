@@ -9,13 +9,11 @@ from zope.i18n import translate
 
 from plone.memoize import instance
 
-from plone.app.content.batching import Batch
 from plone.app.content.browser.foldercontents import FolderContentsView
 from plone.app.content.browser.foldercontents import FolderContentsTable
 from plone.app.content.browser.tableview import Table, TableKSSView
 
 from Products.ATContentTypes.interface import IATTopic
-from Products.Archetypes.interfaces import ISchema
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 
@@ -25,7 +23,6 @@ try:
 except ImportError:
     log.warn("slc.treecategories not found")
     getInlineTreeView = None
-
 
 SUPPORTED_PORTAL_TYPES = ('Image', 'File', 'Link')
 

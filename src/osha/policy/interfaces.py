@@ -1,4 +1,4 @@
-from zope.interface import Interface, alsoProvides
+from zope.interface import Interface
 from zope import schema
 from plone.theme.interfaces import IDefaultPloneLayer
 from osha.theme import OSHAMessageFactory as _

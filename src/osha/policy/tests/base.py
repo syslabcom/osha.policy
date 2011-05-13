@@ -1,18 +1,11 @@
-from zope import interface
 from zope import component
 
 from Testing import ZopeTestCase as ztc
 
-from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
-from plone.browserlayer import utils as browserlayerutils
-
-from Products.Archetypes import atapi
 from Products.Archetypes.Schema.factory import instanceSchemaFactory
-from Products.Five import fiveconfigure
 from Products.Five import zcml
 from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase import layer
-from Products.PloneTestCase.layer import onsetup
 
 from plone import browserlayer
 
@@ -25,9 +18,7 @@ class OSHAPolicyLayer(SiteLayer):
 
     @classmethod
     def setUp(cls):
-        ptc.setupPloneSite(products=(
-            'osha.policy',
-            ))
+        ptc.setupPloneSite(products=('osha.policy',))
 
         ztc.installProduct('ATVocabularyManager')
         ztc.installProduct('LinguaPlone')
