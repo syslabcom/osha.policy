@@ -20,7 +20,9 @@ class PortalUpdateManager(object):
     generation = 0
 
     def get_portals(self, context):
-        mountpoint = context.osha
+        mountpoint = getattr(context, 'osha', None)
+        if not mountpoint:
+            return []
         return mountpoint.objectValues('Plone Site')
 
     def install(self, context):
