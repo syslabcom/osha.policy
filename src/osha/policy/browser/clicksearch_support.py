@@ -1,15 +1,8 @@
-
-from zope.component import getMultiAdapter
-from zope.interface import Interface, implements, alsoProvides
-
 from Products.ATCountryWidget.CountryTool import Country
 from Products.CMFCore.utils import getToolByName
-from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-from slc.clicksearch.interfaces import ISelectView
 from slc.clicksearch.util import *
-from slc.clicksearch.browser.widgets import BaseView
 from slc.clicksearch.browser.widgets import SimpleListView
 from slc.clicksearch.browser.widgets import ATVMTreeListView
 from slc.clicksearch.browser.widgets import DropdownView
