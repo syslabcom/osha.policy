@@ -78,6 +78,12 @@ class ATEventProvider(BASEATEventProvider):
                 del kw[bad]
 
         kw = _make_zcatalog_query(start, stop, kw)
+        # apparently arbitrary keys can be inserted and if they are not named like a cat index, advanced query will shout
+        indexes = catalog.indexes()
+        for key in kw.keys():
+            if key not in indexes:
+                del kw[key]
+        
         for key, value in kw.items():
             if key in ['start', 'end']:
                 if value['range'] == 'max':

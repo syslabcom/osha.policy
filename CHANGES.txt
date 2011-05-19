@@ -8,6 +8,8 @@ osha.policy Changelog
   [pilz]
 - generateHW2010PDF: we need to escape the company name, since pure & characters
   will cause reportlab to puke, fixes #3213 [thomasw]
+- added a fix to calendar_eventprovider which prevents clicking through the months due to unsupported catalog indexes
+  [pilz]
 
 1.3.35 (2011-05-04)
 -------------------
