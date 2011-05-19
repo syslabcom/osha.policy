@@ -23,19 +23,10 @@
     cookable="True" enabled="True" expression="" id="jquery.autocomplete.js"
     inline="False"/>
  <javascript cacheable="True" compression="none" conditionalcomment=""
-    cookable="True" enabled="True" expression=""
-    id="++resource++jquery.ui/ui/ui.core.js" inline="False"/>
- <javascript cacheable="True" compression="none" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="jquery.dynatree.min.js"
     inline="False"/>
  <javascript cacheable="True" compression="True" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="tree.js" inline="False"/>
- <javascript cacheable="True" compression="none" conditionalcomment=""
-    cookable="True" enabled="True" expression=""
-    id="++resource++jquery.ui/ui/ui.droppable.js" inline="False"/>
- <javascript cacheable="True" compression="none" conditionalcomment=""
-    cookable="True" enabled="True" expression=""
-    id="++resource++jquery.ui/ui/ui.draggable.js" inline="False"/>
  <javascript cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="jquery-integration.js"
     inline="False"/>
