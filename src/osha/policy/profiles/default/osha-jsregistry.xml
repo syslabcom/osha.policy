@@ -228,4 +228,7 @@
  <javascript cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="True" expression=""
     id="++resource++trackingscripts.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" conditionalcomment=""
+    cookable="True" enabled="True" expression=""
+    id="++resource++jwplayer.js" inline="False"/>
 </object>
