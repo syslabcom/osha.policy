@@ -1,20 +1,21 @@
 <?xml version="1.0"?>
 <site>
- <property name="title">OSHA - Your network to a safer and healthier working environment</property>
- <property name="description">Global site - Your global gateway to a safer and healthier working environment</property>
- <property name="default_page" type="string">front-page</property>
+ <property
+    name="title">European Agency for Safety and Health at Work</property>
+ <property name="description"></property>
  <property name="selectable_views" type="lines">
   <element value="folder_listing"/>
  </property>
  <property name="email_from_address"
-    type="string">info@syslab.com</property>
+    type="string">comments@osha.europa.eu</property>
  <property name="email_from_name"
     type="string">OSHA Portal Administrator</property>
- <property name="validate_email" type="boolean">True</property>
- <property name="default_charset" type="string">utf-8</property>
+ <property name="validate_email" type="boolean">False</property>
+ <property name="email_charset" type="string">utf-8</property>
  <property name="enable_permalink" type="boolean">False</property>
- <property name="left_slots" type="lines">
- </property>
- <property name="right_slots" type="lines">
- </property>
+ <property name="default_charset" type="string">utf-8</property>
+ <property name="left_slots" type="lines"/>
+ <property name="right_slots" type="lines"/>
+ <property name="default_page" type="string">front-page</property>
+ <property name="captcha_key" type="string">30448508</property>
 </site>

@@ -1,25 +1,149 @@
 <?xml version="1.0"?>
 <object name="portal_properties" meta_type="Plone Properties Tool">
- <object name="osha_properties" meta_type="Plone Property Sheet">
-     <property name="title">OSHA properties</property>
-     <property name="support_to_address" type="string">comments@osha.europa.eu</property>     
-     <property name="TC_CrossChecker_Email" type="string">workflow@osha.europa.eu</property>     
-     <property name="Agency_ProjectManager_Email" type="string">moral@osha.europa.eu</property>     
-     <property name="listserv_email" type="string">listserv@listserv.osha.europa.eu</property>     
-     <property name="num_subscribers" type="string">37459</property>     
-     <property name="site_slogan" type="string">European Agency for Safety and Health at Work</property>     
-     <property name="contact_us_mail_default" type="string">inforequest@osha.europa.eu</property>     
-     <property name="contact_us_mails" type="lines">
-         <element value="comments_web_content:commentscontent@osha.europa.eu"/>
-         <element value="comments_web_technical:commentstechnical@osha.europa.eu"/>
-         <element value="broken_link:brokenlink@osha.europa.eu"/>
-         <element value="interesting_link:newlink@osha.europa.eu"/>
-         <element value="publication_request:publications@osha.europa.eu"/>
-     </property>     
+ <object name="fckeditor_properties" meta_type="Plone Property Sheet">
+  <property name="title">FCKeditor properties</property>
+  <property name="start_expanded" type="boolean">True</property>
+  <property name="allow_link_byuid" type="boolean">True</property>
+  <property name="allow_relative_links" type="boolean">False</property>
+  <property name="allow_latin_entities" type="boolean">False</property>
+  <property name="force_paste_as_text" type="boolean">False</property>
+  <property name="keyboard_entermode" type="string">p</property>
+  <property name="keyboard_shiftentermode" type="string">br</property>
+  <property name="keyboard_keystrokesmode" type="string">standard</property>
+  <property name="keyboard_customkeystrokes" type="text"> [
+   	[ CTRL + 65 /*A*/, true ],
+   	[ CTRL + 67 /*C*/, true ],
+   	[ CTRL + 70 /*F*/, true ],
+   	[ CTRL + 83 /*S*/, true ],
+   	[ CTRL + 88 /*X*/, true ],
+   	[ CTRL + 86 /*V*/, 'Paste' ],
+   	[ SHIFT + 45 /*INS*/, 'Paste' ],
+   	[ CTRL + 90 /*Z*/, 'Undo' ],
+   	[ CTRL + 89 /*Y*/, 'Redo' ],
+   	[ CTRL + SHIFT + 90 /*Z*/, 'Redo' ],
+   	[ CTRL + 76 /*L*/, 'Link' ],
+   	[ CTRL + 66 /*B*/, 'Bold' ],
+   	[ CTRL + 73 /*I*/, 'Italic' ],
+   	[ CTRL + 85 /*U*/, 'Underline' ],
+   	[ CTRL + SHIFT + 83 /*S*/, 'Save' ],
+   	[ CTRL + ALT + 13 /*ENTER*/, 'FitWindow' ],
+   	[ CTRL + 9 /*TAB*/, 'Source' ]
+   ]</property>
+  <property name="gecko_use_span" type="boolean">False</property>
+  <property name="spellchecker" type="string">ieSpell</property>
+  <property name="fck_force_width" type="string"></property>
+  <property name="fck_force_height" type="string"></property>
+  <property name="fck_toolbar" type="string">FullToolBar</property>
+  <property name="fck_custom_toolbar" type="text">[
+    ['Source','DocProps','-','Save','Preview','-','Templates'],
+    ['Cut','Copy','Paste','PasteText','PasteWord','-','Print','rtSpellCheck'],
+    ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+    ['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
+    ['OrderedList','UnorderedList','-','Outdent','Indent'],
+    ['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
+    ['Link','Unlink','Anchor'],
+    ['Image','Flash','flvPlayer','Table','Rule','SpecialChar','UniversalKey','PageBreak','Smiley'],
+    ['Form','Checkbox','Radio','TextField','Textarea','Select','Button','ImageButton','HiddenField'],
+    '/',
+    ['Style','FontFormat','FontName','FontSize'],
+    ['TextColor','BGColor'],
+    ['FitWindow','-','About']
+   ]</property>
+  <property name="allow_server_browsing" type="boolean">True</property>
+  <property name="allow_file_upload" type="boolean">True</property>
+  <property name="allow_image_upload" type="boolean">True</property>
+  <property name="allow_flash_upload" type="boolean">True</property>
+  <property name="file_portal_type" type="string">FileAttachment</property>
+  <property name="image_portal_type" type="string">Image</property>
+  <property name="browse_images_portal_types" type="lines">
+   <element value="Image"/>
+   <element value="ImageAttachment"/>
+  </property>
+  <property name="flash_portal_type" type="string">File</property>
+  <property name="browse_flashs_portal_types" type="lines">
+   <element value="FileAttachment"/>
+   <element value="File"/>
+  </property>
+  <property name="folder_portal_type" type="string">Folder</property>
+  <property name="pa_meta_types" type="lines"/>
+  <property name="rd_portal_types" type="lines"/>
+  <property name="fck_area_style" type="string"></property>
+  <property name="fck_force_path" type="boolean">False</property>
+  <property name="fck_force_other_path" type="string"></property>
+  <property name="fck_force_root" type="boolean">False</property>
+  <property name="fck_force_other_root" type="string"></property>
+  <property name="fck_default_skin" type="string">default</property>
+  <property name="fck_menu_styles"
+     type="text">&lt;Style name="Discreet text" element="span"&gt;
+     &lt;Attribute name="class" value="discreet" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Image on Left" element="img"&gt;
+     &lt;Attribute name="class" value="image-left" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Image on Right" element="img"&gt;
+     &lt;Attribute name="class" value="image-right" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Image on Top" element="img"&gt;
+     &lt;Attribute name="class" value="image-inline" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Listing table" element="table"&gt;
+     &lt;Attribute name="class" value="listing" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Even row" element="tr"&gt;
+     &lt;Attribute name="class" value="even" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Odd row" element="tr"&gt;
+     &lt;Attribute name="class" value="odd" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Even block" element="div"&gt;
+     &lt;Attribute name="class" value="even" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Odd block" element="div"&gt;
+     &lt;Attribute name="class" value="odd" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Link Plain" element="a"&gt;
+     &lt;Attribute name="class" value="link-plain" /&gt;
+   &lt;/Style&gt;
+   &lt;Style name="Red Ruler" element="hr"&gt;
+     &lt;Attribute name="style" value="color: #ff0000; width:1px;" /&gt;
+   &lt;/Style&gt;</property>
+  <property name="fck_default_r2l" type="boolean">False</property>
+  <property name="fck_unpublished_states" type="lines">
+   <element value="pending"/>
+   <element value="rejected"/>
+   <element value="visible"/>
+  </property>
+  <property name="fck_unpublished_view_roles" type="lines">
+   <element value="Contributor"/>
+   <element value="Manager"/>
+   <element value="Owner"/>
+   <element value="Reviewer"/>
+  </property>
+ </object>
+ <object name="imaging_properties" meta_type="Plone Property Sheet">
+  <property name="title">Image handling properties</property>
+  <property name="allowed_sizes" type="lines">
+   <element value="large 768:768"/>
+   <element value="preview 400:400"/>
+   <element value="mini 200:200"/>
+   <element value="thumb 128:128"/>
+   <element value="tile 64:64"/>
+   <element value="icon 32:32"/>
+   <element value="listing 16:16"/>
+   <element value="small 50:50"/>
+   <element value="hwmini 90:10000"/>
+   <element value="hwmedium 350:10000"/>
+   <element value="hwlarge 510:10000"/>
+   <element value="hwextralarge 630:10000"/>
+   <element value="hwsmall 190:10000"/>
+   <element value="gallerythumb 230:10000"/>
+   <element value="gallerymini 90:10000"/>
+  </property>
  </object>
  <object name="navtree_properties" meta_type="Plone Property Sheet">
   <property name="title">NavigationTree properties</property>
-  <property name="sortAttribute" type="string">getObjPositionInParent</property>
+  <property name="sortAttribute"
+     type="string">getObjPositionInParent</property>
   <property name="sortOrder" type="string">asc</property>
   <property name="sitemapDepth" type="int">3</property>
   <property name="name" type="string"></property>
@@ -29,13 +153,24 @@
   <property name="topLevel" type="int">0</property>
   <property name="bottomLevel" type="int">4</property>
   <property name="showAllParents" type="boolean">True</property>
-  <property name="idsNotToList" type="lines"/>
+  <property name="idsNotToList" type="lines">
+   <element value="relations_library"/>
+  </property>
   <property name="parentMetaTypesNotToQuery" type="lines">
    <element value="TempFolder"/>
    <element value="Large Plone Folder"/>
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterTutorial"/>
+   <element value="HelpCenterErrorReference"/>
+   <element value="HelpCenterFAQ"/>
+   <element value="HelpCenterDefinition"/>
+   <element value="HelpCenterLink"/>
+   <element value="HelpCenterInstructionalVideo"/>
+   <element value="HelpCenterReferenceManual"/>
+   <element value="HelpCenterTutorialPage"/>
+   <element value="HelpCenterReferenceManualPage"/>
   </property>
   <property name="metaTypesNotToList" type="lines">
-   <element value="AliasVocabulary"/>
    <element value="ATBooleanCriterion"/>
    <element value="ATCurrentAuthorCriterion"/>
    <element value="ATDateCriteria"/>
@@ -45,77 +180,263 @@
    <element value="ATPortalTypeCriterion"/>
    <element value="ATReferenceCriterion"/>
    <element value="ATRelativePathCriterion"/>
-   <element value="ATSchemaEditorTool"/>
    <element value="ATSelectionCriterion"/>
    <element value="ATSimpleIntCriterion"/>
    <element value="ATSimpleStringCriterion"/>
    <element value="ATSortCriterion"/>
+   <element value="AliasVocabulary"/>
+   <element value="Amendment"/>
+   <element value="BaseCacheRule"/>
+   <element value="Blog Entry"/>
+   <element value="CachePolicy"/>
    <element value="CallForContractors"/>
+   <element value="CaseStudy"/>
    <element value="ChangeSet"/>
-   <element value="CMF Document"/>
-   <element value="CMF Event"/>
-   <element value="CMF Favorite"/>
-   <element value="CMF File"/>
-   <element value="CMF Folder"/>
-   <element value="CMF Image"/>
-   <element value="CMF Large Plone Folder"/>
-   <element value="CMF Link"/>
-   <element value="CMF News Item"/>
-   <element value="CMF Topic"/>
+   <element value="CollageAlias"/>
+   <element value="CollageColumn"/>
+   <element value="CollageRow"/>
+   <element value="ContentCacheRule"/>
    <element value="Discussion Item"/>
    <element value="Document"/>
    <element value="Event"/>
    <element value="Favorite"/>
-   <element value="FileAttachment"/>
    <element value="File"/>
+   <element value="FileAttachment"/>
+   <element value="FormFolder"/>
+   <element value="HeaderSet"/>
+   <element value="HeaderSetFolder"/>
    <element value="Image"/>
    <element value="ImageAttachment"/>
-   <element value="Link"/>
+   <element value="LinguaLink"/>
+   <element value="Modification"/>
    <element value="News Item"/>
-   <element value="ObjectWithReferences"/>
+   <element value="Note"/>
    <element value="OSH_Link"/>
-   <element value="Provider"/>
-   <element value="RALink"/>
-   <element value="CaseStudy"/>
    <element value="Plone Site"/>
+   <element value="Ploneboard"/>
+   <element value="PloneboardComment"/>
+   <element value="PolicyHTTPCacheManagerCacheRule"/>
+   <element value="Proposal"/>
+   <element value="Provider"/>
    <element value="PublicJobVacancy"/>
-   <element value="Publication"/>
-   <element value="PublicationFile"/>
+   <element value="RALink"/>
    <element value="RichDocument"/>
+   <element value="RuleFolder"/>
    <element value="SimpleVocabulary"/>
    <element value="SimpleVocabularyTerm"/>
    <element value="SortedSimpleVocabulary"/>
    <element value="TempFolder"/>
+   <element value="TemplateCacheRule"/>
    <element value="TreeVocabulary"/>
    <element value="TreeVocabularyTerm"/>
-   <element value="VdexVocabulary"/>
    <element value="VdexFileVocabulary"/>
-   <element value="VdexRelationEndPoint"/>
    <element value="VdexLangstring"/>
    <element value="VdexMediaDescriptor"/>
+   <element value="VdexRelationEndPoint"/>
    <element value="VdexTerm"/>
+   <element value="VdexVocabulary"/>
    <element value="VocabularyLibrary"/>
-
-   <element value="HelpCenterDefinition"/>
+   <element value="CacheTool"/>
+   <element value="FormSelectionField"/>
+   <element value="FormMultiSelectionField"/>
+   <element value="FormLabelField"/>
+   <element value="FormDateField"/>
+   <element value="FormLinesField"/>
+   <element value="FormIntegerField"/>
+   <element value="FormBooleanField"/>
+   <element value="FormPasswordField"/>
+   <element value="FormFixedPointField"/>
+   <element value="FormStringField"/>
+   <element value="FormTextField"/>
+   <element value="FormRichTextField"/>
+   <element value="FormRichLabelField"/>
+   <element value="FormFileField"/>
+   <element value="FormLikertField"/>
+   <element value="FormSaveDataAdapter"/>
+   <element value="FormMailerAdapter"/>
+   <element value="FormCustomScriptAdapter"/>
+   <element value="FormThanksPage"/>
+   <element value="FieldsetFolder"/>
+   <element value="FormCaptchaField"/>
+   <element value="FormReadonlyStringField"/>
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterTutorial"/>
    <element value="HelpCenterErrorReference"/>
    <element value="HelpCenterFAQ"/>
-   <element value="HelpCenterGlossary"/>
-   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterDefinition"/>
    <element value="HelpCenterLink"/>
-   <element value="HelpCenterReferenceManualPage"/>
-   <element value="HelpCenterTutorialPage"/>
-   <element value="HelpCenterReferenceManual"/>
-   <element value="HelpCenterReferenceManualSection"/>
-   <element value="HelpCenterTutorial"/>
    <element value="HelpCenterInstructionalVideo"/>
-   <element value="PloneboardComment"/>
-   <element value="Blog Entry"/>
-
-
-
+   <element value="HelpCenterReferenceManual"/>
+   <element value="HelpCenterTutorialPage"/>
+   <element value="HelpCenterReferenceManualPage"/>
   </property>
   <property name="enable_wf_state_filtering" type="boolean">False</property>
   <property name="wf_states_to_show" type="lines"/>
+ </object>
+ <object name="osha_properties" meta_type="Plone Property Sheet">
+  <property name="title">OSHA properties</property>
+  <property name="support_to_address"
+     type="string">comments@osha.europa.eu</property>
+  <property name="TC_CrossChecker_Email"
+     type="string">workflow@osha.europa.eu</property>
+  <property name="Agency_ProjectManager_Email"
+     type="string">moral@osha.europa.eu</property>
+  <property name="listserv_email"
+     type="string">listserv@listserv.osha.europa.eu</property>
+  <property name="num_subscribers" type="string">46682</property>
+  <property name="site_slogan"
+     type="string">European Agency for Safety and Health at Work</property>
+  <property name="contact_us_mail_default"
+     type="string">inforequest@osha.europa.eu</property>
+  <property name="contact_us_mails" type="lines">
+   <element value="comments_web_content:commentscontent@osha.europa.eu"/>
+   <element value="comments_web_technical:commentstechnical@osha.europa.eu"/>
+   <element value="broken_link:brokenlink@osha.europa.eu"/>
+   <element value="interesting_link:newlink@osha.europa.eu"/>
+   <element value="publication_request:publications@osha.europa.eu"/>
+  </property>
+ </object>
+ <object name="ploneformgen_properties" meta_type="Plone Property Sheet">
+  <property name="title">PloneFormGen properties</property>
+  <property name="permissions_used" type="lines">
+   <element value="PloneFormGen: Add Content"/>
+   <element value="PloneFormGen: Add Mailers"/>
+   <element value="PloneFormGen: Add Data Savers"/>
+   <element value="PloneFormGen: Add Custom Scripts"/>
+   <element value="PloneFormGen: Edit TALES Fields"/>
+   <element value="PloneFormGen: Edit Python Fields"/>
+   <element value="PloneFormGen: Edit Advanced Fields"/>
+   <element value="PloneFormGen: Edit Mail Addresses"/>
+   <element value="PloneFormGen: Edit Encryption Specs"/>
+   <element value="PloneFormGen: Download Saved Input"/>
+  </property>
+  <property name="mail_template"
+     type="text">&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+   
+     &lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;
+   
+     &lt;body&gt;
+       &lt;p tal:content="here/body_pre | nothing" /&gt;
+       &lt;dl&gt;
+           &lt;tal:block repeat="field options/wrappedFields"&gt;
+               &lt;dt tal:content="field/fgField/widget/label" /&gt;
+               &lt;dd tal:content="structure python:field.htmlValue(request)" /&gt;
+           &lt;/tal:block&gt;
+       &lt;/dl&gt;
+       &lt;p tal:content="here/body_post | nothing" /&gt;
+       &lt;pre tal:content="here/body_footer | nothing" /&gt;
+     &lt;/body&gt;
+   &lt;/html&gt;</property>
+  <property name="mail_body_type" type="string">html</property>
+  <property name="mail_recipient_email" type="string"></property>
+  <property name="mail_recipient_name" type="string"></property>
+  <property name="mail_cc_recipients" type="lines"/>
+  <property name="mail_bcc_recipients" type="lines"/>
+  <property name="mail_xinfo_headers" type="lines">
+   <element value="HTTP_X_FORWARDED_FOR"/>
+   <element value="REMOTE_ADDR"/>
+   <element value="PATH_INFO"/>
+  </property>
+  <property name="mail_add_headers" type="lines"/>
+  <property name="csv_delimiter" type="string">,</property>
+ </object>
+ <object name="qPloneCaptchas" meta_type="Plone Property Sheet">
+  <property name="title">qPloneCaptchas Properties</property>
+  <property name="image_size" type="int">27</property>
+  <property name="background" type="string">gray</property>
+  <property name="font_color" type="string">black</property>
+  <property name="period" type="float">0.1</property>
+  <property name="amplitude" type="float">5.0</property>
+  <property name="random_params" type="boolean">True</property>
+ </object>
+ <object name="qPloneComments" meta_type="Plone Property Sheet">
+  <property name="title">qPloneComments properties</property>
+  <property name="enable_approve_user_notification"
+     type="boolean">True</property>
+  <property name="enable_reply_user_notification"
+     type="boolean">True</property>
+  <property name="enable_rejected_user_notification"
+     type="boolean">True</property>
+  <property name="enable_moderation" type="boolean">False</property>
+  <property name="require_email" type="boolean">True</property>
+  <property name="enable_anonymous_commenting" type="boolean">True</property>
+  <property name="enable_published_notification"
+     type="boolean">True</property>
+  <property name="enable_approve_notification" type="boolean">True</property>
+  <property name="enable_authenticated_report_abuse"
+     type="boolean">True</property>
+  <property name="enable_anonymous_report_abuse"
+     type="boolean">True</property>
+  <property name="enable_ajax_report_abuse" type="boolean">True</property>
+  <property name="email_discussion_manager"
+     type="string">palmer@osha.europa.eu;moral@osha.europa.eu; monti@osha.europa.eu</property>
+  <property name="email_subject_prefix" type="string">Blog Comments</property>
+ </object>
+ <object name="seo_properties" meta_type="Plone Property Sheet">
+  <property name="title">SEO Properties</property>
+  <property name="stop_words" type="lines">
+   <element value="a"/>
+   <element value="an"/>
+   <element value="amp"/>
+   <element value="and"/>
+   <element value="are"/>
+   <element value="arial"/>
+   <element value="as"/>
+   <element value="at"/>
+   <element value="be"/>
+   <element value="but"/>
+   <element value="by"/>
+   <element value="can"/>
+   <element value="com"/>
+   <element value="do"/>
+   <element value="font"/>
+   <element value="for"/>
+   <element value="from"/>
+   <element value="gif"/>
+   <element value="had"/>
+   <element value="has"/>
+   <element value="have"/>
+   <element value="he"/>
+   <element value="helvetica"/>
+   <element value="her"/>
+   <element value="his"/>
+   <element value="how"/>
+   <element value="href"/>
+   <element value="i"/>
+   <element value="if"/>
+   <element value="in"/>
+   <element value="is"/>
+   <element value="it"/>
+   <element value="javascript"/>
+   <element value="jpg"/>
+   <element value="made"/>
+   <element value="net"/>
+   <element value="of"/>
+   <element value="on"/>
+   <element value="or"/>
+   <element value="org"/>
+   <element value="our"/>
+   <element value="sans"/>
+   <element value="see"/>
+   <element value="serif"/>
+   <element value="she"/>
+   <element value="that"/>
+   <element value="the"/>
+   <element value="this"/>
+   <element value="to"/>
+   <element value="us"/>
+   <element value="we"/>
+   <element value="with"/>
+   <element value="you"/>
+   <element value="your"/>
+  </property>
+  <property name="fields" type="lines">
+   <element value="seo_title"/>
+   <element value="seo_description"/>
+   <element value="seo_keywords"/>
+  </property>
+  <property name="additional_keywords" type="lines"/>
+  <property name="default_custom_metatags" type="lines"/>
  </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
   <property name="title">Site wide properties</property>
@@ -125,9 +446,23 @@
   <property name="default_language" type="string">en</property>
   <property name="default_charset" type="string">utf-8</property>
   <property name="use_folder_tabs" type="lines">
-   <element value="Large Plone Folder"/>
-   <element value="Folder"/>
-   <element value="Plone Site"/>
+   <element value="Ruleset Collection"/>
+   <element value="Ruleset"/>
+   <element value="Relations Library"/>
+   <element value="HelpCenterReferenceManualFolder"/>
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterInstructionalVideoFolder"/>
+   <element value="HelpCenterErrorReference"/>
+   <element value="HelpCenterErrorReferenceFolder"/>
+   <element value="HelpCenterGlossary"/>
+   <element value="HelpCenterTutorialFolder"/>
+   <element value="HelpCenterHowToFolder"/>
+   <element value="HelpCenterFAQFolder"/>
+   <element value="HelpCenterTutorial"/>
+   <element value="HelpCenterReferenceManualSection"/>
+   <element value="HelpCenterLinkFolder"/>
+   <element value="HelpCenter"/>
+   <element value="HelpCenterReferenceManual"/>
   </property>
   <property name="ext_editor" type="boolean">False</property>
   <property name="available_editors" type="lines">
@@ -152,19 +487,37 @@
    <element value="index.htm"/>
    <element value="index.php3"/>
    <element value="front-page"/>
-   <element value="index_html"/>
+   <element value="index.shtml"/>
    <element value="FrontPage"/>
+   <element value="index.php"/>
+   <element value="index.stm"/>
+   <element value="index.stml"/>
+   <element value="index_html"/>
   </property>
   <property name="search_results_description_length" type="int">160</property>
   <property name="ellipsis" type="string">...</property>
   <property name="typesLinkToFolderContentsInFC" type="lines">
-   <element value="Large Plone Folder"/>
-   <element value="Folder"/>
+   <element value="Ruleset Collection"/>
+   <element value="Ruleset"/>
+   <element value="Relations Library"/>
+   <element value="HelpCenterReferenceManualFolder"/>
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterInstructionalVideoFolder"/>
+   <element value="HelpCenterErrorReference"/>
+   <element value="HelpCenterErrorReferenceFolder"/>
+   <element value="HelpCenterGlossary"/>
+   <element value="HelpCenterTutorialFolder"/>
+   <element value="HelpCenterHowToFolder"/>
+   <element value="HelpCenterFAQFolder"/>
+   <element value="HelpCenterTutorial"/>
+   <element value="HelpCenterReferenceManualSection"/>
+   <element value="HelpCenterLinkFolder"/>
+   <element value="HelpCenter"/>
+   <element value="HelpCenterReferenceManual"/>
   </property>
   <property name="visible_ids" type="boolean">True</property>
   <property name="exposeDCMetaTags" type="boolean">True</property>
   <property name="types_not_searched" type="lines">
-   <element value="AliasVocabulary"/>
    <element value="ATBooleanCriterion"/>
    <element value="ATDateCriteria"/>
    <element value="ATDateRangeCriterion"/>
@@ -191,50 +544,10 @@
    <element value="CMF Link"/>
    <element value="CMF News Item"/>
    <element value="CMF Topic"/>
-   <element value="SimpleVocabulary"/>
-   <element value="SimpleVocabularyTerm"/>
-   <element value="SortedSimpleVocabulary"/>
-   <element value="TreeVocabulary"/>
-   <element value="TreeVocabularyTerm"/>
-   <element value="VdexVocabulary"/>
-   <element value="VdexFileVocabulary"/>
-   <element value="VdexRelationEndPoint"/>
-   <element value="VdexLangstring"/>
-   <element value="VdexMediaDescriptor"/>
-   <element value="VdexTerm"/>
-   <element value="VocabularyLibrary"/>
    <element value="ChangeSet"/>
    <element value="FileAttachment"/>
    <element value="ImageAttachment"/>
-   <element value="FieldsetFolder"/>
-   <element value="FormRichTextField"/>
-   <element value="FormCustomScriptAdapter"/>
    <element value="FormFolder"/>
-   <element value="FormFileField"/>
-   <element value="FormFixedPointField"/>
-   <element value="FormIntegerField"/>
-   <element value="FormStringField"/>
-   <element value="FormMultiSelectionField"/>
-   <element value="FormRichLabelField"/>
-   <element value="FormBooleanField"/>
-   <element value="FormLabelField"/>
-   <element value="FormDateField"/>
-   <element value="FormSelectionField"/>
-   <element value="FormSaveDataAdapter"/>
-   <element value="FormPasswordField"/>
-   <element value="FormMailerAdapter"/>
-   <element value="FormTextField"/>
-   <element value="FormThanksPage"/>
-   <element value="FormLinesField"/>
-   <element value="HeaderSet"/>
-   <element value="ContentCacheRule"/>
-   <element value="CacheTool"/>
-   <element value="CachePolicy"/>
-   <element value="RuleFolder"/>
-   <element value="BaseCacheRule"/>
-   <element value="PolicyHTTPCacheManagerCacheRule"/>
-   <element value="HeaderSetFolder"/>
-   <element value="TemplateCacheRule"/>
    <element value="LinguaLink"/>
    <element value="Ploneboard"/>
    <element value="PressRoom"/>
@@ -242,28 +555,164 @@
    <element value="Note"/>
    <element value="Amendment"/>
    <element value="Modification"/>
-   
+   <element value="Folder"/>
+   <element value="AliasVocabulary"/>
+   <element value="SimpleVocabulary"/>
+   <element value="SimpleVocabularyTerm"/>
+   <element value="SortedSimpleVocabulary"/>
+   <element value="TreeVocabulary"/>
+   <element value="TreeVocabularyTerm"/>
+   <element value="VdexFileVocabulary"/>
+   <element value="VdexLangstring"/>
+   <element value="VdexMediaDescriptor"/>
+   <element value="VdexRelationEndPoint"/>
+   <element value="VdexTerm"/>
+   <element value="VdexVocabulary"/>
+   <element value="VocabularyLibrary"/>
+   <element value="CacheTool"/>
+   <element value="CachePolicy"/>
+   <element value="RuleFolder"/>
+   <element value="HeaderSetFolder"/>
+   <element value="ContentCacheRule"/>
+   <element value="TemplateCacheRule"/>
+   <element value="PolicyHTTPCacheManagerCacheRule"/>
+   <element value="HeaderSet"/>
+   <element value="BaseCacheRule"/>
+   <element value="FormSelectionField"/>
+   <element value="FormMultiSelectionField"/>
+   <element value="FormLabelField"/>
+   <element value="FormDateField"/>
+   <element value="FormLinesField"/>
+   <element value="FormIntegerField"/>
+   <element value="FormBooleanField"/>
+   <element value="FormPasswordField"/>
+   <element value="FormFixedPointField"/>
+   <element value="FormStringField"/>
+   <element value="FormTextField"/>
+   <element value="FormRichTextField"/>
+   <element value="FormRichLabelField"/>
+   <element value="FormFileField"/>
+   <element value="FormLikertField"/>
+   <element value="FormSaveDataAdapter"/>
+   <element value="FormMailerAdapter"/>
+   <element value="FormCustomScriptAdapter"/>
+   <element value="FormThanksPage"/>
+   <element value="FieldsetFolder"/>
+   <element value="FormCaptchaField"/>
+   <element value="FormReadonlyStringField"/>
   </property>
   <property name="disable_folder_sections" type="boolean">False</property>
-  <property name="disable_nonfolderish_sections" type="boolean">True</property>
+  <property name="disable_nonfolderish_sections"
+     type="boolean">False</property>
   <property name="typesUseViewActionInListings" type="lines">
    <element value="Image"/>
    <element value="File"/>
+   <element value="Topic"/>
+   <element value="CacheTool"/>
+   <element value="CachePolicy"/>
+   <element value="RuleFolder"/>
+   <element value="HeaderSetFolder"/>
   </property>
   <property name="verify_login_name" type="boolean">True</property>
   <property name="many_users" type="boolean">True</property>
   <property name="many_groups" type="boolean">False</property>
-  <property name="enable_livesearch" type="boolean">True</property>
+  <property name="enable_livesearch" type="boolean">False</property>
   <property name="default_page_types" type="lines">
    <element value="Document"/>
    <element value="Event"/>
    <element value="Link"/>
    <element value="News Item"/>
    <element value="Topic"/>
+   <element value="PressClip"/>
+   <element value="PressRelease"/>
+   <element value="FormFolder"/>
   </property>
-  <property name="use_folder_contents" type="lines"/>
+  <property name="use_folder_contents" type="lines">
+   <element value="SimpleVocabulary"/>
+   <element value="SortedSimpleVocabulary"/>
+   <element value="TreeVocabulary"/>
+   <element value="TreeVocabularyTerm"/>
+   <element value="VdexTerm"/>
+   <element value="VdexTerm"/>
+   <element value="VdexMediaDescriptor"/>
+   <element value="VocabularyLibrary"/>
+  </property>
+  <property name="forbidden_contenttypes" type="lines">
+   <element value="text/structured"/>
+   <element value="text/restructured"/>
+   <element value="text/x-rst"/>
+   <element value="text/plain"/>
+   <element value="text/plain-pre"/>
+   <element value="text/x-python"/>
+   <element value="text/x-web-markdown"/>
+   <element value="text/x-web-intelligent"/>
+   <element value="text/x-web-textile"/>
+  </property>
+  <property name="default_contenttype" type="string">text/html</property>
   <property name="enable_sitemap" type="boolean">True</property>
+  <property name="number_of_days_to_keep" type="int">7</property>
+  <property name="enable_link_integrity_checks" type="boolean">True</property>
+  <property name="webstats_js"
+     type="string">&lt;script src="http://osha.europa.eu/gatag.js" type="text/javascript"&gt;&lt;/script&gt; &lt;script type="text/javascript"&gt; var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); &lt;/script&gt; &lt;script type="text/javascript"&gt; try { var pageTracker = _gat._getTracker("UA-9750156-1"); 
+   if (document.URL.indexOf('sector/road_transport')!==-1) {pageTracker._setCustomVar(1, "Sector", "road_transport", 2);}
+   pageTracker._trackPageview(); } catch(err) {}&lt;/script&gt;</property>
+  <property name="external_links_open_new_window"
+     type="string">true</property>
+  <property name="icon_visibility" type="string">authenticated</property>
+  <property name="enable_checkout_workflow" type="boolean">False</property>
+  <property name="checkout_workflow_policy"
+     type="string">checkout_workflow_policy</property>
   <property name="num_subscribers_oshmail" type="int">37394</property>
+  <property name="ecards" type="lines">
+   <element value="xmas-2011|Xmas Greetings 2011"/>
+   <element value="xmas-2010-salus|Salus &amp; Co Season's Greetings 2011"/>
+   <element value="ecard-hw2008|Healthy Workplaces"/>
+   <element value="xmas-2010|Xmas Greetings 2010"/>
+   <element value="xmas-2009|Xmas Greetings 2009"/>
+   <element value="xmas-agency|Agency Greetings 2008"/>
+   <element value="ecard-ew2006-computer|EW2006 - Watch out - The Computer"/>
+   <element value="ecard-ew2006-safestart|EW2006 - Safe Start"/>
+   <element value="ecard-ew2006-ladder|EW2006 - Watch out - The Ladder"/>
+   <element
+      value="ecard-ew2006-lightbulb|EW2006 - Watch out - The Lightbulb"/>
+   <element
+      value="ecard-ew2006-warehouse|EW2006 - Watch out - The Warehouse"/>
+  </property>
+  <property name="email_from_address"
+     type="string">news@osha.europa.eu</property>
+  <property name="languages_on_main_site" type="lines">
+   <element value="da"/>
+   <element value="de"/>
+   <element value="et"/>
+   <element value="en"/>
+   <element value="es"/>
+   <element value="fr"/>
+   <element value="it"/>
+   <element value="is"/>
+   <element value="lv"/>
+   <element value="lt"/>
+   <element value="hu"/>
+   <element value="mt"/>
+   <element value="nl"/>
+   <element value="no"/>
+   <element value="pl"/>
+   <element value="pt"/>
+   <element value="ro"/>
+   <element value="sk"/>
+   <element value="sl"/>
+   <element value="fi"/>
+   <element value="sv"/>
+   <element value="cs"/>
+   <element value="el"/>
+   <element value="bg"/>
+  </property>
+  <property name="enable_inline_editing" type="boolean">True</property>
+  <property name="localTimeOnlyFormat" type="string">%I:%M %p</property>
+  <property name="redirect_links" type="boolean">True</property>
+  <property name="lock_on_ttw_edit" type="boolean">True</property>
+  <property name="refwidget_startupdirectories" type="lines"/>
+  <property name="notification_email_from_address"
+     type="string">alerts@osha.europa.eu</property>
+  <property name="mark_special_links" type="string">true</property>
  </object>
-
 </object>
