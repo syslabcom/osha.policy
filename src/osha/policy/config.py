@@ -74,7 +74,7 @@ DEPENDENCIES = [
     'slc.calendarfetcher',
     ]
 
-    # XXX: Remove slc.alertservice 
+    # XXX: Remove slc.alertservice
     # slc.alertservice is not found
 
     # It is IMPORTANT that the linkchecker is installed at the end
@@ -88,23 +88,23 @@ DEFAULT_FIELDS = {
         'title',
         'description',
         'isNews',
-        'text', 
-        'displayImages', 
-        'action', 
-        'results', 
-        'publication_year', 
-        'organisation', 
-        'remoteLanguage', 
-        'remoteUrl', 
-        'displayAttachments', 
-        'subject', 
-        'relatedItems', 
-        'location', 
-        'osha_metadata', 
-        'nace', 
-        'country', 
-        'multilingual_thesaurus', 
-        'reindexTranslations', 
+        'text',
+        'displayImages',
+        'action',
+        'results',
+        'publication_year',
+        'organisation',
+        'remoteLanguage',
+        'remoteUrl',
+        'displayAttachments',
+        'subject',
+        'relatedItems',
+        'location',
+        'osha_metadata',
+        'nace',
+        'country',
+        'multilingual_thesaurus',
+        'reindexTranslations',
         ],
 
     'Event': [

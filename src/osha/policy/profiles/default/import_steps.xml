@@ -10,8 +10,8 @@
   </import-step>
   <import-step
     id='osha-jsregistry'
-    version='20100223-01'
-    handler="Products.ResourceRegistries.exportimport.jsregistry.importJSRegistry"
+    version='20110608-01'
+    handler="osha.policy.setuphandlers.resetJSRegistry"
     >
     <dependency step="osha_various" />
   </import-step>

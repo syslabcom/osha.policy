@@ -46,8 +46,8 @@ def installDependencies(site):
         if not qi.isProductInstalled(product):
             logger.info("Installing dependency: %s" % product)
             qi.installProduct(product)
-            transaction.savepoint(optimistic=True) 
-    transaction.commit() 
+            transaction.savepoint(optimistic=True)
+    transaction.commit()
 
 def repositionActions(portal):
     portal_actions=getToolByName(portal,'portal_actions')
@@ -143,8 +143,9 @@ def configurePortal(portal):
     portal_workflow.setChainForPortalTypes(['LinguaLink'], None)
 
 def resetJSRegistry(context):
-    return importResRegistry(context, 'osha_javascripts', 'OSHA Javascript registry', 'osha-jsregistry.xml')
-    
+    return importResRegistry(context, 'portal_javascripts',
+                             'OSHA Javascript registry', 'osha-jsregistry.xml')
+
 def importVocabularies(self):
     logger = logging.getLogger("VocabularyImporter")
     logger.info("Importing Vocabularies")
@@ -584,4 +585,4 @@ def enableDiffSupport(site):
             portal_diff.manage_addDiffField(type, field, diff)
 
 
-    
+
