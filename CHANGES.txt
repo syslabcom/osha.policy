@@ -1,11 +1,12 @@
 osha.policy Changelog
 =====================
 
-1.3.37 (unreleased)
+1.3.37 (2011-06-15)
 -------------------
 
-- Nothing changed yet.
-
+- For the new multimedia view, added structure file in
+  data/multimedia/napofilm.py [thomasw] 
+- Updated JavaScript registry setup [deroiste]
 
 1.3.36 (2011-05-19)
 -------------------
