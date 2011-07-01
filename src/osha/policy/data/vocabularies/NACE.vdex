@@ -8,7 +8,7 @@
       orderSignificant="true"
       profileType="flatTokenTerms"
       language="en">
-    <vocabName>
+
   <vocabName>
     <langstring language="el">NACE</langstring>
     <langstring language="en">NACE</langstring>
@@ -18092,7 +18092,7 @@ specijaliziranim prodavaonicama</langstring>
             <langstring language="pl">Sprzedaż detaliczna nagrań dźwiękowych i audio-wizualnych prowadzona w wyspecjalizowanych sklepach</langstring>
             <langstring language="fr">Commerce de détail d'enregistrements musicaux et vidéo en magasin spécialisé</langstring>
             <langstring language="bg">Търговия на дребно с аудио и видео записи</langstring>
-            <langstring language="hr">Trgovina na malo glazbenim i videozapisima 
+            <langstring language="hr">Trgovina na malo glazbenim i videozapisima
 u specijaliziranim prodavaonicama</langstring>
             <langstring language="de">Einzelhandel mit bespielten Ton- und Bildträgern</langstring>
             <langstring language="hu">Zene-, videofelvétel kiskereskedelme</langstring>
@@ -18244,7 +18244,7 @@ specijaliziranim prodavaonicama</langstring>
             <langstring language="pl">Sprzedaż detaliczna obuwia i wyrobów skórzanych prowadzona w wyspecjalizowanych sklepach</langstring>
             <langstring language="fr">Commerce de détail de chaussures et d'articles en cuir en magasin spécialisé</langstring>
             <langstring language="bg">Търговия на дребно с обувки и кожени изделия</langstring>
-            <langstring language="hr">Trgovina na malo obućom i proizvodima od kože 
+            <langstring language="hr">Trgovina na malo obućom i proizvodima od kože
 u specijaliziranim prodavaonicama</langstring>
             <langstring language="de">Einzelhandel mit Schuhen und Lederwaren</langstring>
             <langstring language="hu">Lábbeli-, bőráru-kiskereskedelem</langstring>
@@ -18335,7 +18335,7 @@ u specijaliziranim prodavaonicama</langstring>
             <langstring language="pl">Sprzedaż detaliczna kosmetyków i artykułów toaletowych prowadzona w wyspecjalizowanych sklepach</langstring>
             <langstring language="fr">Commerce de détail de parfumerie et de produits de beauté en magasin spécialisé</langstring>
             <langstring language="bg">Търговия на дребно с парфюмерийни и козметични стоки и тоалетни принадлежности</langstring>
-            <langstring language="hr">Trgovina na malo kozmetičkim i toaletnim proizvodima 
+            <langstring language="hr">Trgovina na malo kozmetičkim i toaletnim proizvodima
 u specijaliziranim prodavaonicama</langstring>
             <langstring language="de">Einzelhandel mit kosmetischen Erzeugnissen und Körperpflegemitteln</langstring>
             <langstring language="hu">Illatszer-kiskereskedelem</langstring>
