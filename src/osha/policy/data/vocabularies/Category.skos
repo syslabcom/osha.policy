@@ -1,0 +1,2251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::working_hours">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care">
+        <skos:prefLabel xml:lang="en">Health Care</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Working hours, shift work and night work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::metals">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances">
+        <skos:prefLabel xml:lang="en">Dangerous Substances</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Metals and their compounds (e.g. chrome, lead, mercury)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::working_hours">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender">
+        <skos:prefLabel xml:lang="en">Women and Health at Work</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Working hours</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::cleaning">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Cleaning</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::acc_prevent">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction">
+        <skos:prefLabel xml:lang="en">Construction</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Accident prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::info_workers">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education">
+        <skos:prefLabel xml:lang="en">Education</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Information for, and consultation of, workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::paints">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people">
+        <skos:prefLabel xml:lang="en">Young People</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Paints</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::maintenance">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention">
+        <skos:prefLabel xml:lang="en">Accident Prevention</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Maintenance of plant and equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::other_sources">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Other sources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::manual_handling">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Manual handling</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Programmes, policies, and campaigns</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::powered_hand_tools">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Powered hand tools</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::stress">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Stress and fatigue</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::info_providers">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise">
+        <skos:prefLabel xml:lang="en">Noise</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Information providers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::info_eu_states">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Sources of Information: EU Member States</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::welfare_facilities">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability">
+        <skos:prefLabel xml:lang="en">People with disabilities</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Welfare facilities at work – includes toilets, eating and rest facilities</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::msd">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries">
+        <skos:prefLabel xml:lang="en">Fisheries</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Musculoskeletal disorders</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::msd">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture">
+        <skos:prefLabel xml:lang="en">Agriculture</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Musculoskeletal Disorders (MSDs)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::falls">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Falls from height</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::statistics">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::learning_issues">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Learning issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::scaffolds">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Scaffolds</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::food">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Food / Catering</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::statistics">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd">
+        <skos:prefLabel xml:lang="en">Musculoskeletal disorders</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noneu_surveys::eu_candidate">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::noneu_surveys">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics"/>
+        <skos:prefLabel xml:lang="en">Non-EU Surveys</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">EU Candidate Countries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Case Studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::school_ergonomics">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">School Ergonomics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::special_groups">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress">
+        <skos:prefLabel xml:lang="en">Stress at Work</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Special and vulnerable groups (e.g. women, disabled, pregnant including employability and re-employability)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::case_studies">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca">
+        <skos:prefLabel xml:lang="en">Hotels, restaurants and catering</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Case Studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::training">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Training</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Case studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::workshops_garages">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Workshops / garages</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::buildings">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Buildings (construction and maintenance</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::fumes_gases">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Exhaust Fumes and Gases</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::drugs">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Drugs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::horticulture">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Horticulture</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::construction">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Construction work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/providers::other_non_eu_sources">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::providers">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+        <skos:prefLabel xml:lang="en">Providers</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Other Non European Sources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::special_groups">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Special groups (e.g. young workers, women workers)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::sight">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Sight issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::lower_limb">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Lower limb disorders</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::delivery_work">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Delivery work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::oshmanagement">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Occupational Safety and Health Management</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Programmes, policies and campaigns</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::reproductive_problems">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Reproductive Problems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::pi">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Psychosocial – stress, bullying, violence</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::women_workers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Women workers, pregnant workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::noise">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Noise</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::oshmanagement">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Management of health and safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::ppe">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Personal protective equipment (PPE)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::first_aid">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">First aid</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::phys_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Physical hazards relating to stress (e.g. noise)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/wsh::osha_publications">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::wsh">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+        <skos:prefLabel xml:lang="en">Workers’ Safety and Health, Productivity and Quality</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Agency publications</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Programmes, strategies, policies, campaigns - national, regional, etc.</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::manual_handling">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Manual handling, lifting, musculoskeletal disorders, back pain and ergonomics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::stress">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Psychosocial issues (stress)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::introduction">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Introduction</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risk_ass::self_assessment">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::risk_ass">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+        <skos:prefLabel xml:lang="en">Guides to Risk Reduction Implementation</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Self-assessment tools for organisations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::noise">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Noise</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::warehouses">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Warehouses</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risk_ass::risk_reduction">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress::risk_ass"/>
+    <skos:prefLabel xml:lang="en">Guides to Risk Reduction Implementation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::occupations">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Occupations, specific workplaces or types of work - includes teleworking and homeworking</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::fork_lifts">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Fork lifts &amp; powered lift trucks, Use of</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::gender_issues">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Gender Issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::packaging">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Packaging and labelling of Dangerous Goods</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::falls_other">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Falls, other</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::confined_spaces">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Confined spaces</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::osh_programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">OSH Programmes, Policies, Statistics relating to Dangerous Substances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Case studies of noise solutions</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::heights">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Heights</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::bullying">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Bullying (Mobbing)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::accidents_msd">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Accidents and musculoskeletal disorders</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::workplace_sh_welfare">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Workplace health, safety, and welfare</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::museums_exhibition_centres">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Museums. Exhibition centres</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::agency_publications">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Agency Publications</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::solvents">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Solvents</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::health_care">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Health care</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::radio_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Radio Equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::design_guidelines">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Design guidelines</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Case Studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::chem_materials">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Chemicals and materials - includes anaesthetic gases, disinfectants, drug handling, latex allergy</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::general">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">General</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::accidents_older_workers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Accidents and older workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::radiations">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Radiations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noneu_statistics::eu_candidate">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::noneu_statistics">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics"/>
+        <skos:prefLabel xml:lang="en">Non-EU statistics</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">EU Candidate Countries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::postures">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Postures (painful and tiresome)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::child_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Child safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::retention_reintegration">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Retention and Reintegration at Work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::info_commission">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Sources of Information: EU Commission</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::epp">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Emergency planning and procedures</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::workplace">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Workplace and psychosocial issues (design, layout, lighting)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::ds">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Dangerous/Hazardous substances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::transport">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Transport</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::painting">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Painting, Dying and Coating</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::training_instruction">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Training, instruction and information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::smes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Small firms / SMEs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::physic_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Physical hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::work_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Work equipment and plant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::slic">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">slic</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::employability">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Employability: services, policies and practices to integrate people with disabilities into the workplace</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::first_aid">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">First Aid &amp; Medical Provision</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::acc_prevent">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Accident prevention relating to psychosocial issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::physical_agents">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Physical agents</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::violence_from_the_public">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Violence from the public</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::new_risks">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Changing world of work (new risks)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::nervous_system">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Nervous System Problems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Programmes, policies, campaigns</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::legislation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Legislation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::oshmanagement">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Management of safety and health in the workplace</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::storage">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Storage of dangerous substances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::repetitive_work">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Repetitive work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/providers::other_european">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::providers">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+        <skos:prefLabel xml:lang="en">Health care sector</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention::providers"/>
+    <skos:prefLabel xml:lang="en">Other European</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::occupations">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Occupations and Workplaces</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::lab_act">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Laboratory activities</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/istatistics::info_sources">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::istatistics">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics"/>
+        <skos:prefLabel xml:lang="en">International statistics</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Further information sources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::slips">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Slips, trips &amp; falls on the same level</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::agriculture">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Agriculture and forestry</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::legislation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Legislation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::hazard_identification">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Hazard Identification and risk assessment relating to stress and psychosocial issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::compressed_gases">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Compressed gases</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::safety_buildings_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Safety, Buildings and Equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::shworkplace">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Workplace health safety, and welfare</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::diving">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Diving</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Case studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::work_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Work equipment and plant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::work_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Work equipment and tools, personal protective equipment, work stations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::special_groups">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Special groups (e.g. women, disabled, pregnant including employability and re-employability)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::office_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Office safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::breathing_problems">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Breathing Problems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::dusts">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Dusts and Fibres</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::chemical">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Chemical</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::return_to_work">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Return to work: services and practices to rehabilitate people into work following the onset of disability, injury or ill health (which may or may not have been caused by work)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::weather">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Weather</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::transport_road">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Transport on the road</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::legislation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Legislation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::acc_prevent">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Accident Prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::work_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Work equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::info_providers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Information providers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Equipment e.g. tools, machinery, personal protective equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::workplace_management">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Workplace management for Stress, including hazard identification, risk assessment, safety policies, and monitoring)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/wsh::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction::wsh"/>
+    <skos:prefLabel xml:lang="en">Case studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::migrants">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Migrant workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::lifeguards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Lifeguards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::aquaculture">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Aquaculture</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::working_hours">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Working hours, Shift Work, and Night Work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::chem_biol_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Chemical and Biological Hazards and Materials</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::fish_handling">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Fish and crustacean handling and preparation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Case studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::educators_mainstreaming">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Educators- Mainstreaming OSH into education</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::recreation_and_leisure">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Recreation and leisure</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::work_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Work Equipment and Plant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::excavation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Excavation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::disabilities">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Disabilities</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::fire_explosion_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Fire and explosion safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/providers::other_non_european_sources">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care::providers"/>
+    <skos:prefLabel xml:lang="en">Other Non European Sources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::health_management">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Management of Health and Safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::work_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Work Equipment and Plant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Programmes, Policies and Statistics - e.g. national or regional  campaigns, policy issues etc.</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risk_ass::management_models">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress::risk_ass"/>
+    <skos:prefLabel xml:lang="en">Risk Management Models</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::assistive_technologies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Assistive technologies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::stress">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Stress - includes bullying, harassment, work organisation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::Information_instruction">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Information instruction, training, and education of workers, including safety committees</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::info">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Information, instruction, training, and education</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::programmes_and_policies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Programmes and policies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::vehicles">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Vehicles in the workplace</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::working_hours">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Working hours</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::fire_explosion">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Fire and Explosion Hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::acc_prevent">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Accident prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::monitoring">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Monitoring</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::seafishing">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Seafishing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::child_labour">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Child labour</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::sme">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">SMEs (prevention of MSD)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::ohprocedures">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Occupational health procedures and services -health surveillance, diagnosis, rehabilitation, etc.</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::info_non_eu_countries">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Sources of Information: Non-EU Countries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::ototoxic_substances">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Ototoxic substances (noise and chemicals)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::msds">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Material Safety Data Sheets (MSDS)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::sanitation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Sanitation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::fire">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Fire and explosion</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::outdoor_activities">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Offsite and outdoor activities</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::sector_process_guides">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Sector and process guides</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::info_ms">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Sources of Information: EU Member State</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::hotels">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Hotels and catering</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::workplace">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Workplace welfare and services</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risk_ass::hazards_shiftworking">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress::risk_ass"/>
+    <skos:prefLabel xml:lang="en">Hazards: Shiftworking</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::reproductive">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Reproductive issues, includes disorders, hazards, pregnancy, new mothers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::phys_agents">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Physical agents - includes lasers, radiation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::health_surveillance">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Health surveillance</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::pi">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Health effects caused by psychosocial issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::ergonomic_interventions">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Ergonomic interventions</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::individual_variation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Individual variation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::farm_work_work_with_animals">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Farm work, work with animals</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Programmes, policies (current programmes, policies, campaigns)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Programmes</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::woodworking">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Woodworking / Wood and wood products</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::physical_agents">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Physical agents</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::pressure_systems">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Pressure systems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::machinery_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Machinery and work equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::biol_agents">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Biological agents and hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::work_organisation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Work organisation, work load, pace of work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::children_at_work_-_family_workers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Children at work - family workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::sensitisation_allergy">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Sensitisation and allergy issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::europ_osh_stats">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::statistics">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics"/>
+        <skos:prefLabel xml:lang="en">European OSH Statistics</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">European OSH Statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::demolition">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Demolition</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::accident_prevention">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Accident Prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::cold_work_msd">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Cold Work and MSD</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::musculoskeletal_disorders_repetition_injuries">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Musculoskeletal disorders, repetition injuries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::first_aid">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">First aid and medical provision</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::oshs">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Occupational health services</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::Violence">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Violence from the public - resources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::pi">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Psychosocial factors</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::info_ec">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Sources of Information: The European Commission</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::cleaners">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Cleaners</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::msds">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Musculoskeletal Disorders (MSDs)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::chem_industry">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Chemical industry</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/wsh::other_links">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction::wsh"/>
+    <skos:prefLabel xml:lang="en">Other relevant information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::work_computers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Computer Work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::vehicles">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Vehicles on site</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::electricity">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Electricity</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::ladders">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Ladders, use of</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::bullying">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Bullying, mobbing, and harassment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::chemicals">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Chemicals</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::special_groups">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Special and vulnerable groups</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::pace_of_work">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Pace of work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::employment_contracts">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Employment contracts - e.g. temporary and part-time work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::construction_work">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Construction and building work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risk_ass::hazards_hours">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress::risk_ass"/>
+    <skos:prefLabel xml:lang="en">Hazards: Working hours</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::publications">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Publications</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::health">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Health issues-general, public health issues, workplace promotion, etc.</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::psychosocial_issues">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Psychosocial issues (e.g., stress)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::slips_trips_and_falls">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Slips, trips and falls</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::sector_process_guides">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Sector and process guides</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::women">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Women</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::sector_guides">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Sector and Process Guides</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::risk_assessment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Risk assessment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::factories">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Factories</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::mobility_impairment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Mobility impairment issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Programmes, policies, and campaigns</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::information_instruction">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Information, instruction and training</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::further_information">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics::statistics"/>
+    <skos:prefLabel xml:lang="en">Further information sources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::thermal_stress">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Work in Hot Environments (Thermal Stress)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::standing">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Standing (prolonged)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/provider">
+    <skos:prefLabel xml:lang="en">Provider</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Programmes, Policies, and Campaigns</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::info_providers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Information Providers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::society">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Society and discrimination issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::asbestos">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Asbestos</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::rehabilitation_treatment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Rehabilitation and Treatment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::work_processes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Work processes</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::violence">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Violence at Work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::chem_bio_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Chemical &amp; Biological Hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/providers::non_eu_countries">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care::providers"/>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention::providers"/>
+    <skos:prefLabel xml:lang="en">Non European Union Countries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::degreasing">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Degreasing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::fire_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Fire safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::laboratories">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Laboratories</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::workplaces">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Workplaces and housekeeping</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noneu_statistics::overseas">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics::noneu_statistics"/>
+    <skos:prefLabel xml:lang="en">Overseas</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::consultation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Consultation and participation in the workplace</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::oel">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">oel</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::info_workers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Information for, and consultation of, workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::info_providers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Information providers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::noise_management">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Management of Noise</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::Bullying">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Bullying and harassment - resources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/wsh::cost_calculation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction::wsh"/>
+    <skos:prefLabel xml:lang="en">Methods for cost calculation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::employment_status">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Employment status</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::tunnelling">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Tunnelling</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::agency_publications">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Agency publications</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::shipyards_docks">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Shipyards and docks</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::migrants">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Migrant Workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::pi">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Psychosocial issues (e.g. stress)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::service_sector">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Service sector</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::electricity">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Electricity</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::ppe">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Personal Protective Equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::msdmanagement">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Management of MSD</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::transport_sector">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Transport sector</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::latex">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Latex</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::migrant_workers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Migrant workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risks::psycho">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risks">
+        <skos:prefLabel xml:lang="en">Emerging Risks</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Psychosocial/organisational</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::ds">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Dangerous substances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/surveys::europ_oshsurveys">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::surveys">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics"/>
+        <skos:prefLabel xml:lang="en">European OSH Surveys</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">European OSH surveys</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/other::other">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::other">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics"/>
+        <skos:prefLabel xml:lang="en">Other related information</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Other related links</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::info_providers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Information Providers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::fire_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Fire Safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risks::physical">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/risks"/>
+    <skos:prefLabel xml:lang="en">Physical</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::statistics">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::radiations">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Radiations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::moving_vehicles">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Moving vehicles</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::children_at_work_-_school_children_and_students">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Children at work - school children and students</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risks::biological">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/risks"/>
+    <skos:prefLabel xml:lang="en">Biological</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::statistics_and_facts">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Statistics and facts</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::electricity">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Electricity</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::statistics">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::mechanical_handling">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Mechanical handling</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::prevention_programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Accident prevention programmes</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::hairdressing">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Hairdressing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::young_workers_information">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Young workers' information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::chem_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Chemical hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::speech">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Speech issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::stress_related">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Stress-related issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::welfare_provision">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Welfare Provision</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::other_issues">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Other disability and health issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::information_instruction">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Information instruction, training, and education of workers, including safety committees</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::biol_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Biological hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::interventions_strategies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Individual interventions and strategies (e.g. coping strategies)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::treatment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Treatment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::violence">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Violence</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::management">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Management - includes legislation, risk assesment, workplace strategies and interventions, gender sensitive policies and avoiding discrimination</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::handling_people">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Handling of people</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::radiation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Radiation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::bullying_in_school">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Bullying in school</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noneu_surveys::efta">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics::noneu_surveys"/>
+    <skos:prefLabel xml:lang="en">EFTA Countries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::shellfish_fishing">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Shellfish and Crustacean fishing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::equipment_processes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Work Equipment &amp; Processes</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::wrulds">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">WRULDS and neck disorders</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::checklists_guidelines">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Checklists and guidelines</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::cleaning">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Cleaning</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risks::chemical">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/risks"/>
+    <skos:prefLabel xml:lang="en">Chemical</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::general">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">General sources of accident prevention information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::costs_statistics">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Accident costs and statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::biol_hazards_needle">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Biological hazards needle injuries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::stress">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Stress</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::vulnerable_groups">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Special and vulnerable groups</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::electricity">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Electricity</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::gardening_and_park_work">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Gardening and park work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::noise_assessment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Noise assessment, measurement, surveillance, and testing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::working_time">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Working time and shiftwork</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::manual_handling_lifting">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Manual handling, lifting</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::noise">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Noise and vibration</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::info_consultation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Information for, and consultation with workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::info_noneu">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Sources of Information: Non EU Countries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::control_systems">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Control Systems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::employee_assistance">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Employee Assistance, treatment, and occupational health services, workplace health promotion</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::sector_guides">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Sector and process guides</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::manual_handling">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Manual handling</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::agency_products">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Agency products</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::legislation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Legislation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::epirbs">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">EPIRBs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/training::cww_issues">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::training">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+        <skos:prefLabel xml:lang="en">Training</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Changing World of Work issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::noise_elimination">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Noise elimination measures</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::noise_exposure">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Health outcomes of noise exposure</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::ppe">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Personal protective equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::environm_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Environmental &amp; natural hazards (e.g., weather)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::supervisors_information">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Supervisor's information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::statistics">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::first_aid">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">First aid and medical provision</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::catering">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Catering</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::warehouses">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Warehouses</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::flammable_gas">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Flammable gas</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::elimination">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Elimination and Substitution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::falls_water">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Falls into water</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risk_ass::violence_aggression">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress::risk_ass"/>
+    <skos:prefLabel xml:lang="en">Violence / Aggression</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::acc_prevent">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Accident prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::temporary_workers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Temporary and precarious workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::hunting">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Hunting</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/istatistics::ioshstatistics">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics::istatistics"/>
+    <skos:prefLabel xml:lang="en">International OSH statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::phys_agents">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Physical agents e.g. noise, vibration</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::chem_hazards_materials">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Chemical hazards and materials</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::schoolteachers_information">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Schoolteachers' information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::risk_ass">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Risk assessment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::forestry_logging">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Forestry, logging and related services activities</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::oshmanagement">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Management of safety and health</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::work_organisation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Work organisation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::osh_management">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Occupational safety and health management</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::falls">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Falls from height</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Case studies: examples of interventions at the workplace level</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::transport_workplace">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Transport in the workplace, Use of</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::manufacturing">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Manufacturing industry</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::training_-_workplace">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Training - workplace</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::special_groups">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Special groups (women, young, ageing and migrant workers, disabled people etc.)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/providers::eu_member_states">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care::providers"/>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention::providers"/>
+    <skos:prefLabel xml:lang="en">European Union Member States</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::ladders">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Scaffolding and ladders</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::pi">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Psychosocial issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::offices">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Offices</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/surveys::further_info">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics::surveys"/>
+    <skos:prefLabel xml:lang="en">Further information sources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::skin_problems">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Skin problems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::dry_cleaning">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Dry Cleaning</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::carcinogens">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Carcinogens and cancers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::pesticides">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Pesticides</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::first_aid">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">First aid and medical provision</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::home_work">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Home - Work interface</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::fire_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Fire and explosion hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::mining">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Mining &amp; quarrying</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::work_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Work equipment and psychosocial issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/training::supervisors_managers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress::training"/>
+    <skos:prefLabel xml:lang="en">Supervisors / Managers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::shops_and_supermarkets">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Shops and supermarkets</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::special_groups">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Special &amp; Vulnerable Groups</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::work_life">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Work/life balance</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::noise">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Noise</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::biological">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Biological</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::information_providers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Information providers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::fire_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Fire Safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::fire_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Fire safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::employers_information">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Employers' information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::mental_health">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Mental health issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::work_organisation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Work organisation (includes Shiftwork, demands or workload, relationships and atmosphere, support, workpace and control, working hours)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::sprains_strains">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Sprains and strains</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::new_technologies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Dangerous substances and new technologies (e.g. nanotechnologies)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::agency_products">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Agency products</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::occupations">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Occupations/jobs/tasks</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::reports">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Reports</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::legislation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Legislation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/providers::eu_bodies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care::providers"/>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention::providers"/>
+    <skos:prefLabel xml:lang="en">European Bodies and Organisations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::reporting_systems">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Accidents - Reporting systems and investigation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::drugs">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Drugs (including alcohol, tobacco, illegal drugs)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Programmes, policies and campaigns, and statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::info_providers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Information providers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::management">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Management - includes legislation, training, prevention committees, accident prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Case studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::general">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">General - e.g. guides or sub websites covering several topics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::driving">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Driving</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::school_">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">School office safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/prevention::employee_involvement">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::prevention">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+        <skos:prefLabel xml:lang="en">Prevention</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Employee involvement</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::tobacco">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Tobacco Smoke</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::chemicals_working">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Chemicals, Working with</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::sitting">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Sitting (prolonged)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::ppe">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Personal protective equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::school_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">School safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::noise_control">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Noise control measures</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::vibration">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Vibration</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::design_planning_coordination">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Design, planning, and coordination</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::biol_hazards_materials">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Biological hazards and materials</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::burn_out">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Stress outcomes (burn out)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::new_technologies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">New Technologies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::training">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Training</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::back_pain">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Back pain and injury</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::information">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Information, instruction, training and education</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::access">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Access and egress</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::noise_databases">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Noise databases</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::consulting_and_participation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Consulting and participation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::emergency_planning">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Emergency planning including first aid and medical provision</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::pi">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Noise and psychosocial issues (noise as a stressor)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::info_providers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Information providers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::accident_prevention">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Accident prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::biol_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Biological hazards - includes infections, HIV/AIDS, hepatitis, needle injuries, waste disposal</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::msd">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Musculoskeletal disorders</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::legislation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Legislation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::asbestos">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Asbestos</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::msd">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Musculoskeletal disorders</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::chem_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Chemical agents and hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::risks_natural_environment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Risks to health from the natural environment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::physical_agents">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Physical Agents</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::acc_prevent">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Accident prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::lift_trucks">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Lift trucks</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::cuts_burns">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Cuts and burns</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::hearing_issues">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Hearing issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::epp">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Emergency planning and equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::violence">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Violence in the workplace</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::electrical_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Electrical safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::fire_explosion">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Fire &amp; Explosion Hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::special_groups">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Special and vulnerable groups</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::ppe">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Personal Protective Equipment (PPE)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::training_-_vocational">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Training - vocational</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/policy::international_declarations">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::policy">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+        <skos:prefLabel xml:lang="en">Policy</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">International Declarations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::bio_agents_zoonoses">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Biological agents - zoonoses (e.g. avian influenza)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::oshmanagement">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Management of health and safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/risk_ass::tools_strategies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress::risk_ass"/>
+    <skos:prefLabel xml:lang="en">Tools and Strategies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::info_workers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Information, training and consultation for workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::risk_factors">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Risk factors (stressors)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::health_and_social_care_work">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Health and social care work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::acc_prevent">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Accidents e.g. slips, trips and falls</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::vibration">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Vibration</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::construction_maintenance_and_labouring">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Construction, maintenance and labouring</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::laboratory">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Laboratory work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::violence">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Violence and aggression</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::acc_prevent">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Accident Prevention</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::teaching">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Craft, design, technology, and science teaching</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::ds">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Management of Dangerous Substances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/other_iinfo::other">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::other_iinfo">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics"/>
+        <skos:prefLabel xml:lang="en">Other related international information</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Other related links</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::biol_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Biological hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::fishing">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Fishing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::respiratory_diseases">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Respiratory diseases</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::work_organisation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Work organisation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::vulnerable_groups">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Vulnerable groups e.g. ageing, immigrants, the disabled</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::parents_information">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Parents' information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::sme">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">SME related resources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::policies_programmes">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Policies and programmes at national and regional level</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::pesticides">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Pesticides, fungicides, germicides, disinfectants, and fumigants</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::first_aid">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">First aid</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::chem_spill">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Chemical spill</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::general">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">General (links covering more than one topic)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::msd">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Muskuloskeletal disorders - MSDs, manual handling, repetitive injuries.</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/isurveys::ioshsurveys">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics::isurveys">
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics"/>
+        <skos:prefLabel xml:lang="en">International surveys</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">International OSH surveys</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/isurveys::info_sources">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics::isurveys"/>
+    <skos:prefLabel xml:lang="en">Further information sources</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::machines_and_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Machines and equipment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::bullying_and_harassment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Bullying and harassment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::physical_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Physical Hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::pi">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Stress</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::skin_problems">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Skin Problems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::safety signs">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Safety signs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::transport_safety">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Vehicle and workplace transport safety</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::stress">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Stress (includes bullying and harassment)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/gender::violence">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/gender"/>
+    <skos:prefLabel xml:lang="en">Violence</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noneu_surveys::overseas">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics::noneu_surveys"/>
+    <skos:prefLabel xml:lang="en">Overseas</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/health_care::violence">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/health_care"/>
+    <skos:prefLabel xml:lang="en">Violence</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::navigation_issues">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Navigation issues</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::workplace">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Workplace health, safety, and welfare</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::school_childrens_information">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">School children's information</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::agency_products">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Agency products</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::drugs">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Drugs and alcohol</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/fisheries::ppe">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/fisheries"/>
+    <skos:prefLabel xml:lang="en">Personal Protective Equipment (PPE)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::occup_exposure">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Occupational Exposure Limits</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/horeca::heights">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/horeca"/>
+    <skos:prefLabel xml:lang="en">Work at Heights</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::info_workers">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Information, training, and consultation of workers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::legislation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Legislation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::manual_handling">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Manual handling, awkward postures and repetitive work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noise::acc_prevent">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/noise"/>
+    <skos:prefLabel xml:lang="en">Accident prevention and noise</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::consultation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Consultation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::emergency_planning">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Emergency planning</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::flammable_substances">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Flammable and explosive substances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::work_equipment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Work equipment and machinery guarding</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::roofwork">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Roofwork</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::major_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Major Hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/msd::work_organisation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/msd"/>
+    <skos:prefLabel xml:lang="en">Work organisation (working hours, night work etc.)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/education::case_studies">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/education"/>
+    <skos:prefLabel xml:lang="en">Case studies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::employability">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Employability and returning to work</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/dangerous_substances::dstransport">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/dangerous_substances"/>
+    <skos:prefLabel xml:lang="en">Transport of Dangerous Goods</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::risk_assessment_and_management">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Risk assessment and management</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::legislation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Legislation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::animal_farming">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Animal farming</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/young_people::work_experience_preparation">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/young_people"/>
+    <skos:prefLabel xml:lang="en">Work experience preparation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/disability::msd">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/disability"/>
+    <skos:prefLabel xml:lang="en">Musculoskeletal disorders</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::RiskAssessment">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Risk Assessment</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/stress::emergency_planning">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/stress"/>
+    <skos:prefLabel xml:lang="en">Emergency planning including first aid and medical provision, Post-traumatic stress</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/construction::chem_biol_hazards">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/construction"/>
+    <skos:prefLabel xml:lang="en">Chemical and biological hazards</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/accident_prevention::cleaners">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/accident_prevention"/>
+    <skos:prefLabel xml:lang="en">Cleaners</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/noneu_statistics::efta">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/statistics::noneu_statistics"/>
+    <skos:prefLabel xml:lang="en">EFTA Countries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/agriculture::occupational_diseases">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHCategories/agriculture"/>
+    <skos:prefLabel xml:lang="en">Occupational diseases</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHCategories/statistics">
+    <skos:prefLabel xml:lang="en">Statistics</skos:prefLabel>
+  </skos:Concept>
+</rdf:RDF>

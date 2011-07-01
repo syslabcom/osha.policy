@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <skos:Concept rdf:about="http://osha.europa.eu/Target_user_groups/20043807133800_39015">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/Target_user_groups/20043807133800_19925">
+        <skos:prefLabel xml:lang="en">Target groups</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Experts and management representatives</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/Target_user_groups/20043807133800_72841">
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/Target_user_groups/20043807133800_72756">
+        <skos:prefLabel xml:lang="en">Target groups EU</skos:prefLabel>
+      </skos:Concept>
+    </skos:broaderTransitive>
+    <skos:prefLabel xml:lang="en">Workers and workers' representatives</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/Target_user_groups/20043807133800_27678">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/Target_user_groups/20043807133800_19925"/>
+    <skos:prefLabel xml:lang="en">Workers and workers' representatives</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/Target_user_groups/20043807133800_97383">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/Target_user_groups/20043807133800_19925"/>
+    <skos:prefLabel xml:lang="en">Labour inspectors and government officials</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/Target_user_groups/20043807133800_72128">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/Target_user_groups/20043807133800_72756"/>
+    <skos:prefLabel xml:lang="en">Students and schools</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/Target_user_groups/20043807133800_74909">
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/Target_user_groups/20043807133800_19925"/>
+    <skos:prefLabel xml:lang="en">Students and schools</skos:prefLabel>
+  </skos:Concept>
+</rdf:RDF>
