@@ -3,1141 +3,1141 @@
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT66LU">
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_doc_cat::respect_doc_02">
+    <skos:prefLabel xml:lang="fr">SPF ETCS - Violence, harcèlement moral ou sexuel au travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">FOD WASO - geweld, pesterijen en ongewenst seksueel gedrag op het werk</skos:prefLabel>
     <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/WhosWhoType">
-        <skos:prefLabel xml:lang="nl">Whos Who Type</skos:prefLabel>
-        <skos:prefLabel xml:lang="fr">Whos Who Type</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="nl">Gezondheid</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Santé</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG06">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining">
-        <skos:prefLabel xml:lang="fr">Whos Who Training</skos:prefLabel>
-        <skos:prefLabel xml:lang="nl">Whos Who Training</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="fr">Agents chimiques</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Chemische agentia</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_target_group::age">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/ero_target_group">
-        <skos:prefLabel xml:lang="en">Target Group (ERO)</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">age</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd144">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/respect_meta_data">
-        <skos:prefLabel xml:lang="en">Key words Respect at work</skos:prefLabel>
-        <skos:prefLabel xml:lang="nl">Trefwoorden Respect op het werk</skos:prefLabel>
-        <skos:prefLabel xml:lang="fr">Mots clés Respect au travail</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="nl">Organisatie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Organisation</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Organisation</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd126">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Alcohol</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Alcohol</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Alcool</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_topic::absenteeism">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/ero_topic">
-        <skos:prefLabel xml:lang="en">Topic (ERO)</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">Absenteeism</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd145">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Model</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Model</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Modèle</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd135">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Participation </skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Participation</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Participatie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG07">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Secouriste industriel (Premiers soins)</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Nijverheidshelper (EHBO)</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps18">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/good_practice_sector">
-        <skos:prefLabel xml:lang="nl">Goede praktijdvoorbeelden - Sector</skos:prefLabel>
-        <skos:prefLabel xml:lang="fr">Bonne Pratique - Sector</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="nl">Telecommunicatie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Télécommunication</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_research::respect_research_02">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/respect_research">
-        <skos:prefLabel xml:lang="fr">Respect - Recherche</skos:prefLabel>
-        <skos:prefLabel xml:lang="nl">Respect - Onderzoek</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="nl">Stress</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Stress</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd2">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Stress</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Stress</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Stress</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG25">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Incendie</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Brand</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd159">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Enquête</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Enquête</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Survey </skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG10">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Violences, harcèlement moral et sexuel</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Geweld, pesterijen en ongewenst seksueel gedrag</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps06">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Onderwijs</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Enseignement</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd161">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Syndicats</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">vakbonden</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Unions</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd117">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Karasek</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Karasek</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Karasek</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG17">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Opslagplaatsen voor ontvlambare vloeistoffen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Dépôts de liquides inflammables</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd8">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Burnout</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Burn-out</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Epuisement professionnel (burnout)</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/organizer::org04">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/organizer">
-        <skos:prefLabel xml:lang="nl">Kalender Organisator</skos:prefLabel>
-        <skos:prefLabel xml:lang="fr">Calendrier - organisateur évenment</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="nl">Prov. comité West-Vlaanderen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Prov. comité West-Vlaanderen</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG20">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Cordes</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Touwen</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT65">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Organisme assureur</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Verzekeringsorganisme</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT16">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="nl">Bedrijf erkend voor de afbraak of verwijdering van asbest</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Entreprise agréée pour des travaux de démolition et retrait d'amiante</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG30">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Assistent infirmier (Premiers soins)</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Verpleegassistent (EHBO)</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd153">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Intervention</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Intervention</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Interventie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/organizer::org05">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/organizer"/>
-    <skos:prefLabel xml:lang="fr">Prov Comité Oost-Vlaanderen</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Prov Comité Oost-Vlaanderen</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG31">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Personne de confiance</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Vertrouwenspersoon</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT15">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Laboratoire agréé</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Erkend laboratorium</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps20">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Secteur tertiaire</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Tertiaire sector</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd116">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Gevolgen</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Consequences</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Conséquences</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_competition::gpc05">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/good_practice_competition">
-        <skos:prefLabel xml:lang="fr">Bonne Pratique - Domaines</skos:prefLabel>
-        <skos:prefLabel xml:lang="nl">Goede praktijdvoorbeelden - Wedstrijden</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="nl">Safe Start Award</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Safe Start Award</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps07">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Secteur de l'assistance sociale </skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Zorgsector</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd140">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">musculoskeletal disorders</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Musculoskeletale aandoeningen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Troubles musculo-squelettiques</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd139">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Indicatoren</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Indicators</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Indicateurs</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd110">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Work Conditions</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Arbeidsomstandigheden</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Conditions de travail</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG26">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Médecin du travail</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Arbeidsgeneesheer</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_competition::gpc04">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_competition"/>
-    <skos:prefLabel xml:lang="nl">Pro-safe award</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Pro-safe award</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG34">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Stress et burnout</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Stress en burnout</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd5">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Geweld op het werk</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Violence au travail</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Violence at Work</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG01">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Conseillers en prévention</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Preventieadviseur</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_target_group::others">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_target_group"/>
-    <skos:prefLabel xml:lang="en">Others</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT18">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Centre de recherche</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Onderzoeksinstituut</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_doc_cat::respect_doc_03">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/respect_doc_cat">
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_doc_cat">
         <skos:prefLabel xml:lang="nl">Respect op het werk - Categorie Publicaties</skos:prefLabel>
         <skos:prefLabel xml:lang="fr">Respect au travail - publications</skos:prefLabel>
-      </skos:Concept>
+      </skos:TopConcept>
     </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="nl">FOD WASO - stress</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">SPF ETCS - Stress</skos:prefLabel>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd10">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Experienced workers</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Travailleurs expérimentés</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Ervaren werknemers</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd137">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Prevention</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Preventie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Prévention</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd128">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Epuisement émotionnel</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Emotionele uitputting</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Emotional exhaustion </skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd156">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Management</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Management</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Management</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd151">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Engagement</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Engagement</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Engagement</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps17">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Financiële sector</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Secteur financier</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd7">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Assuétude</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Verslaving</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Addiction</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::Sensibilisatiedag">
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG07">
+    <skos:prefLabel xml:lang="fr">Secouriste industriel (Premiers soins)</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Nijverheidshelper (EHBO)</skos:prefLabel>
     <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/eventtype">
-        <skos:prefLabel xml:lang="nl">Event type</skos:prefLabel>
-        <skos:prefLabel xml:lang="fr">Event type</skos:prefLabel>
-      </skos:Concept>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining">
+        <skos:prefLabel xml:lang="fr">Whos Who Training</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">Whos Who Training</skos:prefLabel>
+      </skos:TopConcept>
     </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="fr">Journée de sensibilisation</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Sensibilisatiedag</skos:prefLabel>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT66">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Service Externe PPT</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Externe Dienst PBW</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd100">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Comportement non désiré</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Ongewenst gedrag</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Undesired Behaviour</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT13">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="nl">Onderwijs</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Enseignement</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd163">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Conseiller en prévention</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Prevention Advisor</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Preventieadviseur</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd3">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Mobbing, harassment</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Harcèlement moral</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Pesterijen</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps08">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Le secteur pharmaceutique</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Farmaceutische sector</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps24">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Art, divertissement et récréation</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Kunst, amusement en recreatie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd111">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Werkdruk</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Workload</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Charge de travail</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG23">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Conducteur de chariot élévateur</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Heftruckbestuurder</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps13">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Distributie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Distribution</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG16">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Equipements de travail mobiles</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Mobiele arbeidsmiddelen</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_target_group::employment_status">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_target_group"/>
-    <skos:prefLabel xml:lang="en">Employment status</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG29">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Hiërarchische lijn</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Ligne hiérarchique</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd112">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Financiële sector</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Financial Sector</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Secteur financier</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG21">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Trillingen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Vibrations</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_research::respect_research_01">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_research"/>
-    <skos:prefLabel xml:lang="fr">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT9">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Association professionnelle</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Beroepsvereniging</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG12">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Ioniserende stralingen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Rayonnements ionisants</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_target_group::occupation">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_target_group"/>
-    <skos:prefLabel xml:lang="en">Occupation</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd124">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Measuring instrument</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Instrument de mesure</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Meetinstrument</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/organizer::org03">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/organizer"/>
-    <skos:prefLabel xml:lang="fr">Prov. Comité Vlaams-Brabant</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Prov. Comité Vlaams-Brabant</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd121">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Carrière</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Loopbaan</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Carrier</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps22">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Industrie</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Industrie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps10">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Transport</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Transport</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/organizer::org01">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/organizer"/>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/organizer::org01">
     <skos:prefLabel xml:lang="fr">FOD WASO -SPF ETCS</skos:prefLabel>
     <skos:prefLabel xml:lang="nl">FOD WASO -SPF ETCS</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG19">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Echafaudages</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Steigers</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd118">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Jobtevredenheid</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Job satisfaction</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Satisfaction au travail</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT11">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Organisation d'employeurs</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Werkgeversorganisatie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_domain::gpd06">
     <skos:broaderTransitive>
-      <skos:Concept rdf:about="OSHAMetadata/good_practice_domain">
-        <skos:prefLabel xml:lang="fr">Bonne Pratique - Domaines</skos:prefLabel>
-        <skos:prefLabel xml:lang="nl">Goede praktijdvoorbeelden - Domein</skos:prefLabel>
-      </skos:Concept>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/organizer">
+        <skos:prefLabel xml:lang="nl">Kalender Organisator</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">Calendrier - organisateur évenment</skos:prefLabel>
+      </skos:TopConcept>
     </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="nl">Psychosociale</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Charge psychosociale</skos:prefLabel>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps19">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Luchtvaart</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Aviation</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::Seminar">
+    <skos:prefLabel xml:lang="nl">Seminar</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Séminaire</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype">
+        <skos:prefLabel xml:lang="fr">Event type</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">Event type</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd107">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Werkongevallen</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Work accidents</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Accidents de travail</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd161">
+    <skos:prefLabel xml:lang="fr">Syndicats</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Unions</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">vakbonden</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data">
+        <skos:prefLabel xml:lang="en">Key words Respect at work</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">Mots clés Respect au travail</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">Trefwoorden Respect op het werk</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG11">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Hyperbare omgeving</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Milieu hyperbare</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_competition::gpc02">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_competition"/>
-    <skos:prefLabel xml:lang="nl">Prijs van de Hoge Raad voor preventie en bescherming op het werk</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Prix du conseil supérieur pour la prévention et la protection</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG22">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Travailleurs intérimaires</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Uitzendkrachten</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd120">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Werk-privé</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Work-life balance</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Vie privée-vie professionnelle</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT3LU">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="nl">Overheid</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Administration</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG13">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Agents cancérigènes et mutagènes</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Kankerverwekkende en mutagene agentia</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps26">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Technologie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Technologie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd129">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Discrimination</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Discrimination</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Discriminatie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::Studiedag">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="fr">Journée d'étude</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Studiedag</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT20">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="nl">Patiëntenvereniging</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Association de Patients atteints</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps03">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Interim</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Interim</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd115">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Antecedenten</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Antécédents</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Causes</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd167">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Gids</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Guide</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Guide</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd102">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Conflict</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Conflit</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Conflict</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd4">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Ongewenst seksueel gedrag</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Sexual harrasment </skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Harcèlement sexuel</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::Opleiding">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="fr">Formation</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Opleiding</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_target_group::general_prevalence">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_target_group"/>
-    <skos:prefLabel xml:lang="en">General prevalence</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd133">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Deeltijds werken</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Travail à temps partiel</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Part-time work</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::congres">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="fr">Congrès</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Congres</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG24">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Coordinateur de sécurité</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Veiligheidscoördinator</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_topic::hearing_loss">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_topic"/>
-    <skos:prefLabel xml:lang="en">Hearing Loss</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps09">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Chimie</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Chemie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd122">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Soutien social</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Sociale steun</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Social support</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT12">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Service Externe pour le Contrôle Technique sur le lieu de travail</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Externe Dienst voor Technische Controle op de Werkplaats</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG27">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Arbeidsongevallen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Accidents de travail</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps05">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Nutsbedrijven</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Entreprises reconnues d'utilité publique</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_domain::gpd08">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_domain"/>
-    <skos:prefLabel xml:lang="nl">Verfraaiing</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Embellissement</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd165">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Souffrance au travail</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Leed op het werk</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Suffering at work</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd127">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Burnout</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd127">
     <skos:prefLabel xml:lang="nl">Burn-out</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Burnout</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Epuisement professionnel (burnout)</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd150">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Stress management</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Stress management</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Gestion du stress</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps14">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Horeca</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps14">
     <skos:prefLabel xml:lang="nl">Horeca</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Horeca</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector">
+        <skos:prefLabel xml:lang="nl">Goede praktijdvoorbeelden - Sector</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">Bonne Pratique - Sector</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG05">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Biologische agentia</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Agents biologiques</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT66LU">
+    <skos:prefLabel xml:lang="fr">Santé</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Gezondheid</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType">
+        <skos:prefLabel xml:lang="nl">Whos Who Type</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">Whos Who Type</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG09">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Explosiegevaar</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Danger d’explosion</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps17">
+    <skos:prefLabel xml:lang="fr">Secteur financier</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Financiële sector</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd166">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Gids</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Guide</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Guide</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT14">
+    <skos:prefLabel xml:lang="nl">Bouwdirectie erkend voor de veiligheidscoördinatie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Organisation d'travailleurs</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd108">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Suicide</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Suicide</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Zelfmoord</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd157">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Maintien au travail</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Behoud van de tewerkstelling</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Maintaining employment</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_domain::gpd04">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_domain"/>
-    <skos:prefLabel xml:lang="nl">Leefmilieu</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Environnement</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_target_group::sector">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_target_group"/>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group::sector">
     <skos:prefLabel xml:lang="en">Sector</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group">
+        <skos:prefLabel xml:lang="en">Target Group (ERO)</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG08">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Elektrische installaties</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Installations électriques</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd7">
+    <skos:prefLabel xml:lang="fr">Assuétude</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Addiction</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Verslaving</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd158">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Good practices</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Good practices</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Bonnes pratiques</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_competition::gpc03">
+    <skos:prefLabel xml:lang="nl">Prijs Gezondheid en Onderneming</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Prix Santé et Entreprise</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_competition">
+        <skos:prefLabel xml:lang="fr">Bonne Pratique - Domaines</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">Goede praktijdvoorbeelden - Wedstrijden</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_topic::noise_exposure">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_topic"/>
-    <skos:prefLabel xml:lang="en">Noise Exposure</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps23">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Industrie extractive</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Winning van delfstoffen</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps04">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">PME</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">KMO</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG18">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Persoonlijke beschermingsmiddelen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Equipements de protection individuelle</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/organizer::org02">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/organizer"/>
-    <skos:prefLabel xml:lang="nl">Actiecomité Brussel</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Comité d'action Bruxelles capitale</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT10">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Maître d'œuvre agréé pour la coordination de la sécurité</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Werknemersorganisatie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Service Externe pour le Contrôle Technique sur le lieu de travail</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Externe Dienst voor Technische Controle op de Werkplaats</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::Beurs">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="nl">Beurs</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Salon</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT8">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="nl">Preventieinstituut</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Institution de prévention</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::Infosessie_workshop">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="nl">Infosessie met workshops</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Session d'information et ateliers</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps01">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Construction</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Bouw</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT17">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="nl">Opleidingsinstituut</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Centre de formation</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps11">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Métal</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Metaal</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_doc_cat::respect_doc_10">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_doc_cat"/>
-    <skos:prefLabel xml:lang="nl">Externe publicaties - geweld, pesterijen en ongewenst seksueel gedrag op het werk</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Publications externes - Violence, harcèlement moral ou sexuel au travail</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_target_group::summary">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_target_group"/>
-    <skos:prefLabel xml:lang="en">summary</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd114">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Prevalence</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Prévalence</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Prevalentie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_topic::pace_of_work">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_topic"/>
-    <skos:prefLabel xml:lang="en">Pace of Work</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd123">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Ziekteverzuim</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Absentéisme</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Absenteism</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd142">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Risicofactoren</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Risk factors</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Facteurs de risques</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd154">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Occupational health </skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Gezondheid op het werk</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Santé au travail</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_target_group::gender">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_target_group"/>
-    <skos:prefLabel xml:lang="en">Gender</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd143">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Questionnaire</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Questionnaire</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Vragenlijst</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd136">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Depression</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Depressie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Dépression</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd125">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Tabagisme</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Roken</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Smoking</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps12">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Overheid</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Gouvernement</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps02">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Defensie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Défence</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG03">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Enlèvement d'amiante</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Asbestverwijdering</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::Infosessie">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="fr">Session d'information</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Infosessie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG32">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG32">
     <skos:prefLabel xml:lang="nl">Alcohol en drugs</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Alcool et drogue</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd147">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Processus psychologiques</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Psychological process</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Psychologische processen</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps07">
+    <skos:prefLabel xml:lang="fr">Secteur de l'assistance sociale </skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Zorgsector</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd141">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Risicoanalyse</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Risks analysis</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Analyse des risques</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd115">
+    <skos:prefLabel xml:lang="en">Causes</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Antécédents</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Antecedenten</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::Workshop">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="nl">Workshop</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Ateliers</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps25">
+    <skos:prefLabel xml:lang="fr">Commerce de gros et de détail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Groot- en detailhandel</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd105">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Communication</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Communicatie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Communication</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd167">
+    <skos:prefLabel xml:lang="nl">Gids</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Guide</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Guide</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG04">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Ecrans de visualisation</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Beeldschermen</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT17">
+    <skos:prefLabel xml:lang="nl">Opleidingsinstituut</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Centre de formation</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd160">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">companies</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Bedrijven</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Entreprises</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT13">
+    <skos:prefLabel xml:lang="nl">Onderwijs</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Enseignement</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd131">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Employment</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Arbeidsgeneesheer</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Emploi????</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_domain::gpd01">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_domain"/>
-    <skos:prefLabel xml:lang="nl">Ergonomie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Ergonomie</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd1">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Work Conditions</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Arbeidsomstandigheden</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Conditions de travail</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd9">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd9">
     <skos:prefLabel xml:lang="en">Suicide au travail</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Suicide au travail</skos:prefLabel>
     <skos:prefLabel xml:lang="nl">Zelfmoord op het werk</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd132">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Flexibilité</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Flexibiliteit</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Flexibility</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd131">
+    <skos:prefLabel xml:lang="fr">Emploi????</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Arbeidsgeneesheer</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Employment</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_competition::gpc03">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_competition"/>
-    <skos:prefLabel xml:lang="nl">Prijs Gezondheid en Onderneming</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Prix Santé et Entreprise</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd102">
+    <skos:prefLabel xml:lang="en">Conflict</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Conflit</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Conflict</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_domain::gpd07">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_domain"/>
-    <skos:prefLabel xml:lang="nl">Veiligheid</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Sécurité</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG34">
+    <skos:prefLabel xml:lang="nl">Stress en burnout</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Stress et burnout</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd134">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Safety</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Veiligheid</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Sécurité</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps11">
+    <skos:prefLabel xml:lang="fr">Métal</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Metaal</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG28">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Beroepsziekten</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Maladies professionnelles</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_topic::pace_of_work">
+    <skos:prefLabel xml:lang="en">Pace of Work</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_topic">
+        <skos:prefLabel xml:lang="en">Topic (ERO)</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd119">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Welzijn</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Bien-être</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Well-being</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps04">
+    <skos:prefLabel xml:lang="fr">PME</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">KMO</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd113">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Insécurité de l'emploi</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Job insecurity</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Jobonzekerheid</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_doc_cat::respect_doc_11">
+    <skos:prefLabel xml:lang="nl">Externe publicaties - stress</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Externe publicaties - stress</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_doc_cat"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd104">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Restructuration</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Restructuring</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Herstructurering</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG01">
+    <skos:prefLabel xml:lang="nl">Preventieadviseur</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Conseillers en prévention</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG15">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Manueel hanteren van lasten</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Manutentions manuelle de charges</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT9">
+    <skos:prefLabel xml:lang="fr">Association professionnelle</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Beroepsvereniging</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd106">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Ergonomie</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Ergonomics</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Ergonomie</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps10">
+    <skos:prefLabel xml:lang="nl">Transport</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Transport</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps15">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="fr">Agriculture et pêche</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Landbouw en visserij</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd4">
+    <skos:prefLabel xml:lang="fr">Harcèlement sexuel</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Sexual harrasment </skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Ongewenst seksueel gedrag</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd155">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Betekenis van het werk</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Sens du travail</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Meaning of work</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd120">
+    <skos:prefLabel xml:lang="en">Work-life balance</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Vie privée-vie professionnelle</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Werk-privé</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_domain::gpd02">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_domain"/>
-    <skos:prefLabel xml:lang="nl">Gezondheid</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Santé</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd146">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Hyperconflict</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Hyperconflit</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Hyperconflict</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd101">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Agressie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Agression</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Agression</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps21">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Informatie en Communicatie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Information et communication</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::Seminar">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="nl">Seminar</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Séminaire</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::conferentie">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="nl">Conferentie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Conférence</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd152">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Gedrag in organisaties</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Organisational behaviour</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Comportement organisationnel</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_competition::gpc01">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_competition"/>
-    <skos:prefLabel xml:lang="fr">Award des examples de bonne pratique</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Award voor Goede Praktijkvoorbeelden</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd130">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd130">
+    <skos:prefLabel xml:lang="nl">Werkbetrokkenheid</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Implication au travail???</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Work involvement</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Werkbetrokkenheid</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT14">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="nl">Bouwdirectie erkend voor de veiligheidscoördinatie</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Organisation d'travailleurs</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_doc_cat::respect_doc_10">
+    <skos:prefLabel xml:lang="fr">Publications externes - Violence, harcèlement moral ou sexuel au travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Externe publicaties - geweld, pesterijen en ongewenst seksueel gedrag op het werk</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_doc_cat"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG14">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="fr">Bruit</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Lawaai</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps02">
+    <skos:prefLabel xml:lang="fr">Défence</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Defensie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_domain::gpd03">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_domain"/>
-    <skos:prefLabel xml:lang="nl">Hygiëne</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG12">
+    <skos:prefLabel xml:lang="nl">Ioniserende stralingen</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Rayonnements ionisants</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_competition::gpc02">
+    <skos:prefLabel xml:lang="fr">Prix du conseil supérieur pour la prévention et la protection</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Prijs van de Hoge Raad voor preventie en bescherming op het werk</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_competition"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_domain::gpd03">
     <skos:prefLabel xml:lang="fr">Hygiène</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Hygiëne</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_domain">
+        <skos:prefLabel xml:lang="fr">Bonne Pratique - Domaines</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">Goede praktijdvoorbeelden - Domein</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoType::OT19">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoType"/>
-    <skos:prefLabel xml:lang="fr">Fondation d'utilité publique</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Stichting van openbaar nut</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/organizer::org03">
+    <skos:prefLabel xml:lang="fr">Prov. Comité Vlaams-Brabant</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Prov. Comité Vlaams-Brabant</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/organizer"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/good_practice_sector::gps25">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/good_practice_sector"/>
-    <skos:prefLabel xml:lang="nl">Groot- en detailhandel</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Commerce de gros et de détail</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_research::respect_research_01">
+    <skos:prefLabel xml:lang="fr">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Geweld, pesterijen en ongewenst seksueel gedrag op het werk</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:TopConcept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_research">
+        <skos:prefLabel xml:lang="fr">Respect - Recherche</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">Respect - Onderzoek</skos:prefLabel>
+      </skos:TopConcept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd164">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_domain::gpd06">
+    <skos:prefLabel xml:lang="fr">Charge psychosociale</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Psychosociale</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_domain"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group::employment_status">
+    <skos:prefLabel xml:lang="en">Employment status</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_target_group"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd117">
+    <skos:prefLabel xml:lang="fr">Karasek</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Karasek</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Karasek</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps12">
+    <skos:prefLabel xml:lang="fr">Gouvernement</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Overheid</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps08">
+    <skos:prefLabel xml:lang="fr">Le secteur pharmaceutique</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Farmaceutische sector</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_domain::gpd02">
+    <skos:prefLabel xml:lang="fr">Santé</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Gezondheid</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_domain"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG19">
+    <skos:prefLabel xml:lang="nl">Steigers</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Echafaudages</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT11">
+    <skos:prefLabel xml:lang="fr">Organisation d'employeurs</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Werkgeversorganisatie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps03">
+    <skos:prefLabel xml:lang="fr">Interim</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Interim</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd110">
+    <skos:prefLabel xml:lang="fr">Conditions de travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Work Conditions</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Arbeidsomstandigheden</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps19">
+    <skos:prefLabel xml:lang="fr">Aviation</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Luchtvaart</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd129">
+    <skos:prefLabel xml:lang="en">Discrimination</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Discrimination</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Discriminatie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG18">
+    <skos:prefLabel xml:lang="fr">Equipements de protection individuelle</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Persoonlijke beschermingsmiddelen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG20">
+    <skos:prefLabel xml:lang="nl">Touwen</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Cordes</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps23">
+    <skos:prefLabel xml:lang="nl">Winning van delfstoffen</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Industrie extractive</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps24">
+    <skos:prefLabel xml:lang="nl">Kunst, amusement en recreatie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Art, divertissement et récréation</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT16">
+    <skos:prefLabel xml:lang="nl">Bedrijf erkend voor de afbraak of verwijdering van asbest</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Entreprise agréée pour des travaux de démolition et retrait d'amiante</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::Infosessie">
+    <skos:prefLabel xml:lang="nl">Infosessie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Session d'information</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd166">
+    <skos:prefLabel xml:lang="nl">Gids</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Guide</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Guide</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG03">
+    <skos:prefLabel xml:lang="fr">Enlèvement d'amiante</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Asbestverwijdering</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT66">
+    <skos:prefLabel xml:lang="fr">Service Externe PPT</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Externe Dienst PBW</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd124">
+    <skos:prefLabel xml:lang="en">Measuring instrument</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Meetinstrument</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Instrument de mesure</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_competition::gpc05">
+    <skos:prefLabel xml:lang="nl">Safe Start Award</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Safe Start Award</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_competition"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd108">
+    <skos:prefLabel xml:lang="nl">Zelfmoord</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Suicide</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Suicide</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd163">
+    <skos:prefLabel xml:lang="en">Prevention Advisor</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Conseiller en prévention</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Preventieadviseur</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT65">
+    <skos:prefLabel xml:lang="fr">Organisme assureur</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Verzekeringsorganisme</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG28">
+    <skos:prefLabel xml:lang="nl">Beroepsziekten</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Maladies professionnelles</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_domain::gpd07">
+    <skos:prefLabel xml:lang="nl">Veiligheid</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Sécurité</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_domain"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd164">
+    <skos:prefLabel xml:lang="en">Work-life balance</skos:prefLabel>
     <skos:prefLabel xml:lang="nl">Work-life balance</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Equilibre vie professionnelle/vie privée</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Work-life balance</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG33">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps18">
+    <skos:prefLabel xml:lang="fr">Télécommunication</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Telecommunicatie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd116">
+    <skos:prefLabel xml:lang="en">Consequences</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Conséquences</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Gevolgen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd158">
+    <skos:prefLabel xml:lang="fr">Bonnes pratiques</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Good practices</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Good practices</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG16">
+    <skos:prefLabel xml:lang="fr">Equipements de travail mobiles</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Mobiele arbeidsmiddelen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd119">
+    <skos:prefLabel xml:lang="nl">Welzijn</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Well-being</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Bien-être</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group::occupation">
+    <skos:prefLabel xml:lang="en">Occupation</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_target_group"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd132">
+    <skos:prefLabel xml:lang="nl">Flexibiliteit</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Flexibility</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Flexibilité</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd143">
+    <skos:prefLabel xml:lang="fr">Questionnaire</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Questionnaire</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Vragenlijst</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT19">
+    <skos:prefLabel xml:lang="nl">Stichting van openbaar nut</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Fondation d'utilité publique</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::Studiedag">
+    <skos:prefLabel xml:lang="fr">Journée d'étude</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Studiedag</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_competition::gpc01">
+    <skos:prefLabel xml:lang="fr">Award des examples de bonne pratique</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Award voor Goede Praktijkvoorbeelden</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_competition"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::congres">
+    <skos:prefLabel xml:lang="nl">Congres</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Congrès</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd165">
+    <skos:prefLabel xml:lang="en">Suffering at work</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Souffrance au travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Leed op het werk</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_topic::working_time">
+    <skos:prefLabel xml:lang="en">Working Time</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_topic"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG15">
+    <skos:prefLabel xml:lang="nl">Manueel hanteren van lasten</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Manutentions manuelle de charges</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd111">
+    <skos:prefLabel xml:lang="en">Workload</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Charge de travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Werkdruk</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::Sensibilisatiedag">
+    <skos:prefLabel xml:lang="fr">Journée de sensibilisation</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Sensibilisatiedag</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd154">
+    <skos:prefLabel xml:lang="fr">Santé au travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Gezondheid op het werk</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Occupational health </skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd109">
+    <skos:prefLabel xml:lang="fr">Genre</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Gender</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Gender</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd159">
+    <skos:prefLabel xml:lang="nl">Enquête</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Survey </skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Enquête</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps13">
+    <skos:prefLabel xml:lang="fr">Distribution</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Distributie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd105">
+    <skos:prefLabel xml:lang="nl">Communicatie</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Communication</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Communication</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG11">
+    <skos:prefLabel xml:lang="nl">Hyperbare omgeving</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Milieu hyperbare</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT3LU">
+    <skos:prefLabel xml:lang="fr">Administration</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Overheid</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG33">
     <skos:prefLabel xml:lang="nl">Spier- en skeletaandoeningen</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Troubles musculo-squelettiques</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/eventtype::colloque">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/eventtype"/>
-    <skos:prefLabel xml:lang="nl">Colloqium</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Colloque</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd162">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Recommendations</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Aanbevelingen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Recommandations</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd6">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Geweld op het werk</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd5">
     <skos:prefLabel xml:lang="fr">Violence au travail</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Violence at Work</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Geweld op het werk</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/ero_topic::working_time">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/ero_topic"/>
-    <skos:prefLabel xml:lang="en">Working Time</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd150">
+    <skos:prefLabel xml:lang="en">Stress management</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Stress management</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Gestion du stress</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd168">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="nl">Gids</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Guide</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Guide</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT10">
+    <skos:prefLabel xml:lang="nl">Externe Dienst voor Technische Controle op de Werkplaats</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Service Externe pour le Contrôle Technique sur le lieu de travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Werknemersorganisatie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Maître d'œuvre agréé pour la coordination de la sécurité</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_doc_cat::respect_doc_11">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_doc_cat"/>
-    <skos:prefLabel xml:lang="fr">Externe publicaties - stress</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Externe publicaties - stress</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd139">
+    <skos:prefLabel xml:lang="nl">Indicatoren</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Indicators</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Indicateurs</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/WhosWhoTraining::TG02">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/WhosWhoTraining"/>
-    <skos:prefLabel xml:lang="nl">Arbeidsmiddelen</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Equipements de travail</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps15">
+    <skos:prefLabel xml:lang="fr">Agriculture et pêche</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Landbouw en visserij</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd148">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Case study</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Case study</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Etude de cas</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd2">
+    <skos:prefLabel xml:lang="en">Stress</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Stress</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Stress</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd103">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Leadership</skos:prefLabel>
-    <skos:prefLabel xml:lang="en">Leadership</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Leidinggeven</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG26">
+    <skos:prefLabel xml:lang="nl">Arbeidsgeneesheer</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Médecin du travail</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd138">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Risques psychosociaux</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group::summary">
+    <skos:prefLabel xml:lang="en">summary</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_target_group"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_domain::gpd04">
+    <skos:prefLabel xml:lang="fr">Environnement</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Leefmilieu</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_domain"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT15">
+    <skos:prefLabel xml:lang="fr">Laboratoire agréé</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Erkend laboratorium</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd160">
+    <skos:prefLabel xml:lang="nl">Bedrijven</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Entreprises</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">companies</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::conferentie">
+    <skos:prefLabel xml:lang="nl">Conferentie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Conférence</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps09">
+    <skos:prefLabel xml:lang="fr">Chimie</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Chemie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd138">
     <skos:prefLabel xml:lang="nl">Psychosocial risico's</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Risques psychosociaux</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Psychosocial risks</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_doc_cat::respect_doc_02">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_doc_cat"/>
-    <skos:prefLabel xml:lang="nl">FOD WASO - geweld, pesterijen en ongewenst seksueel gedrag op het werk</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">SPF ETCS - Violence, harcèlement moral ou sexuel au travail</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_competition::gpc04">
+    <skos:prefLabel xml:lang="fr">Pro-safe award</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Pro-safe award</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_competition"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd149">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="en">Drugs</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd123">
+    <skos:prefLabel xml:lang="fr">Absentéisme</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Ziekteverzuim</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Absenteism</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps05">
+    <skos:prefLabel xml:lang="fr">Entreprises reconnues d'utilité publique</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Nutsbedrijven</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd8">
+    <skos:prefLabel xml:lang="nl">Burn-out</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Burnout</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Epuisement professionnel (burnout)</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG05">
+    <skos:prefLabel xml:lang="fr">Agents biologiques</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Biologische agentia</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG23">
+    <skos:prefLabel xml:lang="fr">Conducteur de chariot élévateur</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Heftruckbestuurder</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/organizer::org05">
+    <skos:prefLabel xml:lang="nl">Prov Comité Oost-Vlaanderen</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Prov Comité Oost-Vlaanderen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/organizer"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd101">
+    <skos:prefLabel xml:lang="fr">Agression</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Agressie</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Agression</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd142">
+    <skos:prefLabel xml:lang="en">Risk factors</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Risicofactoren</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Facteurs de risques</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::Opleiding">
+    <skos:prefLabel xml:lang="fr">Formation</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Opleiding</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT12">
+    <skos:prefLabel xml:lang="nl">Externe Dienst voor Technische Controle op de Werkplaats</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Service Externe pour le Contrôle Technique sur le lieu de travail</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd114">
+    <skos:prefLabel xml:lang="nl">Prevalentie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Prévalence</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Prevalence</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps20">
+    <skos:prefLabel xml:lang="fr">Secteur tertiaire</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Tertiaire sector</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG09">
+    <skos:prefLabel xml:lang="nl">Explosiegevaar</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Danger d’explosion</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG24">
+    <skos:prefLabel xml:lang="nl">Veiligheidscoördinator</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Coordinateur de sécurité</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd144">
+    <skos:prefLabel xml:lang="en">Organisation</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Organisatie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Organisation</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG21">
+    <skos:prefLabel xml:lang="nl">Trillingen</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Vibrations</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::Workshop">
+    <skos:prefLabel xml:lang="nl">Workshop</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Ateliers</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd162">
+    <skos:prefLabel xml:lang="fr">Recommandations</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Recommendations</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Aanbevelingen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd141">
+    <skos:prefLabel xml:lang="fr">Analyse des risques</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Risicoanalyse</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Risks analysis</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd136">
+    <skos:prefLabel xml:lang="fr">Dépression</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Depressie</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Depression</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps26">
+    <skos:prefLabel xml:lang="fr">Technologie</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Technologie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group::age">
+    <skos:prefLabel xml:lang="en">age</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_target_group"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG10">
+    <skos:prefLabel xml:lang="nl">Geweld, pesterijen en ongewenst seksueel gedrag</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Violences, harcèlement moral et sexuel</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_topic::hearing_loss">
+    <skos:prefLabel xml:lang="en">Hearing Loss</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_topic"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd137">
+    <skos:prefLabel xml:lang="en">Prevention</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Preventie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Prévention</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd103">
+    <skos:prefLabel xml:lang="en">Leadership</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Leadership</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Leidinggeven</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps01">
+    <skos:prefLabel xml:lang="fr">Construction</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Bouw</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group::general_prevalence">
+    <skos:prefLabel xml:lang="en">General prevalence</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_target_group"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd118">
+    <skos:prefLabel xml:lang="en">Job satisfaction</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Jobtevredenheid</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Satisfaction au travail</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG02">
+    <skos:prefLabel xml:lang="fr">Equipements de travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Arbeidsmiddelen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_doc_cat::respect_doc_03">
+    <skos:prefLabel xml:lang="nl">FOD WASO - stress</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">SPF ETCS - Stress</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_doc_cat"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_domain::gpd01">
+    <skos:prefLabel xml:lang="fr">Ergonomie</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Ergonomie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_domain"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG13">
+    <skos:prefLabel xml:lang="fr">Agents cancérigènes et mutagènes</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Kankerverwekkende en mutagene agentia</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::Beurs">
+    <skos:prefLabel xml:lang="nl">Beurs</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Salon</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd121">
+    <skos:prefLabel xml:lang="fr">Carrière</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Loopbaan</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Carrier</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG29">
+    <skos:prefLabel xml:lang="nl">Hiërarchische lijn</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Ligne hiérarchique</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::Infosessie_workshop">
+    <skos:prefLabel xml:lang="nl">Infosessie met workshops</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Session d'information et ateliers</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG17">
+    <skos:prefLabel xml:lang="fr">Dépôts de liquides inflammables</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Opslagplaatsen voor ontvlambare vloeistoffen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT8">
+    <skos:prefLabel xml:lang="fr">Institution de prévention</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Preventieinstituut</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd148">
+    <skos:prefLabel xml:lang="fr">Etude de cas</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Case study</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Case study</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd6">
+    <skos:prefLabel xml:lang="fr">Violence au travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Violence at Work</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Geweld op het werk</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps21">
+    <skos:prefLabel xml:lang="fr">Information et communication</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Informatie en Communicatie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG27">
+    <skos:prefLabel xml:lang="nl">Arbeidsongevallen</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Accidents de travail</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd122">
+    <skos:prefLabel xml:lang="nl">Sociale steun</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Soutien social</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Social support</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd104">
+    <skos:prefLabel xml:lang="nl">Herstructurering</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Restructuring</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Restructuration</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_domain::gpd08">
+    <skos:prefLabel xml:lang="fr">Embellissement</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Verfraaiing</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_domain"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd134">
+    <skos:prefLabel xml:lang="nl">Veiligheid</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Safety</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Sécurité</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd1">
+    <skos:prefLabel xml:lang="fr">Conditions de travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Work Conditions</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Arbeidsomstandigheden</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group::others">
+    <skos:prefLabel xml:lang="en">Others</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_target_group"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG25">
+    <skos:prefLabel xml:lang="fr">Incendie</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Brand</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG14">
+    <skos:prefLabel xml:lang="nl">Lawaai</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Bruit</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd149">
     <skos:prefLabel xml:lang="nl">Drugs</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Drogues</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Drugs</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
-  <skos:Concept rdf:about="OSHAMetadata/respect_meta_data::rmd109">
-    <skos:broaderTransitive rdf:resource="OSHAMetadata/respect_meta_data"/>
-    <skos:prefLabel xml:lang="fr">Genre</skos:prefLabel>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_research::respect_research_02">
+    <skos:prefLabel xml:lang="nl">Stress</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Stress</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_research"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd156">
+    <skos:prefLabel xml:lang="nl">Management</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Management</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Management</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd112">
+    <skos:prefLabel xml:lang="fr">Secteur financier</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Financiële sector</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Financial Sector</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_topic::noise_exposure">
+    <skos:prefLabel xml:lang="en">Noise Exposure</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_topic"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG22">
+    <skos:prefLabel xml:lang="fr">Travailleurs intérimaires</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Uitzendkrachten</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/organizer::org04">
+    <skos:prefLabel xml:lang="fr">Prov. comité West-Vlaanderen</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Prov. comité West-Vlaanderen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/organizer"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG31">
+    <skos:prefLabel xml:lang="nl">Vertrouwenspersoon</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Personne de confiance</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_topic::absenteeism">
+    <skos:prefLabel xml:lang="en">Absenteeism</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_topic"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd126">
+    <skos:prefLabel xml:lang="fr">Alcool</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Alcohol</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Alcohol</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/eventtype::colloque">
+    <skos:prefLabel xml:lang="nl">Colloqium</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Colloque</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/eventtype"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd100">
+    <skos:prefLabel xml:lang="nl">Ongewenst gedrag</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Undesired Behaviour</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Comportement non désiré</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd140">
+    <skos:prefLabel xml:lang="en">musculoskeletal disorders</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Troubles musculo-squelettiques</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Musculoskeletale aandoeningen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd145">
+    <skos:prefLabel xml:lang="nl">Model</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Model</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Modèle</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd152">
+    <skos:prefLabel xml:lang="fr">Comportement organisationnel</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Organisational behaviour</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Gedrag in organisaties</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps06">
+    <skos:prefLabel xml:lang="nl">Onderwijs</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Enseignement</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd135">
+    <skos:prefLabel xml:lang="nl">Participatie</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Participation</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Participation </skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG06">
+    <skos:prefLabel xml:lang="nl">Chemische agentia</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Agents chimiques</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd147">
+    <skos:prefLabel xml:lang="fr">Processus psychologiques</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Psychologische processen</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Psychological process</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd3">
+    <skos:prefLabel xml:lang="fr">Harcèlement moral</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Pesterijen</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Mobbing, harassment</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd128">
+    <skos:prefLabel xml:lang="en">Emotional exhaustion </skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Epuisement émotionnel</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Emotionele uitputting</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd151">
+    <skos:prefLabel xml:lang="nl">Engagement</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Engagement</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Engagement</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd125">
+    <skos:prefLabel xml:lang="nl">Roken</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Smoking</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Tabagisme</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd107">
+    <skos:prefLabel xml:lang="en">Work accidents</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Accidents de travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Werkongevallen</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd157">
+    <skos:prefLabel xml:lang="fr">Maintien au travail</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Maintaining employment</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Behoud van de tewerkstelling</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT18">
+    <skos:prefLabel xml:lang="nl">Onderzoeksinstituut</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Centre de recherche</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd146">
+    <skos:prefLabel xml:lang="fr">Hyperconflit</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Hyperconflict</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Hyperconflict</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd153">
+    <skos:prefLabel xml:lang="en">Intervention</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Interventie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Intervention</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/organizer::org02">
+    <skos:prefLabel xml:lang="fr">Comité d'action Bruxelles capitale</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Actiecomité Brussel</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/organizer"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd133">
+    <skos:prefLabel xml:lang="fr">Travail à temps partiel</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Part-time work</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Deeltijds werken</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoType::OT20">
+    <skos:prefLabel xml:lang="fr">Association de Patients atteints</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Patiëntenvereniging</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoType"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd106">
+    <skos:prefLabel xml:lang="fr">Ergonomie</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Ergonomie</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Ergonomics</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/ero_target_group::gender">
     <skos:prefLabel xml:lang="en">Gender</skos:prefLabel>
-    <skos:prefLabel xml:lang="nl">Gender</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/ero_target_group"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG04">
+    <skos:prefLabel xml:lang="nl">Beeldschermen</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Ecrans de visualisation</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/good_practice_sector::gps22">
+    <skos:prefLabel xml:lang="nl">Industrie</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Industrie</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/good_practice_sector"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd113">
+    <skos:prefLabel xml:lang="nl">Jobonzekerheid</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Insécurité de l'emploi</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Job insecurity</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd10">
+    <skos:prefLabel xml:lang="fr">Travailleurs expérimentés</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Experienced workers</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Ervaren werknemers</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG30">
+    <skos:prefLabel xml:lang="nl">Verpleegassistent (EHBO)</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Assistent infirmier (Premiers soins)</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd155">
+    <skos:prefLabel xml:lang="nl">Betekenis van het werk</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Meaning of work</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Sens du travail</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining::TG08">
+    <skos:prefLabel xml:lang="fr">Installations électriques</skos:prefLabel>
+    <skos:prefLabel xml:lang="nl">Elektrische installaties</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/WhosWhoTraining"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHAMetadata/respect_meta_data::rmd168">
+    <skos:prefLabel xml:lang="nl">Gids</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Guide</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Guide</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHAMetadata/respect_meta_data"/>
   </skos:Concept>
 </rdf:RDF>

@@ -49,7 +49,10 @@ if __name__ == "__main__":
     if vocab_id == []:
         print "Invalid VDEX? No vocabIdentifier."
         sys.exit(1)
+
     vocab_id = vocab_id[0]
+    if not vocab_id.startswith("http"):
+        vocab_id = "http://osha.europa.eu/"+vocab_id
     terms = vdex.xpath("//x:term", namespaces=VDEX_NS)
     for term in terms:
         term_id_list = term.xpath("x:termIdentifier[1]/text()",
@@ -59,20 +62,27 @@ if __name__ == "__main__":
         term_id = term_id_list[0]
 
         langstrings = term.xpath("x:caption/x:langstring", namespaces=VDEX_NS)
-        uri = '%s/%s' % (vocab_id, term_id)
-        graph.add((URIRef(uri),
-                   RDF['type'], skos['Concept']))
+        uri = '%s/%s' % (vocab_id, term_id.replace(" ", "%20"))
+
+        parent_term_id_list = term.xpath(
+            "./ancestor::x:term[1]/x:termIdentifier",
+            namespaces=VDEX_NS)
+
+        has_parent_term = parent_term_id_list != []
+
+        if has_parent_term:
+            graph.add((URIRef(uri), RDF['type'], skos['Concept']))
+        else:
+            graph.add((URIRef(uri), RDF['type'], skos['TopConcept']))
         for langstring in langstrings:
             lang = langstring.attrib["language"]
             graph.add((URIRef(uri), skos['prefLabel'],
                        Literal(langstring.text, lang=lang)))
 
-        parent_term_id_list = term.xpath(
-            "./ancestor::x:term[1]/x:termIdentifier",
-            namespaces=VDEX_NS)
-        if parent_term_id_list != []:
+        if has_parent_term:
             parent_term_id = parent_term_id_list[0].text
-            parent_term_uri = '%s/%s' % (vocab_id, parent_term_id)
+            parent_term_uri = '%s/%s' % (vocab_id,
+                                         parent_term_id.replace(" ", "%20"))
             graph.add((URIRef(uri),
                        skos['broaderTransitive'],
                        URIRef(parent_term_uri)))

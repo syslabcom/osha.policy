@@ -3,384 +3,384 @@
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/09">
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/11">
+    <skos:prefLabel xml:lang="en">1.2.11 Mineral-extracting industries</skos:prefLabel>
     <skos:broaderTransitive>
       <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
         <skos:prefLabel xml:lang="en">1.2 Individual directives (within the meaning of Article 16 of Directive 89/391/EEC)</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
       </skos:Concept>
     </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">1.2.09 Pregnant workers</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2"/>
-        <skos:prefLabel xml:lang="en">2.2 Individual directives</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">2.2.1 Metallic Lead</skos:prefLabel>
   </skos:Concept>
   <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/6">
+    <skos:prefLabel xml:lang="en">6 General Product Safety</skos:prefLabel>
     <skos:broaderTransitive>
       <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/directives"/>
         <skos:prefLabel xml:lang="en">C. European directives concerning the protection of workers, consumers and population</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/directives"/>
       </skos:Concept>
     </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">6 General Product Safety</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/8">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A"/>
-        <skos:prefLabel xml:lang="en">1. Health and safety at work</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">1.8 Explosive atmospheres</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/8/2">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/8">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-        <skos:prefLabel xml:lang="en">8 Transport of dangerous goods by road</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">8.2 Checks on the transport of dangerous goods by road</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/15">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B"/>
-        <skos:prefLabel xml:lang="en">1. Machines, products and apparatus</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">1.15 Electromagnetic compatibility (EMC)</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/12">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.12 Fishing vessels</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/10">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.10 Pressure equipment</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/9">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.9 Simple pressure vessels</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/17">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.17 Appliances burning gaseous fuels</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/07">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.07 Biological agents</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/8/3">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C/8"/>
-    <skos:prefLabel xml:lang="en">8.3 Safety adviser for the transport of dangerous goods</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/10/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/10">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-        <skos:prefLabel xml:lang="en">10 Biotechnology</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">10.1 Genetically modified micro-organisms</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/12">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.12 Limitation of noise emitted by hydraulic excavators, rope-operated excavators, dozers, loaders and excavator-loaders</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/4">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2/2"/>
-    <skos:prefLabel xml:lang="en">2.2.4 Banning</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/4">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
-    <skos:prefLabel xml:lang="en">1.4 Medical treatment on board vessels</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/9">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
-    <skos:prefLabel xml:lang="en">1.9 Electrical equipment for use in potentially explosive atmospheres in mines susceptible to firedamp</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/3">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.3 Lifts</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/7">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-    <skos:prefLabel xml:lang="en">7 Major hazards of certain industrial activities</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/16">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.16 Electrical equipment designed for use within certain voltage limits</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-        <skos:prefLabel xml:lang="en">1.11 Construction plant and equipment</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">1.11.1 General provisions</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/8/1">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C/8"/>
-    <skos:prefLabel xml:lang="en">8.1 Transport of dangerous goods by road</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/1/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/1">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-        <skos:prefLabel xml:lang="en">1 Classification, packaging and labelling of dangerous substances</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">1.1 Framework directive</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/3">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
-    <skos:prefLabel xml:lang="en">1.3 Temporary workers</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/2/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/2">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B"/>
-        <skos:prefLabel xml:lang="en">2. Dangerous substances and preparations</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">2.1 Framework directive</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/4">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.4 Personal protective equipment</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/08">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.08 Safety signs</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/4/2">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/4">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-        <skos:prefLabel xml:lang="en">4 Risk assessment of substances</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">4.2 Risk assessment of new substances</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A"/>
-        <skos:prefLabel xml:lang="en">2. Protection of workers from risks related to exposure to chemical, physical and biological agents</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">2.1 Chemical agents</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/03">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.03 Use of personal protective equipment</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/3/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/3">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A"/>
-        <skos:prefLabel xml:lang="en">3. Working time</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">3.1 Working time</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/7">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.7 Gas cylinders</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/1">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
-    <skos:prefLabel xml:lang="en">1.1 Framework directive</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/1">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.1 CE marking 93/68</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/6">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.6 Pressure vessels</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11"/>
-        <skos:prefLabel xml:lang="en">1.11.2 Noise emission of construction plant and equipment</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">1.11.2.1 Sound power level of welding generators</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/04">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.04 Work with display screen equipment</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/13">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.13 Construction products</skos:prefLabel>
   </skos:Concept>
   <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/02">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
     <skos:prefLabel xml:lang="en">1.2.02 Use of work equipment</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/05">
     <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.05 Manual handling</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/14">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.14 Product safety</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/4">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
-    <skos:prefLabel xml:lang="en">1.11.2.4 Sound power level of powered hand-held concrete-breakers and picks</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/10">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.10 Mineral-extracting industries (drilling)</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/11">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.11 Mineral-extracting industries</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/10">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
-    <skos:prefLabel xml:lang="en">1.10 Commission Communication on the practical implementation of the  Framework Directive and first 5 daughter Directives, 05.02.2004</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/16">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.16 Temporary or mobile construction sites</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/13">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.13 Chemical agents</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/5">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2/2"/>
-    <skos:prefLabel xml:lang="en">2.2.5 Indicative limit values</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/11/1">
-    <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/11">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-        <skos:prefLabel xml:lang="en">11 Pesticides</skos:prefLabel>
-      </skos:Concept>
-    </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">11.1 Pesticides – Agriculture</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/3">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2"/>
-    <skos:prefLabel xml:lang="en">2.3 Vinyl chloride monomer</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/5">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
-    <skos:prefLabel xml:lang="en">1.5 Young people</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/06">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.06 Carcinogens</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/3">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
-    <skos:prefLabel xml:lang="en">1.11.2.3 Sound power level of power generators</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/8">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.8 Aerosol dispensers</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/5">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.5 Equipment and protective systems intended for use in potentially explosive atmospheres (ATEX)</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/2">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-    <skos:prefLabel xml:lang="en">2 Classification, packaging and labelling of dangerous preparations</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/14">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.14 Physical agents - vibration</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/15">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.15 Physical agents - noise</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/5">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-    <skos:prefLabel xml:lang="en">5 Liability for defective products</skos:prefLabel>
   </skos:Concept>
   <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/3">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
     <skos:prefLabel xml:lang="en">3 Safety data sheet</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
   </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/2">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2/2"/>
-    <skos:prefLabel xml:lang="en">2.2.2 Asbestos</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/01">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
-    <skos:prefLabel xml:lang="en">1.2.01 Workplaces</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/D/1">
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/1">
+    <skos:prefLabel xml:lang="en">1.11.1 General provisions</skos:prefLabel>
     <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/D">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/directives"/>
-        <skos:prefLabel xml:lang="en">D. Euratom</skos:prefLabel>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11">
+        <skos:prefLabel xml:lang="en">1.11 Construction plant and equipment</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
       </skos:Concept>
     </skos:broaderTransitive>
-    <skos:prefLabel xml:lang="en">1 Ionising radiation</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/2">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
-    <skos:prefLabel xml:lang="en">1.2 Machines</skos:prefLabel>
   </skos:Concept>
   <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/6">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
     <skos:prefLabel xml:lang="en">1.11.2.6 Sound power level of lawnmowers</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/9">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
-    <skos:prefLabel xml:lang="en">9 Transport of dangerous goods by rail</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/7">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
-    <skos:prefLabel xml:lang="en">1.7 Transport activities</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/4/1">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C/4"/>
-    <skos:prefLabel xml:lang="en">4.1 Risk assessment of existing substances</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/5">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
-    <skos:prefLabel xml:lang="en">1.11.2.5 Sound power level of tower cranes</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/3">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2/2"/>
-    <skos:prefLabel xml:lang="en">2.2.3 Noise</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/2">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
-    <skos:prefLabel xml:lang="en">1.11.2.2 Sound power level of compressors</skos:prefLabel>
-  </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/4">
     <skos:broaderTransitive>
-      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A">
-        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/directives"/>
-        <skos:prefLabel xml:lang="en">A. European directives concerning the protection of workers</skos:prefLabel>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2">
+        <skos:prefLabel xml:lang="en">1.11.2 Noise emission of construction plant and equipment</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11"/>
       </skos:Concept>
     </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/11/1">
+    <skos:prefLabel xml:lang="en">11.1 Pesticides – Agriculture</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/11">
+        <skos:prefLabel xml:lang="en">11 Pesticides</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/14">
+    <skos:prefLabel xml:lang="en">1.14 Product safety</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1">
+        <skos:prefLabel xml:lang="en">1. Machines, products and apparatus</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/4">
+    <skos:prefLabel xml:lang="en">1.11.2.4 Sound power level of powered hand-held concrete-breakers and picks</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/8">
+    <skos:prefLabel xml:lang="en">1.8 Explosive atmospheres</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1">
+        <skos:prefLabel xml:lang="en">1. Health and safety at work</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/8">
+    <skos:prefLabel xml:lang="en">1.8 Aerosol dispensers</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/4">
+    <skos:prefLabel xml:lang="en">1.4 Medical treatment on board vessels</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/10">
+    <skos:prefLabel xml:lang="en">1.2.10 Mineral-extracting industries (drilling)</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/1/1">
+    <skos:prefLabel xml:lang="en">1.1 Framework directive</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/1">
+        <skos:prefLabel xml:lang="en">1 Classification, packaging and labelling of dangerous substances</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/8/2">
+    <skos:prefLabel xml:lang="en">8.2 Checks on the transport of dangerous goods by road</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/8">
+        <skos:prefLabel xml:lang="en">8 Transport of dangerous goods by road</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/7">
+    <skos:prefLabel xml:lang="en">1.7 Gas cylinders</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/07">
+    <skos:prefLabel xml:lang="en">1.2.07 Biological agents</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/13">
+    <skos:prefLabel xml:lang="en">1.2.13 Chemical agents</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/4">
+    <skos:prefLabel xml:lang="en">1.4 Personal protective equipment</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/4">
+    <skos:prefLabel xml:lang="en">2.2.4 Banning</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2">
+        <skos:prefLabel xml:lang="en">2.2 Individual directives</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/06">
+    <skos:prefLabel xml:lang="en">1.2.06 Carcinogens</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/10">
+    <skos:prefLabel xml:lang="en">1.10 Commission Communication on the practical implementation of the  Framework Directive and first 5 daughter Directives, 05.02.2004</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/01">
+    <skos:prefLabel xml:lang="en">1.2.01 Workplaces</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/9">
+    <skos:prefLabel xml:lang="en">9 Transport of dangerous goods by rail</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/5">
+    <skos:prefLabel xml:lang="en">1.11.2.5 Sound power level of tower cranes</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/2">
+    <skos:prefLabel xml:lang="en">2.2.2 Asbestos</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/2">
+    <skos:prefLabel xml:lang="en">1.2 Machines</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/7">
+    <skos:prefLabel xml:lang="en">1.7 Transport activities</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/6">
+    <skos:prefLabel xml:lang="en">1.6 Pressure vessels</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/1">
+    <skos:prefLabel xml:lang="en">1.1 CE marking 93/68</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/2">
+    <skos:prefLabel xml:lang="en">2 Classification, packaging and labelling of dangerous preparations</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/8/3">
+    <skos:prefLabel xml:lang="en">8.3 Safety adviser for the transport of dangerous goods</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C/8"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/16">
+    <skos:prefLabel xml:lang="en">1.2.16 Temporary or mobile construction sites</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/3">
+    <skos:prefLabel xml:lang="en">1.11.2.3 Sound power level of power generators</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/2/1">
+    <skos:prefLabel xml:lang="en">2.1 Framework directive</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/2">
+        <skos:prefLabel xml:lang="en">2. Dangerous substances and preparations</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/3">
+    <skos:prefLabel xml:lang="en">2.3 Vinyl chloride monomer</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2">
+        <skos:prefLabel xml:lang="en">2. Protection of workers from risks related to exposure to chemical, physical and biological agents</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/15">
+    <skos:prefLabel xml:lang="en">1.15 Electromagnetic compatibility (EMC)</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/12">
+    <skos:prefLabel xml:lang="en">1.12 Limitation of noise emitted by hydraulic excavators, rope-operated excavators, dozers, loaders and excavator-loaders</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/7">
+    <skos:prefLabel xml:lang="en">7 Major hazards of certain industrial activities</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/D/1">
+    <skos:prefLabel xml:lang="en">1 Ionising radiation</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/D">
+        <skos:prefLabel xml:lang="en">D. Euratom</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/directives"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/3">
+    <skos:prefLabel xml:lang="en">2.2.3 Noise</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/10">
+    <skos:prefLabel xml:lang="en">1.10 Pressure equipment</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/3">
+    <skos:prefLabel xml:lang="en">1.3 Temporary workers</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/1">
+    <skos:prefLabel xml:lang="en">2.1 Chemical agents</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/9">
+    <skos:prefLabel xml:lang="en">1.9 Electrical equipment for use in potentially explosive atmospheres in mines susceptible to firedamp</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/5">
+    <skos:prefLabel xml:lang="en">1.5 Young people</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/1">
+    <skos:prefLabel xml:lang="en">1.11.2.1 Sound power level of welding generators</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/4/1">
+    <skos:prefLabel xml:lang="en">4.1 Risk assessment of existing substances</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/4">
+        <skos:prefLabel xml:lang="en">4 Risk assessment of substances</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/16">
+    <skos:prefLabel xml:lang="en">1.16 Electrical equipment designed for use within certain voltage limits</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/17">
+    <skos:prefLabel xml:lang="en">1.17 Appliances burning gaseous fuels</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/3/1">
+    <skos:prefLabel xml:lang="en">3.1 Working time</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/3">
+        <skos:prefLabel xml:lang="en">3. Working time</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/04">
+    <skos:prefLabel xml:lang="en">1.2.04 Work with display screen equipment</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/15">
+    <skos:prefLabel xml:lang="en">1.2.15 Physical agents - noise</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/08">
+    <skos:prefLabel xml:lang="en">1.2.08 Safety signs</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/4/2">
+    <skos:prefLabel xml:lang="en">4.2 Risk assessment of new substances</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C/4"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/5">
+    <skos:prefLabel xml:lang="en">5 Liability for defective products</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/09">
+    <skos:prefLabel xml:lang="en">1.2.09 Pregnant workers</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/13">
+    <skos:prefLabel xml:lang="en">1.13 Construction products</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/1">
+    <skos:prefLabel xml:lang="en">1.1 Framework directive</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/12">
+    <skos:prefLabel xml:lang="en">1.2.12 Fishing vessels</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/5">
+    <skos:prefLabel xml:lang="en">2.2.5 Indicative limit values</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/9">
+    <skos:prefLabel xml:lang="en">1.9 Simple pressure vessels</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/8/1">
+    <skos:prefLabel xml:lang="en">8.1 Transport of dangerous goods by road</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C/8"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/14">
+    <skos:prefLabel xml:lang="en">1.2.14 Physical agents - vibration</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/5">
+    <skos:prefLabel xml:lang="en">1.5 Equipment and protective systems intended for use in potentially explosive atmospheres (ATEX)</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/4">
     <skos:prefLabel xml:lang="en">4. Equal treatment for men and women (employment, training and working conditions)</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A">
+        <skos:prefLabel xml:lang="en">A. European directives concerning the protection of workers</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/directives"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
   </skos:Concept>
-  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/directives">
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/2/2/1">
+    <skos:prefLabel xml:lang="en">2.2.1 Metallic Lead</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/2/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/3">
+    <skos:prefLabel xml:lang="en">1.3 Lifts</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/10/1">
+    <skos:prefLabel xml:lang="en">10.1 Genetically modified micro-organisms</skos:prefLabel>
+    <skos:broaderTransitive>
+      <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/C/10">
+        <skos:prefLabel xml:lang="en">10 Biotechnology</skos:prefLabel>
+        <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/C"/>
+      </skos:Concept>
+    </skos:broaderTransitive>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/03">
+    <skos:prefLabel xml:lang="en">1.2.03 Use of personal protective equipment</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B/1/11/2/2">
+    <skos:prefLabel xml:lang="en">1.11.2.2 Sound power level of compressors</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/B/1/11/2"/>
+  </skos:Concept>
+  <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/A/1/2/05">
+    <skos:prefLabel xml:lang="en">1.2.05 Manual handling</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/A/1/2"/>
+  </skos:Concept>
+  <skos:TopConcept rdf:about="http://osha.europa.eu/OSHLegislation/directives">
     <skos:prefLabel xml:lang="en">European Legislation - Directives</skos:prefLabel>
-  </skos:Concept>
+  </skos:TopConcept>
   <skos:Concept rdf:about="http://osha.europa.eu/OSHLegislation/B">
-    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/directives"/>
     <skos:prefLabel xml:lang="en">B. Internal market: approximation of laws</skos:prefLabel>
+    <skos:broaderTransitive rdf:resource="http://osha.europa.eu/OSHLegislation/directives"/>
   </skos:Concept>
 </rdf:RDF>
