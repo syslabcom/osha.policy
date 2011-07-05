@@ -7,9 +7,6 @@ from lxml.builder import ElementMaker
 from rdflib import Graph, Literal, Namespace, RDF, URIRef
 
 
-def recurse_convert_node(current_node):
-    ipshell()
-
 if __name__ == "__main__":
     parser = OptionParser()
     parser.add_option("--vdex", dest="vdex_file",
