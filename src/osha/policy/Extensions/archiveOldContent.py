@@ -48,12 +48,14 @@ def archiveByType(self, portal_type=None, age_in_days=None, limit=0):
             continue
         for lang in obj.getTranslations():
             trans = obj.getTranslation(lang)
-            logger.info('Handling item %s' % trans.absolute_url())
+            url = trans.absolute_url()
+            logger.info('Handling item %s' % url)
             view = trans.restrictedTraverse('@@object_toggle_outdated')
             msg = view.toggle(True)
+            msg += u" (<a href='%(url)s'>%(url)s</a>)" % dict(url=url)
             messages.append(msg)
 
     ret = "<html>%d objects were modified. The following actions were "\
         "performed:<ul><li>%s</ul></html>" %  \
-        (len(messages), "</li><li>".join(messages))
+        (len(messages), u"</li><li>".join(messages))
     return ret
