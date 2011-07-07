@@ -23,6 +23,10 @@ class OSHBrainEvent(BrainEvent):
         event = self.context.getObject()
         return getEventDateToBeConfirmed(event)
 
+    @property
+    def outdated(self):
+        return self.context.outdated
+
 class ATEventProvider(BASEATEventProvider):
     interface.implements(interfaces.IEventProvider)
     component.adapts(atapi.BaseObject)
@@ -95,6 +99,5 @@ class ATEventProvider(BASEATEventProvider):
 
         if hasattr(catalog, 'getZCatalog'):
             catalog = catalog.getZCatalog()
-
         event_brains = catalog.evalAdvancedQuery(query, (('Date', 'desc'),))
         return (OSHBrainEvent(x) for x in event_brains)
