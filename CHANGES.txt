@@ -4,8 +4,8 @@ osha.policy Changelog
 1.3.38 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Added the "outdated" property to the calendar event-provider #1556 [thomasw]
+- Created helper script for archiving content by type and date #3383 [thomasw]
 
 1.3.37 (2011-06-15)
 -------------------
