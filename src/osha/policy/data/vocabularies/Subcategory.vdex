@@ -2812,6 +2812,35 @@
     </caption>
   </term>
   <term>
+    <termIdentifier>competitions</termIdentifier>
+    <caption>
+      <langstring language="da">Konkurrencer</langstring>
+      <langstring language="de">Wettbewerbe</langstring>
+      <langstring language="et">Konkursid</langstring>
+      <langstring language="en">Competitions</langstring>
+      <langstring language="es">Concursos</langstring>
+      <langstring language="fr">Concours</langstring>
+      <langstring language="it">Concorsi</langstring>
+      <langstring language="lv">Konkursi</langstring>
+      <langstring language="lt">Konkursai</langstring>
+      <langstring language="hu">Versenyek</langstring>
+      <langstring language="mt">Kompetizzjonijiet</langstring>
+      <langstring language="nl">Wedstrijden</langstring>
+      <langstring language="pl">Konkursy</langstring>
+      <langstring language="pt">Concursos</langstring>
+      <langstring language="sk">Súťaže</langstring>
+      <langstring language="sl">Natečaji</langstring>
+      <langstring language="fi">Kilpailuja</langstring>
+      <langstring language="sv">Tävlingar</langstring>
+      <langstring language="cs">Soutěže</langstring>
+      <langstring language="el">Διαγωνισμοί</langstring>
+      <langstring language="bg">Конкурси</langstring>
+      <langstring language="is">Samkeppnir</langstring>
+      <langstring language="no">Konkurranser</langstring>
+      <langstring language="ro">Competiţii</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>construction</termIdentifier>
     <caption>
       <langstring language="da">Bygge- og anlægssektoren</langstring>
@@ -10592,6 +10621,9 @@
       <langstring language="cs">Poskytovatel</langstring>
       <langstring language="el">Πηγές πληροφοριών</langstring>
       <langstring language="bg">Provider</langstring>
+      <langstring language="is">Provider</langstring>
+      <langstring language="no">Provider</langstring>
+      <langstring language="ro">Provider</langstring>
     </caption>
   </term>
   <term>
