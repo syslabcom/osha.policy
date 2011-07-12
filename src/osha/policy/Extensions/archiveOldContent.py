@@ -6,7 +6,7 @@ from Products.CMFPlone.utils import getSiteEncoding
 from Products.statusmessages.interfaces import IStatusMessage
 from slc.linguatools.utils import toggle_outdated
 
-allowed_types = ['News Item', 'Event', 'Press Release']
+allowed_types = ['News Item', 'Event', 'PressRelease']
 
 logger = logging.getLogger('osha.policy.archiveOldContent')
 
