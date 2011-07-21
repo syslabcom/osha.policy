@@ -96,9 +96,10 @@ def archiveByType(self, portal_type=None, age_in_days=None, limit=0):
         for lang in obj.getTranslations():
             trans = obj.getTranslation(lang)
             url = trans.absolute_url()
-            logger.info('Handling item %s' % url)
+
             view = trans.restrictedTraverse('@@object_toggle_outdated')
             msg = view.toggle(True)
+            logger.info('Handling item %s' % url)
             msg += u" (<a href='%(url)s'>%(url)s</a>)" % dict(url=url)
             log.write(msg)
             trans_count += 1
