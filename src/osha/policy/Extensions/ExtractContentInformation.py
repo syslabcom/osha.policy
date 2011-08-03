@@ -78,6 +78,8 @@ def finish(self, response):
         response.write(self.backlink)
 
 def get_unicode_text(text):
+    if isinstance(text, unicode):
+        return text
     for encoding in ['utf-8', 'utf-16', 'cp1252', 'latin-1', 'iso8859-1']:
         try:
             return unicode(text, encoding)
