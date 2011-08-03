@@ -139,6 +139,10 @@ def export(self):
         title = item.title_or_id()
         line.append(get_unicode_text(title))
         description = hasattr(item.aq_explicit, 'Description') and item.Description() or ''
+        # This sad hack is necessary to appease M$-Excel
+        # Of course, LibreOffice and iWorks Numbers know what's an EOL and
+        # whats not...
+        description = description.replace('\r\n', ' ')
         line.append(get_unicode_text(description))
         line.append(hasattr(item.aq_explicit, 'Subject') and ','.join(item.Subject()) or '')
         line.append(hasattr(item.aq_explicit, 'getNace') and \
@@ -163,9 +167,6 @@ def export(self):
         line.append(hasattr(item.aq_explicit, 'start') and item.start().ISO() or '')
         line.append(hasattr(item.aq_explicit, 'end') and item.end().ISO() or '')
 
-        # out = u";".join(line) #.decode('utf-8')
-        #  fh.write(out.encode('utf-8'))
-        #  fh.write("\n")
         writer.writerow([x and x.encode("UTF-8") or '' for x in line])
 
         if doRecurse and hasattr(item.aq_explicit, 'objectValues'):
