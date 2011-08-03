@@ -189,7 +189,7 @@ def export(self):
     if include_data:
         langs.append('data')
 
-    for lang in langs[:3]:
+    for lang in langs:
         start = getattr(portal, lang, None)
         if start is None:
             print "No top-level folder for language %s" % lang
