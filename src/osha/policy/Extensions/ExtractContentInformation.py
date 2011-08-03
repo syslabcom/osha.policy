@@ -142,7 +142,7 @@ def export(self):
         # This sad hack is necessary to appease M$-Excel
         # Of course, LibreOffice and iWorks Numbers know what's an EOL and
         # whats not...
-        description = description.replace('\r\n', ' ')
+        description = description.replace('\r\n', ' ').replace('\n', ' ')
         line.append(get_unicode_text(description))
         line.append(hasattr(item.aq_explicit, 'Subject') and ','.join(item.Subject()) or '')
         line.append(hasattr(item.aq_explicit, 'getNace') and \
