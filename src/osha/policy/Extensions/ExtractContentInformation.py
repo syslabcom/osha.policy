@@ -124,7 +124,7 @@ def export(self):
         if item.id in IGNORE:
             return
         # Only first XX levels:
-        if maxdepth>0 and level>maxdepth:
+        if maxdepth>-1 and level>maxdepth:
             doRecurse=False
         log.write("* Export item %s" % '/'.join(item.getPhysicalPath()))
         line = list()
