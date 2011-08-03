@@ -164,8 +164,10 @@ def export(self):
         except:
             wf_state = ''
         line.append(wf_state)
-        line.append(hasattr(item.aq_explicit, 'start') and item.start().ISO() or '')
-        line.append(hasattr(item.aq_explicit, 'end') and item.end().ISO() or '')
+        start_date = hasattr(item.aq_explicit, 'start') and item.start()
+        line.append(start_date and start_date.ISO() or '')
+        end_date = hasattr(item.aq_explicit, 'end') and item.end()
+        line.append(end_date and end_date.ISO() or '')
 
         writer.writerow([x and x.encode("UTF-8") or '' for x in line])
 
