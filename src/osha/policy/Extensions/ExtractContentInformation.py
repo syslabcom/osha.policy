@@ -27,7 +27,7 @@ import csv
 import codecs
 from StringIO import StringIO
 
-filename = "/Users/thomas/tmp/extraction-info.csv"
+filename = "/tmp/extraction-info.csv"
 
 IGNORE = []
 MAXDEPTH = 0
