@@ -4,8 +4,8 @@ osha.policy Changelog
 1.3.39 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Adding the new multimedia views and sharing the structure for the
+  napofilms listing between both portals #1555 [deroiste]
 
 1.3.38 (2011-07-21)
 -------------------
@@ -18,7 +18,7 @@ osha.policy Changelog
 -------------------
 
 - For the new multimedia view, added structure file in
-  data/multimedia/napofilm.py [thomasw] 
+  data/multimedia/napofilm.py [thomasw]
 - Updated JavaScript registry setup [deroiste]
 
 1.3.36 (2011-05-19)
