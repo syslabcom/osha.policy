@@ -6,10 +6,10 @@ import sys
 
 
 # Optimise by making these options parameters passed in the command line
-HOST = "http://localhost:8080/gfb/"
+HOST = "http://localhost:8080/osha/portal/"
 SCRIPT = "LCRetrieveURLs"
 PATHSFILE = "PATHS"
-LINES_TO_READ = 2
+LINES_TO_READ = 3
 
 
 def retrieve():
