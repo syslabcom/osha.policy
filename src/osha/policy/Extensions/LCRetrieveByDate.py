@@ -1,6 +1,10 @@
 import transaction
 import zLOG
 from DateTime import DateTime
+from slc.outdated import IAnnotatable, IAnnotations, ANNOTATION_KEY
+
+ALLOWED_STATES = ['undefined', 'published', 'visible', 'to_amend']
+
 
 def LCRetrieveByDate(self, skiplist=[]):
     """Retrieves the links from all objects in the site by Date."""
@@ -9,7 +13,8 @@ def LCRetrieveByDate(self, skiplist=[]):
     if since is not None:
         since = DateTime(since)
     sincedate = since or sincedate
-    
+
+    pwt = self.portal_workflow
     lc = self.portal_linkchecker
     server = lc.database._getWebServiceConnection()
     if server is None:
@@ -25,6 +30,7 @@ def LCRetrieveByDate(self, skiplist=[]):
         if 1:
             objects = self.portal_catalog(Language='all', modified={'query':sincedate,'range':'min'})
             os_ = len(objects)
+            zLOG.LOG('CMFLinkChecker', zLOG.INFO, "%d objects will be crawled" % os_)
             i = 0
             for ob in objects:
                 i += 1
@@ -35,10 +41,24 @@ def LCRetrieveByDate(self, skiplist=[]):
                 if ob is None:
                     # Maybe the catalog isn't up to date
                     continue
+                outdated = IAnnotatable.providedBy(ob) and \
+                    IAnnotations(ob).get(ANNOTATION_KEY, False) or False
+                if outdated:
+                    zLOG.LOG("CMFLinkChecker", zLOG.BLATHER, "unregistering, object is outdated")
+                    lc.database.unregisterObject(ob)
+                    continue
+                try:
+                    state = pwt.getInfoFor(ob, 'review_state')
+                except:
+                    state = "undefined"
+                if state not in ALLOWED_STATES:
+                    zLOG.LOG("CMFLinkChecker", zLOG.BLATHER, "unregistering, object is not public: %s" % state)
+                    lc.database.unregisterObject(ob)
+                    continue
                 #try:
                 lc.retrieving.retrieveObject(ob, online=False)
                 #except Exception,e:
-                #    zLOG.LOG('CMFLinkChecker', zLOG.INFO,
+                #    zLOG.LOG('CMFLinkChecker', zLOG.BLATHER,
                 #      "Unable to retrieveObject for %s. Error: %s" %([ob], e))
                 if not i % 500 :
                     transaction.savepoint()
@@ -47,4 +67,5 @@ def LCRetrieveByDate(self, skiplist=[]):
     finally:
         pass
         #server.setClientNotifications(True)
+    return "finished"
 
