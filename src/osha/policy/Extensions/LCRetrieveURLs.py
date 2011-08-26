@@ -4,8 +4,10 @@
 """
 
 from Products.CMFCore.utils import getToolByName
+from time import time
 
 def retrieve(self):
+    start = time()
     paths = self.REQUEST.get('paths', list())
     if len(paths) == 0:
         return "-1#No paths were passed"
@@ -20,14 +22,17 @@ def retrieve(self):
         try:
             ob = self.unrestrictedTraverse(path)
         except Exception, err:
-            status.append("FAIL#%s" % path)
+            status.append("FAIL#%s#%s" % (err, path))
             continue
         try:
             lc.retrieving.retrieveObject(ob, online=False)
             status.append("OK#%s" % path)
         except Exception, err:
-            status.append("FAIL#%s" % path)
-    msg = "%d#Paths were processed\n" % len(paths)
+            status.append("FAIL#%s#%s" % (err,path))
+    finished = time()
+    delta = finished - start
+    msg = "%d#Paths were processed. Time: %2.2fs \n" % (len(paths), delta)
     msg += "\n".join(status)
+
     return msg
 
