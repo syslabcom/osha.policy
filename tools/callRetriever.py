@@ -9,6 +9,8 @@ import sys
 HOST = "http://localhost:8080/osha/portal/"
 SCRIPT = "LCRetrieveURLs"
 PATHSFILE = "PATHS"
+SUCCESSFILE = "SUCCESS"
+FAILEDFILE = "FAILED"
 LINES_TO_READ = 3
 
 
@@ -21,6 +23,7 @@ def retrieve():
     lines = data.split('\n')
     paths, rest = lines[:LINES_TO_READ], lines[LINES_TO_READ:]
     
+    
     URL = "%(host)s/%(script)s" % dict(host=HOST, script=SCRIPT)
     post_arg = ""
     for path in paths:
@@ -31,6 +34,7 @@ def retrieve():
 
     # all FAIL paths must be added again
     failed = list()
+    success = list()
     for i in range(len(statlines)):
         line = statlines[i]
         k,v = line.split('#', 1)
@@ -40,18 +44,23 @@ def retrieve():
                 sys.exit(v)
         else:
             if k == "OK":
-                print "yeah, %s was good" % v
+                success.append(v)
             elif k == "FAIL":
-                print "damm, %s was bad" % v
                 failed.append(v)
             else:
                 print "wtf? stupid status code: %s" % line
 
     # Now write out remaining paths file
     fh = open(PATHSFILE, 'w')
-    new_paths = [x for x in (rest + failed) if x.strip() != ""]
-    fh.write("\n".join(new_paths))
+    fh.write('\n'.join(rest))
     fh.close()
+    # and the success and failed paths
+    fh = open(SUCCESSFILE, 'a')
+    fh.write('\n'.join(success))
+    fh.close()
+    fh = open(FAILEDFILE, 'a')
+    fh.write('\n'.join(failed))
+
 
 
 if __name__ == "__main__":
