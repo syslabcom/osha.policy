@@ -1,7 +1,8 @@
 import transaction
 import zLOG
 from DateTime import DateTime
-from slc.outdated import IAnnotatable, IAnnotations, ANNOTATION_KEY
+from slc.outdated import ANNOTATION_KEY
+from zope.annotation.interfaces import IAnnotatable, IAnnotations
 
 ALLOWED_STATES = ['undefined', 'published', 'visible', 'to_amend']
 
