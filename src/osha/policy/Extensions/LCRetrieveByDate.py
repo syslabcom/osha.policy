@@ -21,12 +21,12 @@ def LCRetrieveByDate(self, skiplist=[]):
     if server is None:
         raise RuntimeError, "The site could not be crawled because no " \
                             "connection to the lms could be established."
-    #server.setClientNotifications(False)
+
 
 #    # Not actually necessary on every crawl, but it doesn't seem to work
 #    # in the installer, so this seems the next logical place to do it.
 #    self.portal_catalog.reindexIndex('portal_linkchecker_uid', self.REQUEST)
-    try:
+    if 1:
         # gather all objects that are of a type we can check for links
         objects = self.portal_catalog(Language='all', modified={'query':sincedate,'range':'min'})
         os_ = len(objects)
@@ -55,17 +55,13 @@ def LCRetrieveByDate(self, skiplist=[]):
                 zLOG.LOG("CMFLinkChecker", zLOG.BLATHER, "unregistering, object is not public: %s" % state)
                 lc.database.unregisterObject(ob)
                 continue
-            #try:
-            lc.retrieving.retrieveObject(ob, online=False)
-            #except Exception,e:
-            #    zLOG.LOG('CMFLinkChecker', zLOG.BLATHER,
-            #      "Unable to retrieveObject for %s. Error: %s" %([ob], e))
+            try:
+                lc.retrieving.retrieveObject(ob, online=False)
+            except Exception,e:
+                zLOG.LOG('CMFLinkChecker', zLOG.BLATHER,
+                  "Unable to retrieveObject for %s. Error: %s" %([ob], e))
             if not i % 500 :
                 transaction.savepoint()
                 zLOG.LOG('CMFLinkChecker', zLOG.INFO,
                     "Crawling site - commited after %d objects" %(i))
-    finally:
-        pass
-        #server.setClientNotifications(True)
     return "finished"
-
