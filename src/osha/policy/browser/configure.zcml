@@ -336,5 +336,11 @@
         permission="zope.Public"
         class=".HostnameView"
         />
+
+    <subscriber 
+        for="slc.outdated.IObjectOutdatedToggleEvent"
+        handler=".adapter.handleToggleOutdated"
+    />
+
 </configure>
 
