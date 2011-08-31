@@ -33,10 +33,16 @@ class LCMaintenanceView(BrowserView):
 
     def notify_ws(self):
         """ notify the lms on unregistered links """
+        batch = self.request.get('batch', 0)
+        if batch:
+            try:
+                batch = int(batch)
+            except:
+                batch = 0
         start = DateTime()
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Starting to transmit unregistered links to lms")
         db = self.context.portal_linkchecker.aq_inner.database
-        db._updateWSRegistrations()
+        db._updateWSRegistrations(batch)
         stop = DateTime()
         delta = (stop-start)*84600
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Finished transmitting unregistered links to lms after %s seconds."%delta)
