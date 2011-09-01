@@ -15,15 +15,17 @@ LINES_TO_READ = 500
 
 
 def retrieve():
+    data = open(PATHSFILE, 'r').read()
+    lines = [x for x in data.split('\n') if x.strip() != '']
+    if len(lines) == 0:
+	print "FINISHED, no more paths left"
+	return False
+    paths, rest = lines[:LINES_TO_READ], lines[LINES_TO_READ:]
+
     # delete downloaded file, if it exists
     if os.path.exists(SCRIPT):
         os.remove(SCRIPT)
 
-    data = open(PATHSFILE, 'r').read()
-    lines = data.split('\n')
-    paths, rest = lines[:LINES_TO_READ], lines[LINES_TO_READ:]
-    
-    
     URL = "%(host)s/%(script)s" % dict(host=HOST, script=SCRIPT)
     post_arg = ""
     for path in paths:
@@ -67,6 +69,9 @@ def retrieve():
 
 
 if __name__ == "__main__":
-    while True:
-        retrieve()
+    loop = True
+    while loop:
+        result = retrieve()
+	if result is not None:
+	    loop = not not result
 
