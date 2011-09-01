@@ -11,7 +11,7 @@ SCRIPT = "LCRetrieveURLs"
 PATHSFILE = "PATHS"
 SUCCESSFILE = "SUCCESS"
 FAILEDFILE = "FAILED"
-LINES_TO_READ = 3
+LINES_TO_READ = 500
 
 
 def retrieve():
@@ -52,16 +52,21 @@ def retrieve():
 
     # Now write out remaining paths file
     fh = open(PATHSFILE, 'w')
-    fh.write('\n'.join(rest))
+    fh.write('\n'.join(rest)+'\n')
     fh.close()
     # and the success and failed paths
-    fh = open(SUCCESSFILE, 'a')
-    fh.write('\n'.join(success))
-    fh.close()
-    fh = open(FAILEDFILE, 'a')
-    fh.write('\n'.join(failed))
+    if len(success):
+        fh = open(SUCCESSFILE, 'a')
+        fh.write('\n'.join([x for x in success if x.strip() != ""])+'\n')
+        fh.close()
+    if len(failed):
+        fh = open(FAILEDFILE, 'a')
+        fh.write('\n'.join([x for x in failed if x.strip() != ""])+'\n')
+	fh.close()
 
 
 
 if __name__ == "__main__":
-    retrieve()
+    while True:
+        retrieve()
+
