@@ -13,7 +13,7 @@
     <include package="osha.theme" />
     <include package="archetypes.schemaextender" />
     <include package="quintagroup.plonecaptchas" />
-    <include package="quintagroup.plonecomments" />
+    <!-- <include package="quintagroup.plonecomments" /> -->
 
     <!-- needed to make zope.app.generations work -->
     <include  package="zope.app.generations" file="subscriber.zcml" />
