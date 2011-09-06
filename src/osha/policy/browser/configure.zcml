@@ -90,6 +90,7 @@
     <browser:page
         for="Products.ATContentTypes.interface.folder.IATFolder"
         name="good-practice-overview"
+        template="goodpractice.pt"
         class=".goodpractice.GoodPracticeView"
         permission="zope.Public"
         />

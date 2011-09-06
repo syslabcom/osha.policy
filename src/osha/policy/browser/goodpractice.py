@@ -1,5 +1,4 @@
 from Products.Five.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
 from Products.CMFPlone import PloneMessageFactory as _
@@ -8,8 +7,6 @@ class GoodPracticeView(BrowserView):
     """View for displaying the dynamic good practice overview page at /good_practice
        This view will be replace with PracticalSolutionsView
     """
-    template = ViewPageTemplateFile('goodpractice.pt')
-    template.id = "practical-solutions"
     gpawards = ''
     intro = ''
 
@@ -37,7 +34,7 @@ class GoodPracticeView(BrowserView):
         else:
             self.gpaward = gpaward.CookedBody()
 
-        return self.template()
+        return self.index()
 
     def getSectionDetails(self):
         """ Return a path to an image and a title for each of the five Practical 
