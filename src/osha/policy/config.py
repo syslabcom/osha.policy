@@ -65,7 +65,6 @@ DEPENDENCIES = [
     'qPloneComments',
     'p4a.plonevideo',
     'p4a.plonevideoembed',
-    'Products.PloneFlashUpload',
     'BlueLinguaLink',
     'Calendaring',
     'RedirectionTool',
