@@ -58,47 +58,52 @@ class LCMaintenanceView(BrowserView):
         
         db = getUtility(IDatabase, name='osha.database')
         connection = db.connection 
-        meta = sa.MetaData()
-        meta.bind = connection
-        checkresults = sa.Table('checkresults', meta, autoload=True)
+        trans = connection.begin()
+        try:
+            meta = sa.MetaData()
+            meta.bind = connection
+            checkresults = sa.Table('checkresults', meta, autoload=True)
         
-        # clear the current table for all items with given state
-        statecol = getattr(checkresults.c, 'state')
-        delete = checkresults.delete(statecol==link_state)
-        result = connection.execute(delete)
+            # clear the current table for all items with given state
+            statecol = getattr(checkresults.c, 'state')
+            delete = checkresults.delete(statecol==link_state)
+            result = connection.execute(delete)
         
-        for item in self.LinksInState(state=link_state,
-                                        b_start=0,
-                                        b_size=-1,
-                                        path_filter=path_filter,
-                                        multilingual_thesaurus=multilingual_thesaurus,
-                                        subcategory=subcategory
-                                        ):
-            # insert
-            doc = item['document']
-            docpath = doc.getPath()
-            subjects = doc.Subject or tuple()
-            portal_type = doc.portal_type
-            if subjects == tuple():
-                subjects = ('',)
+            for item in self.LinksInState(state=link_state,
+                                            b_start=0,
+                                            b_size=-1,
+                                            path_filter=path_filter,
+                                            multilingual_thesaurus=multilingual_thesaurus,
+                                            subcategory=subcategory
+                                            ):
+                # insert
+                doc = item['document']
+                docpath = doc.getPath()
+                subjects = doc.Subject or tuple()
+                portal_type = doc.portal_type
+                if subjects == tuple():
+                    subjects = ('',)
                 
-            # Careful: Here we count one record per section. If a link appears in several sections
-            # it is counted several times. But as people will look at the links from a section perspective
-            # we want the broken links to appear everywhere. A total of all broken links will not be correct 
-            # if not done distinct by url and link!!
-            for subject in subjects:
-                toset = dict(state = link_state, 
-                             document = docpath,
-                             brokenlink = item["url"],
-                             reason = item["reason"],
-                             sitesection = subject,
-                             lastcheck = str(item["lastcheck"]) or '',
-                             subsite = self.get_subsite(docpath),
-                             portal_type = portal_type or ''
-                             )
-                ins = checkresults.insert(toset)
-                result = connection.execute(ins)
-        
+                # Careful: Here we count one record per section. If a link appears in several sections
+                # it is counted several times. But as people will look at the links from a section perspective
+                # we want the broken links to appear everywhere. A total of all broken links will not be correct 
+                # if not done distinct by url and link!!
+                for subject in subjects:
+                    toset = dict(state = link_state, 
+                                 document = docpath,
+                                 brokenlink = item["url"],
+                                 reason = item["reason"],
+                                 sitesection = subject,
+                                 lastcheck = str(item["lastcheck"]) or '',
+                                 subsite = self.get_subsite(docpath),
+                                 portal_type = portal_type or ''
+                                 )
+                    ins = checkresults.insert(toset)
+                    result = connection.execute(ins)
+            trans.commit()
+        except:
+            trans.rollback()
+            raise
         
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Postgres Export Done")
         
