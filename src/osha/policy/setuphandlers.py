@@ -32,7 +32,7 @@ def importVarious(context):
     importVocabularies(site)
     configureCountryTool(site)
     configureSEOOptimizer(site)
-    configureCacheFu(site)
+    # configureCacheFu(site)
     #modifySEOActionPermissions(site)
     repositionActions(site)
     enableDiffSupport(site)
@@ -125,7 +125,6 @@ def repositionActions(portal):
 def configurePortal(portal):
     """ make some changes to the portal config """
     portal_types = getToolByName(portal, 'portal_types')
-    getattr(portal_types, 'Large Plone Folder').global_allow = True
     site_properties = getToolByName(portal, 'portal_properties').site_properties
     default_page = site_properties.getProperty('default_page')
     default_page += ('index.php','index.stm', 'index.stml')
@@ -229,92 +228,66 @@ def addExtraIndexes(self):
 
 
 def addProxyIndexes(self):
+    """ProxyIndex is no longer available, using KeywordIndex instead"""
     logger = logging.getLogger("OSHA.ProxyIndexes")
-    logger.info("Adding Proxy Indexes")
+    logger.info("NOT adding Proxy Indexes - using Keyword / Field Indexes instead")
 
-    index_data = [
+    keyword_index_data = [
             { 'idx_id' : 'nace'
             , 'meta_id' : 'nace'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('nace')"
-                )
             }
           , { 'idx_id' : 'country'
             , 'meta_id' : 'country'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
-            }
-          , { 'idx_id' : 'cas'
-            , 'meta_id' : 'cas'
-            , 'extra' : dict(idx_type = "FieldIndex",
-                )
             }
           , { 'idx_id' : 'multilingual_thesaurus'
             , 'meta_id' : 'multilingual_thesaurus'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('multilingual_thesaurus')"
-                )
             }
           , { 'idx_id' : 'ero_target_group'
             , 'meta_id' : 'ero_target_group'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
             }
           , { 'idx_id' : 'target_user_groups'
             , 'meta_id' : 'target_user_groups'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
             }
           , { 'idx_id' : 'subcategory'
             , 'meta_id' : 'subcategory'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
             }
           , { 'idx_id' : 'ero_topic'
             , 'meta_id' : 'ero_topic'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
-            }
-          , { 'idx_id' : 'isNews'
-            , 'meta_id' : 'isNews'
-            , 'extra' : dict(idx_type = "FieldIndex",
-                )
             }
           , { 'idx_id' : 'lex_section'
             , 'meta_id' : 'lex_section'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                )
             }
           , { 'idx_id' : 'occupation'
             , 'meta_id' : 'occupation'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('occupation')"
-                )
             }
           , { 'idx_id' : 'osha_metadata'
             , 'meta_id' : 'osha_metadata'
-            , 'extra' : dict(idx_type = "KeywordIndex",
-                value_expr = "python:object.restrictedTraverse('@@getVocabularyPath')('osha_metadata')"
-                )
             }
         ]
+    field_index_data = [
+          { 'idx_id' : 'cas'
+            , 'meta_id' : 'cas'
+            }
+          , { 'idx_id' : 'isNews'
+            , 'meta_id' : 'isNews'
+            }
+    ]
 
-    VALUE_EXPR = "python:object.getField('%(meta_id)s').getAccessor(object)()"
 
     cat = getToolByName(self, 'portal_catalog')
     available = cat.indexes()
-    for data in index_data:
+    for data in keyword_index_data:
         if data['idx_id'] in available:
             continue
-        extra = data['extra']
-        if not extra.has_key('value_expr'):
-            extra['value_expr'] = VALUE_EXPR %{'meta_id': data['meta_id']}
-        extra['key1'] = "indexed_attrs"
-        extra['value1'] = "proxy_value"
-        logger.info("Adding Proxy Index %s" % data['idx_id'])
-        cat.manage_addProduct['ProxyIndex'].manage_addProxyIndex(
-            id=data['idx_id'],
-            extra=extra)
+        logger.info("Adding Keyword Index %s" % data['idx_id'])
+        cat.manage_addProduct['PluginIndexes'].manage_addKeywordIndex(id=data['idx_id'],
+            extra=dict(indexed_attrs=data['idx_id']))
+
+    for data in field_index_data:
+        if data['idx_id'] in available:
+            continue
+        logger.info("Adding Field Index %s" % data['idx_id'])
+        cat.manage_addProduct['PluginIndexes'].manage_addFieldIndex(id=data['idx_id'])
 
 
 def configureCountryTool(site):
@@ -348,7 +321,6 @@ def configureSEOOptimizer(site):
                    ,'CallForContractors'
                    ,'CaseStudy'
                    ,'Event'
-                   ,'Large Plone Folder'
                    ,'Link'
                    ,'News Item'
                    ,'OSH_Link'
@@ -484,7 +456,6 @@ def configureCacheFu(site):
 
     new_types = [ 'Topic'
                 , 'Folder'
-                , 'Large Plone Folder'
                 , 'Plone Site'
                 , 'PressRoom'
                 , 'PloneboardConversation'
