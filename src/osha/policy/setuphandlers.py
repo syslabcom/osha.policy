@@ -10,10 +10,8 @@ from ConfigParser import ConfigParser
 
 from Products.ATVocabularyManager.utils.vocabs import createSimpleVocabs
 from Products.CMFCore.utils import getToolByName
-from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
+# from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 from Products.ResourceRegistries.exportimport.resourceregistry import importResRegistry
-
-from slc.clicksearch.interfaces import IClickSearchConfiguration
 
 from config import DEPENDENCIES, TYPES_TO_VERSION, DIFF_SUPPORT
 
@@ -36,7 +34,6 @@ def importVarious(context):
     configureSEOOptimizer(site)
     configureCacheFu(site)
     #modifySEOActionPermissions(site)
-    configureClickSearchSettings(site)
     repositionActions(site)
     enableDiffSupport(site)
 
@@ -535,16 +532,6 @@ def configureCacheFu(site):
     templates = _addToList(templates, new_templates)
     plone_templates.setTemplates(tuple(templates))
 
-def configureClickSearchSettings(site):
-    """ Set default sort_on indexes
-    """
-    settings = getUtility(IClickSearchConfiguration, name='clicksearch_config')
-    if 'subcategory' not in settings.sort_indexes:
-        settings.sort_indexes.append('subcategory')
-    if 'country' not in settings.sort_indexes:
-        settings.sort_indexes.append('country')
-    if 'getRemoteLanguage' not in settings.sort_indexes:
-        settings.sort_indexes.append('getRemoteLanguage')
 
 def modifySEOActionPermissions(site):
     # And now update the relevant portal_type actions
@@ -572,8 +559,8 @@ def setVersionedTypes(context):
             # content-types which may already be under version control
             versionable_types.append(type_id)
             # Add default versioning policies to the versioned type
-            for policy_id in DEFAULT_POLICIES:
-                portal_repository.addPolicyForContentType(type_id, policy_id)
+            # for policy_id in DEFAULT_POLICIES:
+            #     portal_repository.addPolicyForContentType(type_id, policy_id)
     portal_repository.setVersionableContentTypes(versionable_types)
 
 def enableDiffSupport(site):

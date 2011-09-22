@@ -39,7 +39,6 @@ DEPENDENCIES = [
     'slc.xliff',
     'slc.foldercontentsfilter',
     'slc.subsite',
-    'slc.clicksearch',
     'slc.seminarportal',
     'collective.portlet.feedmixer',
     'collective.portlet.tal',
