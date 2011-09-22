@@ -158,7 +158,6 @@
   </property>
   <property name="parentMetaTypesNotToQuery" type="lines">
    <element value="TempFolder"/>
-   <element value="Large Plone Folder"/>
    <element value="HelpCenterHowTo"/>
    <element value="HelpCenterTutorial"/>
    <element value="HelpCenterErrorReference"/>
@@ -540,7 +539,6 @@
    <element value="CMF File"/>
    <element value="CMF Folder"/>
    <element value="CMF Image"/>
-   <element value="CMF Large Plone Folder"/>
    <element value="CMF Link"/>
    <element value="CMF News Item"/>
    <element value="CMF Topic"/>

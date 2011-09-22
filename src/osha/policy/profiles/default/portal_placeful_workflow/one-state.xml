@@ -10,7 +10,6 @@
   <type type_id="File"/>
   <type default_chain="true" type_id="Folder"/>
   <type type_id="Image"/>
-  <type default_chain="true" type_id="Large Plone Folder"/>
   <type default_chain="true" type_id="Link"/>
   <type default_chain="true" type_id="News Item"/>
   <type default_chain="true" type_id="Topic"/>

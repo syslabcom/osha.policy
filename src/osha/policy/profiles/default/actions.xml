@@ -176,7 +176,7 @@
         <property name="description" i18n:translate=""></property>
         <property name="url_expr">python:object_url+'/@@bulk_tagger?Subject='+request.get('Subject','')+'&amp;SearchableText='+request.get('SearchableText','')</property>
         <property name="icon_expr"></property>
-       <property name="available_expr">python:object.portal_type in ('Folder', 'Large Plone Folder', 'Topic')</property>
+       <property name="available_expr">python:object.portal_type in ('Folder', 'Topic')</property>
        <property name="permissions">
         <element value="Manage portal"/>
        </property>
