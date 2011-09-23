@@ -1,6 +1,7 @@
 import logging
 import pyPdf
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.FactoryTool import TempFolder
 from Acquisition import aq_parent
 from zope.app.container.contained import ContainerModifiedEvent
 from Products.Archetypes.event import ObjectInitializedEvent
@@ -117,20 +118,20 @@ def remove_links(event):
 @zope.component.adapter(
     zope.lifecycleevent.interfaces.IObjectModifiedEvent)
 def update_links(event):
-    object = event.object
-    temporary = getattr(object, 'isTemporary', lambda:False)()
+    obj = event.object
+    temporary = hasattr(obj, 'meta_type') and obj.meta_type == TempFolder.meta_type
     if temporary:
         # Objects that are temporary (read: portal_factory) and do not have a
         # (stable) URL (yet) do not need to be crawled: relative links will be
         # off quickly and we can't really use the UID anyway.
         return
     try:
-        link_checker = getToolByName(object, 'portal_linkchecker').aq_inner
+        link_checker = getToolByName(obj, 'portal_linkchecker').aq_inner
     except AttributeError:
         return
-    retriever = IRetriever(object, None)
+    retriever = IRetriever(obj, None)
     if retriever is not None:
-        link_checker.retrieving.retrieveObject(object, online=False)
+        link_checker.retrieving.retrieveObject(obj, online=False)
 
 
 def handle_edit_begun(obj, event):
