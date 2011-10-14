@@ -4,7 +4,9 @@ osha.policy Changelog
 1.3.40 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Added NAPO episode "Lungs at Work" #3486 [thomasw]
+- Turned the 2 NAPO films with only 1 main film into episodes, for nicer
+  display #3487 [thomasw]
 
 
 1.3.39 (2011-09-21)
