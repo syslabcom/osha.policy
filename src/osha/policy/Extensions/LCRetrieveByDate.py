@@ -30,7 +30,7 @@ def LCRetrieveByDate(self, skiplist=[]):
         # gather all objects that are of a type we can check for links
         objects = self.portal_catalog(Language='all', modified={'query':sincedate,'range':'min'})
         os_ = len(objects)
-        zLOG.LOG('CMFLinkChecker', zLOG.INFO, "%d objects will be crawled" % os_)
+        zLOG.LOG('CMFLinkChecker', zLOG.INFO, "%d objects, modified since %s, will be crawled" % (os_, since))
         i = 0
         for ob in objects:
             i += 1
@@ -63,5 +63,5 @@ def LCRetrieveByDate(self, skiplist=[]):
             if not i % 500 :
                 transaction.savepoint()
                 zLOG.LOG('CMFLinkChecker', zLOG.INFO,
-                    "Crawling site - commited after %d objects" %(i))
+                    "Crawling site - commited after %d objects out of a total of %d" %(i,os_))
     return "finished"
