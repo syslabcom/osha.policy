@@ -4,8 +4,8 @@ osha.policy Changelog
 1.3.41 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Registering multimedia views so that they appear in the display menu
+  #3846 [deroiste]
 
 1.3.40 (2011-10-20)
 -------------------

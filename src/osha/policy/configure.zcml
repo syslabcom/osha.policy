@@ -41,7 +41,7 @@
         factory=".localroles.CheckerRole"
         />
 
-    <subscriber 
+    <subscriber
         for="Products.LinguaPlone.events.IObjectWillBeTranslatedEvent"
         handler=".handlers.handle_object_willbe_translated"
         />
@@ -66,9 +66,9 @@
     <adapter
         for=".adapter.db.OSHADatabase"
         provides="collective.lead.interfaces.ITransactionAware"
-        factory="collective.lead.tx.ThreadlocalDatabaseTransactions" 
+        factory="collective.lead.tx.ThreadlocalDatabaseTransactions"
         />
-    
+
     <class class="Products.PressRoom.content.PressRoom.PressRoom">
         <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
     </class>
@@ -79,6 +79,30 @@
     <subscriber for="Products.ATContentTypes.content.newsitem.ATNewsItem
         Products.Archetypes.interfaces.IEditBegunEvent"
         handler=".handlers.handle_edit_begun"
+        />
+
+    <browser:menuItem
+        for="Products.ATContentTypes.interface.IATDocument"
+        menu="plone_displayviews"
+        action="@@lipstick-view"
+        title="Multimedia style"
+        description="Applies the multimedia style to a document"
+        />
+
+    <browser:menuItem
+        for="Products.ATContentTypes.interface.IATFolder"
+        menu="plone_displayviews"
+        action="@@multimedia-image-folders-view"
+        title="Multimedia image folders"
+        description="A special layout for a folder with subfolders containing images"
+        />
+
+    <browser:menuItem
+        for="Products.ATContentTypes.interface.IATFolder"
+        menu="plone_displayviews"
+        action="@@multimedia-folder-listing-view"
+        title="Multimedia folders"
+        description="A special layout for a folder with subfolders containing multimedia items, the first image in the folder is used as a thumbnail."
         />
 
 </configure>

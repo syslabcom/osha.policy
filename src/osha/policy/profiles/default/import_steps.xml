@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <import-steps>
   <import-step id="osha_various"
-               version="20071021-01"
+               version="20111024-01"
                handler="osha.policy.setuphandlers.importVarious"
                title="OSHA manual setup steps">
     Policy installer steps
@@ -10,7 +10,7 @@
   </import-step>
   <import-step
     id='osha-jsregistry'
-    version='20110608-01'
+    version='20111024-01'
     handler="osha.policy.setuphandlers.resetJSRegistry"
     >
     <dependency step="osha_various" />
