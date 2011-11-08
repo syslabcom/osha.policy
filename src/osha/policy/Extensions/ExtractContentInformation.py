@@ -149,6 +149,7 @@ def export(self):
                 modified = modified.ISO()
         line.append(modified)
         title = item.title_or_id()
+        title = title.replace('\r\n', ' ').replace('\n', ' ')
         line.append(get_unicode_text(title))
         description = hasattr(item.aq_explicit, 'Description') and item.Description() or ''
         # This sad hack is necessary to appease M$-Excel
