@@ -135,16 +135,18 @@ def export(self):
             country = ','.join(country)
         line.append(country)
         created = hasattr(item.aq_explicit, 'created') and item.created() or 'n/a'
-        try:
-            created = created.strftime('%Y-%m-%d')
-        except:
-            pass
+        if isinstance(created, DateTime):        
+            try:
+                created = created.strftime('%Y-%m-%d')
+            except:
+                created = created.ISO()
         line.append(created)
         modified = hasattr(item.aq_explicit, 'modified') and item.modified() or 'n/a'
-        try:
-            modified = modified.strftime('%Y-%m-%d')
-        except:
-            pass
+        if isinstance(modified, DateTime):
+            try:
+                modified = modified.strftime('%Y-%m-%d')
+            except:
+                modified = modified.ISO()
         line.append(modified)
         title = item.title_or_id()
         line.append(get_unicode_text(title))
