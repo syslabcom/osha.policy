@@ -134,8 +134,8 @@ def export(self):
         if country:
             country = ','.join(country)
         line.append(country)
-        line.append(hasattr(item.aq_explicit, 'created') and item.created().ISO() or 'n/a')
-        line.append(hasattr(item.aq_explicit, 'modified') and item.modified().ISO() or 'n/a')
+        line.append(hasattr(item.aq_explicit, 'created') and item.created().strftime('%Y-%m-%d') or 'n/a')
+        line.append(hasattr(item.aq_explicit, 'modified') and item.modified().strftime('%Y-%m-%d') or 'n/a')
         title = item.title_or_id()
         line.append(get_unicode_text(title))
         description = hasattr(item.aq_explicit, 'Description') and item.Description() or ''
@@ -165,9 +165,9 @@ def export(self):
             wf_state = ''
         line.append(wf_state)
         start_date = hasattr(item.aq_explicit, 'start') and item.start()
-        line.append(start_date and start_date.ISO() or '')
+        line.append(start_date and start_date.strftime('%Y-%m-%d') or '')
         end_date = hasattr(item.aq_explicit, 'end') and item.end()
-        line.append(end_date and end_date.ISO() or '')
+        line.append(end_date and end_date.strftime('%Y-%m-%d') or '')
 
         writer.writerow([x and x.encode("UTF-8") or '' for x in line])
 
