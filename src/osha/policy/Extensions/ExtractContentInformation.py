@@ -140,7 +140,7 @@ def export(self):
         except:
             pass
         line.append(created)
-        modified = (hasattr(item.aq_explicit, 'modified') and item.modified() or 'n/a'
+        modified = hasattr(item.aq_explicit, 'modified') and item.modified() or 'n/a'
         try:
             modified = modified.strftime('%Y-%m-%d')
         except:
