@@ -120,7 +120,7 @@ def export(self):
     
     statistics = dict()
 
-    def do(item, doRecurse=True, level=0):
+    def do(item, mt, doRecurse=True, level=0):
         if item.id in IGNORE:
             return
         # Only first XX levels:
@@ -156,7 +156,14 @@ def export(self):
         except: # No blob file
             size = '0 kB'
         line.append(size)
-        line.append(hasattr(item.aq_explicit, 'Creator') and item.Creator() or '')
+        creator = hasattr(item.aq_explicit, 'Creator') and item.Creator() or ''
+        try:
+            mem = mt.getMemberById(creator)
+            if mem:
+                creator = mem.getUserName()
+        except:
+            pass
+        line.append(creator)
         line.append(hasattr(item.aq_explicit, 'getRemoteLanguage') and \
             ','.join(item.getRemoteLanguage()) or '')
         try:
@@ -179,10 +186,11 @@ def export(self):
                 except:
                     ob = None
                 if ob:
-                    do(ob, doRecurse, level+1)
+                    do(ob, mt, doRecurse, level+1)
             
 
     portal = getToolByName(self, 'portal_url').getPortalObject()
+    mt = getToolByName(portal, 'portal_membership')
     langs = getToolByName(self, 'portal_languages').getSupportedLanguages()
     langs.sort()
     if only_en:
@@ -198,7 +206,7 @@ def export(self):
             print "No top-level folder for language %s" % lang
             continue
         log.write('<h3>Handling top-level folder "%s"</h3>' % lang)
-        do(start, True, 0)
+        do(start, mt, True, 0)
 
     fh.close()
     finished = DateTime()
