@@ -1,11 +1,12 @@
 osha.policy Changelog
 =====================
 
-1.3.41 (unreleased)
+1.3.41 (2011-11-09)
 -------------------
 
 - Registering multimedia views so that they appear in the display menu
   #3846 [deroiste]
+- Updated ExtractContentInformation script #3914 [thomasw]
 
 1.3.40 (2011-10-20)
 -------------------
