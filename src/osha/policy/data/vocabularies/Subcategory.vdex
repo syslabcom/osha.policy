@@ -7916,6 +7916,35 @@
     </caption>
   </term>
   <term>
+    <termIdentifier>management_leadership</termIdentifier>
+    <caption>
+      <langstring language="bg">управленско ръководство</langstring>
+      <langstring language="cs">způsob vedení na úrovni managementu</langstring>
+      <langstring language="da">Ledelsens lederskab</langstring>
+      <langstring language="de">Managementführung</langstring>
+      <langstring language="el">ηγεσία της διοίκησης</langstring>
+      <langstring language="en">Management leadership</langstring>
+      <langstring language="es">liderazgo de la gestión</langstring>
+      <langstring language="et">juhtkonna juhtimine</langstring>
+      <langstring language="fi">hallinta</langstring>
+      <langstring language="fr">direction de la gestion</langstring>
+      <langstring language="hu">irányítás vezetés</langstring>
+      <langstring language="it">direzione gestionale</langstring>
+      <langstring language="is">Stjórnunarforysta</langstring>
+      <langstring language="lt">valdymo lyderystė</langstring>
+      <langstring language="lv">vadītāju vadība</langstring>
+      <langstring language="mt">tmexxija amministrattiva</langstring>
+      <langstring language="nl">leiderschap door het management</langstring>
+      <langstring language="no">ledelsens lederskap</langstring>
+      <langstring language="pl">kierownictwo w zarządzaniu</langstring>
+      <langstring language="pt">liderança da gestão</langstring>
+      <langstring language="ro">aptitudini de conducere şi de gestionare</langstring>
+      <langstring language="sk">spôsob vedenia na úrovni riadenia</langstring>
+      <langstring language="sl">prizadevanje vodstva</langstring>
+      <langstring language="sv">ledning och ledarskap</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>migrant_workers</termIdentifier>
     <caption>
       <langstring language="bg">Migrant workers</langstring>
@@ -13577,6 +13606,35 @@
         <langstring language="bg">Workplace welfare and services</langstring>
       </caption>
     </term>
+  </term>
+  <term>
+    <termIdentifier>worker_participation</termIdentifier>
+    <caption>
+      <langstring language="bg">участие на работниците</langstring>
+      <langstring language="cs">účast zaměstnanců</langstring>
+      <langstring language="da">Medarbejderdeltagelse</langstring>
+      <langstring language="de">Arbeitnehmerbeteiligung</langstring>
+      <langstring language="el">συμμετοχή των εργαζομένων</langstring>
+      <langstring language="en">Worker Participation</langstring>
+      <langstring language="es">participación de los trabajadores</langstring>
+      <langstring language="et">töötajate osalemine</langstring>
+      <langstring language="fi">työntekijöiden osallistuminen</langstring>
+      <langstring language="fr">participation des travailleurs</langstring>
+      <langstring language="hu">dolgozói részvétel</langstring>
+      <langstring language="it">partecipazione dei lavoratori</langstring>
+      <langstring language="is">Þátttaka starfsmanna</langstring>
+      <langstring language="lt">darbuotojų dalyvavimas</langstring>
+      <langstring language="lv">darba ņēmēju dalība</langstring>
+      <langstring language="mt">parteċipazzjoni tal-ħaddiema</langstring>
+      <langstring language="nl">werknemersparticipatie</langstring>
+      <langstring language="no">medarbeiderdeltakelse</langstring>
+      <langstring language="pl">udział pracowników</langstring>
+      <langstring language="pt">participação dos trabalhadores</langstring>
+      <langstring language="ro">participarea lucrătorilor</langstring>
+      <langstring language="sk">účasť zamestnancov</langstring>
+      <langstring language="sl">soodločanje delavcev</langstring>
+      <langstring language="sv">arbetstagarnas medverkan</langstring>
+    </caption>
   </term>
   <term>
     <termIdentifier>whp</termIdentifier>
