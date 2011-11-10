@@ -175,7 +175,7 @@ def generatePDF(self,
     cFrame.addFromList(lines, my_canvas)
     
     # Director's signature
-    director_name = "Jukka Takala,"
+    director_name = "Christa Sedlatschek,"
     director_name = director_name.encode('utf-8')
     director_indentifier = translate(domain=ptt_domain, 
                                            msgid='director_'+year, 
