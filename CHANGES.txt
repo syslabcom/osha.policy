@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.3.42 (unreleased)
+1.3.42 (2011-12-05)
 -------------------
 
 - Replace Jukka Takala with Christa Sedlatschek in the signature of the campaign

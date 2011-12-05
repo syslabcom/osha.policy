@@ -9,6 +9,7 @@ from AccessControl.Permission import registerPermissions
 from ConfigParser import ConfigParser
 
 from Products.ATVocabularyManager.utils.vocabs import createSimpleVocabs
+from Products.ATVocabularyManager.types.vdex.vocabularyxml import IMSVDEXVocabulary
 from Products.CMFCore.utils import getToolByName
 from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 from Products.ResourceRegistries.exportimport.resourceregistry import importResRegistry
@@ -159,7 +160,9 @@ def importVocabularies(self):
             fh.close()
             vocabname = vocabname[:-5]
             if vocabname in pvm.objectIds(): continue
-            pvm.invokeFactory('VdexFileVocabulary', vocabname)
+            vocab = IMSVDEXVocabulary(vocabname)
+            pvm._setObject(vocabname, vocab, suppress_events=True)
+            # pvm.invokeFactory('VdexFileVocabulary', vocabname)
             pvm[vocabname].importXMLBinding(data)
             logger.info("VDEX Import of %s" % vocabname)
 
