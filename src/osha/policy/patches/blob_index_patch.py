@@ -11,6 +11,8 @@ from Products.ATContentTypes.content.file import ATFile
 def index_html(self, REQUEST, RESPONSE):
     """ download the file inline or as an attachment """
     field = self.getPrimaryField()
+    if not field:
+        return None
     inlineMimetypes = [x for x in ATFile.inlineMimetypes]
     if "text/html" not in inlineMimetypes:
         inlineMimetypes.append("text/html")
