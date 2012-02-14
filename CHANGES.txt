@@ -1,11 +1,11 @@
 osha.policy Changelog
 =====================
 
-1.3.43 (unreleased)
+1.3.43 (2012-02-14)
 -------------------
 
-- Nothing changed yet.
-
+- blob_index_patch: Catch if there is no primary field which is a blob. Fixes
+  gocept #8131 [pilz]
 
 1.3.42 (2011-12-05)
 -------------------
