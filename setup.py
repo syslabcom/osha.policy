@@ -58,6 +58,7 @@ setup(name='osha.policy',
       zip_safe=False,
       install_requires=[
         'Zope2',
+        'StructuredText',
         'collective.portlet.feedmixer',
         'collective.portlet.tal',
         'osha.theme',
