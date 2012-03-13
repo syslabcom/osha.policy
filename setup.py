@@ -27,10 +27,8 @@ long_description = (
     '************\n'
     + '\n' +
     read('CONTRIBUTORS.txt')
-    + '\n' 
+    + '\n'
     )
-    
-tests_require=['zope.testing']
 
 setup(name='osha.policy',
       version=version,
@@ -69,7 +67,7 @@ setup(name='osha.policy',
         'z3c.unconfigure',
         'zope.app.generations',
         'zope.thread',
-        'five.dbevent', 
+        'five.dbevent',
         'reportlab',
         'psycopg2',
         'python-ldap',
@@ -163,8 +161,9 @@ setup(name='osha.policy',
         'gocept.arecibologger',
         'Products.LongRequestLogger',
       ],
-      tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
+      extras_require={
+        'test': ['zope.testing',],
+        },
       test_suite = 'osha.policy.tests.test_docs.test_suite',
       entry_points="""
       [z3c.autoinclude.plugin]
@@ -177,5 +176,5 @@ setup(name='osha.policy',
       find_missing_translations = osha.policy.tools:find_missing_translations
       insertTranslations = osha.policy.tools:insertTranslations
       """,
-      )      
-      
+      )
+
