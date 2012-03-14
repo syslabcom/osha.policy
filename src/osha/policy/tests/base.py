@@ -37,10 +37,9 @@ class OSHAPolicyLayer(SiteLayer):
         zcml.load_config('configure.zcml', slc.xliff)
         import slc.shoppinglist
         zcml.load_config('configure.zcml', slc.shoppinglist)
-        ztc.installPackage('osha.legislation')
 
-        browserlayer.utils.register_layer(IOSHACommentsLayer,
-                                          name='osha.policy')
+        browserlayer.utils.register_layer(
+            IOSHACommentsLayer, name='osha.policy')
 
         component.provideAdapter(instanceSchemaFactory)
         SiteLayer.setUp()
