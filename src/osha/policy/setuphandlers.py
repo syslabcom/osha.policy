@@ -30,12 +30,16 @@ def importVarious(context):
     addProxyIndexes(site)
     addExtraIndexes(site)
     importVocabularies(site)
-    configureCountryTool(site)
+    # TODO: #4419
+    # AttributeError: portal_countryutils
+    #configureCountryTool(site)
     configureSEOOptimizer(site)
     # configureCacheFu(site)
     #modifySEOActionPermissions(site)
     repositionActions(site)
-    enableDiffSupport(site)
+    # TODO: #4419
+    # BadRequest: Error: invalid portal type
+    # enableDiffSupport(site)
 
 def installDependencies(site):
     qi = getToolByName(site, 'portal_quickinstaller')
@@ -155,8 +159,10 @@ def importVocabularies(self):
             fh.close()
             vocabname = vocabname[:-5]
             if vocabname in pvm.objectIds(): continue
-            pvm.invokeFactory('VdexFileVocabulary', vocabname)
-            pvm[vocabname].importXMLBinding(data)
+            # TODO: #4419
+            # Unauthorized
+            # pvm.invokeFactory('VdexFileVocabulary', vocabname)
+            # pvm[vocabname].importXMLBinding(data)
             logger.info("VDEX Import of %s" % vocabname)
 
         elif vocabname.endswith('.dump'):
@@ -166,7 +172,9 @@ def importVocabularies(self):
             vocabname = vocabname[:-5]
             if vocabname in pvm.objectIds(): continue
             vocabstruct = cPickle.loads(data)
-            createSimpleVocabs(pvm, vocabstruct)
+            # TODO: #4419
+            # Unauthorized
+            # createSimpleVocabs(pvm, vocabstruct)
             logger.info("Dump Import of %s" % vocabname)
 
 
@@ -217,10 +225,12 @@ def addExtraIndexes(self):
         extra['splitter_casefolding'] = 1
 
         logger.info('Adding TextIndexNG3 %s' %idx_id)
-        cat.manage_addProduct['TextIndexNG3'].manage_addTextIndexNG3(
-            id = idx_id
-          , extra = extra
-          )
+        # TODO: #4419
+        # AttributeError: manage_addTextIndexNG3
+        # cat.manage_addProduct['TextIndexNG3'].manage_addTextIndexNG3(
+        #     id = idx_id
+        #   , extra = extra
+        #   )
 
     if 'getRemoteLanguage' not in available:
         logger.info('Adding KeywordIndex getRemoteLanguage')
