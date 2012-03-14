@@ -33,8 +33,6 @@ class OSHAPolicyLayer(SiteLayer):
         zcml.load_config('configure.zcml', osha.theme)
         import osha.policy
         zcml.load_config('configure.zcml', osha.policy)
-        import textindexng
-        zcml.load_config('configure.zcml', textindexng)
         import slc.xliff
         zcml.load_config('configure.zcml', slc.xliff)
         import slc.shoppinglist
