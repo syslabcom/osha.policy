@@ -239,13 +239,13 @@
         permission="zope2.View"      
         />
 -->
-    <browser:page
-        for="*"
-        name="lc_maintenance"
-        class=".lc_osha.LCMaintenanceView"
-        permission="zope2.View"      
-        allowed_interface=".interfaces.ILCMaintenanceView"
-        />
+    <!-- <browser:page -->
+    <!--     for="*" -->
+    <!--     name="lc_maintenance" -->
+    <!--     class=".lc_osha.LCMaintenanceView" -->
+    <!--     permission="zope2.View"       -->
+    <!--     allowed_interface=".interfaces.ILCMaintenanceView" -->
+    <!--     /> -->
 
     <browser:page
         for="*"
