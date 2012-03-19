@@ -247,12 +247,12 @@
     <!--     allowed_interface=".interfaces.ILCMaintenanceView" -->
     <!--     /> -->
 
-    <browser:page
-        for="*"
-        name="content_statistics_export"
-        class=".content_stats.ContentStatisticsExportView"
-        permission="zope2.View"      
-        />
+    <!-- <browser:page -->
+    <!--     for="*" -->
+    <!--     name="content_statistics_export" -->
+    <!--     class=".content_stats.ContentStatisticsExportView" -->
+    <!--     permission="zope2.View"       -->
+    <!--     /> -->
 
     <browser:page
         name="getHostname"
