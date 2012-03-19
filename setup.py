@@ -144,7 +144,7 @@ setup(name='osha.policy',
         'slc.outdated',
         'slc.publications',
         'slc.quickchange',
-        'slc.rdbploneformgenadapter',
+        # 'slc.rdbploneformgenadapter', # requires collective.lead
         'slc.seminarportal',
         'slc.shoppinglist',
         'slc.subsite',
