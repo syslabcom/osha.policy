@@ -108,7 +108,8 @@ def repositionActions(portal):
              , 'Your shopping list which contains objects you have collected by adding them to your shopping list.'
              , None
              )
-    portal_actions.user.shoppinglistedit.visible = False
+    # p4 upgrade: AttributeError: shoppinglistedit
+    # portal_actions.user.shoppinglistedit.visible = False
 
     # compare site actions in the header with footer actions and remove duplications
 
