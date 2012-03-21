@@ -39,7 +39,7 @@ DEPENDENCIES = [
     'slc.xliff',
     'slc.foldercontentsfilter',
     'slc.subsite',
-# TODO: 4419    'slc.seminarportal',
+    'slc.seminarportal',
     'collective.portlet.feedmixer',
     'collective.portlet.tal',
     'plone.portlet.collection',
