@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <portlets> 
-  <!--portletmanager 
-    name="osh.abovecontentportlets"
+  <portletmanager 
+    name="osha.abovecontent.portlets"
     type="osha.policy.browser.interfaces.IOSHAboveContent"
     layer="osha.policy.browser.interfaces.IThemeSpecific"
   />
   <portletmanager 
-    name="osh.belowcontentportlets"
+    name="osha.belowcontent.portlets"
     type="osha.policy.browser.interfaces.IOSHBelowContent"
     layer="osha.policy.browser.interfaces.IThemeSpecific"
- /-->
+ />
 </portlets>
