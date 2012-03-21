@@ -160,10 +160,8 @@ def importVocabularies(self):
             fh.close()
             vocabname = vocabname[:-5]
             if vocabname in pvm.objectIds(): continue
-            # TODO: #4419
-            # Unauthorized
-            # pvm.invokeFactory('VdexFileVocabulary', vocabname)
-            # pvm[vocabname].importXMLBinding(data)
+            pvm.invokeFactory('VdexFileVocabulary', vocabname)
+            pvm[vocabname].importXMLBinding(data)
             logger.info("VDEX Import of %s" % vocabname)
 
         elif vocabname.endswith('.dump'):
