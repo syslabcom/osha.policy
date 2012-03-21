@@ -30,16 +30,12 @@ def importVarious(context):
     addProxyIndexes(site)
     addExtraIndexes(site)
     importVocabularies(site)
-    # TODO: #4419
-    # AttributeError: portal_countryutils
-    #configureCountryTool(site)
+    configureCountryTool(site)
     configureSEOOptimizer(site)
     # configureCacheFu(site)
     #modifySEOActionPermissions(site)
     repositionActions(site)
-    # TODO: #4419
-    # BadRequest: Error: invalid portal type
-    # enableDiffSupport(site)
+    enableDiffSupport(site)
 
 def installDependencies(site):
     qi = getToolByName(site, 'portal_quickinstaller')
