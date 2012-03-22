@@ -28,7 +28,6 @@ DEPENDENCIES = [
     'Clouseau',
     'ATVocabularyManager',
     'Products.CallForContractors',
-    'FCKeditor',
     'Marshall',
     'Products.OSHContentLink',
     'PublicJobVacancy',

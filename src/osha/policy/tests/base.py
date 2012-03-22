@@ -26,6 +26,7 @@ class OSHAPolicyLayer(SiteLayer):
         ztc.installProduct('TextIndexNG3')
         ztc.installProduct('ProxyIndex')
         ztc.installProduct('PressRoom')
+        ztc.installProduct('Relations')
         ztc.installProduct('RALink')
         ztc.installProduct('CaseStudy')
 

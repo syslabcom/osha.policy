@@ -214,12 +214,6 @@
     cookable="True" enabled="True" expression="" id="flashobject.js"
     inline="False"/>
  <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="fckeditor.js"
-    inline="False"/>
- <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="fck_plone.js"
-    inline="False"/>
- <javascript cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="True" expression=""
     id="++resource++slc.linguatools.static/linguatools.js" inline="False"/>
  <javascript cacheable="True" compression="safe" conditionalcomment=""

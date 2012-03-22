@@ -1,4 +1,3 @@
-import FCKeditor_patch
 import I18NBaseObject_preserve_shortname
 import autotranslate_get_translations
 import blob_field_patch

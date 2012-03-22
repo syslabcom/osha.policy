@@ -219,6 +219,7 @@ def addExtraIndexes(self):
 
         logger.info('Adding TextIndexNG3 %s' %idx_id)
         # TODO: #4419
+        # This is being replaced by solr, right?
         # AttributeError: manage_addTextIndexNG3
         # cat.manage_addProduct['TextIndexNG3'].manage_addTextIndexNG3(
         #     id = idx_id
