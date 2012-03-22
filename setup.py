@@ -157,7 +157,6 @@ setup(name='osha.policy',
         'zope.app.generations',
         'zope.thread',
         'zopyx.smartprintng.plone',
-#        'Products.FCKeditor',
 #        'collective.contentlicensing',
       ],
       extras_require={
