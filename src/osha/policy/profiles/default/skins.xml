@@ -13,16 +13,12 @@
     directory="osha.policy:skins/osha_portlets" />
  <object name="osha_scripts" meta_type="Filesystem Directory View"
     directory="osha.policy:skins/osha_scripts" />
- <object name="osha_styles" meta_type="Filesystem Directory View"
-    directory="osha.policy:skins/osha_styles" />
  <object name="osha_templates" meta_type="Filesystem Directory View"
     directory="osha.policy:skins/osha_templates" />
  <object name="osha_forms" meta_type="Filesystem Directory View"
     directory="osha.policy:skins/osha_forms" />
  <object name="osha_form_scripts" meta_type="Filesystem Directory View"
     directory="osha.policy:skins/osha_form_scripts" />
- <object name="scriptaculous" meta_type="Filesystem Directory View"
-    directory="osha.policy:skins/scriptaculous" />
 
  <skin-path name="OSHA Plone Theme" based-on="Plone Default">
   <layer name="osha_dynamic" insert-after="custom"/>
