@@ -64,6 +64,8 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=Products.Relations)
         import Products.PressRoom
         self.loadZCML('configure.zcml', package=Products.PressRoom)
+        import Products.OSHContentLink
+        self.loadZCML('configure.zcml', package=Products.OSHContentLink)
 
         import slc.seminarportal
         self.loadZCML("configure.zcml", package=slc.seminarportal)

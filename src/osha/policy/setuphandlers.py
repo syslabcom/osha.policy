@@ -35,9 +35,7 @@ def importVarious(context):
     # configureCacheFu(site)
     #modifySEOActionPermissions(site)
     repositionActions(site)
-    # TODO: #4419 re-enable diff support, in the test setup it throws:
-    # BadRequest: Error: invalid portal type
-    #enableDiffSupport(site)
+    enableDiffSupport(site)
 
 def installDependencies(site):
     qi = getToolByName(site, 'portal_quickinstaller')
