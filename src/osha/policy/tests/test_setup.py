@@ -1,12 +1,17 @@
-import unittest
-from osha.policy.tests.base import OSHAPolicyTestCase
+import unittest2 as unittest
+
+from osha.policy.tests.base import OSHA_FUNCTIONAL_TESTING, startZServerSSH
 import osha.policy as POLICY
 
 from Products.CMFCore.utils import getToolByName
 
-class TestSetup(OSHAPolicyTestCase):
 
-    def afterSetUp(self):
+class TestSetup(unittest.TestCase):
+
+    layer = OSHA_FUNCTIONAL_TESTING
+
+    def setUp(self):
+        self.portal = self.layer["portal"]
         self.workflow = getToolByName(self.portal, 'portal_workflow')
         self.acl_users = getToolByName(self.portal, 'acl_users')
         self.types = getToolByName(self.portal, 'portal_types')
@@ -96,9 +101,3 @@ class TestSetup(OSHAPolicyTestCase):
 
     #def test_enquiry_action_installed(self):
     #    self.failUnless('contact' in self.portal.portal_actions.site_actions.objectIds())
-
-
-def test_suite():
-    suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(TestSetup))
-    return suite
