@@ -50,22 +50,30 @@ class OshaPolicy(PloneSandboxLayer):
         # dependencies of osha.policy
         import Products.ATVocabularyManager
         self.loadZCML('configure.zcml', package=Products.ATVocabularyManager)
+        import Products.CallForContractors
+        self.loadZCML('configure.zcml', package=Products.CallForContractors)
+        import Products.CaseStudy
+        self.loadZCML('configure.zcml', package=Products.CaseStudy)
+        import Products.OSHContentLink
+        self.loadZCML('configure.zcml', package=Products.OSHContentLink)
+        import Products.PressRoom
+        self.loadZCML('configure.zcml', package=Products.PressRoom)
+        import Products.PublicJobVacancy
+        self.loadZCML('configure.zcml', package=Products.PublicJobVacancy)
+        import Products.Relations
+        self.loadZCML('configure.zcml', package=Products.Relations)
+        import Products.RichDocument
+        self.loadZCML('configure.zcml', package=Products.RichDocument)
         import Products.Scrawl
         self.loadZCML('configure.zcml', package=Products.Scrawl)
         import osha.policy
         self.loadZCML('configure.zcml', package=osha.policy)
         import osha.theme
         self.loadZCML('configure.zcml', package=osha.theme)
-        import slc.xliff
-        self.loadZCML('configure.zcml', package=slc.xliff)
         import slc.shoppinglist
         self.loadZCML('configure.zcml', package=slc.shoppinglist)
-        import Products.Relations
-        self.loadZCML('configure.zcml', package=Products.Relations)
-        import Products.PressRoom
-        self.loadZCML('configure.zcml', package=Products.PressRoom)
-        import Products.OSHContentLink
-        self.loadZCML('configure.zcml', package=Products.OSHContentLink)
+        import slc.xliff
+        self.loadZCML('configure.zcml', package=slc.xliff)
 
         import slc.seminarportal
         self.loadZCML("configure.zcml", package=slc.seminarportal)

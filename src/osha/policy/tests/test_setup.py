@@ -51,15 +51,14 @@ class TestSetup(unittest.TestCase):
     #def test_staffmember_group_added(self):
     #    self.assertEquals(1, len(self.acl_users.searchGroups(name='Staff')))
 
-    # TODO: #4479 re-enable once osha.theme is integrated in the tests
-    # def test_portaltypes_installed(self):
-    #     self.failUnless('CallForContractors' in self.types.objectIds())
-    #     self.failUnless('CaseStudy' in self.types.objectIds())
-    #     self.failUnless('OSH_Link' in self.types.objectIds())
-    #     #self.failUnless('PressRoom' in self.types.objectIds())
-    #     self.failUnless('PublicJobVacancy' in self.types.objectIds())
-    #     self.failUnless('RichDocument' in self.types.objectIds())
-    #     self.failUnless('VocabularyLibrary' in self.types.objectIds())
+    def test_portaltypes_installed(self):
+        self.failUnless('CallForContractors' in self.types.objectIds())
+        self.failUnless('CaseStudy' in self.types.objectIds())
+        self.failUnless('OSH_Link' in self.types.objectIds())
+        self.failUnless('PressRoom' in self.types.objectIds())
+        self.failUnless('PublicJobVacancy' in self.types.objectIds())
+        self.failUnless('RichDocument' in self.types.objectIds())
+        self.failUnless('VocabularyLibrary' in self.types.objectIds())
 
     #def test_plain_document_disabled(self):
     #    # the internal name for "Page" is "Document"
