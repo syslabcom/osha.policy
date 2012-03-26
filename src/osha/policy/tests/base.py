@@ -89,17 +89,12 @@ class OshaPolicy(PloneSandboxLayer):
         # KeyError: 'ACTUAL_URL'
         portal.REQUEST["ACTUAL_URL"] = portal.REQUEST["SERVER_URL"]
 
-        # The default workflow needs to be set before adding plone-content
-        wftool = getToolByName(portal, 'portal_workflow')
-        wftool.setDefaultChain('plone_workflow')
-        # Create the default plone portal content (do we need to?)
-        applyProfile(portal, 'Products.CMFPlone:plone-content')
-
         # quick install ATVocabularyManager or else we don't have
         # portal.portal_vocabularies
         quickInstallProduct(portal, "Products.ATVocabularyManager")
 
         quickInstallProduct(portal, "Products.ATCountryWidget")
+        quickInstallProduct(portal, "plonetheme.classic")
 
         applyProfile(portal, 'osha.policy:default')
         applyProfile(portal, 'osha.theme:default')
