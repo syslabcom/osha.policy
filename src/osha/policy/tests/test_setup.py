@@ -16,6 +16,7 @@ class TestSetup(unittest.TestCase):
         self.acl_users = getToolByName(self.portal, 'acl_users')
         self.types = getToolByName(self.portal, 'portal_types')
 
+
     # TODO: #4479 re-enable once osha.theme is integrated in the tests
     # def test_portal_title(self):
     #     self.assertEquals("OSHA - Your network to a safer and healthier working environment", self.portal.getProperty('title'))

@@ -76,6 +76,11 @@ class OshaPolicy(PloneSandboxLayer):
         # component.provideAdapter(instanceSchemaFactory)
 
     def setUpPloneSite(self, portal):
+        # Workaround for the importVocabularies setuphandler calls
+        # createSimpleVocabs which throws:
+        # KeyError: 'ACTUAL_URL'
+        portal.REQUEST["ACTUAL_URL"] = portal.REQUEST["SERVER_URL"]
+
         # The default workflow needs to be set before adding plone-content
         wftool = getToolByName(portal, 'portal_workflow')
         wftool.setDefaultChain('plone_workflow')
@@ -90,7 +95,6 @@ class OshaPolicy(PloneSandboxLayer):
 
         applyProfile(portal, 'osha.policy:default')
         applyProfile(portal, 'osha.theme:default')
-
 
 
 OSHA_FIXTURE = OshaPolicy()

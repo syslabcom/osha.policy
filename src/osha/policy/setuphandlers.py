@@ -167,10 +167,7 @@ def importVocabularies(self):
             vocabname = vocabname[:-5]
             if vocabname in pvm.objectIds(): continue
             vocabstruct = cPickle.loads(data)
-            # TODO: #4419 re-enable createSimpleVocabs, in the test
-            # setup it throws:
-            # KeyError: 'ACTUAL_URL'
-            #createSimpleVocabs(pvm, vocabstruct)
+            createSimpleVocabs(pvm, vocabstruct)
             logger.info("Dump Import of %s" % vocabname)
 
 
