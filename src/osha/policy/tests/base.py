@@ -43,14 +43,8 @@ class OshaPolicy(PloneSandboxLayer):
 
         z2.installProduct(app, 'Products.PressRoom')
         z2.installProduct(app, 'Products.ATCountryWidget')
-
-        # z2.installProduct(app, 'LinguaPlone')
-        # #ztc.installProduct('TextIndexNG3')
-        # ztc.installProduct('ProxyIndex')
-        # ztc.installProduct('PressRoom')
-        # z2.installProduct(app, 'Relations')
-        # ztc.installProduct('RALink')
-        # ztc.installProduct('CaseStudy')
+        z2.installProduct(app, "Products.Relations")
+        z2.installProduct(app, "osha.policy")
 
         # The zcml needs to be loaded for GS profiles which are
         # dependencies of osha.policy
@@ -71,7 +65,8 @@ class OshaPolicy(PloneSandboxLayer):
         import Products.PressRoom
         self.loadZCML('configure.zcml', package=Products.PressRoom)
 
-        z2.installProduct(app, "osha.policy")
+        import slc.seminarportal
+        self.loadZCML("configure.zcml", package=slc.seminarportal)
 
         # TODO: integrate these: 
         # browserlayer.utils.register_layer(
@@ -82,7 +77,6 @@ class OshaPolicy(PloneSandboxLayer):
         # The default workflow needs to be set before adding plone-content
         wftool = getToolByName(portal, 'portal_workflow')
         wftool.setDefaultChain('plone_workflow')
-
         # Create the default plone portal content (do we need to?)
         applyProfile(portal, 'Products.CMFPlone:plone-content')
 
@@ -93,13 +87,7 @@ class OshaPolicy(PloneSandboxLayer):
         quickInstallProduct(portal, "Products.ATCountryWidget")
 
         applyProfile(portal, 'osha.policy:default')
-
-        # The workflow needs to be configured
-        # wftool = getToolByName(portal, 'portal_workflow')
-        # wftool.setDefaultChain('osh_workflow')
-
-        # applyProfile(portal, 'Products.Relations:default')
-        #applyProfile(portal, 'osha.theme:default')
+        applyProfile(portal, 'osha.theme:default')
 
 
 
