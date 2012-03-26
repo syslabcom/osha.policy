@@ -69,12 +69,11 @@ class TestSetup(unittest.TestCase):
     #    rich_document_fti = getattr(self.types, 'RichDocument')
     #    self.assertEquals("Web page", rich_document_fti.title)
 
-    # TODO: #4479 re-enable once osha.theme is integrated in the tests
-    # def test_theme_installed(self):
-    #     skins = getToolByName(self.portal, 'portal_skins')
-    #     layer = skins.getSkinPath('OSHA Plone Theme')
-    #     self.failUnless('osha_theme_custom_templates' in layer)
-    #     self.assertEquals('OSHA Plone Theme', skins.getDefaultSkin())
+    def test_theme_installed(self):
+        skins = getToolByName(self.portal, 'portal_skins')
+        layer = skins.getSkinPath('OSHA Plone Theme')
+        self.failUnless('osha_theme_custom_templates' in layer)
+        self.assertEquals('OSHA Plone Theme', skins.getDefaultSkin())
 
     def test_types_versioned(self):
         repository = getToolByName(self.portal, 'portal_repository')
