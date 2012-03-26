@@ -81,9 +81,7 @@ function resetSize(aSelect) {
                                id="SearchableText"
                                name="SearchableText"
                                size="25"
-                               tabindex=""
-                               tal:attributes="value SearchableText|request/SearchableText|nothing;
-                               tabindex tabindex/next"
+                               tal:attributes="value SearchableText|request/SearchableText|nothing;"
                                />
                     </div>
                 <div class="columnBottom field">
@@ -109,9 +107,7 @@ function resetSize(aSelect) {
                         </div>
         
                         <select name="Language"
-                                tabindex=""
-                                id="Language"
-                                tal:attributes="tabindex tabindex/next">
+                                id="Language">
         
                             <option value="" i18n:translate="label_any_language">Any language</option>
                             <tal:langs tal:repeat="lang search_langs">
@@ -211,7 +207,7 @@ function resetSize(aSelect) {
 
         </div>
         <div class="formControls">
-          <input class="context" tabindex="3" type="submit" value="Search" />
+          <input class="context" type="submit" value="Search" />
         </div>
         </form>
 

@@ -7,7 +7,6 @@
 <div metal:fill-slot="main"
         tal:define="
         Iterator python:modules['Products.Archetypes'].IndexIterator;
-        tabindex tabindex|python:Iterator(pos=7000);
         mode string:view;">
 
     <style>
