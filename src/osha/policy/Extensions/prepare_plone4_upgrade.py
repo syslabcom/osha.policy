@@ -248,7 +248,7 @@ def prepare_plone4_upgrade(self, REQUEST=None):
         # else:
         #     log.write(u'  %s not installed, skipped' % prod)
 
-    cat = getToolByName(self, 'portal_catalog')
+    cat = getToolByName(self, 'portal_catalog_real')
     log.write(u'<h3>Deleting ProxyIndexes</h3>')
     indexes = cat.index_objects()
     idx_to_delete = [
