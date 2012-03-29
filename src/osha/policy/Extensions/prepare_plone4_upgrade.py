@@ -168,6 +168,7 @@ def remove_portlets(portal, log):
         doRemoval(F)
         doRecursion(F)
 
+def remove_dashboards(self):
     dashboards = [
         getUtility(IPortletManager, name=name) for name in
         ['plone.dashboard1', 'plone.dashboard2', 'plone.dashboard3',
@@ -192,7 +193,7 @@ def remove_portlets(portal, log):
                     x for x in dashboard.get(
                         USER_CATEGORY, {}).get(userid, {}).keys()]
                 print dashboard, dashportlets
-            except:
+            except Exception, e:
                 import pdb; pdb.set_trace()
 
 
@@ -269,7 +270,7 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     log = setup_log(self, response)
     setup(self, log)
 
-    # uninstall_products(self, log) 
+    # uninstall_products(self, log)
     # delete_proxy_indexes(self)
 
     # remove_ldap_plugin(self)
@@ -277,7 +278,8 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     ## apparently, not needed!
     ## uninstallInterfaces(self, log)
 
-    remove_portlets(self, log)
+    # remove_portlets(self, log)
+    remove_dashboards(self)
     # fix_miscellaneous(self, log)
 
     log.write(u"<p><em>Finished, all is well</em></p>")
