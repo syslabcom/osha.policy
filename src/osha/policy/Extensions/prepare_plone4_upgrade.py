@@ -36,8 +36,8 @@ def setupLog(self, response):
         response.setHeader('Content-Type', 'text/html;charset=UTF-8')
         response.setHeader('Expires', 'Sat, 1 Jan 2000 00:00:00 GMT')
         response.setHeader('Pragma', 'no-cache')
-        self.backlink = link % dict(url=self.absolute_url() + '/manage_workspace',
-                               text='Back to ZMI')
+        self.backlink = link % dict(
+            url=self.absolute_url() + '/manage_workspace', text='Back to ZMI')
         response.write('<html><body>')
         response.write(self.backlink)
         response.write(br)
@@ -52,11 +52,15 @@ def uninstallInterfaces(self, log):
     try:
         view = self.restrictedTraverse('@@fix-persistent-utilities')
     except:
-        log.write(u'<p style="color: red">ERROR: it seems the package ' \
-            'wildcard.fixpersistentutilities is not installed. Please add it to your buildout!')
+        log.write(
+            u'<p style="color: red">ERROR: it seems the package wildcard.'
+            'fixpersistentutilities is not installed. Please add it to your '
+            'buildout!')
         return
-    log.write('<h2>Removing unwanted persistent utilities</h2><p>(Courtesy of wildcard.fixpersistentutilities)</p>')
-    
+    log.write(
+        '<h2>Removing unwanted persistent utilities</h2><p>(Courtesy of '
+        'wildcard.fixpersistentutilities)</p>')
+
     view.activate_expert_mode()
     # keys: provided, adapter, subscribers
     ut = view.utilities()
@@ -66,7 +70,7 @@ def uninstallInterfaces(self, log):
     adapter = IPortletManager
     reg = ad.get(adapter)
     names = ['osha.abovecontent.portlets', 'osha.belowcontent.portlets']
-    
+
     for name in names:
         util = reg.get(name)
         if util:
@@ -86,12 +90,14 @@ def uninstallInterfaces(self, log):
     subscribers = sub_reg.get(key)
     for subscriber in subscribers:
         if subscriber.__name__ in names:
-            msg = "remove subscriber %s for %s" % (subscriber.__name__, str(adapter))
+            msg = "remove subscriber %s for %s" % (
+                subscriber.__name__, str(adapter))
             msg = msg.replace('<', '&lt;')
             log.write(msg)
             print "bingo"
             view.request.set('submit', 1)
-            params = view.utility_reg_data(adapter, 'subscribers', key, subscriber)
+            params = view.utility_reg_data(
+                adapter, 'subscribers', key, subscriber)
             for k,v  in params.items():
                 view.request.set(k, v)
             view.delete_utility_reg()
@@ -115,20 +121,26 @@ def removePortlets(portal, log):
     def doRemoval(obj):
         path = '/'.join(obj.getPhysicalPath())
         try:
-            left = assignment_mapping_from_key(obj, 'plone.leftcolumn', CONTEXT_CATEGORY, path)
-            right = assignment_mapping_from_key(obj, 'plone.rightcolumn', CONTEXT_CATEGORY, path)
+            left = assignment_mapping_from_key(
+                obj, 'plone.leftcolumn', CONTEXT_CATEGORY, path)
+            right = assignment_mapping_from_key(
+                obj, 'plone.rightcolumn', CONTEXT_CATEGORY, path)
         except ComponentLookupError:
             return
         lportlets = [x for x in list(left.keys())]
         rportlets = [x for x in list(right.keys())]
-        
+
         for name in lportlets:
             if name in portlets_to_remove:
-                log.write('Removed %s from left slot of %s' % (name, obj.absolute_url()))
+                log.write(
+                    'Removed %s from left slot of %s' % (
+                        name, obj.absolute_url()))
                 del left[name]
         for name in rportlets:
             if name in portlets_to_remove:
-                log.write('Removed %s from right slot of %s' % (name, obj.absolute_url()))
+                log.write(
+                    'Removed %s from right slot of %s' % (
+                        name, obj.absolute_url()))
                 del right[name]
 
 
@@ -137,7 +149,7 @@ def removePortlets(portal, log):
             doRemoval(subobj)
             if IFolderish.providedBy(subobj):
                 doRecursion(subobj)
-      
+
     for lang in langs:
         if not hasattr(Acquisition.aq_base(portal), lang):
             continue
@@ -146,19 +158,28 @@ def removePortlets(portal, log):
         doRemoval(F)
         doRecursion(F)
 
-    dashboards = [getUtility(IPortletManager, name=name) for name in
-                        ['plone.dashboard1', 'plone.dashboard2', 'plone.dashboard3', 'plone.dashboard4']]
+    dashboards = [
+        getUtility(IPortletManager, name=name) for name in
+        ['plone.dashboard1', 'plone.dashboard2', 'plone.dashboard3',
+         'plone.dashboard4']]
 
-    to_remove = ['help', 'help-1', 'help-2', 'support', 'support-1', 'my-teams', 'my-teams-1', 'test-the-system', 'test-the-system-1']
+    to_remove = [
+        'help', 'help-1', 'help-2', 'support', 'support-1', 'my-teams',
+        'my-teams-1', 'test-the-system', 'test-the-system-1']
     for userid in portal.Members.objectIds('ATFolder'):
         for dashboard in dashboards:
-            dashmapping = assignment_mapping_from_key(portal, dashboard.__name__, USER_CATEGORY, key=userid)
+            dashmapping = assignment_mapping_from_key(
+                portal, dashboard.__name__, USER_CATEGORY, key=userid)
             dashportlets = [x for x in dashmapping.keys()]
             for name in dashportlets:
                 if name in to_remove:
                     del dashmapping[name]
-                    log.write('Removed %s from %s for user %s' %(name, dashboard.__name__, userid))
-            dashportlets = [x for x in dashboard.get(USER_CATEGORY, {}).get(userid, {}).keys()]
+                    log.write(
+                        'Removed %s from %s for user %s' %(
+                            name, dashboard.__name__, userid))
+            dashportlets = [
+                x for x in dashboard.get(
+                    USER_CATEGORY, {}).get(userid, {}).keys()]
             print dashboard, dashportlets
 
 
@@ -180,13 +201,13 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     response = self.REQUEST and self.REQUEST.RESPONSE or None
     log = setupLog(self, response)
 
-    uninst_products = ['FCKeditor', 
+    uninst_products = ['FCKeditor',
                        'p4a.plonevideo',
                        'p4a.plonevideoembed',
                        'p4a.video',
                        'p4a.ploneaudio',
                        'p4a.audio',
-                       'CacheSetup', 
+                       'CacheSetup',
                        'dateable.chronos',
                        'p4a.plonecalendar',
                        'simplon.plone.ldap',
@@ -214,11 +235,14 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     for prod in uninst_products:
         if qi.isProductInstalled(prod):
             if len(qi[prod].utilities) > 3:
-                log.write(u'Suspiciously many (%i) utilities registered for %s!' % (len(qi[prod].utilities), prod))
+                log.write(
+                    u'Suspiciously many (%i) utilities registered for %s!' % (
+                        len(qi[prod].utilities), prod))
             try:
                 out = qi.uninstallProducts(products=[prod])
             except Exception, ex:
-                out = 'ERROR while uninstalling %s: %s: %s' % (prod, ex.__class__.__name__, ex)
+                out = 'ERROR while uninstalling %s: %s: %s' % (
+                    prod, ex.__class__.__name__, ex)
             out = u'%s uninstalled (output: %s)' % (prod,out)
             log.write(u'  ' + out)
         # else:
@@ -227,7 +251,8 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     cat = getToolByName(self, 'portal_catalog')
     log.write(u'<h3>Deleting ProxyIndexes</h3>')
     indexes = cat.index_objects()
-    idx_to_delete = [idx.getId() for idx in indexes if idx.meta_type == 'ProxyIndex']
+    idx_to_delete = [
+        idx.getId() for idx in indexes if idx.meta_type == 'ProxyIndex']
     for id in idx_to_delete:
         cat.manage_delIndex(id)
         log.write(u'\tDeleted %s' % id)
@@ -240,9 +265,9 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     if id in pas.objectIds():
         pas.manage_delObjects(id)
 
-    # apparently, not needed! 
+    # apparently, not needed!
     # uninstallInterfaces(self, log)
-    
+
     removePortlets(self, log)
     fixMiscellaneous(self, log)
 
