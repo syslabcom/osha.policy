@@ -12,7 +12,7 @@ from zope.component import getUtility
 # interface import, needed for removal
 from plone.portlets.interfaces import IPortletManager
 
-logger = getLogger('gfb.policy/prepare_plone4_upgrade')
+logger = getLogger('osha.policy/prepare_plone4_upgrade')
 
 br = '<br />'
 link = '<a href="%(url)s">%(text)s</a>' + br
