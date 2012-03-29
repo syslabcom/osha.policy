@@ -125,7 +125,7 @@ def uninstall_interfaces(self, log):
 def remove_portlets(portal, log):
     log.write('<h3>Remove unwanted portlets</h3>')
     ltool = getToolByName(portal, 'portal_languages')
-    langs = ltool.getSupportedLanguages()
+    langs = sorted(ltool.getSupportedLanguages())
     portlets_to_remove = ['partners']
 
     def doRemoval(obj):
@@ -192,6 +192,8 @@ def remove_portlets(portal, log):
                     x for x in dashboard.get(
                         USER_CATEGORY, {}).get(userid, {}).keys()]
                 print dashboard, dashportlets
+            except:
+                import pdb; pdb.set_trace()
 
 
 def fix_miscellaneous(portal, log):
