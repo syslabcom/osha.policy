@@ -29,8 +29,7 @@ class LogWriter(object):
             self.response.write(msg + br)
         logger.info(msg)
 
-
-def setupLog(self, response):
+def setup_log(self, response):
     log = LogWriter(response)
     if response:
         response.setHeader('Content-Type', 'text/html;charset=UTF-8')
@@ -43,12 +42,23 @@ def setupLog(self, response):
         response.write(br)
     return log
 
+def setup(self, log):
+    pname = self.Title()
+    if not isinstance(pname, unicode):
+        pname = pname.decode('utf-8')
+    pid = self.getId()
+    log.write(u'<h2>Preparing %s (%s) ...</h2>' % (pname, pid))
+    if not self or self.portal_type != 'Plone Site':
+        log.write(u'%s is not a Plone Site' % pname)
+        finish(self, response)
+        return
+
 def finish(self, response):
     if response:
         response.write(br)
         response.write(self.backlink)
 
-def uninstallInterfaces(self, log):
+def uninstall_interfaces(self, log):
     try:
         view = self.restrictedTraverse('@@fix-persistent-utilities')
     except:
@@ -112,7 +122,7 @@ def uninstallInterfaces(self, log):
         log.write('remove interface %s' % name)
         view()
 
-def removePortlets(portal, log):
+def remove_portlets(portal, log):
     log.write('<h3>Remove unwanted portlets</h3>')
     ltool = getToolByName(portal, 'portal_languages')
     langs = ltool.getSupportedLanguages()
@@ -168,23 +178,23 @@ def removePortlets(portal, log):
         'my-teams-1', 'test-the-system', 'test-the-system-1']
     for userid in portal.Members.objectIds('ATFolder'):
         for dashboard in dashboards:
-            dashmapping = assignment_mapping_from_key(
-                portal, dashboard.__name__, USER_CATEGORY, key=userid)
-            dashportlets = [x for x in dashmapping.keys()]
-            for name in dashportlets:
-                if name in to_remove:
-                    del dashmapping[name]
-                    log.write(
-                        'Removed %s from %s for user %s' %(
-                            name, dashboard.__name__, userid))
-            dashportlets = [
-                x for x in dashboard.get(
-                    USER_CATEGORY, {}).get(userid, {}).keys()]
-            print dashboard, dashportlets
+            try:
+                dashmapping = assignment_mapping_from_key(
+                    portal, dashboard.__name__, USER_CATEGORY, key=userid)
+                dashportlets = [x for x in dashmapping.keys()]
+                for name in dashportlets:
+                    if name in to_remove:
+                        del dashmapping[name]
+                        log.write(
+                            'Removed %s from %s for user %s' %(
+                                name, dashboard.__name__, userid))
+                dashportlets = [
+                    x for x in dashboard.get(
+                        USER_CATEGORY, {}).get(userid, {}).keys()]
+                print dashboard, dashportlets
 
 
-
-def fixMiscellaneous(portal, log):
+def fix_miscellaneous(portal, log):
     log.write('<h3>Fix miscellaneous</h3>')
     path = "de/index_foursteps"
     obj = portal.restrictedTraverse(path)
@@ -193,14 +203,7 @@ def fixMiscellaneous(portal, log):
         ob[0].setText(text)
         log.write('Replaced quot with single quotation mark on index_foursteps')
 
-
-def prepare_plone4_upgrade(self, REQUEST=None):
-    """ Prepares an existing Plone 3 portal for upgrade to Plone 4. Needs to be
-        run on the Plone 3 instance before the Data.fs can be used by Plone 4.
-    """
-    response = self.REQUEST and self.REQUEST.RESPONSE or None
-    log = setupLog(self, response)
-
+def uninstall_products(self, log):
     uninst_products = ['FCKeditor',
                        'p4a.plonevideo',
                        'p4a.plonevideoembed',
@@ -218,17 +221,6 @@ def prepare_plone4_upgrade(self, REQUEST=None):
                        'webcouturier.dropdownmenu',
 #                       'Products.VocabularyPickerWidget',
                        ]
-
-    pname = self.Title()
-    if not isinstance(pname, unicode):
-        pname = pname.decode('utf-8')
-    pid = self.getId()
-    log.write(u'<h2>Preparing %s (%s) ...</h2>' % (pname, pid))
-    if not self or self.portal_type != 'Plone Site':
-        log.write(u'%s is not a Plone Site' % pname)
-        finish(self, response)
-        return
-
 
     qi = getToolByName(self, 'portal_quickinstaller')
     log.write(u'<h3>Uninstalling products</h3>')
@@ -248,6 +240,7 @@ def prepare_plone4_upgrade(self, REQUEST=None):
         # else:
         #     log.write(u'  %s not installed, skipped' % prod)
 
+def delete_proxy_indexes(self, log):
     cat = getToolByName(self, 'portal_catalog_real')
     log.write(u'<h3>Deleting ProxyIndexes</h3>')
     indexes = cat.index_objects()
@@ -259,17 +252,31 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     log.write('<h3>Emptying catalog</h3>')
     cat.manage_catalogClear()
 
+def remove_ldap_plugin(self):
     log.write('Deleting the LDAP plugin in the acl_users folder')
     pas = getToolByName(self, 'acl_users')
     id = 'ldap'
     if id in pas.objectIds():
         pas.manage_delObjects(id)
 
-    # apparently, not needed!
-    # uninstallInterfaces(self, log)
+def prepare_plone4_upgrade(self, REQUEST=None):
+    """ Prepares an existing Plone 3 portal for upgrade to Plone 4. Needs to be
+        run on the Plone 3 instance before the Data.fs can be used by Plone 4.
+    """
+    response = self.REQUEST and self.REQUEST.RESPONSE or None
+    log = setup_log(self, response)
+    setup(self, log)
 
-    removePortlets(self, log)
-    fixMiscellaneous(self, log)
+    # uninstall_products(self, log) 
+    # delete_proxy_indexes(self)
+
+    # remove_ldap_plugin(self)
+
+    ## apparently, not needed!
+    ## uninstallInterfaces(self, log)
+
+    remove_portlets(self, log)
+    # fix_miscellaneous(self, log)
 
     log.write(u"<p><em>Finished, all is well</em></p>")
     finish(self, response)
