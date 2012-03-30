@@ -168,7 +168,7 @@ def remove_portlets(portal, log):
         doRemoval(F)
         doRecursion(F)
 
-def remove_dashboards(self):
+def remove_dashboards(portal, log):
     dashboards = [
         getUtility(IPortletManager, name=name) for name in
         ['plone.dashboard1', 'plone.dashboard2', 'plone.dashboard3',
@@ -182,29 +182,24 @@ def remove_dashboards(self):
             try:
                 dashmapping = assignment_mapping_from_key(
                     portal, dashboard.__name__, USER_CATEGORY, key=userid)
-                dashportlets = [x for x in dashmapping.keys()]
-                for name in dashportlets:
-                    if name in to_remove:
-                        del dashmapping[name]
-                        log.write(
-                            'Removed %s from %s for user %s' %(
-                                name, dashboard.__name__, userid))
-                dashportlets = [
-                    x for x in dashboard.get(
-                        USER_CATEGORY, {}).get(userid, {}).keys()]
-                print dashboard, dashportlets
-            except Exception, e:
-                import pdb; pdb.set_trace()
+            except KeyError, e:
+                msg = "Cannot find the portlet mapping for %s: %s" %(
+                    userid, e)  
+                print msg 
+                log.write(msg)
+                continue 
+            dashportlets = [x for x in dashmapping.keys()]
+            for name in dashportlets:
+                if name in to_remove:
+                    del dashmapping[name]
+                    log.write(
+                        'Removed %s from %s for user %s' %(
+                            name, dashboard.__name__, userid))
+            dashportlets = [
+                x for x in dashboard.get(
+                    USER_CATEGORY, {}).get(userid, {}).keys()]
+            print dashboard, dashportlets
 
-
-def fix_miscellaneous(portal, log):
-    log.write('<h3>Fix miscellaneous</h3>')
-    path = "de/index_foursteps"
-    obj = portal.restrictedTraverse(path)
-    for ob in obj.getTranslations().values():
-        text = ob[0].getText().replace("&quot;", "'")
-        ob[0].setText(text)
-        log.write('Replaced quot with single quotation mark on index_foursteps')
 
 def uninstall_products(self, log):
     uninst_products = ['FCKeditor',
@@ -270,17 +265,16 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     log = setup_log(self, response)
     setup(self, log)
 
-    # uninstall_products(self, log)
-    # delete_proxy_indexes(self)
+    uninstall_products(self, log)
+    delete_proxy_indexes(self)
 
-    # remove_ldap_plugin(self)
+    remove_ldap_plugin(self)
 
     ## apparently, not needed!
     ## uninstallInterfaces(self, log)
 
-    # remove_portlets(self, log)
-    remove_dashboards(self)
-    # fix_miscellaneous(self, log)
+    remove_portlets(self, log)
+    remove_dashboards(self, log)
 
     log.write(u"<p><em>Finished, all is well</em></p>")
     finish(self, response)
