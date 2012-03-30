@@ -250,7 +250,7 @@ def delete_proxy_indexes(self, log):
     log.write('<h3>Emptying catalog</h3>')
     cat.manage_catalogClear()
 
-def remove_ldap_plugin(self):
+def remove_ldap_plugin(self, log):
     log.write('Deleting the LDAP plugin in the acl_users folder')
     pas = getToolByName(self, 'acl_users')
     id = 'ldap'
@@ -266,9 +266,9 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     setup(self, log)
 
     uninstall_products(self, log)
-    delete_proxy_indexes(self)
+    delete_proxy_indexes(self, log)
 
-    remove_ldap_plugin(self)
+    remove_ldap_plugin(self, log)
 
     ## apparently, not needed!
     ## uninstallInterfaces(self, log)
