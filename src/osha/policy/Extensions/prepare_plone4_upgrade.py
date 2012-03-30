@@ -216,6 +216,8 @@ def uninstall_products(self, log):
                        'p4a.plonevideoembed',
                        'p4a.video',
                        'simplon.plone.ldap',
+                       'slc.clicksearch',
+                       'slc.medialibrary',
                        'webcouturier.dropdownmenu',
 #                       'Products.VocabularyPickerWidget',
                        ]
