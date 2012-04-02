@@ -47,6 +47,14 @@
                                                 obj_modified obj/modified;
                                                 obj_description obj/Description;
                                                 obj_typeinfo python: here.portal_types.getTypeInfo(obj_type);
+						normalizeString nocall:context/@@plone/normalizeString;
+						toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+						portal_properties context/portal_properties;
+						site_properties context/portal_properties/site_properties;
+						mtool context/portal_membership;
+						wtool context/portal_workflow;
+						isAnon context/@@plone_portal_state/anonymous;
+						member context/@@plone_portal_state/member;
                                                 icon python:portal_url+'/'+ obj_typeinfo.getIcon();
                                                 obj_wf_state obj/review_state|python: wtool.getInfoFor(obj, 'review_state', '');
                                                 obj_wf_state_class python:'state-' + normalizeString(obj_wf_state);

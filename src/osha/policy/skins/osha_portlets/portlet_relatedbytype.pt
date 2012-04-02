@@ -20,6 +20,8 @@
     <tal:items tal:repeat="obj results">
     <dd class="portletItem"
         tal:define="oddrow repeat/obj/odd;
+                    normalizeString nocall:context/@@plone/normalizeString;
+                    toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                     item_wf_state obj/review_state;
                     item_wf_state_class python:'state-' + normalizeString(item_wf_state);
                     item_type_class python: 'visualIcon contenttype-' + normalizeString(obj.portal_type);"
