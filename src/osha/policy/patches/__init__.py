@@ -9,7 +9,7 @@ import event_patch
 import increase_resourceregistry_cache_duration
 import kupu_patch_subsite
 #import linguaplone_addTranslation_patch
-import linguaplone_defaultLanguage_patch
+#import linguaplone_defaultLanguage_patch
 import newsitem_patch
 import p4aaudio_patch
 import p4aimages_patch
@@ -21,4 +21,4 @@ import queuecatalog_patch
 #import subject_accessor
 #import subject_languageindependent
 import vdex_vocabulary_extension_patch
-import LinguaPlone_generator_patch
+#import LinguaPlone_generator_patch
