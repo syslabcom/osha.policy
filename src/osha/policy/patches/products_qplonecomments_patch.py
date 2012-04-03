@@ -17,9 +17,8 @@ for i in range(len(mod_names)):
     full_mod_name = ".".join(mod_names[:i+1])
 
     if full_mod_name not in sys.modules.keys():
-        m = imp.new_module(mod_name)
+        m = imp.new_module(full_mod_name)
         parent_mod_name = ".".join(mod_names[:i])
         setattr(sys.modules[parent_mod_name], mod_names[i], m)
-        # sys.modules[mod_name] = m
-        # print mod_name
+        sys.modules[full_mod_name] = m
 m.IPloneCommentsLayer = Interface
