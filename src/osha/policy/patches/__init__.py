@@ -23,3 +23,4 @@ import subject_accessor
 import subject_languageindependent
 import vdex_vocabulary_extension_patch
 import LinguaPlone_generator_patch
+#import products_qplonecomments_patch
