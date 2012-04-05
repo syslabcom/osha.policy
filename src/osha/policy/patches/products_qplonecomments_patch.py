@@ -12,14 +12,24 @@ import imp, sys
 from zope.interface import Interface
 
 
-mod_names = ['Products', 'qPloneComments', 'interfaces']
-for i in range(len(mod_names)):
-    full_mod_name = ".".join(mod_names[:i+1])
+dummy_modules = [
+    "p4a.calendar.interfaces.ICalendarEnhanced",
+    "Products.qPloneComments.interfaces.IPloneCommentsLayer",
+    "slc.calendarfetcher.browser.interfaces.ICalendarFetcherLayer",
+    "p4a.video.interfaces.IVideoEnhanced"
+    ]
 
-    if full_mod_name not in sys.modules.keys():
-        m = imp.new_module(mod_name)
-        parent_mod_name = ".".join(mod_names[:i])
-        setattr(sys.modules[parent_mod_name], mod_names[i], m)
-        # sys.modules[mod_name] = m
-        # print mod_name
-m.IPloneCommentsLayer = Interface
+for module in dummy_modules:
+    dotted_name = module.split(".")
+    module_list = dotted_name[:-1]
+    interface = dotted_name[-1:]
+
+    for i in range(len(module_list)):
+        full_mod_name = ".".join(module_list[:i+1])
+
+        if full_mod_name not in sys.modules.keys():
+            m = imp.new_module(full_mod_name)
+            parent_mod_name = ".".join(module_list[:i])
+            setattr(sys.modules[parent_mod_name], module_list[i], m)
+            sys.modules[full_mod_name] = m
+    setattr(m, interface, Interface)
