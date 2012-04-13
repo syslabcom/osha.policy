@@ -1,6 +1,6 @@
 from plone.theme.interfaces import IDefaultPloneLayer
 from zope.interface import Interface, Attribute
-from plone.portlets.interfaces import IPortletManager
+
 
 class IThemeSpecific(IDefaultPloneLayer):
     """Marker interface that defines a Zope 3 skin layer.
@@ -67,14 +67,6 @@ class IVocabularyHelper(Interface):
     def getSubjectList():
         """Return a display list of Subject entries"""
 
-
-class IOSHAboveContent(IPortletManager):
-    """we need our own portlet manager above the content area.
-    """
-
-class IOSHBelowContent(IPortletManager):
-    """we need our own portlet manager below the content area.
-    """
 
 class ICaptchaHelper(Interface):
     """ This interface holds utility methods for using collective.captcha

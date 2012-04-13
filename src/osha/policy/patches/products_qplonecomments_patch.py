@@ -16,13 +16,15 @@ dummy_modules = [
     "p4a.calendar.interfaces.ICalendarEnhanced",
     "Products.qPloneComments.interfaces.IPloneCommentsLayer",
     "slc.calendarfetcher.browser.interfaces.ICalendarFetcherLayer",
-    "p4a.video.interfaces.IVideoEnhanced"
+    "p4a.video.interfaces.IVideoEnhanced",
+    "Products.CMFCore.interfaces.Contentish.Contentish",
+    "webdav.WriteLockInterface.WriteLockInterface"
     ]
 
 for module in dummy_modules:
     dotted_name = module.split(".")
     module_list = dotted_name[:-1]
-    interface = dotted_name[-1:]
+    interface = dotted_name[-1:][0]
 
     for i in range(len(module_list)):
         full_mod_name = ".".join(module_list[:i+1])
