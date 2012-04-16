@@ -13,8 +13,6 @@ from p4a.plonecalendar.eventprovider import \
         ATEventProvider as BASEATEventProvider
 from p4a.plonecalendar.eventprovider import BrainEvent
 
-from Products.ATContentTypes.content.topic import ATTopic
-
 from osha.theme.browser.calendar_helper_view import getEventDateToBeConfirmed
 
 
@@ -31,7 +29,7 @@ class OSHBrainEvent(BrainEvent):
 
 class ATEventProvider(BASEATEventProvider):
     interface.implements(interfaces.IEventProvider)
-    component.adapts(ATTopic)
+    component.adapts(atapi.BaseObject)
 
     def __init__(self, context):
         self.context = context
