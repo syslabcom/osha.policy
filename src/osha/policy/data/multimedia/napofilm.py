@@ -1,4 +1,16 @@
 filmstructure = [
+    dict(id='napo-017-working-together',
+                title="heading_napo-017-working-together",
+                description='description_napo-017-working-together',
+                video_avi='http://media.osha.europa.eu/napofilm/napo-017-working-together.wmv', 
+                video_wmv='http://media.osha.europa.eu/napofilm/napo-017-working-together.wmv',
+                episodes=[dict(
+                  id="napo-017-working-together",
+                  title="heading_napo-017-working-together",
+                  video_avi='http://media.osha.europa.eu/napofilm/napo-017-working-together.avi', 
+                  video_wmv='http://media.osha.europa.eu/napofilm/napo-017-working-together.wmv',
+               )]
+              ),
     dict(id='napo-016-lungs-at-work',
                 title="heading_napo-016-lungs-at-work",
                 description='description_napo-016-lungs-at-work',
