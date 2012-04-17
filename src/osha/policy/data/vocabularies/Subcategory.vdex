@@ -5105,6 +5105,35 @@
     </caption>
   </term>
   <term>
+    <termIdentifier>esener</termIdentifier>
+    <caption>
+      <langstring language="da">ESENER</langstring>
+      <langstring language="de">ESENER</langstring>
+      <langstring language="et">ESENER</langstring>
+      <langstring language="en">ESENER</langstring>
+      <langstring language="es">ESENER</langstring>
+      <langstring language="fr">ESENER</langstring>
+      <langstring language="it">ESENER</langstring>
+      <langstring language="lv">ESENER</langstring>
+      <langstring language="lt">ESENER</langstring>
+      <langstring language="hu">ESENER</langstring>
+      <langstring language="mt">ESENER</langstring>
+      <langstring language="nl">ESENER</langstring>
+      <langstring language="pl">ESENER</langstring>
+      <langstring language="pt">ESENER</langstring>
+      <langstring language="ro">ESENER</langstring>
+      <langstring language="sk">ESENER</langstring>
+      <langstring language="sl">ESENER</langstring>
+      <langstring language="fi">ESENER</langstring>
+      <langstring language="sv">ESENER</langstring>
+      <langstring language="cs">ESENER</langstring>
+      <langstring language="el">ESENER</langstring>
+      <langstring language="bg">ESENER</langstring>
+      <langstring language="is">ESENER</langstring>
+      <langstring language="no">ESENER</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>education</termIdentifier>
     <caption>
       <langstring language="da">Arbejdsmiljø og uddannelse</langstring>
