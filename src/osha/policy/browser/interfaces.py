@@ -1,6 +1,13 @@
 from plone.theme.interfaces import IDefaultPloneLayer
 from zope.interface import Interface, Attribute
+from osha.theme.browser.interfaces import IOSHAAboveContent
+from osha.theme.browser.interfaces import IOSHABelowContent
 
+class IOSHAboveContent(IOSHAAboveContent):
+    pass
+
+class IOSHBelowContent(IOSHABelowContent):
+    pass
 
 class IThemeSpecific(IDefaultPloneLayer):
     """Marker interface that defines a Zope 3 skin layer.
