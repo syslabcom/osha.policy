@@ -14,11 +14,14 @@ from zope.interface import Interface
 
 dummy_modules = [
     "p4a.calendar.interfaces.ICalendarEnhanced",
+    "p4a.calendar.interfaces.ICalendarSupport",
     "Products.qPloneComments.interfaces.IPloneCommentsLayer",
     "slc.calendarfetcher.browser.interfaces.ICalendarFetcherLayer",
     "p4a.video.interfaces.IVideoEnhanced",
+    'p4a.plonevideoembed.interfaces.IVideoLinkEnhanced',
     "Products.CMFCore.interfaces.Contentish.Contentish",
-    "webdav.WriteLockInterface.WriteLockInterface"
+    "webdav.WriteLockInterface.WriteLockInterface",
+    "Products.CMFCore.interfaces.Dynamic.DynamicType"
     ]
 
 for module in dummy_modules:
