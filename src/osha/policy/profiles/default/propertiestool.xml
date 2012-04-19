@@ -466,9 +466,8 @@
   <property name="ext_editor" type="boolean">False</property>
   <property name="available_editors" type="lines">
    <element value="None"/>
-   <element value="Kupu"/>
    <element value="EditOnPro"/>
-   <element value="FCKeditor"/>
+   <element value="CKeditor"/>
   </property>
   <property name="allowRolesToAddKeywords" type="lines">
    <element value="Manager"/>

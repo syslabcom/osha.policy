@@ -13,16 +13,17 @@ from zope.interface import Interface
 
 
 dummy_modules = [
+    "Products.CMFCore.interfaces.Contentish.Contentish",
+    "Products.CMFCore.interfaces.Dynamic.DynamicType",
+    "Products.qPloneComments.interfaces.IPloneCommentsLayer",
     "p4a.calendar.interfaces.ICalendarEnhanced",
     "p4a.calendar.interfaces.ICalendarSupport",
-    "Products.qPloneComments.interfaces.IPloneCommentsLayer",
-    "slc.calendarfetcher.browser.interfaces.ICalendarFetcherLayer",
     "p4a.video.interfaces.IVideoEnhanced",
-    'p4a.plonevideoembed.interfaces.IVideoLinkEnhanced',
-    "Products.CMFCore.interfaces.Contentish.Contentish",
+    "slc.calendarfetcher.browser.interfaces.ICalendarFetcherLayer",
+    "slc.clicksearch.interfaces.IClickSearchConfiguration",
     "webdav.WriteLockInterface.WriteLockInterface",
-    "Products.CMFCore.interfaces.Dynamic.DynamicType",
-    "slc.clicksearch.interfaces.IClickSearchConfiguration"
+    'p4a.plonevideoembed.interfaces.IVideoLinkEnhanced',
+    'wildcard.fixpersistentutilities.classfactory.IFakeInterface'
     ]
 
 for module in dummy_modules:
@@ -36,6 +37,8 @@ for module in dummy_modules:
         if full_mod_name not in sys.modules.keys():
             m = imp.new_module(full_mod_name)
             parent_mod_name = ".".join(module_list[:i])
-            setattr(sys.modules[parent_mod_name], module_list[i], m)
             sys.modules[full_mod_name] = m
+            if parent_mod_name != "":
+                setattr(sys.modules[parent_mod_name], module_list[i], m)
+
     setattr(m, interface, Interface)
