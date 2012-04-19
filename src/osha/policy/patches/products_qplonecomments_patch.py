@@ -21,7 +21,8 @@ dummy_modules = [
     'p4a.plonevideoembed.interfaces.IVideoLinkEnhanced',
     "Products.CMFCore.interfaces.Contentish.Contentish",
     "webdav.WriteLockInterface.WriteLockInterface",
-    "Products.CMFCore.interfaces.Dynamic.DynamicType"
+    "Products.CMFCore.interfaces.Dynamic.DynamicType",
+    "slc.clicksearch.interfaces.IClickSearchConfiguration"
     ]
 
 for module in dummy_modules:
