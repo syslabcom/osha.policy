@@ -1,16 +1,25 @@
-from zope import component
-from zope.configuration import xmlconfig
+import os
+import unittest2 as unittest
 
-from Products.Archetypes.Schema.factory import instanceSchemaFactory
-from Products.CMFCore.utils import getToolByName
-from Testing import ZopeTestCase as ztc
-
-from plone.app.testing import (
-    FunctionalTesting, IntegrationTesting, PLONE_FIXTURE,
-    PloneSandboxLayer, applyProfile, quickInstallProduct)
+from Globals import package_home
+from osha.theme.config import product_globals
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import applyProfile
+from plone.app.testing import quickInstallProduct
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import login
 from plone.testing import z2
-
-from osha.policy.interfaces import IOSHACommentsLayer
+from Products.Five.testbrowser import Browser
+from Products.PloneTestCase.ptc import portal_owner
+from Products.PloneTestCase.ptc import default_password
+from StringIO import StringIO
+from Testing import ZopeTestCase as ztc
+from zope.configuration import xmlconfig
 
 
 def startZServerSSH(local_port, user_at_hostname):
@@ -33,16 +42,17 @@ class OshaPolicy(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         import osha.policy
-        xmlconfig.file('configure.zcml', osha.policy, 
+        xmlconfig.file('configure.zcml', osha.policy,
             context=configurationContext)
 
-        # required for python scripts e.g. manage_add*
+		# required for python scripts e.g. manage_add*
         z2.installProduct(app, 'Products.PythonScripts')
         # required, otherwise we get Unauth
         z2.installProduct(app, 'Products.ATVocabularyManager')
 
         z2.installProduct(app, 'Products.PressRoom')
         z2.installProduct(app, 'Products.ATCountryWidget')
+        z2.installProduct(app, 'Products.PloneHelpCenter')
         z2.installProduct(app, "Products.Relations")
         z2.installProduct(app, "osha.policy")
 
@@ -56,6 +66,8 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=Products.CaseStudy)
         import Products.OSHContentLink
         self.loadZCML('configure.zcml', package=Products.OSHContentLink)
+        import Products.PloneHelpCenter
+        self.loadZCML('configure.zcml', package=Products.PloneHelpCenter)
         import Products.PressRoom
         self.loadZCML('configure.zcml', package=Products.PressRoom)
         import Products.PublicJobVacancy
@@ -89,15 +101,45 @@ class OshaPolicy(PloneSandboxLayer):
         # KeyError: 'ACTUAL_URL'
         portal.REQUEST["ACTUAL_URL"] = portal.REQUEST["SERVER_URL"]
 
+        # Install all the Plone stuff + content (including the 
+		# Members folder)
+        applyProfile(portal, 'Products.CMFPlone:plone')
+        applyProfile(portal, 'Products.CMFPlone:plone-content')
+        
         # quick install ATVocabularyManager or else we don't have
         # portal.portal_vocabularies
         quickInstallProduct(portal, "Products.ATVocabularyManager")
-
+        quickInstallProduct(portal, "Products.PloneHelpCenter")
         quickInstallProduct(portal, "Products.ATCountryWidget")
         quickInstallProduct(portal, "plonetheme.classic")
 
         applyProfile(portal, 'osha.policy:default')
         applyProfile(portal, 'osha.theme:default')
+
+        # We need this imports here, otherwise we get an error
+        from Products.CMFPlone.tests.utils import MockMailHost
+        from Products.MailHost.interfaces import IMailHost
+
+        # Mock MailHost
+        mockmailhost = MockMailHost('MailHost')
+        portal.MailHost = mockmailhost
+        sm = portal.getSiteManager()
+        sm.registerUtility(component=mockmailhost, provided=IMailHost)
+
+        # Login as manager and create a test folder
+        setRoles(portal, TEST_USER_ID, ['Manager'])
+        login(portal, TEST_USER_NAME)
+        portal.invokeFactory('Folder', 'folder')
+
+        # Enable Members folder
+        from plone.app.controlpanel.security import ISecuritySchema
+        security_adapter = ISecuritySchema(portal)
+        security_adapter.set_enable_user_folders(True)
+
+        # Commit so that the test browser sees these objects
+        portal.portal_catalog.clearFindAndRebuild()
+        import transaction
+        transaction.commit()
 
 
 OSHA_FIXTURE = OshaPolicy()
@@ -105,3 +147,24 @@ OSHA_INTEGRATION_TESTING = IntegrationTesting(
     bases=(OSHA_FIXTURE,), name="OshaPolicy:Integration")
 OSHA_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(OSHA_FIXTURE,), name="OshaPolicy:Functional")
+
+
+class FunctionalTestCase(unittest.TestCase):
+    """Base class for functional integration tests."""
+
+    layer = OSHA_FUNCTIONAL_TESTING
+
+    def getBrowser(self, url):
+        browser = Browser()
+        browser.open(url)
+        browser.getControl(name='__ac_name').value = portal_owner
+        browser.getControl(name='__ac_password').value = default_password
+        browser.getControl(name='submit').click()
+        return browser
+
+    def loadfile(self, rel_filename):
+        home = package_home(product_globals)
+        filename = os.path.sep.join([home, rel_filename])
+        data = StringIO(open(filename, 'r').read())
+        data.filename = os.path.basename(rel_filename)
+        return data
