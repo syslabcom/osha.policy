@@ -18,12 +18,13 @@ dummy_modules = [
     "Products.qPloneComments.interfaces.IPloneCommentsLayer",
     "p4a.calendar.interfaces.ICalendarEnhanced",
     "p4a.calendar.interfaces.ICalendarSupport",
+    "p4a.plonevideoembed.interfaces.IVideoLinkEnhanced",
+    "p4a.video.interfaces.IVideoContainerEnhanced",
     "p4a.video.interfaces.IVideoEnhanced",
     "slc.calendarfetcher.browser.interfaces.ICalendarFetcherLayer",
     "slc.clicksearch.interfaces.IClickSearchConfiguration",
     "webdav.WriteLockInterface.WriteLockInterface",
-    'p4a.plonevideoembed.interfaces.IVideoLinkEnhanced',
-    'wildcard.fixpersistentutilities.classfactory.IFakeInterface'
+    "wildcard.fixpersistentutilities.classfactory.IFakeInterface"
     ]
 
 for module in dummy_modules:
