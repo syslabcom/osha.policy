@@ -24,27 +24,48 @@ class TestRSS(unittest.TestCase):
              'base_url': '/search_rss?RSSTitle=nice%%20title&%(lang)s/%(sorter)s'
         }]
 
-        should_be = [
-        {   'url': 'portal_path/search_rss?Subject=1&RSSTitle=EU-OSHA%20one&Language=en&review_state=published&sort_on=effective',
-            'icon': 'topic_icon.gif', 'id': '1', 'title': 'EU-OSHA one'},
-        {    'url': 'portal_path/search_rss?Subject=2&RSSTitle=EU-OSHA%20two&Language=en&review_state=published&sort_on=effective',
-            'icon': 'topic_icon.gif', 'id': '2', 'title': 'EU-OSHA two'},
-        {    'url': 'portal_path/search_rss?Subject=3&RSSTitle=EU-OSHA%20drei%C3%83%C2%B6&Language=en&review_state=published&sort_on=effective',
-            'icon': 'topic_icon.gif', 'id': '3', 'title': u'EU-OSHA drei\xc3\xb6'}]
-        and_is = view.subject_feeds()
-        self.assertEquals(should_be, and_is)
+        # test subject feeds
+        expected_feeds = [
+            {
+                'url': 'portal_path/search_rss?Subject=1&RSSTitle=EU-OSHA%20one&Language=en&review_state=published&sort_on=effective',
+                'icon': 'topic_icon.gif',
+                'id': '1',
+                'title': 'EU-OSHA one'
+            },
+            {
+                'url': 'portal_path/search_rss?Subject=2&RSSTitle=EU-OSHA%20two&Language=en&review_state=published&sort_on=effective',
+                'icon': 'topic_icon.gif',
+                'id': '2',
+                'title': 'EU-OSHA two'
+            },
+            {
+                'url': 'portal_path/search_rss?Subject=3&RSSTitle=EU-OSHA%20drei%C3%B6&Language=en&review_state=published&sort_on=effective',
+                'icon': 'topic_icon.gif',
+                'id': '3',
+                'title': u'EU-OSHA drei\xf6'
+            },
+        ]
+        actual_feeds = view.subject_feeds()
+        self.assertEquals(expected_feeds, actual_feeds)
 
-        should_be = [{'url': 'portal_path/search_rss?RSSTitle=nice%20title&en/effective',
-                      'icon': 'nice icon.png', 'id': 'doc_type', 'title': 'nice title'}]
-        and_is = view.type_feeds()
-        self.assertEquals(should_be, and_is)
+        # test type feeds
+        expected_feeds = [
+            {
+                'url': 'portal_path/search_rss?RSSTitle=nice%20title&en/effective',
+                'icon': 'nice icon.png',
+                'id': 'doc_type',
+                'title': 'nice title'
+            },
+        ]
+        actual_feeds = view.type_feeds()
+        self.assertEquals(expected_feeds, actual_feeds)
 
 
 class TestOshaRSS(FunctionalTestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        self.browser = self.getBrowser(self.portal.absolute_url())
+        self.browser = self.getBrowser()
 
     def test_configuration(self):
         url = self.portal.absolute_url() + '/@@rss-feeds'
