@@ -3,12 +3,10 @@ import unittest2 as unittest
 from DateTime import DateTime
 from Products.PloneHelpCenter.config import ADD_CENTER_PERMISSION
 
-from osha.policy.tests.base import OSHA_INTEGRATION_TESTING
+from osha.policy.tests.base import FunctionalTestCase
 
 
-class TestOshaHelpCenter(unittest.TestCase):
-
-    layer = OSHA_INTEGRATION_TESTING
+class TestOshaHelpCenter(FunctionalTestCase):
 
     def _add_faq(self, folder, faq_title, subcategory=None):
         wft = self.portal.portal_workflow
@@ -30,15 +28,19 @@ class TestOshaHelpCenter(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        self.folder = self.portal['folder']
         self.portal.manage_permission(ADD_CENTER_PERMISSION, ['Owner', ])
 
-        self.folder.invokeFactory("HelpCenter", "faqs")
-        self.folder.faqs.invokeFactory("HelpCenterFAQFolder", "other-faqs")
-        self.folder.faqs.invokeFactory("HelpCenterFAQFolder",
+        # Member folders are created only after a member properly logs-in
+        self.getBrowser()  # this logs-in the test user as a side-effect
+
+        self.usrfolder = self.portal.Members['test_user_1_']
+
+        self.usrfolder.invokeFactory("HelpCenter", "faqs")
+        self.usrfolder.faqs.invokeFactory("HelpCenterFAQFolder", "other-faqs")
+        self.usrfolder.faqs.invokeFactory("HelpCenterFAQFolder",
                                        "general-information")
-        general_info_faqs = self.folder.faqs["general-information"]
-        other_faqs = self.folder.faqs["other-faqs"]
+        general_info_faqs = self.usrfolder.faqs["general-information"]
+        other_faqs = self.usrfolder.faqs["other-faqs"]
 
         self._add_faq(general_info_faqs, "general-faq")
         self._add_faq(other_faqs, "agriculture-faq",
@@ -50,7 +52,6 @@ class TestOshaHelpCenter(unittest.TestCase):
                       subcategory=(u'accident_prevention',))
 
     def test_general_faqs(self):
-        import pdb;pdb.set_trace()
         osha_helpcenter_view = self.portal.unrestrictedTraverse(
             "/plone/Members/test_user_1_/faqs/osha_help_center_view")
 
@@ -67,7 +68,7 @@ class TestOshaHelpCenter(unittest.TestCase):
         osha_helpcenter_view = self.portal.unrestrictedTraverse(
             "/plone/Members/test_user_1_/faqs/osha_help_center_view")
         osha_helpcenter_view.request.form["subcategory"] = "agriculture"
-        osha_helpcenter_view.__init__(self.folder,
+        osha_helpcenter_view.__init__(self.usrfolder,
             osha_helpcenter_view.request)
 
         faq_ids = [i.id for i in osha_helpcenter_view.faqs]
@@ -77,7 +78,7 @@ class TestOshaHelpCenter(unittest.TestCase):
         osha_helpcenter_view = self.portal.unrestrictedTraverse(
             "/plone/Members/test_user_1_/faqs/osha_help_center_view")
         osha_helpcenter_view.request.form["subcategory"] = "agriculture"
-        osha_helpcenter_view.__init__(self.folder,
+        osha_helpcenter_view.__init__(self.usrfolder,
             osha_helpcenter_view.request)
 
         subcat_keys = osha_helpcenter_view.get_subcategories(
