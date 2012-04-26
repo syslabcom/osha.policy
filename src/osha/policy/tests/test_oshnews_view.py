@@ -51,6 +51,11 @@ class TestOSHNewsLocalView(IntegrationTestCase):
         self.assertNotIn('newsitem3', [r.id for r in results])  # not published
         self.assertNotIn('newsitem4', [r.id for r in results])  # in another folder
 
+    def test_getName(self):
+        """Method getName() simply returns the name of the view."""
+        view = self.portal.unrestrictedTraverse('@@oshnews-local-view')
+        self.assertEquals(view.getName(), u'oshnews-local-view')
+
 
 class TestOSHNewsView(IntegrationTestCase):
     """Test for the @@oshanews-view."""
@@ -88,6 +93,24 @@ class TestOSHNewsView(IntegrationTestCase):
         # call on something else
         view = self.portal.unrestrictedTraverse('@@oshnews-view')
         self.assertEquals(view.Title(), u'heading_newsboard_latest_news')
+
+    def test_getName(self):
+        """Method getName() simply returns the name of the view."""
+        view = self.portal.unrestrictedTraverse('@@oshnews-view')
+        self.assertEquals(view.getName(), u'oshnews-view')
+
+    def test_showLinkToNewsItem(self):
+        """If context has 'show_link_to_news_item' property set than its value
+        gets returned, otherwise True.
+        """
+        # first test when property is not set
+        view = self.portal.unrestrictedTraverse('@@oshnews-view')
+        self.assertEquals(view.showLinkToNewsItem(), True)
+
+        # now when property is set
+        self.portal._setProperty('show_link_to_news_item', False)
+        view = self.portal.unrestrictedTraverse('@@oshnews-view')
+        self.assertEquals(view.showLinkToNewsItem(), False)
 
 
 def test_suite():
