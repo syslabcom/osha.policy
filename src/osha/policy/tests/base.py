@@ -12,11 +12,10 @@ from plone.app.testing import quickInstallProduct
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
 from plone.app.testing import login
 from plone.testing import z2
-from Products.Five.testbrowser import Browser
-from Products.PloneTestCase.ptc import portal_owner
-from Products.PloneTestCase.ptc import default_password
+from plone.testing.z2 import Browser
 from StringIO import StringIO
 from Testing import ZopeTestCase as ztc
 from zope.configuration import xmlconfig
@@ -90,7 +89,7 @@ class OshaPolicy(PloneSandboxLayer):
         import slc.seminarportal
         self.loadZCML("configure.zcml", package=slc.seminarportal)
 
-        # TODO: integrate these: 
+        # TODO: integrate these:
         # browserlayer.utils.register_layer(
         #     IOSHACommentsLayer, name='osha.policy')
         # component.provideAdapter(instanceSchemaFactory)
@@ -101,11 +100,11 @@ class OshaPolicy(PloneSandboxLayer):
         # KeyError: 'ACTUAL_URL'
         portal.REQUEST["ACTUAL_URL"] = portal.REQUEST["SERVER_URL"]
 
-        # Install all the Plone stuff + content (including the 
+        # Install all the Plone stuff + content (including the
 		# Members folder)
         applyProfile(portal, 'Products.CMFPlone:plone')
         applyProfile(portal, 'Products.CMFPlone:plone-content')
-        
+
         # quick install ATVocabularyManager or else we don't have
         # portal.portal_vocabularies
         quickInstallProduct(portal, "Products.ATVocabularyManager")
@@ -154,12 +153,14 @@ class FunctionalTestCase(unittest.TestCase):
 
     layer = OSHA_FUNCTIONAL_TESTING
 
-    def getBrowser(self, url):
-        browser = Browser()
-        browser.open(url)
-        browser.getControl(name='__ac_name').value = portal_owner
-        browser.getControl(name='__ac_password').value = default_password
+    def getBrowser(self):
+        """Create an instance of zope.testbrowser."""
+        browser = Browser(self.layer['app'])
+        browser.open(self.layer['portal'].absolute_url() + '/login_form')
+        browser.getControl(name='__ac_name').value = TEST_USER_NAME
+        browser.getControl(name='__ac_password').value = TEST_USER_PASSWORD
         browser.getControl(name='submit').click()
+        self.assertIn('You are now logged in', browser.contents)
         return browser
 
     def loadfile(self, rel_filename):
