@@ -148,8 +148,14 @@ OSHA_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(OSHA_FIXTURE,), name="OshaPolicy:Functional")
 
 
+class IntegrationTestCase(unittest.TestCase):
+    """Base class for integration tests."""
+
+    layer = OSHA_INTEGRATION_TESTING
+
+
 class FunctionalTestCase(unittest.TestCase):
-    """Base class for functional integration tests."""
+    """Base class for functional tests."""
 
     layer = OSHA_FUNCTIONAL_TESTING
 
