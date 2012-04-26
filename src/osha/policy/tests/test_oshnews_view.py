@@ -112,6 +112,30 @@ class TestOSHNewsView(IntegrationTestCase):
         view = self.portal.unrestrictedTraverse('@@oshnews-view')
         self.assertEquals(view.showLinkToNewsItem(), False)
 
+    def test_getBodyText(self):
+        """Test that text of the context gets returned."""
+
+        # test on a Folder, which does not have 'text' field
+        view = self.portal.news.unrestrictedTraverse('@@oshnews-view')
+        self.assertEquals(view.getBodyText(), '')
+
+        # test on a News Item
+        self.portal.news.newsitem1.setText('foo')
+        view = self.portal.news.newsitem1.unrestrictedTraverse('@@oshnews-view')
+        self.assertEquals(view.getBodyText(), 'foo')
+
+    def test_getResults_on_ATTopic(self):
+        """"Test results when @@oshnews-view is called on an ATTopic."""
+        view = self.portal.news.aggregator.unrestrictedTraverse('@@oshnews-view')
+        results = view.getResults()
+
+        # results should be the same as the default Plone's 'News' ATTopic
+        # displays -> all published News Items
+        self.assertEquals(len(results), 3)
+        self.assertEquals(results[0].id, 'newsitem1')
+        self.assertEquals(results[1].id, 'newsitem2')
+        self.assertEquals(results[2].id, 'newsitem4')
+
 
 def test_suite():
     """This sets up a test suite that actually runs the tests in
