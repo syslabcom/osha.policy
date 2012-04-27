@@ -105,7 +105,7 @@ class LCMaintenanceView(BrowserView):
             trans.rollback()
             raise
         
-        zLOG.LOG('osha Linkchecker', zLOG.INFO, "Postgres Export Done")
+        zLOG.LOG('osha Linkchecker', zLOG.INFO, "Postgres Export Done for %s" % link_state)
         
     def get_subsite(self, path):
         path = path.replace(self.portal_path, '')
