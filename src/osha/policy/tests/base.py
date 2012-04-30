@@ -44,16 +44,18 @@ class OshaPolicy(PloneSandboxLayer):
         xmlconfig.file('configure.zcml', osha.policy,
             context=configurationContext)
 
-		# required for python scripts e.g. manage_add*
-        z2.installProduct(app, 'Products.PythonScripts')
         # required, otherwise we get Unauth
         z2.installProduct(app, 'Products.ATVocabularyManager')
-
         z2.installProduct(app, 'Products.PressRoom')
         z2.installProduct(app, 'Products.ATCountryWidget')
+        z2.installProduct(app, 'Products.Collage')
         z2.installProduct(app, 'Products.PloneHelpCenter')
+        z2.installProduct(app, 'Products.LinguaPlone')
         z2.installProduct(app, "Products.Relations")
         z2.installProduct(app, "osha.policy")
+
+        # required for python scripts e.g. manage_add*
+        z2.installProduct(app, 'Products.PythonScripts')
 
         # The zcml needs to be loaded for GS profiles which are
         # dependencies of osha.policy
@@ -63,8 +65,12 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=Products.CallForContractors)
         import Products.CaseStudy
         self.loadZCML('configure.zcml', package=Products.CaseStudy)
+        import Products.Collage
+        self.loadZCML('configure.zcml', package=Products.Collage)
         import Products.OSHContentLink
         self.loadZCML('configure.zcml', package=Products.OSHContentLink)
+        import Products.LinguaPlone
+        self.loadZCML('configure.zcml', package=Products.LinguaPlone)
         import Products.PloneHelpCenter
         self.loadZCML('configure.zcml', package=Products.PloneHelpCenter)
         import Products.PressRoom
@@ -110,7 +116,9 @@ class OshaPolicy(PloneSandboxLayer):
         quickInstallProduct(portal, "Products.ATVocabularyManager")
         quickInstallProduct(portal, "Products.PloneHelpCenter")
         quickInstallProduct(portal, "Products.ATCountryWidget")
+        quickInstallProduct(portal, "Products.Collage")
         quickInstallProduct(portal, "plonetheme.classic")
+        quickInstallProduct(portal, "Products.LinguaPlone")
 
         applyProfile(portal, 'osha.policy:default')
         applyProfile(portal, 'osha.theme:default')
@@ -140,7 +148,18 @@ class OshaPolicy(PloneSandboxLayer):
         import transaction
         transaction.commit()
 
+    def tearDownZope(self, app):
+        z2.uninstallProduct(app, 'Products.ATVocabularyManager')
+        z2.uninstallProduct(app, 'Products.PressRoom')
+        z2.uninstallProduct(app, 'Products.ATCountryWidget')
+        z2.uninstallProduct(app, 'Products.Collage')
+        z2.uninstallProduct(app, 'Products.PloneHelpCenter')
+        z2.uninstallProduct(app, 'Products.LinguaPlone')
+        z2.uninstallProduct(app, 'Products.PythonScripts')
+        z2.uninstallProduct(app, "Products.Relations")
+        z2.uninstallProduct(app, "osha.policy")
 
+        
 OSHA_FIXTURE = OshaPolicy()
 OSHA_INTEGRATION_TESTING = IntegrationTesting(
     bases=(OSHA_FIXTURE,), name="OshaPolicy:Integration")
