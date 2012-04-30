@@ -21,5 +21,5 @@ import queuecatalog_patch
 #import subject_languageindependent
 import vdex_vocabulary_extension_patch
 #import LinguaPlone_generator_patch
-import products_qplonecomments_patch
+import stub_missing_interfaces_patch
 
