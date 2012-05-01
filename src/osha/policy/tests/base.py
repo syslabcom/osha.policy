@@ -159,7 +159,7 @@ class OshaPolicy(PloneSandboxLayer):
         z2.uninstallProduct(app, "Products.Relations")
         z2.uninstallProduct(app, "osha.policy")
 
-        
+
 OSHA_FIXTURE = OshaPolicy()
 OSHA_INTEGRATION_TESTING = IntegrationTesting(
     bases=(OSHA_FIXTURE,), name="OshaPolicy:Integration")
