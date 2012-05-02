@@ -76,6 +76,43 @@ m = Move
 d = Delete
     The next field contains the id of the term to be deleted.
 
+
+Testing
+=======
+
+osha.policy contains tests for the package itself and other dependencies
+in the osha namespace (e.g. osha.theme) - these tests might move to their
+respective packages in the future.
+
+To run all the tests::
+
+    $ bin/test
+
+To run a specific test::
+
+    $ bin/test -t test_oshaview
+
+Running this command might take quite a lot of time, because there are
+some very time consuming tests. If you run the tests frequently it is
+advisable to use an alternative test runner, which runs the tests
+without all the expensive tests.
+
+To run a test runner without the time consuming tests::
+
+    $ bin/test-quick
+
+Note that if you want to use the '-t' switch, just specify the filter 
+immediately after the test runner script, without the '-t' (because
+we already use the -t switch in the test runner to exclude the slow
+tests)::
+
+    $ bin/test-quick test_oshaview
+
+For other test options please consult the test runner help::
+
+    $ bin/test --help
+
+
 Credits
 =======
 
