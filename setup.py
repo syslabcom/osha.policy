@@ -161,8 +161,11 @@ setup(name='osha.policy',
         'ZPsycopgDA'
       ],
       extras_require={
-        'test': ['zope.testing',],
-        },
+          'test': [
+              'zope.testing',
+              'mock',
+          ],
+      },
       test_suite = 'osha.policy.tests.test_docs.test_suite',
       entry_points="""
       [z3c.autoinclude.plugin]
