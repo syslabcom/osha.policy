@@ -87,6 +87,8 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=osha.policy)
         import osha.theme
         self.loadZCML('configure.zcml', package=osha.theme)
+        import osha.adaptation
+        self.loadZCML('configure.zcml', package=osha.adaptation)
         import slc.shoppinglist
         self.loadZCML('configure.zcml', package=slc.shoppinglist)
         import slc.xliff
@@ -107,7 +109,7 @@ class OshaPolicy(PloneSandboxLayer):
         portal.REQUEST["ACTUAL_URL"] = portal.REQUEST["SERVER_URL"]
 
         # Install all the Plone stuff + content (including the
-		# Members folder)
+        # Members folder)
         applyProfile(portal, 'Products.CMFPlone:plone')
         applyProfile(portal, 'Products.CMFPlone:plone-content')
 
