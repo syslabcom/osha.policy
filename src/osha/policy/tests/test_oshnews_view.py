@@ -1,6 +1,7 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 """Tests for OSHA News Items views."""
 
+import mock
 import unittest2 as unittest
 
 from osha.policy.tests.base import IntegrationTestCase
@@ -135,6 +136,105 @@ class TestOSHNewsView(IntegrationTestCase):
         self.assertEquals(results[0].id, 'newsitem1')
         self.assertEquals(results[1].id, 'newsitem2')
         self.assertEquals(results[2].id, 'newsitem4')
+
+
+class TestOSHNewsViewGetResults(IntegrationTestCase):
+    """Separate test case to check variations of getResults() method of
+    @@oshanews-view.
+    """
+
+    def setUp(self):
+        """Custom shared utility setup for tests."""
+        self.portal = self.layer['portal']
+        self.request = self.layer['request']
+        self.catalog = self.portal.portal_catalog
+        self.workflow = self.portal.portal_workflow
+
+        # create a standard News Item in a standard location and publish it
+        self.portal.news.invokeFactory('News Item', 'newsitem')
+        self.workflow.doActionFor(self.portal.news['newsitem'], 'publish')
+
+    def test_default(self):
+        """Test results when no additional content is created/modified."""
+        view = self.portal.news.unrestrictedTraverse('@@oshnews-view')
+        results = view.getResults()
+        self.assertEquals(len(results), 1)
+        self.assertEquals(results[0].id, 'newsitem')
+
+    def test_published_only(self):
+        """Test that only published items are returned."""
+        # create a news item, but don't publish it
+        self.portal.news.invokeFactory('News Item', 'newsitem2')
+
+        view = self.portal.news.unrestrictedTraverse('@@oshnews-view')
+        results = view.getResults()
+        self.assertEquals(len(results), 1)
+        self.assertEquals(results[0].id, 'newsitem')
+
+    def test_isNews(self):
+        """Test that content marked with isNews is also returned in results."""
+
+        # create a non-"News item" object, but mark it as a news item by setting
+        # its 'isNews' to True
+        self.portal.invokeFactory('Event', 'event', isNews=True)
+        self.workflow.doActionFor(self.portal['event'], 'publish')
+
+        view = self.portal.news.unrestrictedTraverse('@@oshnews-view')
+        results = view.getResults()
+
+        # we get 2 results: standard 'newsitem' and 'event'
+        self.assertEquals(len(results), 2)
+        self.assertEquals(results[0].id, 'newsitem')
+        self.assertEquals(results[1].id, 'event')
+
+    @mock.patch('osha.theme.browser.oshnews_view.getMultiAdapter')
+    def test_navigation_root(self, getMultiAdapter):
+        """Test that only content from the current navigation root is returned.
+        """
+        # create a 'other' folder with a news item in it
+        self.portal.invokeFactory('Folder', 'other')
+        self.portal.other.invokeFactory('News Item', 'newsitem-other')
+        self.workflow.doActionFor(self.portal.other['newsitem-other'], 'publish')
+
+        # patch the getMultiAdapter(name='portal_state') so that it returns
+        # '/other' as a navigation root
+        getMultiAdapter.return_value.navigation_root_path.return_value = '/plone/news'
+
+        # we don't want to search based on keywords
+        getMultiAdapter.return_value.getCurrentSingleEntryPoint.return_value = None
+
+        view = self.portal.news.unrestrictedTraverse('@@oshnews-view')
+        results = view.getResults()
+
+        # we get only one results, standard 'newsitem', because 'newsitem-other'
+        # is on a different path
+        self.assertEquals(len(results), 1)
+        self.assertEquals(results[0].id, 'newsitem')
+
+    @mock.patch('osha.theme.browser.oshnews_view.getMultiAdapter')
+    def test_keyword_search(self, getMultiAdapter):
+        """Test that searching based on Subject keywords returns relevant
+        results.
+        """
+        # create a new News Item and set its Subject
+        self.portal.news.invokeFactory('News Item', 'newsitem-subject')
+        self.portal.news['newsitem-subject'].setSubject('foo')
+        self.portal.news['newsitem-subject'].reindexObject()
+        self.workflow.doActionFor(self.portal.news['newsitem-subject'], 'publish')
+
+        # patch the getMultiAdapter(name='oshaview') so that it returns a
+        # SingleEntryPoint with keywords
+        getMultiAdapter.return_value.getCurrentSingleEntryPoint.return_value.getProperty.return_value = ('foo', )
+
+        # we don't want to search based on navigation_root_path, return default
+        getMultiAdapter.return_value.navigation_root_path.return_value = '/plone'
+
+        view = self.portal.news.unrestrictedTraverse('@@oshnews-view')
+        results = view.getResults()
+
+        # we get only one results, the one with 'foo' as a Subject
+        self.assertEquals(len(results), 1)
+        self.assertEquals(results[0].id, 'newsitem-subject')
 
 
 def test_suite():
