@@ -10,6 +10,10 @@ from plone.portlets.interfaces import IPortletManager, ILocalPortletAssignmentMa
 from plone.app.portlets.utils import assignment_mapping_from_key
 from zope.exceptions.interfaces import DuplicationError
 from StringIO import StringIO
+import transaction
+import logging
+
+logger = logging.getLogger('osha.policy.replacePortlets')
 
 def replaceSearchPortlets(self):
     """Recursively replace 'search' portlets with 'google-searchbox' """""
@@ -119,5 +123,7 @@ def removeSearchPortlets(self):
         F = getattr(portal, lang)
         doReplacement(self, F)
         doRecursion(self, F)
+        transaction.commit()
+        logger.warning('Commited for language %s' % lang)
         
     return self.out.getvalue()
