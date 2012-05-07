@@ -84,7 +84,6 @@ def removeSearchPortlets(self):
     portal = self.portal_url.getPortalObject()
     ltool = getToolByName(portal, 'portal_languages')
     langs = ltool.getSupportedLanguages()
-    langs = ['en']
     self.out = StringIO()
     self.out.write('Starting with replacement of the "search" portlet.\n\n')
 
