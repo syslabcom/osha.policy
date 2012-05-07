@@ -5992,6 +5992,34 @@
     </term>
   </term>
   <term>
+    <termIdentifier>foresight</termIdentifier>
+    <caption>
+      <langstring language="da">Foresight</langstring>
+      <langstring language="de">Foresight</langstring>
+      <langstring language="et">Foresight</langstring>
+      <langstring language="en">Foresight</langstring>
+      <langstring language="es">Foresight</langstring>
+      <langstring language="fr">Foresight</langstring>
+      <langstring language="it">Foresight</langstring>
+      <langstring language="lv">Foresight</langstring>
+      <langstring language="lt">Foresight</langstring>
+      <langstring language="hu">Foresight</langstring>
+      <langstring language="is">Foresight</langstring>
+      <langstring language="mt">Foresight</langstring>
+      <langstring language="nl">Foresight</langstring>
+      <langstring language="no">Foresight</langstring>
+      <langstring language="pl">Foresight</langstring>
+      <langstring language="pt">Foresight</langstring>
+      <langstring language="sk">Foresight</langstring>
+      <langstring language="sl">Foresight</langstring>
+      <langstring language="fi">Foresight</langstring>
+      <langstring language="sv">Foresight</langstring>
+      <langstring language="cs">Foresight</langstring>
+      <langstring language="el">Foresight</langstring>
+      <langstring language="bg">Foresight</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>fisheries</termIdentifier>
     <caption>
       <langstring language="da">Fiskerisektoren</langstring>
@@ -6718,6 +6746,34 @@
         <langstring language="bg">Work Equipment and Plant</langstring>
       </caption>
     </term>
+  </term>
+  <term>
+    <termIdentifier>green_jobs</termIdentifier>
+    <caption>
+      <langstring language="da">Green jobs</langstring>
+      <langstring language="de">Green jobs</langstring>
+      <langstring language="et">Green jobs</langstring>
+      <langstring language="en">Green jobs</langstring>
+      <langstring language="es">Green jobs</langstring>
+      <langstring language="fr">Green jobs</langstring>
+      <langstring language="it">Green jobs</langstring>
+      <langstring language="lv">Green jobs</langstring>
+      <langstring language="lt">Green jobs</langstring>
+      <langstring language="hu">Green jobs</langstring>
+      <langstring language="is">Green jobs</langstring>
+      <langstring language="mt">Green jobs</langstring>
+      <langstring language="nl">Green jobs</langstring>
+      <langstring language="no">Green jobs</langstring>
+      <langstring language="pl">Green jobs</langstring>
+      <langstring language="pt">Green jobs</langstring>
+      <langstring language="sk">Green jobs</langstring>
+      <langstring language="sl">Green jobs</langstring>
+      <langstring language="fi">Green jobs</langstring>
+      <langstring language="sv">Green jobs</langstring>
+      <langstring language="cs">Green jobs</langstring>
+      <langstring language="el">Green jobs</langstring>
+      <langstring language="bg">Green jobs</langstring>
+    </caption>
   </term>
   <term>
     <termIdentifier>healthcare</termIdentifier>
