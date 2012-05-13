@@ -9,7 +9,7 @@
 ##
 # This script makes a catalog query for publications on a given area of interest
 # and structures the result by publication type
-from Products.AdvancedQuery import In, Eq, Le, Ge, And, Or
+from Products.AdvancedQuery import In, Eq
 if keywords==[]:
   keywords = context.REQUEST.get('keywords', [])
 
