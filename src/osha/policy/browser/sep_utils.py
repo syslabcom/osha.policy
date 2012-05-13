@@ -2,7 +2,6 @@ from types import *
 import Acquisition, StringIO
 from interfaces import IVocabularyHelpers, ISEPHelpers, ISEPFolder
 from Products.CMFCore.utils import getToolByName
-from Products.AdvancedQuery import Indexed
 from zope.interface import implements, Interface
 from Products.CMFPlone import utils
 from Products.Five import BrowserView
