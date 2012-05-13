@@ -25,7 +25,7 @@ request = container.REQUEST
 RESPONSE =  request.RESPONSE
 
 from DateTime import DateTime
-from Products.AdvancedQuery import Eq, Generic, Ge, In, Or, And
+from Products.AdvancedQuery import Eq, Ge, In, Or, And
 CAT = context.portal_catalog
 if hasattr(CAT, 'getZCatalog'):
   CAT = CAT.getZCatalog()
