@@ -49,6 +49,14 @@ def reindex_path(path, include_translations=False, sub=False):
 from Products.PloneHelpCenter.upgrades import (
     migrateNextPrev, migrateBodyTexts, migrateFAQs)
 
+def fix_persistent_utils():
+    """ Untested: should remove the registration of the
+    osha.lingualinks portlet """
+    sm = app.osha.portal.getSiteManager()
+    ll = [i for i in sm._utility_registrations if i[1] == "osha.lingualinks"][0]
+    del sm._utility_registrations[ll]
+    transaction.commit()
+
 def fix_section():
     # reindex_path(
     #     "/osha/portal/en/faq", include_translations=True, sub=True)
@@ -59,11 +67,14 @@ def fix_section():
     # migrateFAQs(portal)
     # transaction.commit()
 
-    reindex_path(
-        "/osha/portal/data",
-        include_translations=False, sub=True)
+    languages = portal.portal_languages.getSupportedLanguages()
+    languages.remove("en")
+    for lang in languages:
+        reindex_path(
+            "/osha/portal/fop" ,
+            include_translations=False, sub=True)
     transaction.commit()
-
 
 if __name__ == "__main__":
     fix_section()
+    # fix_persistent_utils()
