@@ -158,7 +158,7 @@ setup(name='osha.policy',
         'zope.thread',
         'zopyx.smartprintng.plone',
 #        'collective.contentlicensing',
-        'ZPsycopgDA'
+        'Products.ZPsycopgDA'
       ],
       extras_require={
           'test': [
