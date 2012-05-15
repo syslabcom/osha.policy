@@ -1,3 +1,4 @@
+from datetime import datetime
 import Acquisition
 from logging import getLogger
 from zope.component.interfaces import ComponentLookupError
@@ -215,10 +216,15 @@ def uninstall_products(self, log):
                        'p4a.plonevideo',
                        'p4a.plonevideoembed',
                        'p4a.video',
+                       'quintagroup.plonecomments',
+                       'slc.calendarfetcher',
                        'simplon.plone.ldap',
                        'slc.clicksearch',
                        'slc.medialibrary',
                        'webcouturier.dropdownmenu',
+                       'Products.Ploneboard',
+                       'Products.Scrawl',
+                       'Products.kupu',
 #                       'Products.VocabularyPickerWidget',
                        ]
 
@@ -262,21 +268,25 @@ def remove_ldap_plugin(self, log):
 def prepare_plone4_upgrade(self, REQUEST=None):
     """ Prepares an existing Plone 3 portal for upgrade to Plone 4. Needs to be
         run on the Plone 3 instance before the Data.fs can be used by Plone 4.
+        self._mt_index
+        (Pdb) del self._mt_index["RiskAssessmentLink"]
+        (Pdb) import transaction
+
     """
     response = self.REQUEST and self.REQUEST.RESPONSE or None
     log = setup_log(self, response)
     setup(self, log)
 
-    uninstall_products(self, log)
-    delete_proxy_indexes(self, log)
+    # uninstall_products(self, log)
+    # delete_proxy_indexes(self, log)
 
-    remove_ldap_plugin(self, log)
+    # remove_ldap_plugin(self, log) 
 
-    ## apparently, not needed!
-    ## uninstallInterfaces(self, log)
+    # uninstall_interfaces(self, log) # takes about 50 mins
 
-    remove_portlets(self, log)
-    remove_dashboards(self, log)
-
+    # remove_portlets(self, log) # 20 mins
+    # remove_dashboards(self, log) # 3 mins
+    import transaction
+    transaction.commit()
     log.write(u"<p><em>Finished, all is well</em></p>")
     finish(self, response)
