@@ -13,6 +13,13 @@
         
     <browser:page
         for="*"
+        name="migrate_images"
+        class=".migration.MigrateImagesView"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:page
+        for="*"
         name="seppublications_view"
         class=".portlets.publications.SEPPublicationsPortlet"
         permission="zope.Public"
