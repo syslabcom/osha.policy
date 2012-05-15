@@ -175,9 +175,6 @@ def remove_dashboards(portal, log):
         ['plone.dashboard1', 'plone.dashboard2', 'plone.dashboard3',
          'plone.dashboard4']]
 
-    to_remove = [
-        'help', 'help-1', 'help-2', 'support', 'support-1', 'my-teams',
-        'my-teams-1', 'test-the-system', 'test-the-system-1']
     for userid in portal.Members.objectIds('ATFolder'):
         for dashboard in dashboards:
             try:
@@ -191,11 +188,10 @@ def remove_dashboards(portal, log):
                 continue 
             dashportlets = [x for x in dashmapping.keys()]
             for name in dashportlets:
-                if name in to_remove:
-                    del dashmapping[name]
-                    log.write(
-                        'Removed %s from %s for user %s' %(
-                            name, dashboard.__name__, userid))
+                del dashmapping[name]
+                log.write(
+                    'Removed %s from %s for user %s' %(
+                        name, dashboard.__name__, userid))
             dashportlets = [
                 x for x in dashboard.get(
                     USER_CATEGORY, {}).get(userid, {}).keys()]
@@ -206,10 +202,8 @@ def uninstall_products(self, log):
     uninst_products = ['CacheSetup',
                        'FCKeditor',
                        'dateable.chronos',
-                       'osha.adaptation',
-                       'osha.legislation',
-                       'osha.policy',
-                       'osha.theme',
+                       'gfb.policy',
+                       'gfb.theme',
                        'p4a.audio',
                        'p4a.ploneaudio',
                        'p4a.plonecalendar',
@@ -247,7 +241,7 @@ def uninstall_products(self, log):
         #     log.write(u'  %s not installed, skipped' % prod)
 
 def delete_proxy_indexes(self, log):
-    cat = getToolByName(self, 'portal_catalog_real')
+    cat = getToolByName(self, 'portal_catalog')
     log.write(u'<h3>Deleting ProxyIndexes</h3>')
     indexes = cat.index_objects()
     idx_to_delete = [
@@ -277,15 +271,17 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     log = setup_log(self, response)
     setup(self, log)
 
-    # uninstall_products(self, log)
-    # delete_proxy_indexes(self, log)
+    uninstall_products(self, log)
+    delete_proxy_indexes(self, log)
 
-    # remove_ldap_plugin(self, log) 
+    remove_ldap_plugin(self, log) 
 
+    # Skip this, dubious if needed.
     # uninstall_interfaces(self, log) # takes about 50 mins
 
+    # Skip this, dubious if needed.
     # remove_portlets(self, log) # 20 mins
-    # remove_dashboards(self, log) # 3 mins
+    remove_dashboards(self, log) # 3 mins
     import transaction
     transaction.commit()
     log.write(u"<p><em>Finished, all is well</em></p>")
