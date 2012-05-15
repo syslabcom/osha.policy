@@ -8,7 +8,8 @@ from Products.CMFCore.permissions import setDefaultRoles
 product_globals = globals()
 
 DEFAULT_RIGHTS = "European Agency for Safety and Health at Work"
-AUTHOR = "European Agency for Safety and Health at Work" # Set your default author here
+# Set your default author here
+AUTHOR = "European Agency for Safety and Health at Work"
 
 PROJECTNAME = "OSHA"
 
@@ -80,7 +81,7 @@ DEPENDENCIES = [
 
 
 DEFAULT_FIELDS = {
-    'CaseStudy':[
+    'CaseStudy': [
         'id',
         'title',
         'description',
