@@ -259,6 +259,22 @@ def remove_ldap_plugin(self, log):
     if id in pas.objectIds():
         pas.manage_delObjects(id)
 
+def remove_items_from_catalog(portal):
+    el_comp = (
+        "/osha/portal/el/about/competitions/european-photo-competition-2009")
+    pc = portal.portal_catalog
+    missing_img_ids = [
+        '92_116_ambroise_tezenas_01.jpg',
+        '92_116_clemente_bernad_01.jpg',
+        '92_116_mertxe_alarcon_01.jpg',
+        '92_116_miguel_angel_gaueca_01.jpg',
+        '92_116_peter_rimmer_01.jpg', 'a-better-way-1.jpg',
+        'bee-keeper-1.jpg', 'hard-and-complicated-life.jpg',
+        'photocompetition.jpg', 'welder.jpg',]
+    for img_id in missing_img_ids:
+        pc.uncatalog_object("/".join(el_comp, img_id))
+    transaction.commit()
+
 def prepare_plone4_upgrade(self, REQUEST=None):
     """ Prepares an existing Plone 3 portal for upgrade to Plone 4. Needs to be
         run on the Plone 3 instance before the Data.fs can be used by Plone 4.
