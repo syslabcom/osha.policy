@@ -273,6 +273,20 @@ def remove_items_from_catalog(portal):
         'photocompetition.jpg', 'welder.jpg',]
     for img_id in missing_img_ids:
         pc.uncatalog_object("/".join(el_comp, img_id))
+
+    path = "/osha/portal/%s/about/competitions"
+    langs = portal.portal_languages.getSupportedLanguages()
+    for lang in langs:
+        qu = dict(path=path%lang, depth=-1)
+        res = catalog(qu)
+        print len(res)
+        for r in res:
+            print r.getPath()
+            try:
+                print r.getObject()
+            except:
+                print "CANNOT get object"
+                catalog_real.uncatalog_object(r.getPath())
     transaction.commit()
 
 def prepare_plone4_upgrade(self, REQUEST=None):
