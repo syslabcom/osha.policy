@@ -55,6 +55,7 @@ setup(name='osha.policy',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+        # 'slc.rdbploneformgenadapter', # requires collective.lead
         'Pillow',
         'Plone',
         'Products.ATCountryWidget',
@@ -84,6 +85,7 @@ setup(name='osha.policy',
         'Products.RichDocument',
         'Products.Scrawl',
         'Products.TextIndexNG3',
+        'Products.ZPsycopgDA',
         'SQLAlchemy',
         'StructuredText',
         'Zope2',
@@ -144,7 +146,6 @@ setup(name='osha.policy',
         'slc.outdated',
         'slc.publications',
         'slc.quickchange',
-        # 'slc.rdbploneformgenadapter', # requires collective.lead
         'slc.seminarportal',
         'slc.shoppinglist',
         'slc.subsite',
@@ -158,7 +159,6 @@ setup(name='osha.policy',
         'zope.thread',
         'zopyx.smartprintng.plone',
 #        'collective.contentlicensing',
-        'Products.ZPsycopgDA'
       ],
       extras_require={
           'test': [
