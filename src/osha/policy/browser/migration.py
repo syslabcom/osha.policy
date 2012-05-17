@@ -74,8 +74,12 @@ class ZopeFindImageWalker(Walker):
         # top-level folders
         # white/blacklist for folder ids
         whitelist = []
-	blacklist = ['']
+	#blacklist = ['images', 'data', 'Members','en', 'bg', 'cs', 'da', 'nl','et', 
+	#    'fi', 'fr', 'de', 'el', 'hu', 'it', 'lv', 'lt', 'mt', 'pl', 'pt', 'ro', 
+	#    'sk', 'sl', 'es', 'sv', 'tr', 'no', 'sub', 'fop']
+	blacklist = []
 	for folder in folders:
+	    print "looking at folder", folder.id
             if len(whitelist) and folder.id not in whitelist:
                 LOG.info("Whitelist. Skipping top-level folder %s" % folder.id)
                 continue
