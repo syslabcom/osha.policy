@@ -71,15 +71,23 @@ class TestOshaRSS(FunctionalTestCase):
         url = self.portal.absolute_url() + '/@@rss-feeds'
         self.browser.open(url)
         self.assertTrue('EU-OSHA News Items' in self.browser.contents)
-        self.assertTrue('RSSTitle=EU-OSHA%20News%20Items' in self.browser.contents)
+        self.assertTrue(
+            'RSSTitle=EU-OSHA%20News%20Items' in self.browser.contents)
         self.assertTrue('EU-OSHA Events' in self.browser.contents)
         self.assertTrue('RSSTitle=EU-OSHA%20Events' in self.browser.contents)
         self.assertTrue('EU-OSHA Publications' in self.browser.contents)
-        self.assertTrue('RSSTitle=EU-OSHA%20Publications' in self.browser.contents)
-        self.assertTrue('EU-OSHA Blog' in self.browser.contents)
-        self.assertTrue('RSSTitle=EU-OSHA%20Blog' in self.browser.contents)
+        self.assertTrue(
+            'RSSTitle=EU-OSHA%20Publications' in self.browser.contents)
+        self.assertTrue('EU-OSHA in the media' in self.browser.contents)
+        self.assertTrue(
+            'RSSTitle=EU-OSHA%20in%20the%20media' in self.browser.contents)
+        self.assertTrue('The EU-OSHA Blog' in self.browser.contents)
+        self.assertTrue(
+            'RSSTitle=The%20EU-OSHA%20Blog' in self.browser.contents)
+
         self.assertTrue('EU-OSHA Press Releases' in self.browser.contents)
-        self.assertTrue('RSSTitle=EU-OSHA%20Press%20Releases' in self.browser.contents)
+        self.assertTrue(
+            'RSSTitle=EU-OSHA%20Press%20Releases' in self.browser.contents)
         self.assertEquals(4, self.browser.contents.count('Latest'))
 
 
