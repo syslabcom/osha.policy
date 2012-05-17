@@ -89,6 +89,8 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=osha.theme)
         import osha.adaptation
         self.loadZCML('configure.zcml', package=osha.adaptation)
+        import slc.publications
+        self.loadZCML('configure.zcml', package=slc.publications)
         import slc.shoppinglist
         self.loadZCML('configure.zcml', package=slc.shoppinglist)
         import slc.xliff
