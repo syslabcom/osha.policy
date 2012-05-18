@@ -249,8 +249,8 @@ def delete_proxy_indexes(self, log):
     for id in idx_to_delete:
         cat.manage_delIndex(id)
         log.write(u'\tDeleted %s' % id)
-    log.write('<h3>Emptying catalog</h3>')
-    cat.manage_catalogClear()
+###    log.write('<h3>Emptying catalog</h3>')
+###    cat.manage_catalogClear()
 
 def remove_ldap_plugin(self, log):
     log.write('Deleting the LDAP plugin in the acl_users folder')
