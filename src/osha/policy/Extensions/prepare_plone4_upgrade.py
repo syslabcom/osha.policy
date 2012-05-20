@@ -9,6 +9,7 @@ from plone.app.portlets.utils import assignment_mapping_from_key
 from plone.portlets.constants import CONTEXT_CATEGORY, USER_CATEGORY
 import transaction
 from zope.component import getUtility
+from Products.ZCatalog.ProgressHandler import ZLogHandler
 
 # interface import, needed for removal
 from plone.portlets.interfaces import IPortletManager
@@ -265,19 +266,23 @@ def remove_stale_items_from_catalog(portal, log):
     pc = portal.portal_catalog
     res = pc(Language='all')
     size = len(res)
+    pghandler = ZLogHandler(1000)
+    pghandler.init('Remove stale items from catalog', size)
     log.write('We have %d results in total.' % size)
     cnt = removed = 0
     for r in res:
-        cnt += 1
+        pghandler.report(cnt)
         try:
             r.getObject()
         except:
             log.write("At cnt %d - Can't get object %s, so I'm removing it" % (cnt, r.getPath()))
             pc.uncatalog_object(r.getPath())
             removed += 1
-        if cnt % 1000 == 0:
-            log.write('COMMIT after %d objects' % cnt)
-            transaction.commit()
+        cnt += 1
+        #if cnt % 1000 == 0:
+        #    log.write('COMMIT after %d objects' % cnt)
+        #    transaction.commit()
+    pghandler.finish()
     transaction.commit()
     log.write('Finished with the catalog, removed a total of %d items' % removed)
     res = pc(Language='all')
