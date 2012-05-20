@@ -259,35 +259,23 @@ def remove_ldap_plugin(self, log):
     if id in pas.objectIds():
         pas.manage_delObjects(id)
 
-def remove_items_from_catalog(portal):
-    el_comp = (
-        "/osha/portal/el/about/competitions/european-photo-competition-2009")
+def remove_stale_items_from_catalog(portal, log):
+    """ Iterate over all catalog entries and remove stale references"""
+    log.write('<h3>Remove stale items from catalog</h3>')
     pc = portal.portal_catalog
-    missing_img_ids = [
-        '92_116_ambroise_tezenas_01.jpg',
-        '92_116_clemente_bernad_01.jpg',
-        '92_116_mertxe_alarcon_01.jpg',
-        '92_116_miguel_angel_gaueca_01.jpg',
-        '92_116_peter_rimmer_01.jpg', 'a-better-way-1.jpg',
-        'bee-keeper-1.jpg', 'hard-and-complicated-life.jpg',
-        'photocompetition.jpg', 'welder.jpg',]
-    for img_id in missing_img_ids:
-        pc.uncatalog_object("/".join(el_comp, img_id))
-
-    path = "/osha/portal/%s/about/competitions"
-    langs = portal.portal_languages.getSupportedLanguages()
-    for lang in langs:
-        qu = dict(path=path%lang, depth=-1)
-        res = catalog(qu)
-        print len(res)
-        for r in res:
-            print r.getPath()
-            try:
-                print r.getObject()
-            except:
-                print "CANNOT get object"
-                catalog_real.uncatalog_object(r.getPath())
-    transaction.commit()
+    res = pc(Language='all')
+    cnt = 0
+    for r in res:
+        cnt += 1
+        try:
+            r.getObject()
+        except:
+            log.write("CANNOT get object %s, so I'm removing it" % r.getPath())
+            pc.uncatalog_object(r.getPath())
+    if cnt % 1000 == 0:
+        log.write('Committing after %d objects')
+        transaction.commit()
+    log.write('Finished with the catalog')
 
 def prepare_plone4_upgrade(self, REQUEST=None):
     """ Prepares an existing Plone 3 portal for upgrade to Plone 4. Needs to be
@@ -304,7 +292,8 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     uninstall_products(self, log)
     delete_proxy_indexes(self, log)
 
-    remove_ldap_plugin(self, log) 
+    remove_ldap_plugin(self, log)
+    remove_stale_items_from_catalog(self, log)
 
     # Skip this, dubious if needed.
     # uninstall_interfaces(self, log) # takes about 50 mins
