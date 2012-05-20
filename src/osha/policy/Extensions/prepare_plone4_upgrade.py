@@ -288,34 +288,6 @@ def remove_stale_items_from_catalog(portal, log):
     res = pc(Language='all')
     log.write('Finally, the catalog has %d items (initially it was %d)' % (len(res), size))
 
-def remove_stale_items_from_uidcatalog(portal, log):
-    """ Iterate over all catalog entries and remove stale references"""
-    log.write('<h3>Remove stale items from catalog</h3>')
-    uc = portal.uid_catalog
-    res = uc(Language='all')
-    size = len(res)
-    pghandler = ZLogHandler(1000)
-    pghandler.init('Remove stale items from catalog', size)
-    log.write('We have %d results in total.' % size)
-    cnt = removed = 0
-    for r in res:
-        pghandler.report(cnt)
-        try:
-            r.getObject()
-        except:
-            log.write("At cnt %d - Can't get object %s, so I'm removing it" % (cnt, r.getPath()))
-            pc.uncatalog_object(r.getPath())
-            removed += 1
-        cnt += 1
-        #if cnt % 1000 == 0:
-        #    log.write('COMMIT after %d objects' % cnt)
-        #    transaction.commit()
-    pghandler.finish()
-    transaction.commit()
-    log.write('Finished with the catalog, removed a total of %d items' % removed)
-    res = uc(Language='all')
-    log.write('Finally, the catalog has %d items (initially it was %d)' % (len(res), size))
-
 def prepare_plone4_upgrade(self, REQUEST=None):
     """ Prepares an existing Plone 3 portal for upgrade to Plone 4. Needs to be
         run on the Plone 3 instance before the Data.fs can be used by Plone 4.
@@ -333,7 +305,6 @@ def prepare_plone4_upgrade(self, REQUEST=None):
 
     remove_ldap_plugin(self, log)
     remove_stale_items_from_catalog(self, log) # ca 35 minutes
-    remove_stale_items_from_uidcatalog(self, log)
 
     # Skip this, dubious if needed.
     # uninstall_interfaces(self, log) # takes about 50 mins
