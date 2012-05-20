@@ -276,7 +276,7 @@ def remove_stale_items_from_catalog(portal, log):
             pc.uncatalog_object(r.getPath())
             removed += 1
         if cnt % 1000 == 0:
-            log.write('COMMIT after %d objects')
+            log.write('COMMIT after %d objects' % cnt)
             transaction.commit()
     transaction.commit()
     log.write('Finished with the catalog, removed a total of %d items' % removed)
