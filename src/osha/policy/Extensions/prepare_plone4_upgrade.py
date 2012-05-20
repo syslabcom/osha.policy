@@ -264,18 +264,24 @@ def remove_stale_items_from_catalog(portal, log):
     log.write('<h3>Remove stale items from catalog</h3>')
     pc = portal.portal_catalog
     res = pc(Language='all')
-    cnt = 0
+    size = len(res)
+    log.write('We have %d results in total.' % size)
+    cnt = removed = 0
     for r in res:
         cnt += 1
         try:
             r.getObject()
         except:
-            log.write("CANNOT get object %s, so I'm removing it" % r.getPath())
+            log.write("At cnt %d - Can't get object %s, so I'm removing it" % (cnt, r.getPath()))
             pc.uncatalog_object(r.getPath())
+            removed += 1
     if cnt % 1000 == 0:
-        log.write('Committing after %d objects')
+        log.write('COMMIT after %d objects')
         transaction.commit()
-    log.write('Finished with the catalog')
+    transaction.commit()
+    log.write('Finished with the catalog, removed a total of %d items' % removed)
+    res = pc(Language='all')
+    log.write('Finally, the catalog has %d items (initially it was %d)' % (len(res), size))
 
 def prepare_plone4_upgrade(self, REQUEST=None):
     """ Prepares an existing Plone 3 portal for upgrade to Plone 4. Needs to be
