@@ -24,8 +24,7 @@ def importVarious(context):
     portal = context.getSite()
     installDependencies(portal)
     configurePortal(portal)
-    addProxyIndexes(portal)
-    addExtraIndexes(portal)
+
     importVocabularies(portal)
     configureCountryTool(portal)
     configureSEOOptimizer(portal)
@@ -34,6 +33,14 @@ def importVarious(context):
     repositionActions(portal)
     enableDiffSupport(portal)
 
+def importIndexes(context):
+    if context.readDataFile("osha-various.txt") is None:
+        return
+
+    logger.info("Importing OSHA catalog indexes")
+    portal = context.getSite()
+    addProxyIndexes(portal)
+    addExtraIndexes(portal)
 
 def installDependencies(portal):
     qi = getToolByName(portal, 'portal_quickinstaller')

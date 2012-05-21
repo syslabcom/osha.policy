@@ -8,6 +8,14 @@
     <dependency step="content"/>
     <dependency step="toolset"/>
   </import-step>
+  <import-step id="osha_catalog_indexes"
+               version="20071021-01"
+               handler="osha.policy.setuphandlers.importIndexes"
+               title="OSHA import catalog indexes">
+    Policy installer steps
+    <dependency step="content"/>
+    <dependency step="toolset"/>
+  </import-step>
   <import-step
     id='osha-jsregistry'
     version='20110608-01'
