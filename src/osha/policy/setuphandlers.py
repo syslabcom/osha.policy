@@ -152,6 +152,9 @@ def importVocabularies(self):
     logger.info("Importing Vocabularies")
     vocabs = os.listdir(vocabdir)
     pvm = self.portal_vocabularies
+    pvt_type = getattr(self.portal_types, 'VocabularyLibrary')
+    pvt_type.allowed_content_types = ('AliasVocabulary', 'SimpleVocabulary',
+        'SortedSimpleVocabulary', 'TreeVocabulary', 'VdexFileVocabulary')
     for vocabname in vocabs:
         vocabpath = os.path.join(vocabdir, vocabname)
         if vocabname.endswith('.vdex'):
@@ -159,20 +162,12 @@ def importVocabularies(self):
             data = fh.read()
             fh.close()
             vocabname = vocabname[:-5]
-            if vocabname in pvm.objectIds(): continue
+            if vocabname in pvm.objectIds():
+                logger.info("Vocabulary already in place, deleting...")
+                pvm._delObject(vocabname)
             pvm.invokeFactory('VdexFileVocabulary', vocabname)
             pvm[vocabname].importXMLBinding(data)
             logger.info("VDEX Import of %s" % vocabname)
-
-        elif vocabname.endswith('.dump'):
-            fh = open(vocabpath, "r")
-            data = fh.read()
-            fh.close()
-            vocabname = vocabname[:-5]
-            if vocabname in pvm.objectIds(): continue
-            vocabstruct = cPickle.loads(data)
-            createSimpleVocabs(pvm, vocabstruct)
-            logger.info("Dump Import of %s" % vocabname)
 
 
 def addExtraIndexes(self):
