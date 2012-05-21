@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 
+                          imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd 
+                          http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 
+                          imsmd_rootv1p2p1.xsd" 
+      orderSignificant="true" 
+      profileType="flatTokenTerms" 
+      language="en">
+      
+   <vocabName>
+         <langstring language="en">Risk assessment contents</langstring>
+         <langstring language="de">Inhalte von Gefährdungsbeurteilungsmaterial</langstring>
+   </vocabName>
+   <vocabIdentifier>RiskassessmentContents</vocabIdentifier>
+   
+   <term>    
+       <termIdentifier>identify</termIdentifier>
+       <caption>
+           <langstring language="en">Identifying hazards</langstring>
+           <langstring language="de">Ermitteln</langstring>
+       </caption>
+   </term>
+   
+   <term>    
+       <termIdentifier>evaluate</termIdentifier>
+       <caption>
+           <langstring language="en">Assessing risks</langstring>
+           <langstring language="de">Bewerten</langstring>
+       </caption>
+   </term>
+   
+   <term>    
+       <termIdentifier>define</termIdentifier>
+       <caption>
+           <langstring language="en">Appointing measures</langstring>
+           <langstring language="de">Festlegen von Maßnahmen</langstring>
+       </caption>
+   </term>
+   
+   <term>    
+       <termIdentifier>verify</termIdentifier>
+       <caption>
+           <langstring language="en">Controlling effectiveness</langstring>
+           <langstring language="de">Überprüfen der Wirksamkeit</langstring>
+       </caption>
+   </term>
+   
+   
+   <term>    
+       <termIdentifier>document</termIdentifier>
+       <caption>
+           <langstring language="en">Documenting the assessment</langstring>
+           <langstring language="de">Hilfsmittel zur Dokumentation</langstring>
+       </caption>
+   </term>
+
+</vdex>
