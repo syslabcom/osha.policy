@@ -30,4 +30,8 @@ def cleanup(self):
             zcat._length.change(-1)
             log.info('Kill old path: %s' % path)
     pghandler.finish()
+    import pdb; pdb.set_trace()
+    log("Length: %d, len(uids): %d, len(paths): %d" % (zcat._length.value),
+        len(zcat.uids), len(zcat.paths))
+
     transaction.commit()
