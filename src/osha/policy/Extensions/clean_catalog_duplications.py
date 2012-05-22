@@ -17,23 +17,26 @@ def cleanup(self):
     cnt = removed = 0
     for path in zcat.uids.keys():
         pghandler.report(cnt)
+        cnt += 1
         try:
             obj = portal.restrictedTraverse(path)
         except:
             # XXX what to do?
-            print "no object found for %s" % path
-            continue
-        if "/".join(obj.getPhysicalPath()) != path:
-            # saved under an old path! kill it
-            index = zcat.uids[path]
-            del zcat.uids[path]
-            del zcat.paths[index]
-            zcat._length.change(-1)
+            log.warning("no object found for %s" % path)
+            cat.uncatalog_object(path)
             removed += 1
             log.info('Kill old path: %s' % path)
-        cnt += 1
+        else:
+            if  "/".join(obj.getPhysicalPath()) != path:
+                # saved under an old path! kill it
+                cat.uncatalog_object(path)
+                #index = zcat.uids[path]
+                #del zcat.uids[path]
+                #del zcat.paths[index]
+                #zcat._length.change(-1)
+                removed += 1
+                log.info('Kill old path: %s' % path)
     pghandler.finish()
-    import pdb; pdb.set_trace()
     log.info('Finished with the catalog, removed a total of %d items' % removed)
     log.info("Length: %d, len(uids): %d, len(paths): %d" % (zcat._length.value,
         len(zcat.uids), len(zcat.paths)))
