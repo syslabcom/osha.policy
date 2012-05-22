@@ -14,6 +14,7 @@ def cleanup(self):
     pghandler = ZLogHandler(1000)
     size = len(zcat.uids)
     pghandler.init('Remove stale items from catalog', size)
+    cnt = removed = 0
     for path in zcat.uids.keys():
         pghandler.report(cnt)
         try:
@@ -28,10 +29,13 @@ def cleanup(self):
             del zcat.uids[path]
             del zcat.paths[index]
             zcat._length.change(-1)
-            log.info('Kill old path: %s' % path)
+            removed += 1
+            log.write('Kill old path: %s' % path)
+        cnt += 1
     pghandler.finish()
     import pdb; pdb.set_trace()
-    log("Length: %d, len(uids): %d, len(paths): %d" % (zcat._length.value),
+    log.wite('Finished with the catalog, removed a total of %d items' % removed)
+    log.write("Length: %d, len(uids): %d, len(paths): %d" % (zcat._length.value),
         len(zcat.uids), len(zcat.paths))
 
     transaction.commit()
