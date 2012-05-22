@@ -30,12 +30,12 @@ def cleanup(self):
             del zcat.paths[index]
             zcat._length.change(-1)
             removed += 1
-            log.write('Kill old path: %s' % path)
+            log.info('Kill old path: %s' % path)
         cnt += 1
     pghandler.finish()
     import pdb; pdb.set_trace()
-    log.wite('Finished with the catalog, removed a total of %d items' % removed)
-    log.write("Length: %d, len(uids): %d, len(paths): %d" % (zcat._length.value),
+    log.info('Finished with the catalog, removed a total of %d items' % removed)
+    log.info("Length: %d, len(uids): %d, len(paths): %d" % (zcat._length.value),
         len(zcat.uids), len(zcat.paths))
 
     transaction.commit()
