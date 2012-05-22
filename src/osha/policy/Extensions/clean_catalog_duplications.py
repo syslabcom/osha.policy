@@ -35,7 +35,7 @@ def cleanup(self):
     pghandler.finish()
     import pdb; pdb.set_trace()
     log.info('Finished with the catalog, removed a total of %d items' % removed)
-    log.info("Length: %d, len(uids): %d, len(paths): %d" % (zcat._length.value),
-        len(zcat.uids), len(zcat.paths))
+    log.info("Length: %d, len(uids): %d, len(paths): %d" % (zcat._length.value,
+        len(zcat.uids), len(zcat.paths)))
 
     transaction.commit()
