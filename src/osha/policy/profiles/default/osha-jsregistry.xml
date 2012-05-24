@@ -5,7 +5,7 @@
     cookable="True" enabled="True" expression="" id="++resource++jquery.js"
     inline="False"/>
  <javascript cacheable="True" compression="full-encode" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="cssQuery.js"
+    cookable="True" enabled="True" expression="" id="++resource++cssQuery.js"
     inline="False"/>
  <javascript cacheable="True" compression="none" conditionalcomment=""
     cookable="True" enabled="True" expression=""
