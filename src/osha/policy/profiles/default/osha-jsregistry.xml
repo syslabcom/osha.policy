@@ -94,9 +94,6 @@
     cookable="True" enabled="True" expression="" id="calendar_formfield.js"
     inline="False"/>
  <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="calendarpopup.js"
-    inline="False"/>
- <javascript cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="formUnload.js"
     inline="False"/>
  <javascript cacheable="True" compression="safe" conditionalcomment=""
