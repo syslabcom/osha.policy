@@ -24,7 +24,7 @@
     inline="False"/>
  <javascript cacheable="True" compression="none" conditionalcomment=""
     cookable="True" enabled="True" expression=""
-    id="++resource++jquery-ui-1.7.2.min.js" inline="False"/>
+    id="++resource++jquery-ui.min.js" inline="False"/>
  <javascript cacheable="True" compression="none" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="jquery.dynatree.min.js"
     inline="False"/>
