@@ -64,7 +64,7 @@
     cookable="True" enabled="True" expression="" id="input-label.js"
     inline="False"/>
  <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="highlightsearchterms.js"
+    cookable="True" enabled="True" expression="" id="jquery.highlightsearchterms.js"
     inline="False"/>
  <!-- NOTE: Plone 4 upgrade, do we still need this? -->
  <!-- <javascript cacheable="True" compression="safe" conditionalcomment="" -->
