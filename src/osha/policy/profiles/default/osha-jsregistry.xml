@@ -66,9 +66,10 @@
  <javascript cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="highlightsearchterms.js"
     inline="False"/>
- <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="se-highlight.js"
-    inline="False"/>
+ <!-- NOTE: Plone 4 upgrade, do we still need this? -->
+ <!-- <javascript cacheable="True" compression="safe" conditionalcomment="" -->
+ <!--    cookable="True" enabled="True" expression="" id="se-highlight.js" -->
+ <!--    inline="False"/> -->
  <javascript cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="first_input_focus.js"
     inline="False"/>
