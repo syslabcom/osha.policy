@@ -4,18 +4,6 @@
  <javascript cacheable="True" compression="none" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="++resource++jquery.js"
     inline="False"/>
- <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="jquery.autocomplete.js"
-    inline="False"/>
- <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="jquery.treeview.pack.js"
-    inline="False"/>
- <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="base64.js"
-    inline="False"/>
- <javascript cacheable="True" compression="safe" conditionalcomment=""
-    cookable="True" enabled="True" expression="" id="itembrowser.js"
-    inline="False"/>
  <javascript cacheable="True" compression="full-encode" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="cssQuery.js"
     inline="False"/>
