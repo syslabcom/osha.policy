@@ -76,9 +76,9 @@ def archiveByType(self, portal_type=None, age_in_days=None, limit=0):
     pc = getToolByName(self, 'portal_catalog')
     now = DateTime()
     date = now - days
-    # hardcoded to corporate site
+    path = '/'.join(self.getPhysicalPath())
     query = dict(portal_type=portal_type,
-        path="/osha/portal/en",
+        path=path,
         Language='all',
         modified=dict(query=date, range='max'))
     res = pc(query)
