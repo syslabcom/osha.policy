@@ -22,6 +22,9 @@
     cookable="True" enabled="False" expression=""
     id="++resource++jquery-ui/jquery.ui.draggable.min.js" inline="False"/>
  <javascript cacheable="True" compression="safe" conditionalcomment=""
+    cookable="True" enabled="True" expression=""
+    id="++resource++plone.app.jquerytools.js" inline="False"/>
+ <javascript cacheable="True" compression="safe" conditionalcomment=""
     cookable="True" enabled="True" expression="" id="jquery-integration.js"
     inline="False"/>
  <javascript cacheable="True" compression="safe" conditionalcomment=""
