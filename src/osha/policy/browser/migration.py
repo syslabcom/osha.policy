@@ -100,11 +100,11 @@ class MigrateImagesView(BrowserView):
 
     def __call__(self):
         portal = getSite()
-        id_whitelist = self.REQUEST.get('id_whitelist', list())
-        id_blacklist = self.REQUEST.get('id_blacklist', list())
-        folder_whitelist = self.REQUEST.get('folder_whitelist', list())
-        folder_blacklist = self.REQUEST.get('folder_blacklist', list())
-        start_path = self.REQUEST.get('start_node', '/'.join(portal.getPhysicalPath()))
+        id_whitelist = self.request.get('id_whitelist', list())
+        id_blacklist = self.request.get('id_blacklist', list())
+        folder_whitelist = self.request.get('folder_whitelist', list())
+        folder_blacklist = self.request.get('folder_blacklist', list())
+        start_path = self.request.get('start_node', '/'.join(portal.getPhysicalPath()))
         settings = dict(id_whitelist=id_whitelist, id_blacklist=id_blacklist, folder_whitelist=folder_whitelist,
             folder_blacklist=folder_blacklist, start_path=start_path)
         
