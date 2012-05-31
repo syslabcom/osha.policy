@@ -82,7 +82,7 @@ class ZopeFindImageWalker(Walker):
                 continue
             for id, ob in folder.ZopeFind(
                 folder, obj_metatypes=["ATImage",],search_sub=1):
-                if len(self.settings['id_whitelist']) and id not in self.settings['id_whitelist']
+                if len(self.settings['id_whitelist']) and id not in self.settings['id_whitelist']:
                     continue
                 if id in self.settings['id_blacklist']:
                     continue
