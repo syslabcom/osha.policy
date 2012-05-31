@@ -1,11 +1,10 @@
 osha.policy Changelog
 =====================
 
-1.3.47 (unreleased)
+1.3.47 (2012-05-31)
 -------------------
 
-- Nothing changed yet.
-
+- Improved imgae to blob migration view [thomasw]
 
 1.3.46 (2012-05-29)
 -------------------
