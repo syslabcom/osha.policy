@@ -77,7 +77,7 @@ class ZopeFindImageWalker(Walker):
             if len(self.settings['folder_whitelist']) and folder.id not in self.settings['folder_whitelist']:
                 LOG.info("Whitelist. Skipping top-level folder %s" % folder.id)
                 continue
-            if len(self.settings['folder_blacklist']) and folder.id in self.settings['folder_blacklist':
+            if len(self.settings['folder_blacklist']) and folder.id in self.settings['folder_blacklist']:
                 LOG.info("Blacklist. Skipping top-level folder %s" % folder.id)
                 continue
             for id, ob in folder.ZopeFind(
