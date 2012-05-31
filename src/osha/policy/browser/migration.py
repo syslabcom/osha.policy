@@ -25,9 +25,10 @@ count = 0
 
 class ZopeFindImageWalker(Walker):
     def __init__(
-        self, portal, migrator, **kwargs):
+        self, portal, migrator, settings, **kwargs):
         self.portal = portal
         self.migrator = migrator
+        self.settings = settings
         self.src_portal_type = 'Image'
         self.src_meta_type = 'ATImage'
         self.dst_portal_type = 'Image'
@@ -54,16 +55,14 @@ class ZopeFindImageWalker(Walker):
 
     def walk(self):
         node = self.portal.unrestrictedTraverse(
-            "/osha/portal")
+            self.settings.get('start_path'))
         # while/blacklist for individual image ids
-	id_whitelist = []
-        id_blacklist = []
         # top-level images:
         for id, ob in node.ZopeFind(
             node, obj_metatypes=["ATImage",],search_sub=0):
-            if len(id_whitelist) and id not in id_whitelist:
+            if len(self.settings['id_whitelist']) and id not in self.settings['id_whitelist']:
                 continue
-            if id in id_blacklist:
+            if id in self.settings['id_blacklist']:
                 continue
             if ob.getImage() == '':
                 LOG.info('Image %s is empty, skipping' % ob.absolute_url(1))
@@ -73,27 +72,22 @@ class ZopeFindImageWalker(Walker):
         folders = node.objectValues(['ATBTreeFolder', 'ATFolder'])
         # top-level folders
         # white/blacklist for folder ids
-        whitelist = []
-	#blacklist = ['images', 'data', 'Members','en', 'bg', 'cs', 'da', 'nl','et', 
-	#    'fi', 'fr', 'de', 'el', 'hu', 'it', 'lv', 'lt', 'mt', 'pl', 'pt', 'ro', 
-	#    'sk', 'sl', 'es', 'sv', 'tr', 'no', 'sub', 'fop']
-	blacklist = []
-	for folder in folders:
-	    print "looking at folder", folder.id
-            if len(whitelist) and folder.id not in whitelist:
+        for folder in folders:
+            print "looking at folder", folder.id
+            if len(self.settings['folder_whitelist']) and folder.id not in self.settings['folder_whitelist']:
                 LOG.info("Whitelist. Skipping top-level folder %s" % folder.id)
                 continue
-            if len(blacklist) and folder.id in blacklist:
+            if len(self.settings['folder_blacklist']) and folder.id in self.settings['folder_blacklist':
                 LOG.info("Blacklist. Skipping top-level folder %s" % folder.id)
                 continue
             for id, ob in folder.ZopeFind(
                 folder, obj_metatypes=["ATImage",],search_sub=1):
-		if len(id_whitelist) and id not in id_whitelist:
-		    continue
-                if id in id_blacklist:
+                if len(self.settings['id_whitelist']) and id not in self.settings['id_whitelist']
                     continue
-	        if ob.getImage() == '':
-		    LOG.info('Image %s is empty, skipping' % ob.absolute_url(1))
+                if id in self.settings['id_blacklist']:
+                    continue
+                if ob.getImage() == '':
+                    LOG.info('Image %s is empty, skipping' % ob.absolute_url(1))
                     continue
                 LOG.info("Migrating %s" %ob.absolute_url(1))
                 yield ob
@@ -106,7 +100,14 @@ class MigrateImagesView(BrowserView):
 
     def __call__(self):
         portal = getSite()
-
+        id_whitelist = self.REQUEST.gét('id_whitelist', list())
+        id_blacklist = self.REQUEST.get('id_blacklist', list())
+        folder_whitelist = self.REQUEST.get('folder_whitelist', list())
+        folder_blacklist = self.REQUEST.get('folder_blacklist', list())
+        start_path = self.REQUEST.get('start_node', '/'.join(portal.getPhysicalPath()))
+        settings = dict(id_whitelist=id_whitelist, id_blacklist=id_blacklist, folder_whitelist=folder_whitelist,
+            folder_blacklist=folder_blacklist, start_path=start_path)
+        
         # Getting a Doomed transaction for the first commit with the
         # sample database. Doing one transaction.commit() here is a
         # workaround
@@ -116,7 +117,7 @@ class MigrateImagesView(BrowserView):
         start_time = datetime.now()
 
         walker = ZopeFindImageWalker(
-            portal, migrator=ATImageToBlobImageMigrator)
+            portal, migrator=ATImageToBlobImageMigrator, settings=settings)
         walker.go()
         transaction.commit()
 
