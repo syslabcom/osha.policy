@@ -100,7 +100,7 @@ class MigrateImagesView(BrowserView):
 
     def __call__(self):
         portal = getSite()
-        id_whitelist = self.REQUEST.gét('id_whitelist', list())
+        id_whitelist = self.REQUEST.get('id_whitelist', list())
         id_blacklist = self.REQUEST.get('id_blacklist', list())
         folder_whitelist = self.REQUEST.get('folder_whitelist', list())
         folder_blacklist = self.REQUEST.get('folder_blacklist', list())
