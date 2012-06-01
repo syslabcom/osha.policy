@@ -1,4 +1,3 @@
-
 from Products.OSHContentLink.OSH_Link import OSH_Link
 from Products.RALink.content.RALink import RALink
 from Products.RemoteProvider.content.Provider import Provider
@@ -10,8 +9,10 @@ from Products.ATContentTypes.content.image import ATImage
 from Products.ATContentTypes.content.link import ATLink
 from Products.PloneHelpCenter.content.FAQ import HelpCenterFAQ
 
+
 def getSubject(self):
-    """ Very specific osha getter. We want to make sure that the toplevel cats always represent the subject
+    """ Very specific osha getter. We want to make sure that the top
+    level cats always represent the subject.
     """
     subcats = self.getField('subcategory')
     if subcats is None:
@@ -20,7 +21,7 @@ def getSubject(self):
     # XXX: Bad hack but works. I take all keys which have no :: inside
     subjects = {}
     for subcat in subcats:
-        if subcat.find('::')==-1:
+        if subcat.find('::') == -1:
             subjects[subcat] = 1
         else:
             elems = subcat.split("::")
@@ -30,10 +31,10 @@ def getSubject(self):
     all_subs = origsub.union(subjects.keys())
     return list(all_subs)
 
+
 def Subject(self):
     """ alias to getSubject """
     return self.getSubject()
-
 
 
 OSH_Link._old_subject = OSH_Link.Subject

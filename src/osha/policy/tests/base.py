@@ -95,11 +95,33 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=slc.shoppinglist)
         import slc.xliff
         self.loadZCML('configure.zcml', package=slc.xliff)
-
         import slc.seminarportal
         self.loadZCML("configure.zcml", package=slc.seminarportal)
+        import osha.adaptation
+        self.loadZCML('configure.zcml', package=osha.adaptation)
+        import Products.RichDocument
+        self.loadZCML('configure.zcml', package=Products.RichDocument)
+        import Products.RemoteProvider
+        self.loadZCML('configure.zcml', package=Products.RemoteProvider)
+        import Products.CaseStudy
+        self.loadZCML('configure.zcml', package=Products.CaseStudy)
+        import Products.OSHContentLink
+        self.loadZCML('configure.zcml', package=Products.OSHContentLink)
+        import slc.seminarportal
+        self.loadZCML('configure.zcml', package=slc.seminarportal)
+        import Products.RALink
+        self.loadZCML('configure.zcml', package=Products.RALink)
+        import Products.PloneHelpCenter
+        self.loadZCML('configure.zcml', package=Products.PloneHelpCenter)
+        import osha.whoswho
+        self.loadZCML('configure.zcml', package=osha.whoswho)
+        import Products.Relations
+        self.loadZCML('configure.zcml', package=Products.Relations)
 
         # TODO: integrate these:
+        #from osha.policy.interfaces import IOSHACommentsLayer
+        #from plone import browserlayer
+
         # browserlayer.utils.register_layer(
         #     IOSHACommentsLayer, name='osha.policy')
         # component.provideAdapter(instanceSchemaFactory)
@@ -123,9 +145,19 @@ class OshaPolicy(PloneSandboxLayer):
         quickInstallProduct(portal, "Products.Collage")
         quickInstallProduct(portal, "plonetheme.classic")
         quickInstallProduct(portal, "Products.LinguaPlone")
+        quickInstallProduct(portal, 'osha.adaptation')
 
         applyProfile(portal, 'osha.policy:default')
         applyProfile(portal, 'osha.theme:default')
+
+        # Needed to properly install content types
+        applyProfile(portal, 'Products.RichDocument:default')
+        applyProfile(portal, 'Products.RemoteProvider:default')
+        applyProfile(portal, 'Products.CaseStudy:default')
+        applyProfile(portal, 'Products.OSHContentLink:default')
+        applyProfile(portal, 'slc.seminarportal:default')
+        applyProfile(portal, 'Products.PloneHelpCenter:default')
+        applyProfile(portal, 'osha.whoswho:default')
 
         # We need this imports here, otherwise we get an error
         from Products.CMFPlone.tests.utils import MockMailHost
