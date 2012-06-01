@@ -15,6 +15,13 @@ Package description
 - Questions and comments to info (at) syslab (dot) com
 - Report bugs at http://products.syslab.com/products/osha.policy/issues
 
+
+JavaScript Registry
+===================
+
+The JS registry: (portal_javascripts) is cleared and re-imported from osha/policy/profiles/default/osha-jsregistry.xml by the resetJSRegistry setuphandler. Please note that all JavaScript should be managed in this file to avoid trouble with re-ordering etc. caused by installed JS via other profiles.
+
+
 VDEX Tools
 ==========
 This egg provides a number of shell scripts that shall support people in
