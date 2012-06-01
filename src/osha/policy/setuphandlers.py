@@ -150,6 +150,11 @@ def configurePortal(portal):
 
 
 def resetJSRegistry(context):
+    """Remove all resources from the JavaScript registry and add them
+    from osha-jsregistry.xml"""
+    portal = context.getSite()
+    js_reg = portal.portal_javascripts
+    js_reg.clearResources()
     return importResRegistry(context, 'portal_javascripts',
                              'OSHA Javascript registry', 'osha-jsregistry.xml')
 
