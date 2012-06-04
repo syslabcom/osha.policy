@@ -26,11 +26,9 @@
   <layer name="osha_images" insert-after="custom"/>
   <layer name="osha_portlets" insert-after="custom"/>
   <layer name="osha_scripts" insert-after="custom"/>
-  <layer name="osha_styles" insert-after="custom"/>
   <layer name="osha_templates" insert-after="custom"/>
   <layer name="osha_forms" insert-after="custom"/>
   <layer name="osha_form_scripts" insert-after="custom"/>
-  <layer name="scriptaculous" insert-after="custom"/>
   <layer name="remoteprovider_images" insert-after="custom"/>
   <layer name="remoteprovider_styles" insert-after="custom"/>
   <layer name="remoteprovider_templates" insert-after="custom"/>
