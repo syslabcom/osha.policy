@@ -35,11 +35,12 @@ class ProviderVocabulary(object):
     """ Vocabulary for remoteProvider """
     implements(IVocabularyFactory)
 
-    def __call__(self, context):
+    def __call__(self, context=None):
         context = getSite()
         pc = getToolByName(context, 'portal_catalog')
         provRes = pc(portal_type='Provider', review_state='published')
-        terms = [SimpleTerm(res.UID, res.Title.strip()) for res in provRes]
+        terms = [SimpleTerm(res.UID,
+            title=res.Title.strip()) for res in provRes]
         return SimpleVocabulary(terms)
 
 ProviderVocabularyFactory = ProviderVocabulary()
