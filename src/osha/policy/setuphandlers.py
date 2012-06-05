@@ -17,11 +17,15 @@ logger = logging.getLogger("osha.policy.setuphandler")
 basedir = os.path.abspath(os.path.dirname(__file__))
 vocabdir = os.path.join(basedir, 'data', 'vocabularies')
 
+def guard(func):
+    def wrapper(context):
+        if context.readDataFile('osha.policy_marker.txt') is None:
+            return
+        return func(context)
+    return wrapper
 
+@guard
 def importVarious(context):
-    if context.readDataFile("osha-various.txt") is None:
-        return
-
     logger.info("Importing OSHA specifics")
     portal = context.getSite()
     installDependencies(portal)
@@ -35,14 +39,13 @@ def importVarious(context):
     repositionActions(portal)
     enableDiffSupport(portal)
 
+@guard
 def importIndexes(context):
-    if context.readDataFile("osha-various.txt") is None:
-        return
-
     logger.info("Importing OSHA catalog indexes")
     portal = context.getSite()
     addProxyIndexes(portal)
     addExtraIndexes(portal)
+
 
 def installDependencies(portal):
     qi = getToolByName(portal, 'portal_quickinstaller')
@@ -151,6 +154,7 @@ def configurePortal(portal):
     portal_workflow.setChainForPortalTypes(['LinguaLink'], None)
 
 
+@guard
 def resetJSRegistry(context):
     """Remove all resources from the JavaScript registry and add them
     from osha-jsregistry.xml"""
@@ -542,11 +546,9 @@ def modifySEOActionPermissions(portal):
         ptype._actions = tuple(new_actions)
 
 
+@guard
 def setVersionedTypes(context):
     portal = context.getSite()
-    if context.readDataFile("osha-various.txt") is None:
-        return
-
     portal_repository = getToolByName(portal, 'portal_repository')
     versionable_types = list(portal_repository.getVersionableContentTypes())
     for type_id in TYPES_TO_VERSION:
