@@ -35,9 +35,4 @@ class IDatabaseSettings(Interface):
                    required=False) 
     database = schema.ASCIILine(title=_(u"Database name"), 
                    description=_(u"The name of the database on this server"), 
-                   required=True) 
-
-class IVocabularyUtility(Interface):
-    """A utility that returns a vocabulary dict"""
-    def getVocabularyDict():
-        """return the dict"""
+                   required=True)

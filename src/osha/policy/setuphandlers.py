@@ -28,7 +28,6 @@ def importVarious(context):
     configurePortal(portal)
 
     importVocabularies(portal)
-    registerVocabularyUtilities(portal)
     configureCountryTool(portal)
     configureSEOOptimizer(portal)
     # configureCacheFu(portal)
@@ -160,14 +159,6 @@ def resetJSRegistry(context):
     js_reg.clearResources()
     return importResRegistry(context, 'portal_javascripts',
                              'OSHA Javascript registry', 'osha-jsregistry.xml')
-
-def registerVocabularyUtilities(portal):
-    sm = portal.getSiteManager()
-
-    if not sm.queryUtility(IVocabularyUtility, name='remoteProvider'):
-       sm.registerUtility(ProviderVocabularyUtility(),
-                       IVocabularyUtility,
-                       'remoteProvider')
 
 def importVocabularies(self):
     logger = logging.getLogger("VocabularyImporter")
