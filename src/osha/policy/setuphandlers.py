@@ -8,6 +8,8 @@ from Products.ATVocabularyManager.utils.vocabs import createSimpleVocabs
 from Products.CMFCore.utils import getToolByName
 # from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
 from Products.ResourceRegistries.exportimport.resourceregistry import importResRegistry
+from osha.policy.interfaces import IVocabularyUtility
+from osha.policy.vocabularies import ProviderVocabularyUtility
 
 from config import DEPENDENCIES, TYPES_TO_VERSION, DIFF_SUPPORT
 
@@ -26,6 +28,7 @@ def importVarious(context):
     configurePortal(portal)
 
     importVocabularies(portal)
+    registerVocabularyUtilities(portal)
     configureCountryTool(portal)
     configureSEOOptimizer(portal)
     # configureCacheFu(portal)
@@ -158,6 +161,13 @@ def resetJSRegistry(context):
     return importResRegistry(context, 'portal_javascripts',
                              'OSHA Javascript registry', 'osha-jsregistry.xml')
 
+def registerVocabularyUtilities(portal):
+    sm = portal.getSiteManager()
+
+    if not sm.queryUtility(IVocabularyUtility, name='remoteProvider'):
+       sm.registerUtility(ProviderVocabularyUtility(),
+                       IVocabularyUtility,
+                       'remoteProvider')
 
 def importVocabularies(self):
     logger = logging.getLogger("VocabularyImporter")

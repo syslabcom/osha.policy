@@ -2,7 +2,7 @@ from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-from Products.Archetypes.interfaces import IVocabulary
+from osha.policy.interfaces import IVocabularyUtility
 from zope.i18n import translate
 from zope.app.component.hooks import getSite
 
@@ -32,9 +32,9 @@ class CategoriesVocabulary(object):
 CategoriesVocabularyFactory = CategoriesVocabulary()
 
 
-class ProviderVocabulary(object):
+class ProviderVocabularyUtility(object):
     """ Vocabulary for remoteProvider """
-    implements(IVocabulary)
+    implements(IVocabularyUtility)
 
     def getVocabularyDict(self):
         """Build vocabulary dict
@@ -47,4 +47,3 @@ class ProviderVocabulary(object):
             title = res.Title
             results['nocat'][1][res.UID] = (title, None)
         return results
-
