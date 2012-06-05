@@ -2,6 +2,7 @@ from zope.app.schema.vocabulary import IVocabularyFactory
 from zope.interface import implements
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+from Products.Archetypes.interfaces import IVocabulary
 from zope.i18n import translate
 from zope.app.component.hooks import getSite
 
@@ -33,14 +34,17 @@ CategoriesVocabularyFactory = CategoriesVocabulary()
 
 class ProviderVocabulary(object):
     """ Vocabulary for remoteProvider """
-    implements(IVocabularyFactory)
+    implements(IVocabulary)
 
-    def __call__(self, context=None):
+    def getVocabularyDict(self):
+        """Build vocabulary dict
+        """
         context = getSite()
         pc = getToolByName(context, 'portal_catalog')
-        provRes = pc(portal_type='Provider', review_state='published')
-        terms = [SimpleTerm(res.UID,
-            title=res.Title.strip()) for res in provRes]
-        return SimpleVocabulary(terms)
+        provRes = pc(portal_type='Provider', Language='all')
+        results = dict(nocat=('No specific category', dict()))
+        for res in provRes:
+            title = res.Title
+            results['nocat'][1][res.UID] = (title, None)
+        return results
 
-ProviderVocabularyFactory = ProviderVocabulary()
