@@ -117,6 +117,8 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=osha.whoswho)
         import Products.Relations
         self.loadZCML('configure.zcml', package=Products.Relations)
+        import slc.googlesearch
+        self.loadZCML('configure.zcml', package=slc.googlesearch)
 
         # TODO: integrate these:
         #from osha.policy.interfaces import IOSHACommentsLayer
@@ -146,6 +148,7 @@ class OshaPolicy(PloneSandboxLayer):
         quickInstallProduct(portal, "plonetheme.classic")
         quickInstallProduct(portal, "Products.LinguaPlone")
         quickInstallProduct(portal, 'osha.adaptation')
+        quickInstallProduct(portal, 'slc.googlesearch')
 
         applyProfile(portal, 'osha.policy:default')
         applyProfile(portal, 'osha.theme:default')
