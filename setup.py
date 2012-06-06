@@ -57,6 +57,7 @@ setup(name='osha.policy',
       install_requires=[
         # 'slc.rdbploneformgenadapter', # requires collective.lead
         'Pillow',
+	'cElementTree',
         'Plone',
         'Products.ATCountryWidget',
         'Products.ATVocabularyManager',
