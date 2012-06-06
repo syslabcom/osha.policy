@@ -16,7 +16,7 @@ def subcategory(obj):
 
 @indexer(IBaseContent)
 def osha_metadata(obj):
-    return obj.restrictedTraverse('@@getVocabularyPath')('osha_metadata ')
+    return obj.restrictedTraverse('@@getVocabularyPath')('osha_metadata')
 
 @indexer(IBaseContent)
 def occupation(obj):
