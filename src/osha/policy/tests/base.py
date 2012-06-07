@@ -3,17 +3,17 @@ import unittest2 as unittest
 
 from Globals import package_home
 from osha.theme.config import product_globals
+from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
+from plone.app.testing import login
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import applyProfile
 from plone.app.testing import quickInstallProduct
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
-from plone.app.testing import login
 from plone.testing import z2
 from plone.testing.z2 import Browser
 from StringIO import StringIO
@@ -89,6 +89,8 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=osha.theme)
         import osha.adaptation
         self.loadZCML('configure.zcml', package=osha.adaptation)
+        import slc.outdated
+        self.loadZCML('configure.zcml', package=slc.outdated)
         import slc.publications
         self.loadZCML('configure.zcml', package=slc.publications)
         import slc.shoppinglist
@@ -159,6 +161,7 @@ class OshaPolicy(PloneSandboxLayer):
         applyProfile(portal, 'Products.CaseStudy:default')
         applyProfile(portal, 'Products.OSHContentLink:default')
         applyProfile(portal, 'slc.seminarportal:default')
+        applyProfile(portal, 'slc.outdated:default')
         applyProfile(portal, 'Products.PloneHelpCenter:default')
         applyProfile(portal, 'osha.whoswho:default')
 
