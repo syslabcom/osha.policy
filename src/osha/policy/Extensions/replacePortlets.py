@@ -17,7 +17,7 @@ def replaceSearchPortlets(self):
     ltool = getToolByName(portal, 'portal_languages')
     langs = ltool.getSupportedLanguages()
     #langs = ['en']
-    
+
     vocab = AvailableCSEVocabularyFactory(self)
     self.cse = len(vocab._terms) and vocab._terms[0].value or ''
     self.out = StringIO()
@@ -41,7 +41,7 @@ def replaceSearchPortlets(self):
             #print "no portlets possible for", obj
             return
         portlets = [x for x in list(right.keys())]
-        
+
         new_name = 'google-searchbox'
         if 'search' in portlets:
             # import pdb; pdb.set_trace()
@@ -66,7 +66,7 @@ def replaceSearchPortlets(self):
             doReplacement(self, subobj)
             if IFolderish.providedBy(subobj):
                 doRecursion(self, subobj)
-      
+
     for lang in langs:
         if not hasattr(Acquisition.aq_base(portal), lang):
             self.out.write("\nNo folder '%s' found on portal, skipping\n" %lang)
@@ -75,5 +75,52 @@ def replaceSearchPortlets(self):
         F = getattr(portal, lang)
         doReplacement(self, F)
         doRecursion(self, F)
-        
+
     return self.out.getvalue()
+
+
+def removeSearchPortlets(self):
+    """Recursively remove 'google-searchbox'  portlets """
+    portal = self.portal_url.getPortalObject()
+    ltool = getToolByName(portal, 'portal_languages')
+    langs = ltool.getSupportedLanguages()
+    self.out = StringIO()
+    self.out.write('Starting with replacement of the "search" portlet.\n\n')
+
+    def doReplacement(self, obj):
+        #print "handling", obj.absolute_url()
+        path = '/'.join(obj.getPhysicalPath())
+        try:
+            right = assignment_mapping_from_key(obj, 'plone.rightcolumn', CONTEXT_CATEGORY, path)
+        except ComponentLookupError:
+            #print "no portlets possible for", obj
+            return
+        portlets = [x for x in list(right.keys())]
+
+        name = 'google-searchbox'
+        if name in portlets:
+            # import pdb; pdb.set_trace()
+            index = portlets.index(name)
+            print "removing portlet on ", obj
+            del right[name]
+            self.out.write('Did replacement on %s\n' %path)
+
+    def doRecursion(self, obj):
+        for subobj in obj.objectValues():
+            doReplacement(self, subobj)
+            if IFolderish.providedBy(subobj):
+                doRecursion(self, subobj)
+
+    for lang in langs:
+        if not hasattr(Acquisition.aq_base(portal), lang):
+            self.out.write("\nNo folder '%s' found on portal, skipping\n" %lang)
+            continue
+        self.out.write("\nHandling language '%s'\n" %lang)
+        F = getattr(portal, lang)
+        doReplacement(self, F)
+        doRecursion(self, F)
+        transaction.commit()
+        logger.warning('Commited for language %s' % lang)
+
+    return self.out.getvalue()
+
