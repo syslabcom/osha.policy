@@ -129,6 +129,8 @@ def update_links(event):
         link_checker = getToolByName(obj, 'portal_linkchecker').aq_inner
     except AttributeError:
         return
+    if not link_checker.active:
+        return
     retriever = IRetriever(obj, None)
     if retriever is not None:
         link_checker.retrieving.retrieveObject(obj, online=False)
