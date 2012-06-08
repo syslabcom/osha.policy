@@ -121,6 +121,8 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML('configure.zcml', package=Products.Relations)
         import slc.googlesearch
         self.loadZCML('configure.zcml', package=slc.googlesearch)
+        import collective.dynatree
+        self.loadZCML('configure.zcml', package=collective.dynatree)
 
         # TODO: integrate these:
         #from osha.policy.interfaces import IOSHACommentsLayer
