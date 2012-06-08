@@ -82,6 +82,11 @@
         handler=".handlers.handle_edit_begun"
         />
 
+    <subscriber for="zope.processlifetime.IProcessStarting"
+        handler=".dbconfig.dbconfig"
+    />
+
+
   <adapter name="target_user_groups" factory=".indexer.target_user_groups" />
   <adapter name="nace" factory=".indexer.nace" />
   <adapter name="subcategory" factory=".indexer.subcategory" />
