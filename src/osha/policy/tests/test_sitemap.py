@@ -43,7 +43,7 @@ class TestNewsMapView(IntegrationTestCase):
         self.teaser.newsitem2.unrestrictedTraverse("object_toggle_outdated").toggle()
 
         # reindex everything to update the catalog
-        self.catalog.clearFindAndRebuild()
+        #self.catalog.clearFindAndRebuild()
 
     def test_objects(self):
         """Test data that is used to generate the Google newsmap."""
