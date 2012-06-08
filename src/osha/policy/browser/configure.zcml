@@ -29,22 +29,6 @@
 
     <browser:page
         for="*"
-        name="nace_view"
-        class=".dynamic_views.NaceView"
-        permission="zope.Public"
-        allowed_interface=".interfaces.INaceView"
-        />
-
-    <browser:page
-        for="*"
-        name="topic_view"
-        class=".dynamic_views.TopicView"
-        permission="zope.Public"
-        allowed_interface=".interfaces.ITopicView"
-        />
-
-    <browser:page
-        for="*"
         name="vocabulary_helpers"
         class=".sep_utils.VocabularyHelpers"
         permission="zope.Public"
