@@ -2,7 +2,6 @@
 """Tests for OSHA sitemap views."""
 
 from osha.policy.tests.base import IntegrationTestCase
-from osha.theme.browser.interfaces import IOSHAThemeLayer
 from zope.interface import alsoProvides
 
 import unittest2 as unittest
@@ -19,6 +18,7 @@ class TestNewsMapView(IntegrationTestCase):
         self.workflow = self.portal.portal_workflow
 
         # enable osha.theme theme layer
+        from osha.theme.browser.interfaces import IOSHAThemeLayer
         alsoProvides(self.request, IOSHAThemeLayer)
 
         # create some dummy content
@@ -41,9 +41,6 @@ class TestNewsMapView(IntegrationTestCase):
 
         # mark newsitem2 as outdated
         self.teaser.newsitem2.unrestrictedTraverse("object_toggle_outdated").toggle()
-
-        # reindex everything to update the catalog
-        #self.catalog.clearFindAndRebuild()
 
     def test_objects(self):
         """Test data that is used to generate the Google newsmap."""
