@@ -36,7 +36,7 @@ def dbconfig(event):
     connection = db.open()
     root_folder = connection.root().get(ZopePublication.root_name, None)
     instancename = conf.get('ploneinstance_name')
-    plone = root_folder.get(instancename)
+    plone = root_folder.get('osha').get('portal')
     if plone is None:
         log.error('No Plone instance found! Create it manually ' \
         'with id %s and profile osha.policy' % instancename)
