@@ -7,6 +7,7 @@
 
     <five:registerPackage package="." initialize=".initialize" />
 
+    <include package="five.pt" />
     <include package="five.dbevent" />
     <include package=".adapter" />
     <include package=".browser" />
