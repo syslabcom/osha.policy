@@ -30,7 +30,7 @@
 
 
 
-<div xtal:on-error="nothing" tal:condition="not:view/anon">
+<div tal:condition="not:view/anon">
 
   <h2>Search OSH Resources by Type (Click &amp; browse - BETA):</h2>
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div metal:fill-slot="main"
-     xtal:define="">    
+     >    
 <style type="text/css">
 .gpbox { width: 100%; border: 1px solid #898A8E; margin:0px; padding:0px; background: #FDFDFD url(gpbg.jpg) repeat-y; clear:both;}
 .gpbox_title { float:left; font-weight: bold; padding: 5px 5px 5px 5px; clear:left;width:80%; }
