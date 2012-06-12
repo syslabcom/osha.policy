@@ -1,7 +1,6 @@
 from zope.component import getUtility 
 from zope.formlib import form 
 from plone.app.controlpanel.form import ControlPanelForm 
-from collective.lead.interfaces import IDatabase 
 from osha.policy.interfaces import IDatabaseSettings 
 from osha.theme import OSHAMessageFactory as _
 
@@ -16,6 +15,3 @@ class OSHADatabaseControlPanel(ControlPanelForm):
     description = _(u"Please enter the appropriate connection settings" 
                       "for the database") 
 
-    def _on_save(self, data): 
-        db = getUtility(IDatabase, name='osha.database') 
-        db.invalidate() 
