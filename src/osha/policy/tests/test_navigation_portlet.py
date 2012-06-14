@@ -21,8 +21,8 @@ class TestPortlet(unittest.TestCase):
         self.folder = self.portal['folder']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
-        from osha.theme.browser.interfaces import IOSHAThemeLayer
-        alsoProvides(self.layer['app'].REQUEST, IOSHAThemeLayer)
+        from osha.theme.browser.interfaces import IThemeSpecific
+        alsoProvides(self.layer['app'].REQUEST, IThemeSpecific)
 
     def testRenderer(self):
         context = self.folder
@@ -34,7 +34,7 @@ class TestPortlet(unittest.TestCase):
 
         renderer = getMultiAdapter((context, request, view, manager,
                                     assignment), IPortletRenderer)
-        # self.failUnless(isinstance(renderer, navigation.Renderer))
+        self.failUnless(isinstance(renderer, navigation.Renderer))
 
 
 class TestRenderer(unittest.TestCase):
