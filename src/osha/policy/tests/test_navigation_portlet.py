@@ -45,8 +45,8 @@ class TestRenderer(unittest.TestCase):
         self.portal = self.layer['portal']
         self.folder = self.portal['folder']
         self._populate_site()
-        from osha.theme.browser.interfaces import IOSHAThemeLayer
-        alsoProvides(self.layer['app'].REQUEST, IOSHAThemeLayer)
+        from osha.theme.browser.interfaces import IThemeSpecific
+        alsoProvides(self.layer['app'].REQUEST, IThemeSpecific)
 
     def renderer(self, context=None, request=None, view=None,
                  manager=None, assignment=None):
@@ -95,7 +95,8 @@ class TestRenderer(unittest.TestCase):
 
     def test_create_navtree(self):
         view = self.renderer(self.portal)
-        # self.failUnless(view.tree)
+        view.update()
+        self.failUnless(view.tree)
 
 
 def test_suite():
