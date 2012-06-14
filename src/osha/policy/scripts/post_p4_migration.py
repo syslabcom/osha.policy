@@ -62,18 +62,18 @@ def fix_section():
     #     "/osha/portal/en/faq", include_translations=True, sub=True)
     # transaction.commit()
 
-    # migrateNextPrev(portal)
-    # migrateBodyTexts(portal)
-    # migrateFAQs(portal)
-    # transaction.commit()
-
-    languages = portal.portal_languages.getSupportedLanguages()
-    languages.remove("en")
-    for lang in languages:
-        reindex_path(
-            "/osha/portal/fop" ,
-            include_translations=False, sub=True)
+    migrateNextPrev(portal)
+    migrateBodyTexts(portal)
+    migrateFAQs(portal)
     transaction.commit()
+
+#    languages = portal.portal_languages.getSupportedLanguages()
+#    languages.remove("en")
+#    for lang in languages:
+#        reindex_path(
+#            "/osha/portal/fop" ,
+#            include_translations=False, sub=True)
+#    transaction.commit()
 
 if __name__ == "__main__":
     fix_section()
