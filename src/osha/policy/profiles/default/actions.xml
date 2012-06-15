@@ -1,218 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
 <?xml version="1.0"?>
 <object name="portal_actions" meta_type="Plone Actions Tool"
-   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
-    <object name="object_buttons" meta_type="CMF Action Category">
-      <object name="xliffimport" meta_type="CMF Action" i18n:domain="slc.xliff">
-       <property name="title" i18n:translate="xliff_import_title">Xliff Import</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+  <object name="object_buttons" meta_type="CMF Action Category">
+    <object name="xliffimport" meta_type="CMF Action" i18n:domain="slc.xliff">
+      <property name="title" i18n:translate="xliff_import_title">Xliff Import</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:$portal_url/@@xliffimport</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
         <element value="Modify portal content"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
+  </object>
 
-    <object name="object_buttons" meta_type="CMF Action Category">
-      <object name="linkchecker_object_status" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
-       <property name="title" i18n:translate="">Links</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+  <object name="object_buttons" meta_type="CMF Action Category">
+    <object name="linkchecker_object_status" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
+      <property name="title" i18n:translate="">Links</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:${object_url}/lc_object_status</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
         <element value="Modify portal content"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
+  </object>
 
 
-    <object name="object_buttons" meta_type="CMF Action Category">
-      <object name="linkchecker_balanced_scorecard" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
-       <property name="title" i18n:translate="">Link management</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+  <object name="object_buttons" meta_type="CMF Action Category">
+    <object name="linkchecker_balanced_scorecard" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
+      <property name="title" i18n:translate="">Link management</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:${portal_url}/lc_balanced_score_card</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
         <element value="Manage portal"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
+  </object>
 
-    <object name="object_buttons" meta_type="CMF Action Category">
-      <object name="linkchecker_balanced_scorecard" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
-       <property name="title" i18n:translate="">Link management</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+  <object name="object_buttons" meta_type="CMF Action Category">
+    <object name="linkchecker_balanced_scorecard" meta_type="CMF Action" i18n:domain="CMFLinkChecker">
+      <property name="title" i18n:translate="">Link management</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:${portal_url}/lc_balanced_score_card</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
         <element value="Manage portal"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
+  </object>
 
 
 
-    <object name="site_actions" meta_type="CMF Action Category">
-      <object name="osha_update" meta_type="CMF Action" i18n:domain="osha">
-       <property name="title" i18n:translate="">Update</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+  <object name="site_actions" meta_type="CMF Action Category">
+    <object name="osha_update" meta_type="CMF Action" i18n:domain="osha">
+      <property name="title" i18n:translate="">Update</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:${portal_url}/site_update</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
         <element value="View"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
+  </object>
 
 
-    <object name="site_actions" meta_type="CMF Action Category">
-      <object name="osha_faq" meta_type="CMF Action" i18n:domain="osha">
-       <property name="title" i18n:translate="">FAQ</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+  <object name="site_actions" meta_type="CMF Action Category">
+    <object name="osha_faq" meta_type="CMF Action" i18n:domain="osha">
+      <property name="title" i18n:translate="">FAQ</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:${portal_url}/${folder/portal_languages/getPreferredLanguage}/faq</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
         <element value="View"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
+    </object>
+  </object>
+
+  <object name="site_actions" meta_type="CMF Action Category">
+    <object name="contact" meta_type="CMF Action" i18n:domain="plone">
+      <property name="title" i18n:translate="">Contact</property>
+      <property name="description" i18n:translate=""></property>
+      <property name="url_expr">string:${portal_url}/contact_info</property>
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
+        <element value="View"/>
+      </property>
+      <property name="visible">False</property>
+    </object>
+  </object>
+
+  <object name="footer_actions" meta_type="CMF Action Category">
+    <object name="contact" meta_type="CMF Action" i18n:domain="plone">
+      <property name="title" i18n:translate="">Contact</property>
+      <property name="description" i18n:translate=""></property>
+      <property name="url_expr">string:${globals_view/navigationRootUrl}/contact_us</property>
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
+        <element value="View"/>
+      </property>
+      <property name="visible">True</property>
     </object>
 
-    <object name="site_actions" meta_type="CMF Action Category">
-      <object name="contact" meta_type="CMF Action" i18n:domain="plone">
-       <property name="title" i18n:translate="">Contact</property>
-       <property name="description" i18n:translate=""></property>
-       <property name="url_expr">string:${portal_url}/contact_info</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
-        <element value="View"/>
-       </property>
-       <property name="visible">False</property>
-      </object>
-    </object>
-
-    <object name="footer_actions" meta_type="CMF Action Category">
-      <object name="contact" meta_type="CMF Action" i18n:domain="plone">
-       <property name="title" i18n:translate="">Contact</property>
-       <property name="description" i18n:translate=""></property>
-       <property name="url_expr">string:${globals_view/navigationRootUrl}/contact_us</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
-        <element value="View"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
-
-      <object name="osha_help" meta_type="CMF Action" i18n:domain="osha">
-       <property name="title" i18n:translate="">Help</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+    <object name="osha_help" meta_type="CMF Action" i18n:domain="osha">
+      <property name="title" i18n:translate="">Help</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:${portal_url}/${folder/portal_languages/getPreferredLanguage}/help</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
         <element value="View"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
-
-      <object name="rssfeeds" meta_type="CMF Action" i18n:domain="plone">
-        <property name="title" i18n:translate="">RSS</property>
-        <property name="description" i18n:translate=""></property>
-        <property
-            name="url_expr">string:${globals_view/navigationRootUrl}/rss-feeds</property>
-        <property name="icon_expr"></property>
-        <property name="available_expr"></property>
-        <property name="permissions">
-          <element value="View"/>
-        </property>
-        <property name="visible">True</property>
-      </object>
-
-      <object name="login" meta_type="CMF Action" i18n:domain="plone">
-        <property name="title" i18n:translate="">Log in</property>
-        <property name="description" i18n:translate=""></property>
-        <property name="url_expr">string:${portal_url}/login_form</property>
-        <property name="icon_expr"></property>
-        <property name="available_expr">python:member is None</property>
-        <property name="permissions">
-          <element value="View"/>
-        </property>
-        <property name="visible">False</property>
-      </object>
-
-      <object name="privacypolicy" meta_type="CMF Action" i18n:domain="osha">
-        <property name="title" i18n:translate="">Privacy Policy</property>
-        <property name="description" i18n:translate=""></property>
-        <property name="url_expr">string:${portal_url}/en/privacy-policy</property>
-        <property name="icon_expr"></property>
-        <property name="available_expr"></property>
-        <property name="permissions"/>
-        <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
 
-    <object name="site_actions" meta_type="CMF Action Category">
-      <object name="osha_translations" meta_type="CMF Action" i18n:domain="osha">
-       <property name="title" i18n:translate="">Translations</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+    <object name="rssfeeds" meta_type="CMF Action" i18n:domain="plone">
+      <property name="title" i18n:translate="">RSS</property>
+      <property name="description" i18n:translate=""></property>
+      <property
+          name="url_expr">string:${globals_view/navigationRootUrl}/rss-feeds</property>
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
+        <element value="View"/>
+      </property>
+      <property name="visible">True</property>
+    </object>
+
+    <object name="login" meta_type="CMF Action" i18n:domain="plone">
+      <property name="title" i18n:translate="">Log in</property>
+      <property name="description" i18n:translate=""></property>
+      <property name="url_expr">string:${portal_url}/login_form</property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">python:member is None</property>
+      <property name="permissions">
+        <element value="View"/>
+      </property>
+      <property name="visible">False</property>
+    </object>
+
+    <object name="privacypolicy" meta_type="CMF Action" i18n:domain="osha">
+      <property name="title" i18n:translate="">Privacy Policy</property>
+      <property name="description" i18n:translate=""></property>
+      <property name="url_expr">string:${portal_url}/en/privacy-policy</property>
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions"/>
+      <property name="visible">True</property>
+    </object>
+  </object>
+
+  <object name="site_actions" meta_type="CMF Action Category">
+    <object name="osha_translations" meta_type="CMF Action" i18n:domain="osha">
+      <property name="title" i18n:translate="">Translations</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:${portal_url}/${folder/portal_languages/getPreferredLanguage}/translations</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr"></property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr"></property>
+      <property name="permissions">
         <element value="View"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
+  </object>
 
-    <object name="object_buttons" meta_type="CMF Action Category">
-      <object name="set_file_languages" meta_type="CMF Action" i18n:domain="osha">
-       <property name="title" i18n:translate="">Set file languages</property>
-       <property name="description" i18n:translate=""></property>
-       <property
+  <object name="object_buttons" meta_type="CMF Action Category">
+    <object name="set_file_languages" meta_type="CMF Action" i18n:domain="osha">
+      <property name="title" i18n:translate="">Set file languages</property>
+      <property name="description" i18n:translate=""></property>
+      <property
           name="url_expr">string:${globals_view/getCurrentObjectUrl}/@@set_file_languages</property>
-       <property name="icon_expr"></property>
-       <property name="available_expr">python:not globals_view.isPortalOrPortalDefaultPage()</property>
-       <property name="permissions">
+      <property name="icon_expr"></property>
+      <property name="available_expr">python:not globals_view.isPortalOrPortalDefaultPage()</property>
+      <property name="permissions">
         <element value="Manage portal"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
+  </object>
 
-    <object name="object" meta_type="CMF Action Category">
-      <object name="bulktagger" meta_type="CMF Action" i18n:domain="osha">
-        <property name="title" i18n:translate="">Bulk Tagging</property>
-        <property name="description" i18n:translate=""></property>
-        <property name="url_expr">python:object_url+'/@@bulk_tagger?Subject='+request.get('Subject','')+'&amp;SearchableText='+request.get('SearchableText','')</property>
-        <property name="icon_expr"></property>
-       <property name="available_expr">python:object.portal_type in ('Folder', 'Topic')</property>
-       <property name="permissions">
+  <object name="object" meta_type="CMF Action Category">
+    <object name="bulktagger" meta_type="CMF Action" i18n:domain="osha">
+      <property name="title" i18n:translate="">Bulk Tagging</property>
+      <property name="description" i18n:translate=""></property>
+      <property name="url_expr">python:object_url+'/@@bulk_tagger?Subject='+request.get('Subject','')+'&amp;SearchableText='+request.get('SearchableText','')</property>
+      <property name="icon_expr"></property>
+      <property name="available_expr">python:object.portal_type in ('Folder', 'Topic')</property>
+      <property name="permissions">
         <element value="Manage portal"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
+      </property>
+      <property name="visible">True</property>
     </object>
+  </object>
 </object>
