@@ -114,7 +114,7 @@
       <object name="contact" meta_type="CMF Action" i18n:domain="plone">
        <property name="title" i18n:translate="">Contact</property>
        <property name="description" i18n:translate=""></property>
-       <property name="url_expr">string:${portal_url}/contact_us</property>
+       <property name="url_expr">string:${globals_view/navigationRootUrl}/contact_us</property>
        <property name="icon_expr"></property>
        <property name="available_expr"></property>
        <property name="permissions">
@@ -122,10 +122,7 @@
        </property>
        <property name="visible">True</property>
       </object>
-    </object>
 
-
-    <object name="footer_actions" meta_type="CMF Action Category">
       <object name="osha_help" meta_type="CMF Action" i18n:domain="osha">
        <property name="title" i18n:translate="">Help</property>
        <property name="description" i18n:translate=""></property>
@@ -137,6 +134,41 @@
         <element value="View"/>
        </property>
        <property name="visible">True</property>
+      </object>
+
+      <object name="rssfeeds" meta_type="CMF Action" i18n:domain="plone">
+        <property name="title" i18n:translate="">RSS</property>
+        <property name="description" i18n:translate=""></property>
+        <property
+            name="url_expr">string:${globals_view/navigationRootUrl}/rss-feeds</property>
+        <property name="icon_expr"></property>
+        <property name="available_expr"></property>
+        <property name="permissions">
+          <element value="View"/>
+        </property>
+        <property name="visible">True</property>
+      </object>
+
+      <object name="login" meta_type="CMF Action" i18n:domain="plone">
+        <property name="title" i18n:translate="">Log in</property>
+        <property name="description" i18n:translate=""></property>
+        <property name="url_expr">string:${portal_url}/login_form</property>
+        <property name="icon_expr"></property>
+        <property name="available_expr">python:member is None</property>
+        <property name="permissions">
+          <element value="View"/>
+        </property>
+        <property name="visible">False</property>
+      </object>
+
+      <object name="privacypolicy" meta_type="CMF Action" i18n:domain="osha">
+        <property name="title" i18n:translate="">Privacy Policy</property>
+        <property name="description" i18n:translate=""></property>
+        <property name="url_expr">string:${portal_url}/en/privacy-policy</property>
+        <property name="icon_expr"></property>
+        <property name="available_expr"></property>
+        <property name="permissions"/>
+        <property name="visible">True</property>
       </object>
     </object>
 
