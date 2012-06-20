@@ -29,5 +29,14 @@
     Set versioned content types.
     <dependency step="osha_various"/>
   </import-step>
+  <import-step
+      id="osha.policy.installTransforms"
+      version="20120619-01"
+      title="Install extra MIME transforms"
+      handler="osha.policy.setuphandlers.installTransforms">
+         <dependency step="content"/>
+         <dependency step="toolset"/>
+  </import-step>
 </import-steps>
+
 

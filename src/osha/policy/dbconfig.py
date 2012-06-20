@@ -14,7 +14,7 @@ from plone.registry import (
 #from pas.plugins.ldap.plonecontrolpanel.cache import REGKEY
 from collective.solr.interfaces import ISolrConnectionConfig
 from Products.CMFPlone.utils import getToolByName
-#from osha.policy.transforms.tika import TIKA_TRANSFORMS
+from collective.tika.transforms import TIKA_TRANSFORMS
 import transaction
 
 configuration = getConfiguration()
@@ -107,30 +107,34 @@ def dbconfig(event):
         mailhost.smtp_queue_directory = conf.get('mail.queuedir')
     log.debug('mail config written')
 
-    # # Transforms
-    # transforms = getToolByName(plone, 'portal_transforms')
-    # for name in TIKA_TRANSFORMS:
-    #     trnsf = transforms.get(name)
-    #     if (not trnsf) or (not 'exec_prefix' in trnsf.get_parameters()) or \
-    #       trnsf.get_parameter_value('exec_prefix') != conf.get('exec-prefix'):
-    #         try:
-    #             transforms.unregisterTransform(name)
-    #             log.info("Removed transform %s" % name)
-    #         except AttributeError:
-    #             log.info("Could not remove transform - not found: %s" % name)
-    #         except KeyError:
-    #             if name in transforms.objectIds():
-    #                 transforms._delObject(name, suppress_events=1)
-    #                 log.info("Removed transform the hard way: %s" % name)
-    # 
-    #         transforms.manage_addTransform(name, 'staralliance.policy.transforms.' + name)
-    #         log.info("New object added: %s" % name)
-    #         trnsf = transforms.get(name)
-    # 
-    #     if trnsf.get_parameter_value('exec_prefix') != conf.get('exec-prefix'):
-    #         trnsf.set_parameters(exec_prefix=conf.get('exec-prefix'))
-    # 
-    # log.debug('transforms configured')
+    # Transforms
+    transforms = getToolByName(plone, 'portal_transforms')
+    for name in TIKA_TRANSFORMS:
+        trnsf = transforms.get(name)
+        if not trnsf:
+            # don't add transform if it's not there already, it has probably
+            # been removed on purpose for migration
+            continue
+        if (not 'exec_prefix' in trnsf.get_parameters()) or \
+          trnsf.get_parameter_value('exec_prefix') != conf.get('exec-prefix'):
+            try:
+                transforms.unregisterTransform(name)
+                log.info("Removed transform %s" % name)
+            except AttributeError:
+                log.info("Could not remove transform - not found: %s" % name)
+            except KeyError:
+                if name in transforms.objectIds():
+                    transforms._delObject(name, suppress_events=1)
+                    log.info("Removed transform the hard way: %s" % name)
+    
+            transforms.manage_addTransform(name, 'collective.tika.transforms.' + name)
+            log.info("New object added: %s" % name)
+            trnsf = transforms.get(name)
+    
+        if trnsf.get_parameter_value('exec_prefix') != conf.get('exec-prefix'):
+            trnsf.set_parameters(exec_prefix=conf.get('exec-prefix'))
+    
+    log.debug('transforms configured')
 
 
     # Memcached

@@ -11,6 +11,8 @@ from Products.ResourceRegistries.exportimport.resourceregistry import importResR
 
 from config import DEPENDENCIES, TYPES_TO_VERSION, DIFF_SUPPORT
 
+from collective.tika.transforms import TIKA_TRANSFORMS
+
 logger = logging.getLogger("osha.policy.setuphandler")
 basedir = os.path.abspath(os.path.dirname(__file__))
 vocabdir = os.path.join(basedir, 'data', 'vocabularies')
@@ -36,7 +38,7 @@ def importVarious(context):
     #modifySEOActionPermissions(portal)
     repositionActions(portal)
     enableDiffSupport(portal)
-
+    
 @guard
 def importIndexes(context):
     logger.info("Importing OSHA catalog indexes")
@@ -566,3 +568,28 @@ def enableDiffSupport(portal):
     for type, field, diff in DIFF_SUPPORT:
         if type not in diff_types:
             portal_diff.manage_addDiffField(type, field, diff)
+
+def registerTransform(site, name, module):
+    transforms = getToolByName(site, 'portal_transforms')
+    transforms.manage_addTransform(name, module)
+    logger.info("New object added: %s" % name)
+
+def unregisterTransform(site,name):
+    transforms = getToolByName(site, 'portal_transforms')
+    try:
+        transforms.unregisterTransform(name)
+        logger.info("Removed transform %s" % name)
+    except AttributeError:
+        logger.info("Could not remove transform - not found: %s" % name)
+
+@guard
+def installTransforms(context):
+    """ """
+    site = context.getSite()
+    # Unregister any existing transforms
+    for name in TIKA_TRANSFORMS:
+        unregisterTransform(site, name)
+    # Register NEW transforms
+    for name in TIKA_TRANSFORMS:
+        registerTransform(site, name, 'collective.tika.transforms.' + name)
+
