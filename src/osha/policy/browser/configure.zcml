@@ -245,6 +245,13 @@
         class=".HostnameView"
         />
 
+    <browser:page
+        for="*"
+        name="reindexall"
+        class=".reindexall.ReindexallView"
+        permission="cmf.ManagePortal"
+        />
+
     <subscriber 
         for="slc.outdated.IObjectOutdatedToggleEvent"
         handler=".adapter.handleToggleOutdated"
