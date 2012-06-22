@@ -1,5 +1,9 @@
-import unittest2 as unittest
+ # -*- coding: utf-8 -*-
+"""Tests for the practical_solutions portlet."""
 
+from osha.policy.tests.base import IntegrationTestCase
+from osha.theme.portlets import practical_solutions
+from p4a.subtyper.interfaces import ISubtyper
 from plone.app.portlets.storage import PortletAssignmentMapping
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -8,32 +12,21 @@ from plone.portlets.interfaces import IPortletDataProvider
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletRenderer
 from plone.portlets.interfaces import IPortletType
-from zope.component import getUtility, getMultiAdapter
+from slc.publications.interfaces import IPublicationContainerEnhanced
+from zope.component import getMultiAdapter
+from zope.component import getUtility
+from zope.component import queryMultiAdapter
+from zope.interface import alsoProvides
 
-from osha.theme.portlets import practical_solutions
-from osha.policy.tests.base import OSHA_INTEGRATION_TESTING
+import unittest2 as unittest
 
 
-class TestPortlet(unittest.TestCase):
-
-    layer = OSHA_INTEGRATION_TESTING
+class TestPortlet(IntegrationTestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
         self.folder = self.portal['folder']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
-
-    # def populateSite(self):
-    #     """ Populate the test site with some content. """
-    #     setRoles(('Manager', ))
-    #     portal_types = [ "OSH_Link", "RALink", "CaseStudy", "Provider"]
-    #     self.portal.invokeFactory("Folder", "en")
-    #     #import pdb; pdb.set_trace()
-    #     for portal_type in portal_types:
-    #         for i in range(5):
-    #             id = "%s_%s" %(portal_type, i)
-    #             # self.portal.en.invokeFactory(portal_type, id)
-    #             _createObjectByType(portal_type, self, id)
 
     def test_portlet_type_registered(self):
         portlet = getUtility(
@@ -84,15 +77,79 @@ class TestPortlet(unittest.TestCase):
             (context, request, view, manager, assignment), IPortletRenderer)
         self.failUnless(isinstance(renderer, practical_solutions.Renderer))
 
-    # def test_getBrainsBySection(self):
-    #     """ Return a dict of section:[brains]
-    #     """
 
-    #     context = self.portal
-    #     setRoles(('Manager', ))
-    #     self.populateSite()
-    #     pc = getToolByName(context, "portal_catalog")
-    #     import pdb; pdb.set_trace()
+class TestRenderer(IntegrationTestCase):
+
+    def setUp(self):
+        """Custom shared utility setup for tests."""
+
+        # shortcuts
+        self.portal = self.layer['portal']
+        self.request = self.layer['request']
+        self.catalog = self.portal.portal_catalog
+        self.workflow = self.portal.portal_workflow
+        self.view = self.portal.restrictedTraverse('@@plone')
+        self.mapping = self.portal.restrictedTraverse('++contextportlets++plone.rightcolumn')
+        self.manager = getUtility(IPortletManager, name='plone.rightcolumn', context=self.portal)
+
+        # enable osha.theme theme layer
+        from osha.theme.browser.interfaces import IOSHAThemeLayer
+        alsoProvides(self.request, IOSHAThemeLayer)
+
+        # Publications are expected to support workflows
+        self.workflow.setChainForPortalTypes(['File'], 'plone_workflow')
+
+        # create a folder that will hold publications and change it's subtype
+        # to PublicationContainer
+        self.portal.invokeFactory('Folder', 'pubs', title='Publications')
+        self.pubs = self.portal.pubs
+        alsoProvides(self.pubs, IPublicationContainerEnhanced)
+        self.subtyper = getUtility(ISubtyper)
+        self.subtyper.change_type(self.pubs, u'slc.publications.FolderPublicationContainer')
+
+        # add some publications
+        self.pubs.invokeFactory('File', 'pub1')
+        self.pubs.invokeFactory('File', 'pub2')
+        self.pubs.invokeFactory('File', 'pub3')
+
+        # set Subjects
+        self.pubs.pub1.setSubject(['foo', 'bar'])
+        self.pubs.pub2.setSubject(['foo', ])
+        self.pubs.pub3.setSubject(['bar', ])
+
+        # publish publications
+        self.workflow.doActionFor(self.portal.pubs['pub1'], 'publish')
+        self.workflow.doActionFor(self.portal.pubs['pub2'], 'publish')
+        self.workflow.doActionFor(self.portal.pubs['pub3'], 'publish')
+
+        # reindex everything to update the catalog
+        [pub.reindexObject() for pub in self.pubs.values()]
+
+    def _make_renderer(self, portlet):
+        """Create an instance of portlet Renderer."""
+        return queryMultiAdapter(
+            (self.portal, self.request, self.view, self.manager, portlet),
+            IPortletRenderer
+        )
+
+    def test_getRecentPublications(self):
+        """Test output of getRecentPublications()."""
+        portlet = practical_solutions.Assignment(subject=('foo',))
+        renderer = self._make_renderer(portlet)
+        results = renderer.getRecentPublications()
+        self.assertEquals(len(results), 2)
+        self.assertEquals(results[0].id, 'pub1')
+        self.assertEquals(results[1].id, 'pub2')
+
+    def test_getRecentPracticalSolutions(self):
+        """Test output of getRecentPracticalSolutions()."""
+        portlet = practical_solutions.Assignment(subject=('foo',))
+        renderer = self._make_renderer(portlet)
+        results = renderer.getRecentPracticalSolutions()
+        self.assertEquals(len(results.keys()), 6)
+        self.assertEquals(len(results['publications']), 2)
+        self.assertEquals(results['publications'][0].id, 'pub1')
+        self.assertEquals(results['publications'][1].id, 'pub2')
 
 
 def test_suite():
