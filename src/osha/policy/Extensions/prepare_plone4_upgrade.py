@@ -217,6 +217,7 @@ def uninstall_products(self, log):
                        'slc.clicksearch',
                        'slc.medialibrary',
                        'webcouturier.dropdownmenu',
+                       'BlueLinguaLink',
                        'Products.Ploneboard',
                        'Products.Scrawl',
                        'Products.kupu',
@@ -288,6 +289,26 @@ def remove_stale_items_from_catalog(portal, log):
     res = pc(Language='all')
     log.write('Finally, the catalog has %d items (initially it was %d)' % (len(res), size))
 
+def removeLinguaLinks(self, log):
+    cat = getToolByName(self, 'portal_catalog')
+    log.write('<h3>Remove BlueLinguaLinks</h3>')
+    res = cat(portal_type='LinguaLink', Language='all')
+    log.write('%d LinguaLinks in total' % len(res))
+    for r in res:
+        try:
+            ob = r.getObject()
+        except:
+	    log.write('Uncatalogged stale object %s' % r.getPath())
+            cat.uncatalog_object(r.getPath()) 
+            continue
+	path = r.getPath()
+	try:
+            Acquisition.aq_parent(ob)._delObject(id=ob.getId(), suppress_events=True)
+            cat.uncatalog_object(path)
+            log.write('Deleted LinguaLink at %s' % path)
+        except Exception, err:
+            log.write('ERROR, could not delete %s, msg: %s' % (path, str(err)))
+
 def prepare_plone4_upgrade(self, REQUEST=None):
     """ Prepares an existing Plone 3 portal for upgrade to Plone 4. Needs to be
         run on the Plone 3 instance before the Data.fs can be used by Plone 4.
@@ -300,6 +321,7 @@ def prepare_plone4_upgrade(self, REQUEST=None):
     log = setup_log(self, response)
     setup(self, log)
 
+    removeLinguaLinks(self, log)
     uninstall_products(self, log)
     delete_proxy_indexes(self, log)
 
@@ -311,7 +333,7 @@ def prepare_plone4_upgrade(self, REQUEST=None):
 
     # Skip this, dubious if needed.
     # remove_portlets(self, log) # 20 mins
-    remove_dashboards(self, log) # 3 mins
+    #remove_dashboards(self, log) # 3 mins
     import transaction
     transaction.commit()
     log.write(u"<p><em>Finished, all is well</em></p>")
