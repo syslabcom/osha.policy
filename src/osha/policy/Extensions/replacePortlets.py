@@ -100,6 +100,9 @@ def removeSearchPortlets(self):
         except ComponentLookupError:
             #print "no portlets possible for", obj
             return
+        except KeyError:
+            logger.warning("I have to skip %s " % str([obj]))
+            return
         portlets = [x for x in list(right.keys())]
 
         name = 'google-searchbox'
