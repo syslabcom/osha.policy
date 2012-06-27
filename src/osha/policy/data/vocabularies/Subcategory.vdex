@@ -5994,29 +5994,30 @@
   <term>
     <termIdentifier>foresight</termIdentifier>
     <caption>
-      <langstring language="da">Foresight</langstring>
-      <langstring language="de">Foresight</langstring>
-      <langstring language="et">Foresight</langstring>
+      <langstring language="da">Oversigt</langstring>
+      <langstring language="de">Überblick</langstring>
+      <langstring language="et">Ülevaade</langstring>
       <langstring language="en">Foresight</langstring>
-      <langstring language="es">Foresight</langstring>
-      <langstring language="fr">Foresight</langstring>
-      <langstring language="it">Foresight</langstring>
-      <langstring language="lv">Foresight</langstring>
-      <langstring language="lt">Foresight</langstring>
-      <langstring language="hu">Foresight</langstring>
-      <langstring language="is">Foresight</langstring>
-      <langstring language="mt">Foresight</langstring>
-      <langstring language="nl">Foresight</langstring>
-      <langstring language="no">Foresight</langstring>
-      <langstring language="pl">Foresight</langstring>
-      <langstring language="pt">Foresight</langstring>
-      <langstring language="sk">Foresight</langstring>
-      <langstring language="sl">Foresight</langstring>
-      <langstring language="fi">Foresight</langstring>
-      <langstring language="sv">Foresight</langstring>
-      <langstring language="cs">Foresight</langstring>
-      <langstring language="el">Foresight</langstring>
-      <langstring language="bg">Foresight</langstring>
+      <langstring language="es">Visión general</langstring>
+      <langstring language="fr">Vue d'ensemble</langstring>
+      <langstring language="it">Panoramica</langstring>
+      <langstring language="lv">Pārskats</langstring>
+      <langstring language="lt">Apžvalga</langstring>
+      <langstring language="hu">Áttekintés</langstring>
+      <langstring language="is">Yfirlit</langstring>
+      <langstring language="mt">Ħarsa ġenerali</langstring>
+      <langstring language="nl">Overzicht</langstring>
+      <langstring language="no">Oversikt</langstring>
+      <langstring language="pl">Przegląd</langstring>
+      <langstring language="pt">Síntese</langstring>
+      <langstring language="sk">Prehľad</langstring>
+      <langstring language="sl">Pregled</langstring>
+      <langstring language="fi">Yleiskatsaus</langstring>
+      <langstring language="sv">Översikt</langstring>
+      <langstring language="cs">Přehled</langstring>
+      <langstring language="el">Συνοπτική περιγραφή</langstring>
+      <langstring language="bg">Преглед</langstring>
+      <langstring language="ro">Prezentare generală</langstring>
     </caption>
   </term>
   <term>
@@ -6750,29 +6751,30 @@
   <term>
     <termIdentifier>green_jobs</termIdentifier>
     <caption>
-      <langstring language="da">Green jobs</langstring>
-      <langstring language="de">Green jobs</langstring>
-      <langstring language="et">Green jobs</langstring>
+      <langstring language="da">grønne job</langstring>
+      <langstring language="de">Grüne Arbeitsplätze</langstring>
+      <langstring language="et">rohelised töökohad</langstring>
       <langstring language="en">Green jobs</langstring>
-      <langstring language="es">Green jobs</langstring>
-      <langstring language="fr">Green jobs</langstring>
-      <langstring language="it">Green jobs</langstring>
-      <langstring language="lv">Green jobs</langstring>
-      <langstring language="lt">Green jobs</langstring>
-      <langstring language="hu">Green jobs</langstring>
-      <langstring language="is">Green jobs</langstring>
-      <langstring language="mt">Green jobs</langstring>
-      <langstring language="nl">Green jobs</langstring>
-      <langstring language="no">Green jobs</langstring>
-      <langstring language="pl">Green jobs</langstring>
-      <langstring language="pt">Green jobs</langstring>
-      <langstring language="sk">Green jobs</langstring>
-      <langstring language="sl">Green jobs</langstring>
-      <langstring language="fi">Green jobs</langstring>
-      <langstring language="sv">Green jobs</langstring>
-      <langstring language="cs">Green jobs</langstring>
-      <langstring language="el">Green jobs</langstring>
-      <langstring language="bg">Green jobs</langstring>
+      <langstring language="es">trabajos "verdes"</langstring>
+      <langstring language="fr">emplois verts</langstring>
+      <langstring language="it">posti di lavoro verdi</langstring>
+      <langstring language="lv">ekoloģiskas darbavietas</langstring>
+      <langstring language="lt">su ekologija susiję darbai</langstring>
+      <langstring language="hu">zöld munkahelyek</langstring>
+      <langstring language="is">græn störf</langstring>
+      <langstring language="mt">impjiegi ħodor</langstring>
+      <langstring language="nl">groene banen</langstring>
+      <langstring language="no">grønne jobber</langstring>
+      <langstring language="pl">zielone miejsca pracy</langstring>
+      <langstring language="pt">empregos verdes</langstring>
+      <langstring language="sk">zelené pracovné miesta</langstring>
+      <langstring language="sl">Zelena delovna mesta</langstring>
+      <langstring language="fi">vihreät työpaikat</langstring>
+      <langstring language="sv">gröna jobb</langstring>
+      <langstring language="cs">zelená pracovní místa</langstring>
+      <langstring language="el">"πράσινες" θέσεις εργασίας</langstring>
+      <langstring language="bg">зелени работни места</langstring>
+      <langstring language="ro">locuri de muncă ecologice</langstring>
     </caption>
   </term>
   <term>
