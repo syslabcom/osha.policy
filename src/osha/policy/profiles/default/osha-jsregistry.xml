@@ -329,6 +329,6 @@
     id="++resource++jquery.bigtarget.1.0.1.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True"
-    expression="object/@@collage|nothing"
+    expression="nocall: object/@@collage_view|nothing"
     id="++resource++collage-resources/collage.js" inline="False"/>
 </object>
