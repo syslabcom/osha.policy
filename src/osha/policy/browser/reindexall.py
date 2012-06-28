@@ -62,7 +62,7 @@ class ReindexallView(BrowserView):
         res = [(self.context.getId(), self.context)] + res
         handleItems(res)
         status = "Handled a total of %(cnt)d items and skipped %(skipped)d " \
-            "items based on modified-thrdeshold %(thresh)s" % dict(cnt=cnt,
+            "items based on modified-threshold %(thresh)s" % dict(cnt=cnt,
             skipped=skipped, thresh=modified_thresh)
         print status
         return status
