@@ -89,6 +89,9 @@ def dbconfig(event):
             solrcfg.port = int(conf.get('solr.port', solrcfg.port))
         if not getattr(solrcfg, 'active', None):
             solrcfg.active = True
+        search_pattern = '(Title:{value}^5 OR Description:{value}^2 OR SearchableText:{value} OR SearchableText:({base_value}) OR searchwords:({base_value})^1000) showinsearch:True'
+        if getattr(solrcfg, 'search_pattern', '') != search_pattern:
+            solrcfg.search_pattern = search_pattern
         log.debug('solr config written')
 
     # Mail
