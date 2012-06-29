@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="PressRoom"
+        meta_type="Factory-based Type Information with dynamic views"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <property name="allowed_content_types">
+    <element value="Folder"/>
+    <element value="Document"/>
+    <element value="File"/>
+    <element value="Folder"/>
+    <element value="Image"/>
+    <element value="Large Plone Folder"/>
+    <element value="Link"/>
+    <element value="Topic"/>
+    <element value="FeedfeederFolder"/>  
+  </property>
+</object>
