@@ -164,7 +164,7 @@
     <object name="privacypolicy" meta_type="CMF Action" i18n:domain="osha">
       <property name="title" i18n:translate="">Privacy Policy</property>
       <property name="description" i18n:translate=""></property>
-      <property name="url_expr">string:${portal_url}/en/privacy-policy</property>
+      <property name="url_expr">string:${portal_url}/${folder/portal_languages/getPreferredLanguage}/privacy-policy</property>
       <property name="icon_expr"></property>
       <property name="available_expr"></property>
       <property name="permissions"/>
