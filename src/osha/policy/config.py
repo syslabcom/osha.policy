@@ -71,6 +71,7 @@ DEPENDENCIES = [
 # TODO: 4419    'osha.theme',
     'slc.calendarfetcher',
     'Products.feedfeeder',
+    'Solgema.fullcalendar',
     ]
 
     # XXX: Remove slc.alertservice
