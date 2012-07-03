@@ -274,9 +274,6 @@
     id="++resource++jquery-ui/jquery.effects.transfer.min.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++jquery-ui-i18n.js" inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="none"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++collective.dynatree/underscore.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True" expression=""
@@ -311,6 +308,13 @@
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++slc.linguatools.static/linguatools.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++jquery.bigtarget.1.0.1.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="True"
+    expression="context/@@jqueryui-include-condition"
+    id="++resource++jquery-ui-i18n.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True"
     expression="context/@@jqueryui-include-condition"
@@ -324,9 +328,6 @@
     expression="context/@@jqueryui-include-condition"
     id="++resource++collective.js.colorpicker.js/colorpicker.js"
     inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++jquery.bigtarget.1.0.1.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True"
     expression="nocall: object/@@collage_view|nothing"
