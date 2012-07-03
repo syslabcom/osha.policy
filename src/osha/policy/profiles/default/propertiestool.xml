@@ -259,6 +259,7 @@
    <element value="SortedSimpleVocabulary"/>
    <element value="TempFolder"/>
    <element value="TemplateCacheRule"/>
+   <element value="Topic"/>
    <element value="TreeVocabulary"/>
    <element value="TreeVocabularyTerm"/>
    <element value="VdexFileVocabulary"/>
