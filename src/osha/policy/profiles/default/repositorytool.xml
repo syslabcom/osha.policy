@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<repositorytool>
+ <policies>
+  <policy name="at_edit_autoversion"
+     title="Create version on edit (AT objects only)"
+     class="Products.CMFEditions.VersionPolicies.ATVersionOnEditPolicy"/>
+  <policy name="version_on_revert" title="Create version on version revert"/>
+ </policies>
+ <policymap purge="True">
+  <type name="ATDocument" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="ATNewsItem" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="CaseStudy" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="Directive" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="Document" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="Event" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="File" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="HelpCenterDefinition" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="HelpCenterErrorReference" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="HelpCenterFAQ" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="HelpCenterHowTo" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="HelpCenterReferenceManual" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="HelpCenterReferenceManualPage" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="HelpCenterTutorialPage" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="Image" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="Link" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="News Item" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="OSH_Link" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="Provider" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="RALink" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+  <type name="RichDocument" purge="True">
+   <policy name="version_on_revert"/>
+  </type>
+ </policymap>
+</repositorytool>
