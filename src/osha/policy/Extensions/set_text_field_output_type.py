@@ -36,7 +36,7 @@ def main(self):
                     obj.portal_type, obj.absolute_url(1)))
         if count % 1000 == 0:
             transaction.commit()
-            log.info('Commited after %d items' % count)
+            logger.info('Commited after %d items' % count)
     logger.info("Possibly invalid brains: %s" % broken_brains)
     transaction.commit()
     return "Done"
