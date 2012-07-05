@@ -17,7 +17,8 @@ def main(self):
             'Topic', 'CallForContractors', 'PublicJobVacancy',
             'PressRelease', 'News Item', 'OSH_Link', 'SPSpeech']}
 
-    results = pc.searchResults(query)
+    results = pc._cs_old_searchResults(query)
+    logger.info('Found %d results' % len(results))
     broken_brains = []
     for count, brain in enumerate(results):
         try:
