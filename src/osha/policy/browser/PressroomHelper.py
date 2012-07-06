@@ -12,7 +12,7 @@ class PressroomHelper(BrowserView):
         """ See interface """
         textpieces = list()
         field = self.context.getField('referenced_content')
-        objs = field.getAccessor(self.context)()
+        objs = field.getAccessor(self.context)() or list()
         # Look for translated versions, but fall back
         # to original if no translation is available 
         # (requires Products.LinguaPlone)
