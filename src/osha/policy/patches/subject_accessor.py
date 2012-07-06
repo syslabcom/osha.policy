@@ -17,7 +17,7 @@ def getSubject(self):
     subcats = self.getField('subcategory')
     if subcats is None:
         return self._old_subject()
-    subcats = subcats.getAccessor(self)()
+    subcats = subcats.getAccessor(self)() or list()
     # XXX: Bad hack but works. I take all keys which have no :: inside
     subjects = {}
     for subcat in subcats:
