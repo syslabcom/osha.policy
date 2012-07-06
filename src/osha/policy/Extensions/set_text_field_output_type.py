@@ -45,7 +45,8 @@ def main(self):
         'Topic': ['text']}
 
     for portal_type in problem_fields.keys():
-        query = {"portal_type" : portal_type}
+        query = {"portal_type" : portal_type,
+                 "Language" : ""}
 
         results = pc._cs_old_searchResults(query)
         logger.info(
