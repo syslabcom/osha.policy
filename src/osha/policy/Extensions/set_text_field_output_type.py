@@ -45,8 +45,10 @@ def main(self):
         'Topic': ['text']}
 
     for portal_type in problem_fields.keys():
-        query = {"portal_type" : portal_type,
-                 "Language" : ""}
+        query = {"portal_type" : portal_type}
+        # Specifying Language: "" or "all" should be necessary to get
+        # results in all languages, but these both fail to return
+        # /de/privacy-policy
 
         results = pc._cs_old_searchResults(query)
         logger.info(
