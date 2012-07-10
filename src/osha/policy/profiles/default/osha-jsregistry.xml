@@ -311,6 +311,9 @@
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++plone.app.jquerytools.form.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="osha.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True"
     expression="context/@@jqueryui-include-condition"
