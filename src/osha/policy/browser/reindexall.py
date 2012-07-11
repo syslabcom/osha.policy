@@ -37,6 +37,10 @@ class ReindexallView(BrowserView):
                 modified_thresh = DateTime(modified)
             except:
                 pass
+        includeTranslations = self.request.get('includeTranslations', False)
+        if isinstance(includeTranslations, basestring):
+            includeTranslations = (includeTranslations.lower() == 'true')
+
         cnt = skipped = 0
         async = getUtility(IAsyncService)
 
@@ -51,9 +55,18 @@ class ReindexallView(BrowserView):
                         skipped += 1
                         continue
 
-                path = "/".join(obj.getPhysicalPath())
-                job = async.queueJob(reindex_async, self.context, path)
-                callback = job.addCallbacks(failure=job_failure_callback)
+                if includeTranslations:
+                    translations = map(lambda t: t[0], obj.getTranslations().values())
+                    for t in translations:
+                        tpath = "/".join(t.getPhysicalPath())
+                        job = async.queueJob(reindex_async, self.context, tpath)
+                        callback = job.addCallbacks(failure=job_failure_callback)
+                else:
+                    path = "/".join(obj.getPhysicalPath())
+                    job = async.queueJob(reindex_async, self.context, path)
+                    callback = job.addCallbacks(failure=job_failure_callback)
+
+
                 cnt += 1
                 if cnt % 1000 == 0:
                     print "handled %d" % cnt
@@ -62,7 +75,9 @@ class ReindexallView(BrowserView):
         res = [(self.context.getId(), self.context)] + res
         handleItems(res)
         status = "Handled a total of %(cnt)d items and skipped %(skipped)d " \
-            "items based on modified-threshold %(thresh)s" % dict(cnt=cnt,
-            skipped=skipped, thresh=modified_thresh)
+            "items based on modified-threshold %(thresh)s. " \
+            "Translations were %(transl)s" % dict(cnt=cnt,
+            skipped=skipped, thresh=modified_thresh, 
+            transl=(includeTranslations and 'queued' or 'ignored'))
         print status
         return status
