@@ -91,13 +91,13 @@ osha.policy contains tests for the package itself and other dependencies
 in the osha namespace (e.g. osha.theme) - these tests might move to their
 respective packages in the future.
 
-To run all the tests::
+To run all the tests for osha.policy::
 
-    $ bin/test
+    $ bin/test-osha
 
-To run a specific test::
+To run a specific test from osha.policy::
 
-    $ bin/test -t test_oshaview
+    $ bin/test-osha -t test_oshaview
 
 Running this command might take quite a lot of time, because there are
 some very time consuming tests. If you run the tests frequently it is
