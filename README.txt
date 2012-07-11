@@ -104,16 +104,21 @@ some very time consuming tests. If you run the tests frequently it is
 advisable to use an alternative test runner, which runs the tests
 without all the expensive tests.
 
-To run a test runner without the time consuming tests::
+To run a test runner for osha.policy without the time consuming tests::
 
-    $ bin/test-quick
+    $ bin/test-osha-quick
 
 Note that if you want to use the '-t' switch, just specify the filter 
 immediately after the test runner script, without the '-t' (because
 we already use the -t switch in the test runner to exclude the slow
 tests)::
 
-    $ bin/test-quick test_oshaview
+    $ bin/test-osha-quick test_oshaview
+
+To run the tests for the other packages which are dependencies of
+osha.policy::
+
+    $ bin/test-deps
 
 For other test options please consult the test runner help::
 
