@@ -26,4 +26,11 @@
       <permission>Plone Site Setup: Navigation</permission>
     </configlet>
 
+    <configlet title="Indexing Settings" action_id="IndexingSettings" appId="IndexingSettings"
+               category="Products" condition_expr=""
+               url_expr="string:${portal_url}/@@indexing-controlpanel" 
+               visible="False">
+      <permission>Manage portal</permission>
+    </configlet>
+
 </object> 
