@@ -1,3 +1,7 @@
+# This doesn't work because the default_output_type is set in the
+# schema. It isn't clear why the transform corrupts the html but we
+# have disabled it for now.
+
 # set default_output_type = "text/html" on content which has it set
 # to "text/x-html-safe". This caused getText to transform the raw body
 # to content which included extra escaped html, refs #5378
