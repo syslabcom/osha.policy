@@ -276,6 +276,10 @@
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++osha.theme.behaviour/dynatree_customizations.js"
     inline="False"/>
+ <javascript authenticated="True" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++osha.theme.behaviour/quickupload.js"
+    inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++plonetruegallery-portlet.js" inline="False"/>
