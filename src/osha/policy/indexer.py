@@ -1,10 +1,11 @@
 from Products.Archetypes.interfaces.base import IBaseContent
 from plone.indexer.decorator import indexer
+from osha.theme.browser.vocabulary import get_vocabulary_path
 
 
 @indexer(IBaseContent)
 def nace(obj):
-    return obj.restrictedTraverse('@@getVocabularyPath')('nace')
+    return get_vocabulary_path(obj, 'nace')
 
 @indexer(IBaseContent)
 def target_user_groups(obj):
@@ -12,19 +13,19 @@ def target_user_groups(obj):
 
 @indexer(IBaseContent)
 def subcategory(obj):
-    return obj.restrictedTraverse('@@getVocabularyPath')('subcategory')
+    return get_vocabulary_path(obj, 'subcategory')
 
 @indexer(IBaseContent)
 def osha_metadata(obj):
-    return obj.restrictedTraverse('@@getVocabularyPath')('osha_metadata')
+    return get_vocabulary_path(obj, 'osha_metadata')
 
 @indexer(IBaseContent)
 def occupation(obj):
-    return obj.restrictedTraverse('@@getVocabularyPath')('occupation')
+    return get_vocabulary_path(obj, 'occupation')
 
 @indexer(IBaseContent)
 def multilingual_thesaurus(obj):
-    return obj.restrictedTraverse('@@getVocabularyPath')('multilingual_thesaurus')
+    return get_vocabulary_path(obj, 'multilingual_thesaurus')
 
 @indexer(IBaseContent)
 def lex_section(obj):
