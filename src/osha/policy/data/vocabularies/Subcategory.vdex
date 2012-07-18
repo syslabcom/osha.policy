@@ -5105,6 +5105,35 @@
     </caption>
   </term>
   <term>
+    <termIdentifier>esener</termIdentifier>
+    <caption>
+      <langstring language="da">ESENER</langstring>
+      <langstring language="de">ESENER</langstring>
+      <langstring language="et">ESENER</langstring>
+      <langstring language="en">ESENER</langstring>
+      <langstring language="es">ESENER</langstring>
+      <langstring language="fr">ESENER</langstring>
+      <langstring language="it">ESENER</langstring>
+      <langstring language="lv">ESENER</langstring>
+      <langstring language="lt">ESENER</langstring>
+      <langstring language="hu">ESENER</langstring>
+      <langstring language="mt">ESENER</langstring>
+      <langstring language="nl">ESENER</langstring>
+      <langstring language="pl">ESENER</langstring>
+      <langstring language="pt">ESENER</langstring>
+      <langstring language="ro">ESENER</langstring>
+      <langstring language="sk">ESENER</langstring>
+      <langstring language="sl">ESENER</langstring>
+      <langstring language="fi">ESENER</langstring>
+      <langstring language="sv">ESENER</langstring>
+      <langstring language="cs">ESENER</langstring>
+      <langstring language="el">ESENER</langstring>
+      <langstring language="bg">ESENER</langstring>
+      <langstring language="is">ESENER</langstring>
+      <langstring language="no">ESENER</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>education</termIdentifier>
     <caption>
       <langstring language="da">Arbejdsmiljø og uddannelse</langstring>
@@ -5963,6 +5992,35 @@
     </term>
   </term>
   <term>
+    <termIdentifier>foresight</termIdentifier>
+    <caption>
+      <langstring language="da">Oversigt</langstring>
+      <langstring language="de">Überblick</langstring>
+      <langstring language="et">Ülevaade</langstring>
+      <langstring language="en">Foresight</langstring>
+      <langstring language="es">Visión general</langstring>
+      <langstring language="fr">Vue d'ensemble</langstring>
+      <langstring language="it">Panoramica</langstring>
+      <langstring language="lv">Pārskats</langstring>
+      <langstring language="lt">Apžvalga</langstring>
+      <langstring language="hu">Áttekintés</langstring>
+      <langstring language="is">Yfirlit</langstring>
+      <langstring language="mt">Ħarsa ġenerali</langstring>
+      <langstring language="nl">Overzicht</langstring>
+      <langstring language="no">Oversikt</langstring>
+      <langstring language="pl">Przegląd</langstring>
+      <langstring language="pt">Síntese</langstring>
+      <langstring language="sk">Prehľad</langstring>
+      <langstring language="sl">Pregled</langstring>
+      <langstring language="fi">Yleiskatsaus</langstring>
+      <langstring language="sv">Översikt</langstring>
+      <langstring language="cs">Přehled</langstring>
+      <langstring language="el">Συνοπτική περιγραφή</langstring>
+      <langstring language="bg">Преглед</langstring>
+      <langstring language="ro">Prezentare generală</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>fisheries</termIdentifier>
     <caption>
       <langstring language="da">Fiskerisektoren</langstring>
@@ -6689,6 +6747,35 @@
         <langstring language="bg">Work Equipment and Plant</langstring>
       </caption>
     </term>
+  </term>
+  <term>
+    <termIdentifier>green_jobs</termIdentifier>
+    <caption>
+      <langstring language="da">grønne job</langstring>
+      <langstring language="de">Grüne Arbeitsplätze</langstring>
+      <langstring language="et">rohelised töökohad</langstring>
+      <langstring language="en">Green jobs</langstring>
+      <langstring language="es">trabajos "verdes"</langstring>
+      <langstring language="fr">emplois verts</langstring>
+      <langstring language="it">posti di lavoro verdi</langstring>
+      <langstring language="lv">ekoloģiskas darbavietas</langstring>
+      <langstring language="lt">su ekologija susiję darbai</langstring>
+      <langstring language="hu">zöld munkahelyek</langstring>
+      <langstring language="is">græn störf</langstring>
+      <langstring language="mt">impjiegi ħodor</langstring>
+      <langstring language="nl">groene banen</langstring>
+      <langstring language="no">grønne jobber</langstring>
+      <langstring language="pl">zielone miejsca pracy</langstring>
+      <langstring language="pt">empregos verdes</langstring>
+      <langstring language="sk">zelené pracovné miesta</langstring>
+      <langstring language="sl">Zelena delovna mesta</langstring>
+      <langstring language="fi">vihreät työpaikat</langstring>
+      <langstring language="sv">gröna jobb</langstring>
+      <langstring language="cs">zelená pracovní místa</langstring>
+      <langstring language="el">"πράσινες" θέσεις εργασίας</langstring>
+      <langstring language="bg">зелени работни места</langstring>
+      <langstring language="ro">locuri de muncă ecologice</langstring>
+    </caption>
   </term>
   <term>
     <termIdentifier>healthcare</termIdentifier>
@@ -7913,6 +8000,35 @@
       <langstring language="sk">údržba</langstring>
       <langstring language="sl">vzdrževalna dela</langstring>
       <langstring language="sv">underhåll</langstring>
+    </caption>
+  </term>
+  <term>
+    <termIdentifier>management_leadership</termIdentifier>
+    <caption>
+      <langstring language="bg">управленско ръководство</langstring>
+      <langstring language="cs">způsob vedení na úrovni managementu</langstring>
+      <langstring language="da">Ledelsens lederskab</langstring>
+      <langstring language="de">Managementführung</langstring>
+      <langstring language="el">ηγεσία της διοίκησης</langstring>
+      <langstring language="en">Management leadership</langstring>
+      <langstring language="es">liderazgo de la gestión</langstring>
+      <langstring language="et">juhtkonna juhtimine</langstring>
+      <langstring language="fi">hallinta</langstring>
+      <langstring language="fr">direction de la gestion</langstring>
+      <langstring language="hu">irányítás vezetés</langstring>
+      <langstring language="it">direzione gestionale</langstring>
+      <langstring language="is">Stjórnunarforysta</langstring>
+      <langstring language="lt">valdymo lyderystė</langstring>
+      <langstring language="lv">vadītāju vadība</langstring>
+      <langstring language="mt">tmexxija amministrattiva</langstring>
+      <langstring language="nl">leiderschap door het management</langstring>
+      <langstring language="no">ledelsens lederskap</langstring>
+      <langstring language="pl">kierownictwo w zarządzaniu</langstring>
+      <langstring language="pt">liderança da gestão</langstring>
+      <langstring language="ro">aptitudini de conducere şi de gestionare</langstring>
+      <langstring language="sk">spôsob vedenia na úrovni riadenia</langstring>
+      <langstring language="sl">prizadevanje vodstva</langstring>
+      <langstring language="sv">ledning och ledarskap</langstring>
     </caption>
   </term>
   <term>
@@ -13577,6 +13693,35 @@
         <langstring language="bg">Workplace welfare and services</langstring>
       </caption>
     </term>
+  </term>
+  <term>
+    <termIdentifier>worker_participation</termIdentifier>
+    <caption>
+      <langstring language="bg">участие на работниците</langstring>
+      <langstring language="cs">účast zaměstnanců</langstring>
+      <langstring language="da">Medarbejderdeltagelse</langstring>
+      <langstring language="de">Arbeitnehmerbeteiligung</langstring>
+      <langstring language="el">συμμετοχή των εργαζομένων</langstring>
+      <langstring language="en">Worker Participation</langstring>
+      <langstring language="es">participación de los trabajadores</langstring>
+      <langstring language="et">töötajate osalemine</langstring>
+      <langstring language="fi">työntekijöiden osallistuminen</langstring>
+      <langstring language="fr">participation des travailleurs</langstring>
+      <langstring language="hu">dolgozói részvétel</langstring>
+      <langstring language="it">partecipazione dei lavoratori</langstring>
+      <langstring language="is">Þátttaka starfsmanna</langstring>
+      <langstring language="lt">darbuotojų dalyvavimas</langstring>
+      <langstring language="lv">darba ņēmēju dalība</langstring>
+      <langstring language="mt">parteċipazzjoni tal-ħaddiema</langstring>
+      <langstring language="nl">werknemersparticipatie</langstring>
+      <langstring language="no">medarbeiderdeltakelse</langstring>
+      <langstring language="pl">udział pracowników</langstring>
+      <langstring language="pt">participação dos trabalhadores</langstring>
+      <langstring language="ro">participarea lucrătorilor</langstring>
+      <langstring language="sk">účasť zamestnancov</langstring>
+      <langstring language="sl">soodločanje delavcev</langstring>
+      <langstring language="sv">arbetstagarnas medverkan</langstring>
+    </caption>
   </term>
   <term>
     <termIdentifier>whp</termIdentifier>
