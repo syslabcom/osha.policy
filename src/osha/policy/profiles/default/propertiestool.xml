@@ -651,7 +651,7 @@
   <property name="number_of_days_to_keep" type="int">7</property>
   <property name="enable_link_integrity_checks" type="boolean">True</property>
   <property name="webstats_js"
-     type="string">&lt;script src="http://osha.europa.eu/gatag.js" type="text/javascript"&gt;&lt;/script&gt; &lt;script type="text/javascript"&gt; var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); &lt;/script&gt; &lt;script type="text/javascript"&gt; try { var pageTracker = _gat._getTracker("UA-9750156-1"); 
+     type="string">&lt;script src="/gatag.js" type="text/javascript"&gt;&lt;/script&gt; &lt;script type="text/javascript"&gt; var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E")); &lt;/script&gt; &lt;script type="text/javascript"&gt; try { var pageTracker = _gat._getTracker("UA-9750156-1"); 
    if (document.URL.indexOf('sector/road_transport')!==-1) {pageTracker._setCustomVar(1, "Sector", "road_transport", 2);}
    pageTracker._trackPageview(); } catch(err) {}&lt;/script&gt;</property>
   <property name="external_links_open_new_window"
