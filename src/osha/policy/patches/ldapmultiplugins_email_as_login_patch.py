@@ -24,7 +24,7 @@ def authenticateCredentials(self, credentials):
         ploneuser = self.getUserById(login)
         if ploneuser is not None:
             mail = ploneuser.getProperty('email', None)
-            if mail is not None:
+            if mail is not None and mail != login:
                 user = acl.getUser(mail, pwd=password)
                 if user is None:
                     return (None, None)
