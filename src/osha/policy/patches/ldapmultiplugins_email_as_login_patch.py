@@ -2,7 +2,7 @@ from Products.LDAPMultiPlugins.LDAPPluginBase import LDAPPluginBase
 
 
 def authenticateCredentials(self, credentials):
-    """ Fulfill AuthenticationPlugin requirements 
+    """ Fulfill AuthenticationPlugin requirements
 
     REASON FOR THE PATCH:
     Our login attribute as the user's email address, but for historical
@@ -21,7 +21,6 @@ def authenticateCredentials(self, credentials):
     user = acl.getUser(login, pwd=password)
 
     if user is None:
-        import pdb; pdb.set_trace()
         ploneuser = self.getUserById(login)
         if ploneuser is not None:
             mail = ploneuser.getProperty('email', None)
@@ -37,4 +36,3 @@ def authenticateCredentials(self, credentials):
     return (user.getId(), user.getUserName())
 
 LDAPPluginBase.authenticateCredentials = authenticateCredentials
-
