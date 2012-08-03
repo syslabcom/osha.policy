@@ -23,4 +23,4 @@ import vdex_vocabulary_extension_patch
 #import LinguaPlone_generator_patch
 import stub_missing_interfaces_patch
 import ldapmultiplugins_email_as_login_patch
-
+import user_portlet_patch
