@@ -193,16 +193,16 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
             valid_from = now-30
 
 
-        # teasers
-        query = {'path': {'query': ['/osha/portal/en/teaser'], 'depth': 1}, 
-            'sort_on': 'effective', 'portal_type': 'News Item',
-            'effective': {'query': now, 'range': 'max'},
-            'expires': {'query': now, 'range': 'min'},
-            'Language': ('en', ''),
-            'sort_limit': 5}
-        teasers = pc(query)
-        for ob in teasers[:5]:
-            alias = insertAlias(col1_1, ob.UID)
+#        # teasers
+#        query = {'path': {'query': ['/osha/portal/en/teaser'], 'depth': 1}, 
+#            'sort_on': 'effective', 'portal_type': 'News Item',
+#            'effective': {'query': now, 'range': 'max'},
+#            'expires': {'query': now, 'range': 'min'},
+#            'Language': ('en', ''),
+#            'sort_limit': 5}
+#        teasers = pc(query)
+#        for ob in teasers[:5]:
+#            alias = insertAlias(col1_1, ob.UID)
 
         # news
         query = {'sort_on': 'effective',
@@ -233,36 +233,36 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         for ob in events[:15]:
             alias = insertAlias(col1_2, ob.UID)
 
-        # press releases
-
-        query = dict(portal_type='PressRelease',
-                           review_state='published',
-                           path=dict(query='/osha/portal/en/press', depth=-1),
-                           sort_on='effective',
-                           Language=['', 'en'],
-                           created=dict(query=(valid_from, now), range='min:max'),
-                           sort_limit=5)
-        pressreleases = pc(query)
-
-        for ob in pressreleases[:5]:
-            alias = insertAlias(col1_1, ob.UID)
-            manager = IDynamicViewManager(alias)
-            manager.setLayout('right_column')
-            col1_1.moveObjectsUp(alias.id)
-            cmfutils.getToolByName(self, 'plone_utils').reindexOnReorder(col1_1)
-
-        # publications
-
-        query = dict(object_provides='slc.publications.interfaces.IPublicationEnhanced',
-                           review_state='published',
-                           path=dict(query='/osha/portal/en/publications', depth=-1),
-                           sort_on='effective',
-                           Language=['', 'en'],
-                           created=dict(query=(valid_from, now), range='min:max'),
-                           sort_limit=5)
-        publications = pc(query)
-        for ob in publications[:5]:
-            alias = insertAlias(col1_1, ob.UID)
+#        # press releases
+#
+#        query = dict(portal_type='PressRelease',
+#                           review_state='published',
+#                           path=dict(query='/osha/portal/en/press', depth=-1),
+#                           sort_on='effective',
+#                           Language=['', 'en'],
+#                           created=dict(query=(valid_from, now), range='min:max'),
+#                           sort_limit=5)
+#        pressreleases = pc(query)
+#
+#        for ob in pressreleases[:5]:
+#            alias = insertAlias(col1_1, ob.UID)
+#            manager = IDynamicViewManager(alias)
+#            manager.setLayout('right_column')
+#            col1_1.moveObjectsUp(alias.id)
+#            cmfutils.getToolByName(self, 'plone_utils').reindexOnReorder(col1_1)
+#
+#        # publications
+#
+#        query = dict(object_provides='slc.publications.interfaces.IPublicationEnhanced',
+#                           review_state='published',
+#                           path=dict(query='/osha/portal/en/publications', depth=-1),
+#                           sort_on='effective',
+#                           Language=['', 'en'],
+#                           created=dict(query=(valid_from, now), range='min:max'),
+#                           sort_limit=5)
+#        publications = pc(query)
+#        for ob in publications[:5]:
+#            alias = insertAlias(col1_1, ob.UID)
         
         msg = "Collage template including content was successfully created"
     else:
