@@ -1,6 +1,6 @@
 from App.config import getConfiguration
-import os, re
-import psycopg2
+#import os, re
+#import psycopg2
 import Zope2
 from logging import getLogger
 from zope.app.publication.zopepublication import ZopePublication
@@ -10,8 +10,8 @@ from plone.registry import (
     field,
     Record,
 )
-#from node.ext.ldap.interfaces import ILDAPProps
-#from pas.plugins.ldap.plonecontrolpanel.cache import REGKEY
+from node.ext.ldap.interfaces import ILDAPProps
+from pas.plugins.ldap.plonecontrolpanel.cache import REGKEY
 from collective.solr.interfaces import ISolrConnectionConfig
 from Products.CMFPlone.utils import getToolByName
 from collective.tika.transforms import TIKA_TRANSFORMS
@@ -44,25 +44,25 @@ def dbconfig(event):
         return
 
     # LDAP
-    # pasldap = getattr(plone.acl_users, 'pasldap', None)
-    # if pasldap is not None:
-    #     ldapprops =  ILDAPProps(pasldap)
-    #     if getattr(ldapprops, 'uri', '') != conf.get('ldap.uri', ldapprops.uri):
-    #         ldapprops.uri = conf.get('ldap.uri', ldapprops.uri)
-    #     if getattr(ldapprops, 'user', '') != conf.get('ldap.binddn', ldapprops.user):
-    #         ldapprops.user = conf.get('ldap.binddn', ldapprops.user)
-    #     if getattr(ldapprops, 'password','') != conf.get('ldap.bindpw', ldapprops.password):
-    #         ldapprops.password = conf.get('ldap.bindpw', ldapprops.password)
-    # 
-    #     # memcached needs special handling
-    #     reg = getUtility(IRegistry, context=plone)
-    #     if REGKEY not in reg.records:
-    #         # init if not exist
-    #         value = field.TextLine(title=u'servers, delimited by space')
-    #         reg.records[REGKEY] = Record(value)
-    #     record = reg.records[REGKEY]
-    #     if record.value != conf.get('memcached').decode('utf-8'):
-    #         record.value = conf.get('memcached').decode('utf-8')
+    pasldap = getattr(plone.acl_users, 'pasldap', None)
+    if pasldap is not None:
+        ldapprops =  ILDAPProps(pasldap)
+        if getattr(ldapprops, 'uri', '') != conf.get('ldap.uri', ldapprops.uri):
+            ldapprops.uri = conf.get('ldap.uri', ldapprops.uri)
+        if getattr(ldapprops, 'user', '') != conf.get('ldap.binddn', ldapprops.user):
+            ldapprops.user = conf.get('ldap.binddn', ldapprops.user)
+        if getattr(ldapprops, 'password','') != conf.get('ldap.bindpw', ldapprops.password):
+            ldapprops.password = conf.get('ldap.bindpw', ldapprops.password)
+    
+        # memcached needs special handling
+        reg = getUtility(IRegistry, context=plone)
+        if REGKEY not in reg.records:
+            # init if not exist
+            value = field.TextLine(title=u'servers, delimited by space')
+            reg.records[REGKEY] = Record(value)
+        record = reg.records[REGKEY]
+        if record.value != conf.get('memcached').decode('utf-8'):
+            record.value = conf.get('memcached').decode('utf-8')
     # 
     #     log.debug('ldap config written')
     # 
