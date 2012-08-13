@@ -211,6 +211,7 @@ def uninstall_products(self, log):
                        'p4a.plonevideo',
                        'p4a.plonevideoembed',
                        'p4a.video',
+                       'plone.app.ldap',
                        'quintagroup.plonecomments',
                        'slc.calendarfetcher',
                        'simplon.plone.ldap',
