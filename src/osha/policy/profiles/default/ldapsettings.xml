@@ -5,18 +5,21 @@
  <element key="groups.attrmap" type="dict">
   <element key="description" type="string">description</element>
   <element key="id" type="string">cn</element>
+  <element key="member" type="string">member</element>
   <element key="rdn" type="string">cn</element>
   <element key="title" type="string">o</element>
+  <element key="uniqueMember" type="string">uniqueMember</element>
  </element>
  <element key="groups.baseDN"
     type="string">ou=europe,ou=staff,o=3G,dc=osha,dc=europa,dc=eu</element>
  <element key="groups.memberOfSupport" type="bool">False</element>
  <element key="groups.objectClasses" type="list">
-  <element type="string">groupOfNames</element>
+  <element type="string">groupOfUniqueNames</element>
  </element>
  <element key="groups.queryFilter"
-    type="string">(objectClass=groupOfNames)</element>
+    type="string">(objectClass=groupOfUniqueNames)</element>
  <element key="groups.scope" type="int">2</element>
+ <element key="server.escape_queries" type="bool">False</element>
  <element key="users.account_expiration" type="bool">False</element>
  <element key="users.attrmap" type="dict">
   <element key="email" type="string">mail</element>
