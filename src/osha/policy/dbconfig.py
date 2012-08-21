@@ -36,8 +36,9 @@ def dbconfig(event):
     connection = db.open()
     root_folder = connection.root().get(ZopePublication.root_name, None)
     instancename = conf.get('ploneinstance_name')
-    plone = root_folder.get('osha').get('portal')
-    if plone is None:
+    osha = root_folder.get('osha', None)
+    plone = osha and osha.get('portal', None)
+    if osha is None or plone is None:
         log.error('No Plone instance found! Create it manually ' \
         'with id %s and profile osha.policy' % instancename)
         # adding a Plone site without proper REQUEST is not supported
