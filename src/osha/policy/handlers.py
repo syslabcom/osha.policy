@@ -110,6 +110,7 @@ def remove_links(event):
     object = event.object
     try:
         link_checker = getToolByName(object, 'portal_linkchecker').aq_inner
+        db = link_checker.database
     except AttributeError:
         return
     link_checker.database.unregisterObject(object)
