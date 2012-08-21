@@ -13,15 +13,17 @@ from p4a.plonecalendar.eventprovider import \
         ATEventProvider as BASEATEventProvider
 from p4a.plonecalendar.eventprovider import BrainEvent
 
-from osha.theme.browser.calendar_helper_view import getEventDateToBeConfirmed
-
 
 class OSHBrainEvent(BrainEvent):
 
     @property
     def dateToBeConfirmed(self):
         event = self.context.getObject()
-        return getEventDateToBeConfirmed(event)
+        isDateToBeConfirmed = (
+            True if hasattr(event, "dateToBeConfirmed")
+            and event.dateToBeConfirmed
+            else False)
+        return isDateToBeConfirmed
 
     @property
     def outdated(self):
