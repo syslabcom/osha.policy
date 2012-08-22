@@ -46,7 +46,8 @@ def dbconfig(event):
 
     # LDAP
     pasldap = getattr(plone.acl_users, 'pasldap', None)
-    if pasldap is not None:
+    # XXXX Deativated, since batou is not ready yet
+    if False and pasldap is not None:
         ldapprops =  ILDAPProps(pasldap)
         if getattr(ldapprops, 'uri', '') != conf.get('ldap.uri', ldapprops.uri):
             ldapprops.uri = conf.get('ldap.uri', ldapprops.uri)
