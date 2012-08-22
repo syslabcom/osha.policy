@@ -1,5 +1,6 @@
 from Products.ATContentTypes.content.image import ATImage
 from plone.app.blob.field import BlobField
+from Products.SimpleAttachment.interfaces import IImageAttachment
 
 
 # The migration to blobstrage on SimpleAttachments has failed.
@@ -21,8 +22,17 @@ def getHeight(self, scale=None):
         return size
     return size[1]
 
+def tag(self, **kwargs):
+    """Generate image tag using the api of the ImageField
+    """
+    if IImageAttachment.providedBy(self):
+        # yikes, an ImageAttachment that thinks it's a BLOB but isn't
+        return self.getImage().tag()
+    return self.getField('image').tag(self, **kwargs)
+
 ATImage.getWidth = getWidth
 ATImage.getHeight = getHeight
+ATImage.tag = tag
 
 
 # Apparently SimpleAttachment assumes we already have blobs. Of course
