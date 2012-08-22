@@ -42,7 +42,7 @@ DEPENDENCIES = [
     'slc.seminarportal',
     'collective.portlet.feedmixer',
     'collective.portlet.tal',
-    'pas.plugins.ldap',
+    'plone.app.ldap',
     'plone.portlet.collection',
     'plone.portlet.static',
     'Products.VocabularyPickerWidget',
