@@ -4141,6 +4141,35 @@
       </caption>
     </term>
     <term>
+      <termIdentifier>dangerous_substances::clp_reach</termIdentifier>
+      <caption>
+        <langstring language="da">CLP/REACH</langstring>
+        <langstring language="de">CLP/REACH</langstring>
+        <langstring language="et">CLP/REACH</langstring>
+        <langstring language="en">CLP/REACH</langstring>
+        <langstring language="es">CLP/REACH</langstring>
+        <langstring language="fr">CLP/REACH</langstring>
+        <langstring language="it">CLP/REACH</langstring>
+        <langstring language="lv">CLP/REACH</langstring>
+        <langstring language="lt">CLP/REACH</langstring>
+        <langstring language="hu">CLP/REACH</langstring>
+        <langstring language="mt">CLP/REACH</langstring>
+        <langstring language="nl">CLP/REACH</langstring>
+        <langstring language="pl">CLP/REACH</langstring>
+        <langstring language="pt">CLP/REACH</langstring>
+        <langstring language="sk">CLP/REACH</langstring>
+        <langstring language="sl">CLP/REACH</langstring>
+        <langstring language="fi">CLP/REACH</langstring>
+        <langstring language="sv">CLP/REACH</langstring>
+        <langstring language="cs">CLP/REACH</langstring>
+        <langstring language="el">CLP/REACH</langstring>
+        <langstring language="bg">CLP/REACH</langstring>
+        <langstring language="ro">CLP/REACH</langstring>
+        <langstring language="is">CLP/REACH</langstring>
+        <langstring language="no">CLP/REACH</langstring>
+      </caption>
+    </term>
+    <term>
       <termIdentifier>dangerous_substances::control_systems</termIdentifier>
       <caption>
         <langstring language="da">Control Systems</langstring>
