@@ -70,7 +70,6 @@ DEPENDENCIES = [
     'osha.legislation',
 # TODO: 4419    'osha.theme',
     'slc.calendarfetcher',
-    'Products.feedfeeder',
     'Solgema.fullcalendar',
     ]
 
