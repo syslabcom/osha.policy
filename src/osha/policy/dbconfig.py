@@ -44,9 +44,44 @@ def dbconfig(event):
         # adding a Plone site without proper REQUEST is not supported
         return
 
-#    # LDAP
-#    pasldap = getattr(plone.acl_users, 'pasldap', None)
-#    if pasldap is not None:
+    # LDAP
+    ldap_plugin = getattr(plone.acl_users, 'ldap-plugin', None)
+    ldap_uf = ldap_plugin and getattr(ldap_plugin, 'acl_users', None) or None
+    if ldap_uf is not None:
+        ldapuri = conf.get('ldap.uri')
+        protocol, rest = ldapuri.split('://')
+        host, port = rest.split(':')
+        port = port.replace('/', '')
+        servers = ldap_uf._delegate._servers
+        s_changed = 0
+        if len(servers) == 0:
+            server = dict(host=host, protocol=protocol, port=port, op_timeout=-1, conn_timeout=5)
+            log.info('No ldap server found, creating one.')
+            s_changed = 1
+        else:
+            server = servers[0]
+            if server['host'] != host:
+                log.info('Changed ldap host, old value: %s' % server['host'])
+                server['host'] = host
+                s_changed = 1
+            if server['protocol'] != protocol:
+                log.info('Changed ldap protocol, old value: %s' % server['protocol'])
+                server['protocol'] = protocol
+                s_changed = 1
+            if server['port'] != port:
+                log.info('Changed ldap port, old value: %s' % server['port'])
+                server['port'] = port
+                s_changed = 1
+        if s_changed:
+            ldap_uf._delegate._servers = [server]
+        bind_dn = conf.get('ldap.binddn')
+        if ldap_uf._delegate.bind_dn != bind_dn:
+            log.info('Changed ldap binddn, old value: %s' % bind_dn)
+            ldap_uf._delegate.bind_dn = bind_dn
+        bind_pwd = conf.get('ldap.bindpw')
+        if ldap_uf._delegate.bind_pwd != bind_pwd:
+            log.info('Changed ldap bind_pwd')
+            ldap_uf._delegate.bind_pwd = bind_pwd
 #        ldapprops =  ILDAPProps(pasldap)
 #        if getattr(ldapprops, 'uri', '') != conf.get('ldap.uri', ldapprops.uri):
 #            ldapprops.uri = conf.get('ldap.uri', ldapprops.uri)
