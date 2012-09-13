@@ -5,14 +5,27 @@ from Products.CMFPlone.FactoryTool import TempFolder
 from Acquisition import aq_parent
 from zope.app.container.contained import ContainerModifiedEvent
 from Products.Archetypes.event import ObjectInitializedEvent
+from Products.Archetypes.interfaces import IReferenceable
 import zope.component
 import Products.Archetypes.interfaces
 from gocept.linkchecker.interfaces import IRetriever
+import gocept.linkchecker.link
+import gocept.linkchecker.url
 from DateTime import DateTime
+from plone.app.async.interfaces import IAsyncService
+from AccessControl import getSecurityManager
+from zope.component import getUtility
+
+# CMF/Plone imports
+from Products.CMFCore.permissions import ManagePortal
+from Products.CMFCore.permissions import ModifyPortalContent
 
 from utils import extractPDFText
 
 log = logging.getLogger('osha.policy/handlers.py')
+
+def job_failure_callback(result):
+    log.error(result)
 
 def handle_auto_translated_files(event):
     """ Set the title, if retrieved from the pdf file.
@@ -103,17 +116,40 @@ def handle_objectModified(object, event):
         field.getMutator(object)(False)
 
 
+def unregister_async(lc, link_ids):
+    log.info('unregister_async')
+    database = lc.database
+    database.manage_delObjects(link_ids)
+
 @zope.component.adapter(
     zope.app.container.interfaces.IObjectRemovedEvent)
 def remove_links(event):
-    
     object = event.object
     try:
         link_checker = getToolByName(object, 'portal_linkchecker').aq_inner
         db = link_checker.database
     except AttributeError:
         return
-    link_checker.database.unregisterObject(object)
+    if isinstance(object, (gocept.linkchecker.url.URL,
+                           gocept.linkchecker.link.Link)):
+        return
+    links = db.getLinksForObject(object)
+    link_ids = [x.getId() for x in links]
+    async = getUtility(IAsyncService)
+    job = async.queueJob(unregister_async, link_checker, link_ids)
+    callback = job.addCallbacks(failure=job_failure_callback)
+
+
+def retrieve_async(context, path, online):
+    log.info('retrieve_async')
+    obj = context.restrictedTraverse(path)
+    lc = getToolByName(obj, 'portal_linkchecker')
+    database = lc.database
+    database.unregisterObject(obj)
+    retriever = IRetriever(obj, None)
+    if retriever is not None:
+        links = retriever.retrieveLinks()
+        database.registerLinks(links, obj, online)
 
 
 @zope.component.adapter(
@@ -134,7 +170,15 @@ def update_links(event):
         return
     retriever = IRetriever(obj, None)
     if retriever is not None:
-        link_checker.retrieving.retrieveObject(obj, online=False)
+        sm = getSecurityManager()
+        if not sm.checkPermission(ModifyPortalContent, obj):
+            return
+        if (not IReferenceable.providedBy(obj)):
+            return
+        async = getUtility(IAsyncService)
+        tpath = '/'.join(obj.getPhysicalPath())
+        job = async.queueJob(retrieve_async, obj, tpath, online=False)
+        callback = job.addCallbacks(failure=job_failure_callback)
 
 
 def handle_edit_begun(obj, event):
