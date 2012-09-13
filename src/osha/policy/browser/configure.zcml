@@ -10,7 +10,7 @@
         type="zope.publisher.interfaces.browser.IBrowserSkinType"
         name="OSHA Plone Policy"
         />
-        
+
     <browser:page
         for="*"
         name="seppublications_view"
@@ -84,7 +84,7 @@
         class=".foldercontents.CustomizedFolderContentsView"
         name="bulk_tagger"
         template="templates/foldercontents.pt"
-        permission="cmf.ListFolderContents" 
+        permission="cmf.ListFolderContents"
         />
 
     <browser:page
@@ -92,7 +92,7 @@
         class=".foldercontents.CustomizedFolderContentsView"
         name="bulk_tagger"
         template="templates/foldercontents.pt"
-        permission="cmf.ListFolderContents" 
+        permission="cmf.ListFolderContents"
         />
 
     <browser:page
@@ -100,10 +100,10 @@
         class=".foldercontents.CustomizedFolderContentsView"
         name="bulk_tagger"
         template="templates/foldercontents.pt"
-        permission="cmf.ListFolderContents" 
+        permission="cmf.ListFolderContents"
         />
 
- 
+
      <include package="plone.app.contentmenu" />
 
    <browser:menuItem zcml:condition="installed collective.plonetruegallery"
@@ -113,13 +113,13 @@
         action="bulk_tagger"
         description="Bulk Tagging of images"
         />
-        
+
     <browser:page
         for="Products.ATContentTypes.interface.folder.IATFolder"
         class=".foldercontents.FolderContentsKSSView"
         attribute="update_table"
         name="bulktagger_update_table"
-        permission="cmf.ListFolderContents" 
+        permission="cmf.ListFolderContents"
         />
 
     <browser:page
@@ -127,7 +127,7 @@
         class=".foldercontents.FolderContentsKSSView"
         attribute="update_table"
         name="bulktagger_update_table"
-        permission="cmf.ListFolderContents" 
+        permission="cmf.ListFolderContents"
         />
 
 
@@ -137,7 +137,7 @@
         class=".foldercontents.FolderContentsKSSView"
         attribute="update_table"
         name="bulktagger_update_table"
-        permission="cmf.ListFolderContents" 
+        permission="cmf.ListFolderContents"
         />
 
 
@@ -184,7 +184,7 @@
          for="Products.CMFPlone.interfaces.IPloneSiteRoot"
          provides="osha.policy.interfaces.IDatabaseSettings"
          factory=".dbsettings.osha_database_settings"
-         /> 
+         />
 
 <!--
     <browser:page
@@ -199,28 +199,28 @@
         for="*"
         name="lc_csv_export"
         class=".lc_osha.CSVExportView"
-        permission="cmf.ManagePortal"      
+        permission="cmf.ManagePortal"
         />
-        
+
     <browser:page
         for="*"
         name="lc_pg_export"
         class=".lc_osha.PostgresExportView"
-        permission="cmf.ManagePortal"      
+        permission="cmf.ManagePortal"
         />
 
     <browser:page
         for="*"
         name="lc_csv_section_rewiter"
         class=".lc_osha.CSVSectionRewriteView"
-        permission="cmf.ManagePortal"      
+        permission="cmf.ManagePortal"
         />
 
     <browser:page
         for="*"
         name="lc_update_ws"
         class=".lc_osha.UpdateWSRegistrationView"
-        permission="zope2.View"      
+        permission="zope2.View"
         />
 -->
     <!-- <browser:page -->
@@ -252,10 +252,17 @@
         permission="cmf.ManagePortal"
         />
 
-    <subscriber 
+    <subscriber
         for="slc.outdated.IObjectOutdatedToggleEvent"
         handler=".adapter.handleToggleOutdated"
     />
+
+    <browser:page
+        for="*"
+        name="removeStaleImplements"
+        class=".removeStaleFolderImplements.RemoveImplementsView"
+        permission="cmf.ManagePortal"
+        />
 
 </configure>
 
