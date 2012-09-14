@@ -7,7 +7,7 @@ import collective_solr_patch
 #import email_as_login_patch
 import event_patch
 import increase_resourceregistry_cache_duration
-#import linguaplone_addTranslation_patch
+import linguaplone_addTranslation_patch
 #import linguaplone_defaultLanguage_patch
 import linguaplone_config_patch
 import newsitem_patch
