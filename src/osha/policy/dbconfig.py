@@ -140,8 +140,8 @@ def dbconfig(event):
         mailhost.smtp_uid = conf.get('mail.user')
     if getattr(mailhost, 'smtp_pwd', '') != conf.get('mail.pass', mailhost.smtp_pwd):
         mailhost.smtp_pwd = conf.get('mail.pass')
-    if mailhost.smtp_queue is not True:
-        mailhost.smtp_queue = True
+    if mailhost.smtp_queue is not False:
+        mailhost.smtp_queue = False
     if mailhost.smtp_queue_directory != conf.get('mail.queuedir', mailhost.smtp_queue_directory):
         mailhost.smtp_queue_directory = conf.get('mail.queuedir')
     log.debug('mail config written')
