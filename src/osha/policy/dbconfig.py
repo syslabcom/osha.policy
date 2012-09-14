@@ -189,5 +189,25 @@ def dbconfig(event):
         cache.manage_editProps('Memcached Manager', settings=settings)
     log.debug('memcached configured')
 
+    # Linkchecker
+    lc = getToolByName(plone, 'portal_linkchecker')
+    if lc is not None:
+        if not lc.active:
+            lc.active = True
+            log.info('activated the portal_linkchecker')
+    lcdb = getattr(lc, 'database', None)
+    if lcdb is not None:
+        lms_address = "http://%s/lms" % conf.get('lms.address')
+        if lcdb.webservice != lms_address:
+            log.info('Set LMS webservice address, old value: %s ' % lcdb.webservice)
+            lcdb.webservice = lms_address
+        if lcdb.clientid != conf.get('lms.user'):
+            log.info('Set LMS client id, old value: %s' % lcdb.clientid)
+            lcdb.clientid = conf.get('lms.user') 
+        if lcdb.password != conf.get('lms.password'):
+            log.info('Set LMS password.')
+            lcdb.password = conf.get('lms.password')
+    else:
+        log.error('portal_linkchecker.database not found!')
 
     transaction.commit()
