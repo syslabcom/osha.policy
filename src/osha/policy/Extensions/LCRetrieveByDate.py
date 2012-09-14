@@ -3,6 +3,12 @@ import zLOG
 from DateTime import DateTime
 from slc.outdated import ANNOTATION_KEY
 from zope.annotation.interfaces import IAnnotatable, IAnnotations
+from plone.app.async.interfaces import IAsyncService
+from zope.component import getUtility
+from Products.Archetypes.interfaces import IReferenceable
+from AccessControl import getSecurityManager
+from Products.CMFCore.permissions import ModifyPortalContent
+from osha.policy.handlers import job_failure_callback, retrieve_async, unregister_async
 
 ALLOWED_STATES = ['undefined', 'published', 'visible', 'to_amend']
 
@@ -14,11 +20,17 @@ def LCRetrieveByDate(self, skiplist=[]):
     if since is not None:
         since = DateTime(since)
     sincedate = since or sincedate
+    offline = self.REQUEST.get('offline', '')
 
     pwt = self.portal_workflow
     lc = self.portal_linkchecker
-    server = lc.database._getWebServiceConnection()
-    if server is None:
+    async = getUtility(IAsyncService)
+    sm = getSecurityManager()
+    try:
+        server = lc.database._getWebServiceConnection()
+    except:
+        server = None
+    if server is None and offline!='1':
         raise RuntimeError, "The site could not be crawled because no " \
                             "connection to the lms could be established."
 
@@ -32,12 +44,12 @@ def LCRetrieveByDate(self, skiplist=[]):
         os_ = len(objects)
         zLOG.LOG('CMFLinkChecker', zLOG.INFO, "%d objects will be crawled" % os_)
         i = 0
-        for ob in objects:
+        for res in objects:
             i += 1
             zLOG.LOG("CMFLinkChecker", zLOG.BLATHER,
                      "Site Crawl Status",
-                     "%s of %s (%s)" % (i, os_, ob.getPath()))
-            ob = ob.getObject()
+                     "%s of %s (%s)" % (i, os_, res.getPath()))
+            ob = res.getObject()
             if ob is None:
                 # Maybe the catalog isn't up to date
                 continue
@@ -45,7 +57,10 @@ def LCRetrieveByDate(self, skiplist=[]):
                 IAnnotations(ob).get(ANNOTATION_KEY, False) or False
             if outdated:
                 zLOG.LOG("CMFLinkChecker", zLOG.BLATHER, "unregistering, object is outdated")
-                lc.database.unregisterObject(ob)
+                links = lc.database.getLinksForObject(ob)
+                link_ids = [x.getId() for x in links]
+                job = async.queueJob(unregister_async, link_checker, link_ids)
+                callback = job.addCallbacks(failure=job_failure_callback)
                 continue
             try:
                 state = pwt.getInfoFor(ob, 'review_state')
@@ -53,13 +68,17 @@ def LCRetrieveByDate(self, skiplist=[]):
                 state = "undefined"
             if state not in ALLOWED_STATES:
                 zLOG.LOG("CMFLinkChecker", zLOG.BLATHER, "unregistering, object is not public: %s" % state)
-                lc.database.unregisterObject(ob)
+                links = lc.database.getLinksForObject(ob)
+                link_ids = [x.getId() for x in links]
+                job = async.queueJob(unregister_async, link_checker, link_ids)
+                callback = job.addCallbacks(failure=job_failure_callback)
                 continue
-            try:
-                lc.retrieving.retrieveObject(ob, online=False)
-            except Exception,e:
-                zLOG.LOG('CMFLinkChecker', zLOG.BLATHER,
-                  "Unable to retrieveObject for %s. Error: %s" %([ob], e))
+            if not sm.checkPermission(ModifyPortalContent, ob):
+                return
+            if (not IReferenceable.providedBy(ob)):
+                return
+            job = async.queueJob(retrieve_async, ob, res.getPath(), online=False)
+            callback = job.addCallbacks(failure=job_failure_callback)
             if not i % 500 :
                 transaction.savepoint()
                 zLOG.LOG('CMFLinkChecker', zLOG.INFO,

@@ -1,5 +1,11 @@
 import transaction
 from zLOG import LOG, INFO
+from plone.app.async.interfaces import IAsyncService
+from zope.component import getUtility
+from Products.Archetypes.interfaces import IReferenceable
+from AccessControl import getSecurityManager
+from Products.CMFCore.permissions import ModifyPortalContent
+from osha.policy.handlers import job_failure_callback, retrieve_async
 
 # This script can be run on a given path. if the keyword resume is given, it will not retrive again but only resume current paths
 
@@ -7,6 +13,8 @@ def retrieve(self):
   ST = []
   pc = self.portal_catalog
   link_checker = self.portal_linkchecker
+  async = getUtility(IAsyncService)
+  sm = getSecurityManager()
   # INitialize the helperattribute to store paths to retrieve
   objpaths = getattr(link_checker, 'objpaths', None)
   cleanup = self.REQUEST.get('cleanup', False)
@@ -52,10 +60,12 @@ def retrieve(self):
     except:
       continue
     if not object: continue
-    try:
-        link_checker.retrieving.retrieveObject(object)
-    except:
-        continue
+    if not sm.checkPermission(ModifyPortalContent, object):
+        return
+    if (not IReferenceable.providedBy(object)):
+        return
+    job = async.queueJob(retrieve_async, object, path, online=False)
+    callback = job.addCallbacks(failure=job_failure_callback)
     LOG("LCRetrieveByPath", INFO, "> Retrieved %s"%path)
     ST.append("retrieved %s" % path)
     link_checker.objpaths.remove(path)
