@@ -1,11 +1,13 @@
 import transaction
-from zLOG import LOG, INFO
+from zLOG import LOG, INFO, BLATHER
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
 from Products.Archetypes.interfaces import IReferenceable
 from AccessControl import getSecurityManager
 from Products.CMFCore.permissions import ModifyPortalContent
-from osha.policy.handlers import job_failure_callback, retrieve_async
+from osha.policy.handlers import job_failure_callback, retrieve_async, unregister_async
+from slc.outdated import ANNOTATION_KEY
+from zope.annotation.interfaces import IAnnotatable, IAnnotations
 
 # This script can be run on a given path. if the keyword resume is given, it will not retrive again but only resume current paths
 
@@ -53,27 +55,37 @@ def retrieve(self):
   objpaths = [x for x in link_checker.objpaths]
   total = len(objpaths)
   for path in objpaths:
-    if debug:
-      print path
-    try:
-      object = self.unrestrictedTraverse(path)
-    except:
-      continue
-    if not object: continue
-    if not sm.checkPermission(ModifyPortalContent, object):
-        return
-    if (not IReferenceable.providedBy(object)):
-        return
-    job = async.queueJob(retrieve_async, object, path, online=False)
-    callback = job.addCallbacks(failure=job_failure_callback)
-    LOG("LCRetrieveByPath", INFO, "> Retrieved %s"%path)
-    ST.append("retrieved %s" % path)
-    link_checker.objpaths.remove(path)
-    link_checker._p_changed = 1
-    cnt += 1
-    if cnt%10==0:
-      transaction.commit()
-      LOG("LCRetrieveByPath", INFO, "Committing %s of %s" %(cnt, total))
+      if debug:
+          print path
+      try:
+          ob = self.unrestrictedTraverse(path)
+      except:
+          continue
+      if not ob:
+          continue
+      if not sm.checkPermission(ModifyPortalContent, ob):
+          continue 
+      if (not IReferenceable.providedBy(ob)):
+          continue
+      outdated = IAnnotatable.providedBy(ob) and \
+          IAnnotations(ob).get(ANNOTATION_KEY, False) or False
+      if outdated:
+          LOG("CMFLinkChecker", INFO, "unregistering %s, object is outdated" % path)
+          links = link_checker.database.getLinksForObject(ob)
+          link_ids = [x.getId() for x in links]
+          job = async.queueJob(unregister_async, link_checker, link_ids)
+          callback = job.addCallbacks(failure=job_failure_callback)
+          continue
+      job = async.queueJob(retrieve_async, ob, path, online=False)
+      callback = job.addCallbacks(failure=job_failure_callback)
+      LOG("LCRetrieveByPath", INFO, "> Retrieved %s"%path)
+      ST.append("retrieved %s" % path)
+      link_checker.objpaths.remove(path)
+      link_checker._p_changed = 1
+      cnt += 1
+      if cnt%10==0:
+          transaction.commit()
+          LOG("LCRetrieveByPath", INFO, "Committing %s of %s" %(cnt, total))
 
   LOG("LCRetrieveByPath", INFO, "Fertig")
   return "\n".join(ST)

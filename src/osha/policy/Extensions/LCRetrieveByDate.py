@@ -56,10 +56,10 @@ def LCRetrieveByDate(self, skiplist=[]):
             outdated = IAnnotatable.providedBy(ob) and \
                 IAnnotations(ob).get(ANNOTATION_KEY, False) or False
             if outdated:
-                zLOG.LOG("CMFLinkChecker", zLOG.BLATHER, "unregistering, object is outdated")
+                zLOG.LOG("CMFLinkChecker", zLOG.INFO, "unregistering %s, object is outdated" % res.getPath())
                 links = lc.database.getLinksForObject(ob)
                 link_ids = [x.getId() for x in links]
-                job = async.queueJob(unregister_async, link_checker, link_ids)
+                job = async.queueJob(unregister_async, lc, link_ids)
                 callback = job.addCallbacks(failure=job_failure_callback)
                 continue
             try:
@@ -70,13 +70,13 @@ def LCRetrieveByDate(self, skiplist=[]):
                 zLOG.LOG("CMFLinkChecker", zLOG.BLATHER, "unregistering, object is not public: %s" % state)
                 links = lc.database.getLinksForObject(ob)
                 link_ids = [x.getId() for x in links]
-                job = async.queueJob(unregister_async, link_checker, link_ids)
+                job = async.queueJob(unregister_async, lc, link_ids)
                 callback = job.addCallbacks(failure=job_failure_callback)
                 continue
             if not sm.checkPermission(ModifyPortalContent, ob):
-                return
+                continue
             if (not IReferenceable.providedBy(ob)):
-                return
+                continue
             job = async.queueJob(retrieve_async, ob, res.getPath(), online=False)
             callback = job.addCallbacks(failure=job_failure_callback)
             if not i % 500 :
