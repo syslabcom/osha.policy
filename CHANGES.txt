@@ -1,11 +1,12 @@
 osha.policy Changelog
 =====================
 
-1.3.39 (unreleased)
--------------------
+1.4.0 (2012-09-17)
+------------------
 
 - Adding the new multimedia views and sharing the structure for the
   napofilms listing between both portals #1555 [deroiste]
+- Plone 4 related changes [syslab]
 
 1.3.38 (2011-07-21)
 -------------------
