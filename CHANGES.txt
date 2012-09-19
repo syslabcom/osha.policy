@@ -4,7 +4,7 @@ osha.policy Changelog
 1.4.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- An external method used to check and cleanup FOP links refs #5617 [deroiste]
 
 
 1.4.0 (2012-09-17)
