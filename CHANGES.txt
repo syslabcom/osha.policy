@@ -4,8 +4,8 @@ osha.policy Changelog
 1.4.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- The fields releaseDate and pressContacts are no longer made languageIndependent
+  via patch, fixes #5791 [thomasw]
 
 1.4.1 (2012-09-19)
 ------------------
