@@ -1,7 +1,7 @@
 # Add i18n msgids here which do not exist in filesystem code so that
 # the translation-extract script can find them
 
-from osha.policy import recensioMessageFactory as _
+from osha.theme import OSHAMessageFactory as _
 
 # FOP
 _("heading_main_fop_portlet_albania")
