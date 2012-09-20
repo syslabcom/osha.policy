@@ -135,7 +135,8 @@
     id="++resource++trackingscripts.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++osha.theme.resources/jwplayer/jwplayer.js" inline="False"/>
+    id="++resource++osha.theme.resources/jwplayer/jwplayer.js"
+    inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++osha.theme.browser.resources.fancybox/jquery.fancybox-1.3.1.js"
@@ -278,8 +279,7 @@
     inline="False"/>
  <javascript authenticated="True" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++osha.theme.behaviour/quickupload.js"
-    inline="False"/>
+    id="++resource++osha.theme.behaviour/quickupload.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++plonetruegallery-portlet.js" inline="False"/>
@@ -318,6 +318,9 @@
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="osha.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="expandable_content.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True"
     expression="context/@@jqueryui-include-condition"
