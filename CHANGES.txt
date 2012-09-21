@@ -1,10 +1,13 @@
 osha.policy Changelog
 =====================
 
-1.4.3 (unreleased)
+1.4.3 (2012-09-21)
 ------------------
 
-- Nothing changed yet.
+- patch the index() method of gocept.linkchecker.link.Link to be able to run it
+  smoothly in async [thomasw]
+- Add defaults for napo episode titles refs #5458 [deroiste]
+
 
 
 1.4.2 (2012-09-20)
