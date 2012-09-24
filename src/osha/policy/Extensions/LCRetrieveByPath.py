@@ -76,7 +76,7 @@ def retrieve(self):
           job = async.queueJob(unregister_async, link_checker, link_ids)
           callback = job.addCallbacks(failure=job_failure_callback)
           continue
-      job = async.queueJob(retrieve_async, ob, path, online=False)
+      job = async.queueJob(retrieve_async, ob, path, online=True)
       callback = job.addCallbacks(failure=job_failure_callback)
       LOG("LCRetrieveByPath", INFO, "> Retrieved %s"%path)
       ST.append("retrieved %s" % path)

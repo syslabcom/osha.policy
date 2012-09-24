@@ -177,7 +177,7 @@ def update_links(event):
             return
         async = getUtility(IAsyncService)
         tpath = '/'.join(obj.getPhysicalPath())
-        job = async.queueJob(retrieve_async, obj, tpath, online=False)
+        job = async.queueJob(retrieve_async, obj, tpath, online=True)
         callback = job.addCallbacks(failure=job_failure_callback)
 
 

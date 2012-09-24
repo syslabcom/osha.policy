@@ -77,7 +77,7 @@ def LCRetrieveByDate(self, skiplist=[]):
                 continue
             if (not IReferenceable.providedBy(ob)):
                 continue
-            job = async.queueJob(retrieve_async, ob, res.getPath(), online=False)
+            job = async.queueJob(retrieve_async, ob, res.getPath(), online=True)
             callback = job.addCallbacks(failure=job_failure_callback)
             if not i % 500 :
                 transaction.savepoint()
