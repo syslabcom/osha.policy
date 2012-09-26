@@ -656,7 +656,7 @@
    pageTracker._trackPageview(); } catch(err) {}&lt;/script&gt;</property>
   <property name="external_links_open_new_window"
      type="string">true</property>
-  <property name="icon_visibility" type="string">authenticated</property>
+  <property name="icon_visibility" type="string">enabled</property>
   <property name="enable_checkout_workflow" type="boolean">False</property>
   <property name="checkout_workflow_policy"
      type="string">checkout_workflow_policy</property>
