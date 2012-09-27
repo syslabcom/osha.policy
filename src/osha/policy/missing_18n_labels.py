@@ -5,6 +5,9 @@ from osha.theme import OSHAMessageFactory as _
 
 # TODO: Add defaults for all msgids
 
+# Misc
+_("Safety and Health at work")
+
 # FOP
 _("heading_main_fop_portlet_albania")
 _("heading_main_fop_portlet_austria")
