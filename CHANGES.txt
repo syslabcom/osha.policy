@@ -5,6 +5,7 @@ osha.policy Changelog
 ------------------
 
 - Include "Safety and Health at work" for translation #5873 [deroiste]
+- In the async calls to retrieve links, use online mode [thomasw]
 
 
 1.4.3 (2012-09-21)
