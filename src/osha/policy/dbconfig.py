@@ -32,9 +32,6 @@ def dbconfig(event):
     if conf is None:
         log.error('No product config found! Configuration will not be set')
         return
-    log.info('\n\n\n\nManually disabled db config\n\n')
-    return
-
     db = Zope2.DB
     connection = db.open()
     root_folder = connection.root().get(ZopePublication.root_name, None)
