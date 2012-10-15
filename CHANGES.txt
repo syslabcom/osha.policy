@@ -1,11 +1,10 @@
 osha.policy Changelog
 =====================
 
-1.4.5 (unreleased)
+1.4.5 (2012-10-15)
 ------------------
 
-- Nothing changed yet.
-
+- don't kill translation references when language is set to neutral [thomasw]
 
 1.4.4 (2012-10-01)
 ------------------
