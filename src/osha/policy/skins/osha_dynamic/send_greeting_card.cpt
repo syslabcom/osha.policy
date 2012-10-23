@@ -21,7 +21,6 @@
     <div align="center" tal:define="ecard_url ecard/absolute_url">
         <span metal:use-macro="here/ecard_snippet/macros/snippet"></span></div>
 
-    <br />  Fill out this form and click <strong>Send</strong>.
     <form action="" method="post"
         tal:attributes="action template/getId">
         <input type="hidden" tal:attributes="value ecard_name" name="ecard_name" />
@@ -100,7 +99,7 @@
                   <input type="submit" class="inline"
                          name="form.button.NewCaptcha"
                          value="New Image"
-                         i18n:attributes="value"/>
+                         i18n:attributes="value" />
                          if you cannot read the word properly.
                 </div>
 
@@ -122,7 +121,7 @@
             </tbody>
         </table>
 
-        <br /><strong><span i18n:translate="label_text"><input type="submit" i18n:attributes="value" value="Send"/> </span></strong>
+        <br /><strong><span i18n:translate="label_text"><input type="submit" i18n:attributes="value" value="Send" /> </span></strong>
         <input type="hidden" name="form.submitted" value="1" />
       </form>
     </span>
