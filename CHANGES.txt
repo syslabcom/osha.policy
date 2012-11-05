@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.6 (unreleased)
+1.4.6 (2012-11-05)
 ------------------
 
 - Make ecards work in Plone4 #5993 [thomasw]
