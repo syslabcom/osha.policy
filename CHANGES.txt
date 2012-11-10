@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.7 (unreleased)
+1.4.7 (2012-11-10)
 ------------------
 
 - Taking into account that we now have TWO types of HelpCenterFAQ classes:
