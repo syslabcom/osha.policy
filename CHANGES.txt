@@ -4,8 +4,9 @@ osha.policy Changelog
 1.4.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Taking into account that we now have TWO types of HelpCenterFAQ classes:
+  Products.PloneHelpCenter.content.FAQ.HelpCenterFAQ and
+  Products.PloneHelpCenter.types.FAQ.HelpCenterFAQ [thomasw]
 
 1.4.6 (2012-11-05)
 ------------------
