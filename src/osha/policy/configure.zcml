@@ -84,19 +84,27 @@
         handler=".dbconfig.dbconfig"
     />
 
+    <adapter name="target_user_groups" factory=".indexer.target_user_groups" />
+    <adapter name="nace" factory=".indexer.nace" />
+    <adapter name="subcategory" factory=".indexer.subcategory" />
+    <adapter name="osha_metadata" factory=".indexer.osha_metadata" />
+    <adapter name="occupation" factory=".indexer.occupation" />
+    <adapter name="multilingual_thesaurus" factory=".indexer.multilingual_thesaurus" />
+    <adapter name="lex_section" factory=".indexer.lex_section" />
+    <adapter name="ero_topic" factory=".indexer.ero_topic" />
+    <adapter name="ero_target_group" factory=".indexer.ero_target_group" />
+    <adapter name="country" factory=".indexer.country" />
+    <adapter name="cas" factory=".indexer.cas" />
+    <adapter name="isNews" factory=".indexer.isNews" />
 
-  <adapter name="target_user_groups" factory=".indexer.target_user_groups" />
-  <adapter name="nace" factory=".indexer.nace" />
-  <adapter name="subcategory" factory=".indexer.subcategory" />
-  <adapter name="osha_metadata" factory=".indexer.osha_metadata" />
-  <adapter name="occupation" factory=".indexer.occupation" />
-  <adapter name="multilingual_thesaurus" factory=".indexer.multilingual_thesaurus" />
-  <adapter name="lex_section" factory=".indexer.lex_section" />
-  <adapter name="ero_topic" factory=".indexer.ero_topic" />
-  <adapter name="ero_target_group" factory=".indexer.ero_target_group" />
-  <adapter name="country" factory=".indexer.country" />
-  <adapter name="cas" factory=".indexer.cas" />
-  <adapter name="isNews" factory=".indexer.isNews" />
-
+    <!-- Upgrades -->
+    <genericsetup:upgradeStep
+        source="3"
+        destination="4"
+        title="Rearrange SEPs with accordeon layout"
+        description=""
+        profile="osha.policy:default"
+        handler=".upgrades.rearrange_seps"
+        />
 
 </configure>

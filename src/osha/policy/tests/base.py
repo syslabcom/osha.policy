@@ -52,6 +52,7 @@ class OshaPolicy(PloneSandboxLayer):
         z2.installProduct(app, 'Products.PloneHelpCenter')
         z2.installProduct(app, 'Products.LinguaPlone')
         z2.installProduct(app, "Products.Relations")
+        z2.installProduct(app, "slc.linkcollection")
         z2.installProduct(app, "osha.policy")
 
         # required for python scripts e.g. manage_add*
@@ -101,6 +102,8 @@ class OshaPolicy(PloneSandboxLayer):
         self.loadZCML("configure.zcml", package=slc.seminarportal)
         import osha.adaptation
         self.loadZCML('configure.zcml', package=osha.adaptation)
+        import slc.linkcollection
+        self.loadZCML("configure.zcml", package=slc.linkcollection)
         import Products.RichDocument
         self.loadZCML('configure.zcml', package=Products.RichDocument)
         import Products.RemoteProvider
@@ -156,6 +159,7 @@ class OshaPolicy(PloneSandboxLayer):
 
         applyProfile(portal, 'osha.policy:default')
         applyProfile(portal, 'osha.theme:default')
+        applyProfile(portal, 'slc.linkcollection:default')
 
         # Needed to properly install content types
         applyProfile(portal, 'Products.RichDocument:default')
@@ -201,6 +205,7 @@ class OshaPolicy(PloneSandboxLayer):
         z2.uninstallProduct(app, 'Products.LinguaPlone')
         z2.uninstallProduct(app, 'Products.PythonScripts')
         z2.uninstallProduct(app, "Products.Relations")
+        z2.uninstallProduct(app, "slc.linkcollection")
         z2.uninstallProduct(app, "osha.policy")
 
 
