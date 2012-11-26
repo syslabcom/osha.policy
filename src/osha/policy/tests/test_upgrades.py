@@ -54,6 +54,7 @@ class TestRearrangeSEPs(unittest.TestCase):
         # Create translations of the folder and default page
         self.folder_de = self.folder.addTranslation('de')
         self.index_html_de = self.folder['index_html'].addTranslation('de')
+        self.index_html_de.setText('Ich habe links.')
 
         # Create linked content for translations as well
         self.folder_de.invokeFactory(
@@ -86,12 +87,14 @@ class TestRearrangeSEPs(unittest.TestCase):
         # should be properly set, with link order preserved
         self.assertEqual(
             self.index_html.getText(),
+            '<p>I haz links.</p>' \
             '<h2 class="linkcollection">Linked 1</h2><p>I haz a foo.</p>' \
             '<h2 class="linkcollection">Linked 2</h2><p>I haz a bar.</p>'
         )
 
         self.assertEqual(
             self.index_html_de.getText(),
+            '<p>Ich habe links.</p>' \
             '<h2 class="linkcollection">Linked 1 de</h2><p>Ich habe ein ' \
             'foo.</p><h2 class="linkcollection">Linked 2 de</h2>' \
             '<p>Ich habe ein bar.</p>'

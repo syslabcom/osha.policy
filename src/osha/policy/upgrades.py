@@ -9,6 +9,8 @@ logger = logging.getLogger('osha.policy.upgrades')
 def rearrange_seps(context, items=None):
     """Rearrange SEPs with old accordeon layout in order to fit the new
     1-page layout which is SEO compliant.
+
+    See #4153 for details.
     """
     portal = getSite()
 
@@ -34,16 +36,35 @@ def rearrange_seps(context, items=None):
             # process the object and all its translations
             for obj in translations:
                 links = ILinkList(obj)
-                urls = ['/'.join(url.split('/')[4:]) for url in links.urls]
-                new_text = ''
 
-                for url in urls:
-                    linked = portal.restrictedTraverse(url)
-                    new_text += ('<h2 class="linkcollection">%s</h2>%s' %
-                                 (linked.Title(), linked.getText()))
+                try:
+                    new_text = obj.getText()
+                except UnicodeDecodeError:
+                    logging.exception('Unicode error for: %s. Fix the ' \
+                        'body text for this item and run the upgrade ' \
+                        'step again.' % obj.absolute_url())
+                    raise
 
-                    # delete linked item
-                    linked.aq_parent.manage_delObjects([linked.getId()])
+                for url in links.urls:
+                    if url.startswith('http'):
+                        url = '/'.join(url.split('/')[4:])
+                    else:
+                        url = url[1:]
+                    try:
+                        linked = portal.restrictedTraverse(url)
+                        new_text += ('<h2 class="linkcollection">%s</h2>%s' %
+                                     (linked.Title(), linked.getText()))
+
+                        # delete linked item
+                        linked.aq_parent.manage_delObjects([linked.getId()])
+                    except AttributeError:
+                        # XXX: Some links appear to be missing?!
+                        logging.exception('Error processing link: %s' % url)
+                    except UnicodeDecodeError:
+                        logging.exception('Unicode error for: %s. Fix the ' \
+                            'body text for this item and run the upgrade ' \
+                            'again.' % url)
+                        raise
 
                 # set new body text on the object and clear list of links
                 obj.setText(new_text)
