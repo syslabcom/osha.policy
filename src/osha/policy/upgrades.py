@@ -1,5 +1,6 @@
 from slc.linkcollection.interfaces import ILinkList
 from zope.site.hooks import getSite
+from plone.app.linkintegrity.exceptions import LinkIntegrityNotificationException
 
 import logging
 
@@ -55,8 +56,6 @@ def rearrange_seps(context, items=None):
                         new_text += ('<h2 class="linkcollection">%s</h2>%s' %
                                      (linked.Title(), linked.getText()))
 
-                        # delete linked item
-                        linked.aq_parent.manage_delObjects([linked.getId()])
                     except AttributeError:
                         # XXX: Some links appear to be missing?!
                         logging.exception('Error processing link: %s' % url)
@@ -65,6 +64,13 @@ def rearrange_seps(context, items=None):
                             'body text for this item and run the upgrade ' \
                             'again.' % url)
                         raise
+                    else:
+                        try:
+                            # delete linked item
+                            linked.aq_parent.manage_delObjects([linked.getId()])
+                        except LinkIntegrityNotificationException:
+                            logging.exception("Not possible to delete %s " \
+                                "because link integrity is violated" % url)
 
                 # set new body text on the object and clear list of links
                 obj.setText(new_text)
