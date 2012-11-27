@@ -41,7 +41,7 @@ def rearrange_seps(context, items=None):
                 try:
                     new_text = obj.getText()
                 except UnicodeDecodeError:
-                    logging.exception('Unicode error for: %s. Fix the ' \
+                    logging.warning('Unicode error for: %s. Fix the ' \
                         'body text for this item and run the upgrade ' \
                         'step again.' % obj.absolute_url())
                     raise
@@ -58,9 +58,9 @@ def rearrange_seps(context, items=None):
 
                     except AttributeError:
                         # XXX: Some links appear to be missing?!
-                        logging.exception('Error processing link: %s' % url)
+                        logging.warning('Error processing link: %s' % url)
                     except UnicodeDecodeError:
-                        logging.exception('Unicode error for: %s. Fix the ' \
+                        logging.warning('Unicode error for: %s. Fix the ' \
                             'body text for this item and run the upgrade ' \
                             'again.' % url)
                         raise
@@ -69,7 +69,7 @@ def rearrange_seps(context, items=None):
                             # delete linked item
                             linked.aq_parent.manage_delObjects([linked.getId()])
                         except LinkIntegrityNotificationException:
-                            logging.exception("Not possible to delete %s " \
+                            logging.warning("Not possible to delete %s " \
                                 "because link integrity is violated" % url)
 
                 # set new body text on the object and clear list of links
