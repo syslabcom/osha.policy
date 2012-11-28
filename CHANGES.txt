@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.8 (unreleased)
+1.4.8 (2012-11-28)
 ------------------
 
 - Added upgrade step to transform old link collections #4153 [jure]
