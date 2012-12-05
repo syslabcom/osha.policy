@@ -1,5 +1,8 @@
+from Acquisition import aq_inner
+from Products.CMFCore.interfaces import ISiteRoot
 from pyPdf.pdf import ContentStream
 from pyPdf.generic import *
+
 
 def logit(*kwargs):
     " log something from the web "
@@ -11,6 +14,7 @@ def logit(*kwargs):
     except:
         print [kwargs]
 
+
 def extractPDFText(self):
     text = u""
     content = self["/Contents"].getObject()
@@ -19,7 +23,7 @@ def extractPDFText(self):
     # Note: we check all strings are TextStringObjects.  ByteStringObjects
     # are strings where the byte->string encoding was unknown, so adding
     # them to the text here would be gibberish.
-    for operands,operator in content.operations:
+    for operands, operator in content.operations:
         if operator == "Tj":
             _text = operands[0]
             if isinstance(_text, TextStringObject):
@@ -41,6 +45,19 @@ def extractPDFText(self):
                 if isinstance(i, TextStringObject):
                     text += i
         elif operator == "k":
-            text += "\n" 
+            text += "\n"
     return text
 
+
+def find_parent_by_interface(context, interface):
+    """Try to find the parent object that implements the specified interface
+    by traversing the __parent__ pointers.
+    """
+    item = aq_inner(context)
+
+    while item is not None:
+        if ISiteRoot.providedBy(item):
+            break
+        if interface.providedBy(item):
+            return item
+        item = item.__parent__
