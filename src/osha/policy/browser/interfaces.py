@@ -100,11 +100,17 @@ class IProviderHelper(Interface):
 class IPressroomHelper(Interface):
     """ This Interface provides methods for the customized display of PressRoom objects """
 
-    def getTextPieces():
-        """ Returns the body text of referenced content pieces. The method is LinguaPlone aware """
+    def getTranslatedReferences(fieldname):
+        """ Return a list of referenced items for the provided fieldname.
+        The method is LinguaPlone aware.
+
+        :param fieldname: [required] name of the field which contains
+            referenced items
+        """
 
     def getContacts(self):
         """Return contact info from the parent PressRoom object.
+        The method is LinguaPlone aware.
         """
 
 
