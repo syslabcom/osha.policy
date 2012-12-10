@@ -84,15 +84,15 @@ class TestPressroomHelper(unittest.TestCase):
         """Test if the method correctly handles wrong context -
         we should be inside PressRoom object hiearachy for it to work.
         """
-        # it should return None if we're not inside PressRoom
+        # it should throw an error if we're not inside PressRoom
         helper = self.portal.restrictedTraverse('pressroom_helper')
-        self.assertEqual(helper.getContacts(), None)
+        self.assertRaises(KeyError, helper.getContacts)
 
         # it should work if we are on Press release or Press room
         helper = self.press_room.restrictedTraverse('pressroom_helper')
-        self.assertNotEqual(helper.getContacts(), None)
+        helper.getContacts()
         helper = self.press_release.restrictedTraverse('pressroom_helper')
-        self.assertNotEqual(helper.getContacts(), None)
+        helper.getContacts()
 
     def test_getContacts_results(self):
         """Test if we get correct results."""
@@ -132,13 +132,17 @@ class TestPressroomHelper(unittest.TestCase):
         self.assertEqual(
             helper.getContacts(), u'Chuck Norris chuck@norris.com')
 
-        # now add a press room translation
+        # now add a press room translation -we should still get contacts from
+        # the canonical object because translation doesn't have this field set
         self.press_room.addTranslation('sl')
+        self.assertEqual(
+            helper.getContacts(), u'Chuck Norris chuck@norris.com')
+
+        # if we set the contacts field on the translated press room,
+        # we should get contact info from there
         mutator = self.portal['press-room-sl'].getField(
             'contacts').getMutator(self.portal['press-room-sl'])
         mutator(u'Martin Krpan martin@krpan.com')
-
-        # we should get contact info from the translation
         self.assertEqual(
             helper.getContacts(), u'Martin Krpan martin@krpan.com')
 

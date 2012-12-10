@@ -34,15 +34,14 @@ class PressroomHelper(BrowserView):
         """ See interface """
         pressroom = find_parent_by_interface(self.context, IPressRoom)
 
-        if pressroom:
-            language_tool = getToolByName(self.context, 'portal_languages')
-            lang = language_tool.getPreferredLanguage()
-            pressroom = pressroom.getTranslation(lang) or pressroom
-            contacts = pressroom.getField('contacts').getRaw(pressroom)
+        if not pressroom:
+            raise KeyError('No Press Room found!')
 
-            # If there is no contacts in the native language, use
-            # contact info from canonical object
-            if not contacts:
-                contacts = pressroom.getCanonical().getField(
-                    'contacts').getRaw(pressroom)
-            return contacts
+        language_tool = getToolByName(self.context, 'portal_languages')
+        lang = language_tool.getPreferredLanguage()
+        pressroom_trans = pressroom.getTranslation(lang)
+        contacts_trans = (pressroom_trans and
+            pressroom_trans.getField('contacts').getRaw(pressroom_trans))
+        contacts = pressroom.getField('contacts').getRaw(pressroom)
+
+        return contacts_trans or contacts
