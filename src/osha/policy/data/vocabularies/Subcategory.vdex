@@ -23,6 +23,7 @@
     <langstring language="sk">Subcategory</langstring>
     <langstring language="sl">Subcategory</langstring>
     <langstring language="sv">Subcategory</langstring>
+    <langstring language="is">Subcategory</langstring>
   </vocabName>
   <vocabIdentifier>Subcategory</vocabIdentifier>
   <term>
@@ -49,6 +50,8 @@
       <langstring language="cs">Prevence úrazů</langstring>
       <langstring language="el">Πρόληψη ατυχημάτων</langstring>
       <langstring language="bg">Accident Prevention</langstring>
+      <langstring language="is">Accident Prevention</langstring>
+      <langstring language="no">Accident Prevention</langstring>
     </caption>
     <term>
       <termIdentifier>accident_prevention::costs_statistics</termIdentifier>
@@ -1816,6 +1819,8 @@
         <langstring language="cs">Providers</langstring>
         <langstring language="el">Providers</langstring>
         <langstring language="bg">Providers</langstring>
+        <langstring language="is">Providers</langstring>
+        <langstring language="no">Providers</langstring>
       </caption>
     </term>
   </term>
@@ -1844,6 +1849,8 @@
       <langstring language="sk">Starnúci pracovníci</langstring>
       <langstring language="sl">Staranje delavcev</langstring>
       <langstring language="sv">Äldre arbetstagare</langstring>
+      <langstring language="is">Ageing workers</langstring>
+      <langstring language="no">Ageing workers</langstring>
     </caption>
   </term>
   <term>
@@ -1869,7 +1876,9 @@
       <langstring language="sv">Jordbruk</langstring>
       <langstring language="cs">Zemědělství</langstring>
       <langstring language="el">Γεωργία</langstring>
-      <langstring language="bg">Landwirtschaft</langstring>
+      <langstring language="bg">Agriculture</langstring>
+      <langstring language="is">Agriculture</langstring>
+      <langstring language="no">Agriculture</langstring>
     </caption>
     <term>
       <termIdentifier>agriculture::accident_prevention</termIdentifier>
@@ -2755,6 +2764,8 @@
       <langstring language="sk">Podnikateľské aspekty BOZP</langstring>
       <langstring language="sl">Poslovni vidiki varnosti in zdravja pri delu</langstring>
       <langstring language="sv">Företagsaspekter av arbetsmiljöfrågor</langstring>
+      <langstring language="is">Business aspects of OSH</langstring>
+      <langstring language="no">Business aspects of OSH</langstring>
     </caption>
   </term>
   <term>
@@ -2782,6 +2793,8 @@
       <langstring language="sk">Zmeny vo svete práce</langstring>
       <langstring language="sl">Spreminjajoči se svet dela</langstring>
       <langstring language="sv">Förändringar på arbetsmarknaden</langstring>
+      <langstring language="is">Changing world of work</langstring>
+      <langstring language="no">Changing world of work</langstring>
     </caption>
   </term>
   <term>
@@ -2809,6 +2822,8 @@
       <langstring language="cs">čištění pracovníků</langstring>
       <langstring language="el">καθαρισμού εργαζομένων</langstring>
       <langstring language="bg">почистване на работниците</langstring>
+      <langstring language="is">Cleaning workers</langstring>
+      <langstring language="no">Cleaning workers</langstring>
     </caption>
   </term>
   <term>
@@ -2864,6 +2879,8 @@
       <langstring language="cs">Construction</langstring>
       <langstring language="el">Construction</langstring>
       <langstring language="bg">Construction</langstring>
+      <langstring language="is">Construction</langstring>
+      <langstring language="no">Construction</langstring>
     </caption>
     <term>
       <termIdentifier>construction::acc_prevent</termIdentifier>
@@ -3853,6 +3870,8 @@
       <langstring language="sk">Podniková sociálna zodpovednosť</langstring>
       <langstring language="sl">Družbena odgovornost podjetij</langstring>
       <langstring language="sv">Företagens sociala ansvar</langstring>
+      <langstring language="is">Corporate Social Responsibility</langstring>
+      <langstring language="no">Corporate Social Responsibility</langstring>
     </caption>
   </term>
   <term>
@@ -3879,6 +3898,8 @@
       <langstring language="cs">Nebezpečné látky</langstring>
       <langstring language="el">Επικίνδυνες ουσίες</langstring>
       <langstring language="bg">Dangerous Substances</langstring>
+      <langstring language="is">Dangerous Substances</langstring>
+      <langstring language="no">Dangerous Substances</langstring>
     </caption>
     <term>
       <termIdentifier>dangerous_substances::acc_prevent</termIdentifier>
@@ -5131,6 +5152,8 @@
       <langstring language="cs">Ekonomické pobídky</langstring>
       <langstring language="el">Οικονομικά κίνητρα</langstring>
       <langstring language="bg">Икономически стимули</langstring>
+      <langstring language="is">Economic incentives</langstring>
+      <langstring language="no">Economic incentives</langstring>
     </caption>
   </term>
   <term>
@@ -5186,6 +5209,8 @@
       <langstring language="cs">Education</langstring>
       <langstring language="el">Education</langstring>
       <langstring language="bg">Education</langstring>
+      <langstring language="is">Education</langstring>
+      <langstring language="no">Education</langstring>
     </caption>
     <term>
       <termIdentifier>education::acc_prevent</termIdentifier>
@@ -5914,6 +5939,8 @@
       <langstring language="cs">Emerging Risks</langstring>
       <langstring language="el">Emerging Risks</langstring>
       <langstring language="bg">Emerging Risks</langstring>
+      <langstring language="is">Emerging Risks</langstring>
+      <langstring language="no">Emerging Risks</langstring>
     </caption>
     <term>
       <termIdentifier>risks::chemical</termIdentifier>
@@ -6047,6 +6074,8 @@
       <langstring language="el">Συνοπτική περιγραφή</langstring>
       <langstring language="bg">Преглед</langstring>
       <langstring language="ro">Prezentare generală</langstring>
+      <langstring language="is">Foresight</langstring>
+      <langstring language="no">Foresight</langstring>
     </caption>
   </term>
   <term>
@@ -6073,6 +6102,8 @@
       <langstring language="cs">Fisheries</langstring>
       <langstring language="el">Fisheries</langstring>
       <langstring language="bg">Fisheries</langstring>
+      <langstring language="is">Fisheries</langstring>
+      <langstring language="no">Fisheries</langstring>
     </caption>
     <term>
       <termIdentifier>fisheries::acc_prevent</termIdentifier>
@@ -6804,6 +6835,8 @@
       <langstring language="el">"πράσινες" θέσεις εργασίας</langstring>
       <langstring language="bg">зелени работни места</langstring>
       <langstring language="ro">locuri de muncă ecologice</langstring>
+      <langstring language="is">Green jobs</langstring>
+      <langstring language="no">Green jobs</langstring>
     </caption>
   </term>
   <term>
@@ -6830,6 +6863,8 @@
       <langstring language="cs">Health Care</langstring>
       <langstring language="el">Τομέας υγειονομικής περίθαλψης</langstring>
       <langstring language="bg">Health Care</langstring>
+      <langstring language="is">Health Care</langstring>
+      <langstring language="no">Health Care</langstring>
     </caption>
     <term>
       <termIdentifier>healthcare::biol_hazards</termIdentifier>
@@ -7246,6 +7281,8 @@
       <langstring language="cs">Hotels, restaurants and catering</langstring>
       <langstring language="el">Hotels, restaurants and catering</langstring>
       <langstring language="bg">Hotels, restaurants and catering</langstring>
+      <langstring language="is">Hotels, restaurants and catering</langstring>
+      <langstring language="no">Hotels, restaurants and catering</langstring>
     </caption>
     <term>
       <termIdentifier>horeca::accident_prevention</termIdentifier>
@@ -7975,6 +8012,8 @@
       <langstring language="sk">Legislatíva</langstring>
       <langstring language="sl">Zakonodaja</langstring>
       <langstring language="sv">Lagstiftning</langstring>
+      <langstring language="is">Legislation</langstring>
+      <langstring language="no">Legislation</langstring>
     </caption>
   </term>
   <term>
@@ -8002,6 +8041,8 @@
       <langstring language="sk">Prenikanie BOZP do vzdelania</langstring>
       <langstring language="sl">Vključevanje varnosti in zdravja pri delu v izboraževanje</langstring>
       <langstring language="sv">Integrera arbetsmiljön i utbildningen</langstring>
+      <langstring language="is">Mainstreaming OSH into Education</langstring>
+      <langstring language="no">Mainstreaming OSH into Education</langstring>
     </caption>
   </term>
   <term>
@@ -8029,6 +8070,8 @@
       <langstring language="sk">údržba</langstring>
       <langstring language="sl">vzdrževalna dela</langstring>
       <langstring language="sv">underhåll</langstring>
+      <langstring language="is">Maintenance</langstring>
+      <langstring language="no">Maintenance</langstring>
     </caption>
   </term>
   <term>
@@ -8058,6 +8101,8 @@
       <langstring language="sk">spôsob vedenia na úrovni riadenia</langstring>
       <langstring language="sl">prizadevanje vodstva</langstring>
       <langstring language="sv">ledning och ledarskap</langstring>
+      <langstring language="is">Management leadership</langstring>
+      <langstring language="no">Management leadership</langstring>
     </caption>
   </term>
   <term>
@@ -8085,6 +8130,8 @@
       <langstring language="sk">Migrant workers</langstring>
       <langstring language="sl">Migrant workers</langstring>
       <langstring language="sv">Migrant workers</langstring>
+      <langstring language="is">Migrant workers</langstring>
+      <langstring language="no">Migrant workers</langstring>
     </caption>
   </term>
   <term>
@@ -8111,6 +8158,8 @@
       <langstring language="cs">Muskuloskeletální choroby</langstring>
       <langstring language="el">Μυοσκελετικές παθήσεις</langstring>
       <langstring language="bg">Musculoskeletal disorders</langstring>
+      <langstring language="is">Musculoskeletal disorders</langstring>
+      <langstring language="no">Musculoskeletal disorders</langstring>
     </caption>
     <term>
       <termIdentifier>msd::acc_prevent</termIdentifier>
@@ -9152,6 +9201,8 @@
       <langstring language="sk">Nanotechnology</langstring>
       <langstring language="sl">Nanotechnology</langstring>
       <langstring language="sv">Nanotechnology</langstring>
+      <langstring language="is">Nanotechnology</langstring>
+      <langstring language="no">Nanotechnology</langstring>
     </caption>
   </term>
   <term>
@@ -9178,6 +9229,8 @@
       <langstring language="cs">Hluk při práci</langstring>
       <langstring language="el">Θόρυβος στην εργασία</langstring>
       <langstring language="bg">Noise</langstring>
+      <langstring language="is">Noise</langstring>
+      <langstring language="no">Noise</langstring>
     </caption>
     <term>
       <termIdentifier>noise::legislation</termIdentifier>
@@ -9647,6 +9700,8 @@
       <langstring language="sk">"Organizácie a stratégie</langstring>
       <langstring language="sl">Organizacija in strategije</langstring>
       <langstring language="sv">Organisation och strategier</langstring>
+      <langstring language="is">Organisation and strategies</langstring>
+      <langstring language="no">Organisation and strategies</langstring>
     </caption>
   </term>
   <term>
@@ -9673,6 +9728,8 @@
       <langstring language="cs">Postižení</langstring>
       <langstring language="el">Άτομα με ειδικές ανάγκες</langstring>
       <langstring language="bg">People with Disabilities</langstring>
+      <langstring language="is">People with disabilities</langstring>
+      <langstring language="no">People with disabilities</langstring>
     </caption>
     <term>
       <termIdentifier>disability::access</termIdentifier>
@@ -10740,6 +10797,8 @@
       <langstring language="sk">Prevention</langstring>
       <langstring language="sl">Prevention</langstring>
       <langstring language="sv">Prevention</langstring>
+      <langstring language="is">Prevention</langstring>
+      <langstring language="no">Prevention</langstring>
     </caption>
   </term>
   <term>
@@ -10796,6 +10855,8 @@
       <langstring language="sk">Výskum</langstring>
       <langstring language="sl">Raziskovanje</langstring>
       <langstring language="sv">Forskning</langstring>
+      <langstring language="is">Research</langstring>
+      <langstring language="no">Research</langstring>
     </caption>
   </term>
   <term>
@@ -10823,6 +10884,8 @@
       <langstring language="sk">Hodnotenie rizík</langstring>
       <langstring language="sl">Ocena tveganja</langstring>
       <langstring language="sv">Riskbedömning</langstring>
+      <langstring language="is">Risk assessment</langstring>
+      <langstring language="no">Risk assessment</langstring>
     </caption>
   </term>
   <term>
@@ -10850,6 +10913,8 @@
       <langstring language="sk">Observatórium rizík</langstring>
       <langstring language="sl">Observatorij tveganj</langstring>
       <langstring language="sv">Riskcentrum</langstring>
+      <langstring language="is">Risk observatory</langstring>
+      <langstring language="no">Risk observatory</langstring>
     </caption>
     <term>
       <termIdentifier>risk_observatory::esener</termIdentifier>
@@ -10904,6 +10969,8 @@
       <langstring language="cs">Silniční doprava</langstring>
       <langstring language="el">Οδικές μεταφορές</langstring>
       <langstring language="bg">Автомобилен транспорт</langstring>
+      <langstring language="is">Road Transport</langstring>
+      <langstring language="no">Road Transport</langstring>
     </caption>
     <term>
       <termIdentifier>road_transport::as-driving</termIdentifier>
@@ -11848,6 +11915,8 @@
       <langstring language="cs">Statistika</langstring>
       <langstring language="el">Στατιστικά στοιχεία</langstring>
       <langstring language="bg">Статистика</langstring>
+      <langstring language="is">Statistics</langstring>
+      <langstring language="no">Statistics</langstring>
     </caption>
     <term>
       <termIdentifier>statistics::statistics</termIdentifier>
@@ -12082,6 +12151,8 @@
       <langstring language="cs">Stres v práci</langstring>
       <langstring language="el">Άγχος στην εργασία</langstring>
       <langstring language="bg">Stress at Work</langstring>
+      <langstring language="is">Stress at Work</langstring>
+      <langstring language="no">Stress at Work</langstring>
     </caption>
     <term>
       <termIdentifier>stress::publications</termIdentifier>
@@ -12993,6 +13064,8 @@
       <langstring language="el">Μεταφορές</langstring>
       <langstring language="bg">Транспорт</langstring>
       <langstring language="ro">Transport</langstring>
+      <langstring language="is">Transport</langstring>
+      <langstring language="no">Transport</langstring>
     </caption>
   </term>
   <term>
@@ -13019,6 +13092,8 @@
       <langstring language="cs">Women and Health at Work</langstring>
       <langstring language="el">Women and Health at Work</langstring>
       <langstring language="bg">Women and Health at Work</langstring>
+      <langstring language="is">Women and Health at Work</langstring>
+      <langstring language="no">Women and Health at Work</langstring>
     </caption>
     <term>
       <termIdentifier>gender::acc_prevent</termIdentifier>
@@ -13750,6 +13825,8 @@
       <langstring language="sk">účasť zamestnancov</langstring>
       <langstring language="sl">soodločanje delavcev</langstring>
       <langstring language="sv">arbetstagarnas medverkan</langstring>
+      <langstring language="is">Worker Participation</langstring>
+      <langstring language="no">Worker Participation</langstring>
     </caption>
   </term>
   <term>
@@ -13777,6 +13854,8 @@
       <langstring language="sk">Propagácia zdravia na pracovisku</langstring>
       <langstring language="sl">Spodbujanje zdravja na delovnem mestu</langstring>
       <langstring language="sv">Hälsofrämjande insatser på arbetsplatsen</langstring>
+      <langstring language="is">Workplace Health Promotion</langstring>
+      <langstring language="no">Workplace Health Promotion</langstring>
     </caption>
     <term>
       <termIdentifier>whp::healthy_lifestyle</termIdentifier>
@@ -14100,6 +14179,8 @@
       <langstring language="cs">Mladí lidé</langstring>
       <langstring language="el">Νέοι</langstring>
       <langstring language="bg">Млади хора</langstring>
+      <langstring language="is">Young People</langstring>
+      <langstring language="no">Young People</langstring>
     </caption>
     <term>
       <termIdentifier>young_people::bullying_and_harassment</termIdentifier>
