@@ -28,3 +28,4 @@ import user_portlet_patch
 import ATImage_getSize_failed_attachment_blobmigration_patch
 import linkintegrity_unicode_patch
 import linkchecker_retrieve_async
+import ldapuserfolder_patch
