@@ -1,6 +1,8 @@
+from plone.app.linkintegrity.exceptions import \
+    LinkIntegrityNotificationException
+from Products.CMFCore.utils import getToolByName
 from slc.linkcollection.interfaces import ILinkList
 from zope.site.hooks import getSite
-from plone.app.linkintegrity.exceptions import LinkIntegrityNotificationException
 
 import logging
 
@@ -67,7 +69,8 @@ def rearrange_seps(context, items=None):
                     else:
                         try:
                             # delete linked item
-                            linked.aq_parent.manage_delObjects([linked.getId()])
+                            linked.aq_parent.manage_delObjects(
+                                [linked.getId()])
                         except LinkIntegrityNotificationException:
                             logging.warning("Not possible to delete %s " \
                                 "because link integrity is violated" % url)
@@ -78,3 +81,29 @@ def rearrange_seps(context, items=None):
         else:
             logger.info('Rearranging SEPs for object: %s. No index_html '
                         'found.' % item)
+
+
+def hide_contacts(context):
+    """"Hide new-style contacts on all press releases by settting the field
+    'showContacts' to False.
+
+    We do this because we want to have this field True by default and we
+    need to disable it for existing press releases, so that contact info
+    is not shown twice on the template (contacts are now fetched from parent
+    PressRoom object).
+
+    See https://projects.syslab.com/issues/6105 for more info.
+    """
+    catalog = getToolByName(context, 'portal_catalog')
+    press_releases = catalog(portal_type='PressRelease')
+
+    logger.info('Setting showContacts to False for all press releases...')
+    count = 0
+
+    for release in press_releases:
+        obj = release.getObject()
+        setShowContacts = obj.getField('showContacts').getMutator(obj)
+        setShowContacts(False)
+        count = count + 1
+
+    logger.info('%d press releases modified.' % count)

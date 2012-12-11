@@ -9,7 +9,7 @@ from slc.linkcollection.interfaces import ILinkList
 
 
 class TestRearrangeSEPs(unittest.TestCase):
-    """Test the rearrange SEPs upgrade step."""
+    """Test rearrange_seps upgrade step."""
 
     layer = OSHA_INTEGRATION_TESTING
 
@@ -105,6 +105,62 @@ class TestRearrangeSEPs(unittest.TestCase):
         self.assertNotIn('linked2', self.folder.keys())
         self.assertNotIn('linked1-de', self.folder_de.keys())
         self.assertNotIn('linked2-de', self.folder_de.keys())
+
+
+class TestHideContacts(unittest.TestCase):
+    """Test hide_contacts upgrade step."""
+
+    layer = OSHA_INTEGRATION_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        login(self.portal, TEST_USER_NAME)
+
+        # create test content
+        self.portal.invokeFactory(
+            'PressRoom', 'press', title='Press room'
+        )
+        self.portal['press']['press-releases'].invokeFactory(
+            'PressRelease', 'release1', title='Press release 1'
+        )
+        self.portal['press']['press-releases'].invokeFactory(
+            'PressRelease', 'release2', title='Press release 2'
+        )
+        self.portal['press']['press-releases'].invokeFactory(
+            'PressRelease', 'release3', title='Press release 3'
+        )
+        self.release1 = self.portal['press']['press-releases']['release1']
+        self.release2 = self.portal['press']['press-releases']['release2']
+        self.release3 = self.portal['press']['press-releases']['release3']
+
+    def test_hide_contacts(self):
+        """Test the upgrade step."""
+        from osha.policy.upgrades import hide_contacts
+
+        # showContacts should be true before the upgrade
+        self.assertTrue(
+            self.release1.getField('showContacts').getAccessor(self.release1)()
+        )
+        self.assertTrue(
+            self.release2.getField('showContacts').getAccessor(self.release1)()
+        )
+        self.assertTrue(
+            self.release3.getField('showContacts').getAccessor(self.release1)()
+        )
+
+        # and False after the upgrade
+        hide_contacts(self.portal)
+
+        self.assertFalse(
+            self.release1.getField('showContacts').getAccessor(self.release1)()
+        )
+        self.assertFalse(
+            self.release2.getField('showContacts').getAccessor(self.release1)()
+        )
+        self.assertFalse(
+            self.release3.getField('showContacts').getAccessor(self.release1)()
+        )
 
 
 def test_suite():

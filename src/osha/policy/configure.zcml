@@ -107,4 +107,13 @@
         handler=".upgrades.rearrange_seps"
         />
 
+    <genericsetup:upgradeStep
+        source="4"
+        destination="5"
+        title="Hide new-style contacts on press releases"
+        description="This will set 'showContacts' to False for all press releases"
+        profile="osha.policy:default"
+        handler=".upgrades.hide_contacts"
+        />
+
 </configure>

@@ -37,6 +37,11 @@ class PressroomHelper(BrowserView):
         if not pressroom:
             raise KeyError('No Press Room found!')
 
+        # if showContacts is set to False return None
+        show_contacts = self.context.getField('showContacts')
+        if show_contacts and not show_contacts.getAccessor(self.context)():
+            return None
+
         language_tool = getToolByName(self.context, 'portal_languages')
         lang = language_tool.getPreferredLanguage()
         pressroom_trans = pressroom.getTranslation(lang)

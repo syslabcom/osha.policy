@@ -102,14 +102,22 @@ class TestPressroomHelper(unittest.TestCase):
         self.assertEqual(helper.getContacts(), '')
 
         # add some contact info
-        mutator = self.press_room.getField('contacts').getMutator(
+        setContacts = self.press_room.getField('contacts').getMutator(
             self.press_room)
-        mutator(u'Chuck Norris chuck@norris.com')
+        setContacts(u'Chuck Norris chuck@norris.com')
 
         self.assertEqual(
             helper.getContacts(),
             u'Chuck Norris chuck@norris.com'
         )
+
+        # if showContacts field is set to False, we should get None
+        setShowContacts = self.press_release.getField(
+            'showContacts').getMutator(
+            self.press_release)
+        setShowContacts(False)
+
+        self.assertEqual(helper.getContacts(), None)
 
     def test_getContacts_translations(self):
         """Test if we get correct results when content is translated."""
