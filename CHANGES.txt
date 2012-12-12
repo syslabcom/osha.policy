@@ -4,8 +4,16 @@ osha.policy Changelog
 1.4.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Removed setting DEFAULT_FIELDS, because it is not used anymore - now we
+  use EXTENDED_TYPES_DEFAULT_FIELDS setting in osha.adaptation [jcerjak]
+- Removed PressRelease schema patches (moved to osha.adaptation) #6105
+  [jcerjak]
+- Added getContacts method to PressroomHelper which fetches contact info
+  from the parent PressRoom object #6105 [jcerjak]
+- Rename getTextPieces to getTranslatedReferences and add 'fieldname'
+  parameter - now we can use it for multiple reference fields #6105 [jcerjak]
+- Added an upgrade step to set 'showContacts' to False for all press
+  releases # 6105 [jcerjak]
 
 1.4.8 (2012-11-28)
 ------------------
