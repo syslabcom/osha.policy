@@ -30,6 +30,21 @@ class PressroomHelper(BrowserView):
         lang = language_tool.getPreferredLanguage()
         return [obj.getTranslation(lang) or obj for obj in objs]
 
+    def getNotes(self):
+        notes = self.getTranslatedReferences(fieldname='notesToEditors')
+        texts = [note.getText() for note in notes]
+        # insert number here...
+        for i in range(len(texts)):
+            soup = BeautifulSoup(texts[i])
+            pTag = soup.p
+            if not pTag:
+                # can't don anything, continue
+                continue
+            substr = pTag.contents[0].string
+            pTag.contents[0] = NavigableString(u'<span class="numbering">%d.</span> ' % (i + 1) + substr)
+            texts[i] = str(soup)
+        return texts
+
     def getContacts(self):
         """ See interface """
         pressroom = find_parent_by_interface(self.context, IPressRoom)
