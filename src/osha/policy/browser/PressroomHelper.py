@@ -3,6 +3,7 @@ from zope.interface import implements
 from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 from Products.PressRoom.interfaces.content import IPressRoom
+from BeautifulSoup import BeautifulSoup, NavigableString
 
 from interfaces import IPressroomHelper
 from osha.policy.utils import find_parent_by_interface
