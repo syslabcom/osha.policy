@@ -4,7 +4,7 @@ osha.policy Changelog
 1.4.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- #5899 Fix pressrelease_view for HWC2010 [deroiste]
 
 
 1.4.10 (2012-12-18)
