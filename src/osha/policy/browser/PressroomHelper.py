@@ -12,6 +12,17 @@ from osha.policy.utils import find_parent_by_interface
 class PressroomHelper(BrowserView):
     implements(IPressroomHelper)
 
+    def __init__(self, context, request):
+        """This helper class is used by a template in the skins
+        folder:
+        skins/osha_theme_custom_templates/pressrelease_view.pt.  When
+        it is called via @@slc.telescope it no longer has the context
+        it needs e.g. in getContacts to find the pressroom."""
+        telescope_path = request.form.get("path", '')
+        if telescope_path:
+            context = context.restrictedTraverse(telescope_path)
+        return super(PressroomHelper, self).__init__(context, request)
+
     def getTranslatedReferences(self, fieldname=None):
         """ See interface """
 
