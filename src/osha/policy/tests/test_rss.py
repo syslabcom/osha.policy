@@ -84,6 +84,11 @@ class TestOshaRSS(FunctionalTestCase):
         self.assertTrue('The EU-OSHA Blog' in self.browser.contents)
         self.assertTrue(
             'RSSTitle=The%20EU-OSHA%20Blog' in self.browser.contents)
+        self.assertTrue('EU-OSHA Current job vacancies' in
+                        self.browser.contents)
+        self.assertTrue(
+            'RSSTitle=EU-OSHA%20Current%20job%20vacancies' in
+            self.browser.contents)
 
         self.assertTrue('EU-OSHA Press Releases' in self.browser.contents)
         self.assertTrue(
