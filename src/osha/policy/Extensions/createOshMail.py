@@ -206,6 +206,7 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
 
         # news
         query = {'sort_on': 'effective',
+            'sort_order': 'reverse',
             'effective': {'query': valid_from, 'range': 'min'}, 
             'expires': {'query': now, 'range': 'min'},  
             'path': {'query': '/osha/portal/en/news', 'depth': 1}, 
