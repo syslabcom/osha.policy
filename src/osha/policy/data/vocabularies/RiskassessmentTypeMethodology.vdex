@@ -1,58 +1,175 @@
-<?xml version="1.0" encoding="utf-8"?>
-<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" 
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0 
-                          imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd 
-                          http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 
-                          imsmd_rootv1p2p1.xsd" 
-      orderSignificant="true" 
-      profileType="flatTokenTerms" 
-      language="en">
+<?xml version='1.0' encoding='UTF-8'?>
+<vdex xmlns="http://www.imsglobal.org/xsd/imsvdex_v1p0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsvdex_v1p0                            imsvdex_v1p0.xsd imsvdex_v1p0_thesaurus.xsd                            http://www.imsglobal.org/xsd/imsmd_rootv1p2p1                            imsmd_rootv1p2p1.xsd" orderSignificant="true" profileType="flatTokenTerms" language="en">
   <vocabName>
     <langstring language="en">Type / Methodology</langstring>
+    <langstring language="bg">Type / Methodology</langstring>
+    <langstring language="cs">Type / Methodology</langstring>
+    <langstring language="da">Type / Methodology</langstring>
+    <langstring language="de">Type / Methodology</langstring>
+    <langstring language="el">Type / Methodology</langstring>
+    <langstring language="es">Type / Methodology</langstring>
+    <langstring language="et">Type / Methodology</langstring>
+    <langstring language="fi">Type / Methodology</langstring>
+    <langstring language="fr">Type / Methodology</langstring>
+    <langstring language="hu">Type / Methodology</langstring>
+    <langstring language="is">Type / Methodology</langstring>
+    <langstring language="it">Type / Methodology</langstring>
+    <langstring language="lt">Type / Methodology</langstring>
+    <langstring language="lv">Type / Methodology</langstring>
+    <langstring language="mt">Type / Methodology</langstring>
+    <langstring language="nl">Type / Methodology</langstring>
+    <langstring language="no">Type / Methodology</langstring>
+    <langstring language="pl">Type / Methodology</langstring>
+    <langstring language="pt">Type / Methodology</langstring>
+    <langstring language="ro">Type / Methodology</langstring>
+    <langstring language="sk">Type / Methodology</langstring>
+    <langstring language="sl">Type / Methodology</langstring>
+    <langstring language="sv">Type / Methodology</langstring>
   </vocabName>
   <vocabIdentifier>RiskassessmentTypeMethodology</vocabIdentifier>
-
-<term>
+  <term>
     <termIdentifier>1</termIdentifier>
     <caption>
-        <langstring language="en">Guides</langstring>
+      <langstring language="en">Guides</langstring>
+      <langstring language="bg">Guides</langstring>
+      <langstring language="cs">Guides</langstring>
+      <langstring language="da">Guides</langstring>
+      <langstring language="de">Guides</langstring>
+      <langstring language="el">Guides</langstring>
+      <langstring language="es">Guides</langstring>
+      <langstring language="et">Guides</langstring>
+      <langstring language="fi">Guides</langstring>
+      <langstring language="fr">Guides</langstring>
+      <langstring language="hu">Guides</langstring>
+      <langstring language="is">Guides</langstring>
+      <langstring language="it">Guides</langstring>
+      <langstring language="lt">Guides</langstring>
+      <langstring language="lv">Guides</langstring>
+      <langstring language="mt">Guides</langstring>
+      <langstring language="nl">Guides</langstring>
+      <langstring language="no">Guides</langstring>
+      <langstring language="pl">Guides</langstring>
+      <langstring language="pt">Guides</langstring>
+      <langstring language="ro">Guides</langstring>
+      <langstring language="sk">Guides</langstring>
+      <langstring language="sl">Guides</langstring>
+      <langstring language="sv">Guides</langstring>
     </caption>
-</term>
-
-<term>    
+  </term>
+  <term>
     <termIdentifier>2</termIdentifier>
     <caption>
-        <langstring language="en">Checklists</langstring>
+      <langstring language="en">Checklists</langstring>
+      <langstring language="bg">Checklists</langstring>
+      <langstring language="cs">Checklists</langstring>
+      <langstring language="da">Checklists</langstring>
+      <langstring language="de">Checklists</langstring>
+      <langstring language="el">Checklists</langstring>
+      <langstring language="es">Checklists</langstring>
+      <langstring language="et">Checklists</langstring>
+      <langstring language="fi">Checklists</langstring>
+      <langstring language="fr">Checklists</langstring>
+      <langstring language="hu">Checklists</langstring>
+      <langstring language="is">Checklists</langstring>
+      <langstring language="it">Checklists</langstring>
+      <langstring language="lt">Checklists</langstring>
+      <langstring language="lv">Checklists</langstring>
+      <langstring language="mt">Checklists</langstring>
+      <langstring language="nl">Checklists</langstring>
+      <langstring language="no">Checklists</langstring>
+      <langstring language="pl">Checklists</langstring>
+      <langstring language="pt">Checklists</langstring>
+      <langstring language="ro">Checklists</langstring>
+      <langstring language="sk">Checklists</langstring>
+      <langstring language="sl">Checklists</langstring>
+      <langstring language="sv">Checklists</langstring>
     </caption>
-
-   
-</term>
-
-<term>    
+  </term>
+  <term>
     <termIdentifier>3</termIdentifier>
     <caption>
-        <langstring language="en">Questionnaires</langstring>
+      <langstring language="en">Questionnaires</langstring>
+      <langstring language="bg">Questionnaires</langstring>
+      <langstring language="cs">Questionnaires</langstring>
+      <langstring language="da">Questionnaires</langstring>
+      <langstring language="de">Questionnaires</langstring>
+      <langstring language="el">Questionnaires</langstring>
+      <langstring language="es">Questionnaires</langstring>
+      <langstring language="et">Questionnaires</langstring>
+      <langstring language="fi">Questionnaires</langstring>
+      <langstring language="fr">Questionnaires</langstring>
+      <langstring language="hu">Questionnaires</langstring>
+      <langstring language="is">Questionnaires</langstring>
+      <langstring language="it">Questionnaires</langstring>
+      <langstring language="lt">Questionnaires</langstring>
+      <langstring language="lv">Questionnaires</langstring>
+      <langstring language="mt">Questionnaires</langstring>
+      <langstring language="nl">Questionnaires</langstring>
+      <langstring language="no">Questionnaires</langstring>
+      <langstring language="pl">Questionnaires</langstring>
+      <langstring language="pt">Questionnaires</langstring>
+      <langstring language="ro">Questionnaires</langstring>
+      <langstring language="sk">Questionnaires</langstring>
+      <langstring language="sl">Questionnaires</langstring>
+      <langstring language="sv">Questionnaires</langstring>
     </caption>
-
-</term>
-
-<term>    
+  </term>
+  <term>
     <termIdentifier>4</termIdentifier>
     <caption>
-        <langstring language="en">Toolboxes</langstring>
+      <langstring language="en">Toolboxes</langstring>
+      <langstring language="bg">Toolboxes</langstring>
+      <langstring language="cs">Toolboxes</langstring>
+      <langstring language="da">Toolboxes</langstring>
+      <langstring language="de">Toolboxes</langstring>
+      <langstring language="el">Toolboxes</langstring>
+      <langstring language="es">Toolboxes</langstring>
+      <langstring language="et">Toolboxes</langstring>
+      <langstring language="fi">Toolboxes</langstring>
+      <langstring language="fr">Toolboxes</langstring>
+      <langstring language="hu">Toolboxes</langstring>
+      <langstring language="is">Toolboxes</langstring>
+      <langstring language="it">Toolboxes</langstring>
+      <langstring language="lt">Toolboxes</langstring>
+      <langstring language="lv">Toolboxes</langstring>
+      <langstring language="mt">Toolboxes</langstring>
+      <langstring language="nl">Toolboxes</langstring>
+      <langstring language="no">Toolboxes</langstring>
+      <langstring language="pl">Toolboxes</langstring>
+      <langstring language="pt">Toolboxes</langstring>
+      <langstring language="ro">Toolboxes</langstring>
+      <langstring language="sk">Toolboxes</langstring>
+      <langstring language="sl">Toolboxes</langstring>
+      <langstring language="sv">Toolboxes</langstring>
     </caption>
-
-</term>
-
-<term>    
+  </term>
+  <term>
     <termIdentifier>5</termIdentifier>
     <caption>
-        <langstring language="en">Interactive tools</langstring>
+      <langstring language="en">Interactive tools</langstring>
+      <langstring language="bg">Interactive tools</langstring>
+      <langstring language="cs">Interactive tools</langstring>
+      <langstring language="da">Interactive tools</langstring>
+      <langstring language="de">Interactive tools</langstring>
+      <langstring language="el">Interactive tools</langstring>
+      <langstring language="es">Interactive tools</langstring>
+      <langstring language="et">Interactive tools</langstring>
+      <langstring language="fi">Interactive tools</langstring>
+      <langstring language="fr">Interactive tools</langstring>
+      <langstring language="hu">Interactive tools</langstring>
+      <langstring language="is">Interactive tools</langstring>
+      <langstring language="it">Interactive tools</langstring>
+      <langstring language="lt">Interactive tools</langstring>
+      <langstring language="lv">Interactive tools</langstring>
+      <langstring language="mt">Interactive tools</langstring>
+      <langstring language="nl">Interactive tools</langstring>
+      <langstring language="no">Interactive tools</langstring>
+      <langstring language="pl">Interactive tools</langstring>
+      <langstring language="pt">Interactive tools</langstring>
+      <langstring language="ro">Interactive tools</langstring>
+      <langstring language="sk">Interactive tools</langstring>
+      <langstring language="sl">Interactive tools</langstring>
+      <langstring language="sv">Interactive tools</langstring>
     </caption>
- 
-</term>
-
-
-
+  </term>
 </vdex>
