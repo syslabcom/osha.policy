@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.12 (unreleased)
+1.4.12 (2013-01-08)
 -------------------
 
 - When an oshmail is created and prefilled, news items are sorted in reversed order #6484 [thomasw]
