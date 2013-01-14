@@ -24,6 +24,9 @@
     <slow-query-threshold value="0" />
     <effective-steps value="1" />
     <exclude-user value="False" />
+    <required-query-parameters>
+      <parameter name="SearchableText"/>
+    </required-query-parameters>
     <highlight_fields>
       <parameter name="SearchableText" />
     </highlight_fields>
