@@ -11924,6 +11924,35 @@
     </term>
   </term>
   <term>
+    <termIdentifier>presidency</termIdentifier>
+    <caption>
+      <langstring language="en">Presidency</langstring>
+      <langstring language="bg">Presidency</langstring>
+      <langstring language="cs">Presidency</langstring>
+      <langstring language="da">Presidency</langstring>
+      <langstring language="de">Presidency</langstring>
+      <langstring language="el">Presidency</langstring>
+      <langstring language="es">Presidency</langstring>
+      <langstring language="et">Presidency</langstring>
+      <langstring language="fi">Presidency</langstring>
+      <langstring language="fr">Presidency</langstring>
+      <langstring language="hu">Presidency</langstring>
+      <langstring language="is">Presidency</langstring>
+      <langstring language="it">Presidency</langstring>
+      <langstring language="lt">Presidency</langstring>
+      <langstring language="lv">Presidency</langstring>
+      <langstring language="mt">Presidency</langstring>
+      <langstring language="nl">Presidency</langstring>
+      <langstring language="no">Presidency</langstring>
+      <langstring language="pl">Presidency</langstring>
+      <langstring language="pt">Presidency</langstring>
+      <langstring language="ro">Presidency</langstring>
+      <langstring language="sk">Presidency</langstring>
+      <langstring language="sl">Presidency</langstring>
+      <langstring language="sv">Presidency</langstring>
+    </caption>
+  </term>
+  <term>
     <termIdentifier>prevention</termIdentifier>
     <caption>
       <langstring language="bg">Prevention</langstring>
