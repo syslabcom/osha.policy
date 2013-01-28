@@ -4,8 +4,8 @@ osha.policy Changelog
 1.4.13 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- change default output type to text/x-html-safe for news item description field
+  to make ckeditor internal links work, refs #6554 [jure]
 
 1.4.12 (2013-01-08)
 -------------------
