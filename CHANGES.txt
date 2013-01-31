@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.13 (unreleased)
+1.4.13 (2013-01-31)
 -------------------
 
 - change default output type to text/x-html-safe for news item description field
