@@ -6,15 +6,15 @@ REDUCED_TIMEOUT = 5
 
 def _getuserinfo(self):
     """Get twitter user info"""
-    orignal_timeout = socket.getdefaulttimeout()
+    original_timeout = socket.getdefaulttimeout()
     socket.setdefaulttimeout(REDUCED_TIMEOUT)
     userinfo = self.twapi.GetUser(self.data.username)
-    socket.setdefaulttimeout(orignal_timeout)
+    socket.setdefaulttimeout(original_timeout)
     return userinfo
 
 def gettweetsofuser(self, username, userpictures, includerts):
     """Return the tweets of a certain user"""
-    orignal_timeout = socket.getdefaulttimeout()
+    original_timeout = socket.getdefaulttimeout()
     try:
         socket.setdefaulttimeout(REDUCED_TIMEOUT)
         tweets = self.twapi.GetUserTimeline(username,
@@ -23,19 +23,19 @@ def gettweetsofuser(self, username, userpictures, includerts):
     except:
         tweets = []
     finally:
-         socket.setdefaulttimeout(orignal_timeout)
+         socket.setdefaulttimeout(original_timeout)
     return tweets
 
 def gettweetsbysearch(self, query_dict):
     """Return tweets based on a search query"""
-    orignal_timeout = socket.getdefaulttimeout()
+    original_timeout = socket.getdefaulttimeout()
     try:
         socket.setdefaulttimeout(REDUCED_TIMEOUT)
         tweets = self.twapi.GetSearch(**query_dict)
     except:
         tweets = []
     finally:
-         socket.setdefaulttimeout(orignal_timeout)
+         socket.setdefaulttimeout(original_timeout)
     return tweets
 
 
