@@ -54,7 +54,7 @@ for ecardrecipient in ecardrecipients[:20]:
 
 confemail = context.ecard_email_template(cardpath=cardpath,
     ecardrecipient=ecardrecipient, youremail=youremail, usertitle=usertitle)
-host.send(useremail, mto=youremail, mfrom='ecards@osha.europa.eu', subject=conftitle)
+host.send(useremail, mto=youremail, mfrom='no-reply@osha.europa.eu', subject=conftitle)
 
 
 state.set(status='success', context=context)
