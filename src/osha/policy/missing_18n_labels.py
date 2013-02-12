@@ -7,7 +7,13 @@ from osha.theme import OSHAMessageFactory as _
 
 # Misc
 _("Safety and Health at work")
+
+
+# Footer
 _("Privacy Policy")
+_("Send this")
+_("Copyright")
+_("Update")
 
 
 # FOP
