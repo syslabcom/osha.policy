@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.14 (unreleased)
+1.4.14 (2013-02-15)
 -------------------
 
 - Add translation for "Privacy Policy" (footer) #5998 [deroiste]
