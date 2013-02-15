@@ -4,8 +4,8 @@ osha.policy Changelog
 1.4.14 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Add translation for "Privacy Policy" (footer) #5998 [deroiste]
+- Change sender for ecards #6273 [thomasw] 
 
 1.4.13 (2013-01-31)
 -------------------
