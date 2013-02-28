@@ -112,6 +112,7 @@ setup(name='osha.policy',
         'hachoir_parser',
         'osha.adaptation',
         'osha.aggregation',
+        'osha.applicationform',
         'osha.dynamicpressroom',
         'osha.eventrepository',
         'osha.fop',
@@ -186,4 +187,3 @@ setup(name='osha.policy',
       insertTranslations = osha.policy.tools:insertTranslations
       """,
       )
-
