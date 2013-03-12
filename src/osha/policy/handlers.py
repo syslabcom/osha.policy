@@ -7,7 +7,6 @@ from zope.app.container.contained import ContainerModifiedEvent
 from Products.Archetypes.event import ObjectInitializedEvent
 from Products.Archetypes.interfaces import IReferenceable
 import zope.component
-import Products.Archetypes.interfaces
 from gocept.linkchecker.interfaces import IRetriever
 import gocept.linkchecker.link
 import gocept.linkchecker.url
@@ -17,21 +16,22 @@ from AccessControl import getSecurityManager
 from zope.component import getUtility
 
 # CMF/Plone imports
-from Products.CMFCore.permissions import ManagePortal
 from Products.CMFCore.permissions import ModifyPortalContent
 
 from utils import extractPDFText
 
 log = logging.getLogger('osha.policy/handlers.py')
 
+
 def job_failure_callback(result):
     log.error(result)
+
 
 def handle_auto_translated_files(event):
     """ Set the title, if retrieved from the pdf file.
     """
     file = event.object
-    parent = event.object.aq_parent 
+    parent = event.object.aq_parent
 
     data_folder_id = '%s_data' % file.getFile().filename.rsplit('.')[0]
     if hasattr(parent, data_folder_id):
@@ -50,11 +50,11 @@ def handle_auto_translated_files(event):
     reader = pyPdf.PdfFileReader(f)
     docinfo = reader.getDocumentInfo()
     for attr, field in [
-                ('title', 'title'), 
-                ('subject', 'description'), 
-                ('creator', 'creators'), 
-                ]:
-        val = docinfo.get(attr) 
+        ('title', 'title'),
+        ('subject', 'description'),
+        ('creator', 'creators'),
+    ]:
+        val = docinfo.get(attr)
         if val is not None:
             file.Schema().get(field).set(file_obj, val)
 
@@ -74,7 +74,7 @@ def handle_object_willbe_translated(event):
     object = object.getCanonical()
     language = event.language
     myLL = None
-    llinks =  object.getBRefs('lingualink')
+    llinks = object.getBRefs('lingualink')
     for llink in llinks:
         if llink.Language() == language:
             myLL = llink
@@ -83,20 +83,22 @@ def handle_object_willbe_translated(event):
         try:
             aq_parent(myLL).manage_delObjects(myLL.getId())
         except Exception, err:
-            text = "Unable to delete LinguaLink in language '%s' on object %s prior to adding translation" %(
+            text = "Unable to delete LinguaLink in language "\
+                "'%s' on object %s prior to adding translation" % (
                 language, object.absolute_url())
             log.warn('%s %s' % (str(err), text))
 
 
-# If a canonical object gets saved, reindex all translations to keep the catalog
-# up to date for the language-independent fields.
+# If a canonical object gets saved, reindex all translations to keep the
+# catalog up to date for the language-independent fields.
 # Only proceed on user request (indicated by ticking a checkbox)
 def handle_objectModified(object, event):
-    if isinstance(event, ObjectInitializedEvent) or isinstance(event, ContainerModifiedEvent):
+    if isinstance(event, ObjectInitializedEvent) or \
+            isinstance(event, ContainerModifiedEvent):
         return
     try:
         isCanonical = object.isCanonical()
-    except Exception, err:
+    except Exception:
         return
     if not isCanonical:
         return
@@ -121,6 +123,7 @@ def unregister_async(lc, link_ids):
     database = lc.database
     database.manage_delObjects(link_ids)
 
+
 @zope.component.adapter(
     zope.app.container.interfaces.IObjectRemovedEvent)
 def remove_links(event):
@@ -138,6 +141,7 @@ def remove_links(event):
     async = getUtility(IAsyncService)
     job = async.queueJob(unregister_async, link_checker, link_ids)
     callback = job.addCallbacks(failure=job_failure_callback)
+    callback  # for pep
 
 
 def retrieve_async(context, path, online):
@@ -156,7 +160,8 @@ def retrieve_async(context, path, online):
     zope.lifecycleevent.interfaces.IObjectModifiedEvent)
 def update_links(event):
     obj = event.object
-    temporary = hasattr(obj, 'meta_type') and obj.meta_type == TempFolder.meta_type
+    temporary = hasattr(obj, 'meta_type') and \
+        obj.meta_type == TempFolder.meta_type
     if temporary:
         # Objects that are temporary (read: portal_factory) and do not have a
         # (stable) URL (yet) do not need to be crawled: relative links will be
@@ -179,6 +184,7 @@ def update_links(event):
         tpath = '/'.join(obj.getPhysicalPath())
         job = async.queueJob(retrieve_async, obj, tpath, online=True)
         callback = job.addCallbacks(failure=job_failure_callback)
+        callback  # for pep
 
 
 def handle_edit_begun(obj, event):
@@ -188,4 +194,25 @@ def handle_edit_begun(obj, event):
     if not obj.getEffectiveDate():
         now = DateTime().strftime('%Y-%m-%d')
         obj.setEffectiveDate(now)
-            
+
+
+def updateManyStates_async(context, update_list):
+    """ We do that async because it writes status to the objects in
+        portal_linkchecker.database. This takes time. If it takes
+        longer, haproxy might close the connection
+    """
+    log.info('updateManyStates_async')
+    lc = context.restrictedTraverse('portal_linkchecker')
+    database = lc.database
+    for url, state, reason in update_list:
+        database.updateLinkStatus(url, state, reason)
+
+
+def updateManyStates(self, client_id, password, update_list):
+    """XML-RPC connector for LMS"""
+    self.authenticateXMLRPC(client_id, password)
+    portal = self.portal_url.getPortalObject()
+    async = getUtility(IAsyncService)
+    job = async.queueJob(updateManyStates_async, portal, update_list)
+    callback = job.addCallbacks(failure=job_failure_callback)
+    callback  # for pep

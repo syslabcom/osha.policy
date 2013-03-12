@@ -1,10 +1,12 @@
-from gocept.linkchecker import retrievemanager
+from gocept.linkchecker import retrievemanager, database
 from gocept.linkchecker.link import Link
 from gocept.linkchecker.url import URL
 from osha.policy import handlers
 
 retrievemanager.update_links = handlers.update_links
 retrievemanager.remove_links = handlers.remove_links
+
+database.LinkDatabase.updateManyStates = handlers.updateManyStates
 
 
 def index(self):
