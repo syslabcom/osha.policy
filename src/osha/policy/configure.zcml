@@ -116,4 +116,13 @@
         handler=".upgrades.hide_contacts"
         />
 
+    <genericsetup:upgradeStep
+        source="5"
+        destination="6"
+        title="Delete linkchecker database"
+        description="This will remove all the items from the linkchecker database"
+        profile="osha.policy:default"
+        handler=".upgrades.lc_clear_database"
+        />
+
 </configure>

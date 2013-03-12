@@ -107,3 +107,15 @@ def hide_contacts(context):
         count = count + 1
 
     logger.info('%d press releases modified.' % count)
+
+def lc_clear_database(context):
+    """Delete portal_linkchecker/database so that the
+    portal_linkchecker can be reinstalled
+    #6952/#6977"""
+    plc = getToolByName(context, 'portal_linkchecker')
+
+    # To remove the database with the minimum of fuss we use _delOb
+    # and then remove the entry from _objects
+    plc._delOb("database")
+    plc._objects = tuple([i for i in plc._objects if i["id"] != "database"])
+    logger.info('The portal_linkchecker database has been cleared')
