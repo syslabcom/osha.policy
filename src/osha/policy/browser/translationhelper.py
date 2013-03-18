@@ -21,17 +21,18 @@ class TranslationHelper(BrowserView):
             'en'
         :returns: Object in the default language, if found, otherwise None
         """
-
-        langtool = getToolByName(self.context, 'portal_languages')
-        preferred = langtool.getPreferredLanguage()
-        default_url = url.replace(preferred, default)
-
         portal = self.context.portal_url.getPortalObject()
-        relative_url = default_url.replace(
-            portal.absolute_url(), '').strip('/')
+        portal_url = portal.absolute_url()
+
+        if not url.startswith(portal_url):
+            return
+
+        # convert to relative url and change the lang folder
+        relative_url = url.replace(portal_url, '').strip('/')
+        default_url = '/'.join([default] + relative_url.split('/')[1:])
 
         try:
-            default_obj = portal.restrictedTraverse(relative_url)
+            default_obj = portal.restrictedTraverse(default_url)
         except (AttributeError, KeyError):
             # the default version of the object was not found
             return
