@@ -64,7 +64,8 @@
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="input-label.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
+    conditionalcomment="" cookable="True" enabled="True"
+    expression="object/@@osha-enable-js"
     id="jquery.highlightsearchterms.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
