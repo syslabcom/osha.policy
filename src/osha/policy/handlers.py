@@ -27,7 +27,7 @@ def job_failure_callback(result):
     log.error(result)
 
 
-def handle_auto_translated_files(event):
+def handle_auto_translated_files(event): 
     """ Set the title, if retrieved from the pdf file.
     """
     file = event.object
@@ -124,6 +124,13 @@ def unregister_async(lc, link_ids):
     database.manage_delObjects(link_ids)
 
 
+def is_publically_visible(obj):
+    """Anonymous has the View permission"""
+    roles = obj.rolesOfPermission("View")
+    role_names = [i["name"] for i in roles]
+    return "Anonymous" in role_names
+
+
 @zope.component.adapter(
     zope.app.container.interfaces.IObjectRemovedEvent)
 def remove_links(event):
@@ -216,3 +223,25 @@ def updateManyStates(self, client_id, password, update_list):
     job = async.queueJob(updateManyStates_async, portal, update_list)
     callback = job.addCallbacks(failure=job_failure_callback)
     callback  # for pep
+
+
+def handle_outdated_links(obj, event):
+    """When an item is marked as outdated, remove the links from the
+    link checker, when it is unmarked as outdated add them again.
+    """
+    is_outdated = event.status
+    if is_outdated:
+        remove_links(event)
+    else:
+        update_links(event)
+
+
+def handle_public_links(obj, event):
+    """Only check links for publically visible items, remove links in
+    unpublished items from the link checker database.
+    """
+    publically_visible = is_publically_visible(obj)
+    if publically_visible:
+        update_links(event)
+    else:
+        remove_links(event)

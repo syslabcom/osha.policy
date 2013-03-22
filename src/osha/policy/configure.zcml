@@ -80,6 +80,14 @@
         handler=".handlers.handle_edit_begun"
         />
 
+    <subscriber for="Products.Archetypes.interfaces.IBaseContent
+                     slc.outdated.ObjectOutdatedToggleEvent"
+                handler=".handlers.handle_outdated_links"/>
+
+    <subscriber for="Products.Archetypes.interfaces.IBaseContent
+                     Products.CMFCore.interfaces.IActionSucceededEvent"
+                handler=".handlers.handle_public_links" />
+
     <subscriber for="zope.processlifetime.IProcessStarting"
         handler=".dbconfig.dbconfig"
     />
@@ -126,3 +134,4 @@
         />
 
 </configure>
+
