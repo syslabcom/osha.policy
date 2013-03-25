@@ -38,5 +38,9 @@
         provides="plone.indexer.interfaces.IIndexableObject"
         factory=".queuecatalog_wrapper.IndexableObjectWrapper"
         />
+
+    <configure zcml:condition="installed gocept.linkchecker">
+        <adapter factory=".lmsretrievers.SPSpeakerRetriever"/>
+    </configure>
         
 </configure>

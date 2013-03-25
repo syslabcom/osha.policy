@@ -10,6 +10,7 @@ osha.policy Changelog
 - make registerManyLinks async. Fix #7032 [pilz]
 - Add tests for translationhelper and fix bugs in the find_default method, refs #5152 [jure]
 - #6980 only check links in public items which are not outdated [deroiste]
+- #7038 register a link checker retriever for SPSpeaker items [deroiste]
 
 1.4.14 (2013-02-15)
 -------------------
