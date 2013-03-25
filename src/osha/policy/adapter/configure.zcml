@@ -41,6 +41,7 @@
 
     <configure zcml:condition="installed gocept.linkchecker">
         <adapter factory=".lmsretrievers.SPSpeakerRetriever"/>
+        <adapter factory=".lmsretrievers.TopicRetriever"/>
     </configure>
         
 </configure>
