@@ -1,25 +1,23 @@
-import logging
-import pyPdf
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.FactoryTool import TempFolder
+from AccessControl import getSecurityManager
 from Acquisition import aq_parent
-from zope.app.container.contained import ContainerModifiedEvent
+from DateTime import DateTime
 from Products.Archetypes.event import ObjectInitializedEvent
 from Products.Archetypes.interfaces import IReferenceable
-import zope.component
+from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.FactoryTool import TempFolder
 from gocept.linkchecker.interfaces import IRetriever
+from plone.app.async.interfaces import IAsyncService
+from utils import extractPDFText
+from zope.annotation.interfaces import IAnnotatable, IAnnotations
+from zope.app.container.contained import ContainerModifiedEvent
+from zope.component import getUtility
+
 import gocept.linkchecker.link
 import gocept.linkchecker.url
-from DateTime import DateTime
-from plone.app.async.interfaces import IAsyncService
-from AccessControl import getSecurityManager
-from zope.component import getUtility
-from zope.annotation.interfaces import IAnnotatable, IAnnotations
-
-# CMF/Plone imports
-from Products.CMFCore.permissions import ModifyPortalContent
-
-from utils import extractPDFText
+import logging
+import pyPdf
+import zope.component
 
 log = logging.getLogger('osha.policy/handlers.py')
 
