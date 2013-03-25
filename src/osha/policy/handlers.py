@@ -26,7 +26,7 @@ def job_failure_callback(result):
     log.error(result)
 
 
-def handle_auto_translated_files(event): 
+def handle_auto_translated_files(event):
     """ Set the title, if retrieved from the pdf file.
     """
     file = event.object
