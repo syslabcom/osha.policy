@@ -14,6 +14,7 @@ from DateTime import DateTime
 from plone.app.async.interfaces import IAsyncService
 from AccessControl import getSecurityManager
 from zope.component import getUtility
+from zope.annotation.interfaces import IAnnotatable, IAnnotations
 
 # CMF/Plone imports
 from Products.CMFCore.permissions import ModifyPortalContent
@@ -124,13 +125,6 @@ def unregister_async(lc, link_ids):
     database.manage_delObjects(link_ids)
 
 
-def is_publically_visible(obj):
-    """Anonymous has the View permission"""
-    roles = obj.rolesOfPermission("View")
-    role_names = [i["name"] for i in roles]
-    return "Anonymous" in role_names
-
-
 @zope.component.adapter(
     zope.app.container.interfaces.IObjectRemovedEvent)
 def remove_links(event):
@@ -163,10 +157,24 @@ def retrieve_async(context, path, online):
         database.registerLinks(links, obj, online)
 
 
+def is_publically_visible(obj):
+    """Anonymous has the View permission"""
+    roles = obj.rolesOfPermission("View")
+    role_names = [i["name"] for i in roles if i['selected'] == 'SELECTED']
+    return "Anonymous" in role_names
+
+
+def is_outdated(obj):
+    if IAnnotatable.providedBy(obj):
+        return IAnnotations(obj).get('slc.outdated', False)
+
+
 @zope.component.adapter(
     zope.lifecycleevent.interfaces.IObjectModifiedEvent)
 def update_links(event):
     obj = event.object
+    if is_outdated(obj) or not is_publically_visible(obj):
+        return
     temporary = hasattr(obj, 'meta_type') and \
         obj.meta_type == TempFolder.meta_type
     if temporary:
