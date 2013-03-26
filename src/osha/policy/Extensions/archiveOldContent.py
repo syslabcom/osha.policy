@@ -71,8 +71,8 @@ def archiveByType(self, portal_type=None, age_in_days=None, limit=0, path="/osha
         return "The value passed for limit is not a valid integer"
     log.write('<h2>Bulk-outdate content</h2>')
     log.write('Starting at ' + `DateTime().ISO()`)
-    log.write('<h3>Settings</h3><p>portal_type: %s, age_in_days: %d, limit: %d</p>' % (
-        portal_type, days, limit))
+    log.write('<h3>Settings</h3><p>portal_type: %s, age_in_days: %d, limit: '
+        '%d, path: %s</p>' % (portal_type, days, limit, path))
     pc = getToolByName(self, 'portal_catalog')
     now = DateTime()
     date = now - days
