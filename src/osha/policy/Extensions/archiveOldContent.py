@@ -6,7 +6,7 @@ from Products.CMFPlone.utils import getSiteEncoding
 from Products.statusmessages.interfaces import IStatusMessage
 from slc.linguatools.utils import toggle_outdated
 
-allowed_types = ['News Item', 'Event', 'PressRelease']
+allowed_types = ['News Item', 'Event', 'PressRelease', 'RichDocument']
 
 logger = logging.getLogger('osha.policy.archiveOldContent')
 
@@ -49,7 +49,7 @@ def finish(self, response):
 
 
 
-def archiveByType(self, portal_type=None, age_in_days=None, limit=0):
+def archiveByType(self, portal_type=None, age_in_days=None, limit=0, path="/osha/portal/en"):
     response = self.REQUEST and self.REQUEST.RESPONSE or None
     log = setupLog(self, response)
     if not portal_type:
@@ -78,7 +78,7 @@ def archiveByType(self, portal_type=None, age_in_days=None, limit=0):
     date = now - days
     # hardcoded to corporate site
     query = dict(portal_type=portal_type,
-        path="/osha/portal/en",
+        path=path,
         Language='all',
         modified=dict(query=date, range='max'))
     res = pc(query)
