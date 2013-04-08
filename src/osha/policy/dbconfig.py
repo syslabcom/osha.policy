@@ -29,6 +29,7 @@ ROLES_DICT = {'users':          ['Member'],
              }
 
 def dbconfig(event):
+    return
     if conf is None:
         log.error('No product config found! Configuration will not be set')
         return
@@ -89,7 +90,7 @@ def dbconfig(event):
 #            ldapprops.user = conf.get('ldap.binddn', ldapprops.user)
 #        if getattr(ldapprops, 'password','') != conf.get('ldap.bindpw', ldapprops.password):
 #            ldapprops.password = conf.get('ldap.bindpw', ldapprops.password)
-#    
+#
 #        # memcached needs special handling
 #        reg = getUtility(IRegistry, context=plone)
 #        if REGKEY not in reg.records:
@@ -99,12 +100,12 @@ def dbconfig(event):
 #        record = reg.records[REGKEY]
 #        if record.value != conf.get('memcached').decode('utf-8'):
 #            record.value = conf.get('memcached').decode('utf-8')
-    # 
+    #
     #     log.debug('ldap config written')
-    # 
+    #
     #     # can't do this in setuphandlers, because during site creation LDAP was
     #     # likely not set up yet
-    # 
+    #
     #     groups_tool = getToolByName(plone, 'portal_groups')
     #     for groupid in ROLES_DICT:
     #         group = groups_tool.getGroupById(groupid)
@@ -165,14 +166,14 @@ def dbconfig(event):
                 if name in transforms.objectIds():
                     transforms._delObject(name, suppress_events=1)
                     log.info("Removed transform the hard way: %s" % name)
-    
+
             transforms.manage_addTransform(name, 'collective.tika.transforms.' + name)
             log.info("New object added: %s" % name)
             trnsf = transforms.get(name)
-    
+
         if trnsf.get_parameter_value('exec_prefix') != conf.get('exec-prefix'):
             trnsf.set_parameters(exec_prefix=conf.get('exec-prefix'))
-    
+
     log.debug('transforms configured')
 
 
@@ -203,7 +204,7 @@ def dbconfig(event):
             lcdb.webservice = lms_address
         if lcdb.clientid != conf.get('lms.user'):
             log.info('Set LMS client id, old value: %s' % lcdb.clientid)
-            lcdb.clientid = conf.get('lms.user') 
+            lcdb.clientid = conf.get('lms.user')
         if lcdb.password != conf.get('lms.password'):
             log.info('Set LMS password.')
             lcdb.password = conf.get('lms.password')
