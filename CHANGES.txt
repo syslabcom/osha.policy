@@ -4,7 +4,7 @@ osha.policy Changelog
 1.4.17 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- add osha.applicationform to dependencies, refs #6165 [jure]
 
 
 1.4.16 (2013-04-08)
