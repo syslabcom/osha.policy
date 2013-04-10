@@ -10,6 +10,8 @@ import logging
 log = logging.getLogger('osha.policy.cleanup')
 
 
+ALLOWED_TYPES = ('News Item', 'Event', 'Document', 'RichDocument')
+
 def delete_item(context, path, id):
 
     obj = context.restrictedTraverse(path)
@@ -45,9 +47,9 @@ class CleanupContent(BrowserView):
             return "No valid value for parameter 'threshold' supplied. It " \
                 "must represent a date"
         portal_type = self.request.get('portal_type', '')
-        if portal_type not in ('News Item', 'Event'):
+        if portal_type not in ALLOWED_TYPES:
             return "You must supply a parameter 'portal_type'. Potential " \
-                "values: 'News Item' or 'Event'"
+                "values: %s" % ', '.join(ALLOWED_TYPES)
 
         plt = getToolByName(self, 'portal_languages')
         lang = plt.getPreferredLanguage()
@@ -62,6 +64,8 @@ class CleanupContent(BrowserView):
             query['effective'] = date_param
         elif portal_type == 'Event':
             query['end'] = date_param
+        else:
+            query['modified'] = date_param
         async = getUtility(IAsyncService)
         results = catalog(**query)
         for res in results:
