@@ -175,6 +175,13 @@
         />
 
     <browser:page
+        for="Products.ATContentTypes.interface.folder.IATFolder"
+        name="align_languages"
+        class=".alignlanguages.AlignLanguages"
+        permission="zope2.View"
+        />
+
+    <browser:page
         for="*"
         name="translation-helper"
         class=".translationhelper.TranslationHelper"

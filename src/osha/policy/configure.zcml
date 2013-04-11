@@ -133,5 +133,14 @@
         handler=".upgrades.lc_clear_database"
         />
 
+    <genericsetup:upgradeStep
+        source="5"
+        destination="6"
+        title="Reimport Actions"
+        description="New action align_languages requires reimport of actions"
+        profile="osha.policy:default"
+        handler=".upgrades.reimport_actions"
+        />
+
 </configure>
 

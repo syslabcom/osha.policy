@@ -119,3 +119,8 @@ def lc_clear_database(context):
     plc._delOb("database")
     plc._objects = tuple([i for i in plc._objects if i["id"] != "database"])
     logger.info('The portal_linkchecker database has been cleared')
+
+def reimport_actions(context):
+    context.runImportStepFromProfile('profile-osha.policy:default',
+                                     'actions')
+
