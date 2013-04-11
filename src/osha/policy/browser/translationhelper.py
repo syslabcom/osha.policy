@@ -1,6 +1,5 @@
 from osha.policy.browser.interfaces import ITranslationHelper
 from Products.Five import BrowserView
-from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
 
 
@@ -23,7 +22,6 @@ class TranslationHelper(BrowserView):
         """
         portal = self.context.portal_url.getPortalObject()
         portal_url = portal.absolute_url()
-
         if not url.startswith(portal_url):
             return
 
@@ -38,3 +36,33 @@ class TranslationHelper(BrowserView):
             return
 
         return default_obj
+
+    def get_fallback_url(self, url):
+        """Get fallback url for a non-existing url so users can continue
+        browsing the site. It tries to find an object in the same language
+        by going up the hierarchy. If no object was found, it returns portal
+        url.
+
+        :param url: absolute url of the object that was not found
+        :returns: url of an object that exists (in worst case portal url)
+        """
+        portal = self.context.portal_url.getPortalObject()
+        portal_url = portal.absolute_url()
+        if not url.startswith(portal_url):
+            return
+
+        def _find_url(relative_url):
+            try:
+                obj = portal.restrictedTraverse(relative_url)
+                return obj.absolute_url()
+            except (AttributeError, KeyError):
+                #  parent url in this language wasn't found, return portal url
+                if '/' not in relative_url:
+                    return portal.absolute_url()
+
+                # try moving up the hierarchy
+                parent_url = '/'.join(relative_url.split('/')[:-1])
+                return _find_url(parent_url)
+
+        relative_url = url.replace(portal_url, '').strip('/')
+        return _find_url(relative_url)

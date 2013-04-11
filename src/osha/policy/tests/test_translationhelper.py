@@ -81,6 +81,33 @@ class TestTranslationHelper(unittest.TestCase):
             'http://nohost/plone/en/subfolder1/page2'
         )
 
+    def test_get_fallback_url_invalid_parameters(self):
+        """Check that we correctly handle invalid parameters."""
+
+        # invalid url
+        result = self.view.get_fallback_url('http://foo')
+        self.assertIsNone(result)
+
+    def test_get_fallback_url_non_existing_url(self):
+        """Testing getting the fallback url for a non-existing url."""
+
+        # if no object in current language has been found, it should return
+        # portal url
+        result = self.view.get_fallback_url('http://nohost/plone/foo/bar/baz')
+        self.assertEqual(result, 'http://nohost/plone')
+
+    def test_get_fallback_url_existing_url(self):
+        """Testing getting the fallback url."""
+
+        # foo is not available, but it should fallback to its parent
+        result = self.view.get_fallback_url(
+            'http://nohost/plone/de/subfolder1/foo')
+        self.assertEqual(result, 'http://nohost/plone/de/subfolder1')
+
+        result = self.view.get_fallback_url(
+            'http://nohost/plone/de/foo/bar')
+        self.assertEqual(result, 'http://nohost/plone/de')
+
 
 def test_suite():
     """This sets up a test suite that actually runs the tests in

@@ -137,6 +137,11 @@ class ITranslationHelper(Interface):
     def find_default(url, default='en'):
         """This method tries to find an object in the default language."""
 
+    def get_fallback_url(url):
+        """Get fallback url for a non-existing url so users can continue
+        browsing the site.
+        """
+
 
 class ILanguageFiles(Interface):
     """Class to set the language on all files inside the current folder
