@@ -6,11 +6,15 @@ from Products.Five.browser import BrowserView
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
 from slc.linguatools import utils
+from slc.outdated.adapter import ANNOTATION_KEY
+from zope.annotation.interfaces import IAnnotatable, IAnnotations
 import logging
 log = logging.getLogger('osha.policy.cleanup')
 
 
 ALLOWED_TYPES = ('News Item', 'Event', 'Document', 'RichDocument')
+ALLOWED_ACTIONS = ('delete', 'make_private', 'make_outdated', 'make_expired')
+
 
 def delete_item(context, path, id):
 
@@ -25,8 +29,48 @@ def make_private(context, path):
         obj, utils.workflow_action, transition='reject')
 
 
+def make_expired(context, path):
+    obj = context.restrictedTraverse(path)
+    date = DateTime() - 1
+    info, warnings, errors = utils.exec_for_all_langs(
+        obj, expire_item, date=date)
+
+
+def make_outdated(context, path):
+    obj = context.restrictedTraverse(path)
+    info, warnings, errors = utils.exec_for_all_langs(
+        obj, outdate_item, outdated_status=True)
+
+
 def job_failure_callback(result):
     log.warning(result)
+
+
+def expire_item(ob, *args, **kw):
+    """ Changes the object's workflow state
+    """
+    err = list()
+    date = kw.get('date', None)
+    if date and isinstance(date, DateTime):
+        try:
+            ob.setExpirationDate(date)
+        except Exception, e:
+            err.append(
+                'Could not set expiration date on %s, error was: %s ' %
+                (ob.absolute_url(), str(e)))
+    return err
+
+
+def outdate_item(ob, *arg, **kw):
+    err = list()
+    value = kw.get('outdated_status', None)
+    value = not not value
+    if IAnnotatable.providedBy(ob):
+        IAnnotations(ob)[ANNOTATION_KEY] = value
+    else:
+        err.append(
+            'Object %s does not support annotations' % ob.absolute_url())
+    return err
 
 
 class CleanupContent(BrowserView):
@@ -35,9 +79,9 @@ class CleanupContent(BrowserView):
         log.info('Called CleanupContent')
         cnt = 0
         action = self.request.get('action', '')
-        if not action in ('delete', 'make_private'):
+        if not action in ALLOWED_ACTIONS:
             return "You must supply an action parameter. Potential values: " \
-                "'delete' or 'make_private'"
+                "%s" % ', '.join(ALLOWED_ACTIONS)
         threshold = self.request.get('threshold', '')
         try:
             date = DateTime(threshold)
@@ -74,7 +118,12 @@ class CleanupContent(BrowserView):
                     delete_item, self.context, parent_path, res.id)
             elif action == 'make_private':
                 job = async.queueJob(make_private, self.context, res.getPath())
-            callback = job.addCallbacks(failure=job_failure_callback)
+            elif action == 'make_expired':
+                job = async.queueJob(make_expired, self.context, res.getPath())
+            elif action == 'make_outdated':
+                job = async.queueJob(
+                    make_outdated, self.context, res.getPath())
+            job.addCallbacks(failure=job_failure_callback)
             cnt += 1
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
             cnt, portal_type, action)
