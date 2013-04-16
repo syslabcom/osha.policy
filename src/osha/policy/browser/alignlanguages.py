@@ -1,4 +1,5 @@
 from Products.Five import BrowserView
+from Products.statusmessages.interfaces import IStatusMessage
 
 
 class AlignLanguages(BrowserView):
@@ -9,8 +10,20 @@ class AlignLanguages(BrowserView):
     """
     def __call__(self):
         portal_type = self.request.get('portal_type', ['File', ])
+        status = IStatusMessage(self.request)
+        cnt = 0
         lang = self.context.Language()
         for subobj in self.context.objectValues():
             if not portal_type or subobj.portal_type in portal_type:
-                subobj.setLanguage(lang)
+                if subobj.Language() != lang:
+                    subobj.setLanguage(lang)
+                    cnt += 1
+
+        if cnt > 0:
+            msg = 'Align content languages handled a total of %d items of ' \
+                'type %s.' % (cnt, ', '.join(portal_type))
+        else:
+            msg = 'Align content languages: nothing needed to be done for '\
+                'items of type %s.' % ', '.join(portal_type)
+        status.addStatusMessage(msg, type='info')
         self.request.RESPONSE.redirect(self.context.absolute_url())
