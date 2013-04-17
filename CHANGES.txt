@@ -4,7 +4,6 @@ osha.policy Changelog
 1.4.17 (unreleased)
 -------------------
 
-- add osha.applicationform to dependencies, refs #6165 [jure]
 - helper browser view for cleaning up old content #7211 [pysailor]
 - added align_languages action and view [reinhardt]
 
