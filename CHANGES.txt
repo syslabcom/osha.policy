@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.17 (unreleased)
+1.4.17 (2013-04-17)
 -------------------
 
 - helper browser view for cleaning up old content #7211 [pysailor]
