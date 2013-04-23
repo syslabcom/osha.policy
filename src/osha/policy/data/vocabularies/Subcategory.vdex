@@ -1102,30 +1102,30 @@
     <term>
       <termIdentifier>accident_prevention::migrant_workers</termIdentifier>
       <caption>
-        <langstring language="da">Migrant workers</langstring>
-        <langstring language="de">Migrant workers</langstring>
-        <langstring language="et">Migrant workers</langstring>
-        <langstring language="en">Migrant workers</langstring>
-        <langstring language="es">Migrant workers</langstring>
-        <langstring language="fr">Migrant workers</langstring>
-        <langstring language="it">Migrant workers</langstring>
-        <langstring language="lv">Migrant workers</langstring>
-        <langstring language="lt">Migrant workers</langstring>
-        <langstring language="hu">Migrant workers</langstring>
-        <langstring language="mt">Migrant workers</langstring>
-        <langstring language="nl">Migrant workers</langstring>
-        <langstring language="pl">Migrant workers</langstring>
-        <langstring language="pt">Migrant workers</langstring>
-        <langstring language="sk">Migrant workers</langstring>
-        <langstring language="sl">Migrant workers</langstring>
-        <langstring language="fi">Migrant workers</langstring>
-        <langstring language="sv">Migrant workers</langstring>
-        <langstring language="cs">Migrant workers</langstring>
-        <langstring language="el">Migrant workers</langstring>
-        <langstring language="bg">Migrant workers</langstring>
-        <langstring language="is">Migrant workers</langstring>
-        <langstring language="no">Migrant workers</langstring>
-        <langstring language="ro">Migrant workers</langstring>
+          <langstring language="bg">работници мигранти</langstring>
+          <langstring language="cs">migrující pracovníci</langstring>
+          <langstring language="da">vandrende arbejdstagere</langstring>
+          <langstring language="de">Wanderarbeitnehmer</langstring>
+          <langstring language="el">διακινούμενοι εργαζόμενοι</langstring>
+          <langstring language="en">Migrant workers</langstring>
+          <langstring language="es">trabajadores emigrantes</langstring>
+          <langstring language="et">võõrtöötajad</langstring>
+          <langstring language="fi">siirtotyöläiset</langstring>
+          <langstring language="fr">travailleurs migrants</langstring>
+          <langstring language="hu">bevándorló munkavállalók</langstring>
+          <langstring language="it">lavoratori migranti</langstring>
+          <langstring language="lt">darbuotojai migrantai</langstring>
+          <langstring language="lv">migrējošie darba ņēmēji</langstring>
+          <langstring language="mt">ħaddiema migranti</langstring>
+          <langstring language="nl">migrerende werknemers</langstring>
+          <langstring language="pl">pracownicy migrujący</langstring>
+          <langstring language="pt">trabalhadores migrantes</langstring>
+          <langstring language="ro">lucrători migranţi</langstring>
+          <langstring language="sk">migrujúci pracovníci</langstring>
+          <langstring language="sl">delavci migranti</langstring>
+          <langstring language="sv">gästarbetare</langstring>
+          <langstring language="is">farandverkafólk</langstring>
+          <langstring language="no">vandrearbeidere</langstring>
       </caption>
     </term>
     <term>
@@ -7574,30 +7574,30 @@
   <term>
     <termIdentifier>healthcare</termIdentifier>
     <caption>
-      <langstring language="da">Sundhedssektoren</langstring>
-      <langstring language="de">Gesundheitswesen</langstring>
-      <langstring language="et">Tervishoid</langstring>
+      <langstring language="da">sundhedspleje</langstring>
+      <langstring language="de">Gesundheitsfürsorge</langstring>
+      <langstring language="et">tervishoid</langstring>
       <langstring language="en">Health Care</langstring>
-      <langstring language="es">Sector sanitario</langstring>
-      <langstring language="fr">Soins de santé</langstring>
-      <langstring language="it">Sanitario/ospedaliero</langstring>
-      <langstring language="lv">Veselības aprūpe</langstring>
-      <langstring language="lt">Sveikatos priežiūra</langstring>
-      <langstring language="hu">Egészségvédelem</langstring>
-      <langstring language="mt">Settur tal-Kura tas-Saħħa</langstring>
-      <langstring language="nl">Gezondheidszorg</langstring>
-      <langstring language="pl">Health Care</langstring>
-      <langstring language="pt">Sector dos serviços de saúde</langstring>
-      <langstring language="sk">Health Care</langstring>
-      <langstring language="sl">Health Care</langstring>
-      <langstring language="fi">Terveydenhoitoalan työsuojelu</langstring>
-      <langstring language="sv">Hälso- och sjukvårdssektorn</langstring>
-      <langstring language="cs">Health Care</langstring>
-      <langstring language="el">Τομέας υγειονομικής περίθαλψης</langstring>
-      <langstring language="bg">Health Care</langstring>
-      <langstring language="is">Health Care</langstring>
-      <langstring language="no">Health Care</langstring>
-      <langstring language="ro">Health Care</langstring>
+      <langstring language="es">atención sanitaria</langstring>
+      <langstring language="fr">soins de santé</langstring>
+      <langstring language="it">sanità</langstring>
+      <langstring language="lv">veselības aprūpe</langstring>
+      <langstring language="lt">sveikatos priežiūra</langstring>
+      <langstring language="hu">egészségügy</langstring>
+      <langstring language="mt">Il-kura tas-saħħa</langstring>
+      <langstring language="nl">gezondheidszorg</langstring>
+      <langstring language="pl">opieka zdrowotna</langstring>
+      <langstring language="pt">cuidados de saúde</langstring>
+      <langstring language="sk">zdravotnícka starostlivosť</langstring>
+      <langstring language="sl">zdravstveno varstvo</langstring>
+      <langstring language="fi">terveydenhuolto</langstring>
+      <langstring language="sv">hälsovård</langstring>
+      <langstring language="cs">zdravotní péče</langstring>
+      <langstring language="el">υγειονομική περίθαλψη</langstring>
+      <langstring language="bg">здравеопазване</langstring>
+      <langstring language="is">heilsugæsla</langstring>
+      <langstring language="no">helse og omsorg</langstring>
+      <langstring language="ro">sănătate</langstring>
     </caption>
     <term>
       <termIdentifier>healthcare::biol_hazards</termIdentifier>
@@ -8968,30 +8968,30 @@
   <term>
     <termIdentifier>migrant_workers</termIdentifier>
     <caption>
-      <langstring language="bg">Migrant workers</langstring>
-      <langstring language="cs">Migrant workers</langstring>
-      <langstring language="da">Migrant workers</langstring>
-      <langstring language="de">Migrant workers</langstring>
-      <langstring language="el">Migrant workers</langstring>
+      <langstring language="bg">работници мигранти</langstring>
+      <langstring language="cs">migrující pracovníci</langstring>
+      <langstring language="da">vandrende arbejdstagere</langstring>
+      <langstring language="de">Wanderarbeitnehmer</langstring>
+      <langstring language="el">διακινούμενοι εργαζόμενοι</langstring>
       <langstring language="en">Migrant workers</langstring>
-      <langstring language="es">Migrant workers</langstring>
-      <langstring language="et">Migrant workers</langstring>
-      <langstring language="fi">Migrant workers</langstring>
-      <langstring language="fr">Migrant workers</langstring>
-      <langstring language="hu">Migrant workers</langstring>
-      <langstring language="it">Migrant workers</langstring>
-      <langstring language="lt">Migrant workers</langstring>
-      <langstring language="lv">Migrant workers</langstring>
-      <langstring language="mt">Migrant workers</langstring>
-      <langstring language="nl">Migrant workers</langstring>
-      <langstring language="pl">Migrant workers</langstring>
-      <langstring language="pt">Migrant workers</langstring>
-      <langstring language="ro">Migrant workers</langstring>
-      <langstring language="sk">Migrant workers</langstring>
-      <langstring language="sl">Migrant workers</langstring>
-      <langstring language="sv">Migrant workers</langstring>
-      <langstring language="is">Migrant workers</langstring>
-      <langstring language="no">Migrant workers</langstring>
+      <langstring language="es">trabajadores emigrantes</langstring>
+      <langstring language="et">võõrtöötajad</langstring>
+      <langstring language="fi">siirtotyöläiset</langstring>
+      <langstring language="fr">travailleurs migrants</langstring>
+      <langstring language="hu">bevándorló munkavállalók</langstring>
+      <langstring language="it">lavoratori migranti</langstring>
+      <langstring language="lt">darbuotojai migrantai</langstring>
+      <langstring language="lv">migrējošie darba ņēmēji</langstring>
+      <langstring language="mt">ħaddiema migranti</langstring>
+      <langstring language="nl">migrerende werknemers</langstring>
+      <langstring language="pl">pracownicy migrujący</langstring>
+      <langstring language="pt">trabalhadores migrantes</langstring>
+      <langstring language="ro">lucrători migranţi</langstring>
+      <langstring language="sk">migrujúci pracovníci</langstring>
+      <langstring language="sl">delavci migranti</langstring>
+      <langstring language="sv">gästarbetare</langstring>
+      <langstring language="is">farandverkafólk</langstring>
+      <langstring language="no">vandrearbeidere</langstring>
     </caption>
   </term>
   <term>
@@ -10157,30 +10157,30 @@
   <term>
     <termIdentifier>nanotechnology</termIdentifier>
     <caption>
-      <langstring language="bg">Nanotechnology</langstring>
-      <langstring language="cs">Nanotechnology</langstring>
-      <langstring language="da">Nanotechnology</langstring>
-      <langstring language="de">Nanotechnology</langstring>
-      <langstring language="el">Nanotechnology</langstring>
+      <langstring language="bg">нанотехнология</langstring>
+      <langstring language="cs">nanotechnologie</langstring>
+      <langstring language="da">nanoteknologi</langstring>
+      <langstring language="de">Nanotechnologie</langstring>
+      <langstring language="el">νανοτεχνολογία</langstring>
       <langstring language="en">Nanotechnology</langstring>
-      <langstring language="es">Nanotechnology</langstring>
-      <langstring language="et">Nanotechnology</langstring>
-      <langstring language="fi">Nanotechnology</langstring>
-      <langstring language="fr">Nanotechnology</langstring>
-      <langstring language="hu">Nanotechnology</langstring>
-      <langstring language="it">Nanotechnology</langstring>
-      <langstring language="lt">Nanotechnology</langstring>
-      <langstring language="lv">Nanotechnology</langstring>
-      <langstring language="mt">Nanotechnology</langstring>
-      <langstring language="nl">Nanotechnology</langstring>
-      <langstring language="pl">Nanotechnology</langstring>
-      <langstring language="pt">Nanotechnology</langstring>
-      <langstring language="ro">Nanotechnology</langstring>
-      <langstring language="sk">Nanotechnology</langstring>
-      <langstring language="sl">Nanotechnology</langstring>
-      <langstring language="sv">Nanotechnology</langstring>
-      <langstring language="is">Nanotechnology</langstring>
-      <langstring language="no">Nanotechnology</langstring>
+      <langstring language="es">nanotecnología</langstring>
+      <langstring language="et">nanotehnoloogia</langstring>
+      <langstring language="fi">nanoteknologia</langstring>
+      <langstring language="fr">nanotechnologies</langstring>
+      <langstring language="hu">nanotechnológia</langstring>
+      <langstring language="it">nanotecnologia</langstring>
+      <langstring language="lt">nanotechnologija</langstring>
+      <langstring language="lv">nanotehnoloģija</langstring>
+      <langstring language="mt">nanoteknoloġija</langstring>
+      <langstring language="nl">nanotechnologie</langstring>
+      <langstring language="pl">nanotechnologia</langstring>
+      <langstring language="pt">nanotecnologia</langstring>
+      <langstring language="ro">nanotehnologie</langstring>
+      <langstring language="sk">nanotechnológia</langstring>
+      <langstring language="sl">nanotehnologija</langstring>
+      <langstring language="sv">nanoteknik</langstring>
+      <langstring language="is">örtækni</langstring>
+      <langstring language="no">nanoteknologi</langstring>
     </caption>
   </term>
   <term>
@@ -10737,30 +10737,30 @@
   <term>
     <termIdentifier>disability</termIdentifier>
     <caption>
-      <langstring language="da">Handicappede</langstring>
+      <langstring language="da">personer med handicap</langstring>
       <langstring language="de">Menschen mit Behinderungen</langstring>
-      <langstring language="et">Handicappede</langstring>
+      <langstring language="et">puudega inimesed</langstring>
       <langstring language="en">People with disabilities</langstring>
-      <langstring language="es">Personas con discapacidad</langstring>
-      <langstring language="fr">Personnes handicapées</langstring>
-      <langstring language="it">Persone disabili</langstring>
-      <langstring language="lv">Neįgalieji</langstring>
-      <langstring language="lt">Neįgalieji</langstring>
-      <langstring language="hu">Fogyatékkal élő személyek</langstring>
+      <langstring language="es">personas discapacitadas</langstring>
+      <langstring language="fr">personnes handicapées</langstring>
+      <langstring language="it">disabili</langstring>
+      <langstring language="lv">invalīdi</langstring>
+      <langstring language="lt">neįgalieji</langstring>
+      <langstring language="hu">mozgáskorlátozottak</langstring>
       <langstring language="mt">People with Disabilities</langstring>
-      <langstring language="nl">Mensen met een handicap</langstring>
+      <langstring language="nl">gehandicapten</langstring>
       <langstring language="pl">Osoby niepełnosprawne</langstring>
-      <langstring language="pt">Pessoas com deficiência</langstring>
-      <langstring language="sk">Ľudia so zmenenou pracovnou schopnosťou</langstring>
-      <langstring language="sl">Invalidi</langstring>
-      <langstring language="fi">Vammaiset</langstring>
-      <langstring language="sv">Handicappede</langstring>
-      <langstring language="cs">Postižení</langstring>
-      <langstring language="el">Άτομα με ειδικές ανάγκες</langstring>
-      <langstring language="bg">People with Disabilities</langstring>
-      <langstring language="is">People with disabilities</langstring>
-      <langstring language="no">People with disabilities</langstring>
-      <langstring language="ro">People with disabilities</langstring>
+      <langstring language="pt">pessoas com deficiência</langstring>
+      <langstring language="sk">osoby s postihnutím</langstring>
+      <langstring language="sl">invalidne osebe</langstring>
+      <langstring language="fi">vammaiset</langstring>
+      <langstring language="sv">funktionshindrade</langstring>
+      <langstring language="cs">Tělesně postižené osoby</langstring>
+      <langstring language="el">άτομα με ειδικές ανάγκες</langstring>
+      <langstring language="bg">лица с увреждания</langstring>
+      <langstring language="is">fatlað fólk</langstring>
+      <langstring language="no">funksjonshemmede</langstring>
+      <langstring language="ro">persoane cu handicap</langstring>
     </caption>
     <term>
       <termIdentifier>disability::access</termIdentifier>
@@ -12013,30 +12013,30 @@
   <term>
     <termIdentifier>research</termIdentifier>
     <caption>
-      <langstring language="bg">Изследвания</langstring>
-      <langstring language="cs">Výzkum</langstring>
-      <langstring language="da">Forskning</langstring>
+      <langstring language="bg">проучване</langstring>
+      <langstring language="cs">výzkum</langstring>
+      <langstring language="da">forskning</langstring>
       <langstring language="de">Forschung</langstring>
-      <langstring language="el">Έρευνα</langstring>
+      <langstring language="el">έρευνα</langstring>
       <langstring language="en">Research</langstring>
-      <langstring language="es">Investigación</langstring>
-      <langstring language="et">Teadusuuringud</langstring>
-      <langstring language="fi">Tutkimus</langstring>
-      <langstring language="fr">Recherche</langstring>
-      <langstring language="hu">Kutatás</langstring>
-      <langstring language="it">Ricerca</langstring>
-      <langstring language="lt">Tyrimai</langstring>
-      <langstring language="lv">Pētniecība</langstring>
-      <langstring language="mt">Riċerka</langstring>
-      <langstring language="nl">Onderzoek</langstring>
-      <langstring language="pl">Badania</langstring>
-      <langstring language="pt">Research</langstring>
-      <langstring language="ro">Cercetare</langstring>
-      <langstring language="sk">Výskum</langstring>
-      <langstring language="sl">Raziskovanje</langstring>
-      <langstring language="sv">Forskning</langstring>
-      <langstring language="is">Research</langstring>
-      <langstring language="no">Research</langstring>
+      <langstring language="es">investigación</langstring>
+      <langstring language="et">teadusuuringud</langstring>
+      <langstring language="fi">tutkimustietoja</langstring>
+      <langstring language="fr">recherche</langstring>
+      <langstring language="hu">kutatás</langstring>
+      <langstring language="it">ricerca</langstring>
+      <langstring language="lt">moksliniai tyrimai</langstring>
+      <langstring language="lv">pētniecība</langstring>
+      <langstring language="mt">riċerka</langstring>
+      <langstring language="nl">onderzoek</langstring>
+      <langstring language="pl">badania</langstring>
+      <langstring language="pt">investigação</langstring>
+      <langstring language="ro">cercetare</langstring>
+      <langstring language="sk">výskum</langstring>
+      <langstring language="sl">raziskave</langstring>
+      <langstring language="sv">forskning</langstring>
+      <langstring language="is">rannsóknir</langstring>
+      <langstring language="no">forskning</langstring>
     </caption>
   </term>
   <term>
