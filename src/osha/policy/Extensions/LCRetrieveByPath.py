@@ -11,6 +11,14 @@ from zope.annotation.interfaces import IAnnotatable, IAnnotations
 
 # This script can be run on a given path. if the keyword resume is given, it will not retrive again but only resume current paths
 
+
+def is_publically_visible(obj):
+    """Anonymous has the View permission"""
+    roles = obj.rolesOfPermission("View")
+    role_names = [i["name"] for i in roles if i['selected'] == 'SELECTED']
+    return "Anonymous" in role_names
+
+
 def retrieve(self):
   ST = []
   pc = self.portal_catalog
@@ -64,7 +72,7 @@ def retrieve(self):
       if not ob:
           continue
       if not sm.checkPermission(ModifyPortalContent, ob):
-          continue 
+          continue
       if (not IReferenceable.providedBy(ob)):
           continue
       outdated = IAnnotatable.providedBy(ob) and \
@@ -74,10 +82,13 @@ def retrieve(self):
           links = link_checker.database.getLinksForObject(ob)
           link_ids = [x.getId() for x in links]
           job = async.queueJob(unregister_async, link_checker, link_ids)
-          callback = job.addCallbacks(failure=job_failure_callback)
+          job.addCallbacks(failure=job_failure_callback)
+          continue
+      if not is_publically_visible(ob):
+          LOG('CMFLinkChecker', INFO, "Skipping %s, obj is not public" % path)
           continue
       job = async.queueJob(retrieve_async, ob, path, online=True)
-      callback = job.addCallbacks(failure=job_failure_callback)
+      job.addCallbacks(failure=job_failure_callback)
       LOG("LCRetrieveByPath", INFO, "> Retrieved %s"%path)
       ST.append("retrieved %s" % path)
       link_checker.objpaths.remove(path)

@@ -4,7 +4,7 @@ osha.policy Changelog
 1.4.18 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- LCRetrieveByPath: don't retireve content that is private [pysailor]
 
 
 1.4.17 (2013-04-17)
