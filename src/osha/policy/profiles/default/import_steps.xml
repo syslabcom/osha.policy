@@ -18,7 +18,7 @@
   </import-step>
   <import-step
     id='osha-jsregistry'
-    version='20110608-01'
+    version='20110608-02'
     handler="osha.policy.setuphandlers.resetJSRegistry"
     >
   </import-step>
