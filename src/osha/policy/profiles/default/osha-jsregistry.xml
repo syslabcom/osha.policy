@@ -303,7 +303,16 @@
     id="++resource++slc.linguatools.static/linguatools.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++jquery.bigtarget.1.0.1.js" inline="False"/>
+    id="++resource++slc.seminarportal.resources/jquery.bigtarget.1.0.1.js"
+    inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++slc.seminarportal.resources/seminar_view.js"
+    inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++slc.seminarportal.resources/portlets_speaker.js"
+    inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++plone.app.jquerytools.js" inline="False"/>
