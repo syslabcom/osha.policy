@@ -439,6 +439,7 @@
   <property name="default_custom_metatags" type="lines"/>
  </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
+  <property name="use_email_as_login" type="boolean">True</property>
   <property name="title">Site wide properties</property>
   <property name="allowAnonymousViewAbout" type="boolean">False</property>
   <property name="localTimeFormat" type="string">%d.%m.%Y</property>
