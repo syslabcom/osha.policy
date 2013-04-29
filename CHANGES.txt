@@ -7,7 +7,8 @@ osha.policy Changelog
 - #7358 set "use_email_as_login" in the portal site_properties. This
   configuration change has been manually applied to production
   already. [deroiste]
-
+- #7376 re-enable the lc_maintenance view to fix the BIRT broken link
+  reports [deroiste]
 
 1.4.18 (2013-04-23)
 -------------------
