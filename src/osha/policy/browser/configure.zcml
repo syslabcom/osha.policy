@@ -201,43 +201,6 @@
          factory=".dbsettings.osha_database_settings"
          />
 
-<!--
-    <browser:page
-        for="*"
-        name="lc_osha_view"
-        class=".lc_osha.LinkcheckerOSHA"
-        permission="zope2.View"
-        allowed_interface=".interfaces.ILinkcheckerOSHA"
-        />
-
-    <browser:page
-        for="*"
-        name="lc_csv_export"
-        class=".lc_osha.CSVExportView"
-        permission="cmf.ManagePortal"
-        />
-
-    <browser:page
-        for="*"
-        name="lc_pg_export"
-        class=".lc_osha.PostgresExportView"
-        permission="cmf.ManagePortal"
-        />
-
-    <browser:page
-        for="*"
-        name="lc_csv_section_rewiter"
-        class=".lc_osha.CSVSectionRewriteView"
-        permission="cmf.ManagePortal"
-        />
-
-    <browser:page
-        for="*"
-        name="lc_update_ws"
-        class=".lc_osha.UpdateWSRegistrationView"
-        permission="zope2.View"
-        />
--->
     <!-- <browser:page -->
     <!--     for="*" -->
     <!--     name="lc_maintenance" -->
