@@ -201,13 +201,13 @@
          factory=".dbsettings.osha_database_settings"
          />
 
-    <!-- <browser:page -->
-    <!--     for="*" -->
-    <!--     name="lc_maintenance" -->
-    <!--     class=".lc_osha.LCMaintenanceView" -->
-    <!--     permission="zope2.View"       -->
-    <!--     allowed_interface=".interfaces.ILCMaintenanceView" -->
-    <!--     /> -->
+     <browser:page
+         for="*"
+         name="lc_maintenance"
+         class=".lc_osha.LCMaintenanceView"
+         permission="zope2.View"
+         allowed_interface=".interfaces.ILCMaintenanceView"
+         />
 
     <!-- <browser:page -->
     <!--     for="*" -->
