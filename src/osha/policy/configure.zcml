@@ -58,18 +58,17 @@
         name="osha.policy.vocabularies.categories"
         />
 
-    <!-- TODO: #4415 -->
-    <!-- <utility -->
-    <!--     provides="collective.lead.interfaces.IDatabase" -->
-    <!--     factory=".adapter.db.OSHADatabase" -->
-    <!--     name="osha.database" -->
-    <!--     /> -->
+    <utility
+        provides="collective.lead.interfaces.IDatabase"
+        factory=".adapter.db.OSHADatabase"
+        name="osha.database"
+        />
 
-    <!-- <adapter -->
-    <!--     for=".adapter.db.OSHADatabase" -->
-    <!--     provides="collective.lead.interfaces.ITransactionAware" -->
-    <!--     factory="collective.lead.tx.ThreadlocalDatabaseTransactions"  -->
-    <!--     /> -->
+    <adapter
+        for=".adapter.db.OSHADatabase"
+        provides="collective.lead.interfaces.ITransactionAware"
+        factory="collective.lead.tx.ThreadlocalDatabaseTransactions"
+        />
 
     <class class="Products.PressRoom.content.PressRoom.PressRoom">
         <implements interface="zope.annotation.interfaces.IAttributeAnnotatable" />
