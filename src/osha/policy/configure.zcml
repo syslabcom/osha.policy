@@ -60,7 +60,7 @@
 
     <utility
         provides="collective.lead.interfaces.IDatabase"
-        factory=".adapter.db.OSHADatabaseSettings"
+        factory=".adapter.db.OSHADatabase"
         name="osha.database"
         />
 
