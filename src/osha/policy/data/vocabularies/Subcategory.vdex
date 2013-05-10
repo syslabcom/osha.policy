@@ -10734,6 +10734,12 @@
       <langstring language="no">Organisation and strategies</langstring>
     </caption>
   </term>
+    <term>
+    <termIdentifier>oira</termIdentifier>
+    <caption>
+      <langstring language="en">OiRA - Online interactive Risk Assessment</langstring>
+    </caption>
+    </term>
   <term>
     <termIdentifier>disability</termIdentifier>
     <caption>
