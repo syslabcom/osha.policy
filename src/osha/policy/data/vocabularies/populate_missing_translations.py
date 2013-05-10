@@ -24,6 +24,7 @@ _languages = [
     "fi",
     "fr",
     "hu",
+    "hr",
     "is",
     "it",
     "lt",
