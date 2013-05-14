@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.19 (unreleased)
+1.4.19 (2013-05-14)
 -------------------
 
 - #7358 set "use_email_as_login" in the portal site_properties. This
