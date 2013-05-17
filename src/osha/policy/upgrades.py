@@ -174,7 +174,9 @@ def rearrange_blog(context):
             folder = front_page.getParentNode()
             title = front_page.Title()
             description = front_page_en.Description()
-            text = front_page.getText()
+            # remove OSH Blog description from the body (it will be added to
+            # description)
+            text = front_page.getText().split('<h2>\r\n\tOSH Blog</h2>')[0]
             del folder['front-page']
 
             folder.invokeFactory(
