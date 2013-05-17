@@ -1,5 +1,6 @@
 from plone.app.linkintegrity.exceptions import \
     LinkIntegrityNotificationException
+from plone import api
 from Products.CMFCore.utils import getToolByName
 from slc.linkcollection.interfaces import ILinkList
 from zope.site.hooks import getSite
@@ -108,6 +109,7 @@ def hide_contacts(context):
 
     logger.info('%d press releases modified.' % count)
 
+
 def lc_clear_database(context):
     """Delete portal_linkchecker/database so that the
     portal_linkchecker can be reinstalled
@@ -120,7 +122,66 @@ def lc_clear_database(context):
     plc._objects = tuple([i for i in plc._objects if i["id"] != "database"])
     logger.info('The portal_linkchecker database has been cleared')
 
+
 def reimport_actions(context):
     context.runImportStepFromProfile('profile-osha.policy:default',
                                      'actions')
 
+
+def rearrange_blog(context):
+    """Rearrange the blog section:
+      - move blog items from 'blog' subfolder to the parent folder (Director's
+        corner)
+      - convert front-page from collection to ordinary page and set blog-view
+        as the default layout (for all languages)
+
+    See #6725 for details.
+    """
+    portal = api.portal.get()
+
+    try:
+        director_corner = portal['en']['about']['director_corner']
+    except KeyError:
+        logger.info('Rearrange blog: director corner not found, nothing '
+                    'changed.')
+        return
+
+    # move items to parent folder
+    logger.info('Rearrange blog: Moving blog items to director corner...')
+
+    for item in director_corner['blog'].listFolderContents():
+        try:
+            api.content.move(source=item, target=director_corner)
+        except AttributeError:
+            # XXX: this happens on my local instance (jcerjak)
+            logger.info(
+                'Rearrange blog: cannot move object {0}, object does not '
+                'exist'.format(item.absolute_url()))
+        except LinkIntegrityNotificationException:
+            logger.info(
+                'Rearrange blog: cannot move object {0}, link integrity '
+                'violated'.format(item.absolute_url()))
+
+    # convert front-page to page type and set blog-view layout on it
+    logger.info('Rearrange blog: Converting front-page from collection to '
+                'page and setting blog-view as default layout (for all '
+                'languages)...')
+    front_page_en = director_corner.get('front-page')
+    if front_page_en:
+        front_pages = [
+            item[0] for item in front_page_en.getTranslations().values()]
+        for front_page in front_pages:
+            folder = front_page.getParentNode()
+            title = front_page.Title()
+            description = front_page_en.Description()
+            text = front_page.getText()
+            del folder['front-page']
+
+            folder.invokeFactory(
+                'Document',
+                'front-page',
+                title=title,
+                description=description,
+                text=text,
+            )
+            folder['front-page'].setLayout('blog-view')

@@ -141,5 +141,14 @@
         handler=".upgrades.reimport_actions"
         />
 
+    <genericsetup:upgradeStep
+        source="6"
+        destination="7"
+        title="Rearrange blog"
+        description="Move blog items to director corner and set blog-view layout on default pages"
+        profile="osha.policy:default"
+        handler=".upgrades.rearrange_blog"
+        />
+
 </configure>
 
