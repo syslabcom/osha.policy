@@ -6,6 +6,7 @@ from slc.linkcollection.interfaces import ILinkList
 from zope.site.hooks import getSite
 
 import logging
+import re
 
 logger = logging.getLogger('osha.policy.upgrades')
 
@@ -219,7 +220,8 @@ def _convert_blog_front_page(obj=None, description=None, wf_state=None):
     title = obj.Title()
     # remove OSH Blog description from the body (it will be added to the
     # description)
-    text = obj.getText().split('<h2>\r\n\tOSH Blog</h2>')[0]
+    text = re.sub(
+        re.compile('<h2>.{0,9}OSH Blog.*', re.DOTALL), '', obj.getText())
     del folder['front-page']
 
     # create a new front-page
