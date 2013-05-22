@@ -6,6 +6,7 @@ from slc.linkcollection.interfaces import ILinkList
 from zope.site.hooks import getSite
 
 import logging
+import re
 
 logger = logging.getLogger('osha.policy.upgrades')
 
@@ -129,11 +130,15 @@ def reimport_actions(context):
 
 
 def rearrange_blog(context):
-    """Rearrange the blog section:
-      - move blog items from 'blog' subfolder to the parent folder (Director's
-        corner)
+    """Rearrange the blog section.
+
+      - move blog items from 'blog' subfolder to the parent folder
+        (Director's corner)
       - convert front-page from collection to ordinary page and set blog-view
         as the default layout (for all languages)
+      - delete blog subfolders in all languages (XXX: except in 'en',
+        I'm experiencing errors when moving some of the items from blog folder
+        to the parent folder [jcerjak])
 
     See #6725 for details.
     """
@@ -151,6 +156,9 @@ def rearrange_blog(context):
 
     for item in director_corner['blog'].listFolderContents():
         try:
+            if item.id == 'front-page':
+                del director_corner['blog']['front-page']
+                continue
             api.content.move(source=item, target=director_corner)
         except AttributeError:
             # XXX: this happens on my local instance (jcerjak)
@@ -168,22 +176,69 @@ def rearrange_blog(context):
                 'languages)...')
     front_page_en = director_corner.get('front-page')
     if front_page_en:
-        front_pages = [
-            item[0] for item in front_page_en.getTranslations().values()]
-        for front_page in front_pages:
-            folder = front_page.getParentNode()
-            title = front_page.Title()
-            description = front_page_en.Description()
-            # remove OSH Blog description from the body (it will be added to
-            # description)
-            text = front_page.getText().split('<h2>\r\n\tOSH Blog</h2>')[0]
-            del folder['front-page']
+        description = front_page_en.Description()
+        front_pages = front_page_en.getTranslations(
+            include_canonical=False).values()
 
-            folder.invokeFactory(
-                'Document',
-                'front-page',
-                title=title,
+        # create a new canonical front page
+        new_front_page_en = _convert_blog_front_page(
+            obj=front_page_en,
+            description=description,
+            wf_state=api.content.get_state(obj=front_page_en)
+        )
+
+        # create new front pages for all languages, create translation
+        # references and delete the blog subfolders
+        for front_page, wf_state in front_pages:
+            new_front_page = _convert_blog_front_page(
+                obj=front_page,
                 description=description,
-                text=text,
+                wf_state=wf_state
             )
-            folder['front-page'].setLayout('blog-view')
+            new_front_page.addTranslationReference(new_front_page_en)
+            folder = new_front_page.getParentNode()
+
+            # delete the blog subfolder, if it exists
+            try:
+                del folder['blog']
+            except AttributeError:
+                pass
+
+
+def _convert_blog_front_page(obj=None, description=None, wf_state=None):
+    """Helper method for the rearrange_blog upgrade step to convert the
+    front page object from Collection to Document.
+
+    :param obj: front page object to convert to the Document type
+    :param description: description to set on the new front page object
+    :param ws_state: workflow state of the object. If state is 'published',
+        publish the object (private by default).
+    :returns: new front page object
+    :rtype: Document
+    """
+    folder = obj.getParentNode()
+    title = obj.Title()
+    # remove OSH Blog description from the body (it will be added to the
+    # description)
+    text = re.sub(
+        re.compile('<h2>.{0,9}OSH Blog.*', re.DOTALL), '', obj.getText())
+    del folder['front-page']
+
+    # create a new front-page
+    folder.invokeFactory(
+        'Document',
+        'front-page',
+        title=title,
+        description=description,
+        text=text,
+    )
+    new_obj = folder['front-page']
+
+    # publish the object, if it was published before
+    if wf_state == 'published':
+        api.content.transition(obj=new_obj, transition='publish')
+
+    # set blog view layout
+    new_obj.setLayout('blog-view')
+
+    return new_obj
