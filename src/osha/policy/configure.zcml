@@ -145,7 +145,7 @@
         source="6"
         destination="7"
         title="Rearrange blog"
-        description="Move blog items to director corner and set blog-view layout on default pages"
+        description="Convert director corner and blog front pages from Collection to Document"
         profile="osha.policy:default"
         handler=".upgrades.rearrange_blog"
         />

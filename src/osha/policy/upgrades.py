@@ -132,96 +132,103 @@ def reimport_actions(context):
 def rearrange_blog(context):
     """Rearrange the blog section.
 
-      - move blog items from 'blog' subfolder to the parent folder
-        (Director's corner)
-      - convert front-page from collection to ordinary page and set blog-view
+      * convert director's corner front-page from collection to page and set
+        director-corner-view as the default layout (for all languages)
+      * convert blog front-page from collection to page and set blog-view
         as the default layout (for all languages)
-      - delete blog subfolders in all languages (XXX: except in 'en',
-        I'm experiencing errors when moving some of the items from blog folder
-        to the parent folder [jcerjak])
 
     See #6725 for details.
     """
     portal = api.portal.get()
 
     try:
-        director_corner = portal['en']['about']['director_corner']
+        director_corner_en = portal['en']['about']['director_corner']
+        dc_front_page_en = director_corner_en['front-page']
+        blog_front_page_en = director_corner_en['blog']['front-page']
     except KeyError:
-        logger.info('Rearrange blog: director corner not found, nothing '
-                    'changed.')
+        logger.info('Rearrange blog: director corner or front pages not '
+                    'found, nothing changed.')
         return
 
-    # move items to parent folder
-    logger.info('Rearrange blog: Moving blog items to director corner...')
+    dc_front_pages = dc_front_page_en.getTranslations(
+        include_canonical=False).values()
+    blog_front_pages = blog_front_page_en.getTranslations(
+        include_canonical=False).values()
 
-    for item in director_corner['blog'].listFolderContents():
-        try:
-            if item.id == 'front-page':
-                del director_corner['blog']['front-page']
-                continue
-            api.content.move(source=item, target=director_corner)
-        except AttributeError:
-            # XXX: this happens on my local instance (jcerjak)
-            logger.info(
-                'Rearrange blog: cannot move object {0}, object does not '
-                'exist'.format(item.absolute_url()))
-        except LinkIntegrityNotificationException:
-            logger.info(
-                'Rearrange blog: cannot move object {0}, link integrity '
-                'violated'.format(item.absolute_url()))
-
-    # convert front-page to page type and set blog-view layout on it
-    logger.info('Rearrange blog: Converting front-page from collection to '
-                'page and setting blog-view as default layout (for all '
-                'languages)...')
-    front_page_en = director_corner.get('front-page')
-    if front_page_en:
-        description = front_page_en.Description()
-        front_pages = front_page_en.getTranslations(
-            include_canonical=False).values()
-
-        # create a new canonical front page
-        new_front_page_en = _convert_blog_front_page(
-            obj=front_page_en,
-            description=description,
-            wf_state=api.content.get_state(obj=front_page_en)
+    # create new director's corner front pages for all languages
+    logger.info('Rearrange blog: Converting director_corner/front-page from '
+        'collection to page and setting director-corner-view as default '
+        'layout (for all languages)...')
+    new_dc_front_page_en = _convert_front_page(
+        obj=dc_front_page_en,
+        wf_state=api.content.get_state(obj=dc_front_page_en),
+        layout='director-corner-view',
+        fix_text=True
+    )
+    for front_page, wf_state in dc_front_pages:
+        new_dc_front_page = _convert_front_page(
+            obj=front_page,
+            wf_state=wf_state,
+            layout='director-corner-view',
+            fix_text=True
         )
+        new_dc_front_page.addTranslationReference(new_dc_front_page_en)
 
-        # create new front pages for all languages, create translation
-        # references and delete the blog subfolders
-        for front_page, wf_state in front_pages:
-            new_front_page = _convert_blog_front_page(
-                obj=front_page,
-                description=description,
-                wf_state=wf_state
-            )
-            new_front_page.addTranslationReference(new_front_page_en)
-            folder = new_front_page.getParentNode()
+    # create new blog front pages for all languages
+    logger.info('Rearrange blog: Converting director_corner/blog/front-page '
+        'from collection to page and setting blog-view as default '
+        'layout (for all languages)...')
+    new_blog_front_page_en = _convert_front_page(
+        obj=blog_front_page_en,
+        wf_state=api.content.get_state(obj=blog_front_page_en),
+        layout='blog-view'
+    )
+    for front_page, wf_state in blog_front_pages:
+        new_blog_front_page = _convert_front_page(
+            obj=front_page,
+            wf_state=wf_state,
+            layout='blog-view'
+        )
+        new_blog_front_page.addTranslationReference(new_blog_front_page_en)
 
-            # delete the blog subfolder, if it exists
-            try:
-                del folder['blog']
-            except AttributeError:
-                pass
 
-
-def _convert_blog_front_page(obj=None, description=None, wf_state=None):
+def _convert_front_page(
+        obj=None,
+        wf_state=None,
+        layout=None,
+        fix_text=False):
     """Helper method for the rearrange_blog upgrade step to convert the
     front page object from Collection to Document.
 
     :param obj: front page object to convert to the Document type
-    :param description: description to set on the new front page object
     :param ws_state: workflow state of the object. If state is 'published',
         publish the object (private by default).
+    :param layout: layout to set on the object
+    :param fix_text: remove OSH blog description from body text, defaults to
+        False (needed so we can use this method on blog and director corner
+        front pages)
     :returns: new front page object
     :rtype: Document
     """
+    if not obj or not wf_state or not layout:
+        raise ValueError('You need to provide the obj, wf_state and layout '
+                         'parameters.')
+
     folder = obj.getParentNode()
+
+    # enable adding 'Document' objects to this folder
+    allowed_types = folder.getLocallyAllowedTypes()
+    if 'Document' not in allowed_types:
+        folder.setLocallyAllowedTypes(allowed_types + ('Document',))
+
     title = obj.Title()
-    # remove OSH Blog description from the body (it will be added to the
-    # description)
-    text = re.sub(
-        re.compile('<h2>.{0,9}OSH Blog.*', re.DOTALL), '', obj.getText())
+    text = obj.getText()
+
+    # remove OSH Blog description from the body
+    if fix_text:
+        text = re.sub(
+            re.compile('<h2>.{0,9}OSH Blog.*', re.DOTALL), '', text)
+
     del folder['front-page']
 
     # create a new front-page
@@ -229,16 +236,16 @@ def _convert_blog_front_page(obj=None, description=None, wf_state=None):
         'Document',
         'front-page',
         title=title,
-        description=description,
         text=text,
     )
+
     new_obj = folder['front-page']
 
     # publish the object, if it was published before
     if wf_state == 'published':
         api.content.transition(obj=new_obj, transition='publish')
 
-    # set blog view layout
-    new_obj.setLayout('blog-view')
+    # set the new layout
+    new_obj.setLayout(layout)
 
     return new_obj

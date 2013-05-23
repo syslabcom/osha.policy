@@ -1,5 +1,5 @@
 from osha.policy.tests.base import OSHA_INTEGRATION_TESTING
-from Products.CMFCore.utils import getToolByName
+from osha.policy.tests.utils import set_language
 
 import unittest2 as unittest
 
@@ -12,19 +12,7 @@ class TestTranslationHelper(unittest.TestCase):
         self.portal = self.layer['portal']
         self.view = self.portal.restrictedTraverse('@@translation-helper')
         self._create_content()
-        self._set_language()
-
-    def _set_language(self):
-        """Change language to 'de'"""
-        ltool = getToolByName(self.portal, 'portal_languages')
-        defaultLanguage = 'de'
-        supportedLanguages = ['de', 'en']
-        ltool.manage_setLanguageSettings(
-            defaultLanguage,
-            supportedLanguages,
-            setUseCombinedLanguageCodes=False
-        )
-        ltool.setLanguageBindings()
+        set_language('de')
 
     def _create_content(self):
         """Create content for testing."""
