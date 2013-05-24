@@ -4,8 +4,8 @@ osha.policy Changelog
 1.4.20 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Comment out db adapter, to restore the IDatabaseSettings config
+  [deroiste, thomasw]
 
 1.4.19 (2013-05-14)
 -------------------
