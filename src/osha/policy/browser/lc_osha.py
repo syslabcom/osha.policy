@@ -1,3 +1,4 @@
+from App.config import getConfiguration
 from zope.interface import implements
 from zope.component import getMultiAdapter, getUtility 
 from Products.Five import BrowserView
@@ -9,6 +10,13 @@ from collective.lead.interfaces import IDatabase
 import sqlalchemy as sa
 from sqlalchemy.orm import sessionmaker
 from DateTime import DateTime
+import datetime
+
+def q(s):
+    if s is None:
+        return ''
+    return s.replace('\\', '\\\\').replace("'", "\\'").replace('\r','').replace('\n',' ').replace('%', '%%').replace('"', '\\"').replace('\x00', '')
+
 
 class LCMaintenanceView(BrowserView):
     """ Contains the methods to report, retrieve and update the link checker """
@@ -47,20 +55,29 @@ class LCMaintenanceView(BrowserView):
         portal_languages = getToolByName(self.context, 'portal_languages')
         self.langs = portal_languages.getSupportedLanguages()
         self.portal_path = self.context.portal_url.getPortalPath()
+	configuration = getConfiguration()
+	conf = configuration.product_config['osha.policy']
+        pg_dsn = conf['osha.database']
         
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Exporting link state %s to Postgres Database"%link_state)
-        
-        db = getUtility(IDatabase, name='osha.database')
-        connection = db.connection 
-        meta = sa.MetaData()
-        meta.bind = connection
-        checkresults = sa.Table('checkresults', meta, autoload=True)
+
+        pgengine = sa.create_engine(pg_dsn, client_encoding='utf-8')        
+	pgconn = pgengine.connect()
+        #db = getUtility(IDatabase, name='osha.database')
+        #connection = db.connection 
+        #meta = sa.MetaData()
+        #meta.bind = connection
+        #checkresults = sa.Table('checkresults', meta, autoload=True)
         
         # clear the current table for all items with given state
-        statecol = getattr(checkresults.c, 'state')
-        delete = checkresults.delete(statecol==link_state)
-        result = connection.execute(delete)
-        
+        #statecol = getattr(checkresults.c, 'state')
+        pgconn.execute("delete from checkresults where state = '%s'" % link_state)
+
+        #delete = checkresults.delete(statecol==link_state)
+        #result = connection.execute(delete)
+        sql_ins = """INSERT INTO checkresults (state, document, brokenlink, reason, sitesection, lastcheck, subsite, portal_type) VALUES ('%(state)s', '%(document)s', '%(brokenlink)s', '%(reason)s', '%(sitesection)s', '%(lastcheck)s', '%(subsite)s', '%(portal_type)s') """
+	trans = pgconn.begin()
+	cnt = 0
         for item in self.LinksInState(state=link_state,
                                         b_start=0,
                                         b_size=-1,
@@ -83,17 +100,23 @@ class LCMaintenanceView(BrowserView):
             for subject in subjects:
                 toset = dict(state = link_state, 
                              document = docpath,
-                             brokenlink = item["url"],
+                             brokenlink = q(item["url"]),
                              reason = item["reason"],
                              sitesection = subject,
                              lastcheck = str(item["lastcheck"]) or '',
                              subsite = self.get_subsite(docpath),
                              portal_type = portal_type or ''
                              )
-                ins = checkresults.insert(toset)
-                result = connection.execute(ins)
-        
-        
+                #ins = checkresults.insert(toset)
+                #result = connection.execute(ins)
+                sql = sql_ins % toset
+		pgconn.execute(sql)
+                cnt += 1
+		if cnt % 1000 == 0:
+		    ts = datetime.datetime.utcnow()
+                    zLOG.LOG('osha Linkchecker', zLOG.INFO, "%s - Linkstate %s, wrote %s" %(ts, link_state, cnt))
+
+	trans.commit()
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Postgres Export Done")
         
     def get_subsite(self, path):
