@@ -1,10 +1,11 @@
 osha.policy Changelog
 =====================
 
-1.4.21 (unreleased)
+1.4.21 (2013-05-28)
 -------------------
 
-- Nothing changed yet.
+- #7648 Link checker: replace collective.lead with sqlalchemy for
+   updating the postgres db [deroiste, pilz]
 
 
 1.4.20 (2013-05-24)
