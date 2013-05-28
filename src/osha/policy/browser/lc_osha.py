@@ -1,6 +1,6 @@
 from App.config import getConfiguration
 from zope.interface import implements
-from zope.component import getMultiAdapter, getUtility 
+from zope.component import getMultiAdapter, getUtility
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from urlparse import urljoin
@@ -29,7 +29,7 @@ class LCMaintenanceView(BrowserView):
         start = DateTime()
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Starting retrieve_and_notify")
         self.notify_ws()
-        
+
         states = ('orange', 'green', 'grey', 'red')
         for state in states:
             self.update_pg(link_state=state)
@@ -48,27 +48,27 @@ class LCMaintenanceView(BrowserView):
         stop = DateTime()
         delta = (stop-start)*84600
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Finished transmitting unregistered links to lms after %s seconds."%delta)
-    
-    
+
+
     def update_pg(self, link_state='red', path_filter='', multilingual_thesaurus=[], subcategory=[]):
         """ export the database to postgres """
         portal_languages = getToolByName(self.context, 'portal_languages')
         self.langs = portal_languages.getSupportedLanguages()
         self.portal_path = self.context.portal_url.getPortalPath()
-	configuration = getConfiguration()
-	conf = configuration.product_config['osha.policy']
+        configuration = getConfiguration()
+        conf = configuration.product_config['osha.policy']
         pg_dsn = conf['osha.database']
-        
+
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Exporting link state %s to Postgres Database"%link_state)
 
-        pgengine = sa.create_engine(pg_dsn, client_encoding='utf-8')        
-	pgconn = pgengine.connect()
+        pgengine = sa.create_engine(pg_dsn, client_encoding='utf-8')
+        pgconn = pgengine.connect()
         #db = getUtility(IDatabase, name='osha.database')
-        #connection = db.connection 
+        #connection = db.connection
         #meta = sa.MetaData()
         #meta.bind = connection
         #checkresults = sa.Table('checkresults', meta, autoload=True)
-        
+
         # clear the current table for all items with given state
         #statecol = getattr(checkresults.c, 'state')
         pgconn.execute("delete from checkresults where state = '%s'" % link_state)
@@ -76,8 +76,8 @@ class LCMaintenanceView(BrowserView):
         #delete = checkresults.delete(statecol==link_state)
         #result = connection.execute(delete)
         sql_ins = """INSERT INTO checkresults (state, document, brokenlink, reason, sitesection, lastcheck, subsite, portal_type) VALUES ('%(state)s', '%(document)s', '%(brokenlink)s', '%(reason)s', '%(sitesection)s', '%(lastcheck)s', '%(subsite)s', '%(portal_type)s') """
-	trans = pgconn.begin()
-	cnt = 0
+        trans = pgconn.begin()
+        cnt = 0
         for item in self.LinksInState(state=link_state,
                                         b_start=0,
                                         b_size=-1,
@@ -92,13 +92,13 @@ class LCMaintenanceView(BrowserView):
             portal_type = doc.portal_type
             if subjects == tuple():
                 subjects = ('',)
-                
+
             # Careful: Here we count one record per section. If a link appears in several sections
             # it is counted several times. But as people will look at the links from a section perspective
-            # we want the broken links to appear everywhere. A total of all broken links will not be correct 
+            # we want the broken links to appear everywhere. A total of all broken links will not be correct
             # if not done distinct by url and link!!
             for subject in subjects:
-                toset = dict(state = link_state, 
+                toset = dict(state = link_state,
                              document = docpath,
                              brokenlink = q(item["url"]),
                              reason = item["reason"],
@@ -110,15 +110,15 @@ class LCMaintenanceView(BrowserView):
                 #ins = checkresults.insert(toset)
                 #result = connection.execute(ins)
                 sql = sql_ins % toset
-		pgconn.execute(sql)
+                pgconn.execute(sql)
                 cnt += 1
-		if cnt % 1000 == 0:
-		    ts = datetime.datetime.utcnow()
+                if cnt % 1000 == 0:
+                    ts = datetime.datetime.utcnow()
                     zLOG.LOG('osha Linkchecker', zLOG.INFO, "%s - Linkstate %s, wrote %s" %(ts, link_state, cnt))
 
-	trans.commit()
+        trans.commit()
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Postgres Export Done")
-        
+
     def get_subsite(self, path):
         path = path.replace(self.portal_path, '')
         elems = path.split('/')
@@ -132,18 +132,18 @@ class LCMaintenanceView(BrowserView):
             return elems[-2]
         if elems[-1] == 'sub':
             return elems[-2]
-            
+
         return 'main'
 
-    
+
     def LinksInState(self, state, b_start=0, b_size=15, path_filter='', multilingual_thesaurus=[], subcategory=[]):
         """Returns a list of links in the given state."""
-        
+
         multilingual_thesaurus = [ x for x in multilingual_thesaurus if x!= '']
         if not len(multilingual_thesaurus): multilingual_thesaurus=''
         subcategory = [ x for x in subcategory if x != '']
         if not len(subcategory): subcategory = ''
-        
+
         # If one or more filter parameters were passed in, use the filter based method
         if path_filter or len(multilingual_thesaurus) or len(subcategory):
             portal_url = getToolByName(self.context, 'portal_url')
@@ -165,16 +165,16 @@ class LCMaintenanceView(BrowserView):
                 item["link"] = link.link
                 item["document"] = doc
                 item["object"] = link.object
-                
+
                 #if member is None:
                 item["owner_mail"] = ""
                 item["owner"] = doc.Creator
                 #else:
                 #    item["owner_mail"] = member.getProperty("email")
                 #    item["owner"] = member.getProperty("fullname", doc.Creator)
-                
+
                 yield item
-        
+
         # Else, use the regular methor for retrieving link
         else:
             for link, doc, member in self._document_iterator(state, b_start, b_size):
@@ -189,35 +189,35 @@ class LCMaintenanceView(BrowserView):
                 item["link"] = link.link
                 item["document"] = doc
                 item["object"] = link.object
-                
+
                 #if member is None:
                 item["owner_mail"] = ""
                 item["owner"] = doc.Creator
                 #else:
                 #    item["owner_mail"] = member.getProperty("email")
                 #    item["owner"] = member.getProperty("fullname", doc.Creator)
-                
+
                 yield item
 
-    
-    
+
+
     def _document_iterator(self, state, b_start, b_size):
-        
+
         member_cache = {}
-        
+
         lc = getToolByName(self.context, 'portal_linkchecker')
         catalog = getToolByName(self.context, 'portal_catalog')
         pms = getToolByName(self.context, 'portal_membership')
-        
+
         _marker = object()
-        
+
         links = lc.database.queryLinks(state=[state], sort_on="url")
         #print "len links:", len(links)
         #print "b_start", b_start
-        
+
         for dummy in range(b_start):
             yield None, None, None
-        
+
         counter =0
         valid_cnt = 0
         if b_size==-1:
@@ -244,22 +244,22 @@ class LCMaintenanceView(BrowserView):
                 #    member = pms.getMemberById(creator)
                 #    member_cache[creator] = member
                 yield link, doc, member
-        
+
         invalids = counter-valid_cnt
         for dummy in range(len(links)-(b_start+b_size+invalids)):
             yield None, None, None
 
-    
-    
+
+
     def _document_iterator_orig(self, state):
         member_cache = {}
-        
+
         lc = getToolByName(self.context, 'portal_linkchecker')
         catalog = getToolByName(self.context, 'portal_catalog')
         pms = getToolByName(self.context, 'portal_membership')
-        
+
         _marker = object()
-        
+
         links = lc.database.queryLinks(state=[state], sort_on="url")
         print "reports::_document_iterator, number of links in state %s: %d" %(state, len(links))
         for link in links:
@@ -280,20 +280,20 @@ class LCMaintenanceView(BrowserView):
                     member_cache[creator] = member
                 yield link, doc, member
 
-    
-    
+
+
     def _document_iterator_path(self, state, b_start, b_size, path_filter, multilingual_thesaurus, subcategory):
         print "path_filter:", path_filter
         print "multilingual_thesaurus:", multilingual_thesaurus
         print "subcategory:", subcategory
         member_cache = {}
-        
+
         lc = getToolByName(self.context, 'portal_linkchecker')
         catalog = getToolByName(self.context, 'portal_catalog')
         pms = getToolByName(self.context, 'portal_membership')
-        
+
         _marker = object()
-        
+
         links = lc.database.queryLinks(state=[state], sort_on="url")
         print "len links before", len(links)
         filtered_res = catalog( Language='all',
@@ -304,11 +304,11 @@ class LCMaintenanceView(BrowserView):
         filtered_uids = [x.UID for x in filtered_res]
         links = [x for x in links if x.object in filtered_uids]
         print "len links after", len(links)
-        
-        
+
+
         for dummy in range(b_start):
             yield None, None, None
-        
+
         counter =0
         valid_cnt = 0
         if b_size==-1:
@@ -331,9 +331,7 @@ class LCMaintenanceView(BrowserView):
                 creator = doc.Creator
                 member = member_cache.get(creator, _marker)
                 yield link, doc, member
-        
+
         invalids = counter-valid_cnt
         for dummy in range(len(links)-(b_start+b_size+invalids)):
             yield None, None, None
-        
-    
