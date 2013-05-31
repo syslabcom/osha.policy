@@ -64,10 +64,6 @@
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="input-label.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True"
-    expression="object/@@osha-enable-js"
-    id="jquery.highlightsearchterms.js" inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="first_input_focus.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="full"
@@ -278,9 +274,6 @@
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++osha.theme.behaviour/dynatree_customizations.js"
     inline="False"/>
- <javascript authenticated="True" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++osha.theme.behaviour/quickupload.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++plonetruegallery-portlet.js" inline="False"/>
@@ -352,4 +345,11 @@
     conditionalcomment="" cookable="True" enabled="True"
     expression="nocall: object/@@collage_view|nothing"
     id="++resource++collage-resources/collage.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True"
+    expression="object/@@osha-enable-js" id="jquery.highlightsearchterms.js"
+    inline="False"/>
+ <javascript authenticated="True" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++osha.theme.behaviour/quickupload.js" inline="False"/>
 </object>
