@@ -209,6 +209,14 @@
          allowed_interface=".interfaces.ILCMaintenanceView"
          />
 
+     <browser:page
+         for="*"
+         name="language-fallback-search"
+         class=".language_fallback_search.LanguageFallbackSearch"
+         permission="zope2.View"
+	 allowed_attributes="search"
+         />
+
     <!-- <browser:page -->
     <!--     for="*" -->
     <!--     name="content_statistics_export" -->
