@@ -52,7 +52,7 @@
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="dragdropreorder.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
+    conditionalcomment="" cookable="True" enabled="False" expression=""
     id="mark_special_links.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="full"
     conditionalcomment="" cookable="True" enabled="True" expression=""
@@ -352,4 +352,7 @@
  <javascript authenticated="True" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++osha.theme.behaviour/quickupload.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="False" expression=""
+    id="popupforms.js" inline="False"/>
 </object>
