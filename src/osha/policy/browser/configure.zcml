@@ -214,7 +214,7 @@
          name="language-fallback-search"
          class=".language_fallback_search.LanguageFallbackSearch"
          permission="zope2.View"
-	 allowed_attributes="search"
+	 allowed_attributes="search search_solr"
          />
 
     <!-- <browser:page -->
