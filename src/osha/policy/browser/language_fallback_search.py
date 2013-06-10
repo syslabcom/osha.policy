@@ -1,5 +1,4 @@
 from Products.Five.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
 from collective.solr.flare import PloneFlare
 from collective.solr.interfaces import ISearch
 from plone import api
@@ -9,15 +8,13 @@ import logging
 
 log = logging.getLogger(__name__)
 
+
 class LanguageFallbackSearch(BrowserView):
     """OSHA requires that searches return translations in the
     preferred language where possible, and otherwise return
     English/Lanuage neutral items."""
 
     def search(self, query):
-        """
-        """
-
         lang_tool = api.portal.get_tool("portal_languages")
         pc = api.portal.get_tool("portal_catalog")
         rc = api.portal.get_tool("reference_catalog")
@@ -29,7 +26,7 @@ class LanguageFallbackSearch(BrowserView):
         if preferred_lang not in languages:
             languages.append(preferred_lang)
         query["Language"] = languages
-        
+
         portal = api.portal.get()
         if 'path' in query:
             # Find all language paths that correspond to the given path
@@ -39,11 +36,11 @@ class LanguageFallbackSearch(BrowserView):
                 path = query['path']
             if isinstance(path, (str, unicode)):
                 path = [path]
-                
+
             for p in path[:]:
                 # api.content.get currently doesn't work when the portal is in a subfolder.
                 # Besides, it does basically the same thing, but looks up the portal every time.
-                ob = portal.restrictedTraverse(p) 
+                ob = portal.restrictedTraverse(p)
                 try:
                     canonical = ob.getCanonical()
                 except AttributeError:
@@ -52,30 +49,26 @@ class LanguageFallbackSearch(BrowserView):
                 cpath = '/'.join(canonical.getPhysicalPath())
                 if cpath != p: # Don't add it if it *is* the canonical.
                     path.append(cpath)
-                
+
             # Add the new paths back:
             if isinstance(query['path'], dict):
                 query['path']['query'] = path
             else:
                 query['path'] = path
         search_results = pc.search(query)
-        
 
         # Find the originals of the preferred language translations:
         translation_uids = [
             x.UID for x in search_results if x.Language not in ['en', '']]
         originals = rc.search(
-            {"relationship":"translationOf", "sourceUID": translation_uids})
+            {"relationship": "translationOf", "sourceUID": translation_uids})
         original_uids = [x.targetUID for x in originals]
 
         # Return all results except originals, leaving preferred
         # language translations and untranslated documents:
         return [x for x in search_results if x.UID not in original_uids]
-        
+
     def search_solr(self, query, **parameters):
-        """
-        """
-        
         lang_tool = api.portal.get_tool("portal_languages")
         search = queryUtility(ISearch)
         if search is None:
@@ -89,19 +82,22 @@ class LanguageFallbackSearch(BrowserView):
         languages = ["en", "all"]
         if preferred_lang not in languages:
             languages.append(preferred_lang)
-        query = ' '.join((query,
-                          "+Language:({0})".format(' OR '.join(languages))))
-        search_results = search(
-            query,
-            **parameters)
+        query = ' '.join((
+            query, "+Language:({0})".format(' OR '.join(languages))))
+        search_results = search(query, **parameters)
 
         # Find the originals of the preferred language translations:
-        translation_uids = [x.UID for x in search_results
-                            if x.Language not in ['en', '']]
-        originals = rc.search({"relationship": "translationOf",
-                               "sourceUID": translation_uids})
+        translation_uids = [
+            x.UID for x in search_results if x.Language not in ['en', '']]
+        originals = rc.search({
+            "relationship": "translationOf",
+            "sourceUID": translation_uids,
+        })
         original_uids = [x.targetUID for x in originals]
 
-        # Return all results except originals, leaving preferred language translations
-        # and untranslated documents:
-        return [PloneFlare(x) for x in search_results if x.UID not in original_uids]
+        # Return all results except originals, leaving preferred
+        # language translations and untranslated documents:
+        return [
+            PloneFlare(x) for x in search_results
+            if x.UID not in original_uids
+        ]
