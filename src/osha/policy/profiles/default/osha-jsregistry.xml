@@ -356,6 +356,6 @@
     conditionalcomment="" cookable="True" enabled="False" expression=""
     id="popupforms.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="False" expression=""
+    conditionalcomment="" cookable="True" enabled="True" expression=""
     id="++resource++osha.theme.resources/jquery.dotdotdot-1.5.9.min.js" inline="False"/>
 </object>
