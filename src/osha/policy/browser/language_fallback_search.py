@@ -29,7 +29,34 @@ class LanguageFallbackSearch(BrowserView):
         if preferred_lang not in languages:
             languages.append(preferred_lang)
         query["Language"] = languages
+        
+        if 'path' in query:
+            # Find all language paths that correspond to the given path
+            if isinstance(query['path'], dict):
+                path = query['path']['query']
+            else:
+                path = query['path']
+            if isinstance(path, (str, unicode)):
+                path = [path]
+                
+            for p in path[:]:
+                ob = api.content.get(p)
+                try:
+                    canonical = ob.getCanonical()
+                except AttributeError:
+                    # Not translated or translateable:
+                    continue
+                cpath = '/'.join(canonical.getPhysicalPath())
+                if cpath != p: # Don't add it if it *is* the canonical.
+                    path.append(cpath)
+                
+            # Add the new paths back:
+            if isinstance(query['path'], dict):
+                query['path']['query'] = path
+            else:
+                query['path'] = path
         search_results = pc.search(query)
+        
 
         # Find the originals of the preferred language translations:
         translation_uids = [

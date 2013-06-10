@@ -25,20 +25,28 @@ class TestLanguageFallbackSearch(unittest.TestCase):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
-        events = self.portal.events
-        events.invokeFactory("Event", id="en-event", title="English Event")
-        de_event = events["en-event"].addTranslation("de")
+        
+        en_id = self.portal.invokeFactory("Folder", id="en", title="English Folder")
+        self.folder_en = self.portal[en_id]
+        self.folder_en.setLanguage('en')
+        
+        # Make german top folder (will be called 'en-de', which is silly, but not a problem)
+        self.folder_de = self.folder_en.addTranslation('de')
+        
+        self.folder_en.invokeFactory("Event", id="notrans-event", title="English Event with no translation")
+        self.folder_en.invokeFactory("Event", id="en-event", title="English Event")
+        de_event = self.folder_en['en-event'].addTranslation("de")
         request = self.portal.REQUEST
         request['set_language'] = 'de'
         self.portal.portal_languages.setLanguageBindings()
 
     def test_fallback_search(self):
-        """Basic test to test if the sendto method works (with basic
-        template and no extra keyword arguments).  """
+        """Searching in the german folder should return also english untranslated events """
         lf_search_view = self.portal.restrictedTraverse("@@language-fallback-search")
-        results = lf_search_view.search({"path": {"query":"/plone/events"}})
+        results = lf_search_view.search({"path": {"query":"/plone/en-de"}})
         self.assertEqual(set([x.getPath() for x in results]),
-                         set(['/plone/events', '/plone/events/aggregator', '/plone/events/en-event-de']))
+                         set(['/plone/en-de', '/plone/en-de/en-event', '/plone/en/notrans-event']))
+        
 
     @unittest.skip("some problem with mock_search")
     def test_fallback_search_solr(self):
