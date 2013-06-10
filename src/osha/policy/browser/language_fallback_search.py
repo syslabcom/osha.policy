@@ -30,6 +30,7 @@ class LanguageFallbackSearch(BrowserView):
             languages.append(preferred_lang)
         query["Language"] = languages
         
+        portal = api.portal.get()
         if 'path' in query:
             # Find all language paths that correspond to the given path
             if isinstance(query['path'], dict):
@@ -40,7 +41,9 @@ class LanguageFallbackSearch(BrowserView):
                 path = [path]
                 
             for p in path[:]:
-                ob = api.content.get(p)
+                # api.content.get currently doesn't work when the portal is in a subfolder.
+                # Besides, it does basically the same thing, but looks up the portal every time.
+                ob = portal.restrictedTraverse(p) 
                 try:
                     canonical = ob.getCanonical()
                 except AttributeError:
