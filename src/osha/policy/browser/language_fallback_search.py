@@ -1,3 +1,4 @@
+from Missing import MV
 from Products.Five.browser import BrowserView
 from collective.solr.flare import PloneFlare
 from collective.solr.interfaces import ISearch
@@ -95,6 +96,9 @@ class LanguageFallbackSearch(BrowserView):
             languages.append(preferred_lang)
         query = ' '.join((
             query, "+Language:({0})".format(' OR '.join(languages))))
+        parameters['rows'] = 100000
+        start = parameters.get('start', 0)
+        parameters['start'] = 0
         search_results = search(query, **parameters)
 
         # Find the originals of the preferred language translations:
@@ -106,9 +110,23 @@ class LanguageFallbackSearch(BrowserView):
         })
         original_uids = [x.targetUID for x in originals]
 
+        results = search_results.results()
+        schema = search.getManager().getSchema() or {}
+        for idx, flare in enumerate(results[:]):
+            if flare.UID not in original_uids:
+                flare = PloneFlare(flare)
+                for missing in set(schema.stored).difference(flare):
+                    flare[missing] = MV
+                results[idx] = flare
         # Return all results except originals, leaving preferred
         # language translations and untranslated documents:
-        return [
-            PloneFlare(x) for x in search_results
+        filtered_results = [
+            x for x in search_results
             if x.UID not in original_uids
         ]
+        if start:
+            results[0:0] = [None] * start
+        found = int(len(filtered_results))
+        tail = found - len(results)
+        filtered_results.extend([None] * tail)
+        return filtered_results
