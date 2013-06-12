@@ -29,7 +29,6 @@ ROLES_DICT = {'users':          ['Member'],
              }
 
 def dbconfig(event):
-    return
     if conf is None:
         log.error('No product config found! Configuration will not be set')
         return
