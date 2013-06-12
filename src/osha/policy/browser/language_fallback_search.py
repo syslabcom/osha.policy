@@ -1,7 +1,12 @@
 from Missing import MV
 from Products.Five.browser import BrowserView
 from collective.solr.flare import PloneFlare
-from collective.solr.interfaces import ISearch
+from collective.solr.interfaces import ISearch, ISolrConnectionConfig
+from collective.solr.utils import prepareData
+from collective.solr.mangler import (
+    mangleQuery, extractQueryParameters, cleanupQueryParameters,
+    optimizeQueryParameters)
+
 from plone import api
 from zope.component import queryUtility
 
@@ -15,11 +20,8 @@ class LanguageFallbackSearch(BrowserView):
     preferred language where possible, and otherwise return
     English/Lanuage neutral items."""
 
-    def search(self, query):
+    def _mangle_query(self, query):
         lang_tool = api.portal.get_tool("portal_languages")
-        pc = api.portal.get_tool("portal_catalog")
-        rc = api.portal.get_tool("reference_catalog")
-
         # Search for both canonical, langauge-neutral and preferred
         # language translations.
         preferred_lang = lang_tool.getPreferredLanguage()
@@ -27,9 +29,8 @@ class LanguageFallbackSearch(BrowserView):
         if preferred_lang not in languages:
             languages.append(preferred_lang)
         query["Language"] = languages
-
-        portal = api.portal.get()
         if 'path' in query:
+            portal = api.portal.get()
             # Find all language paths that correspond to the given path
             if isinstance(query['path'], dict):
                 path = query['path']['query']
@@ -58,6 +59,13 @@ class LanguageFallbackSearch(BrowserView):
                 query['path']['query'] = path
             else:
                 query['path'] = path
+        return query
+
+    def search(self, query):
+        pc = api.portal.get_tool("portal_catalog")
+        rc = api.portal.get_tool("reference_catalog")
+        query = self._mangle_query(query)
+
         search_results = pc.search(query)
 
         # Find the originals of the preferred language translations:
@@ -88,14 +96,30 @@ class LanguageFallbackSearch(BrowserView):
             return []
         rc = api.portal.get_tool("reference_catalog")
 
-        # Search for both canonical, language-neutral and preferred language
-        # translations.
-        preferred_lang = lang_tool.getPreferredLanguage()
-        languages = ["en", "all"]
-        if preferred_lang not in languages:
-            languages.append(preferred_lang)
-        query = ' '.join((
-            query, "+Language:({0})".format(' OR '.join(languages))))
+        if isinstance(query, dict):
+            # prepare solr query manually
+            args = self._mangle_query(query)
+
+            config = queryUtility(ISolrConnectionConfig)
+            schema = search.getManager().getSchema() or {}
+            params = cleanupQueryParameters(
+                extractQueryParameters(args), schema)
+            prepareData(args)
+            mangleQuery(args, config, schema)
+            query = search.buildQuery(**args)
+            if query != {}:
+                optimizeQueryParameters(query, params)
+            parameters.update(params)
+        else:
+            # Search for both canonical, language-neutral and preferred lang
+            # translations.
+            # XXX MISSING? Mangling the path?
+            preferred_lang = lang_tool.getPreferredLanguage()
+            languages = ["en", "all"]
+            if preferred_lang not in languages:
+                languages.append(preferred_lang)
+            query = ' '.join((
+                query, "+Language:({0})".format(' OR '.join(languages))))
         parameters['rows'] = 100000
         start = parameters.get('start', 0)
         parameters['start'] = 0
