@@ -38,8 +38,10 @@ class LanguageFallbackSearch(BrowserView):
                 path = [path]
 
             for p in path[:]:
-                # api.content.get currently doesn't work when the portal is in a subfolder.
-                # Besides, it does basically the same thing, but looks up the portal every time.
+                # api.content.get currently doesn't work when the portal is
+                # in a subfolder.
+                # Besides, it does basically the same thing, but looks up the
+                # portal every time.
                 ob = portal.restrictedTraverse(p)
                 try:
                     canonical = ob.getCanonical()
@@ -47,7 +49,7 @@ class LanguageFallbackSearch(BrowserView):
                     # Not translated or translateable:
                     continue
                 cpath = '/'.join(canonical.getPhysicalPath())
-                if cpath != p: # Don't add it if it *is* the canonical.
+                if cpath != p:  # Don't add it if it *is* the canonical.
                     path.append(cpath)
 
             # Add the new paths back:
@@ -66,7 +68,16 @@ class LanguageFallbackSearch(BrowserView):
 
         # Return all results except originals, leaving preferred
         # language translations and untranslated documents:
-        return [x for x in search_results if x.UID not in original_uids]
+        results = [x for x in search_results if x.UID not in original_uids]
+
+        # Apply correct sorting
+        if 'sort_on' in query:
+            reverse = query.get('sort_order', '') == 'reverse'
+            key = query['sort_on']
+            results = sorted(
+                results, key=lambda x: getattr(x, key), reverse=reverse)
+
+        return results
 
     def search_solr(self, query, **parameters):
         lang_tool = api.portal.get_tool("portal_languages")
