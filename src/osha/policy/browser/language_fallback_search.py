@@ -102,9 +102,11 @@ class LanguageFallbackSearch(BrowserView):
         query = ' '.join((
             query, "+Language:({0})".format(' OR '.join(languages))))
         parameters['rows'] = 100000
-        start = parameters.get('start', 0)
         parameters['start'] = 0
         search_results = search(query, **parameters)
+        while len(search_results) > parameters['rows']:
+            parameters['rows'] += 100000
+            search_results = search(query, **parameters)
 
         # Find the originals of the preferred language translations:
         translation_uids = [
@@ -129,9 +131,4 @@ class LanguageFallbackSearch(BrowserView):
             x for x in search_results
             if x.UID not in original_uids
         ]
-        if start:
-            results[0:0] = [None] * start
-        found = int(len(filtered_results))
-        tail = found - len(results)
-        filtered_results.extend([None] * tail)
         return filtered_results
