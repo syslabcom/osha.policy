@@ -1,11 +1,7 @@
 from Missing import MV
 from Products.Five.browser import BrowserView
 from collective.solr.flare import PloneFlare
-from collective.solr.interfaces import ISearch, ISolrConnectionConfig
-from collective.solr.utils import prepareData
-from collective.solr.mangler import (
-    mangleQuery, extractQueryParameters, cleanupQueryParameters,
-    optimizeQueryParameters)
+from collective.solr.interfaces import ISearch
 
 from plone import api
 from zope.component import queryUtility
@@ -96,30 +92,15 @@ class LanguageFallbackSearch(BrowserView):
             return []
         rc = api.portal.get_tool("reference_catalog")
 
-        if isinstance(query, dict):
-            # prepare solr query manually
-            args = self._mangle_query(query)
-
-            config = queryUtility(ISolrConnectionConfig)
-            schema = search.getManager().getSchema() or {}
-            params = cleanupQueryParameters(
-                extractQueryParameters(args), schema)
-            prepareData(args)
-            mangleQuery(args, config, schema)
-            query = search.buildQuery(**args)
-            if query != {}:
-                optimizeQueryParameters(query, params)
-            parameters.update(params)
-        else:
-            # Search for both canonical, language-neutral and preferred lang
-            # translations.
-            # XXX MISSING? Mangling the path?
-            preferred_lang = lang_tool.getPreferredLanguage()
-            languages = ["en", "any"]
-            if preferred_lang not in languages:
-                languages.append(preferred_lang)
-            query = ' '.join((
-                query, "+Language:({0})".format(' OR '.join(languages))))
+        # Search for both canonical, language-neutral and preferred lang
+        # translations.
+        # XXX MISSING? Mangling the path?
+        preferred_lang = lang_tool.getPreferredLanguage()
+        languages = ["en", "any"]
+        if preferred_lang not in languages:
+            languages.append(preferred_lang)
+        query = ' '.join((
+            query, "+Language:({0})".format(' OR '.join(languages))))
         parameters['rows'] = 100000
         start = parameters.get('start', 0)
         parameters['start'] = 0
