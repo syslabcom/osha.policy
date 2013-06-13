@@ -115,7 +115,7 @@ class LanguageFallbackSearch(BrowserView):
             # translations.
             # XXX MISSING? Mangling the path?
             preferred_lang = lang_tool.getPreferredLanguage()
-            languages = ["en", "all"]
+            languages = ["en", "any"]
             if preferred_lang not in languages:
                 languages.append(preferred_lang)
             query = ' '.join((
