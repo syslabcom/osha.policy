@@ -77,7 +77,7 @@ class LanguageFallbackSearch(BrowserView):
 
         # Apply correct sorting
         if 'sort_on' in query:
-            reverse = query.get('sort_order', '') == 'reverse'
+            reverse = query.get('sort_order', '') in ['reverse', 'descending']
             key = query['sort_on']
             results = sorted(
                 results, key=lambda x: getattr(x, key), reverse=reverse)
@@ -132,3 +132,4 @@ class LanguageFallbackSearch(BrowserView):
             if x.UID not in original_uids
         ]
         return filtered_results
+
