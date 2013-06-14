@@ -62,7 +62,13 @@ class LanguageFallbackSearch(BrowserView):
         rc = api.portal.get_tool("reference_catalog")
         query = self._mangle_query(query)
 
-        search_results = pc.search(query)
+        # Apply correct sorting
+        key = None
+        reverse = False
+        if 'sort_on' in query:
+            reverse = query.get('sort_order', '') in ['reverse', 'descending']
+            key = query['sort_on']
+        search_results = pc.search(query, sort_index=key, reverse=reverse)
 
         # Find the originals of the preferred language translations:
         translation_uids = [
@@ -74,13 +80,6 @@ class LanguageFallbackSearch(BrowserView):
         # Return all results except originals, leaving preferred
         # language translations and untranslated documents:
         results = [x for x in search_results if x.UID not in original_uids]
-
-        # Apply correct sorting
-        if 'sort_on' in query:
-            reverse = query.get('sort_order', '') in ['reverse', 'descending']
-            key = query['sort_on']
-            results = sorted(
-                results, key=lambda x: getattr(x, key), reverse=reverse)
 
         return results
 
