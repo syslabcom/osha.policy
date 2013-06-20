@@ -4,7 +4,11 @@ osha.policy Changelog
 1.4.22 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Language fallback #7734
+  [lregebro, reinhard, pysailor]
+- Added ellipsis for teasers on homepage #7602 [deroiste]
+- Comment out handle_object_willbe_translated, since we don't have LinguaLinks any more
+  [pysailor]
 
 
 1.4.21 (2013-05-28)
