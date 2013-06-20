@@ -69,23 +69,27 @@ def handle_auto_translated_files(event):
 
 
 def handle_object_willbe_translated(event):
-    object = event.object
-    object = object.getCanonical()
-    language = event.language
-    myLL = None
-    llinks = object.getBRefs('lingualink')
-    for llink in llinks:
-        if llink.Language() == language:
-            myLL = llink
-            break
-    if myLL:
-        try:
-            aq_parent(myLL).manage_delObjects(myLL.getId())
-        except Exception, err:
-            text = "Unable to delete LinguaLink in language "\
-                "'%s' on object %s prior to adding translation" % (
-                language, object.absolute_url())
-            log.warn('%s %s' % (str(err), text))
+    return
+
+    ### We don't check for the existence of lingualinks any more, this is
+    ### deprecated.
+    # object = event.object
+    # object = object.getCanonical()
+    # language = event.language
+    # myLL = None
+    # llinks = object.getBRefs('lingualink')
+    # for llink in llinks:
+    #     if llink.Language() == language:
+    #         myLL = llink
+    #         break
+    # if myLL:
+    #     try:
+    #         aq_parent(myLL).manage_delObjects(myLL.getId())
+    #     except Exception, err:
+    #         text = "Unable to delete LinguaLink in language "\
+    #             "'%s' on object %s prior to adding translation" % (
+    #             language, object.absolute_url())
+    #         log.warn('%s %s' % (str(err), text))
 
 
 # If a canonical object gets saved, reindex all translations to keep the

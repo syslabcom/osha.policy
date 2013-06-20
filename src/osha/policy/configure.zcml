@@ -42,10 +42,10 @@
         factory=".localroles.CheckerRole"
         />
 
-    <subscriber
+    <!--subscriber
         for="Products.LinguaPlone.events.IObjectWillBeTranslatedEvent"
         handler=".handlers.handle_object_willbe_translated"
-        />
+        /-->
 
     <subscriber
         for="Products.Archetypes.interfaces.IBaseContent
