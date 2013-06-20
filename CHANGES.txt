@@ -9,6 +9,7 @@ osha.policy Changelog
 - Added ellipsis for teasers on homepage #7602 [deroiste]
 - Comment out handle_object_willbe_translated, since we don't have LinguaLinks any more
   [pysailor]
+- add collective.portlet.twitter to dependencies, refs #7781 [jure]
 
 
 1.4.21 (2013-05-28)
