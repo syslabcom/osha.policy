@@ -5,7 +5,9 @@ osha.policy Changelog
 -------------------
 
 - Fixed #7855 by making the fallback also ignore TypeErrors + not do
-  the fallback think for resolveuid calls.
+  the fallback think for resolveuid calls. [regebro]
+- Added a shortcut for the solr language fall back search, when 
+  search results are empty. [regebro]
 
 
 1.4.22 (2013-06-24)

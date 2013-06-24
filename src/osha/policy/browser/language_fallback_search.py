@@ -107,6 +107,9 @@ class LanguageFallbackSearch(BrowserView):
             parameters['rows'] += 100000
             search_results = search(query, **parameters)
 
+        if not search_results:
+            return search_results
+
         # Find the originals of the preferred language translations:
         translation_uids = [
             x.UID for x in search_results if x.Language not in ['en', '']]
