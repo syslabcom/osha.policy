@@ -4,7 +4,8 @@ osha.policy Changelog
 1.4.23 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fixed #7855 by making the fallback also ignore TypeErrors + not do
+  the fallback think for resolveuid calls.
 
 
 1.4.22 (2013-06-24)
