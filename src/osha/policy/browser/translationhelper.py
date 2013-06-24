@@ -25,13 +25,17 @@ class TranslationHelper(BrowserView):
         if not url.startswith(portal_url):
             return
 
+        if 'resolveuid' in url:
+            return
+        
+
         # convert to relative url and change the lang folder
         relative_url = url.replace(portal_url, '').strip('/')
         default_url = '/'.join([default] + relative_url.split('/')[1:])
 
         try:
             default_obj = portal.restrictedTraverse(default_url)
-        except (AttributeError, KeyError):
+        except (AttributeError, KeyError, TypeError):
             # the default version of the object was not found
             return
 
@@ -51,11 +55,14 @@ class TranslationHelper(BrowserView):
         if not url.startswith(portal_url):
             return
 
+        if 'resolveuid' in url:
+            return
+
         def _find_url(relative_url):
             try:
                 obj = portal.restrictedTraverse(relative_url)
                 return obj.absolute_url()
-            except (AttributeError, KeyError):
+            except (AttributeError, KeyError, TypeError):
                 #  parent url in this language wasn't found, return portal url
                 if '/' not in relative_url:
                     return portal.absolute_url()
