@@ -229,7 +229,7 @@ def _convert_front_page(
         text = re.sub(
             re.compile('<h2>.{0,9}OSH Blog.*', re.DOTALL), '', text)
 
-    del folder['front-page']
+    del folder[obj.getId()]
 
     # create a new front-page
     folder.invokeFactory(
