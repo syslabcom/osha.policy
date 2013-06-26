@@ -12,7 +12,9 @@ import logging
 log = logging.getLogger('osha.policy.cleanup')
 
 
-ALLOWED_TYPES = ('News Item', 'Event', 'Document', 'RichDocument')
+ALLOWED_TYPES = (
+    'News Item', 'Event', 'Document', 'RichDocument', 'PressRelease', 'Collage'
+)
 ALLOWED_ACTIONS = ('delete', 'make_private', 'make_outdated', 'make_expired')
 
 
