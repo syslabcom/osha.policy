@@ -106,7 +106,7 @@ class CleanupContent(BrowserView):
             path=dict(query=parent_path, depth=-1),
         )
         date_param = dict(query=date, range='max')
-        if portal_type == 'News Item':
+        if portal_type in ('News Item', 'PressRelease', 'Collage'):
             query['effective'] = date_param
         elif portal_type == 'Event':
             query['end'] = date_param
