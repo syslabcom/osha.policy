@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.23 (unreleased)
+1.4.23 (2013-06-26)
 -------------------
 
 - Fixed #7855 by making the fallback also ignore TypeErrors + not do
