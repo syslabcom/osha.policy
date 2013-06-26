@@ -8,6 +8,8 @@ osha.policy Changelog
   the fallback think for resolveuid calls. [regebro]
 - Added a shortcut for the solr language fall back search, when 
   search results are empty. [regebro]
+- Made blog migration more robust [pysailor]
+- Allow PressRelease in Collage in cleanup_content too #7803 [pysailor]
 
 
 1.4.22 (2013-06-24)
