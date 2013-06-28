@@ -4,7 +4,8 @@ osha.policy Changelog
 1.4.25 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Use searchResults() not search() in the language fallback, to make sure
+  permissions are considered [pysailor]
 
 
 1.4.24 (2013-06-27)

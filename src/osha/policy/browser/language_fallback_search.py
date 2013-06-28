@@ -68,7 +68,8 @@ class LanguageFallbackSearch(BrowserView):
         if 'sort_on' in query:
             reverse = query.get('sort_order', '') in ['reverse', 'descending']
             key = query['sort_on']
-        search_results = pc.search(query, sort_index=key, reverse=reverse)
+        search_results = pc.searchResults(
+            query, sort_index=key, reverse=reverse)
 
         # Find the originals of the preferred language translations:
         translation_uids = [
@@ -134,4 +135,3 @@ class LanguageFallbackSearch(BrowserView):
             if x.UID not in original_uids
         ]
         return filtered_results
-
