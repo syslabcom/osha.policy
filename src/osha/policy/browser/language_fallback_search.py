@@ -101,8 +101,10 @@ class LanguageFallbackSearch(BrowserView):
             languages.append(preferred_lang)
         query = ' '.join((
             query, "+Language:({0})".format(' OR '.join(languages))))
-        parameters['rows'] = 100000
-        parameters['start'] = 0
+        if 'rows' not in parameters:
+            parameters['rows'] = 100000
+        if 'start' not in parameters:
+            parameters['start'] = 0
         search_results = search(query, **parameters)
         while len(search_results) > parameters['rows']:
             parameters['rows'] += 100000
