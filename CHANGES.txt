@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.26 (unreleased)
+1.4.26 (2013-07-15)
 -------------------
 
 - Don't set 'rows' or 'start' in the SOLR fallback search if they
