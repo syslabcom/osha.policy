@@ -1,16 +1,17 @@
 from App.config import getConfiguration
 from zope.interface import implements
-from zope.component import getMultiAdapter, getUtility
+# from zope.component import getUtility
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 from urlparse import urljoin
 from osha.policy.browser.interfaces import ILCMaintenanceView
 import zLOG
-from collective.lead.interfaces import IDatabase
+# from collective.lead.interfaces import IDatabase
 import sqlalchemy as sa
-from sqlalchemy.orm import sessionmaker
+# from sqlalchemy.orm import sessionmaker
 from DateTime import DateTime
 import datetime
+
 
 def q(s):
     if s is None:
@@ -19,13 +20,13 @@ def q(s):
 
 
 class LCMaintenanceView(BrowserView):
-    """ Contains the methods to report, retrieve and update the link checker """
+    """Contains the methods to report, retrieve and update the link checker"""
     implements(ILCMaintenanceView)
 
-
     def retrieve_and_notify(self):
-        """ retrieve linkstates from zope to postgres and notify the lms on unregistered links
-            this should be called by a cronjob nightly. """
+        """Retrieve linkstates from zope to postgres and notify the lms on
+        unregistered links this should be called by a cronjob nightly.
+        """
         start = DateTime()
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Starting retrieve_and_notify")
         self.notify_ws()
@@ -35,22 +36,39 @@ class LCMaintenanceView(BrowserView):
             self.update_pg(link_state=state)
 
         stop = DateTime()
-        delta = (stop-start)*84600
-        zLOG.LOG('osha Linkchecker', zLOG.INFO, "Finished transmitting unregistered links to lms after %s seconds."%delta)
+        delta = (stop - start) * 84600
+        zLOG.LOG(
+            'osha Linkchecker',
+            zLOG.INFO,
+            "Finished transmitting unregistered links to lms after "
+            "%s seconds." % delta
+        )
         return "update took %s seconds" % delta
 
     def notify_ws(self):
         """ notify the lms on unregistered links """
         start = DateTime()
-        zLOG.LOG('osha Linkchecker', zLOG.INFO, "Starting to transmit unregistered links to lms")
+        zLOG.LOG(
+            'osha Linkchecker',
+            zLOG.INFO,
+            "Starting to transmit unregistered links to lms"
+        )
         db = self.context.portal_linkchecker.aq_inner.database
         db._updateWSRegistrations()
         stop = DateTime()
-        delta = (stop-start)*84600
-        zLOG.LOG('osha Linkchecker', zLOG.INFO, "Finished transmitting unregistered links to lms after %s seconds."%delta)
+        delta = (stop - start) * 84600
+        zLOG.LOG(
+            'osha Linkchecker',
+            zLOG.INFO,
+            "Finished transmitting unregistered links to lms after "
+            "%s seconds." % delta)
 
-
-    def update_pg(self, link_state='red', path_filter='', multilingual_thesaurus=[], subcategory=[]):
+    def update_pg(
+            self,
+            link_state='red',
+            path_filter='',
+            multilingual_thesaurus=[],
+            subcategory=[]):
         """ export the database to postgres """
         portal_languages = getToolByName(self.context, 'portal_languages')
         self.langs = portal_languages.getSupportedLanguages()
@@ -59,7 +77,10 @@ class LCMaintenanceView(BrowserView):
         conf = configuration.product_config['osha.policy']
         pg_dsn = conf['osha.database']
 
-        zLOG.LOG('osha Linkchecker', zLOG.INFO, "Exporting link state %s to Postgres Database"%link_state)
+        zLOG.LOG(
+            'osha Linkchecker',
+            zLOG.INFO,
+            "Exporting link state %s to Postgres Database" % link_state)
 
         pgengine = sa.create_engine(pg_dsn, client_encoding='utf-8')
         pgconn = pgengine.connect()
@@ -71,20 +92,22 @@ class LCMaintenanceView(BrowserView):
 
         # clear the current table for all items with given state
         #statecol = getattr(checkresults.c, 'state')
-        pgconn.execute("delete from checkresults where state = '%s'" % link_state)
+        pgconn.execute(
+            "delete from checkresults where state = '%s'" % link_state)
 
         #delete = checkresults.delete(statecol==link_state)
         #result = connection.execute(delete)
         sql_ins = """INSERT INTO checkresults (state, document, brokenlink, reason, sitesection, lastcheck, subsite, portal_type) VALUES ('%(state)s', '%(document)s', '%(brokenlink)s', '%(reason)s', '%(sitesection)s', '%(lastcheck)s', '%(subsite)s', '%(portal_type)s') """
         trans = pgconn.begin()
         cnt = 0
-        for item in self.LinksInState(state=link_state,
-                                        b_start=0,
-                                        b_size=-1,
-                                        path_filter=path_filter,
-                                        multilingual_thesaurus=multilingual_thesaurus,
-                                        subcategory=subcategory
-                                        ):
+
+        for item in self.LinksInState(
+                state=link_state,
+                b_start=0,
+                b_size=-1,
+                path_filter=path_filter,
+                multilingual_thesaurus=multilingual_thesaurus,
+                subcategory=subcategory):
             # insert
             doc = item['document']
             docpath = doc.getPath()
@@ -93,20 +116,22 @@ class LCMaintenanceView(BrowserView):
             if subjects == tuple():
                 subjects = ('',)
 
-            # Careful: Here we count one record per section. If a link appears in several sections
-            # it is counted several times. But as people will look at the links from a section perspective
-            # we want the broken links to appear everywhere. A total of all broken links will not be correct
-            # if not done distinct by url and link!!
+            # Careful: Here we count one record per section. If a link appears
+            # in several sections it is counted several times. But as people
+            # will look at the links from a section perspective we want the
+            # broken links to appear everywhere. A total of all broken links
+            # will not be correct if not done distinct by url and link!!
             for subject in subjects:
-                toset = dict(state = link_state,
-                             document = docpath,
-                             brokenlink = q(item["url"]),
-                             reason = item["reason"],
-                             sitesection = subject,
-                             lastcheck = str(item["lastcheck"]) or '',
-                             subsite = self.get_subsite(docpath),
-                             portal_type = portal_type or ''
-                             )
+                toset = dict(
+                    state=link_state,
+                    document=docpath,
+                    brokenlink=q(item["url"]),
+                    reason=item["reason"],
+                    sitesection=subject,
+                    lastcheck=str(item["lastcheck"]) or '',
+                    subsite=self.get_subsite(docpath),
+                    portal_type=portal_type or ''
+                )
                 #ins = checkresults.insert(toset)
                 #result = connection.execute(ins)
                 sql = sql_ins % toset
@@ -114,7 +139,10 @@ class LCMaintenanceView(BrowserView):
                 cnt += 1
                 if cnt % 1000 == 0:
                     ts = datetime.datetime.utcnow()
-                    zLOG.LOG('osha Linkchecker', zLOG.INFO, "%s - Linkstate %s, wrote %s" %(ts, link_state, cnt))
+                    zLOG.LOG(
+                        'osha Linkchecker',
+                        zLOG.INFO,
+                        "%s - Linkstate %s, wrote %s" % (ts, link_state, cnt))
 
         trans.commit()
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Postgres Export Done")
@@ -135,25 +163,39 @@ class LCMaintenanceView(BrowserView):
 
         return 'main'
 
-
-    def LinksInState(self, state, b_start=0, b_size=15, path_filter='', multilingual_thesaurus=[], subcategory=[]):
+    def LinksInState(
+            self,
+            state,
+            b_start=0,
+            b_size=15,
+            path_filter='',
+            multilingual_thesaurus=[],
+            subcategory=[]):
         """Returns a list of links in the given state."""
 
-        multilingual_thesaurus = [ x for x in multilingual_thesaurus if x!= '']
-        if not len(multilingual_thesaurus): multilingual_thesaurus=''
-        subcategory = [ x for x in subcategory if x != '']
+        multilingual_thesaurus = [x for x in multilingual_thesaurus if x != '']
+        if not len(multilingual_thesaurus): multilingual_thesaurus = ''
+        subcategory = [x for x in subcategory if x != '']
         if not len(subcategory): subcategory = ''
 
-        # If one or more filter parameters were passed in, use the filter based method
+        # If one or more filter parameters were passed in, use the filter
+        # based method
         if path_filter or len(multilingual_thesaurus) or len(subcategory):
             portal_url = getToolByName(self.context, 'portal_url')
             if path_filter:
-                portal_path = '/'.join(portal_url.getPortalObject().getPhysicalPath() + ('',))
-                if path_filter[0]=='/': path_filter = path_filter[1:]
+                portal_path = '/'.join(
+                    portal_url.getPortalObject().getPhysicalPath() + ('',))
+                if path_filter[0] == '/': path_filter = path_filter[1:]
                 abspath = urljoin(portal_path, path_filter)
             else:
                 abspath = ''
-            for link, doc, member in self._document_iterator_path(state, b_start, b_size, abspath, multilingual_thesaurus, subcategory):
+            for link, doc, member in self._document_iterator_path(
+                    state,
+                    b_start,
+                    b_size,
+                    abspath,
+                    multilingual_thesaurus,
+                    subcategory):
                 if link is None:
                     yield {}
                     continue
@@ -171,13 +213,15 @@ class LCMaintenanceView(BrowserView):
                 item["owner"] = doc.Creator
                 #else:
                 #    item["owner_mail"] = member.getProperty("email")
-                #    item["owner"] = member.getProperty("fullname", doc.Creator)
+                #    item["owner"] = member.getProperty(
+                #        "fullname", doc.Creator)
 
                 yield item
 
         # Else, use the regular methor for retrieving link
         else:
-            for link, doc, member in self._document_iterator(state, b_start, b_size):
+            for link, doc, member in self._document_iterator(
+                    state, b_start, b_size):
                 if link is None:
                     yield {}
                     continue
@@ -195,19 +239,17 @@ class LCMaintenanceView(BrowserView):
                 item["owner"] = doc.Creator
                 #else:
                 #    item["owner_mail"] = member.getProperty("email")
-                #    item["owner"] = member.getProperty("fullname", doc.Creator)
+                #    item["owner"] = member.getProperty(
+                #        "fullname", doc.Creator)
 
                 yield item
 
-
-
     def _document_iterator(self, state, b_start, b_size):
-
         member_cache = {}
 
         lc = getToolByName(self.context, 'portal_linkchecker')
         catalog = getToolByName(self.context, 'portal_catalog')
-        pms = getToolByName(self.context, 'portal_membership')
+        # pms = getToolByName(self.context, 'portal_membership')
 
         _marker = object()
 
@@ -218,14 +260,14 @@ class LCMaintenanceView(BrowserView):
         for dummy in range(b_start):
             yield None, None, None
 
-        counter =0
+        counter = 0
         valid_cnt = 0
-        if b_size==-1:
-            b_size=len(links)
+        if b_size == -1:
+            b_size = len(links)
 #        for link in links[b_start:b_start+b_size]:
         while (valid_cnt < b_size):
-            ind = b_start+counter
-            if ind>=len(links): break
+            ind = b_start + counter
+            if ind >= len(links): break
             link = links[ind]
             counter += 1
             doc_uid = link.object
@@ -235,7 +277,7 @@ class LCMaintenanceView(BrowserView):
             docs = catalog(UID=doc_uid,
                     Language='all',
                     review_state='published')
-            if not len(docs):continue
+            if not len(docs): continue
             valid_cnt += 1
             for doc in docs:
                 creator = doc.Creator
@@ -245,11 +287,9 @@ class LCMaintenanceView(BrowserView):
                 #    member_cache[creator] = member
                 yield link, doc, member
 
-        invalids = counter-valid_cnt
-        for dummy in range(len(links)-(b_start+b_size+invalids)):
+        invalids = counter - valid_cnt
+        for dummy in range(len(links) - (b_start + b_size + invalids)):
             yield None, None, None
-
-
 
     def _document_iterator_orig(self, state):
         member_cache = {}
@@ -261,7 +301,8 @@ class LCMaintenanceView(BrowserView):
         _marker = object()
 
         links = lc.database.queryLinks(state=[state], sort_on="url")
-        print "reports::_document_iterator, number of links in state %s: %d" %(state, len(links))
+        print "reports::_document_iterator, number of links in " \
+            "state %s: %d" % (state, len(links))
         for link in links:
             doc_uid = link.object
             if not doc_uid:
@@ -271,7 +312,7 @@ class LCMaintenanceView(BrowserView):
                     Language='all',
                     review_state='published')
             if not len(docs):
-                print "no docs for doc_uid ", doc_uid , " of link", [link]
+                print "no docs for doc_uid ", doc_uid, " of link", [link]
             for doc in docs:
                 creator = doc.Creator
                 member = member_cache.get(creator, _marker)
@@ -280,9 +321,14 @@ class LCMaintenanceView(BrowserView):
                     member_cache[creator] = member
                 yield link, doc, member
 
-
-
-    def _document_iterator_path(self, state, b_start, b_size, path_filter, multilingual_thesaurus, subcategory):
+    def _document_iterator_path(
+            self,
+            state,
+            b_start,
+            b_size,
+            path_filter,
+            multilingual_thesaurus,
+            subcategory):
         print "path_filter:", path_filter
         print "multilingual_thesaurus:", multilingual_thesaurus
         print "subcategory:", subcategory
@@ -290,48 +336,47 @@ class LCMaintenanceView(BrowserView):
 
         lc = getToolByName(self.context, 'portal_linkchecker')
         catalog = getToolByName(self.context, 'portal_catalog')
-        pms = getToolByName(self.context, 'portal_membership')
-
         _marker = object()
 
         links = lc.database.queryLinks(state=[state], sort_on="url")
         print "len links before", len(links)
-        filtered_res = catalog( Language='all',
-                review_state='published',
-                path=path_filter,
-                multilingual_thesaurus=multilingual_thesaurus,
-                subcategory=subcategory)
+        filtered_res = catalog(
+            Language='all',
+            review_state='published',
+            path=path_filter,
+            multilingual_thesaurus=multilingual_thesaurus,
+            subcategory=subcategory
+        )
         filtered_uids = [x.UID for x in filtered_res]
         links = [x for x in links if x.object in filtered_uids]
         print "len links after", len(links)
 
-
         for dummy in range(b_start):
             yield None, None, None
 
-        counter =0
+        counter = 0
         valid_cnt = 0
-        if b_size==-1:
-            b_size=len(links)
+        if b_size == -1:
+            b_size = len(links)
 #        for link in links[b_start:b_start+b_size]:
         while (valid_cnt < b_size):
-            ind = b_start+counter
-            if ind>= len(links): break
+            ind = b_start + counter
+            if ind >= len(links): break
             link = links[ind]
-            counter +=1
+            counter += 1
             doc_uid = link.object
             if not doc_uid:
                 continue
             docs = catalog(UID=doc_uid,
                     Language='all',
                     review_state='published')
-            if len(docs)==0: continue
+            if len(docs) == 0: continue
             valid_cnt += 1
             for doc in docs:
                 creator = doc.Creator
                 member = member_cache.get(creator, _marker)
                 yield link, doc, member
 
-        invalids = counter-valid_cnt
-        for dummy in range(len(links)-(b_start+b_size+invalids)):
+        invalids = counter - valid_cnt
+        for dummy in range(len(links) - (b_start + b_size + invalids)):
             yield None, None, None
