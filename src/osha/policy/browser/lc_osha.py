@@ -10,19 +10,33 @@ import sqlalchemy as sa
 import zLOG
 
 
+SQL_INS = (
+    "INSERT INTO checkresults (state, document, brokenlink, reason, "
+    "sitesection, lastcheck, subsite, portal_type) VALUES "
+    "('%(state)s', '%(document)s', '%(brokenlink)s', '%(reason)s', "
+    "'%(sitesection)s', '%(lastcheck)s', '%(subsite)s', '%(portal_type)s');"
+)
+
+
 def q(s):
     if s is None:
         return ''
-    return s.replace('\\', '\\\\').replace("'", "\\'").replace('\r','').replace('\n',' ').replace('%', '%%').replace('"', '\\"').replace('\x00', '')
+    return s.replace('\\', '\\\\').\
+        replace("'", "\\'").\
+        replace('\r', '').\
+        replace('\n', ' ').\
+        replace('%', '%%').\
+        replace('"', '\\"').\
+        replace('\x00', '')
 
 
 class LCMaintenanceView(BrowserView):
-    """Contains the methods to report, retrieve and update the link checker"""
+    """Contains the methods to report, retrieve and update the link checker."""
     implements(ILCMaintenanceView)
 
     def retrieve_and_notify(self):
         """Retrieve linkstates from zope to postgres and notify the lms on
-        unregistered links this should be called by a cronjob nightly.
+        unregistered links. This should be called by a cronjob nightly.
         """
         start = DateTime()
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Starting retrieve_and_notify")
@@ -43,7 +57,7 @@ class LCMaintenanceView(BrowserView):
         return "update took %s seconds" % delta
 
     def notify_ws(self):
-        """ notify the lms on unregistered links """
+        """Notify the lms on unregistered links."""
         start = DateTime()
         zLOG.LOG(
             'osha Linkchecker',
@@ -61,7 +75,7 @@ class LCMaintenanceView(BrowserView):
             "%s seconds." % delta)
 
     def update_pg(self, link_state='red'):
-        """ export the database to postgres """
+        """Export the database to postgres."""
         portal_languages = getToolByName(self.context, 'portal_languages')
         self.langs = portal_languages.getSupportedLanguages()
         self.portal_path = self.context.portal_url.getPortalPath()
@@ -82,7 +96,6 @@ class LCMaintenanceView(BrowserView):
             "delete from checkresults where state = '%s'" % link_state)
 
         sql = ""
-        sql_ins = """INSERT INTO checkresults (state, document, brokenlink, reason, sitesection, lastcheck, subsite, portal_type) VALUES ('%(state)s', '%(document)s', '%(brokenlink)s', '%(reason)s', '%(sitesection)s', '%(lastcheck)s', '%(subsite)s', '%(portal_type)s');"""
         cnt = 0
 
         for item in self.links_in_state(state=link_state):
@@ -109,7 +122,7 @@ class LCMaintenanceView(BrowserView):
                     subsite=self.get_subsite(docpath),
                     portal_type=portal_type or ''
                 )
-                sql = sql + (sql_ins % toset).decode('utf-8')
+                sql = sql + (SQL_INS % toset).decode('utf-8')
                 cnt += 1
                 if cnt % 1000 == 0:
                     with pgconn.begin():

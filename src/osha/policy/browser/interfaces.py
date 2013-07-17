@@ -154,20 +154,17 @@ class ILCMaintenanceView(Interface):
 
     def retrieve_and_notify():
         """Retrieve linkstates from zope to postgres and notify the lms on
-        unregistered links this should be called by a cronjob nightly.
+        unregistered links. This should be called by a cronjob nightly.
         """
 
     def notify_ws():
         """Notify the lms on unregistered links."""
 
-    def update_pg(link_state='red', path_filter='',
-                  multilingual_thesaurus=[], subcategory=[]):
+    def update_pg(link_state='red'):
         """Export the database to postgres."""
 
-    def LinksInState(state, b_start=0, b_size=15, path_filter='',
-                     multilingual_thesaurus=[], subcategory=[]):
-        """Returns a list of links in the given state. It is possible to
-        pass several filer parameters to narrow down the result."""
+    def links_in_state(state):
+        """Return a generator with links in the given state."""
 
 
 class IReportAbuse(Interface):
