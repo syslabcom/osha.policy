@@ -13,7 +13,6 @@ import datetime
 import sqlalchemy as sa
 import zLOG
 
-
 def q(s):
     if s is None:
         return ''
@@ -98,8 +97,8 @@ class LCMaintenanceView(BrowserView):
 
         #delete = checkresults.delete(statecol==link_state)
         #result = connection.execute(delete)
-        sql_ins = """INSERT INTO checkresults (state, document, brokenlink, reason, sitesection, lastcheck, subsite, portal_type) VALUES ('%(state)s', '%(document)s', '%(brokenlink)s', '%(reason)s', '%(sitesection)s', '%(lastcheck)s', '%(subsite)s', '%(portal_type)s') """
-        trans = pgconn.begin()
+        sql = ""
+        sql_ins = """INSERT INTO checkresults (state, document, brokenlink, reason, sitesection, lastcheck, subsite, portal_type) VALUES ('%(state)s', '%(document)s', '%(brokenlink)s', '%(reason)s', '%(sitesection)s', '%(lastcheck)s', '%(subsite)s', '%(portal_type)s');"""
         cnt = 0
 
         for item in self.LinksInState(
@@ -109,7 +108,6 @@ class LCMaintenanceView(BrowserView):
                 path_filter=path_filter,
                 multilingual_thesaurus=multilingual_thesaurus,
                 subcategory=subcategory):
-            # insert
             doc = item['document']
             docpath = doc.getPath()
             subjects = doc.Subject or tuple()
@@ -133,19 +131,24 @@ class LCMaintenanceView(BrowserView):
                     subsite=self.get_subsite(docpath),
                     portal_type=portal_type or ''
                 )
-                #ins = checkresults.insert(toset)
-                #result = connection.execute(ins)
-                sql = sql_ins % toset
-                pgconn.execute(sql)
+                sql = sql + (sql_ins % toset).decode('utf-8')
                 cnt += 1
                 if cnt % 1000 == 0:
+                    with pgconn.begin():
+                        pgconn.execute(sql)
+                    sql = ''
                     ts = datetime.datetime.utcnow()
                     zLOG.LOG(
                         'osha Linkchecker',
                         zLOG.INFO,
                         "%s - Linkstate %s, wrote %s" % (ts, link_state, cnt))
 
-        trans.commit()
+        # execute the remaining insert statements (that were not done as part
+        # of the 1k batch)
+        if sql:
+            with pgconn.begin():
+                pgconn.execute(sql)
+
         zLOG.LOG('osha Linkchecker', zLOG.INFO, "Postgres Export Done")
 
     def get_subsite(self, path):
