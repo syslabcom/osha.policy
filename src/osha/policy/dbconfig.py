@@ -179,15 +179,23 @@ def dbconfig(event):
     # Memcached
     cache = plone.get('RAMCache', None)
     if not cache.__class__.__name__ == 'MemcachedManager':
-        plone._delObject('RAMCache')
-        plone.manage_addProduct['MemcachedManager'].manage_addMemcachedManager('RAMCache')
-        cache = plone.get('RAMCache', None)
-        log.debug('Replaced RAMCache with Memcached')
-    settings = plone.get('RAMCache', None).getSettings()
-    if settings['servers'] != [conf.get('memcached')]:
-        settings['servers'] = [conf.get('memcached')]
-        cache.manage_editProps('Memcached Manager', settings=settings)
-    log.debug('memcached configured')
+        try:
+            plone._delObject('RAMCache')
+            plone.manage_addProduct['MemcachedManager'].manage_addMemcachedManager('RAMCache')
+            cache = plone.get('RAMCache', None)
+            log.debug('Replaced RAMCache with Memcached')
+        except Exception, ramcacheex:
+            log.debug('Error while replacing RAMCache with Memcached (%s). This is ok if this is a dev machine' % ramcacheex)
+
+    try:
+        settings = plone.get('RAMCache', None).getSettings()
+        if settings['servers'] != [conf.get('memcached')]:
+            settings['servers'] = [conf.get('memcached')]
+            cache.manage_editProps('Memcached Manager', settings=settings)
+        log.debug('memcached configured')
+    except Exception, settingsex:
+        settings = {}
+        log.debug('Error while configuring Memcached (%s). This is ok if this is a dev machine' % settingsex)
 
     # Linkchecker
     lc = getToolByName(plone, 'portal_linkchecker')
