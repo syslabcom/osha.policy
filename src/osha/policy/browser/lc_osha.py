@@ -6,9 +6,10 @@ from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
 
 import datetime
+import logging
 import sqlalchemy as sa
-import zLOG
 
+logger = logging.getLogger('osha.policy.browser.lc_osha')
 
 SQL_INS = (
     "INSERT INTO checkresults (state, document, brokenlink, reason, "
@@ -39,7 +40,7 @@ class LCMaintenanceView(BrowserView):
         unregistered links. This should be called by a cronjob nightly.
         """
         start = DateTime()
-        zLOG.LOG('osha Linkchecker', zLOG.INFO, "Starting retrieve_and_notify")
+        logger.info("Starting retrieve_and_notify")
         self.notify_ws()
 
         states = ('orange', 'green', 'grey', 'red')
@@ -48,9 +49,7 @@ class LCMaintenanceView(BrowserView):
 
         stop = DateTime()
         delta = (stop - start) * 84600
-        zLOG.LOG(
-            'osha Linkchecker',
-            zLOG.INFO,
+        logger.info(
             "Finished transmitting unregistered links to lms after "
             "%s seconds." % delta
         )
@@ -59,20 +58,15 @@ class LCMaintenanceView(BrowserView):
     def notify_ws(self):
         """Notify the lms on unregistered links."""
         start = DateTime()
-        zLOG.LOG(
-            'osha Linkchecker',
-            zLOG.INFO,
-            "Starting to transmit unregistered links to lms"
-        )
+        logger.info("Starting to transmit unregistered links to lms")
         db = self.context.portal_linkchecker.aq_inner.database
         db._updateWSRegistrations()
         stop = DateTime()
         delta = (stop - start) * 84600
-        zLOG.LOG(
-            'osha Linkchecker',
-            zLOG.INFO,
+        logger.info(
             "Finished transmitting unregistered links to lms after "
-            "%s seconds." % delta)
+            "%s seconds." % delta
+        )
 
     def update_pg(self, link_state='red'):
         """Export the database to postgres."""
@@ -83,9 +77,7 @@ class LCMaintenanceView(BrowserView):
         conf = configuration.product_config['osha.policy']
         pg_dsn = conf['osha.database']
 
-        zLOG.LOG(
-            'osha Linkchecker',
-            zLOG.INFO,
+        logger.info(
             "Exporting link state %s to Postgres Database" % link_state)
 
         pgengine = sa.create_engine(pg_dsn, client_encoding='utf-8')
@@ -129,9 +121,7 @@ class LCMaintenanceView(BrowserView):
                         pgconn.execute(sql)
                     sql = ''
                     ts = datetime.datetime.utcnow()
-                    zLOG.LOG(
-                        'osha Linkchecker',
-                        zLOG.INFO,
+                    logger.info(
                         "%s - Linkstate %s, wrote %s" % (ts, link_state, cnt))
 
         # execute the remaining insert statements (that were not done as part
@@ -140,7 +130,7 @@ class LCMaintenanceView(BrowserView):
             with pgconn.begin():
                 pgconn.execute(sql)
 
-        zLOG.LOG('osha Linkchecker', zLOG.INFO, "Postgres Export Done")
+        logger.info("Postgres Export Done")
 
     def get_subsite(self, path):
         path = path.replace(self.portal_path, '')
