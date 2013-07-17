@@ -103,7 +103,7 @@ _("heading_napo-018-no-laughing-matter-episode-003-shining-example", default=u"S
 _("heading_napo-018-no-laughing-matter-episode-004-hidden-hazards", default=u"Hidden hazards")
 _("heading_napo-018-no-laughing-matter-episode-005-report-it", default=u"Report it!")
 _("heading_napo-018-no-laughing-matter-episode-006-cold-case", default=u"Cold case")
-_("heading_napo-018-no-laughing-matter-episode-006-reality-tv", default=u"Reality TV")
+_("heading_napo-018-no-laughing-matter-episode-007-reality-tv", default=u"Reality TV")
 _("label_napo_click_to_see_film")
 _("napo_back_to_lesson")
 _("title_napo_episode_12_1", default="Chemical risks at work")
