@@ -129,6 +129,8 @@ class LCMaintenanceView(BrowserView):
         if sql:
             with pgconn.begin():
                 pgconn.execute(sql)
+            ts = datetime.datetime.utcnow()
+            logger.info("%s - Linkstate %s, wrote %s" % (ts, link_state, cnt))
 
         logger.info("Postgres Export Done")
 
