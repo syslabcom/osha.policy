@@ -140,13 +140,15 @@ class LanguageFallbackSearch(BrowserView):
         translation_map = {}  # used to store translations under the uid of the canonical
         # create a map where every translation is stored under the UID of the canonical
         for t in translations:
+            if t.Language != preferred_lang:
+                continue
             target_map[t['targetUID']] = t['sourceUID']
             source_map[t['sourceUID']] = t['targetUID']
 
         # search for the full brains of the translations
         i+=1;log.warn('Step %s at %s' % (i, DateTime()))
         if target_map:
-            t_query = "UID: (%s)" % ' OR '.join(target_map.values())
+            t_query = "Language:%s AND UID: (%s)" % (preferred_lang, ' OR '.join(target_map.values()))
             translation_response = search(t_query)
             for item in translation_response:
                 targetUID = source_map[item.UID]
