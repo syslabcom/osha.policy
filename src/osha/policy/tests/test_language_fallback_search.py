@@ -45,10 +45,12 @@ class TestLanguageFallbackSearch(unittest.TestCase):
         self.assertEqual(set([x.getPath() for x in results]),
                          set(['/plone/en-de', '/plone/en-de/en-event', '/plone/en/notrans-event']))
 
-    @unittest.skip("using brains instead of flares fails with KeyError: 'htmltext_lexicon'")
+    @unittest.skip("using brains instead of flares fails with KeyError: 'htmltext_lexicon'."\
+            "Reason is that solr is not actually called but the results come from ZCatalog.")
     def test_fallback_search_solr(self):
         """Should work as test_fallback_search, but based on the native solr
            search utility """
+
         pc = api.portal.get_tool("portal_catalog")
         mock_results = SolrResponse()
         mock_results.response = pc({"path": {"query": "/plone/en-de"}})

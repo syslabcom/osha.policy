@@ -4,7 +4,9 @@ osha.policy Changelog
 1.4.27 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- rewrote search_solr to only operate on the actual result set. So if you only
+  search for 10 items, you get them really quick. If you search for 100000, it
+    will still be slow. (pilz)
 
 
 1.4.26 (2013-07-15)

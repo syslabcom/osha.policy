@@ -3,6 +3,9 @@ from Products.Five.browser import BrowserView
 from collective.solr.flare import PloneFlare
 from collective.solr.interfaces import ISearch
 
+from collective.solr.utils import padResults
+from DateTime import DateTime
+
 from plone import api
 from zope.component import queryUtility
 
@@ -92,48 +95,79 @@ class LanguageFallbackSearch(BrowserView):
             return []
         rc = api.portal.get_tool("reference_catalog")
 
-        # Search for both canonical, language-neutral and preferred lang
-        # translations.
-        # XXX MISSING? Mangling the path?
         preferred_lang = lang_tool.getPreferredLanguage()
         languages = ["en", "any"]
-        if preferred_lang not in languages:
-            languages.append(preferred_lang)
+
+
+        # Speed approach
+        # Search for all en and neutral items with a given batch size
+        # if current language in en, return
+        # Take the found items and feed their UID into the reference catalog
+        # Look up any items that are translations of these in the current language
+        # replace the items with their translations
+        # pad the result
+        # return
         query = ' '.join((
             query, "+Language:({0})".format(' OR '.join(languages))))
+        i = 0
+        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
+        
         if 'rows' not in parameters:
             parameters['rows'] = 100000
         if 'start' not in parameters:
             parameters['start'] = 0
-        search_results = search(query, **parameters)
-        while len(search_results) > parameters['rows']:
-            parameters['rows'] += 100000
-            search_results = search(query, **parameters)
 
-        if not search_results:
-            return search_results
+        solr_response = search(query, **parameters)
+        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
 
-        # Find the originals of the preferred language translations:
-        translation_uids = [
-            x.UID for x in search_results if x.Language not in ['en', '']]
-        originals = rc.search({
-            "relationship": "translationOf",
-            "sourceUID": translation_uids,
-        })
-        original_uids = [x.targetUID for x in originals]
+        if not solr_response:
+            return solr_response
 
-        results = search_results.results()
+        results = solr_response.results()
         schema = search.getManager().getSchema() or {}
-        for idx, flare in enumerate(results[:]):
-            if flare.UID not in original_uids:
+
+
+        #found_results = results[parameters[start]:parameters[start]+parameters[rows]]
+        original_uids = [x.UID for x in results]
+
+        translations = rc.search({
+            "relationship": "translationOf",
+            "targetUID": original_uids,
+        })
+        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
+        target_map = {}       # maps canonicals to translations
+        source_map = {}       # maps translations to canonicals
+        translation_map = {}  # used to store translations under the uid of the canonical
+        # create a map where every translation is stored under the UID of the canonical
+        for t in translations:
+            target_map[t['targetUID']] = t['sourceUID']
+            source_map[t['sourceUID']] = t['targetUID']
+
+        # search for the full brains of the translations
+        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
+        if target_map:
+            t_query = "UID: (%s)" % ' OR '.join(target_map.values())
+            translation_response = search(t_query)
+            for item in translation_response:
+                targetUID = source_map[item.UID]
+                if item.Language == preferred_lang:
+                    translation_map[targetUID] = item
+
+
+        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
+        for idx, flare in enumerate(results):
+            if flare.UID not in translation_map.keys():
                 flare = PloneFlare(flare)
-                for missing in set(schema.stored).difference(flare):
-                    flare[missing] = MV
-                results[idx] = flare
-        # Return all results except originals, leaving preferred
-        # language translations and untranslated documents:
-        filtered_results = [
-            x for x in search_results
-            if x.UID not in original_uids
-        ]
-        return filtered_results
+            else:
+                flare = PloneFlare(translation_map[flare.UID])
+
+            for missing in set(schema.stored).difference(flare):
+                flare[missing] = MV
+            results[idx] = flare
+
+        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
+        padResults(results, **parameters)
+        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
+
+        return solr_response
+
