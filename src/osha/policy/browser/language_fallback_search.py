@@ -4,7 +4,6 @@ from collective.solr.flare import PloneFlare
 from collective.solr.interfaces import ISearch
 
 from collective.solr.utils import padResults
-from DateTime import DateTime
 
 from plone import api
 from zope.component import queryUtility
@@ -98,7 +97,6 @@ class LanguageFallbackSearch(BrowserView):
         preferred_lang = lang_tool.getPreferredLanguage()
         languages = ["en", "any"]
 
-
         # Speed approach
         # * Search for all en and neutral items with a given batch size
         # * If current language is en: return
@@ -110,8 +108,6 @@ class LanguageFallbackSearch(BrowserView):
         # * Return result
         query = ' '.join((
             query, "+Language:({0})".format(' OR '.join(languages))))
-        i = 0
-        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
 
         if 'rows' not in parameters:
             parameters['rows'] = 100000
@@ -119,7 +115,6 @@ class LanguageFallbackSearch(BrowserView):
             parameters['start'] = 0
 
         solr_response = search(query, **parameters)
-        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
 
         if not solr_response:
             return solr_response
@@ -127,19 +122,22 @@ class LanguageFallbackSearch(BrowserView):
         results = solr_response.results()
         schema = search.getManager().getSchema() or {}
 
-
-        #found_results = results[parameters[start]:parameters[start]+parameters[rows]]
+        #found_results = results[
+        #    parameters[start]:parameters[start]+parameters[rows]]
         original_uids = [x.UID for x in results]
 
         translations = rc.search({
             "relationship": "translationOf",
             "targetUID": original_uids,
         })
-        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
-        target_map = {}       # maps canonicals to translations
-        source_map = {}       # maps translations to canonicals
-        translation_map = {}  # used to store translations under the uid of the canonical
-        # create a map where every translation is stored under the UID of the canonical
+        # maps canonicals to translations
+        target_map = {}
+        # maps translations to canonicals
+        source_map = {}
+        # used to store translations under the uid of the canonical
+        translation_map = {}
+        # create a map where every translation is stored under the UID
+        # of the canonical
         for t in translations:
             if t.Language != preferred_lang:
                 continue
@@ -147,17 +145,15 @@ class LanguageFallbackSearch(BrowserView):
             source_map[t['sourceUID']] = t['targetUID']
 
         # search for the full brains of the translations
-        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
         if target_map:
-            t_query = "Language:%s AND UID: (%s)" % (preferred_lang, ' OR '.join(target_map.values()))
+            t_query = "Language:%s AND UID: (%s)" % (
+                preferred_lang, ' OR '.join(target_map.values()))
             translation_response = search(t_query)
             for item in translation_response:
                 targetUID = source_map[item.UID]
                 if item.Language == preferred_lang:
                     translation_map[targetUID] = item
 
-
-        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
         for idx, flare in enumerate(results):
             if flare.UID not in translation_map.keys():
                 flare = PloneFlare(flare)
@@ -168,9 +164,6 @@ class LanguageFallbackSearch(BrowserView):
                 flare[missing] = MV
             results[idx] = flare
 
-        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
         padResults(results, **parameters)
-        i+=1;log.warn('Step %s at %s' % (i, DateTime()))
 
         return solr_response
-
