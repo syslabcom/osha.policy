@@ -100,18 +100,19 @@ class LanguageFallbackSearch(BrowserView):
 
 
         # Speed approach
-        # Search for all en and neutral items with a given batch size
-        # if current language in en, return
-        # Take the found items and feed their UID into the reference catalog
-        # Look up any items that are translations of these in the current language
-        # replace the items with their translations
-        # pad the result
-        # return
+        # * Search for all en and neutral items with a given batch size
+        # * If current language is en: return
+        # * Take the found items and feed their UIDs into the reference catalog
+        # * Look up any items that are translations of these in the current
+        #    language
+        # * Replace the items with their translations
+        # * Pad the result
+        # * Return result
         query = ' '.join((
             query, "+Language:({0})".format(' OR '.join(languages))))
         i = 0
         i+=1;log.warn('Step %s at %s' % (i, DateTime()))
-        
+
         if 'rows' not in parameters:
             parameters['rows'] = 100000
         if 'start' not in parameters:
