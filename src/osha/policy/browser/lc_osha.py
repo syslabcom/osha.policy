@@ -179,7 +179,7 @@ class LCMaintenanceView(BrowserView):
             if not doc_uid:
                 print "continue, no doc_uid"
                 continue
-            docs = catalog(
+            docs = catalog._cs_old_unrestrictedSearchResults(
                 UID=doc_uid,
                 Language='all',
                 review_state='published'
