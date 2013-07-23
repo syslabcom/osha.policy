@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.27 (unreleased)
+1.4.27 (2013-07-23)
 -------------------
 
 - rewrote search_solr to only operate on the actual result set. So if you only
