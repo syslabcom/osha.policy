@@ -1,0 +1,34 @@
+include *.csv
+include *.lst
+include *.py
+include *.txt
+include *.xls
+include *.xml
+include base.cfg
+include buildout.cfg
+include buildout3.3rc4.cfg
+include development.cfg
+include pinned_versions.cfg
+include versions-osha-3.3.4.cfg
+recursive-include docs *.EUPL
+recursive-include docs *.GPL
+recursive-include docs *.txt
+recursive-include src *.cpt
+recursive-include src *.cpy
+recursive-include src *.gif
+recursive-include src *.html
+recursive-include src *.jpg
+recursive-include src *.metadata
+recursive-include src *.props
+recursive-include src *.pt
+recursive-include src *.py
+recursive-include src *.skos
+recursive-include src *.ttf
+recursive-include src *.txt
+recursive-include src *.vdex
+recursive-include src *.vpy
+recursive-include src *.xml
+recursive-include src *.zcml
+recursive-include tools *.py
+recursive-include tools *.sed
+recursive-include tools *.sh
