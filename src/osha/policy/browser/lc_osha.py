@@ -92,8 +92,8 @@ class LCMaintenanceView(BrowserView):
 
         for item in self.links_in_state(state=link_state):
             doc = item['document']
-            docpath = doc.getPath()
-            subjects = doc.Subject or tuple()
+            docpath =  '/'.join(doc.getPhysicalPath()).decode('utf-8')
+            subjects = doc.Subject() or tuple()
             portal_type = doc.portal_type
             if subjects == tuple():
                 subjects = ('',)
@@ -107,14 +107,14 @@ class LCMaintenanceView(BrowserView):
                 toset = dict(
                     state=link_state,
                     document=docpath,
-                    brokenlink=q(item["url"]),
+                    brokenlink=q(item["url"]).decode('utf-8'),
                     reason=item["reason"],
                     sitesection=subject,
                     lastcheck=str(item["lastcheck"]) or '',
                     subsite=self.get_subsite(docpath),
                     portal_type=portal_type or ''
                 )
-                sql = sql + (SQL_INS % toset).decode('utf-8')
+                sql = sql + (SQL_INS % toset)
                 cnt += 1
                 if cnt % 1000 == 0:
                     with pgconn.begin():
@@ -172,19 +172,12 @@ class LCMaintenanceView(BrowserView):
     def _document_iterator(self, state):
         catalog = getToolByName(self.context, 'portal_catalog')
         lc = getToolByName(self.context, 'portal_linkchecker')
+        references = getToolByName(self, "reference_catalog")
+
         links = lc.database.queryLinks(state=[state], sort_on="url")
 
         for link in links:
-            doc_uid = link.object
-            if not doc_uid:
-                print "continue, no doc_uid"
+            doc = references.lookupObject(link.object)
+            if not doc:
                 continue
-            docs = catalog._cs_old_unrestrictedSearchResults(
-                UID=doc_uid,
-                Language='all',
-                review_state='published'
-            )
-            if not len(docs):
-                continue
-            for doc in docs:
-                yield link, doc
+            yield link, doc
