@@ -4,7 +4,11 @@ osha.policy Changelog
 1.4.28 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- fix #8008: update link checker (lc_maintenance) view to use the
+  reference_catalog instead of normal catalog to fetch the objects. This
+  improves perfomance when used together with LDAP. Also cleaned up and
+  removed old unused code.
+  [jcerjak]
 
 
 1.4.27 (2013-07-23)
