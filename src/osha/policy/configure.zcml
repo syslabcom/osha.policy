@@ -144,5 +144,14 @@
         handler=".upgrades.rearrange_blog"
         />
 
+    <genericsetup:upgradeStep
+        source="7"
+        destination="8"
+        title="Migrate comments"
+        description="Migrate comments to p.a.discussion comments"
+        profile="osha.policy:default"
+        handler=".upgrades.migrate_comments"
+        />
+
 </configure>
 

@@ -4,7 +4,8 @@ osha.policy Changelog
 1.4.28 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- #7716 comment notifications: add upgrade step to migrate
+  p.a.discussion items [deroiste]
 
 
 1.4.27 (2013-07-23)
