@@ -4,6 +4,12 @@ osha.policy Changelog
 1.4.28 (unreleased)
 -------------------
 
+- fix #8008: updated link checker (lc_maintenance) view to use the
+  reference_catalog instead of normal catalog to fetch the objects. This
+  improves perfomance when used together with LDAP. Also improved perfomance
+  of writing to postgres db by executing and commiting insert statements in
+  batches of 1000. Cleaned up and removed old unused code.
+  [jcerjak]
 - #7716 comment notifications: add upgrade step to migrate
   p.a.discussion items [deroiste]
 
