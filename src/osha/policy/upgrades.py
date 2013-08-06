@@ -365,7 +365,9 @@ def migrate_comments(context):
 
     # Find content
     brains = catalog.searchResults(
-        object_provides='Products.CMFCore.interfaces._content.IContentish')
+        object_provides='Products.CMFCore.interfaces._content.IContentish',
+        path={"query": "/osha/portal/en/about/director_corner"},
+    )
     log("Found %s content objects." % len(brains))
 
     count_discussion_items = len(catalog.searchResults(
