@@ -12,7 +12,8 @@ osha.policy Changelog
   [jcerjak]
 - #7716 comment notifications: add upgrade step to migrate
   p.a.discussion items [deroiste]
-- Added Products.LoginLockout and Products.PasswordStrength to requirements.
+- Added Products.LoginLockout and Products.PasswordStrength to requirements,
+  plus upgrade-step to install and configure them.
   #7594, #7595 [regebro]
 
 
