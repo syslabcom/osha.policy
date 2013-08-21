@@ -271,6 +271,9 @@ _("transport")
 _("whp")
 _("worker_participation")
 _("young_people")
+_("Practical Solutions, Good Practice")
+_("Campaign 2012-2013")
+
 
 # Already in the osha.pot file and translated
 _("osha_label_press_and_multimedia")
