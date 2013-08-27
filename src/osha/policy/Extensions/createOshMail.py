@@ -71,12 +71,13 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
     # The 2-column lay-out is now merged into ONE row to have greatest
     # possible flexibility for the right column.
     # The lay-out is now:
-    # Teaser          || Social Media
-    # Highlights      || News
-    # Did you know    || Events
-    # Site in focus   ||
-    # Press releases  ||
-    # Publications    ||
+    # Highlights     || Social Media
+    # Did you know   || News
+    # Site in focus  || Events
+    # Campaign News  ||
+    # Press releases ||
+    # Publications   ||
+    # Coming soon    ||
     
     # row 1
     row1, col1_1 = insertRow(om)
@@ -113,15 +114,6 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         manager.setLayout('right_column')
 
     # Left column
-    # Teasers
-    path = "en/news/oshmail/latest-news"
-    abspath = urljoin(portal_path(self), path)
-    uid = getUIDForPath(pc, abspath)
-    if uid:
-        alias = insertAlias(col1_1, uid)
-        manager = IDynamicViewManager(alias)
-        manager.setLayout('oshmail')
-
     # Highlights
     path = "en/news/oshmail/highlights"
     abspath = urljoin(portal_path(self), path)
@@ -149,6 +141,15 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         manager = IDynamicViewManager(alias)
         manager.setLayout('oshmail')
 
+    # Campaign News
+    path = "en/news/oshmail/campaign-news"
+    abspath = urljoin(portal_path(self), path)
+    uid = getUIDForPath(pc, abspath)
+    if uid:
+        alias = insertAlias(col1_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
+
     # Press releases
     path = "en/news/oshmail/read-our-latest-press-releases"
     abspath = urljoin(portal_path(self), path)
@@ -160,6 +161,15 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
 
     # Publications
     path = "en/news/oshmail/read-our-latest-publications"
+    abspath = urljoin(portal_path(self), path)
+    uid = getUIDForPath(pc, abspath)
+    if uid:
+        alias = insertAlias(col1_1, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('oshmail')
+
+    # Coming soon
+    path = "en/news/oshmail/coming-soon"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
     if uid:
