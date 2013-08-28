@@ -91,6 +91,7 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
     if uid:
+
         alias = insertAlias(col1_2, uid)
         manager = IDynamicViewManager(alias)
         manager.setLayout('text')
@@ -106,6 +107,15 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
 
     # Events
     path = "en/news/oshmail/events"
+    abspath = urljoin(portal_path(self), path)
+    uid = getUIDForPath(pc, abspath)
+    if uid:
+        alias = insertAlias(col1_2, uid)
+        manager = IDynamicViewManager(alias)
+        manager.setLayout('right_column')
+
+    # Blog
+    path = "en/news/oshmail/blog"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
     if uid:
@@ -243,6 +253,8 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         events = pc(query)
         for ob in events[:15]:
             alias = insertAlias(col1_2, ob.UID)
+            col1_2.moveObjectsUp(alias.id)
+            cmfutils.getToolByName(self, 'plone_utils').reindexOnReorder(col1_2)
 
 #        # press releases
 #
@@ -278,6 +290,20 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
         msg = "Collage template including content was successfully created"
     else:
         msg = "Collage template was successfully created"
+
+
+    # Add the most recent blog entry to the Highlights section
+    query = dict(
+        portal_type=['Blog Entry'],
+        review_state='published',
+        sort_on='effective',
+        sort_order='reverse',
+        Language=['', 'en'],
+    )
+    latest_blog_entry = pc(query)[0]
+    alias = insertAlias(col1_2, latest_blog_entry.UID)
+    manager = IDynamicViewManager(alias)
+    manager.setLayout('right_column')
 
     om.reindexObject()
     self.plone_utils.addPortalMessage(msg)
