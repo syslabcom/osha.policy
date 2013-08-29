@@ -190,6 +190,11 @@ def createOshMail(self, id="", title="", formname="", year='', month='', day='',
 
     # row 6 (subscription info, tell a friend)
     row6, col6_1 = insertRow(om)
+    path = "en/news/oshmail/more-oshmail"
+    abspath = urljoin(portal_path(self), path)
+    uid = getUIDForPath(pc, abspath)
+    if uid:
+        alias = insertAlias(col6_1, uid)
     path = "en/news/oshmail/subscription-information"
     abspath = urljoin(portal_path(self), path)
     uid = getUIDForPath(pc, abspath)
