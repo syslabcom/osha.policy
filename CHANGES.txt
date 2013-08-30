@@ -4,8 +4,7 @@ osha.policy Changelog
 1.4.29 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Added osha.applicationform as dependency again [pysailor]
 
 1.4.28 (2013-08-21)
 -------------------
