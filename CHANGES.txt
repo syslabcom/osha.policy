@@ -4,8 +4,7 @@ osha.policy Changelog
 1.4.30 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Updated jsregistry with scripts needed for plone.app.discussion [pysailor]
 
 1.4.29 (2013-08-30)
 -------------------
