@@ -3181,31 +3181,61 @@
   <term>
     <termIdentifier>Campaign 2012-13</termIdentifier>
     <caption>
-      <langstring language="en">Campaign 2012-13</langstring>
-      <langstring language="bg">Campaign 2012-13</langstring>
-      <langstring language="cs">Campaign 2012-13</langstring>
-      <langstring language="da">Campaign 2012-13</langstring>
-      <langstring language="de">Campaign 2012-13</langstring>
-      <langstring language="el">Campaign 2012-13</langstring>
-      <langstring language="es">Campaign 2012-13</langstring>
-      <langstring language="et">Campaign 2012-13</langstring>
-      <langstring language="fi">Campaign 2012-13</langstring>
-      <langstring language="fr">Campaign 2012-13</langstring>
-      <langstring language="hu">Campaign 2012-13</langstring>
-      <langstring language="hr">Campaign 2012-13</langstring>
-      <langstring language="is">Campaign 2012-13</langstring>
-      <langstring language="it">Campaign 2012-13</langstring>
-      <langstring language="lt">Campaign 2012-13</langstring>
-      <langstring language="lv">Campaign 2012-13</langstring>
-      <langstring language="mt">Campaign 2012-13</langstring>
-      <langstring language="nl">Campaign 2012-13</langstring>
-      <langstring language="no">Campaign 2012-13</langstring>
-      <langstring language="pl">Campaign 2012-13</langstring>
-      <langstring language="pt">Campaign 2012-13</langstring>
-      <langstring language="ro">Campaign 2012-13</langstring>
-      <langstring language="sk">Campaign 2012-13</langstring>
-      <langstring language="sl">Campaign 2012-13</langstring>
-      <langstring language="sv">Campaign 2012-13</langstring>
+      <langstring language="en">Campaign 2012-2013</langstring>
+      <langstring language="bg">Кампания 2012 - 2013 г.</langstring>
+      <langstring language="cs">Kampaň 2012–2013</langstring>
+      <langstring language="da">Kampagne 2012 - 2013</langstring>
+      <langstring language="de">Kampagne 2012 - 2013</langstring>
+      <langstring language="el">Εκστρατεία 2012-2013</langstring>
+      <langstring language="es">Campaña 2012 -2013</langstring>
+      <langstring language="et">Kampaania 2012–2013</langstring>
+      <langstring language="fi">Vuosien 2012 - 2013 kampanja</langstring>
+      <langstring language="fr">Campagne 2012 - 2013</langstring>
+      <langstring language="hu">2012-2013. évi kampány</langstring>
+      <langstring language="hr">Kampanja 2012. – 2013.</langstring>
+      <langstring language="is">Herferð 2012 - 2013</langstring>
+      <langstring language="it">Campagna 2012 - 2013</langstring>
+      <langstring language="lt">2012–2013 m. kampanija</langstring>
+      <langstring language="lv">Kampaņa 2012 – 2013</langstring>
+      <langstring language="mt">Kampanja 2012 - 2013</langstring>
+      <langstring language="nl">Campagne 2012 - 2013</langstring>
+      <langstring language="no">Kampanje 2012 - 2013</langstring>
+      <langstring language="pl">Europejska Kampania 2012-2013</langstring>
+      <langstring language="pt">Campanha 2012 - 2013</langstring>
+      <langstring language="ro">Campania 2012 - 2013</langstring>
+      <langstring language="sk">Kampaň 2012 – 2013</langstring>
+      <langstring language="sl">Kampanja 2012 - 2013</langstring>
+      <langstring language="sv">Kampanj 2012–2013</langstring>
+    </caption>
+  </term>
+  <term>
+    <termIdentifier>campaign_2014_15</termIdentifier>
+    <caption>
+      <langstring language="en">Campaign 2014-2015</langstring>
+      <langstring language="bg">Кампания 2014 - 2015 г.</langstring>
+      <langstring language="cs">Kampaň 2014–2015</langstring>
+      <langstring language="da">Kampagne 2014 - 2015</langstring>
+      <langstring language="de">Kampagne 2014 - 2015</langstring>
+      <langstring language="el">Εκστρατεία 2014-2015</langstring>
+      <langstring language="es">Campaña 2014 -2015</langstring>
+      <langstring language="et">Kampaania 2014–2015</langstring>
+      <langstring language="fi">Vuosien 2014 - 2015 kampanja</langstring>
+      <langstring language="fr">Campagne 2014 - 2015</langstring>
+      <langstring language="hu">2014-2015. évi kampány</langstring>
+      <langstring language="hr">Kampanja 2014. – 2015.</langstring>
+      <langstring language="is">Herferð 2014 - 2015</langstring>
+      <langstring language="it">Campagna 2014 - 2015</langstring>
+      <langstring language="lt">2014–2015 m. kampanija</langstring>
+      <langstring language="lv">Kampaņa 2014 – 2015</langstring>
+      <langstring language="mt">Kampanja 2014 - 2015</langstring>
+      <langstring language="nl">Campagne 2014 - 2015</langstring>
+      <langstring language="no">Kampanje 2014 - 2015</langstring>
+      <langstring language="pl">Europejska Kampania 2014-2015</langstring>
+      <langstring language="pt">Campanha 2014 - 2015</langstring>
+      <langstring language="ro">Campania 2014 - 2015</langstring>
+      <langstring language="sk">Kampaň 2014 – 2015</langstring>
+      <langstring language="sl">Kampanja 2014 - 2015</langstring>
+      <langstring language="sv">Kampanj 2014–2015</langstring>
     </caption>
   </term>
   <term>
