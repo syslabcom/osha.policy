@@ -85,6 +85,12 @@
         handler=".dbconfig.dbconfig"
     />
 
+    <subscriber
+        for="plone.app.discussion.interfaces.IComment
+             zope.app.container.interfaces.IObjectAddedEvent"
+        handler=".handlers.notify_author_new_comment"
+        />
+
     <adapter name="target_user_groups" factory=".indexer.target_user_groups" />
     <adapter name="nace" factory=".indexer.nace" />
     <adapter name="subcategory" factory=".indexer.subcategory" />

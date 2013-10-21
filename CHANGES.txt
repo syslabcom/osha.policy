@@ -4,7 +4,8 @@ osha.policy Changelog
 1.4.31 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- #8680 Email blog author when a comment is added to their article
+  [deroiste]
 
 
 1.4.30 (2013-09-23)
