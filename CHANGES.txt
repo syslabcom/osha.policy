@@ -1,11 +1,23 @@
 osha.policy Changelog
 =====================
 
-1.4.29 (unreleased)
+1.4.31 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- #8680 Email blog author when a comment is added to their article
+  [deroiste]
+- #8938 Add captcha for p.a.discussion [deroiste]
 
+
+1.4.30 (2013-09-23)
+-------------------
+
+- Updated jsregistry with scripts needed for plone.app.discussion [pysailor]
+
+1.4.29 (2013-08-30)
+-------------------
+
+- Added osha.applicationform as dependency again [pysailor]
 
 1.4.28 (2013-08-21)
 -------------------

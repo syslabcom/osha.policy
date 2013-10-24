@@ -15,9 +15,12 @@
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="jquery-integration.js" inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="full-encode"
+ <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++cssQuery.js" inline="False"/>
+    id="++resource++plone.app.jquerytools.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="False" expression=""
+    id="++resource++plone.app.jquerytools.validator.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="False" expression=""
     id="++resource++plone.app.jquerytools.rangeinput.js" inline="False"/>
@@ -27,6 +30,15 @@
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="False" expression=""
     id="++resource++plone.app.jquerytools.plugins.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++plone.app.jquerytools.overlayhelpers.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="none"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++plone.app.jquerytools.form.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="full-encode"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++cssQuery.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="event-registration.js" inline="False"/>
@@ -308,22 +320,26 @@
     inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++plone.app.jquerytools.js" inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="none"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++plone.app.jquerytools.validator.js" inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++plone.app.jquerytools.overlayhelpers.js" inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="none"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++plone.app.jquerytools.form.js" inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
     id="osha.js" inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="True" expression=""
     id="expandable_content.js" inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++plone.app.discussion.javascripts/comments.js"
+    inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++plone.app.discussion.javascripts/moderation.js"
+    inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++plone.app.discussion.javascripts/controlpanel.js"
+    inline="False"/>
+ <javascript authenticated="False" cacheable="True" compression="safe"
+    conditionalcomment="" cookable="True" enabled="True" expression=""
+    id="++resource++osha.theme.resources/jquery.dotdotdot-1.5.9.min.js"
+    inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="none"
     conditionalcomment="" cookable="True" enabled="True"
     expression="context/@@jqueryui-include-condition"
@@ -355,7 +371,4 @@
  <javascript authenticated="False" cacheable="True" compression="safe"
     conditionalcomment="" cookable="True" enabled="False" expression=""
     id="popupforms.js" inline="False"/>
- <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
-    id="++resource++osha.theme.resources/jquery.dotdotdot-1.5.9.min.js" inline="False"/>
 </object>

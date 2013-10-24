@@ -6,12 +6,17 @@ from Products.Archetypes.interfaces import IReferenceable
 from Products.CMFCore.permissions import ModifyPortalContent
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.FactoryTool import TempFolder
+from Products.CMFPlone.utils import safe_unicode
 from gocept.linkchecker.interfaces import IRetriever
+from osha.theme import OSHAMessageFactory as _
 from plone.app.async.interfaces import IAsyncService
+from plone.app.discussion.comment import MAIL_NOTIFICATION_MESSAGE
 from utils import extractPDFText
 from zope.annotation.interfaces import IAnnotatable, IAnnotations
 from zope.app.container.contained import ContainerModifiedEvent
 from zope.component import getUtility
+from zope.i18n import translate
+from zope.i18nmessageid import Message
 
 import gocept.linkchecker.link
 import gocept.linkchecker.url
@@ -255,3 +260,53 @@ def handle_public_links(obj, event):
         update_links(event)
     else:
         remove_links(event)
+
+
+def notify_author_new_comment(obj, event):
+    """Notify the author of an item that a comment has been posted
+    """
+
+    # Get informations that are necessary to send an email
+    mail_host = getToolByName(obj, 'MailHost')
+    portal_url = getToolByName(obj, 'portal_url')
+    portal = portal_url.getPortalObject()
+    sender = portal.getProperty('email_from_address')
+
+    conversation = aq_parent(obj)
+    content_object = aq_parent(conversation)
+
+    author_id = content_object.Creator()
+    mtool = getToolByName(obj, 'portal_membership')
+    author = mtool.getMemberById(author_id)
+    if author is None:
+        return
+    author_email = author.getProperty("email")
+
+    if not author_email and sender:
+        return
+
+    # Compose email
+    subject = translate(_(u"A comment has been posted."), context=obj.REQUEST)
+    message = translate(
+        Message(
+            MAIL_NOTIFICATION_MESSAGE,
+            mapping={
+                'title': safe_unicode(content_object.title),
+                'link': content_object.absolute_url() + '/view#' + obj.id,
+                'text': obj.text
+            }
+        ),
+        context=obj.REQUEST
+    )
+
+    # Send email
+    try:
+        mail_host.send(message, author_email, sender, subject, charset='utf-8')
+    except SMTPException, e:
+        logger.error('SMTP exception (%s) while trying to send an ' +
+                     'email notification to the comment moderator ' +
+                     '(from %s to %s, message: %s)',
+                     e,
+                     sender,
+                     author_email,
+                     message)

@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '1.4.29.dev0'
+version = '1.4.31.dev0'
 
 long_description = (
     read('README.txt')
@@ -116,6 +116,7 @@ setup(name='osha.policy',
         'hachoir_parser',
         'osha.adaptation',
         'osha.aggregation',
+        'osha.applicationform',
         'osha.dynamicpressroom',
         'osha.eventrepository',
         'osha.fop',
@@ -134,6 +135,7 @@ setup(name='osha.policy',
         'plone.app.relations',
         'plone.app.z3cform',
         'plone.app.ldap',
+        'plone.formwidget.captcha',
         'Products.PloneLDAP',
         'plone.keyring',
         'plone.relations',
