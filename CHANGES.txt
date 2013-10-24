@@ -6,6 +6,7 @@ osha.policy Changelog
 
 - #8680 Email blog author when a comment is added to their article
   [deroiste]
+- #8983 Add captcha for p.a.discussion [deroiste]
 
 
 1.4.30 (2013-09-23)
