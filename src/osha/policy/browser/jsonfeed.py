@@ -15,18 +15,18 @@ class JSONFeedView(BrowserView):
     
     def query(self):
         search = self.context.restrictedTraverse('@@language-fallback-search')
-        #catalog = getToolByName(self.context, 'portal_catalog')
         url = getToolByName(self.context, 'portal_url')
         portal_path = url.getPortalPath()
         
         # Only use specific fields, so you can't do arbitrary queries.
-        query = {}
+        query = {'sort_on': 'effective', 'sort_order': 'descending'}
         form = self.request.form
-        for each in ['portal_type', 'subject', 'path', 'language']:
+        for each in ['portal_type', 'Subject', 'path', 'Language']:
             query[each] = form[each]
             
         query['path'] = portal_path + query['path']
-
+        query['Subject'] = query['Subject'].split(',')
+        
         q_size = form.get('q_size', 20)
         q_start = form.get('q_start', 0)
         

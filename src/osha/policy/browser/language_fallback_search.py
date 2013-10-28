@@ -19,10 +19,16 @@ class LanguageFallbackSearch(BrowserView):
     English/Lanuage neutral items."""
 
     def _mangle_query(self, query):
-        lang_tool = api.portal.get_tool("portal_languages")
         # Search for both canonical, langauge-neutral and preferred
         # language translations.
-        preferred_lang = lang_tool.getPreferredLanguage()
+        if 'Language' in query:
+            if isinstance(query['Language'], (str, unicode)):
+                preferred_lang = query['Language']
+            else:
+                preferred_lang = query['Language'][0]
+        else:
+            lang_tool = api.portal.get_tool("portal_languages")
+            preferred_lang = lang_tool.getPreferredLanguage()
         languages = ["en", ""]
         if preferred_lang not in languages:
             languages.append(preferred_lang)
