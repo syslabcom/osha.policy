@@ -333,7 +333,7 @@
     id="++resource++plone.app.discussion.javascripts/moderation.js"
     inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
-    conditionalcomment="" cookable="True" enabled="True" expression=""
+    conditionalcomment="" cookable="True" enabled="False" expression=""
     id="++resource++plone.app.discussion.javascripts/controlpanel.js"
     inline="False"/>
  <javascript authenticated="False" cacheable="True" compression="safe"
