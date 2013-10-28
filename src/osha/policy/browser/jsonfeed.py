@@ -37,6 +37,7 @@ class JSONFeedView(BrowserView):
             mapping = self._getMapping(ob)
             mapping['_type'] = ob.portal_type
             mapping['_path'] = url.getRelativeContentURL(ob)
+            mapping['_url'] = ob.absolute_url()
             result.append(mapping)
             
         jsondata = json.dumps(result, encoding='UTF-8')
