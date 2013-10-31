@@ -21,12 +21,15 @@ class JSONFeedView(BrowserView):
         # Only use specific fields, so you can't do arbitrary queries.
         query = {'sort_on': 'effective', 'sort_order': 'descending'}
         form = self.request.form
-        for each in ['portal_type', 'Subject', 'path', 'Language', 'object_provides']:
+        # required fields:
+        for each in ['portal_type', 'Subject', 'path', 'Language']:
             query[each] = form[each]
+        # optional fields (just one as of yet):
+        for each in ['object_provides']:
+            query[each] = form.get(each, '')
             
         query['path'] = portal_path + query['path']
         query['Subject'] = query['Subject'].split(',')
-        
         q_size = form.get('q_size', 20)
         q_start = form.get('q_start', 0)
         
