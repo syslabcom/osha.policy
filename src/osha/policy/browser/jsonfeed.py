@@ -8,6 +8,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from ZODB.POSException import POSKeyError
 from plone.app.blob.field import BlobWrapper
+from OFS.Image import File, Image
 
 class JSONFeedView(BrowserView):
     """View for displaying the site rss feeds
@@ -54,14 +55,14 @@ class JSONFeedView(BrowserView):
             # Zope DateTime
             # http://pypi.python.org/pypi/DateTime/3.0.2
             return value.ISO8601()
-        elif hasattr(aq_base(value), "isBinary"):
-            if value.isBinary():
-                # Archetypes FileField and ImageField payloads
-                # are binary as OFS.Image.File object
-                data = getattr(value, "data", None)
-                if not data:
-                    return None
-                return base64.b64encode(data)
+        elif isinstance(value, (File, Image)):
+            data = getattr(value, "data", None)
+            if not data:
+                return None
+            if not isinstance(data, (str, unicode)):
+                # A Pdata or similar object
+                data = data.data
+            return base64.b64encode(data)
         elif isinstance(value, BlobWrapper):
             try:
                 data = value.data
