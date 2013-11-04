@@ -25,9 +25,15 @@ class JSONFeedView(BrowserView):
         # required fields:
         for each in ['portal_type', 'Subject', 'path', 'Language']:
             query[each] = form[each]
-        # optional fields (just one as of yet):
+        # optional fields:
         for each in ['object_provides']:
             query[each] = form.get(each, '')
+            
+        # start/end (also optional)
+        if 'start' in form:
+            query['start'] = {'query': DateTime(form['start']), 'range': 'min'}
+        if 'end' in form:
+            query['end'] = {'query': DateTime(form['end']), 'range': 'max'}
             
         query['path'] = portal_path + query['path']
         query['Subject'] = query['Subject'].split(',')
@@ -50,7 +56,7 @@ class JSONFeedView(BrowserView):
         return jsondata
 
     def _json_value(self, value):
-        # Thanks to Mikko Ohtamaa
+        # Parts by Mikko Ohtamaa: thanks!
         if isinstance(value, DateTime):
             # Zope DateTime
             # http://pypi.python.org/pypi/DateTime/3.0.2
