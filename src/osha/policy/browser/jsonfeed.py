@@ -86,7 +86,7 @@ class JSONFeedView(BrowserView):
             name = field.getName()
             if field.type == 'blob':
                 mapping[name] = ob.absolute_url()
-                mapping['_%s_file_size'] = field.getRaw(ob).size()
+                mapping['_%s_file_size' % name] = field.getRaw(ob).size()
             else:
                 mapping[name] = self._json_value(field.getRaw(ob))
             if hasattr(field, 'getFilename'):
