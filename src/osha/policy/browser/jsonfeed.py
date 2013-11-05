@@ -13,12 +13,12 @@ from OFS.Image import File, Image
 class JSONFeedView(BrowserView):
     """View for displaying the site rss feeds
     """
-    
+
     def query(self):
         search = self.context.restrictedTraverse('@@language-fallback-search')
         url = getToolByName(self.context, 'portal_url')
         portal_path = url.getPortalPath()
-        
+
         # Only use specific fields, so you can't do arbitrary queries.
         query = {'sort_on': 'effective', 'sort_order': 'descending'}
         form = self.request.form
@@ -28,18 +28,18 @@ class JSONFeedView(BrowserView):
         # optional fields:
         for each in ['object_provides']:
             query[each] = form.get(each, '')
-            
+
         # start/end (also optional)
         if 'start' in form:
             query['start'] = {'query': DateTime(form['start']), 'range': 'min'}
         if 'end' in form:
             query['end'] = {'query': DateTime(form['end']), 'range': 'max'}
-            
+
         query['path'] = portal_path + query['path']
         query['Subject'] = query['Subject'].split(',')
         q_size = form.get('q_size', 20)
         q_start = form.get('q_start', 0)
-        
+
         brains = search.search(query)
         result = []
         for brain in brains[q_start:q_start+q_size]:
@@ -49,7 +49,7 @@ class JSONFeedView(BrowserView):
             mapping['_path'] = url.getRelativeContentURL(ob)
             mapping['_url'] = ob.absolute_url()
             result.append(mapping)
-            
+
         jsondata = json.dumps(result, encoding='UTF-8')
         #self.request.response.setHeader("Content-type", "application/json")
         #self.request.response.setHeader("Content-disposition","attachment;filename=hwcexport.json")
@@ -81,11 +81,12 @@ class JSONFeedView(BrowserView):
             return value
 
     def _getMapping(self, ob):
-        mapping = {}        
+        mapping = {}
         for field in ob.Schema().fields():
             name = field.getName()
             if field.type == 'blob':
                 mapping[name] = ob.absolute_url()
+                mapping['_%s_file_size'] = field.getRaw(ob).size()
             else:
                 mapping[name] = self._json_value(field.getRaw(ob))
             if hasattr(field, 'getFilename'):
@@ -96,4 +97,3 @@ class JSONFeedView(BrowserView):
                 if content_type:
                     mapping['_%s_content_type' % name] = content_type
         return mapping
-        
