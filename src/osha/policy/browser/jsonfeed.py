@@ -51,8 +51,8 @@ class JSONFeedView(BrowserView):
             result.append(mapping)
             
         jsondata = json.dumps(result, encoding='UTF-8')
-        self.request.response.setHeader("Content-type", "application/json")
-        self.request.response.setHeader("Content-disposition","attachment;filename=hwcexport.json")
+        #self.request.response.setHeader("Content-type", "application/json")
+        #self.request.response.setHeader("Content-disposition","attachment;filename=hwcexport.json")
         return jsondata
 
     def _json_value(self, value):
@@ -81,10 +81,13 @@ class JSONFeedView(BrowserView):
             return value
 
     def _getMapping(self, ob):
-        mapping = {}
+        mapping = {}        
         for field in ob.Schema().fields():
             name = field.getName()
-            mapping[name] = self._json_value(field.getRaw(ob))
+            if field.type == 'blob':
+                mapping[name] = ob.absolute_url()
+            else:
+                mapping[name] = self._json_value(field.getRaw(ob))
             if hasattr(field, 'getFilename'):
                 filename = field.getFilename(ob)
                 if filename:
