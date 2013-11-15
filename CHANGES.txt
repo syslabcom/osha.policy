@@ -4,8 +4,8 @@ osha.policy Changelog
 1.4.32 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Added JSON query feed for providing content to the new campaign site,
+  #8937 [regebro]
 
 1.4.31 (2013-10-25)
 -------------------
