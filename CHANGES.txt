@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.32 (unreleased)
+1.4.32 (2013-11-18)
 -------------------
 
 - Added JSON query feed for providing content to the new campaign site,
