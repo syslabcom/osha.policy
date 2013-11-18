@@ -272,6 +272,7 @@ _("whp")
 _("worker_participation")
 _("young_people")
 _("Practical Solutions, Good Practice")
+_("Campaign 2012-13", default="Campaign 2012-2013")
 _("Campaign 2012-2013")
 _("campaign_2014_15", default="Campaign 2014-2015")
 
