@@ -81,17 +81,31 @@ class CleanupContent(BrowserView):
         log.info('Called CleanupContent')
         cnt = 0
         action = self.request.get('action', '')
-        if not action in ALLOWED_ACTIONS:
-            return "You must supply an action parameter. Potential values: " \
-                "%s" % ', '.join(ALLOWED_ACTIONS)
-        threshold = self.request.get('threshold', '')
+        if not action:
+            return "No 'action' parameter supplied"
+        if type(action) == str:
+            action = [action]
+        for act in action:
+            if not act in ALLOWED_ACTIONS:
+                return "Invalid parameter for 'action'. Potential values: " \
+                    "%s" % ', '.join(ALLOWED_ACTIONS)
+        # threshold = self.request.get('threshold', '')
+        # try:
+        #     date = DateTime(threshold)
+        # except:
+        #     date = None
+        # if not threshold or not date:
+        #     return "No valid value for parameter 'threshold' supplied. It " \
+        #         "must represent a date"
+        min_days = self.request.get('min_days', '')
         try:
-            date = DateTime(threshold)
+            min_days = int(min_days)
         except:
-            date = None
-        if not threshold or not date:
-            return "No valid value for parameter 'threshold' supplied. It " \
-                "must represent a date"
+            min_days = None
+        if not min_days:
+            return "You must supply a 'min_days' parameter, to indicate the " \
+                "minimum age in days a content item must have to be considered"
+        date = DateTime() - min_days
         portal_type = self.request.get('portal_type', '')
         if portal_type not in ALLOWED_TYPES:
             return "You must supply a parameter 'portal_type'. Potential " \
@@ -115,16 +129,17 @@ class CleanupContent(BrowserView):
         async = getUtility(IAsyncService)
         results = catalog(**query)
         for res in results:
-            if action == 'delete':
-                job = async.queueJob(
-                    delete_item, self.context, parent_path, res.id)
-            elif action == 'make_private':
-                job = async.queueJob(make_private, self.context, res.getPath())
-            elif action == 'make_expired':
-                job = async.queueJob(make_expired, self.context, res.getPath())
-            elif action == 'make_outdated':
-                job = async.queueJob(
-                    make_outdated, self.context, res.getPath())
+            for act in action:
+                if act == 'delete':
+                    job = async.queueJob(
+                        delete_item, self.context, parent_path, res.id)
+                elif act == 'make_private':
+                    job = async.queueJob(make_private, self.context, res.getPath())
+                elif act == 'make_expired':
+                    job = async.queueJob(make_expired, self.context, res.getPath())
+                elif act == 'make_outdated':
+                    job = async.queueJob(
+                        make_outdated, self.context, res.getPath())
             job.addCallbacks(failure=job_failure_callback)
             cnt += 1
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
