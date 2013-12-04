@@ -166,6 +166,7 @@ class CleanupContent(BrowserView):
                     cnt += 1
             if force_reindex:
                 job = async.queueJob(reindex, self.context, res.getPath())
+                job.addCallbacks(failure=job_failure_callback)
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
             cnt, portal_type, action)
         log.info(msg)
