@@ -194,7 +194,7 @@ class CleanupContent(BrowserView):
                 job = async.queueJob(reindex, self.context, res.getPath())
                 job.addCallbacks(failure=job_failure_callback)
             if remove_links:
-                job.async.queueJob(
+                job = async.queueJob(
                     lms_remove_links, self.context, res.getPath())
                 job.addCallbacks(failure=job_failure_callback)
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
