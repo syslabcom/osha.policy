@@ -11,7 +11,9 @@ database.LinkDatabase.updateManyStates = handlers.updateManyStates
 
 def index(self):
     if self.getObject() is None:
-        self.getParentNode().manage_delObjects([self.id])
+        # only try this if REQUEST is present
+        if getattr(self, 'REQUEST', None):
+            self.getParentNode().manage_delObjects([self.id])
         return
     try:
         url = self.getURL()
