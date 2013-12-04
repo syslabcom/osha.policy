@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.33 (unreleased)
+1.4.33 (2013-12-04)
 -------------------
 
 - Improved the script to cleanup context #7803 [pysailor]
