@@ -130,8 +130,8 @@ class CleanupContent(BrowserView):
         async = getUtility(IAsyncService)
         results = catalog(**query)
         for res in results:
+            job = None
             for act in action:
-                job = None
                 if act == 'delete':
                     job = async.queueJob(
                         delete_item, self.context, parent_path, res.id)
