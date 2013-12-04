@@ -4,7 +4,6 @@ from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import isExpired
 from Products.Five.browser import BrowserView
-from osha.policy.handlers import unregister_async
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
 from slc.linguatools import utils
@@ -56,21 +55,25 @@ def reindex(context, path):
         obj, _setter)
 
 
-def lms_remove_links(brain):
+def lms_remove_links(context, path):
+    obj = context.restrictedTraverse(path)
+    info, warnings, errors = utils.exec_for_all_langs(
+        obj, do_link_removal)
+
+
+def do_link_removal(ob, *args, **kw):
+    """ Perform actual de-registration of links in the LinkChecker
+    """
+    err = list()
     try:
-        obj = brain.getObject()
-    except:
-        return
-    try:
-        link_checker = getToolByName(obj, 'portal_linkchecker').aq_inner
+        link_checker = getToolByName(ob, 'portal_linkchecker').aq_inner
         db = link_checker.database
     except AttributeError:
-        return
-    links = db.getLinksForObject(obj)
+        return ['Link checker could not be found']
+    links = db.getLinksForObject(ob)
     link_ids = [x.getId() for x in links]
-    async = getUtility(IAsyncService)
-    job = async.queueJob(unregister_async, link_checker, link_ids)
-    job.addCallbacks(failure=job_failure_callback)
+    db.manage_delObjects(link_ids)
+    return err
 
 
 def job_failure_callback(result):
@@ -191,7 +194,9 @@ class CleanupContent(BrowserView):
                 job = async.queueJob(reindex, self.context, res.getPath())
                 job.addCallbacks(failure=job_failure_callback)
             if remove_links:
-                lms_remove_links(res)
+                job.async.queueJob(
+                    lms_remove_links, self.context, res.getPath())
+                job.addCallbacks(failure=job_failure_callback)
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
             cnt, portal_type, action)
         log.info(msg)
