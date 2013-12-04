@@ -224,6 +224,9 @@ def updateManyStates_async(context, update_list):
         longer, haproxy might close the connection
     """
     log.info('updateManyStates_async')
+    if not getattr(context, 'REQUEST', None):
+        log.info('updateManyStates_async: No REQUEST, skipping')
+        return
     lc = context.restrictedTraverse('portal_linkchecker')
     database = lc.database
     for url, state, reason in update_list:
