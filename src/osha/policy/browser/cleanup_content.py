@@ -4,6 +4,7 @@ from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import isExpired
 from Products.Five.browser import BrowserView
+from osha.policy.handlers import unregister_async
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
 from slc.linguatools import utils
@@ -53,6 +54,23 @@ def reindex(context, path):
     obj = context.restrictedTraverse(path)
     info, warnings, errors = utils.exec_for_all_langs(
         obj, _setter)
+
+
+def lms_remove_links(brain):
+    try:
+        obj = brain.getObject()
+    except:
+        return
+    try:
+        link_checker = getToolByName(obj, 'portal_linkchecker').aq_inner
+        db = link_checker.database
+    except AttributeError:
+        return
+    links = db.getLinksForObject(obj)
+    link_ids = [x.getId() for x in links]
+    async = getUtility(IAsyncService)
+    job = async.queueJob(unregister_async, link_checker, link_ids)
+    job.addCallbacks(failure=job_failure_callback)
 
 
 def job_failure_callback(result):
@@ -141,32 +159,39 @@ class CleanupContent(BrowserView):
         results = catalog(**query)
         for res in results:
             force_reindex = False
+            remove_links = False
             for act in action:
                 job = None
                 if act == 'delete':
                     job = async.queueJob(
                         delete_item, self.context, parent_path, res.id)
+                    remove_links = True
                 elif act == 'make_private':
                     job = async.queueJob(
                         make_private, self.context, res.getPath())
+                    remove_links = True
                 elif act == 'make_expired':
                     # save work: don't do nuthin if it ain't needed
                     if not isExpired(res):
                         job = async.queueJob(
                             make_expired, self.context, res.getPath())
                         force_reindex = True
+                        remove_links = True
                 elif act == 'make_outdated':
                     # save work: don't do nuthin if it ain't needed
                     if not getattr(res, 'outdated', False):
                         job = async.queueJob(
                             make_outdated, self.context, res.getPath())
                         force_reindex = True
+                        remove_links = True
                 if job is not None:
                     job.addCallbacks(failure=job_failure_callback)
                     cnt += 1
             if force_reindex:
                 job = async.queueJob(reindex, self.context, res.getPath())
                 job.addCallbacks(failure=job_failure_callback)
+            if remove_links:
+                lms_remove_links(res)
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
             cnt, portal_type, action)
         log.info(msg)
