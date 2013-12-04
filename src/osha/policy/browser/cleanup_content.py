@@ -45,6 +45,16 @@ def make_outdated(context, path):
         obj, outdate_item, outdated_status=True)
 
 
+def reindex(context, path):
+
+    def _setter(ob, *args, **kw):
+        ob.reindexObject()
+
+    obj = context.restrictedTraverse(path)
+    info, warnings, errors = utils.exec_for_all_langs(
+        obj, _setter)
+
+
 def job_failure_callback(result):
     log.warning(result)
 
@@ -130,8 +140,9 @@ class CleanupContent(BrowserView):
         async = getUtility(IAsyncService)
         results = catalog(**query)
         for res in results:
-            job = None
+            force_reindex = False
             for act in action:
+                job = None
                 if act == 'delete':
                     job = async.queueJob(
                         delete_item, self.context, parent_path, res.id)
@@ -143,14 +154,18 @@ class CleanupContent(BrowserView):
                     if not isExpired(res):
                         job = async.queueJob(
                             make_expired, self.context, res.getPath())
+                        force_reindex = True
                 elif act == 'make_outdated':
                     # save work: don't do nuthin if it ain't needed
                     if not getattr(res, 'outdated', False):
                         job = async.queueJob(
                             make_outdated, self.context, res.getPath())
-            if job is not None:
-                job.addCallbacks(failure=job_failure_callback)
-                cnt += 1
+                        force_reindex = True
+                if job is not None:
+                    job.addCallbacks(failure=job_failure_callback)
+                    cnt += 1
+            if force_reindex:
+                job = async.queueJob(reindex, self.context, res.getPath())
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
             cnt, portal_type, action)
         log.info(msg)
