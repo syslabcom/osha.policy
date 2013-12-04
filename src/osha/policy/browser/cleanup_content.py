@@ -2,6 +2,7 @@
 
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import isExpired
 from Products.Five.browser import BrowserView
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
@@ -134,12 +135,18 @@ class CleanupContent(BrowserView):
                     job = async.queueJob(
                         delete_item, self.context, parent_path, res.id)
                 elif act == 'make_private':
-                    job = async.queueJob(make_private, self.context, res.getPath())
-                elif act == 'make_expired':
-                    job = async.queueJob(make_expired, self.context, res.getPath())
-                elif act == 'make_outdated':
                     job = async.queueJob(
-                        make_outdated, self.context, res.getPath())
+                        make_private, self.context, res.getPath())
+                elif act == 'make_expired':
+                    # save work: don't do nuthin if it ain't needed
+                    if not isExpired(res):
+                        job = async.queueJob(
+                            make_expired, self.context, res.getPath())
+                elif act == 'make_outdated':
+                    # save work: don't do nuthin if it ain't needed
+                    if not getattr(res, 'outdated', False):
+                        job = async.queueJob(
+                            make_outdated, self.context, res.getPath())
             job.addCallbacks(failure=job_failure_callback)
             cnt += 1
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
