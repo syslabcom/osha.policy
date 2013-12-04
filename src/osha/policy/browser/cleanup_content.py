@@ -131,6 +131,7 @@ class CleanupContent(BrowserView):
         results = catalog(**query)
         for res in results:
             for act in action:
+                job = None
                 if act == 'delete':
                     job = async.queueJob(
                         delete_item, self.context, parent_path, res.id)
@@ -147,8 +148,9 @@ class CleanupContent(BrowserView):
                     if not getattr(res, 'outdated', False):
                         job = async.queueJob(
                             make_outdated, self.context, res.getPath())
-            job.addCallbacks(failure=job_failure_callback)
-            cnt += 1
+            if job is not None:
+                job.addCallbacks(failure=job_failure_callback)
+                cnt += 1
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
             cnt, portal_type, action)
         log.info(msg)
