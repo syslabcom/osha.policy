@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.34 (unreleased)
+1.4.34 (2013-12-06)
 -------------------
 
 - Nothing changed yet.
