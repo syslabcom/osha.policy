@@ -10,7 +10,10 @@ osha.policy Changelog
 1.4.34 (2013-12-06)
 -------------------
 
-- Nothing changed yet.
+- override the default TranslationFactory from LinguaPlone, so that when a new
+  translation is created, the language independent fields are only copied to t
+  This fixes a massive performance weakness. Refs #9203 [pysailor]
+
 
 
 1.4.33 (2013-12-04)
