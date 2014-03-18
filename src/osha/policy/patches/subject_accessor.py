@@ -7,6 +7,7 @@ from plone.app.blob.content import ATBlob
 from Products.ATContentTypes.content.event import ATEvent
 from Products.ATContentTypes.content.image import ATImage
 from Products.ATContentTypes.content.link import ATLink
+from Products.ATContentTypes.content.newsitem import ATNewsItem
 from Products.PloneHelpCenter.content.FAQ import HelpCenterFAQ
 from Products.PloneHelpCenter.types.FAQ import HelpCenterFAQ as NewHelpCenterFAQ
 
@@ -79,3 +80,6 @@ HelpCenterFAQ.Subject = Subject
 NewHelpCenterFAQ.getSubject = getSubject
 NewHelpCenterFAQ.Subject = Subject
 
+ATNewsItem._old_subject = ATNewsItem.Subject
+ATNewsItem.getSubject = getSubject
+ATNewsItem.Subject = Subject
