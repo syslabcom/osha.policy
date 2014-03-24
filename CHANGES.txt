@@ -4,7 +4,9 @@ osha.policy Changelog
 1.4.35 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Made Subject language independent again #9706
+- Subject computed based on Subcategory also for News #9694
+  [pysailor]
 
 
 1.4.34 (2013-12-06)
