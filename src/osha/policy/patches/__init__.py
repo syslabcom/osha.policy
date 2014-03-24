@@ -19,7 +19,7 @@ import pressroom_patch
 #import proxyindex_patch
 import queuecatalog_patch
 import subject_accessor
-#import subject_languageindependent
+import subject_languageindependent
 import vdex_vocabulary_extension_patch
 #import LinguaPlone_generator_patch
 import stub_missing_interfaces_patch
