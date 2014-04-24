@@ -11,6 +11,7 @@ from gocept.linkchecker.interfaces import IRetriever
 from osha.theme import OSHAMessageFactory as _
 from plone.app.async.interfaces import IAsyncService
 from plone.app.discussion.comment import MAIL_NOTIFICATION_MESSAGE
+from smtplib import SMTPException
 from utils import extractPDFText
 from zope.annotation.interfaces import IAnnotatable, IAnnotations
 from zope.app.container.contained import ContainerModifiedEvent
@@ -148,8 +149,7 @@ def remove_links(event):
     link_ids = [x.getId() for x in links]
     async = getUtility(IAsyncService)
     job = async.queueJob(unregister_async, link_checker, link_ids)
-    callback = job.addCallbacks(failure=job_failure_callback)
-    callback  # for pep
+    job.addCallbacks(failure=job_failure_callback)
 
 
 def retrieve_async(context, path, online):
@@ -224,6 +224,9 @@ def updateManyStates_async(context, update_list):
         longer, haproxy might close the connection
     """
     log.info('updateManyStates_async')
+    if not getattr(context, 'REQUEST', None):
+        log.info('updateManyStates_async: No REQUEST, skipping')
+        return
     lc = context.restrictedTraverse('portal_linkchecker')
     database = lc.database
     for url, state, reason in update_list:
@@ -303,7 +306,7 @@ def notify_author_new_comment(obj, event):
     try:
         mail_host.send(message, author_email, sender, subject, charset='utf-8')
     except SMTPException, e:
-        logger.error('SMTP exception (%s) while trying to send an ' +
+        log.error('SMTP exception (%s) while trying to send an ' +
                      'email notification to the comment moderator ' +
                      '(from %s to %s, message: %s)',
                      e,

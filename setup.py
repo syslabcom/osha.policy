@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
-version = '1.4.31.dev0'
+version = '1.4.36.dev0'
 
 long_description = (
     read('README.txt')
@@ -114,6 +114,8 @@ setup(name='osha.policy',
         'hachoir_core',
         'hachoir_metadata',
         'hachoir_parser',
+        'lxml',
+        'cssselect',
         'osha.adaptation',
         'osha.aggregation',
         'osha.applicationform',

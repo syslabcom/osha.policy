@@ -18,26 +18,15 @@ from Products.PublicJobVacancy.PublicJobVacancy import PublicJobVacancy_schema, 
 from Products.RALink.content.RALink import RALink_schema, RALink
 from Products.RemoteProvider.content.Provider import Provider_schema, Provider
 from Products.RichDocument.content.richdocument import RichDocumentSchema, RichDocument
-from Products.RiskAssessmentLink.content.RiskAssessmentLink import RiskAssessmentLink_schema, RiskAssessmentLink
 
 from plone.app.blob.content import ATBlobSchema, ATBlob
 
-from osha.legislation.content.amendment import AmendmentSchema, Amendment
-from osha.legislation.content.directive import DirectiveSchema, Directive
-from osha.legislation.content.modification import ModificationSchema, Modification
-from osha.legislation.content.note import NoteSchema, Note
-from osha.legislation.content.proposal import ProposalSchema, Proposal
 from osha.whoswho.content.whoswho import whoswhoSchema, whoswho
 
 patchpairs = [
-    (DirectiveSchema, Directive),
-    (AmendmentSchema, Amendment),
-    (ModificationSchema,Modification),
-    (NoteSchema,Note),
-    (ProposalSchema,Proposal),
-    (whoswhoSchema,whoswho),
-    (CallForContractors_schema,CallForContractors),
-    (CaseStudy_schema,CaseStudy),
+    (whoswhoSchema, whoswho),
+    (CallForContractors_schema, CallForContractors),
+    (CaseStudy_schema, CaseStudy),
     (PublicJobVacancy_schema, PublicJobVacancy),
     (Provider_schema, Provider),
     (ATEventSchema, ATEvent),
@@ -52,7 +41,6 @@ patchpairs = [
     (ATBlobSchema, ATBlob),
     (RichDocumentSchema, RichDocument),
     (RALink_schema, RALink),
-    (RiskAssessmentLink_schema, RiskAssessmentLink),
     (PressReleaseSchema, PressRelease),
     (PressClipSchema, PressClip),
     (PressContactSchema, PressContact)
@@ -67,4 +55,3 @@ for pair in patchpairs:
     if not getattr(klass, LANGUAGE_INDEPENDENT_SUBJECT_INITIALIZED, False):
         generateMethods(klass, [schema['subject']])
         setattr(klass, LANGUAGE_INDEPENDENT_SUBJECT_INITIALIZED, True)
-    

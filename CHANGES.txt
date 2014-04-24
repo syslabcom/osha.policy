@@ -1,7 +1,40 @@
 osha.policy Changelog
 =====================
 
-1.4.31 (unreleased)
+1.4.36 (unreleased)
+-------------------
+
+- prepare translations for new napo film #9738
+
+
+1.4.35 (2014-03-24)
+-------------------
+
+- Made Subject language independent again #9706
+- Subject computed based on Subcategory also for News #9694
+  [pysailor]
+
+
+1.4.34 (2013-12-06)
+-------------------
+
+- override the default TranslationFactory from LinguaPlone, so that when a
+  new translation is created, the language independent fields are only copied to
+  the new translation, not to ALL translations
+  This fixes a massive performance weakness. Refs #9203 [pysailor]
+
+1.4.33 (2013-12-04)
+-------------------
+
+- Improved the script to cleanup context #7803 [pysailor]
+
+1.4.32 (2013-11-18)
+-------------------
+
+- Added JSON query feed for providing content to the new campaign site,
+  #8937 [regebro]
+
+1.4.31 (2013-10-25)
 -------------------
 
 - #8680 Email blog author when a comment is added to their article
@@ -40,7 +73,7 @@ osha.policy Changelog
 
 - rewrote search_solr to only operate on the actual result set. So if you only
   search for 10 items, you get them really quick. If you search for 100000, it
-    will still be slow. (pilz)
+  will still be slow. (pilz)
 
 
 1.4.26 (2013-07-15)

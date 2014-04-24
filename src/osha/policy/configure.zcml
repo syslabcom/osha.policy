@@ -104,6 +104,14 @@
     <adapter name="cas" factory=".indexer.cas" />
     <adapter name="isNews" factory=".indexer.isNews" />
 
+
+
+    <!-- Let I18NBaseObject implement the more specific translation adapter -->
+        <class class="Products.LinguaPlone.I18NBaseObject.I18NBaseObject">
+          <implements interface="osha.policy.interfaces.IOSHATranslatable" />
+        </class>
+
+
     <!-- Upgrades -->
     <genericsetup:upgradeStep
         source="3"

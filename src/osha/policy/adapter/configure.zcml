@@ -8,7 +8,7 @@
         provides="..interfaces.ISingleEntryPoint"
         factory=".singleentrypoint.SingleEntryPoint"
         />
- 
+
     <adapter
         for="slc.publications.interfaces.IPublicationEnhanced"
         name="author"
@@ -32,7 +32,7 @@
     <class class="Products.QueueCatalog.QueueCatalog.QueueCatalog">
         <implements interface="osha.policy.adapter.queuecatalog_wrapper.IQueueCatalog" />
     </class>
-    
+
     <adapter zcml:condition="installed Products.QueueCatalog"
         for="zope.interface.Interface .queuecatalog_wrapper.IQueueCatalog"
         provides="plone.indexer.interfaces.IIndexableObject"
@@ -43,5 +43,9 @@
         <adapter factory=".lmsretrievers.SPSpeakerRetriever"/>
         <adapter factory=".lmsretrievers.TopicRetriever"/>
     </configure>
-        
+
+
+    <adapter factory=".linguaplone_overrides.OSHATranslationFactory" />
+
+
 </configure>

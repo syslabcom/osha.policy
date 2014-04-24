@@ -2,6 +2,7 @@
 
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import isExpired
 from Products.Five.browser import BrowserView
 from plone.app.async.interfaces import IAsyncService
 from zope.component import getUtility
@@ -44,6 +45,37 @@ def make_outdated(context, path):
         obj, outdate_item, outdated_status=True)
 
 
+def reindex(context, path):
+
+    def _setter(ob, *args, **kw):
+        ob.reindexObject()
+
+    obj = context.restrictedTraverse(path)
+    info, warnings, errors = utils.exec_for_all_langs(
+        obj, _setter)
+
+
+def lms_remove_links(context, path):
+    obj = context.restrictedTraverse(path)
+    info, warnings, errors = utils.exec_for_all_langs(
+        obj, do_link_removal)
+
+
+def do_link_removal(ob, *args, **kw):
+    """ Perform actual de-registration of links in the LinkChecker
+    """
+    err = list()
+    try:
+        link_checker = getToolByName(ob, 'portal_linkchecker').aq_inner
+        db = link_checker.database
+    except AttributeError:
+        return ['Link checker could not be found']
+    links = db.getLinksForObject(ob)
+    link_ids = [x.getId() for x in links]
+    db.manage_delObjects(link_ids)
+    return err
+
+
 def job_failure_callback(result):
     log.warning(result)
 
@@ -81,17 +113,31 @@ class CleanupContent(BrowserView):
         log.info('Called CleanupContent')
         cnt = 0
         action = self.request.get('action', '')
-        if not action in ALLOWED_ACTIONS:
-            return "You must supply an action parameter. Potential values: " \
-                "%s" % ', '.join(ALLOWED_ACTIONS)
-        threshold = self.request.get('threshold', '')
+        if not action:
+            return "No 'action' parameter supplied"
+        if type(action) == str:
+            action = [action]
+        for act in action:
+            if not act in ALLOWED_ACTIONS:
+                return "Invalid parameter for 'action'. Potential values: " \
+                    "%s" % ', '.join(ALLOWED_ACTIONS)
+        # threshold = self.request.get('threshold', '')
+        # try:
+        #     date = DateTime(threshold)
+        # except:
+        #     date = None
+        # if not threshold or not date:
+        #     return "No valid value for parameter 'threshold' supplied. It " \
+        #         "must represent a date"
+        min_days = self.request.get('min_days', '')
         try:
-            date = DateTime(threshold)
+            min_days = int(min_days)
         except:
-            date = None
-        if not threshold or not date:
-            return "No valid value for parameter 'threshold' supplied. It " \
-                "must represent a date"
+            min_days = None
+        if not min_days:
+            return "You must supply a 'min_days' parameter, to indicate the " \
+                "minimum age in days a content item must have to be considered"
+        date = DateTime() - min_days
         portal_type = self.request.get('portal_type', '')
         if portal_type not in ALLOWED_TYPES:
             return "You must supply a parameter 'portal_type'. Potential " \
@@ -115,18 +161,42 @@ class CleanupContent(BrowserView):
         async = getUtility(IAsyncService)
         results = catalog(**query)
         for res in results:
-            if action == 'delete':
+            force_reindex = False
+            remove_links = False
+            for act in action:
+                job = None
+                if act == 'delete':
+                    job = async.queueJob(
+                        delete_item, self.context, parent_path, res.id)
+                    remove_links = True
+                elif act == 'make_private':
+                    job = async.queueJob(
+                        make_private, self.context, res.getPath())
+                    remove_links = True
+                elif act == 'make_expired':
+                    # save work: don't do nuthin if it ain't needed
+                    if not isExpired(res):
+                        job = async.queueJob(
+                            make_expired, self.context, res.getPath())
+                        force_reindex = True
+                        remove_links = True
+                elif act == 'make_outdated':
+                    # save work: don't do nuthin if it ain't needed
+                    if not getattr(res, 'outdated', False):
+                        job = async.queueJob(
+                            make_outdated, self.context, res.getPath())
+                        force_reindex = True
+                        remove_links = True
+                if job is not None:
+                    job.addCallbacks(failure=job_failure_callback)
+                    cnt += 1
+            if force_reindex:
+                job = async.queueJob(reindex, self.context, res.getPath())
+                job.addCallbacks(failure=job_failure_callback)
+            if remove_links:
                 job = async.queueJob(
-                    delete_item, self.context, parent_path, res.id)
-            elif action == 'make_private':
-                job = async.queueJob(make_private, self.context, res.getPath())
-            elif action == 'make_expired':
-                job = async.queueJob(make_expired, self.context, res.getPath())
-            elif action == 'make_outdated':
-                job = async.queueJob(
-                    make_outdated, self.context, res.getPath())
-            job.addCallbacks(failure=job_failure_callback)
-            cnt += 1
+                    lms_remove_links, self.context, res.getPath())
+                job.addCallbacks(failure=job_failure_callback)
         msg = "Handled a total of %d items of type '%s', action '%s'" % (
             cnt, portal_type, action)
         log.info(msg)

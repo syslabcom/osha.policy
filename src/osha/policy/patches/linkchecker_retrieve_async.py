@@ -6,13 +6,18 @@ from osha.policy import handlers
 retrievemanager.update_links = handlers.update_links
 retrievemanager.remove_links = handlers.remove_links
 
+log = handlers.log
+
 database.LinkDatabase.updateManyStates = handlers.updateManyStates
 
 
 def index(self):
+    # only try this if REQUEST is present
+    if not getattr(self, 'REQUEST', None):
+        log.info('linkchecker_retrieve_async: Skip, REQUEST is None')
+        return
     if self.getObject() is None:
         self.getParentNode().manage_delObjects([self.id])
-        return
     try:
         url = self.getURL()
     except ValueError:
