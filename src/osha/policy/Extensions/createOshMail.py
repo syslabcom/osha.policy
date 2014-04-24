@@ -186,7 +186,9 @@ def createOshMail(
 
         events_query = {
             'portal_type': ['Event', 'SPSeminar'],
-            'path': dict(query='/osha/portal/en', depth=-1),
+            'path': dict(
+                query=['/osha/portal/en/events', '/osha/portal/en/seminars'],
+                depth=-1),
             'end': {'query': now, 'range': 'min'},
             'sort_on': 'start',
         }
