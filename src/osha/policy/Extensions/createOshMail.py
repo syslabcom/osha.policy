@@ -143,7 +143,7 @@ def createOshMail(
 
     addToLeftCol(path="en/news/oshmail/highlights")
     # osh-matters
-    addToLeftCol(path="en/news/oshmail/latest-publications")
+    addToLeftCol(path="en/news/oshmail/read-our-latest-publications")
     # coming-soon
 
     ## END Framework
@@ -211,7 +211,7 @@ def createOshMail(
         publications_query = {
             'object_provides': IPublicationEnhanced.__identifier__,
             'path': dict(query='/osha/portal/en/publications', depth=-1),
-            'created': dict(query=(valid_from, now), range='min:max'),
+            'effective': dict(query=(valid_from, now), range='min:max'),
             'sort_limit': 5,
         }
         publications = pc(dict(query.items() + publications_query.items()))
