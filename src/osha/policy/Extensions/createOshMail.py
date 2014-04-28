@@ -142,9 +142,9 @@ def createOshMail(
     addToRightCol(path="en/news/oshmail/more-events", layout="clickable")
 
     addToLeftCol(path="en/news/oshmail/highlights")
-    # osh-matters
+    addToLeftCol(path="en/news/oshmail/osh-matters")
     addToLeftCol(path="en/news/oshmail/read-our-latest-publications")
-    # coming-soon
+    addToLeftCol(path="en/news/oshmail/coming-soon")
 
     ## END Framework
 
