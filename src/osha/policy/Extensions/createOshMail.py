@@ -204,7 +204,7 @@ def createOshMail(
             dict(query.items() + news_query.items() + highlights_query.items())
         )
         addMultipleToLeftCol(
-            items=highlights, max=2, layout="standard", offset=1)
+            items=highlights, max=2, layout="standard", offset=3)
 
         # osh_matters ?
 
@@ -215,7 +215,7 @@ def createOshMail(
             'sort_limit': 5,
         }
         publications = pc(dict(query.items() + publications_query.items()))
-        addMultipleToLeftCol(items=publications, max=5, layout="oshmail_title")
+        addMultipleToLeftCol(items=publications, max=5, layout="oshmail_title", offset=1)
 
         # coming_soon ?
     om.reindexObject()
