@@ -266,4 +266,11 @@
        permission="zope2.View"
        />
 
+    <browser:page
+        for="*"
+        name="export_news"
+        class=".content_export.NewsExporter"
+        permission="cmf.ManagePortal"
+        />
+
 </configure>
