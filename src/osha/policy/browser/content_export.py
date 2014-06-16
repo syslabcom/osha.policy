@@ -98,7 +98,7 @@ class BaseExporter(BrowserView):
         ))
         if "Language" not in query:
             query = ' ' .join((
-                query, "AND +Language:({0})".format(' OR '.join(self.languages)),
+                query, "AND +Language:(any OR {0})".format(' OR '.join(self.languages)),
             ))
         results = search_solr(query, **self.search_parameters)
 
@@ -122,7 +122,6 @@ class BaseExporter(BrowserView):
             writer.writerow(data)
             if nrows >= self.limit:
                 break
-
 
         csv_data = buffer.getvalue()
         buffer.close()
@@ -160,7 +159,7 @@ class NewsExporter(BaseExporter):
         ('country', handleList),
         ('multilingual_thesaurus', handleList),
     ])
-    query = 'portal_type:("News Item") AND Language:any'
+    query = 'portal_type:("News Item")'
 
     def set_up_parameters(self, context):
         super(NewsExporter, self).set_up_parameters(context)
@@ -195,8 +194,7 @@ class EventsExporter(BaseExporter):
         ('subject', handleList),
         ('multilingual_thesaurus', handleList),
     ])
-    query = 'portal_type:("Event") AND Language:any'
-
+    query = 'portal_type:("Event")'
 
     def set_up_parameters(self, context):
         super(EventsExporter, self).set_up_parameters(context)
