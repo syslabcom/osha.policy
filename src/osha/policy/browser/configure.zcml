@@ -273,4 +273,11 @@
         permission="cmf.ManagePortal"
         />
 
+    <browser:page
+        for="*"
+        name="export_events"
+        class=".content_export.EventExporter"
+        permission="cmf.ManagePortal"
+        />
+
 </configure>
