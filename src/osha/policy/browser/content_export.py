@@ -2,8 +2,7 @@
 
 # from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-# from Products.CMFPlone.utils import isExpired
+from Products.CMFPlone.utils import isExpired, safe_unicode
 from Products.Five.browser import BrowserView
 from StringIO import StringIO
 # from plone.app.async.interfaces import IAsyncService
@@ -11,7 +10,9 @@ from StringIO import StringIO
 # from slc.linguatools import utils
 # from slc.outdated.adapter import ANNOTATION_KEY
 # from zope.annotation.interfaces import IAnnotatable, IAnnotations
+from osha.theme.browser.utils import search_solr
 from ordereddict import OrderedDict
+# from zope.component import queryUtility
 
 import csv
 import logging
@@ -45,13 +46,15 @@ def handleList(value):
 def handleDate(value):
     return value.strftime('%Y-%m-%d %H:%M:%S')
 
+
 class BaseExporter(BrowserView):
     """Exports content into csv """
 
     query = ''
     limit = 10
+    search_parameters = {}
     metadata_fields = [
-        'path', 'language', 'creation_date', 'modification_date', 'creator'
+        'path', 'language', 'workflow_state', 'creation_date', 'modification_date', 'creator'
     ]
     fields = []
     name = 'generic'
@@ -61,16 +64,45 @@ class BaseExporter(BrowserView):
         self.set_response_headers(response)
         return self.export_data()
 
+    def set_up_parameters(self, context):
+        """ Provide hook for intial setup,
+        extend in the content-type based classes """
+        self.paths = [
+            '/osha/portal/{0}'.format(lang) for lang in self.languages]
+        self.search_parameters['rows'] = self.limit
+        self.search_parameters['start'] = 0
+
+    def skip_result(self, brain, obj):
+        return False
+
     def export_data(self):
         context = self.context
+        self.pwt = getToolByName(context, 'portal_workflow')
+        self.plt = getToolByName(context, 'portal_languages')
+        self.languages = self.plt.getSupportedLanguages()
+
+        # Hook
+        self.set_up_parameters(context)
+
         fieldnames = self.metadata_fields + self.fields.keys()
         buffer = StringIO()
         writer = csv.DictWriter(
             buffer,
             fieldnames=fieldnames,
             dialect='bilbomatica')
-        cat = getToolByName(context, 'portal_catalog')
-        results = cat(self.query)
+        # cat = getToolByName(context, 'portal_catalog')
+
+        query = ' '.join((
+            self.query,
+            "AND path_parents:({0})".format(' OR '.join(self.paths)),
+        ))
+        if "Language" not in query:
+            query = ' ' .join((
+                query, "AND +Language:({0})".format(' OR '.join(self.languages)),
+            ))
+        results = search_solr(query, **self.search_parameters)
+
+        # results = cat(query)
         if len(results):
             writer.writerow(dict((fn, fn) for fn in fieldnames))
         for res in results[:self.limit]:
@@ -78,6 +110,8 @@ class BaseExporter(BrowserView):
                 obj = res.getObject()
             except:
                 log.warn("Could not get object for %{0}".format(res.getPath()))
+                continue
+            if self.skip_result(res, obj):
                 continue
             data = self.get_metadata(res, obj)
             for fn, func in self.fields.items():
@@ -92,6 +126,8 @@ class BaseExporter(BrowserView):
 
     def get_metadata(self, brain, obj):
         data = dict(path=brain.getPath(), language=obj.Language())
+        state = self.pwt.getInfoFor(obj, 'review_state')
+        data['workflow_state'] = state
         data['creation_date'] = handleDate(obj.created())
         data['modification_date'] = handleDate(obj.modified())
         # Only export the first creator
@@ -119,12 +155,24 @@ class NewsExporter(BaseExporter):
         ('country', handleList),
         ('multilingual_thesaurus', handleList),
     ])
-    query = dict(
-        portal_type="News Item", Language="en")
+    query = 'portal_type:("News Item") AND Language:any'
+
+    def set_up_parameters(self, context):
+        super(NewsExporter, self).set_up_parameters(context)
+        self.search_parameters['sort'] = 'Date desc'
+        # Debug: limit to teasers only
+        # self.paths = [
+        #     '/osha/portal/{0}/teaser'.format(lang) for lang in self.languages]
+
+    def skip_result(self, brain, obj):
+        # Don't export content if it is expired AND outdated
+        if getattr(brain, 'outdated', False) and isExpired(brain):
+            return True
+        return False
 
 
-class EventExporter(BaseExporter):
-    name = 'event'
+class EventsExporter(BaseExporter):
+    name = 'events'
     limit = 500
     fields = OrderedDict([
         ('title', handleString),
@@ -142,5 +190,15 @@ class EventExporter(BaseExporter):
         ('subject', handleList),
         ('multilingual_thesaurus', handleList),
     ])
-    query = dict(
-        portal_type="Event", Language="en")
+    query = 'portal_type:("Event") AND Language:any'
+
+
+    def set_up_parameters(self, context):
+        super(EventsExporter, self).set_up_parameters(context)
+        self.search_parameters['sort'] = 'Date desc'
+
+    def skip_result(self, brain, obj):
+        # Don't export content if it is expired AND outdated
+        if getattr(brain, 'outdated', False) and isExpired(brain):
+            return True
+        return False

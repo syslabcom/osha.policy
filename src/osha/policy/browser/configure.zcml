@@ -276,7 +276,7 @@
     <browser:page
         for="*"
         name="export_events"
-        class=".content_export.EventExporter"
+        class=".content_export.EventsExporter"
         permission="cmf.ManagePortal"
         />
 
