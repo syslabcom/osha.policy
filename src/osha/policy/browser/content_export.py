@@ -105,7 +105,8 @@ class BaseExporter(BrowserView):
         # results = cat(query)
         if len(results):
             writer.writerow(dict((fn, fn) for fn in fieldnames))
-        for res in results[:self.limit]:
+        nrows = 0
+        for res in results:
             try:
                 obj = res.getObject()
             except:
@@ -117,7 +118,11 @@ class BaseExporter(BrowserView):
             for fn, func in self.fields.items():
                 value = obj.getField(fn).getAccessor(obj)()
                 data[fn] = func(value)
+            nrows += 1
             writer.writerow(data)
+            if nrows >= self.limit:
+                break
+
 
         csv_data = buffer.getvalue()
         buffer.close()
