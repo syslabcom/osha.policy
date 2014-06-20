@@ -266,18 +266,4 @@
        permission="zope2.View"
        />
 
-    <browser:page
-        for="*"
-        name="export_news"
-        class=".content_export.NewsExporter"
-        permission="cmf.ManagePortal"
-        />
-
-    <browser:page
-        for="*"
-        name="export_events"
-        class=".content_export.EventsExporter"
-        permission="cmf.ManagePortal"
-        />
-
 </configure>
