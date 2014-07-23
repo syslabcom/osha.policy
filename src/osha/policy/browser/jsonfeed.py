@@ -2,13 +2,14 @@ import base64
 import json
 import logging
 
-from Acquisition import aq_base
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import isExpired
 from Products.Five.browser import BrowserView
 from ZODB.POSException import POSKeyError
 from plone.app.blob.field import BlobWrapper
 from OFS.Image import File, Image
+
 
 class JSONFeedView(BrowserView):
     """View for displaying the site rss feeds
@@ -42,7 +43,10 @@ class JSONFeedView(BrowserView):
 
         brains = search.search(query)
         result = []
-        for brain in brains[q_start:q_start+q_size]:
+        for brain in brains[q_start:q_start + q_size]:
+            if query['content_type'] in ('News Item', 'Event') and (
+                    getattr(brain, 'outdated', False) and isExpired(brain)):
+                continue
             ob = brain.getObject()
             mapping = self._getMapping(ob)
             mapping['_type'] = ob.portal_type
