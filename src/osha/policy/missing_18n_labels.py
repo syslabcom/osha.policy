@@ -115,6 +115,7 @@ _("heading_napo-019-when-stress-strikes-episode-006-counter-stress", default=u"C
 _("heading_napo-019-when-stress-strikes-episode-007-nightmare-care", default=u"Nightmare care")
 _("label_napo_click_to_see_film")
 _("napo_back_to_lesson")
+_("napo_download_video", default=u"Download video")
 _("title_napo_episode_12_1", default="Chemical risks at work")
 _("title_napo_episode_12_2", default="Harmful")
 _("title_napo_episode_12_3", default="Irritant")
