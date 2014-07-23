@@ -44,7 +44,7 @@ class JSONFeedView(BrowserView):
         brains = search.search(query)
         result = []
         for brain in brains[q_start:q_start + q_size]:
-            if query['content_type'] in ('News Item', 'Event') and (
+            if query['portal_type'] in ('News Item', 'Event') and (
                     getattr(brain, 'outdated', False) and isExpired(brain)):
                 continue
             ob = brain.getObject()
