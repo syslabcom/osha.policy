@@ -23,7 +23,7 @@ class PressroomHelper(BrowserView):
             context = context.restrictedTraverse(telescope_path)
         return super(PressroomHelper, self).__init__(context, request)
 
-    def getTranslatedReferences(self, fieldname=None):
+    def getTranslatedReferences(self, fieldname=None, target_language=None):
         """ See interface """
 
         if fieldname is None:
@@ -38,12 +38,13 @@ class PressroomHelper(BrowserView):
         # Look for translated versions, but fall back
         # to original if no translation is available
         # (requires Products.LinguaPlone)
-        language_tool = getToolByName(self.context, 'portal_languages')
-        lang = language_tool.getPreferredLanguage()
-        return [obj.getTranslation(lang) or obj for obj in objs]
+        if not target_language:
+            language_tool = getToolByName(self.context, 'portal_languages')
+            target_language = language_tool.getPreferredLanguage()
+        return [obj.getTranslation(target_language) or obj for obj in objs]
 
-    def getNotes(self):
-        notes = self.getTranslatedReferences(fieldname='notesToEditors')
+    def getNotes(self, target_language=None):
+        notes = self.getTranslatedReferences(fieldname='notesToEditors', target_language=target_language)
         texts = [note.getText() for note in notes]
         # insert number here...
         for i in range(len(texts)):
