@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.38 (unreleased)
+1.4.38 (2014-08-18)
 -------------------
 
 - Don't offer News & Events in jsonfeed if they are outdated and expired #10478
