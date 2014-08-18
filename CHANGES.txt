@@ -4,8 +4,8 @@ osha.policy Changelog
 1.4.38 (unreleased)
 -------------------
 
-- Nothing changed yet.
-
+- Don't offer News & Events in jsonfeed if they are outdated and expired #10478
+  [pysailor]
 
 1.4.37 (2014-06-17)
 -------------------
