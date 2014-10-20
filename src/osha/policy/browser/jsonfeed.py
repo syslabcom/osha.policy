@@ -32,9 +32,9 @@ class JSONFeedView(BrowserView):
 
         # start/end (also optional)
         if 'start' in form:
-            query['start'] = {'query': DateTime(form['start']), 'range': 'min'}
+            query['end'] = {'query': DateTime(form['start']), 'range': 'min'}
         if 'end' in form:
-            query['end'] = {'query': DateTime(form['end']), 'range': 'max'}
+            query['start'] = {'query': DateTime(form['end']), 'range': 'max'}
 
         query['path'] = portal_path + query['path']
         query['Subject'] = query['Subject'].split(',')
