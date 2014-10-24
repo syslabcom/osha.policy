@@ -1,7 +1,7 @@
 osha.policy Changelog
 =====================
 
-1.4.39 (unreleased)
+1.4.39 (2014-10-24)
 -------------------
 
 - fixed start and end dates in jsonfeed, refs #10803
