@@ -21,7 +21,11 @@ class JSONFeedView(BrowserView):
         portal_path = url.getPortalPath()
 
         # Only use specific fields, so you can't do arbitrary queries.
-        query = {'sort_on': 'effective', 'sort_order': 'descending'}
+        query = {
+            'sort_on': 'effective',
+            'sort_order': 'descending',
+            'effective': {'query': DateTime(), 'range': 'max'},
+        }
         form = self.request.form
         # required fields:
         for each in ['portal_type', 'Subject', 'path', 'Language']:
@@ -43,9 +47,10 @@ class JSONFeedView(BrowserView):
 
         brains = search.search(query)
         result = []
+
         for brain in brains[q_start:q_start + q_size]:
-            if query['portal_type'] in ('News Item', 'Event') and (
-                    getattr(brain, 'outdated', False) and isExpired(brain)):
+            if query['portal_type'] in ('News Item', 'Event', 'PressRelease') and (
+                    getattr(brain, 'outdated', False) or isExpired(brain)):
                 continue
             ob = brain.getObject()
             mapping = self._getMapping(ob)
